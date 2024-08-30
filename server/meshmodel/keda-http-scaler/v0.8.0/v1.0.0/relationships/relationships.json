@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "relationships.meshery.io/v1alpha3",
+  "schemaVersion": "relationships.meshplay.io/v1alpha3",
   "version": "v1.0.0",
   "kind": "edge",
   "type": "non-binding",
@@ -17,7 +17,7 @@
     }
   },
   "model": {
-    "schemaVersion": "models.meshery.io/v1beta1",
+    "schemaVersion": "models.meshplay.io/v1beta1",
     "version": "v1.0.0",
     "name": "keda-http-scaler",
     "displayName": "KEDA HTTP Scaler",

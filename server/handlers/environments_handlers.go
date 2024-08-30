@@ -8,8 +8,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/layer5io/meshery/server/models"
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/meshplay/schemas/models/v1beta1"
 )
 
 // swagger:route GET /api/environments EnvironmentsAPI idGetEnvironments
@@ -242,7 +242,7 @@ func (h *Handler) RemoveConnectionFromEnvironmentHandler(w http.ResponseWriter, 
 // Returns all connections of environment
 // responses:
 //
-//	200: mesheryConnectionsResponseWrapper
+//	200: meshplayConnectionsResponseWrapper
 func (h *Handler) GetConnectionsOfEnvironmentHandler(w http.ResponseWriter, r *http.Request, _ *models.Preference, _ *models.User, provider models.Provider) {
 	environmentID := mux.Vars(r)["environmentID"]
 	q := r.URL.Query()

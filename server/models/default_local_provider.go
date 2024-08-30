@@ -19,16 +19,16 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	"github.com/layer5io/meshkit/utils"
-	mesherykube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
 	"github.com/layer5io/meshkit/utils/walker"
 	SMP "github.com/layer5io/service-mesh-performance/spec"
-	"github.com/meshery/schemas/models/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v2"
@@ -57,7 +57,7 @@ type DefaultLocalProvider struct {
 	WorkspacePersister              *WorkspacePersister
 
 	GenericPersister *database.Handler
-	KubeClient       *mesherykube.Client
+	KubeClient       *meshplaykube.Client
 	Log              logger.Handler
 }
 
@@ -123,7 +123,7 @@ func (l *DefaultLocalProvider) InitiateLogin(_ http.ResponseWriter, _ *http.Requ
 
 func (l *DefaultLocalProvider) fetchUserDetails() *User {
 	return &User{
-		UserID:    "meshery",
+		UserID:    "meshplay",
 		FirstName: "Meshery",
 		LastName:  "Meshery",
 		AvatarURL: "",
@@ -235,7 +235,7 @@ func (l *DefaultLocalProvider) SaveK8sContext(_ string, k8sContext K8sContext) (
 	_metadata := map[string]string{
 		"id":                   k8sContext.ID,
 		"server":               k8sContext.Server,
-		"meshery_instance_id":  k8sContext.MesheryInstanceID.String(),
+		"meshplay_instance_id":  k8sContext.MesheryInstanceID.String(),
 		"deployment_type":      k8sContext.DeploymentType,
 		"version":              k8sContext.Version,
 		"name":                 k8sContext.Name,
@@ -400,7 +400,7 @@ func (l *DefaultLocalProvider) PublishResults(req *http.Request, result *Meshery
 	result.PerformanceProfile = &profileUUID
 	data, err := json.Marshal(result)
 	if err != nil {
-		return "", ErrMarshal(err, "meshery result for shipping")
+		return "", ErrMarshal(err, "meshplay result for shipping")
 	}
 	user, _ := l.GetUserDetails(req)
 	pref, _ := l.ReadFromPersister(user.UserID)
@@ -555,10 +555,10 @@ func (l *DefaultLocalProvider) TokenHandler(_ http.ResponseWriter, _ *http.Reque
 // ExtractToken - Returns the auth token and the provider type
 func (l *DefaultLocalProvider) ExtractToken(w http.ResponseWriter, _ *http.Request) {
 	resp := map[string]interface{}{
-		"meshery-provider": l.Name(),
+		"meshplay-provider": l.Name(),
 		TokenCookieName:    "",
 	}
-	l.Log.Debug(fmt.Sprintf("token sent for meshery-provider %v", l.Name()))
+	l.Log.Debug(fmt.Sprintf("token sent for meshplay-provider %v", l.Name()))
 	if err := json.NewEncoder(w).Encode(resp); err != nil {
 		l.Log.Error(ErrEncoding(err, "token"))
 		http.Error(w, ErrEncoding(err, "token").Error(), http.StatusInternalServerError)
@@ -709,18 +709,18 @@ func (l *DefaultLocalProvider) GetMesheryPattern(_ *http.Request, patternID, _ s
 	return l.MesheryPatternPersister.GetMesheryPattern(id)
 }
 
-// DeleteMesheryPattern deletes a meshery pattern with the given id
+// DeleteMesheryPattern deletes a meshplay pattern with the given id
 func (l *DefaultLocalProvider) DeleteMesheryPattern(_ *http.Request, patternID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(patternID)
 	return l.MesheryPatternPersister.DeleteMesheryPattern(id)
 }
 
-// DeleteMesheryPattern deletes a meshery pattern with the given id
+// DeleteMesheryPattern deletes a meshplay pattern with the given id
 func (l *DefaultLocalProvider) DeleteMesheryPatterns(_ *http.Request, patterns MesheryPatternDeleteRequestBody) ([]byte, error) {
 	return l.MesheryPatternPersister.DeleteMesheryPatterns(patterns)
 }
 
-// CloneMesheryPattern clones a meshery pattern with the given id
+// CloneMesheryPattern clones a meshplay pattern with the given id
 func (l *DefaultLocalProvider) CloneMesheryPattern(_ *http.Request, patternID string, clonePatternRequest *MesheryClonePatternRequestBody) ([]byte, error) {
 	return l.MesheryPatternPersister.CloneMesheryPattern(patternID, clonePatternRequest)
 }
@@ -837,13 +837,13 @@ func (l *DefaultLocalProvider) GetMesheryFilter(_ *http.Request, filterID string
 	return l.MesheryFilterPersister.GetMesheryFilter(id)
 }
 
-// DeleteMesheryFilter deletes a meshery filter with the given id
+// DeleteMesheryFilter deletes a meshplay filter with the given id
 func (l *DefaultLocalProvider) DeleteMesheryFilter(_ *http.Request, filterID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(filterID)
 	return l.MesheryFilterPersister.DeleteMesheryFilter(id)
 }
 
-// CloneMesheryFilter clones a meshery filter with the given id
+// CloneMesheryFilter clones a meshplay filter with the given id
 func (l *DefaultLocalProvider) CloneMesheryFilter(_ *http.Request, filterID string, cloneFilterRequest *MesheryCloneFilterRequestBody) ([]byte, error) {
 	return l.MesheryFilterPersister.CloneMesheryFilter(filterID, cloneFilterRequest)
 }
@@ -943,7 +943,7 @@ func (l *DefaultLocalProvider) GetMesheryApplication(_ *http.Request, applicatio
 	return l.MesheryApplicationPersister.GetMesheryApplication(id)
 }
 
-// DeleteMesheryApplication deletes a meshery application with the given id
+// DeleteMesheryApplication deletes a meshplay application with the given id
 func (l *DefaultLocalProvider) DeleteMesheryApplication(_ *http.Request, applicationID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(applicationID)
 	return l.MesheryApplicationPersister.DeleteMesheryApplication(id)
@@ -1021,7 +1021,7 @@ func (l *DefaultLocalProvider) GetPerformanceProfile(_ *http.Request, performanc
 	return profileJSON, nil
 }
 
-// DeletePerformanceProfile deletes a meshery performance profile with the given id
+// DeletePerformanceProfile deletes a meshplay performance profile with the given id
 func (l *DefaultLocalProvider) DeletePerformanceProfile(_ *http.Request, performanceProfileID string) ([]byte, error) {
 	uid, err := uuid.FromString(performanceProfileID)
 	if err != nil {
@@ -1146,8 +1146,8 @@ func (l *DefaultLocalProvider) DeleteConnection(_ *http.Request, connectionID uu
 }
 
 func (l *DefaultLocalProvider) DeleteMesheryConnection() error {
-	mesheryConnectionID := uuid.FromStringOrNil(viper.GetString("INSTANCE_ID"))
-	_, err := l.DeleteConnection(nil, mesheryConnectionID)
+	meshplayConnectionID := uuid.FromStringOrNil(viper.GetString("INSTANCE_ID"))
+	_, err := l.DeleteConnection(nil, meshplayConnectionID)
 	return err
 }
 
@@ -1156,13 +1156,13 @@ func (l *DefaultLocalProvider) GetGenericPersister() *database.Handler {
 	return l.GenericPersister
 }
 
-// SetKubeClient - to set meshery kubernetes client
-func (l *DefaultLocalProvider) SetKubeClient(client *mesherykube.Client) {
+// SetKubeClient - to set meshplay kubernetes client
+func (l *DefaultLocalProvider) SetKubeClient(client *meshplaykube.Client) {
 	l.KubeClient = client
 }
 
-// GetKubeClient - to get meshery kubernetes client
-func (l *DefaultLocalProvider) GetKubeClient() *mesherykube.Client {
+// GetKubeClient - to get meshplay kubernetes client
+func (l *DefaultLocalProvider) GetKubeClient() *meshplaykube.Client {
 	return l.KubeClient
 }
 
@@ -1690,11 +1690,11 @@ func getSeededComponents(comp string, log logger.Handler) ([]string, []string, e
 	wd := utils.GetHome()
 	switch comp {
 	case "Pattern":
-		wd = filepath.Join(wd, ".meshery", "content", "patterns")
+		wd = filepath.Join(wd, ".meshplay", "content", "patterns")
 	case "Filter":
-		wd = filepath.Join(wd, ".meshery", "content", "filters", "binaries")
+		wd = filepath.Join(wd, ".meshplay", "content", "filters", "binaries")
 	case "Application":
-		wd = filepath.Join(wd, ".meshery", "content", "applications")
+		wd = filepath.Join(wd, ".meshplay", "content", "applications")
 	}
 	_, err := os.Stat(wd)
 	if err != nil && !os.IsNotExist(err) {

@@ -9,10 +9,10 @@ import (
 	"net/url"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/machines"
-	mhelpers "github.com/layer5io/meshery/server/machines/helpers"
-	"github.com/layer5io/meshery/server/machines/kubernetes"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/machines"
+	mhelpers "github.com/layer5io/meshplay/server/machines/helpers"
+	"github.com/layer5io/meshplay/server/machines/kubernetes"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshsync/pkg/model"
 	"github.com/spf13/viper"
@@ -43,11 +43,11 @@ func (h *Handler) ProviderMiddleware(next http.Handler) http.Handler {
 		ctx := context.WithValue(req.Context(), models.ProviderCtxKey, provider) // nolint
 
 		// Incase Meshery is configured for deployments scenario: Istio, Azure Kubernetes Service etc
-		// then we can expect a MESHERY_SERVER_CALLBACK_URL in env var
-		callbackURL := viper.GetString("MESHERY_SERVER_CALLBACK_URL")
+		// then we can expect a MESHPLAY_SERVER_CALLBACK_URL in env var
+		callbackURL := viper.GetString("MESHPLAY_SERVER_CALLBACK_URL")
 		if callbackURL == "" {
-			// if MESHERY_SERVER_CALLBACK_URL is not set then we can assume standard CALLBACK_URL
-			callbackURL = "http://" + req.Host + "/api/user/token" // Hard coding the path because this is what meshery expects
+			// if MESHPLAY_SERVER_CALLBACK_URL is not set then we can assume standard CALLBACK_URL
+			callbackURL = "http://" + req.Host + "/api/user/token" // Hard coding the path because this is what meshplay expects
 		}
 		ctx = context.WithValue(ctx, models.MesheryServerCallbackURL, callbackURL)
 		_url, err := url.Parse(callbackURL)

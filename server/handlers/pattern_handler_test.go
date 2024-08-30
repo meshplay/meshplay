@@ -7,11 +7,11 @@ package handlers
 // 	"testing"
 
 // 	"github.com/gofrs/uuid"
-// 	"github.com/layer5io/meshery/server/models"
+// 	"github.com/layer5io/meshplay/server/models"
 // 	"github.com/layer5io/meshkit/logger"
 // 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
 // 	"github.com/layer5io/meshkit/validator"
-// 	"github.com/meshery/schemas/models/v1beta1/pattern"
+// 	"github.com/meshplay/schemas/models/v1beta1/pattern"
 // 	"github.com/spf13/viper"
 // )
 
@@ -180,7 +180,7 @@ package handlers
 // 	v1beta1PatternFile := &pattern.PatternFile{}
 // 	home, _ := os.UserHomeDir()
 
-// 	viper.SetDefault("USER_DATA_FOLDER", path.Join(home, ".meshery", "config"))
+// 	viper.SetDefault("USER_DATA_FOLDER", path.Join(home, ".meshplay", "config"))
 
 // 	dbHandler := models.GetNewDBInstance()
 // 	regManager, err := meshmodel.NewRegistryManager(dbHandler)

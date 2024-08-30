@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"sync"
 
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/pattern/core"
 	"github.com/layer5io/meshkit/models/patterns"
 )
 

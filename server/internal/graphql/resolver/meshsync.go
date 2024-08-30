@@ -6,8 +6,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/utils"
@@ -30,17 +30,17 @@ var (
 
 func (r *Resolver) resyncCluster(ctx context.Context, provider models.Provider, actions *model.ReSyncActions, k8scontextID string) (model.Status, error) {
 	if actions.ClearDb == "true" {
-		// copies the contents .meshery/config/mesherydb.sql to .meshery/config/.archive/mesherydb.sql
+		// copies the contents .meshplay/config/meshplaydb.sql to .meshplay/config/.archive/meshplaydb.sql
 		// then drops all the DB table and then migrate/create tables, missing foreign keys, constraints, columns and indexes.
 		if actions.HardReset == "true" {
-			mesherydbPath := path.Join(utils.GetHome(), ".meshery/config")
-			err := os.Mkdir(path.Join(mesherydbPath, ".archive"), os.ModePerm)
+			meshplaydbPath := path.Join(utils.GetHome(), ".meshplay/config")
+			err := os.Mkdir(path.Join(meshplaydbPath, ".archive"), os.ModePerm)
 			if err != nil && os.IsNotExist(err) {
 				return "", err
 			}
 
-			src := path.Join(mesherydbPath, "mesherydb.sql")
-			dst := path.Join(mesherydbPath, ".archive/mesherydb.sql")
+			src := path.Join(meshplaydbPath, "meshplaydb.sql")
+			dst := path.Join(meshplaydbPath, ".archive/meshplaydb.sql")
 
 			fin, err := os.Open(src)
 			if err != nil {

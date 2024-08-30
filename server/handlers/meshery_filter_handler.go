@@ -11,14 +11,14 @@ import (
 	"github.com/gofrs/uuid"
 	guid "github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshery/server/meshes"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/pattern/utils"
+	"github.com/layer5io/meshplay/server/meshes"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/pattern/utils"
 	"github.com/layer5io/meshkit/models/events"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 )
 
 // swagger:route GET /api/filter/file/{id} FiltersAPI idGetFilterFile
@@ -27,7 +27,7 @@ import (
 // Returns the Meshery Filter file saved by the current user with the given id
 // responses:
 //
-//	200: mesheryFilterResponseWrapper
+//	200: meshplayFilterResponseWrapper
 func (h *Handler) GetMesheryFilterFileHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -79,7 +79,7 @@ func (h *Handler) FilterFileRequestHandler(
 // Used to save/update a Meshery Filter
 // responses:
 //
-//	200: mesheryFilterResponseWrapper
+//	200: meshplayFilterResponseWrapper
 func (h *Handler) handleFilterPOST(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -153,7 +153,7 @@ func (h *Handler) handleFilterPOST(
 	if parsedBody.FilterData != nil {
 		// Assign a name if no name is provided
 		if parsedBody.FilterData.Name == "" {
-			parsedBody.FilterData.Name = "meshery-filter-" + utils.GetRandomAlphabetsOfDigit(5)
+			parsedBody.FilterData.Name = "meshplay-filter-" + utils.GetRandomAlphabetsOfDigit(5)
 		}
 		// Assign a location if no location is specified
 		if len(parsedBody.FilterData.Location) == 0 {
@@ -165,7 +165,7 @@ func (h *Handler) handleFilterPOST(
 			}
 		}
 
-		mesheryFilter := models.MesheryFilter{
+		meshplayFilter := models.MesheryFilter{
 			FilterFile:     parsedBody.FilterData.FilterFile,
 			Name:           parsedBody.FilterData.Name,
 			ID:             parsedBody.FilterData.ID,
@@ -177,7 +177,7 @@ func (h *Handler) handleFilterPOST(
 		}
 
 		if parsedBody.Save {
-			resp, err := provider.SaveMesheryFilter(token, &mesheryFilter)
+			resp, err := provider.SaveMesheryFilter(token, &meshplayFilter)
 			if err != nil {
 				errFilterSave := ErrSaveFilter(err)
 				h.log.Error(errFilterSave)
@@ -201,7 +201,7 @@ func (h *Handler) handleFilterPOST(
 			return
 		}
 
-		byt, err := json.Marshal([]models.MesheryFilter{mesheryFilter})
+		byt, err := json.Marshal([]models.MesheryFilter{meshplayFilter})
 		if err != nil {
 			h.log.Error(ErrEncodeFilter(err))
 			http.Error(rw, ErrEncodeFilter(err).Error(), http.StatusInternalServerError)
@@ -246,7 +246,7 @@ func (h *Handler) handleFilterPOST(
 //
 // responses:
 //
-//	200: mesheryFiltersResponseWrapper
+//	200: meshplayFiltersResponseWrapper
 func (h *Handler) GetMesheryFiltersHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -296,7 +296,7 @@ func (h *Handler) GetMesheryFiltersHandler(
 // ```?search={filtername}``` If search is non empty then a greedy search is performed
 // responses:
 //
-//	200: mesheryFiltersResponseWrapper
+//	200: meshplayFiltersResponseWrapper
 func (h *Handler) GetCatalogMesheryFiltersHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -321,7 +321,7 @@ func (h *Handler) GetCatalogMesheryFiltersHandler(
 // swagger:route DELETE /api/filter/{id} FiltersAPI idDeleteMesheryFilter
 // Handle Delete for a Meshery Filter
 //
-// Deletes a meshery filter with ID: id
+// Deletes a meshplay filter with ID: id
 // responses:
 //
 //	200: noContentWrapper
@@ -543,7 +543,7 @@ func (h *Handler) UnPublishCatalogFilterHandler(
 //
 // Fetches the Meshery Filter with the given id
 // responses:
-// 	200: mesheryFilterResponseWrapper
+// 	200: meshplayFilterResponseWrapper
 
 // GetMesheryFilterHandler fetched the filter with the given id
 func (h *Handler) GetMesheryFilterHandler(

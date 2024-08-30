@@ -4,7 +4,7 @@ const (
 	// Meshery Repository Location
 	mesheryGitHubOrg  string = "meshery"
 	mesheryGitHubRepo string = "meshery"
-	CallbackURLENV    string = "MESHERY_SERVER_CALLBACK_URL"
+	CallbackURLENV    string = "MESHPLAY_SERVER_CALLBACK_URL"
 	ProviderENV       string = "PROVIDER"
 	ProviderURLsENV   string = "PROVIDER_BASE_URLS"
 )

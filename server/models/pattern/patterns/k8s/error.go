@@ -5,13 +5,13 @@ import (
 	"fmt"
 	meshkitutils "github.com/layer5io/meshkit/utils/kubernetes"
 
-	"github.com/layer5io/meshery/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/helpers/utils"
 	"github.com/layer5io/meshkit/errors"
 	kubeerror "k8s.io/apimachinery/pkg/api/errors"
 )
 
 const (
-	ErrDryRunCode = "meshery-server-1318"
+	ErrDryRunCode = "meshplay-server-1318"
 )
 
 func isErrKubeStatusErr(err error) bool {

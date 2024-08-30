@@ -13,7 +13,7 @@ test.describe('Service Mesh Lifecycle Tests', () => {
       page,
     }) => {
       // Visit Settings Page
-      await page.goto(`${ENV.MESHERY_SERVER_URL}/settings`);
+      await page.goto(`${ENV.MESHPLAY_SERVER_URL}/settings`);
 
       // Navigate to 'Adapters' tab
       await page.getByRole('tab', { name: 'Adapters', exact: true }).click({ force: true });
@@ -34,7 +34,7 @@ test.describe('Service Mesh Lifecycle Tests', () => {
       await expect(page.getByText('Adapter was configured!')).toBeVisible();
 
       // Visit Lifecycle > Service Mesh Page
-      await page.goto(`${ENV.MESHERY_SERVER_URL}/management/adapter`);
+      await page.goto(`${ENV.MESHPLAY_SERVER_URL}/management/adapter`);
 
       // Open "Select Meshery Adapter" Dropdown
       const dropdown = page
@@ -52,7 +52,7 @@ test.describe('Service Mesh Lifecycle Tests', () => {
 
     test(`Ping ${adapterName} Adapter`, async ({ page }) => {
       // Visit Lifecycle > Service Mesh Page
-      await page.goto(`${ENV.MESHERY_SERVER_URL}/management/adapter`);
+      await page.goto(`${ENV.MESHPLAY_SERVER_URL}/management/adapter`);
 
       // Open "Select Meshery Adapter" Dropdown
       const dropdown = page

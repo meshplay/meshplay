@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/helpers/utils"
 	"github.com/layer5io/meshkit/database"
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1"
 	"gorm.io/gorm"
 )
 
@@ -22,7 +22,7 @@ type WorkspacePersister struct {
 
 func (wp *WorkspacePersister) fetchUserDetails() *User {
 	return &User{
-		UserID:    "meshery",
+		UserID:    "meshplay",
 		FirstName: "Meshery",
 		LastName:  "Meshery",
 		AvatarURL: "",
@@ -421,7 +421,7 @@ func (wp *WorkspacePersister) GetWorkspaceDesigns(workspaceID uuid.UUID, search,
 	}
 
 	// Build the query to find designs associated with the given workspace ID
-	query := wp.DB.Table("meshery_patterns AS d").Select("*")
+	query := wp.DB.Table("meshplay_patterns AS d").Select("*")
 
 	// Build the query to find designs associated with the given workspace ID
 	if workspaceFilter.Assigned {

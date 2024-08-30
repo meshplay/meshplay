@@ -34,9 +34,9 @@ import (
 	"bytes"
 
 	"github.com/go-openapi/strfmt"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/connections"
-	"github.com/layer5io/meshery/server/models/environments"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/layer5io/meshplay/server/models/environments"
 	"github.com/layer5io/meshkit/models/events"
 	SMP "github.com/layer5io/service-mesh-performance/spec"
 	v1 "k8s.io/api/core/v1"
@@ -76,16 +76,16 @@ type usersKeys struct {
 	Body models.UserKeys
 }
 
-// Returns all meshery patterns
-// swagger:response mesheryPatternsResponseWrapper
-type mesheryPatternsResponseWrapper struct {
+// Returns all meshplay patterns
+// swagger:response meshplayPatternsResponseWrapper
+type meshplayPatternsResponseWrapper struct {
 	// in: body
 	Body models.PatternsAPIResponse
 }
 
-// Returns a single meshery pattern
-// swagger:response mesheryPatternResponseWrapper
-type mesheryPatternResponseWrapper struct {
+// Returns a single meshplay pattern
+// swagger:response meshplayPatternResponseWrapper
+type meshplayPatternResponseWrapper struct {
 	// in: body
 	Body models.MesheryPattern
 }
@@ -310,7 +310,7 @@ type k8sContextsRespWrapper struct {
 
 // Parameters for updating provider choice
 // swagger:parameters idChoiceProvider
-type mesheryProviderParamsWrapper struct {
+type meshplayProviderParamsWrapper struct {
 	// in: query
 	Provider string `json:"provider"`
 }
@@ -330,8 +330,8 @@ type providerPropertiesRespWrapper struct {
 }
 
 // Returns Meshery version
-// swagger:response mesheryVersionRespWrapper
-type mesheryVersionRespWrapper struct {
+// swagger:response meshplayVersionRespWrapper
+type meshplayVersionRespWrapper struct {
 	// in: body
 	Body Version
 }
@@ -353,34 +353,34 @@ type applicationFileParamsWrapper struct {
 }
 
 // Fetches a single Meshery Application
-// swagger:response mesheryApplicationResponseWrapper
-type mesheryApplicationResponseWrapper struct {
+// swagger:response meshplayApplicationResponseWrapper
+type meshplayApplicationResponseWrapper struct {
 	// in: body
 	Body models.MesheryApplication
 }
 
-// Returns all meshery applications
-// swagger:response mesheryApplicationsResponseWrapper
-type mesheryApplicationsResponseWrapper struct {
+// Returns all meshplay applications
+// swagger:response meshplayApplicationsResponseWrapper
+type meshplayApplicationsResponseWrapper struct {
 	// in: body
 	Body models.ApplicationsAPIResponse
 }
 
-// Returns all the meshery adapters
-// swagger:response mesheryAdaptersRespWrapper
-type mesheryAdaptersRespWrapper struct {
+// Returns all the meshplay adapters
+// swagger:response meshplayAdaptersRespWrapper
+type meshplayAdaptersRespWrapper struct {
 	// in: body
 	Body []*models.Adapter
 }
 
-// Parameter for meshery adapter location-url
+// Parameter for meshplay adapter location-url
 // swagger:parameters idPostAdapterConfig
-type mesheryAdapterParamsWrapper struct {
+type meshplayAdapterParamsWrapper struct {
 	// in: body
 	MeshLocationURL string `json:"meshLocationURL"`
 }
 
-// Parameters for meshery operations
+// Parameters for meshplay operations
 // swagger:parameters idPostAdapterOperation
 type adapterOpsParamsWrapper struct {
 	Adapter    string `json:"adapter"`
@@ -390,16 +390,16 @@ type adapterOpsParamsWrapper struct {
 	Delete     string `json:"deleteOp"`
 }
 
-// Returns a single meshery filter
-// swagger:response mesheryFilterResponseWrapper
-type mesheryFilterResponseWrapper struct {
+// Returns a single meshplay filter
+// swagger:response meshplayFilterResponseWrapper
+type meshplayFilterResponseWrapper struct {
 	// in: body
 	Body models.MesheryFilter
 }
 
-// Returns all meshery filters
-// swagger:response mesheryFiltersResponseWrapper
-type mesheryFiltersResponseWrapper struct {
+// Returns all meshplay filters
+// swagger:response meshplayFiltersResponseWrapper
+type meshplayFiltersResponseWrapper struct {
 	// in: body
 	Body models.FiltersAPIResponse
 }
@@ -496,29 +496,29 @@ type smiResultsResponseWrapper struct {
 }
 
 // Returns Meshery application types
-// swagger:response mesheryApplicationTypesResponseWrapper
-type mesheryApplicationTypesResponseWrapper struct {
+// swagger:response meshplayApplicationTypesResponseWrapper
+type meshplayApplicationTypesResponseWrapper struct {
 	// in: body
 	Body []models.ApplicationTypeResponse
 }
 
 // Returns a single connection
-// swagger:response mesheryConnectionResponseWrapper
-type mesheryConnectionResponseWrapper struct {
+// swagger:response meshplayConnectionResponseWrapper
+type meshplayConnectionResponseWrapper struct {
 	// in: body
 	Body connections.Connection
 }
 
 // Returns all connections
-// swagger:response mesheryConnectionsResponseWrapper
-type mesheryConnectionsResponseWrapper struct {
+// swagger:response meshplayConnectionsResponseWrapper
+type meshplayConnectionsResponseWrapper struct {
 	// in: body
 	Body *connections.ConnectionPage
 }
 
 // Returns all connections Status
-// swagger:response mesheryConnectionsStatusPage
-type mesheryConnectionsStatusPage struct {
+// swagger:response meshplayConnectionsStatusPage
+type meshplayConnectionsStatusPage struct {
 	// in: body
 	Body *connections.ConnectionsStatusPage
 }
@@ -593,8 +593,8 @@ type orgsResponseWrapper struct {
 }
 
 // Returns Design Source Content
-// swagger:response mesheryPatternSourceContentResponseWrapper
-type mesheryPatternSourceContentResponseWrapper struct {
+// swagger:response meshplayPatternSourceContentResponseWrapper
+type meshplayPatternSourceContentResponseWrapper struct {
 	// in: body
 	Body []byte
 }
@@ -606,8 +606,8 @@ type meshsyncResourcesKindsResponseWrapper struct {
 	Body *models.MeshSyncResourcesKindsAPIResponse
 }
 
-// Payload for meshery pattern file deploy handler idPostDeployPattern idDeleteDeployPattern
-type mesheryPatternFileDeployPayloadWrapper struct {
+// Payload for meshplay pattern file deploy handler idPostDeployPattern idDeleteDeployPattern
+type meshplayPatternFileDeployPayloadWrapper struct {
 	// in: body
 	Body *models.MesheryPatternFileDeployPayload
 }

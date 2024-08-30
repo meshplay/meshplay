@@ -138,13 +138,13 @@ paths:
             operationId: idGetMesheryApplications
             responses:
                 "200":
-                    $ref: '#/responses/mesheryApplicationsResponseWrapper'
+                    $ref: '#/responses/meshplayApplicationsResponseWrapper'
             summary: Handle GET request for Application Files
             tags:
                 - ApplicationsAPI
     /api/application/{id}:
         delete:
-            description: 'Deletes a meshery application file with ID: id'
+            description: 'Deletes a meshplay application file with ID: id'
             operationId: idDeleteMesheryApplicationFile
             parameters:
                 - description: id for a specific
@@ -166,7 +166,7 @@ paths:
             operationId: idPutApplicationFileRequest
             responses:
                 "200":
-                    $ref: '#/responses/mesheryApplicationResponseWrapper'
+                    $ref: '#/responses/meshplayApplicationResponseWrapper'
             summary: Handle POST request for Application Files
             tags:
                 - ApplicationsAPI
@@ -213,7 +213,7 @@ paths:
             operationId: typeGetMesheryApplication
             responses:
                 "200":
-                    $ref: '#/responses/mesheryApplicationTypesResponseWrapper'
+                    $ref: '#/responses/meshplayApplicationTypesResponseWrapper'
             summary: Handle GET request for Meshery Application types
             tags:
                 - ApplicationsAPI
@@ -294,7 +294,7 @@ paths:
             operationId: idGetConnectionsOfEnvironmentHandler
             responses:
                 "200":
-                    $ref: '#/responses/mesheryConnectionsResponseWrapper'
+                    $ref: '#/responses/meshplayConnectionsResponseWrapper'
             summary: Handle GET for all Connections of Environment
             tags:
                 - EnvironmentAPI
@@ -428,7 +428,7 @@ paths:
             operationId: idGetFilterFiles
             responses:
                 "200":
-                    $ref: '#/responses/mesheryFiltersResponseWrapper'
+                    $ref: '#/responses/meshplayFiltersResponseWrapper'
             summary: Handle GET request for filters
             tags:
                 - FiltersAPI
@@ -437,13 +437,13 @@ paths:
             operationId: idPostFilterFile
             responses:
                 "200":
-                    $ref: '#/responses/mesheryFilterResponseWrapper'
+                    $ref: '#/responses/meshplayFilterResponseWrapper'
             summary: Handle POST requests for Meshery Filters
             tags:
                 - FiltersAPI
     /api/filter/{id}:
         delete:
-            description: 'Deletes a meshery filter with ID: id'
+            description: 'Deletes a meshplay filter with ID: id'
             operationId: idDeleteMesheryFilter
             parameters:
                 - description: id for a specific
@@ -472,7 +472,7 @@ paths:
                   x-go-name: ID
             responses:
                 "200":
-                    $ref: '#/responses/mesheryFilterResponseWrapper'
+                    $ref: '#/responses/meshplayFilterResponseWrapper'
             summary: Handle GET request for a Meshery Filter
             tags:
                 - FiltersAPI
@@ -491,7 +491,7 @@ paths:
             operationId: idGetCatalogMesheryFiltersHandler
             responses:
                 "200":
-                    $ref: '#/responses/mesheryFiltersResponseWrapper'
+                    $ref: '#/responses/meshplayFiltersResponseWrapper'
             summary: Handle GET request for catalog filters
             tags:
                 - FiltersAPI
@@ -550,7 +550,7 @@ paths:
             operationId: idGetFilterFile
             responses:
                 "200":
-                    $ref: '#/responses/mesheryFilterResponseWrapper'
+                    $ref: '#/responses/meshplayFilterResponseWrapper'
             summary: Handle GET request for filter file with given id
             tags:
                 - FiltersAPI
@@ -634,11 +634,11 @@ paths:
 
                 ```?status={status}``` Status takes array as param to filter connections based on status, eg /api/integrations/connections?status=["connected", "deleted"]
 
-                ```?kind={kind}``` Kind takes array as param to filter connections based on kind, eg /api/integrations/connections?kind=["meshery", "kubernetes"]
+                ```?kind={kind}``` Kind takes array as param to filter connections based on kind, eg /api/integrations/connections?kind=["meshplay", "kubernetes"]
             operationId: idGetConnections
             responses:
                 "200":
-                    $ref: '#/responses/mesheryConnectionsResponseWrapper'
+                    $ref: '#/responses/meshplayConnectionsResponseWrapper'
             summary: Handle GET request for getting all connections
             tags:
                 - GetConnections
@@ -666,7 +666,7 @@ paths:
             operationId: idPutConnectionById
             responses:
                 "200":
-                    $ref: '#/responses/mesheryConnectionResponseWrapper'
+                    $ref: '#/responses/meshplayConnectionResponseWrapper'
             summary: Handle PUT request for updating an existing connection by connection ID
             tags:
                 - PutConnectionById
@@ -702,7 +702,7 @@ paths:
             operationId: idGetConnectionsStatus
             responses:
                 "200":
-                    $ref: '#/responses/mesheryConnectionsStatusPage'
+                    $ref: '#/responses/meshplayConnectionsStatusPage'
             summary: Handle GET request for getting all connections status
             tags:
                 - GetConnectionsStatus
@@ -1255,16 +1255,16 @@ paths:
             operationId: idGetPatternFiles
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternsResponseWrapper'
+                    $ref: '#/responses/meshplayPatternsResponseWrapper'
             summary: Handle GET request for patterns
             tags:
                 - PatternsAPI
         post:
-            description: Edit/update a meshery pattern
+            description: Edit/update a meshplay pattern
             operationId: idPostPatternFile
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternResponseWrapper'
+                    $ref: '#/responses/meshplayPatternResponseWrapper'
             summary: Handle POST requests for patterns
             tags:
                 - PatternsAPI
@@ -1299,7 +1299,7 @@ paths:
                   x-go-name: ID
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternResponseWrapper'
+                    $ref: '#/responses/meshplayPatternResponseWrapper'
             summary: Handle GET for a Meshery Pattern
             tags:
                 - PatternsAPI
@@ -1309,7 +1309,7 @@ paths:
             operationId: idPostPatternFileRequest
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternResponseWrapper'
+                    $ref: '#/responses/meshplayPatternResponseWrapper'
             summary: Handle POST request for Pattern Files
             tags:
                 - PatternsAPI
@@ -1318,7 +1318,7 @@ paths:
             operationId: idUpdateMesheryPattern
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternResponseWrapper'
+                    $ref: '#/responses/meshplayPatternResponseWrapper'
             summary: Handle PUT request for Meshery Pattern with the given payload
             tags:
                 - PatternsAPI
@@ -1337,7 +1337,7 @@ paths:
             operationId: idGetCatalogMesheryPatternsHandler
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternsResponseWrapper'
+                    $ref: '#/responses/meshplayPatternsResponseWrapper'
             summary: Handle GET request for catalog patterns
             tags:
                 - PatternsAPI
@@ -1409,7 +1409,7 @@ paths:
                   x-go-name: ID
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternResponseWrapper'
+                    $ref: '#/responses/meshplayPatternResponseWrapper'
             summary: Handle GET for a Meshery Pattern
             tags:
                 - PatternsAPI
@@ -1419,7 +1419,7 @@ paths:
             operationId: typeGetPatternSourceContent
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternSourceContentResponseWrapper'
+                    $ref: '#/responses/meshplayPatternSourceContentResponseWrapper'
             summary: Handle GET request for Meshery Patterns with of source content
             tags:
                 - PatternsAPI
@@ -1429,7 +1429,7 @@ paths:
             operationId: typeGetMesheryPatternTypesHandler
             responses:
                 "200":
-                    $ref: '#/responses/mesheryApplicationTypesResponseWrapper'
+                    $ref: '#/responses/meshplayApplicationTypesResponseWrapper'
             summary: Handle GET request for Meshery Pattern types
             tags:
                 - PatternsAPI
@@ -1595,7 +1595,7 @@ paths:
                   x-go-name: MeshLocationURL
             responses:
                 "200":
-                    $ref: '#/responses/mesheryAdaptersRespWrapper'
+                    $ref: '#/responses/meshplayAdaptersRespWrapper'
             summary: Handle POST requests to persist adapter config
             tags:
                 - SystemAPI
@@ -1847,7 +1847,7 @@ paths:
             operationId: idGetSystemVersion
             responses:
                 "200":
-                    $ref: '#/responses/mesheryVersionRespWrapper'
+                    $ref: '#/responses/meshplayVersionRespWrapper'
             summary: Handle GET request for system/server version
             tags:
                 - SystemAPI
@@ -2427,27 +2427,27 @@ paths:
             operationId: idGetWorkspaceMesheryDesigns
             responses:
                 "200":
-                    $ref: '#/responses/mesheryPatternsResponseWrapper'
+                    $ref: '#/responses/meshplayPatternsResponseWrapper'
             summary: Handles GET for all Meshery Designs in a Workspace
             tags:
                 - WorkspacesAPI
     /api/workspaces/{id}/designs/{designID}:
         delete:
-            description: Removes a meshery design from a workspace
+            description: Removes a meshplay design from a workspace
             operationId: idRemoveMesheryDesignFromWorkspace
             responses:
                 "201":
                     $ref: '#/responses/workspaceDesignsMappingResponseWrapper'
-            summary: Handle DELETE request for removing a meshery design from a workspace
+            summary: Handle DELETE request for removing a meshplay design from a workspace
             tags:
                 - WorkspacesAPI
         post:
-            description: Adds a meshery design to a workspace
+            description: Adds a meshplay design to a workspace
             operationId: idAddMesheryDesignToWorkspace
             responses:
                 "201":
                     $ref: '#/responses/workspaceDesignsMappingResponseWrapper'
-            summary: Handle POST request for adding a meshery design to a workspace
+            summary: Handle POST request for adding a meshplay design to a workspace
             tags:
                 - WorkspacesAPI
     /api/workspaces/{id}/environments:
@@ -2691,42 +2691,42 @@ responses:
         schema:
             additionalProperties: {}
             type: object
-    mesheryAdaptersRespWrapper:
-        description: Returns all the meshery adapters
+    meshplayAdaptersRespWrapper:
+        description: Returns all the meshplay adapters
         schema:
             items: {}
             type: array
-    mesheryApplicationResponseWrapper:
+    meshplayApplicationResponseWrapper:
         description: Fetches a single Meshery Application
-    mesheryApplicationTypesResponseWrapper:
+    meshplayApplicationTypesResponseWrapper:
         description: Returns Meshery application types
         schema:
             items: {}
             type: array
-    mesheryApplicationsResponseWrapper:
-        description: Returns all meshery applications
-    mesheryConnectionResponseWrapper:
+    meshplayApplicationsResponseWrapper:
+        description: Returns all meshplay applications
+    meshplayConnectionResponseWrapper:
         description: Returns a single connection
-    mesheryConnectionsResponseWrapper:
+    meshplayConnectionsResponseWrapper:
         description: Returns all connections
-    mesheryConnectionsStatusPage:
+    meshplayConnectionsStatusPage:
         description: Returns all connections Status
-    mesheryFilterResponseWrapper:
-        description: Returns a single meshery filter
-    mesheryFiltersResponseWrapper:
-        description: Returns all meshery filters
-    mesheryPatternResponseWrapper:
-        description: Returns a single meshery pattern
-    mesheryPatternSourceContentResponseWrapper:
+    meshplayFilterResponseWrapper:
+        description: Returns a single meshplay filter
+    meshplayFiltersResponseWrapper:
+        description: Returns all meshplay filters
+    meshplayPatternResponseWrapper:
+        description: Returns a single meshplay pattern
+    meshplayPatternSourceContentResponseWrapper:
         description: Returns Design Source Content
         schema:
             items:
                 format: uint8
                 type: integer
             type: array
-    mesheryPatternsResponseWrapper:
-        description: Returns all meshery patterns
-    mesheryVersionRespWrapper:
+    meshplayPatternsResponseWrapper:
+        description: Returns all meshplay patterns
+    meshplayVersionRespWrapper:
         description: Returns Meshery version
     meshmodelCategoriesResponseWrapper:
         description: Returns meshmodel categories

@@ -104,7 +104,7 @@ type LoadTestResponse struct {
 
 // MesheryResult - represents the results from Meshery test run to be shipped
 type MesheryResult struct {
-	ID                 uuid.UUID              `json:"meshery_id,omitempty"`
+	ID                 uuid.UUID              `json:"meshplay_id,omitempty"`
 	Name               string                 `json:"name,omitempty"`
 	Mesh               string                 `json:"mesh,omitempty"`
 	PerformanceProfile *uuid.UUID             `json:"performance_profile,omitempty"`
@@ -122,7 +122,7 @@ type MesheryResult struct {
 	UserID    string `json:"user_id,omitempty"`
 }
 
-// ConvertToSpec - converts meshery result to SMP
+// ConvertToSpec - converts meshplay result to SMP
 func (m *MesheryResult) ConvertToSpec(log logger.Handler) (*PerformanceSpec, error) {
 	b := &PerformanceSpec{
 		Latencies: &LatenciesMs{},

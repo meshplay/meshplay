@@ -6,9 +6,9 @@ import (
 	"fmt"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/handlers"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 )
 
 func (r *Resolver) getPerfResult(ctx context.Context, provider models.Provider, id string) (*model.MesheryResult, error) {
@@ -35,11 +35,11 @@ func (r *Resolver) getPerfResult(ctx context.Context, provider models.Provider, 
 	startTime := fmt.Sprintf("%v", bdr.TestStartTime)
 	serverBoardConfig := fmt.Sprintf("%v", bdr.ServerBoardConfig)
 	serverMetrics := fmt.Sprintf("%v", bdr.ServerMetrics)
-	mesheryID := fmt.Sprintf("%v", bdr.ID)
+	meshplayID := fmt.Sprintf("%v", bdr.ID)
 	performanceProfile := fmt.Sprintf("%v", bdr.PerformanceProfileInfo.ID)
 
 	return &model.MesheryResult{
-		MesheryID:          &mesheryID,
+		MesheryID:          &meshplayID,
 		Name:               &bdr.Name,
 		Mesh:               &bdr.Mesh,
 		PerformanceProfile: &performanceProfile,

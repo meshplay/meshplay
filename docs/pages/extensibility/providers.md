@@ -324,7 +324,7 @@ User has deployed the Meshery behind a Istio Ingress Gateway and the Istio is al
 
 **_SOLUTION_**
 
-You can define a custom callback URL by setting up the `MESHERY_SERVER_CALLBACK_URL` environment variable while installing Meshery.
+You can define a custom callback URL by setting up the `MESHPLAY_SERVER_CALLBACK_URL` environment variable while installing Meshery.
 
 **Example using Helm**
 
@@ -339,9 +339,9 @@ So, the final URL would look similar to
 
 {% include alert.html type="info" title="Note" content="Callback URL is not the same as Provider URL. In scenarios where Meshery server and Provider is installed on same server, pay attention to paths or subdomains." %}
 
-Next, set the `MESHERY_SERVER_CALLBACK_URL` variable when running the `helm install`. Below is an example:
+Next, set the `MESHPLAY_SERVER_CALLBACK_URL` variable when running the `helm install`. Below is an example:
 
-{% capture code_content %}helm install meshery meshery/meshery --namespace meshery --set env.MESHERY_SERVER_CALLBACK_URL=<https://k8s-staging.test.io/api/user/token>
+{% capture code_content %}helm install meshery meshery/meshery --namespace meshery --set env.MESHPLAY_SERVER_CALLBACK_URL=<https://k8s-staging.test.io/api/user/token>
 {% endcapture %}
 {% include code.html code=code_content %}
 

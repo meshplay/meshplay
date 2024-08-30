@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/constants"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/meshplayctl/pkg/constants"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/spf13/viper"
 )
@@ -25,7 +25,7 @@ type Version struct {
 //
 // Returns the running Meshery version
 // responses:
-// 	200: mesheryVersionRespWrapper
+// 	200: meshplayVersionRespWrapper
 
 // ServerVersionHandler handles the version api request for the server
 func (h *Handler) ServerVersionHandler(w http.ResponseWriter, _ *http.Request) {

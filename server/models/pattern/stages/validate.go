@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/layer5io/meshery/server/models/pattern/core"
-	"github.com/layer5io/meshery/server/models/pattern/jsonschema"
-	"github.com/layer5io/meshery/server/models/pattern/resource/selector"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models/pattern/jsonschema"
+	"github.com/layer5io/meshplay/server/models/pattern/resource/selector"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	"gopkg.in/yaml.v2"
 )

@@ -2,11 +2,11 @@ package stages
 
 import (
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/models/pattern/core"
-	"github.com/layer5io/meshery/server/models/pattern/patterns"
+	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models/pattern/patterns"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 )
 
 type ServiceInfoProvider interface {

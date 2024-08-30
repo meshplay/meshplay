@@ -54,7 +54,7 @@ package application
 // 		logLevel = int(logrus.DebugLevel)
 // 	}
 // 	// Initialize Logger instance
-// 	log, err := logger.New("meshery", logger.Options{
+// 	log, err := logger.New("meshplay", logger.Options{
 // 		Format:   logger.SyslogLogFormat,
 // 		LogLevel: logLevel,
 // 	})

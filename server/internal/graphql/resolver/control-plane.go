@@ -3,8 +3,8 @@ package resolver
 import (
 	"context"
 
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 )
 
 func (r *Resolver) getControlPlanes(ctx context.Context, provider models.Provider, filter *model.ServiceMeshFilter) ([]*model.ControlPlane, error) {

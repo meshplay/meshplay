@@ -8,8 +8,8 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/handlers"
+	"github.com/layer5io/meshplay/server/models"
 )
 
 // Router represents Meshery router
@@ -372,7 +372,7 @@ func NewRouter(_ context.Context, h models.HandlerInterface, port int, g http.Ha
 	// TODO: have to change this too
 	gMux.Handle("/favicon.ico", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Cache-Control", "public, max-age=3600") // 1 hr
-		http.ServeFile(w, r, "../ui/out/static/img/meshery-logo/meshery-logo.svg")
+		http.ServeFile(w, r, "../ui/out/static/img/meshplay-logo/meshplay-logo.svg")
 	}))
 
 	// Handlers for User Credentials

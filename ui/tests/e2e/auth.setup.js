@@ -27,7 +27,7 @@ setup('authenticate', async ({ page }) => {
     const url = page.url();
 
     const redirect_urls = new Set([
-      ENV.MESHERY_SERVER_URL + '/',
+      ENV.MESHPLAY_SERVER_URL + '/',
       ENV.REMOTE_PROVIDER_URL + '/',
       ENV.REMOTE_PROVIDER_URL + '/dashboard',
     ]);

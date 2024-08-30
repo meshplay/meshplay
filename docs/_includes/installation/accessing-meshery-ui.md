@@ -24,7 +24,7 @@ Depending upon how you have networking configured in Kubernetes, alternatively, 
 
 Customize your Meshery Provider Callback URL. Meshery Server supports customizing authentication flow callback URL, which can be configured in the following way:
 
-{% capture code_content %}$ MESHERY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start{% endcapture %}
+{% capture code_content %}$ MESHPLAY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start{% endcapture %}
 {% include code.html code=code_content %}
 
 <br />

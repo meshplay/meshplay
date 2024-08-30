@@ -5,13 +5,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/models"
 	_models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"
 
-	"github.com/layer5io/meshery/server/models/pattern/patterns/k8s"
+	"github.com/layer5io/meshplay/server/models/pattern/patterns/k8s"
 	"github.com/layer5io/meshkit/utils/kubernetes"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
 )
 
 type DeploymentMessagePerComp struct {

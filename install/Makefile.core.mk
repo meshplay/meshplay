@@ -39,14 +39,14 @@ ADAPTER_URLS := "localhost:10000 localhost:10001 localhost:10012 localhost:10013
 # Providers
 #-----------------------------------------------------------------------------
 REMOTE_PROVIDER_LOCAL="http://localhost:9876"
-MESHERY_CLOUD_DEV="http://localhost:9876"
-MESHERY_CLOUD_PROD="https://meshery.layer5.io"
-MESHERY_CLOUD_STAGING="https://staging-meshery.layer5.io"
+MESHPLAY_CLOUD_DEV="http://localhost:9876"
+MESHPLAY_CLOUD_PROD="https://meshery.layer5.io"
+MESHPLAY_CLOUD_STAGING="https://staging-meshery.layer5.io"
 
 #-----------------------------------------------------------------------------
 # Server
 #-----------------------------------------------------------------------------
-MESHERY_K8S_SKIP_COMP_GEN ?= TRUE
+MESHPLAY_K8S_SKIP_COMP_GEN ?= TRUE
 APPLICATIONCONFIGPATH="./apps.json"
 
 #-----------------------------------------------------------------------------

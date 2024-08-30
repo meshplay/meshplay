@@ -3,7 +3,7 @@
   "component": {
     "kind": "GithubConnection",
     "schema": "{\"type\":\"object\",\"properties\":{\"installation_id\":{\"type\":\"string\",\"title\":\"Installation ID\",\"description\":\"The installation ID of the GitHub App\"},\"repository_paths\":{\"type\":\"object\",\"title\":\"Repositories for which the Connection has been configured.\",\"description\":\"The repository paths to be used for the connection\",\"items\":{\"type\":\"object\",\"title\":\"Repository Path\",\"description\":\"The repository path to be used for the connection\",\"additionalProperties\":{\"type\":\"string\"}}}}}",
-    "version": "meshery.layer5.io/v1alpha1"
+    "version": "meshplay.layer5.io/v1alpha1"
   },
   "configuration": null,
   "description": "",
@@ -56,13 +56,13 @@
       "user_id": "00000000-0000-0000-0000-000000000000"
     },
     "connection_id": "00000000-0000-0000-0000-000000000000",
-    "schemaVersion": "models.meshery.io/v1beta1",
+    "schemaVersion": "models.meshplay.io/v1beta1",
     "status": "enabled",
     "version": "v1.0.0",
     "components": null,
     "relationships": null
   },
-  "schemaVersion": "components.meshery.io/v1beta1",
+  "schemaVersion": "components.meshplay.io/v1beta1",
   "status": "enabled",
   "styles": {
     "primaryColor": "#000000",

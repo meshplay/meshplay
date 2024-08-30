@@ -11,24 +11,24 @@ import (
 	"cuelang.org/go/cue/cuecontext"
 	cueJson "cuelang.org/go/encoding/json"
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/helpers"
+	"github.com/layer5io/meshplay/server/helpers"
 
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/models"
 
-	"github.com/layer5io/meshery/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models/pattern/core"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 
-	"github.com/layer5io/meshery/server/helpers/utils"
-	mesheryutils "github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/meshery/schemas/models/v1beta1/category"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/connection"
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/layer5io/meshplay/server/helpers/utils"
+	meshplayutils "github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/meshplay/schemas/models/v1beta1/category"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1"
 
 	_component "github.com/layer5io/meshkit/utils/component"
 	"github.com/layer5io/meshkit/utils/kubernetes"
@@ -50,13 +50,13 @@ type names struct {
 	Kind string `json:"kind"`
 }
 
-func RegisterK8sMeshModelComponents(provider *models.Provider, _ context.Context, config []byte, ctxID string, connectionID string, userID string, mesheryInstanceID uuid.UUID, reg *registry.RegistryManager, ec *models.Broadcast, log logger.Handler, ctxName string) (err error) {
+func RegisterK8sMeshModelComponents(provider *models.Provider, _ context.Context, config []byte, ctxID string, connectionID string, userID string, meshplayInstanceID uuid.UUID, reg *registry.RegistryManager, ec *models.Broadcast, log logger.Handler, ctxName string) (err error) {
 	connectionUUID := uuid.FromStringOrNil(connectionID)
 	userUUID := uuid.FromStringOrNil(userID)
 
 	man, err := GetK8sMeshModelComponents(config)
 	eventMetadata := make(map[string]interface{}, 0)
-	ctx := models.K8sContextsFromKubeconfig(*provider, userID, ec, config, &mesheryInstanceID, eventMetadata, log)
+	ctx := models.K8sContextsFromKubeconfig(*provider, userID, ec, config, &meshplayInstanceID, eventMetadata, log)
 	if err != nil {
 		return ErrCreatingKubernetesComponents(err, ctxID)
 	}
@@ -88,10 +88,10 @@ func RegisterK8sMeshModelComponents(provider *models.Provider, _ context.Context
 	if err != nil {
 		return err
 	}
-	event := events.NewEvent().ActedUpon(connectionUUID).WithCategory("kubernetes_components").WithAction("registration").FromSystem(mesheryInstanceID).FromUser(userUUID).WithSeverity(events.Informational).WithDescription(fmt.Sprintf("%d Kubernetes components registered for %s", count, ctxName)).WithMetadata(map[string]interface{}{
-		"doc": "https://docs.meshery.io/tasks/lifecycle-management",
+	event := events.NewEvent().ActedUpon(connectionUUID).WithCategory("kubernetes_components").WithAction("registration").FromSystem(meshplayInstanceID).FromUser(userUUID).WithSeverity(events.Informational).WithDescription(fmt.Sprintf("%d Kubernetes components registered for %s", count, ctxName)).WithMetadata(map[string]interface{}{
+		"doc": "https://docs.meshplay.io/tasks/lifecycle-management",
 	}).Build()
-	_, err = helpers.FailedEventCompute("Kubernetes", mesheryInstanceID, provider, userID, ec)
+	_, err = helpers.FailedEventCompute("Kubernetes", meshplayInstanceID, provider, userID, ec)
 	if err != nil {
 		return err
 	}
@@ -110,7 +110,7 @@ func writeK8sMetadata(comp *component.ComponentDefinition, reg *registry.Registr
 	// If component was not available in the registry, then use the generic model level metadata
 	if len(ent) == 0 {
 		comp.Styles = &models.K8sMeshModelMetadata.Styles
-		mesheryutils.WriteSVGsOnFileSystem(comp)
+		meshplayutils.WriteSVGsOnFileSystem(comp)
 	} else {
 		existingComp, ok := ent[0].(*component.ComponentDefinition)
 		if !ok {

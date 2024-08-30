@@ -8,8 +8,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/layer5io/meshery/server/models"
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/meshplay/schemas/models/v1beta1"
 )
 
 // swagger:route GET /api/workspaces WorkspacesAPI idGetWorkspaces
@@ -228,7 +228,7 @@ func (h *Handler) GetEnvironmentsOfWorkspaceHandler(w http.ResponseWriter, req *
 // ```?filter={{"assigned": true/false, "deleted_at": true/false}}``` defaults to assigned: false, deleted_at: false
 // responses:
 //
-//	200: mesheryPatternsResponseWrapper
+//	200: meshplayPatternsResponseWrapper
 func (h *Handler) GetDesignsOfWorkspaceHandler(w http.ResponseWriter, req *http.Request, _ *models.Preference, _ *models.User, provider models.Provider) {
 	workspaceID := mux.Vars(req)["id"]
 	q := req.URL.Query()
@@ -282,9 +282,9 @@ func (h *Handler) RemoveEnvironmentFromWorkspaceHandler(w http.ResponseWriter, r
 }
 
 // swagger:route POST /api/workspaces/{id}/designs/{designID} WorkspacesAPI idAddMesheryDesignToWorkspace
-// Handle POST request for adding a meshery design to a workspace
+// Handle POST request for adding a meshplay design to a workspace
 //
-// Adds a meshery design to a workspace
+// Adds a meshplay design to a workspace
 // responses:
 // 201: workspaceDesignsMappingResponseWrapper
 func (h *Handler) AddDesignToWorkspaceHandler(w http.ResponseWriter, req *http.Request, _ *models.Preference, _ *models.User, provider models.Provider) {
@@ -301,9 +301,9 @@ func (h *Handler) AddDesignToWorkspaceHandler(w http.ResponseWriter, req *http.R
 }
 
 // swagger:route DELETE /api/workspaces/{id}/designs/{designID} WorkspacesAPI idRemoveMesheryDesignFromWorkspace
-// Handle DELETE request for removing a meshery design from a workspace
+// Handle DELETE request for removing a meshplay design from a workspace
 //
-// Removes a meshery design from a workspace
+// Removes a meshplay design from a workspace
 // responses:
 // 201: workspaceDesignsMappingResponseWrapper
 func (h *Handler) RemoveDesignFromWorkspaceHandler(w http.ResponseWriter, req *http.Request, _ *models.Preference, _ *models.User, provider models.Provider) {

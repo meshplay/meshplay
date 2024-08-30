@@ -27,7 +27,7 @@ Meshery server supports customizing authentication flow callback URL, which can 
 
 <pre class="codeblock-pre"><div class="codeblock">
 <div class="clipboardjs">
- $ MESHERY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start
+ $ MESHPLAY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start
 
 </div></div>
 </pre>

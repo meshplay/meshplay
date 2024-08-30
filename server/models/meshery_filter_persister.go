@@ -36,7 +36,7 @@ func (mfp *MesheryFilterPersister) GetMesheryFilters(search, order string, page,
 	count := int64(0)
 	filters := []*MesheryFilter{}
 
-	query := mfp.DB.Table("meshery_filters")
+	query := mfp.DB.Table("meshplay_filters")
 
 	if len(visibility) > 0 {
 		query = query.Where("visibility in (?)", visibility)
@@ -46,20 +46,20 @@ func (mfp *MesheryFilterPersister) GetMesheryFilters(search, order string, page,
 
 	if search != "" {
 		like := "%" + strings.ToLower(search) + "%"
-		query = query.Where("(lower(meshery_filters.name) like ?)", like)
+		query = query.Where("(lower(meshplay_filters.name) like ?)", like)
 	}
 
 	query.Count(&count)
 	Paginate(uint(page), uint(pageSize))(query).Find(&filters)
 
-	mesheryFilterPage := &MesheryFilterPage{
+	meshplayFilterPage := &MesheryFilterPage{
 		Page:       page,
 		PageSize:   pageSize,
 		TotalCount: int(count),
 		Filters:    filters,
 	}
 
-	return marshalMesheryFilterPage(mesheryFilterPage), nil
+	return marshalMesheryFilterPage(meshplayFilterPage), nil
 }
 
 // GetMesheryCatalogFilters returns all of the published filters
@@ -100,7 +100,7 @@ func (mfp *MesheryFilterPersister) GetMesheryCatalogFilters(page, pageSize, sear
 
 	if search != "" {
 		like := "%" + strings.ToLower(search) + "%"
-		query = query.Where("(lower(meshery_filters.name) like ?)", like)
+		query = query.Where("(lower(meshplay_filters.name) like ?)", like)
 	}
 
 	var count int64
@@ -127,12 +127,12 @@ func (mfp *MesheryFilterPersister) GetMesheryCatalogFilters(page, pageSize, sear
 	return marshalledResponse, nil
 }
 
-// CloneMesheryFilter clones meshery filter to private
+// CloneMesheryFilter clones meshplay filter to private
 func (mfp *MesheryFilterPersister) CloneMesheryFilter(filterID string, cloneFilterRequest *MesheryCloneFilterRequestBody) ([]byte, error) {
-	var mesheryFilter MesheryFilter
+	var meshplayFilter MesheryFilter
 	filterUUID, _ := uuid.FromString(filterID)
-	err := mfp.DB.First(&mesheryFilter, filterUUID).Error
-	if err != nil || *mesheryFilter.ID == uuid.Nil {
+	err := mfp.DB.First(&meshplayFilter, filterUUID).Error
+	if err != nil || *meshplayFilter.ID == uuid.Nil {
 		return nil, fmt.Errorf("unable to get filter: %w", err)
 	}
 
@@ -141,11 +141,11 @@ func (mfp *MesheryFilterPersister) CloneMesheryFilter(filterID string, cloneFilt
 		return nil, err
 	}
 
-	mesheryFilter.Visibility = Private
-	mesheryFilter.ID = &id
-	mesheryFilter.Name = cloneFilterRequest.Name
+	meshplayFilter.Visibility = Private
+	meshplayFilter.ID = &id
+	meshplayFilter.Name = cloneFilterRequest.Name
 
-	return mfp.SaveMesheryFilter(&mesheryFilter)
+	return mfp.SaveMesheryFilter(&meshplayFilter)
 }
 
 // DeleteMesheryFilter takes in a profile id and delete it if it already exists
@@ -197,17 +197,17 @@ func (mfp *MesheryFilterPersister) SaveMesheryFilters(filters []MesheryFilter) (
 }
 
 func (mfp *MesheryFilterPersister) GetMesheryFilter(id uuid.UUID) ([]byte, error) {
-	var mesheryFilter MesheryFilter
+	var meshplayFilter MesheryFilter
 
-	err := mfp.DB.First(&mesheryFilter, id).Error
-	return marshalMesheryFilter(&mesheryFilter), err
+	err := mfp.DB.First(&meshplayFilter, id).Error
+	return marshalMesheryFilter(&meshplayFilter), err
 }
 
 func (mfp *MesheryFilterPersister) GetMesheryFilterFile(id uuid.UUID) ([]byte, error) {
-	var mesheryFilter MesheryFilter
+	var meshplayFilter MesheryFilter
 
-	err := mfp.DB.First(&mesheryFilter, id).Error
-	return []byte(mesheryFilter.FilterFile), err
+	err := mfp.DB.First(&meshplayFilter, id).Error
+	return []byte(meshplayFilter.FilterFile), err
 }
 
 func marshalMesheryFilterPage(mfp *MesheryFilterPage) []byte {

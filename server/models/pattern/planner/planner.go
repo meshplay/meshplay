@@ -3,8 +3,8 @@ package planner
 import (
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"
 )
 

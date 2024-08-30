@@ -92,14 +92,14 @@ func failedMsgCompute(failedMsg string, hostName string, regLog *RegistrationFai
 	return failedMsg, nil
 }
 
-func FailedEventCompute(hostname string, mesheryInstanceID gofrs.UUID, provider *Provider, userID string, ec *Broadcast, regErrorStore *RegistrationFailureLog) (string, error) {
+func FailedEventCompute(hostname string, meshplayInstanceID gofrs.UUID, provider *Provider, userID string, ec *Broadcast, regErrorStore *RegistrationFailureLog) (string, error) {
 	failedMsg, err := failedMsgCompute("", hostname, regErrorStore)
 	if err != nil {
 		return "", err
 	}
 	if failedMsg != "" {
 		filePath := viper.GetString("REGISTRY_LOG_FILE")
-		errorEventBuilder := events.NewEvent().FromUser(mesheryInstanceID).FromSystem(mesheryInstanceID).WithCategory("registration").WithAction("get_summary")
+		errorEventBuilder := events.NewEvent().FromUser(meshplayInstanceID).FromSystem(meshplayInstanceID).WithCategory("registration").WithAction("get_summary")
 		errorEventBuilder.WithSeverity(events.Error).WithDescription(failedMsg)
 		errorEvent := errorEventBuilder.Build()
 		errorEventBuilder.WithMetadata(map[string]interface{}{

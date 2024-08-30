@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/logger"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
@@ -21,7 +21,7 @@ import (
 // CreateK8sResource takes a dynamic client and resource info and tries to create
 // that resource.
 //
-// If a resource already exists and has the label controller set to "meshery"
+// If a resource already exists and has the label controller set to "meshplay"
 // then it will try to update the resource.
 //
 // If a resource exists but does not have the label then the function will return an error
@@ -30,7 +30,7 @@ import (
 //
 // It will add labels to the resources:
 //
-//	"controller": "meshery"
+//	"controller": "meshplay"
 //	"source" : "pattern"
 func CreateK8sResource(
 	client dynamic.Interface,
@@ -54,7 +54,7 @@ func CreateK8sResource(
 	obj := &unstructured.Unstructured{Object: resourceMap}
 
 	obj.SetLabels(helpers.MergeStringMaps(obj.GetLabels(), map[string]string{
-		"controller": "meshery",
+		"controller": "meshplay",
 		"source":     "pattern",
 	}))
 
@@ -73,7 +73,7 @@ func CreateK8sResource(
 		Resource(gvr).
 		Namespace(obj.GetNamespace()).
 		Create(context.TODO(), obj, metav1.CreateOptions{
-			FieldManager: "meshery",
+			FieldManager: "meshplay",
 		}); err != nil {
 		if !errors.IsAlreadyExists(err) {
 			err = models.ErrCreateResourceEntry(err)
@@ -81,8 +81,8 @@ func CreateK8sResource(
 			return err
 		}
 
-		// If the resource already exists then check if it maintained by meshery
-		// If the resource is maintained by meshery then update the resource
+		// If the resource already exists then check if it maintained by meshplay
+		// If the resource is maintained by meshplay then update the resource
 		// else replace the existing resource with new iff "force" is set to true
 		prevObj, err := client.
 			Resource(gvr).
@@ -95,9 +95,9 @@ func CreateK8sResource(
 		}
 
 		prevObjLables := prevObj.GetLabels()
-		if prevObjLables["controller"] != "meshery" {
+		if prevObjLables["controller"] != "meshplay" {
 			if force {
-				log.Info("resource not maintained by \"meshery\" - force recreating")
+				log.Info("resource not maintained by \"meshplay\" - force recreating")
 				if err := client.
 					Resource(gvr).
 					Namespace(obj.GetNamespace()).
@@ -111,7 +111,7 @@ func CreateK8sResource(
 					Resource(gvr).
 					Namespace(obj.GetNamespace()).
 					Create(context.TODO(), obj, metav1.CreateOptions{
-						FieldManager: "meshery",
+						FieldManager: "meshplay",
 					}); err != nil {
 					err = models.ErrRecreateResource(err, obj.GetName(), obj.GetNamespace())
 					log.Error(err)
@@ -119,7 +119,7 @@ func CreateK8sResource(
 				}
 			}
 
-			err = models.ErrCreateResourceEntry(fmt.Errorf("failed to create resource: %s - resource already exists and is not maintained by \"meshery\"", obj.GetName()))
+			err = models.ErrCreateResourceEntry(fmt.Errorf("failed to create resource: %s - resource already exists and is not maintained by \"meshplay\"", obj.GetName()))
 			log.Error(err)
 			return err
 		}
@@ -128,7 +128,7 @@ func CreateK8sResource(
 			Resource(gvr).
 			Namespace(obj.GetNamespace()).
 			Patch(context.TODO(), obj.GetName(), types.MergePatchType, resourceByt, metav1.PatchOptions{
-				FieldManager: "meshery",
+				FieldManager: "meshplay",
 			}); err != nil {
 			err = models.ErrUpdateResource(obj.GetName(), obj.GetNamespace())
 			log.Error(err)
@@ -181,7 +181,7 @@ func CreateNamespace(client dynamic.Interface, namespace string) error {
 		Version:  "v1",
 		Resource: "namespaces",
 	}).Patch(context.TODO(), namespace, types.ApplyPatchType, data, metav1.PatchOptions{
-		FieldManager: "meshery",
+		FieldManager: "meshplay",
 	}); err != nil {
 		return err
 	}

@@ -13,9 +13,9 @@ import (
 var (
 	// ManifestsFolder is where the Kubernetes manifests are stored
 	ManifestsFolder = "manifests"
-	// MesheryFolder is the default relative location of the meshery config
+	// MesheryFolder is the default relative location of the meshplay config
 	// related configuration files.
-	MesheryFolder = ".meshery"
+	MesheryFolder = ".meshplay"
 
 	ReleaseTag string
 )
@@ -27,18 +27,18 @@ func SafeClose(co io.Closer) {
 	}
 }
 
-// CreateManifestsFolder creates a new folder (.meshery/manifests)
+// CreateManifestsFolder creates a new folder (.meshplay/manifests)
 func CreateManifestsFolder() error {
-	mesheryManifestFolder := filepath.Join(MesheryFolder, ManifestsFolder)
+	meshplayManifestFolder := filepath.Join(MesheryFolder, ManifestsFolder)
 
 	log.Debug("deleting " + ManifestsFolder + " folder...")
 	// delete manifests folder if it already exists
-	if err := os.RemoveAll(mesheryManifestFolder); err != nil {
+	if err := os.RemoveAll(meshplayManifestFolder); err != nil {
 		return err
 	}
 	log.Debug("creating " + ManifestsFolder + "folder...")
-	// create a manifests folder under ~/.meshery to store the manifest files
-	if err := os.MkdirAll(mesheryManifestFolder, os.ModePerm); err != nil {
+	// create a manifests folder under ~/.meshplay to store the manifest files
+	if err := os.MkdirAll(meshplayManifestFolder, os.ModePerm); err != nil {
 		return errors.Wrapf(err, "failed to make %s directory", ManifestsFolder)
 	}
 	log.Debug("created manifests folder...")

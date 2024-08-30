@@ -21,7 +21,7 @@ import { useTheme } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import { Edit } from '@material-ui/icons';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import { MESHERY_CLOUD_PROD } from '../../constants/endpoints';
+import { MESHPLAY_CLOUD_PROD } from '../../constants/endpoints';
 import { useGetUserByIdQuery } from '../../rtk-query/user';
 import { Provider } from 'react-redux';
 import { store } from '../../store';
@@ -277,7 +277,7 @@ function MesheryPatternCard_({
                 {name}
               </Typography>
               <div className={classes.cardHeaderRight}>
-                <Link href={`${MESHERY_CLOUD_PROD}/user/${pattern?.user_id}`} target="_blank">
+                <Link href={`${MESHPLAY_CLOUD_PROD}/user/${pattern?.user_id}`} target="_blank">
                   <Avatar alt="profile-avatar" src={owner?.avatar_url} />
                 </Link>
                 <CustomTooltip title="Enter Fullscreen" arrow interactive placement="top">

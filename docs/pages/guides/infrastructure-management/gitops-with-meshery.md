@@ -140,7 +140,7 @@ jobs:
       - name: SMI conformance tests
         uses: layer5io/mesheryctl-smi-conformance-action@master
         with:
-          provider_token: ${{ secrets.MESHERY_PROVIDER_TOKEN }}
+          provider_token: ${{ secrets.MESHPLAY_PROVIDER_TOKEN }}
           service_mesh: open_service_mesh
           mesh_deployed: false
 </code>
@@ -179,12 +179,12 @@ jobs:
       - name: SMI conformance tests
         uses: layer5io/mesheryctl-smi-conformance-action@master
         with:
-          provider_token: ${{ secrets.MESHERY_PROVIDER_TOKEN }}
+          provider_token: ${{ secrets.MESHPLAY_PROVIDER_TOKEN }}
           service_mesh: open_service_mesh
           mesh_deployed: true
 </code></pre>
 <p>
-You can download a token from Meshery and add it as a GitHub secret (in the example above, the secret is <code>MESHERY_PROVIDER_TOKEN</code>). After the test is run, you can view the results from the Service Mesh Interface dashboard in Meshery UI.</p>
+You can download a token from Meshery and add it as a GitHub secret (in the example above, the secret is <code>MESHPLAY_PROVIDER_TOKEN</code>). After the test is run, you can view the results from the Service Mesh Interface dashboard in Meshery UI.</p>
 
 <a href="{{ site.baseurl }}/assets/img/smi-conformance-result.png"><img src="{{ site.baseurl }}/assets/img/smi-conformance-result.png" className="image-center-shadow" style="width:70%" alt="smi conformance dashboard" /></a> <br />
 <i>Meshery's Service Mesh Interface Conformance Results</i>

@@ -19,7 +19,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { Provider } from 'react-redux';
 import { store } from '../../store';
 import { useGetUserByIdQuery } from '../../rtk-query/user';
-import { MESHERY_CLOUD_PROD } from '../../constants/endpoints';
+import { MESHPLAY_CLOUD_PROD } from '../../constants/endpoints';
 import { keys } from '@/utils/permission_constants';
 import CAN from '@/utils/can';
 
@@ -186,7 +186,7 @@ function FiltersCard_({
                 {name}
               </Typography>
               <div className={classes.cardHeaderRight}>
-                <Link href={`${MESHERY_CLOUD_PROD}/user/${ownerId}`} target="_blank">
+                <Link href={`${MESHPLAY_CLOUD_PROD}/user/${ownerId}`} target="_blank">
                   <Avatar alt="profile-avatar" src={owner?.avatar_url} />
                 </Link>
                 <Tooltip title="Enter Fullscreen" arrow interactive placement="top">

@@ -9,16 +9,16 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	helpers "github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/layer5io/meshery/server/machines"
-	"github.com/layer5io/meshery/server/models"
+	helpers "github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/machines"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/encoding"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 	"github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
 	"github.com/spf13/viper"
@@ -171,7 +171,7 @@ func getConnectionPayload(connType, objName, objID string, identifier interface{
 func (arh *AutoRegistrationHelper) getConnectionDefinitions(connType string) []component.ComponentDefinition {
 	connectionCompFilter := &regv1beta1.ComponentFilter{
 		Name:       fmt.Sprintf("%sConnection", connType),
-		APIVersion: "meshery.layer5.io/v1beta1",
+		APIVersion: "meshplay.layer5.io/v1beta1",
 		Greedy:     true,
 	}
 

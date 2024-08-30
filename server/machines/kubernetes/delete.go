@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/machines"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/machines"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	"github.com/sirupsen/logrus"
@@ -26,7 +26,7 @@ func (da *DeleteAction) Execute(ctx context.Context, machineCtx interface{}, dat
 		logLevel = int(logrus.DebugLevel)
 	}
 	// Initialize Logger instance
-	log, err := logger.New("meshery", logger.Options{
+	log, err := logger.New("meshplay", logger.Options{
 		Format:   logger.SyslogLogFormat,
 		LogLevel: logLevel,
 	})

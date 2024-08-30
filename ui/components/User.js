@@ -226,8 +226,8 @@ const User = (props) => {
                         onClick={handlePreference}
                         // disabled={
                         //   !CAN(
-                        //     keys.VIEW_MESHERY_USER_PREFERENCES.action,
-                        //     keys.VIEW_MESHERY_USER_PREFERENCES.subject,
+                        //     keys.VIEW_MESHPLAY_USER_PREFERENCES.action,
+                        //     keys.VIEW_MESHPLAY_USER_PREFERENCES.subject,
                         //   )
                         // }
                       >

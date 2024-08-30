@@ -27,7 +27,7 @@ import Header from '../components/Header';
 import MesheryProgressBar from '../components/MesheryProgressBar';
 import Navigator from '../components/Navigator';
 import getPageContext from '../components/PageContext';
-import { MESHERY_CONTROLLER_SUBSCRIPTION } from '../components/subscription/helpers';
+import { MESHPLAY_CONTROLLER_SUBSCRIPTION } from '../components/subscription/helpers';
 import { GQLSubscription } from '../components/subscription/subscriptionhandler';
 import dataFetch, { promisifiedDataFetch } from '../lib/data-fetch';
 import {
@@ -136,7 +136,7 @@ const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
       >
         <span onClick={handleL5CommunityClick} className={classes.footerText}>
           {capabilitiesRegistry?.restrictedAccess?.isMesheryUiRestricted ? (
-            'ACCESS LIMITED IN MESHERY PLAYGROUND. DEPLOY MESHERY TO ACCESS ALL FEATURES.'
+            'ACCESS LIMITED IN MESHPLAY PLAYGROUND. DEPLOY MESHPLAY TO ACCESS ALL FEATURES.'
           ) : (
             <>
               {' '}
@@ -382,7 +382,7 @@ class MesheryApp extends App {
 
   initSubscriptions = (contexts) => {
     const mesheryControllerSubscription = new GQLSubscription({
-      type: MESHERY_CONTROLLER_SUBSCRIPTION,
+      type: MESHPLAY_CONTROLLER_SUBSCRIPTION,
       connectionIDs: getConnectionIDsFromContextIds(contexts, this.props.k8sConfig),
       callbackFunction: (data) => {
         this.props.store.dispatch({

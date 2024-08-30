@@ -67,7 +67,7 @@ Read through the following considerations prior to deploying Meshery on GKE.
 2. If you are using a LoadBalancer, please refer to the [LoadBalancer]({{ site.baseurl }}/installation/kubernetes#exposing-meshery-serviceloadbalancer) guide for detailed instructions.
 3. Customize your Meshery Provider Callback URL. Meshery Server supports customizing authentication flow callback URL, which can be configured in the following way:
 
-{% capture code_content %}$ MESHERY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start{% endcapture %}
+{% capture code_content %}$ MESHPLAY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start{% endcapture %}
 {% include code.html code=code_content %}
 
 Meshery should now be running in your GKE cluster and Meshery UI should be accessible at the `EXTERNAL IP` of `meshery` service.

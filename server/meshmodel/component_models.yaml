@@ -32156,10 +32156,10 @@
   verified_publisher: false
   official: false
   cncf: false
-- name: meshery
-  repository: meshery
+- name: meshplay
+  repository: meshplay
   version: 0.6.66
-  repo_url: https://meshery.io/charts/
+  repo_url: https://meshplay.io/charts/
   verified_publisher: false
   official: false
   cncf: false
@@ -38400,7 +38400,7 @@
   verified_publisher: true
   official: false
   cncf: false
-- name: meshery
+- name: meshplay
   repository: wener
   version: 0.6.65
   repo_url: https://wenerme.github.io/charts
@@ -53982,7 +53982,7 @@
   verified_publisher: false
   official: false
   cncf: false
-- name: meshery
+- name: meshplay
   repository: wenerme
   version: 0.6.65
   repo_url: https://charts.wener.tech
@@ -68493,10 +68493,10 @@
   verified_publisher: true
   official: false
   cncf: false
-- name: meshery-operator
-  repository: meshery
+- name: meshplay-operator
+  repository: meshplay
   version: 0.6.66
-  repo_url: https://meshery.io/charts/
+  repo_url: https://meshplay.io/charts/
   verified_publisher: false
   official: false
   cncf: false

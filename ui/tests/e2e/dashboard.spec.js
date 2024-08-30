@@ -2,7 +2,7 @@ const { ENV } = require('./env');
 const { test, expect } = require('./fixtures/pages');
 
 test('Aggregation Charts are displayed', async ({ page }) => {
-  await page.goto(ENV.MESHERY_SERVER_URL);
+  await page.goto(ENV.MESHPLAY_SERVER_URL);
   await expect(
     page.getByRole('heading', {
       name: 'Models by Category',

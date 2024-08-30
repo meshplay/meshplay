@@ -6,7 +6,7 @@ import (
 	"database/sql"
 
 	"github.com/gofrs/uuid"
-	isql "github.com/layer5io/meshery/server/internal/sql"
+	isql "github.com/layer5io/meshplay/server/internal/sql"
 	"github.com/layer5io/meshkit/models/catalog/v1alpha1"
 	"gopkg.in/yaml.v2"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

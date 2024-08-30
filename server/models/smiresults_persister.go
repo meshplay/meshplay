@@ -17,7 +17,7 @@ type SmiResultWithID struct {
 	SmiResult `gorm:"embedded"`
 }
 
-// SmiResultPage - represents a page of meshery results
+// SmiResultPage - represents a page of meshplay results
 type SmiResultPage struct {
 	Page       uint64             `json:"page"`
 	PageSize   uint64             `json:"page_size"`

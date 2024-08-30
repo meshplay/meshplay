@@ -25,7 +25,7 @@ import { formatToTitleCase } from '../../utils/utils';
 
 const DISABLED = 'DISABLED';
 const KUBERNETES = 'kubernetes';
-const MESHERY = 'meshery';
+const MESHPLAY = 'meshery';
 
 const useKubernetesStyles = makeStyles((theme) => ({
   root: {
@@ -348,7 +348,7 @@ const FormatConnectionMetadata = (props) => {
         metadata={connection.metadata}
       />
     ),
-    [MESHERY]: () => <MesheryMetadataFormatter connection={connection} />,
+    [MESHPLAY]: () => <MesheryMetadataFormatter connection={connection} />,
     default: () => (
       <FormatStructuredData
         data={connection.metadata}

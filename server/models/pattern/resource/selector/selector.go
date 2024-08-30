@@ -5,9 +5,9 @@ import (
 )
 
 const (
-	CoreResource = "pattern.meshery.io/core"
-	MeshResource = "pattern.meshery.io/mesh/workload"
-	K8sResource  = "pattern.meshery.io/k8s"
+	CoreResource = "pattern.meshplay.io/core"
+	MeshResource = "pattern.meshplay.io/mesh/workload"
+	K8sResource  = "pattern.meshplay.io/k8s"
 )
 
 type Selector struct {

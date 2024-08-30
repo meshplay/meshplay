@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/machines"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/meshmodel/core"
+	"github.com/layer5io/meshplay/server/machines"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/meshmodel/core"
 	"github.com/layer5io/meshkit/models/events"
 )
 

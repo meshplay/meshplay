@@ -8,17 +8,17 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/layer5io/meshery/server/machines"
-	mhelpers "github.com/layer5io/meshery/server/machines/helpers"
-	"github.com/layer5io/meshery/server/machines/kubernetes"
+	"github.com/layer5io/meshplay/server/machines"
+	mhelpers "github.com/layer5io/meshplay/server/machines/helpers"
+	"github.com/layer5io/meshplay/server/machines/kubernetes"
 
-	"github.com/layer5io/meshery/server/models/connections"
-	mcore "github.com/layer5io/meshery/server/models/meshmodel/core"
+	"github.com/layer5io/meshplay/server/models/connections"
+	mcore "github.com/layer5io/meshplay/server/models/meshmodel/core"
 
 	// for GKE kube API authentication
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/models"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 
 	"github.com/layer5io/meshkit/models/events"
@@ -313,7 +313,7 @@ func (h *Handler) DiscoverK8SContextFromKubeConfig(userID string, token string, 
 	var contexts []*models.K8sContext
 	// userUUID := uuid.FromStringOrNil(userID)
 
-	// Get meshery instance ID
+	// Get meshplay instance ID
 	mid, ok := viper.Get("INSTANCE_ID").(*uuid.UUID)
 	if !ok {
 		return contexts, models.ErrMesheryInstanceID

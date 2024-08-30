@@ -4,21 +4,21 @@ import { ENV } from './env';
 const userPreferenceTests = [
   {
     name: 'Toggle "Meshery Catalog Content"',
-    apiURL: `${ENV.MESHERY_SERVER_URL}/api/user/prefs`,
+    apiURL: `${ENV.MESHPLAY_SERVER_URL}/api/user/prefs`,
     switchLabel: 'Meshery Catalog Content',
     expectedMethod: 'POST',
     expectedStatus: 200,
   },
   {
     name: 'Toggle "Send Anonymous Usage Statistics"',
-    apiURL: `${ENV.MESHERY_SERVER_URL}/api/user/prefs?contexts=all`,
+    apiURL: `${ENV.MESHPLAY_SERVER_URL}/api/user/prefs?contexts=all`,
     switchLabel: 'Send Anonymous Usage Statistics',
     expectedMethod: 'POST',
     expectedStatus: 200,
   },
   {
     name: 'Toggle "Send Anonymous Performance Results"',
-    apiURL: `${ENV.MESHERY_SERVER_URL}/api/user/prefs?contexts=all`,
+    apiURL: `${ENV.MESHPLAY_SERVER_URL}/api/user/prefs?contexts=all`,
     switchLabel: 'Send Anonymous Performance Results',
     expectedMethod: 'POST',
     expectedStatus: 200,
@@ -29,17 +29,17 @@ test.describe('User Preferences Page Tests', () => {
   test.beforeEach(async ({ page }) => {
     const userPrefReq = page.waitForRequest(
       (request) =>
-        request.url().startsWith(`${ENV.MESHERY_SERVER_URL}/api/user/prefs`) &&
+        request.url().startsWith(`${ENV.MESHPLAY_SERVER_URL}/api/user/prefs`) &&
         request.method() === 'GET',
     );
     const userPrefRes = page.waitForResponse(
       (response) =>
-        response.url().startsWith(`${ENV.MESHERY_SERVER_URL}/api/user/prefs`) &&
+        response.url().startsWith(`${ENV.MESHPLAY_SERVER_URL}/api/user/prefs`) &&
         response.status() === 200,
     );
 
     // Visit User Preferences Page
-    await page.goto(`${ENV.MESHERY_SERVER_URL}/user/preferences`);
+    await page.goto(`${ENV.MESHPLAY_SERVER_URL}/user/preferences`);
 
     // Verify requests and responses expected on initial page load
     await userPrefReq;

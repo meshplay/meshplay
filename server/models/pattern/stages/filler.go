@@ -6,10 +6,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/layer5io/meshery/server/models/pattern/utils"
+	"github.com/layer5io/meshplay/server/models/pattern/utils"
 	mutils "github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"
 )
 

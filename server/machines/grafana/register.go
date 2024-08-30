@@ -5,9 +5,9 @@ import (
 	"os"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/machines"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/machines"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	"github.com/layer5io/meshkit/utils"
@@ -26,7 +26,7 @@ func (ra *RegisterAction) Execute(ctx context.Context, machineCtx interface{}, d
 	if viper.GetBool("DEBUG") {
 		logLevel = int(logrus.DebugLevel)
 	}
-	log, err := logger.New("meshery", logger.Options{
+	log, err := logger.New("meshplay", logger.Options{
 		Format:   logger.SyslogLogFormat,
 		LogLevel: logLevel,
 	})

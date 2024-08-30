@@ -7,7 +7,7 @@ import (
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 	"github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 )
 
 const (

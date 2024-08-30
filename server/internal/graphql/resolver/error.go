@@ -5,59 +5,59 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrResolverInvalidRequestCode           = "meshery-server-1184"
-	ErrResolverNilClientCode                = "meshery-server-1185"
-	ErrResolverMeshsyncSubscriptionCode     = "meshery-server-1186"
-	ErrResolverOperatorSubscriptionCode     = "meshery-server-1187"
-	ErrAddonSubscriptionCode                = "meshery-server-1188"
-	ErrResolverControlPlaneSubscriptionCode = "meshery-server-1189"
-	ErrMesheryClientCode                    = "meshery-server-1190"
-	ErrResolverPublishBrokerCode            = "meshery-server-1191"
-	ErrNoMeshSyncCode                       = "meshery-server-1192"
-	ErrDataPlaneSubscriptionCode            = "meshery-server-1193"
-	ErrBrokerNotConnectedCode               = "meshery-server-1194"
-	ErrGettingNamespaceCode                 = "meshery-server-1195"
-	ErrFetchingPatternsCode                 = "meshery-server-1196"
-	ErrInvalidOAMTypeCode                   = "meshery-server-1197"
-	ErrKubectlDescribeCode                  = "meshery-server-1198"
-	ErrEmptyCurrentK8sContextCode           = "meshery-server-1199"
-	ErrConfigurationPatternsCode            = "meshery-server-1200"
-	ErrConfigurationApplicationsCode        = "meshery-server-1201"
-	ErrConfigurationFiltersCode             = "meshery-server-1202"
-	ErrK8sContextCode                       = "meshery-server-1203"
-	ErrClusterResourcesSubscriptionCode     = "meshery-server-1204"
-	ErrGettingClusterResourcesCode          = "meshery-server-1205"
-	ErrMeshModelSummarySubscriptionCode     = "meshery-server-1206"
-	ErrGettingMeshModelSummaryCode          = "meshery-server-1207"
-	ErrGettingRegistryManagerCode           = "meshery-server-1208"
-	ErrGettingTelemetryComponentsCode       = "meshery-server-1209"
-	ErrAdapterInsufficientInformationCode   = "meshery-server-1210"
-	ErrPerformanceProfilesSubscriptionCode  = "meshery-server-1211"
-	ErrPerformanceResultSubscriptionCode    = "meshery-server-1212"
-	ErrGormDatabaseCode                     = "meshery-server-1213"
+	ErrResolverInvalidRequestCode           = "meshplay-server-1184"
+	ErrResolverNilClientCode                = "meshplay-server-1185"
+	ErrResolverMeshsyncSubscriptionCode     = "meshplay-server-1186"
+	ErrResolverOperatorSubscriptionCode     = "meshplay-server-1187"
+	ErrAddonSubscriptionCode                = "meshplay-server-1188"
+	ErrResolverControlPlaneSubscriptionCode = "meshplay-server-1189"
+	ErrMesheryClientCode                    = "meshplay-server-1190"
+	ErrResolverPublishBrokerCode            = "meshplay-server-1191"
+	ErrNoMeshSyncCode                       = "meshplay-server-1192"
+	ErrDataPlaneSubscriptionCode            = "meshplay-server-1193"
+	ErrBrokerNotConnectedCode               = "meshplay-server-1194"
+	ErrGettingNamespaceCode                 = "meshplay-server-1195"
+	ErrFetchingPatternsCode                 = "meshplay-server-1196"
+	ErrInvalidOAMTypeCode                   = "meshplay-server-1197"
+	ErrKubectlDescribeCode                  = "meshplay-server-1198"
+	ErrEmptyCurrentK8sContextCode           = "meshplay-server-1199"
+	ErrConfigurationPatternsCode            = "meshplay-server-1200"
+	ErrConfigurationApplicationsCode        = "meshplay-server-1201"
+	ErrConfigurationFiltersCode             = "meshplay-server-1202"
+	ErrK8sContextCode                       = "meshplay-server-1203"
+	ErrClusterResourcesSubscriptionCode     = "meshplay-server-1204"
+	ErrGettingClusterResourcesCode          = "meshplay-server-1205"
+	ErrMeshModelSummarySubscriptionCode     = "meshplay-server-1206"
+	ErrGettingMeshModelSummaryCode          = "meshplay-server-1207"
+	ErrGettingRegistryManagerCode           = "meshplay-server-1208"
+	ErrGettingTelemetryComponentsCode       = "meshplay-server-1209"
+	ErrAdapterInsufficientInformationCode   = "meshplay-server-1210"
+	ErrPerformanceProfilesSubscriptionCode  = "meshplay-server-1211"
+	ErrPerformanceResultSubscriptionCode    = "meshplay-server-1212"
+	ErrGormDatabaseCode                     = "meshplay-server-1213"
 )
 
 var (
 	ErrNilClient              = errors.New(ErrResolverNilClientCode, errors.Alert, []string{"Kubernetes client not initialized"}, []string{"Kubernetes config is not initialized with Meshery"}, []string{}, []string{"Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"})
 	ErrInvalidRequest         = errors.New(ErrResolverInvalidRequestCode, errors.Alert, []string{"Invalid query, please check syntax"}, []string{"The Graphql query requested is invalid"}, []string{}, []string{"Check the query parameters and syntax of the query being run"})
-	ErrNoMeshSync             = errors.New(ErrNoMeshSyncCode, errors.Alert, []string{"MeshSync disabled"}, []string{"MeshSync custom controller is not running in your kubernetes cluster"}, []string{"Meshery Operator is not running in your cluster or is crashing"}, []string{"Enable Meshery Operator from the settings page in the UI", "Check for logs in the meshery-operator pods from inside the application for more information"})
+	ErrNoMeshSync             = errors.New(ErrNoMeshSyncCode, errors.Alert, []string{"MeshSync disabled"}, []string{"MeshSync custom controller is not running in your kubernetes cluster"}, []string{"Meshery Operator is not running in your cluster or is crashing"}, []string{"Enable Meshery Operator from the settings page in the UI", "Check for logs in the meshplay-operator pods from inside the application for more information"})
 	ErrBrokerNotConnected     = errors.New(ErrBrokerNotConnectedCode, errors.Alert, []string{"Broker not connected"}, []string{"Meshery Broker is not connected to Meshery Server"}, []string{"Meshery Broker is crashed or not reachable"}, []string{"Restart Meshery Server", "Please check if Meshery server has access to the Broker"})
 	ErrEmptyCurrentK8sContext = errors.New(ErrEmptyCurrentK8sContextCode, errors.Alert, []string{"Current kubernetes context is empty"}, []string{"Meshery is not able to get the current kubernetes context"}, []string{"Meshery is crashed or not reachable"}, []string{"Restart Meshery Server", "Please check if Meshery server is accessible to the Database"})
 )
 
 func ErrMeshsyncSubscription(err error) error {
-	return errors.New(ErrResolverMeshsyncSubscriptionCode, errors.Alert, []string{"MeshSync Subscription failed", err.Error()}, []string{"GraphQL subscription for MeshSync stopped"}, []string{"Could be a network issue"}, []string{"Check if meshery server is reachable from the browser"})
+	return errors.New(ErrResolverMeshsyncSubscriptionCode, errors.Alert, []string{"MeshSync Subscription failed", err.Error()}, []string{"GraphQL subscription for MeshSync stopped"}, []string{"Could be a network issue"}, []string{"Check if meshplay server is reachable from the browser"})
 }
 
 func ErrOperatorSubscription(err error) error {
-	return errors.New(ErrResolverOperatorSubscriptionCode, errors.Alert, []string{"Operator Subscription failed", err.Error()}, []string{"GraphQL subscription for Operator stopped"}, []string{"Could be a network issue"}, []string{"Check if meshery server is reachable from the browser"})
+	return errors.New(ErrResolverOperatorSubscriptionCode, errors.Alert, []string{"Operator Subscription failed", err.Error()}, []string{"GraphQL subscription for Operator stopped"}, []string{"Could be a network issue"}, []string{"Check if meshplay server is reachable from the browser"})
 }
 
 func ErrAddonSubscription(err error) error {
-	return errors.New(ErrAddonSubscriptionCode, errors.Alert, []string{"Addons Subscription failed", err.Error()}, []string{"GraphQL subscription for Addons stopped"}, []string{"Could be a network issue"}, []string{"Check if meshery server is reachable from the browser"})
+	return errors.New(ErrAddonSubscriptionCode, errors.Alert, []string{"Addons Subscription failed", err.Error()}, []string{"GraphQL subscription for Addons stopped"}, []string{"Could be a network issue"}, []string{"Check if meshplay server is reachable from the browser"})
 }
 
 func ErrPerformanceProfilesSubscription(err error) error {
@@ -77,7 +77,7 @@ func ErrControlPlaneSubscription(err error) error {
 }
 
 func ErrDataPlaneSubscription(err error) error {
-	return errors.New(ErrDataPlaneSubscriptionCode, errors.Alert, []string{"Data Plane Subscription failed", err.Error()}, []string{"GraphQL subscription for Data Plane stopped"}, []string{"Could be a network issue"}, []string{"Check if meshery server is reachable from the browser"})
+	return errors.New(ErrDataPlaneSubscriptionCode, errors.Alert, []string{"Data Plane Subscription failed", err.Error()}, []string{"GraphQL subscription for Data Plane stopped"}, []string{"Could be a network issue"}, []string{"Check if meshplay server is reachable from the browser"})
 }
 
 func ErrPublishBroker(err error) error {

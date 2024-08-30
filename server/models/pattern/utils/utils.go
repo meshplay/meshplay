@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/layer5io/meshkit/encoding"
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1"
 )
 
 // RecursiveCastMapStringInterfaceToMapStringInterface will convert a

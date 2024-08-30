@@ -19,9 +19,9 @@ import (
 	yaml "github.com/ghodss/yaml"
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/models"
 	SMP "github.com/layer5io/service-mesh-performance/spec"
 	"github.com/pkg/errors"
 	corev1 "k8s.io/api/core/v1"
@@ -377,8 +377,8 @@ func (h *Handler) loadTestHelperHandler(w http.ResponseWriter, req *http.Request
 		for data := range respChan {
 			bd, err := json.Marshal(data)
 			if err != nil {
-				h.log.Error(models.ErrMarshal(err, "meshery result for shipping"))
-				http.Error(w, models.ErrMarshal(err, "meshery result for shipping").Error(), http.StatusInternalServerError)
+				h.log.Error(models.ErrMarshal(err, "meshplay result for shipping"))
+				http.Error(w, models.ErrMarshal(err, "meshplay result for shipping").Error(), http.StatusInternalServerError)
 				return
 			}
 

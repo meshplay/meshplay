@@ -13,7 +13,7 @@ type MesheryResultsPersister struct {
 	DB *database.Handler
 }
 
-// MesheryResultPage - represents a page of meshery results
+// MesheryResultPage - represents a page of meshplay results
 type MesheryResultPage struct {
 	Page       uint64           `json:"page"`
 	PageSize   uint64           `json:"page_size"`
@@ -22,7 +22,7 @@ type MesheryResultPage struct {
 }
 
 type localMesheryResultDBRepresentation struct {
-	ID                 uuid.UUID  `json:"meshery_id,omitempty"`
+	ID                 uuid.UUID  `json:"meshplay_id,omitempty"`
 	Name               string     `json:"name,omitempty"`
 	Mesh               string     `json:"mesh,omitempty"`
 	PerformanceProfile *uuid.UUID `json:"performance_profile,omitempty"`
@@ -40,7 +40,7 @@ func (mrp *MesheryResultsPersister) GetResults(page, pageSize uint64, profileID 
 	var count int64
 	query := mrp.DB.Where("performance_profile = ?", profileID)
 
-	err := query.Table("meshery_results").Count(&count).Error
+	err := query.Table("meshplay_results").Count(&count).Error
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (mrp *MesheryResultsPersister) GetResults(page, pageSize uint64, profileID 
 func (mrp *MesheryResultsPersister) GetAllResults(page, pageSize uint64, log logger.Handler) ([]byte, error) {
 	var res []*localMesheryResultDBRepresentation
 	var count int64
-	query := mrp.DB.Table("meshery_results")
+	query := mrp.DB.Table("meshplay_results")
 
 	err := query.Count(&count).Error
 	if err != nil {
@@ -80,7 +80,7 @@ func (mrp *MesheryResultsPersister) GetAllResults(page, pageSize uint64, log log
 func (mrp *MesheryResultsPersister) GetResult(key uuid.UUID, log logger.Handler) (*MesheryResult, error) {
 	var lres localMesheryResultDBRepresentation
 
-	err := mrp.DB.Table("meshery_results").Find(&lres).Where("id = ?", key).Error
+	err := mrp.DB.Table("meshplay_results").Find(&lres).Where("id = ?", key).Error
 	res := convertLocalRepresentationToMesheryResult(&lres, log)
 	return res, err
 }
@@ -95,7 +95,7 @@ func (mrp *MesheryResultsPersister) WriteResult(key uuid.UUID, result []byte) er
 
 	t := time.Now()
 	data.TestStartTime = &t
-	return mrp.DB.Table("meshery_results").Save(convertMesheryResultToLocalRepresentation(&data)).Error
+	return mrp.DB.Table("meshplay_results").Save(convertMesheryResultToLocalRepresentation(&data)).Error
 }
 
 func marshalMesheryResultsPage(mrp *MesheryResultPage) []byte {

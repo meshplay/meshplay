@@ -46,8 +46,8 @@ Some portions of the workflow require secrets to accomplish their tasks. These s
 - `INTEGRATION_SPREADSHEET_CRED`: Credentials for integration spreadsheet access
 - `MAIL_PASSWORD`: Password for email notifications
 - `MAIL_USERNAME`: Username for email notifications
-- `MESHERY_PROVIDER_TOKEN`: Token for Meshery provider authentication
-- `MESHERY_TOKEN`: General Meshery authentication token
+- `MESHPLAY_PROVIDER_TOKEN`: Token for Meshery provider authentication
+- `MESHPLAY_TOKEN`: General Meshery authentication token
 - `METAL_AUTH_TOKEN`: Authentication token for metal provider
 - `METAL_SERVER1`: Configuration for metal server 1
 - `METAL_SERVER2`: Configuration for metal server 2

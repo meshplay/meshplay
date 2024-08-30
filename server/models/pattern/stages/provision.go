@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/models/pattern/core"
-	"github.com/layer5io/meshery/server/models/pattern/planner"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models/pattern/planner"
 	"github.com/layer5io/meshkit/logger"
 	models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"
 
 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/connection"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 )
 
 type CompConfigPair struct {

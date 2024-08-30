@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 )
 
 func getAdapterInformationByName(adapterName string) *models.Adapter {

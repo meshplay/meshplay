@@ -1,4 +1,4 @@
-const MESHERY_SERVER_URL = process.env.MESHERY_SERVER_URL || 'http://localhost:9081';
+const MESHPLAY_SERVER_URL = process.env.MESHPLAY_SERVER_URL || 'http://localhost:9081';
 const REMOTE_PROVIDER_URL = process.env.REMOTE_PROVIDER_URL || 'https://staging-meshery.layer5.io';
 
 const USER_EMAIL = process.env.REMOTE_PROVIDER_USER_EMAIL;
@@ -8,7 +8,7 @@ const REMOTE_PROVIDER_USER = {
   email: USER_EMAIL || 'test-admin@layer5.io',
   password: USER_PASSWORD || 'test-admin',
 };
-const PROVIDER_SELECTION_URL = `${MESHERY_SERVER_URL}/provider`;
+const PROVIDER_SELECTION_URL = `${MESHPLAY_SERVER_URL}/provider`;
 const PROVIDER_TOKEN = process.env.PROVIDER_TOKEN;
 
 if (process.env.CI) {
@@ -42,7 +42,7 @@ if (process.env.CI) {
 const AUTHFILE = 'playwright/.auth/user.json';
 
 export const ENV = {
-  MESHERY_SERVER_URL,
+  MESHPLAY_SERVER_URL,
   PROVIDER_SELECTION_URL,
   REMOTE_PROVIDER_URL,
   REMOTE_PROVIDER_USER,

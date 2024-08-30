@@ -11,7 +11,7 @@ const getTokenFromAuthFile = () => {
 };
 
 export async function fetchData(endpoint, method = 'GET', body = null) {
-  const url = `${ENV.MESHERY_SERVER_URL}/api${endpoint}`;
+  const url = `${ENV.MESHPLAY_SERVER_URL}/api${endpoint}`;
   const yourToken = ENV.PROVIDER_TOKEN;
   const token = yourToken || getTokenFromAuthFile();
   const urlWithoutProtocol = new URL(ENV.REMOTE_PROVIDER_URL).host;

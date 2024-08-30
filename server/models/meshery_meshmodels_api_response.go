@@ -3,8 +3,8 @@ package models
 import (
 	models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"
 	"github.com/layer5io/meshkit/models/meshmodel/entity"
-	"github.com/meshery/schemas/models/v1beta1/model"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 )
 
 // API response model for meshmodel models API

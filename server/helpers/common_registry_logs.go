@@ -8,11 +8,11 @@ import (
 
 	"github.com/gofrs/uuid"
 	gofrs "github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/models"
 	mutils "github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1alpha3/relationship"
-	"github.com/meshery/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1alpha3/relationship"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
 
 	"github.com/spf13/viper"
 
@@ -173,7 +173,7 @@ func FailedMsgCompute(failedMsg string, hostName string) (string, error) {
 	return failedMsg, nil
 }
 
-func FailedEventCompute(hostname string, mesheryInstanceID gofrs.UUID, provider *models.Provider, userID string, ec *models.Broadcast) (string, error) {
+func FailedEventCompute(hostname string, meshplayInstanceID gofrs.UUID, provider *models.Provider, userID string, ec *models.Broadcast) (string, error) {
 
 	failedMsg, err := FailedMsgCompute("", hostname)
 	if err != nil {
@@ -181,12 +181,12 @@ func FailedEventCompute(hostname string, mesheryInstanceID gofrs.UUID, provider 
 	}
 	if failedMsg != "" {
 		filePath := viper.GetString("REGISTRY_LOG_FILE")
-		errorEventBuilder := events.NewEvent().FromUser(mesheryInstanceID).FromSystem(mesheryInstanceID).WithCategory("registration").WithAction("get_summary")
+		errorEventBuilder := events.NewEvent().FromUser(meshplayInstanceID).FromSystem(meshplayInstanceID).WithCategory("registration").WithAction("get_summary")
 		errorEventBuilder.WithSeverity(events.Error).WithDescription(failedMsg)
 		errorEvent := errorEventBuilder.Build()
 		errorEventBuilder.WithMetadata(map[string]interface{}{
 			"LongDescription":      fmt.Sprintf("One or more entities failed to register. The import process for registrant, %s, encountered the following issue: %s.", hostname, failedMsg),
-			"SuggestedRemediation": fmt.Sprintf("Open Meshery Error Reference with error code %s", "https://docs.meshery.io/reference/error-codes"),
+			"SuggestedRemediation": fmt.Sprintf("Open Meshery Error Reference with error code %s", "https://docs.meshplay.io/reference/error-codes"),
 			"DownloadLink":         filePath,
 			"ViewLink":             filePath,
 		})

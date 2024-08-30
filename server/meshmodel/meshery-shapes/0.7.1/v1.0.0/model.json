@@ -15,7 +15,7 @@
   "model": {
     "version": "0.7.1"
   },
-  "name": "meshery-shapes",
+  "name": "meshplay-shapes",
   "registrant": {
     "created_at": "0001-01-01T00:00:00Z",
     "credential_id": "00000000-0000-0000-0000-000000000000",
@@ -30,7 +30,7 @@
     "user_id": "00000000-0000-0000-0000-000000000000"
   },
   "connection_id": "00000000-0000-0000-0000-000000000000",
-  "schemaVersion": "models.meshery.io/v1beta1",
+  "schemaVersion": "models.meshplay.io/v1beta1",
   "status": "enabled",
   "subCategory": "App Definition and Development",
   "version": "v1.0.0",

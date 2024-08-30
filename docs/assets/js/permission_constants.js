@@ -273,7 +273,7 @@ export const keys = {
     subject: 'View Extensions',
     action: 'c1330df4-1bbe-4d5d-8828-f4bd9ee989e5',
   },
-  VIEW_MESHERY_USER_PREFERENCES: {
+  VIEW_MESHPLAY_USER_PREFERENCES: {
     subject: 'View Meshery User Preferences',
     action: 'cdec6212-bbbf-4cab-b10d-76d12bee7e56',
   },

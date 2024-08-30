@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1"
 	"gorm.io/gorm"
 )
 
@@ -22,7 +22,7 @@ type EnvironmentPersister struct {
 
 func (ep *EnvironmentPersister) fetchUserDetails() *User {
 	return &User{
-		UserID:    "meshery",
+		UserID:    "meshplay",
 		FirstName: "Meshery",
 		LastName:  "Meshery",
 		AvatarURL: "",

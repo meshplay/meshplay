@@ -17,7 +17,7 @@ import (
 	"github.com/layer5io/meshkit/encoding"
 	"github.com/layer5io/meshkit/utils"
 
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -25,10 +25,10 @@ import (
 )
 
 const (
-	HelmChartURL          = "https://meshery.io/charts/"
-	HelmChartName         = "meshery"
-	HelmChartOperatorName = "meshery-operator"
-	MesheryFolder         = ".meshery"
+	HelmChartURL          = "https://meshplay.io/charts/"
+	HelmChartName         = "meshplay"
+	HelmChartOperatorName = "meshplay-operator"
+	MesheryFolder         = ".meshplay"
 	ManifestsFolder       = "manifests"
 )
 

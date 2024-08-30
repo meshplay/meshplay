@@ -5,12 +5,12 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/meshmodel/entity"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	regv1alpha3 "github.com/layer5io/meshkit/models/meshmodel/registry/v1alpha3"
-	"github.com/meshery/schemas/models/v1alpha3/relationship"
+	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 )
 
 // swagger:route GET /api/meshmodels/models/{model}/relationships/{name} GetMeshmodelRelationshipByName idGetMeshmodelRelationshipByName

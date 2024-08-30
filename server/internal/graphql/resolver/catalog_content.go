@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 )
 
-// CatalogPatternPage - represents a page of meshery patterns
+// CatalogPatternPage - represents a page of meshplay patterns
 type catalogPatternPage struct {
 	Page       int                     `json:"page"`
 	PageSize   int                     `json:"page_size"`
@@ -16,7 +16,7 @@ type catalogPatternPage struct {
 	Patterns   []*model.CatalogPattern `json:"patterns"`
 }
 
-// CatalogFilterPage - represents a page of meshery filters
+// CatalogFilterPage - represents a page of meshplay filters
 type catalogFilterPage struct {
 	Page       int                    `json:"page"`
 	PageSize   int                    `json:"page_size"`

@@ -21,8 +21,8 @@ import (
 )
 
 const (
-	// Stores meshery provider related info.
-	ProviderCookieName = "meshery-provider"
+	// Stores meshplay provider related info.
+	ProviderCookieName = "meshplay-provider"
 
 	// Stores the JWT issued by the remote provider to provide secure access to its API
 	TokenCookieName = "token"

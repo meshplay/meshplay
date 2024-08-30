@@ -30,7 +30,7 @@ func (s *MapPreferencePersister) ReadFromPersister(userID string) (*Preference, 
 	if viper.GetBool("DEBUG") {
 		logLevel = int(logrus.DebugLevel)
 	}
-	log, err := logger.New("meshery", logger.Options{
+	log, err := logger.New("meshplay", logger.Options{
 		Format:   logger.SyslogLogFormat,
 		LogLevel: logLevel,
 	})

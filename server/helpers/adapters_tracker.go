@@ -14,8 +14,8 @@ import (
 	"github.com/docker/docker/api/types/network"
 	"github.com/docker/docker/client"
 	"github.com/docker/go-connections/nat"
-	"github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/models"
 	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
 	"github.com/spf13/viper"
 )
@@ -85,10 +85,10 @@ func (a *AdaptersTracker) DeployAdapter(ctx context.Context, adapter models.Adap
 		if err != nil {
 			return ErrDeployingAdapterInDocker(err)
 		}
-		var mesheryNetworkSettings *types.SummaryNetworkSettings
+		var meshplayNetworkSettings *types.SummaryNetworkSettings
 		for _, container := range containers {
-			if strings.Contains(container.Image, "layer5/meshery") {
-				mesheryNetworkSettings = container.NetworkSettings
+			if strings.Contains(container.Image, "layer5/meshplay") {
+				meshplayNetworkSettings = container.NetworkSettings
 			}
 		}
 
@@ -106,11 +106,11 @@ func (a *AdaptersTracker) DeployAdapter(ctx context.Context, adapter models.Adap
 			return ErrDeployingAdapterInDocker(err)
 		}
 
-		if mesheryNetworkSettings == nil {
-			return ErrDeployingAdapterInDocker(fmt.Errorf("meshery network not found"))
+		if meshplayNetworkSettings == nil {
+			return ErrDeployingAdapterInDocker(fmt.Errorf("meshplay network not found"))
 		}
 
-		for netName := range mesheryNetworkSettings.Networks {
+		for netName := range meshplayNetworkSettings.Networks {
 			nets, err := cli.NetworkList(ctx, types.NetworkListOptions{})
 			if err != nil {
 				return ErrDeployingAdapterInDocker(err)
@@ -118,7 +118,7 @@ func (a *AdaptersTracker) DeployAdapter(ctx context.Context, adapter models.Adap
 			for _, net := range nets {
 				if net.Name == netName {
 					// Create and start the container
-					portNum := strings.Split(adapter.Location, ":")[1] // eg: for location=meshery-istio:10000, portNum=10000
+					portNum := strings.Split(adapter.Location, ":")[1] // eg: for location=meshplay-istio:10000, portNum=10000
 					port := nat.Port(portNum + "/tcp")
 					adapterContainerCreatedBody, err := cli.ContainerCreate(ctx, &container.Config{
 						Image: adapterImage,
@@ -185,8 +185,8 @@ func (a *AdaptersTracker) DeployAdapter(ctx context.Context, adapter models.Adap
 
 		overrideValues := models.SetOverrideValuesForMesheryDeploy(a.GetAdapters(ctx), adapter, true)
 		err = kubeclient.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
-			Namespace:       "meshery",
-			ReleaseName:     "meshery",
+			Namespace:       "meshplay",
+			ReleaseName:     "meshplay",
 			CreateNamespace: true,
 			ChartLocation: meshkitkube.HelmChartLocation{
 				Repository: utils.HelmChartURL,
@@ -275,8 +275,8 @@ func (a *AdaptersTracker) UndeployAdapter(ctx context.Context, adapter models.Ad
 
 		overrideValues := models.SetOverrideValuesForMesheryDeploy(a.GetAdapters(ctx), adapter, false)
 		err = kubeclient.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
-			Namespace:       "meshery",
-			ReleaseName:     "meshery",
+			Namespace:       "meshplay",
+			ReleaseName:     "meshplay",
 			CreateNamespace: true,
 			ChartLocation: meshkitkube.HelmChartLocation{
 				Repository: utils.HelmChartURL,

@@ -3,23 +3,23 @@ package main
 import "github.com/layer5io/meshkit/errors"
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrCreatingUUIDInstanceCode                   = "meshery-server-1001"
-	ErrRegisteringMesheryOAMTraitsCode            = "meshery-server-1002"
-	ErrRegisteringMesheryOAMWorkloadsCode         = "meshery-server-1003"
-	ErrRetrievingUserHomeDirectoryCode            = "meshery-server-1004"
-	ErrCreatingUserDataDirectoryCode              = "meshery-server-1005"
-	ErrCreatingMapPreferencePersisterInstanceCode = "meshery-server-1006"
-	ErrDatabaseAutoMigrationCode                  = "meshery-server-1007"
-	ErrInvalidURLSkippingProviderCode             = "meshery-server-1008"
-	ErrListenAndServeCode                         = "meshery-server-1009"
-	ErrCleaningUpLocalProviderCode                = "meshery-server-1010"
-	ErrClosingDatabaseInstanceCode                = "meshery-server-1011"
-	ErrInitializingRegistryManagerCode            = "meshery-server-1012"
-	ErrInitializingKeysRegistrationCode           = "meshery-server-1013"
-	ErrCreatingOPAInstanceCode                    = "meshery-server-1323"
+	ErrCreatingUUIDInstanceCode                   = "meshplay-server-1001"
+	ErrRegisteringMesheryOAMTraitsCode            = "meshplay-server-1002"
+	ErrRegisteringMesheryOAMWorkloadsCode         = "meshplay-server-1003"
+	ErrRetrievingUserHomeDirectoryCode            = "meshplay-server-1004"
+	ErrCreatingUserDataDirectoryCode              = "meshplay-server-1005"
+	ErrCreatingMapPreferencePersisterInstanceCode = "meshplay-server-1006"
+	ErrDatabaseAutoMigrationCode                  = "meshplay-server-1007"
+	ErrInvalidURLSkippingProviderCode             = "meshplay-server-1008"
+	ErrListenAndServeCode                         = "meshplay-server-1009"
+	ErrCleaningUpLocalProviderCode                = "meshplay-server-1010"
+	ErrClosingDatabaseInstanceCode                = "meshplay-server-1011"
+	ErrInitializingRegistryManagerCode            = "meshplay-server-1012"
+	ErrInitializingKeysRegistrationCode           = "meshplay-server-1013"
+	ErrCreatingOPAInstanceCode                    = "meshplay-server-1323"
 )
 
 func ErrInitializingRegistryManager(err error) error {

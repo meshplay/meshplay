@@ -7,7 +7,7 @@ import (
 )
 
 // PatternResource represents a pattern resource that is provisioned
-// by meshery
+// by meshplay
 type PatternResource struct {
 	ID        *uuid.UUID `json:"id,omitempty"`
 	UserID    *uuid.UUID `json:"user_id,omitempty"`

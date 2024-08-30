@@ -4,10 +4,10 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 )
 
 func (r *Resolver) getTelemetryComps(ctx context.Context, provider models.Provider, k8sContextIDs []string) ([]*model.TelemetryComp, error) {

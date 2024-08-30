@@ -21,13 +21,13 @@ import (
 	"github.com/gofrs/uuid"
 	guid "github.com/google/uuid"
 	"github.com/gorilla/mux"
-	helpers "github.com/layer5io/meshery/server/helpers/utils"
-	isql "github.com/layer5io/meshery/server/internal/sql"
-	"github.com/layer5io/meshery/server/meshes"
-	"github.com/layer5io/meshery/server/models"
-	pCore "github.com/layer5io/meshery/server/models/pattern/core"
-	"github.com/layer5io/meshery/server/models/pattern/resource/selector"
-	patternutils "github.com/layer5io/meshery/server/models/pattern/utils"
+	helpers "github.com/layer5io/meshplay/server/helpers/utils"
+	isql "github.com/layer5io/meshplay/server/internal/sql"
+	"github.com/layer5io/meshplay/server/meshes"
+	"github.com/layer5io/meshplay/server/models"
+	pCore "github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models/pattern/resource/selector"
+	patternutils "github.com/layer5io/meshplay/server/models/pattern/utils"
 	"github.com/layer5io/meshkit/encoding"
 	"github.com/layer5io/meshkit/errors"
 	_errors "github.com/pkg/errors"
@@ -44,10 +44,10 @@ import (
 	"github.com/layer5io/meshkit/utils/walker"
 
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
-	"github.com/meshery/schemas/models/v1alpha2"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/connection"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1alpha2"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"gopkg.in/yaml.v2"
 )
 
@@ -58,7 +58,7 @@ type MesheryPatternPOSTRequestBody struct {
 	URL           string                 `json:"url,omitempty"`
 	Path          string                 `json:"path,omitempty"`
 	Save          bool                   `json:"save,omitempty"`
-	PatternData   *mesheryPatternPayload `json:"pattern_data,omitempty"`
+	PatternData   *meshplayPatternPayload `json:"pattern_data,omitempty"`
 	CytoscapeJSON string                 `json:"cytoscape_json,omitempty"`
 }
 
@@ -71,7 +71,7 @@ type MesheryPatternUPDATERequestBody struct {
 	CytoscapeJSON string                 `json:"cytoscape_json,omitempty"`
 }
 
-type mesheryPatternPayload struct {
+type meshplayPatternPayload struct {
 	ID *uuid.UUID `json:"id,omitempty"`
 
 	Name        string `json:"name,omitempty"`
@@ -111,9 +111,9 @@ func (h *Handler) PatternFileRequestHandler(
 // swagger:route POST /api/pattern PatternsAPI idPostPatternFile
 // Handle POST requests for patterns
 //
-// Edit/update a meshery pattern
+// Edit/update a meshplay pattern
 // responses:
-// 	200: mesheryPatternResponseWrapper
+// 	200: meshplayPatternResponseWrapper
 
 func (h *Handler) handlePatternPOST(
 	rw http.ResponseWriter,
@@ -168,11 +168,11 @@ func (h *Handler) handlePatternPOST(
 	}
 
 	format := r.URL.Query().Get("output")
-	mesheryPattern := &models.MesheryPattern{} // pattern to be saved in the database
+	meshplayPattern := &models.MesheryPattern{} // pattern to be saved in the database
 
 	// If Content is not empty then assume it's a local upload
 	if parsedBody.PatternData != nil {
-		mesheryPattern.Name = parsedBody.PatternData.Name
+		meshplayPattern.Name = parsedBody.PatternData.Name
 		// Assign a location if no location is specified
 		if parsedBody.PatternData.Location == nil {
 			parsedBody.PatternData.Location = map[string]interface{}{
@@ -185,7 +185,7 @@ func (h *Handler) handlePatternPOST(
 
 		bytPattern := parsedBody.PatternData.PatternFile
 		fileName := parsedBody.PatternData.FileName
-		mesheryPattern.SourceContent = bytPattern
+		meshplayPattern.SourceContent = bytPattern
 		if sourcetype == string(models.DockerCompose) || sourcetype == string(models.K8sManifest) {
 			var k8sres string
 			if sourcetype == string(models.DockerCompose) {
@@ -194,7 +194,7 @@ func (h *Handler) handlePatternPOST(
 					h.log.Error(ErrConvertingDockerComposeToDesign(err))
 					event := eventBuilder.WithSeverity(events.Error).WithMetadata(map[string]interface{}{
 						"error": ErrConvertingDockerComposeToDesign(err),
-					}).WithDescription(fmt.Sprintf("Failed to convert Docker Compose application \"%s\"", mesheryPattern.Name)).Build()
+					}).WithDescription(fmt.Sprintf("Failed to convert Docker Compose application \"%s\"", meshplayPattern.Name)).Build()
 
 					_ = provider.PersistEvent(event)
 					go h.config.EventBroadcaster.Publish(userID, event)
@@ -203,13 +203,13 @@ func (h *Handler) handlePatternPOST(
 
 					return
 				}
-				mesheryPattern.Type = sql.NullString{
+				meshplayPattern.Type = sql.NullString{
 					String: string(models.DockerCompose),
 					Valid:  true,
 				}
 			} else if sourcetype == string(models.K8sManifest) {
 				k8sres = string(bytPattern)
-				mesheryPattern.Type = sql.NullString{
+				meshplayPattern.Type = sql.NullString{
 					String: string(models.K8sManifest),
 					Valid:  true,
 				}
@@ -219,7 +219,7 @@ func (h *Handler) handlePatternPOST(
 				h.log.Error(ErrConvertingK8sManifestToDesign(err))
 				event := eventBuilder.WithSeverity(events.Error).WithMetadata(map[string]interface{}{
 					"error": ErrConvertingK8sManifestToDesign(err),
-				}).WithDescription(fmt.Sprintf("Failed converting %s \"%s\" to design file format.", sourcetype, mesheryPattern.Name)).Build()
+				}).WithDescription(fmt.Sprintf("Failed converting %s \"%s\" to design file format.", sourcetype, meshplayPattern.Name)).Build()
 				_ = provider.PersistEvent(event)
 				go h.config.EventBroadcaster.Publish(userID, event)
 
@@ -229,7 +229,7 @@ func (h *Handler) handlePatternPOST(
 			}
 
 			pfByt, _ := encoding.Marshal(patternFile)
-			mesheryPattern.PatternFile = string(pfByt)
+			meshplayPattern.PatternFile = string(pfByt)
 		} else {
 			patternFile := &pattern.PatternFile{}
 			var err error
@@ -261,11 +261,11 @@ func (h *Handler) handlePatternPOST(
 					return
 				}
 			}
-			mesheryPattern.PatternFile = patternFileStr
-			mesheryPattern.CatalogData = parsedBody.PatternData.CatalogData
+			meshplayPattern.PatternFile = patternFileStr
+			meshplayPattern.CatalogData = parsedBody.PatternData.CatalogData
 
 			if parsedBody.PatternData.ID != nil {
-				mesheryPattern.ID = parsedBody.PatternData.ID
+				meshplayPattern.ID = parsedBody.PatternData.ID
 			}
 
 			// assume the design is in OCI Artifact format
@@ -276,12 +276,12 @@ func (h *Handler) handlePatternPOST(
 				h.log.Info("Falling back to importing design as yaml file")
 			} else {
 				h.log.Info("OCI Artifact decompressed.")
-				event := eventBuilder.WithSeverity(events.Informational).WithDescription(fmt.Sprintf("OCI Artifact decompressed into %s design file", mesheryPattern.Name)).Build()
+				event := eventBuilder.WithSeverity(events.Informational).WithDescription(fmt.Sprintf("OCI Artifact decompressed into %s design file", meshplayPattern.Name)).Build()
 				_ = provider.PersistEvent(event)
 				go h.config.EventBroadcaster.Publish(userID, event)
-				mesheryPattern = uncompressedDesign
+				meshplayPattern = uncompressedDesign
 			}
-			mesheryPattern.Type = sql.NullString{
+			meshplayPattern.Type = sql.NullString{
 				String: string(models.Design),
 				Valid:  true,
 			}
@@ -290,15 +290,15 @@ func (h *Handler) handlePatternPOST(
 
 			// Assign a name if no name is provided
 			if parsedBody.PatternData.Name == "" {
-				mesheryPattern.Name = patternFile.Name
+				meshplayPattern.Name = patternFile.Name
 			}
 
 			if parsedBody.PatternData.Visibility != "" {
-				mesheryPattern.Visibility = parsedBody.PatternData.Visibility
+				meshplayPattern.Visibility = parsedBody.PatternData.Visibility
 			}
 
 			if parsedBody.Save {
-				resp, err := provider.SaveMesheryPattern(token, mesheryPattern)
+				resp, err := provider.SaveMesheryPattern(token, meshplayPattern)
 				if err != nil {
 					h.log.Error(ErrSavePattern(err))
 					http.Error(rw, ErrSavePattern(err).Error(), http.StatusInternalServerError)
@@ -321,7 +321,7 @@ func (h *Handler) handlePatternPOST(
 				return
 			}
 
-			byt, err := json.Marshal([]models.MesheryPattern{*mesheryPattern})
+			byt, err := json.Marshal([]models.MesheryPattern{*meshplayPattern})
 			if err != nil {
 				h.log.Error(ErrEncodePattern(err))
 				http.Error(rw, ErrEncodePattern(err).Error(), http.StatusInternalServerError)
@@ -410,7 +410,7 @@ func (h *Handler) handlePatternPOST(
 			}
 			bytPattern, _ := encoding.Marshal(pattern)
 
-			mesheryPattern = &models.MesheryPattern{
+			meshplayPattern = &models.MesheryPattern{
 				Name:        parsedBody.Name,
 				PatternFile: string(bytPattern),
 				Type: sql.NullString{
@@ -475,7 +475,7 @@ func (h *Handler) handlePatternPOST(
 
 					return
 				}
-				mesheryPattern = &pfs[0]
+				meshplayPattern = &pfs[0]
 			} else {
 				// Fallback to generic HTTP import
 				pfs, err = genericHTTPDesignFile(parsedBody.URL, parsedBody.Name, sourcetype, h.registryManager, h.log)
@@ -491,15 +491,15 @@ func (h *Handler) handlePatternPOST(
 
 					return
 				}
-				mesheryPattern = &pfs[0]
+				meshplayPattern = &pfs[0]
 			}
 			if parsedBody.Name != "" {
-				mesheryPattern.Name = parsedBody.Name
+				meshplayPattern.Name = parsedBody.Name
 			}
 		} else {
 
 			if parsedBody.PatternData == nil {
-				parsedBody.PatternData = &mesheryPatternPayload{}
+				parsedBody.PatternData = &meshplayPatternPayload{}
 			}
 			parsedBody.PatternData.Type = sql.NullString{
 				String: string(models.Design),
@@ -544,7 +544,7 @@ func (h *Handler) handlePatternPOST(
 		var savedPatternID *uuid.UUID
 
 		if parsedBody.Save {
-			resp, err := provider.SaveMesheryPattern(token, mesheryPattern)
+			resp, err := provider.SaveMesheryPattern(token, meshplayPattern)
 			if err != nil {
 				obj := "save"
 
@@ -569,16 +569,16 @@ func (h *Handler) handlePatternPOST(
 			_ = provider.PersistEvent(event)
 			go h.config.EventBroadcaster.Publish(userID, event)
 
-			var mesheryPatternContent []models.MesheryPattern
-			err = json.Unmarshal(resp, &mesheryPatternContent)
+			var meshplayPatternContent []models.MesheryPattern
+			err = json.Unmarshal(resp, &meshplayPatternContent)
 			if err != nil {
 				obj := "pattern"
 				h.log.Error(models.ErrEncoding(err, obj))
 				http.Error(rw, models.ErrEncoding(err, obj).Error(), http.StatusInternalServerError)
 				return
 			}
-			savedPatternID = mesheryPatternContent[0].ID
-			err = provider.SaveMesheryPatternSourceContent(token, (savedPatternID).String(), mesheryPattern.SourceContent)
+			savedPatternID = meshplayPatternContent[0].ID
+			err = provider.SaveMesheryPatternSourceContent(token, (savedPatternID).String(), meshplayPattern.SourceContent)
 
 			if err != nil {
 				obj := "upload"
@@ -597,14 +597,14 @@ func (h *Handler) handlePatternPOST(
 				return
 			}
 			go h.config.PatternChannel.Publish(userID, struct{}{})
-			event = eventBuilder.WithDescription(fmt.Sprintf("Design %s source content uploaded", mesheryPatternContent[0].Name)).Build()
+			event = eventBuilder.WithDescription(fmt.Sprintf("Design %s source content uploaded", meshplayPatternContent[0].Name)).Build()
 			_ = provider.PersistEvent(event)
 			go h.config.EventBroadcaster.Publish(userID, event)
 			return
 		}
 
-		mesheryPattern.ID = savedPatternID
-		byt, err := json.Marshal([]models.MesheryPattern{*mesheryPattern})
+		meshplayPattern.ID = savedPatternID
+		byt, err := json.Marshal([]models.MesheryPattern{*meshplayPattern})
 		if err != nil {
 			obj := "design"
 			h.log.Error(models.ErrEncoding(err, obj))
@@ -627,20 +627,20 @@ func (h *Handler) handlePatternPOST(
 
 func (h *Handler) VerifyAndConvertToDesign(
 	ctx context.Context,
-	mesheryPattern *models.MesheryPattern,
+	meshplayPattern *models.MesheryPattern,
 	provider models.Provider,
 ) error {
 
-	if mesheryPattern.Type.Valid && mesheryPattern.Type.String != string(models.Design) && mesheryPattern.PatternFile == "" {
+	if meshplayPattern.Type.Valid && meshplayPattern.Type.String != string(models.Design) && meshplayPattern.PatternFile == "" {
 		token, _ := ctx.Value(models.TokenCtxKey).(string)
 
-		sourceContent, err := provider.GetDesignSourceContent(token, mesheryPattern.ID.String())
+		sourceContent, err := provider.GetDesignSourceContent(token, meshplayPattern.ID.String())
 		if err != nil {
 			return err
 		}
 
-		mesheryPattern.SourceContent = sourceContent
-		sourcetype := mesheryPattern.Type.String
+		meshplayPattern.SourceContent = sourceContent
+		sourcetype := meshplayPattern.Type.String
 
 		if sourcetype == string(models.DockerCompose) || sourcetype == string(models.K8sManifest) {
 			var k8sres string
@@ -660,10 +660,10 @@ func (h *Handler) VerifyAndConvertToDesign(
 				return err
 			}
 			bytPattern, _ := yaml.Marshal(pattern)
-			mesheryPattern.PatternFile = string(bytPattern)
+			meshplayPattern.PatternFile = string(bytPattern)
 		}
 
-		resp, err := provider.SaveMesheryPattern(token, mesheryPattern)
+		resp, err := provider.SaveMesheryPattern(token, meshplayPattern)
 		if err != nil {
 			obj := "save"
 			saveErr := ErrApplicationFailure(err, obj)
@@ -725,12 +725,12 @@ func unCompressOCIArtifactIntoDesign(artifact []byte) (*models.MesheryPattern, e
 	if err != nil {
 		return nil, ErrDecodePattern(err)
 	}
-	mesheryPattern := &models.MesheryPattern{
+	meshplayPattern := &models.MesheryPattern{
 		PatternFile: design.Content,
 		Name:        design.Name,
 	}
 
-	return mesheryPattern, nil
+	return meshplayPattern, nil
 }
 
 func githubRepoDesignScan(
@@ -796,7 +796,7 @@ func githubRepoDesignScan(
 	return result, ErrRemoteApplication(err)
 }
 
-// Always returns a meshery pattern slice of length 1 otherwise an error is returned
+// Always returns a meshplay pattern slice of length 1 otherwise an error is returned
 func genericHTTPDesignFile(fileURL, patternName, sourceType string, reg *meshmodel.RegistryManager, log logger.Handler) ([]models.MesheryPattern, error) {
 	resp, err := http.Get(fileURL)
 	if err != nil {
@@ -882,7 +882,7 @@ func genericHTTPDesignFile(fileURL, patternName, sourceType string, reg *meshmod
 //
 // responses:
 //
-//	200: mesheryPatternsResponseWrapper
+//	200: meshplayPatternsResponseWrapper
 func (h *Handler) GetMesheryPatternsHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -947,7 +947,7 @@ func (h *Handler) GetMesheryPatternsHandler(
 // ```?metrics``` Returns metrics like deployment/share/clone/view/download count for desings, default false,
 // responses:
 //
-//	200: mesheryPatternsResponseWrapper
+//	200: meshplayPatternsResponseWrapper
 func (h *Handler) GetCatalogMesheryPatternsHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -972,7 +972,7 @@ func (h *Handler) GetCatalogMesheryPatternsHandler(
 // swagger:route DELETE /api/pattern/{id} PatternsAPI idDeleteMesheryPattern
 // Handle Delete for a Meshery Pattern
 //
-// Deletes a meshery pattern with ID: id
+// Deletes a meshplay pattern with ID: id
 // responses:
 //
 //	200: noContentWrapper
@@ -989,7 +989,7 @@ func (h *Handler) DeleteMesheryPatternHandler(
 	userID := uuid.FromStringOrNil(user.ID)
 	eventBuilder := events.NewEvent().FromUser(userID).FromSystem(*h.SystemID).WithCategory("pattern").WithAction("delete").ActedUpon(uuid.FromStringOrNil(patternID))
 
-	mesheryPattern := models.MesheryPattern{}
+	meshplayPattern := models.MesheryPattern{}
 
 	resp, err := provider.DeleteMesheryPattern(r, patternID)
 	if err != nil {
@@ -1006,8 +1006,8 @@ func (h *Handler) DeleteMesheryPatternHandler(
 		return
 	}
 
-	_ = json.Unmarshal(resp, &mesheryPattern)
-	event := eventBuilder.WithSeverity(events.Informational).WithDescription(fmt.Sprintf("Pattern %s deleted.", mesheryPattern.Name)).Build()
+	_ = json.Unmarshal(resp, &meshplayPattern)
+	event := eventBuilder.WithSeverity(events.Informational).WithDescription(fmt.Sprintf("Pattern %s deleted.", meshplayPattern.Name)).Build()
 	_ = provider.PersistEvent(event)
 	go h.config.EventBroadcaster.Publish(userID, event)
 	go h.config.PatternChannel.Publish(uuid.FromStringOrNil(user.ID), struct{}{})
@@ -1116,7 +1116,7 @@ func (h *Handler) DownloadMesheryPatternHandler(
 
 			event := eventBuilder.WithSeverity(events.Error).WithMetadata(map[string]interface{}{
 				"error": ErrCreateDir(err, "OCI"),
-			}).WithDescription("Error creating tmp directory under ~/.meshery/content/").Build()
+			}).WithDescription("Error creating tmp directory under ~/.meshplay/content/").Build()
 			_ = provider.PersistEvent(event)
 			go h.config.EventBroadcaster.Publish(userID, event)
 
@@ -1403,13 +1403,13 @@ func (h *Handler) CloneMesheryPatternHandler(
 		_ = r.Body.Close()
 	}()
 
-	mesheryPatternByt, err := provider.GetMesheryPattern(r, patternID, "false")
+	meshplayPatternByt, err := provider.GetMesheryPattern(r, patternID, "false")
 	if err != nil {
 		h.log.Error(ErrGetPattern(err))
 		http.Error(rw, ErrGetPattern(err).Error(), http.StatusNotFound)
 		event := eventBuilder.WithSeverity(events.Error).WithMetadata(map[string]interface{}{
 			"error": ErrGetPattern(err),
-		}).WithDescription(fmt.Sprintf("Failed to fetch meshery pattern \"%s\" with id: %s.", parsedBody.Name, patternID)).Build()
+		}).WithDescription(fmt.Sprintf("Failed to fetch meshplay pattern \"%s\" with id: %s.", parsedBody.Name, patternID)).Build()
 		_ = provider.PersistEvent(event)
 		go h.config.EventBroadcaster.Publish(userID, event)
 
@@ -1417,14 +1417,14 @@ func (h *Handler) CloneMesheryPatternHandler(
 	}
 
 	pattern := &models.MesheryPattern{}
-	err = json.Unmarshal(mesheryPatternByt, &pattern)
+	err = json.Unmarshal(meshplayPatternByt, &pattern)
 	if err != nil {
 		obj := "pattern: " + patternID
 		h.log.Error(models.ErrUnmarshal(err, obj))
 		http.Error(rw, models.ErrUnmarshal(err, obj).Error(), http.StatusInternalServerError)
 		event := eventBuilder.WithSeverity(events.Error).WithMetadata(map[string]interface{}{
 			"error": models.ErrUnmarshal(err, obj),
-		}).WithDescription(fmt.Sprintf("Failed to fetch meshery pattern \"%s\" with ID: %s.", parsedBody.Name, patternID)).Build()
+		}).WithDescription(fmt.Sprintf("Failed to fetch meshplay pattern \"%s\" with ID: %s.", parsedBody.Name, patternID)).Build()
 		_ = provider.PersistEvent(event)
 		go h.config.EventBroadcaster.Publish(userID, event)
 
@@ -1674,7 +1674,7 @@ func (h *Handler) DeleteMultiMesheryPatternsHandler(
 //
 // Fetches the pattern with the given id
 // responses:
-// 	200: mesheryPatternResponseWrapper
+// 	200: meshplayPatternResponseWrapper
 
 // GetMesheryPatternHandler fetched the pattern with the given id
 func (h *Handler) GetMesheryPatternHandler(
@@ -1824,7 +1824,7 @@ func addMeshkitErr(res *meshes.EventsResponse, err error) {
 // Updates the pattern with the given payload
 // responses:
 //
-//	200: mesheryPatternResponseWrapper
+//	200: meshplayPatternResponseWrapper
 func (h *Handler) handlePatternUpdate(
 	rw http.ResponseWriter,
 	r *http.Request,
@@ -1885,12 +1885,12 @@ func (h *Handler) handlePatternUpdate(
 	}
 	format := r.URL.Query().Get("output")
 
-	mesheryPattern := parsedBody.PatternData
-	mesheryPattern.Type = sql.NullString{
+	meshplayPattern := parsedBody.PatternData
+	meshplayPattern.Type = sql.NullString{
 		String: sourcetype,
 		Valid:  true,
 	}
-	resp, err := provider.SaveMesheryPattern(token, mesheryPattern)
+	resp, err := provider.SaveMesheryPattern(token, meshplayPattern)
 	if err != nil {
 		errAppSave := ErrSaveApplication(err)
 		h.log.Error(errAppSave)
@@ -1922,7 +1922,7 @@ func (h *Handler) handlePatternUpdate(
 //
 // Creates a new Pattern with source-content
 // responses:
-//  200: mesheryPatternResponseWrapper
+//  200: meshplayPatternResponseWrapper
 
 // PatternFileRequestHandler will handle requests of both type GET and POST
 // on the route /api/pattern
@@ -1950,7 +1950,7 @@ func (h *Handler) DesignFileRequestHandlerWithSourceType(
 // Get pattern file types
 // responses:
 //
-//	200: mesheryApplicationTypesResponseWrapper
+//	200: meshplayApplicationTypesResponseWrapper
 func (h *Handler) GetMesheryDesignTypesHandler(
 	rw http.ResponseWriter,
 	_ *http.Request,
@@ -1975,7 +1975,7 @@ func (h *Handler) GetMesheryDesignTypesHandler(
 //
 // Get the pattern source-content
 // responses:
-//  200: mesheryPatternSourceContentResponseWrapper
+//  200: meshplayPatternSourceContentResponseWrapper
 
 // GetMesheryPatternHandler fetched the design using the given id and sourcetype
 func (h *Handler) GetMesheryPatternSourceHandler(
@@ -2030,13 +2030,13 @@ func createArtifactHubPkg(pattern *models.MesheryPattern, user string) ([]byte, 
 	return data, nil
 }
 
-func (h *Handler) convertV1alpha2ToV1beta1(mesheryPattern *models.MesheryPattern, eventBuilder *events.EventBuilder) (*pattern.PatternFile, string, error) {
+func (h *Handler) convertV1alpha2ToV1beta1(meshplayPattern *models.MesheryPattern, eventBuilder *events.EventBuilder) (*pattern.PatternFile, string, error) {
 
 	v1alpha1PatternFile := v1alpha2.PatternFile{}
 
 	v1beta1PatternFile := pattern.PatternFile{}
 
-	err := encoding.Unmarshal([]byte(mesheryPattern.PatternFile), &v1alpha1PatternFile)
+	err := encoding.Unmarshal([]byte(meshplayPattern.PatternFile), &v1alpha1PatternFile)
 	if err != nil {
 		return nil, "", ErrParsePattern(err)
 	}
@@ -2051,15 +2051,15 @@ func (h *Handler) convertV1alpha2ToV1beta1(mesheryPattern *models.MesheryPattern
 		return nil, "", err
 	}
 
-	v1beta1PatternFile.Id = *mesheryPattern.ID
+	v1beta1PatternFile.Id = *meshplayPattern.ID
 	v1beta1PatternFile.Version = v1alpha1PatternFile.Version
 
-	h.log.Infof("Converted design file with id \"%s\" to v1beta1 format", *mesheryPattern.ID)
+	h.log.Infof("Converted design file with id \"%s\" to v1beta1 format", *meshplayPattern.ID)
 
 	err = mapModelRelatedData(h.registryManager, &v1beta1PatternFile)
 	if err != nil {
 		eventBuilder.WithDescription("Design converted to v1beta1 format but failed to assign styles and metadata").
-			WithMetadata(map[string]interface{}{"error": ErrGetComponentDefinition(err), "id": *mesheryPattern.ID}).WithSeverity(events.Warning)
+			WithMetadata(map[string]interface{}{"error": ErrGetComponentDefinition(err), "id": *meshplayPattern.ID}).WithSeverity(events.Warning)
 		return nil, "", err
 	}
 
@@ -2067,7 +2067,7 @@ func (h *Handler) convertV1alpha2ToV1beta1(mesheryPattern *models.MesheryPattern
 	if err != nil {
 		return nil, "", utils.ErrMarshal(err)
 	}
-	eventBuilder.WithSeverity(events.Informational).WithDescription(fmt.Sprintf("Converted design file \"%s\" with id \"%s\" to v1beta1 format", mesheryPattern.Name, *mesheryPattern.ID))
+	eventBuilder.WithSeverity(events.Informational).WithDescription(fmt.Sprintf("Converted design file \"%s\" with id \"%s\" to v1beta1 format", meshplayPattern.Name, *meshplayPattern.ID))
 	return &v1beta1PatternFile, string(v1beta1PatternByt), nil
 }
 
@@ -2080,10 +2080,10 @@ func mapModelRelatedData(reg *meshmodel.RegistryManager, patternFile *pattern.Pa
 
 		wc, err := s.GetDefinition(comp.Component.Kind, comp.Model.Model.Version, comp.Model.Name, comp.Component.Version, true)
 		if err != nil {
-			m := []string{"meshery", "meshery-core", "meshery-shapes", "meshery-flowchart"}
-			// if model is one of those defined in the slice above as meshery, and no matching defs were found,
+			m := []string{"meshplay", "meshplay-core", "meshplay-shapes", "meshplay-flowchart"}
+			// if model is one of those defined in the slice above as meshplay, and no matching defs were found,
 			// try to find the component just by name, this ensures the component is upgraded to newer model.
-			// Eg: Some old designs contains "Comment" component under "meshery" model instead of "meshery-core"
+			// Eg: Some old designs contains "Comment" component under "meshplay" model instead of "meshplay-core"
 			
 			
 			// Update the component kind to reflect the current registry.

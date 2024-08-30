@@ -9,133 +9,133 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrGrafanaClientCode                  = "meshery-server-1220"
-	ErrPageSizeCode                       = "meshery-server-1221"
-	ErrPageNumberCode                     = "meshery-server-1222"
-	ErrResultIDCode                       = "meshery-server-1223"
-	ErrPerfIDCode                         = "meshery-server-1224"
-	ErrMarshalCode                        = "meshery-server-1225"
-	ErrUnmarshalCode                      = "meshery-server-1226"
-	ErrGenerateUUIDCode                   = "meshery-server-1227"
-	ErrLocalProviderSupportCode           = "meshery-server-1228"
-	ErrGrafanaOrgCode                     = "meshery-server-1229"
-	ErrGrafanaBoardsCode                  = "meshery-server-1230"
-	ErrGrafanaDashboardCode               = "meshery-server-1231"
-	ErrGrafanaDataSourceCode              = "meshery-server-1232"
-	ErrNilQueryCode                       = "meshery-server-1233"
-	ErrGrafanaDataCode                    = "meshery-server-1234"
-	ErrApplicationFileNameCode            = "meshery-server-1235"
-	ErrFilterFileNameCode                 = "meshery-server-1236"
-	ErrPatternFileNameCode                = "meshery-server-1237"
-	ErrMakeDirCode                        = "meshery-server-1238"
-	ErrFolderStatCode                     = "meshery-server-1239"
-	ErrUserIDCode                         = "meshery-server-1240"
-	ErrDBConnectionCode                   = "meshery-server-1241"
-	ErrNilConfigDataCode                  = "meshery-server-1242"
-	ErrDBOpenCode                         = "meshery-server-1243"
-	ErrDBRLockCode                        = "meshery-server-1244"
-	ErrDBLockCode                         = "meshery-server-1245"
-	ErrDBReadCode                         = "meshery-server-1246"
-	ErrDBDeleteCode                       = "meshery-server-1247"
-	ErrCopyCode                           = "meshery-server-1248"
-	ErrDBPutCode                          = "meshery-server-1249"
-	ErrPrometheusGetNodesCode             = "meshery-server-1250"
-	ErrPrometheusLabelSeriesCode          = "meshery-server-1251"
-	ErrPrometheusQueryRangeCode           = "meshery-server-1252"
-	ErrPrometheusStaticBoardCode          = "meshery-server-1253"
-	ErrTokenRefreshCode                   = "meshery-server-1254"
-	ErrGetTokenCode                       = "meshery-server-1255"
-	ErrDataReadCode                       = "meshery-server-1256"
-	ErrTokenDecodeCode                    = "meshery-server-1257"
-	ErrNilJWKsCode                        = "meshery-server-1258"
-	ErrNilKeysCode                        = "meshery-server-1259"
-	ErrTokenExpiredCode                   = "meshery-server-1260"
-	ErrTokenClaimsCode                    = "meshery-server-1261"
-	ErrTokenClientCheckCode               = "meshery-server-1262"
-	ErrTokenPraseCode                     = "meshery-server-1263"
-	ErrJWKsKeysCode                       = "meshery-server-1264"
-	ErrDecodeBase64Code                   = "meshery-server-1265"
-	ErrMarshalPKIXCode                    = "meshery-server-1266"
-	ErrEncodingPEMCode                    = "meshery-server-1267"
-	ErrPraseUnverifiedCode                = "meshery-server-1268"
-	ErrEncodingCode                       = "meshery-server-1269"
-	ErrFetchCode                          = "meshery-server-1270"
-	ErrPostCode                           = "meshery-server-1271"
-	ErrDeleteCode                         = "meshery-server-1272"
-	ErrInvalidCapabilityCode              = "meshery-server-1273"
-	ErrResultDataCode                     = "meshery-server-1274"
-	ErrUnableToPersistsResultCode         = "meshery-server-1275"
-	ErrValidURLCode                       = "meshery-server-1276"
-	ErrTestEndpointCode                   = "meshery-server-1277"
-	ErrLoadgeneratorCode                  = "meshery-server-1278"
-	ErrProtocolCode                       = "meshery-server-1279"
-	ErrTestClientCode                     = "meshery-server-1280"
-	ErrParsingTestCode                    = "meshery-server-1281"
-	ErrFieldCode                          = "meshery-server-1282"
-	ErrFetchDataCode                      = "meshery-server-1283"
-	ErrIndexOutOfRangeCode                = "meshery-server-1284"
-	ErrSessionCopyCode                    = "meshery-server-1285"
-	ErrSavingSeededComponentsCode         = "meshery-server-1286"
-	ErrGettingSeededComponentsCode        = "meshery-server-1287"
-	ErrDownloadingSeededComponentsCode    = "meshery-server-1288"
-	ErrContextIDCode                      = "meshery-server-1289"
-	ErrMesheryInstanceIDCode              = "meshery-server-1290"
-	ErrMesheryNotInClusterCode            = "meshery-server-1291"
-	ErrBrokerNotFoundCode                 = "meshery-server-1292"
-	ErrCreateOperatorDeploymentConfigCode = "meshery-server-1293"
-	ErrRequestMeshsyncStoreCode           = "meshery-server-1294"
-	ErrBrokerSubscriptionCode             = "meshery-server-1295"
-	ErrContextAlreadyPersistedCode        = "meshery-server-1296"
-	ErrGetPackageCode                     = "meshery-server-1297"
-	ErrTokenRevokeCode                    = "meshery-server-1298"
-	ErrTokenIntrospectCode                = "meshery-server-1299"
-	ErrShareDesignCode                    = "meshery-server-1300"
-	ErrUnreachableRemoteProviderCode      = "meshery-server-1301"
-	ErrShareFilterCode                    = "meshery-server-1302"
-	ErrPersistEventCode                   = "meshery-server-1303"
-	ErrInvalidEventDataCode               = "meshery-server-1357"
-	ErrUnreachableKubeAPICode             = "meshery-server-1304"
-	ErrFlushMeshSyncDataCode              = "meshery-server-1305"
-	ErrUpdateConnectionStatusCode         = "meshery-server-1306"
-	ErrResultNotFoundCode                 = "meshery-server-1307"
-	ErrPersistCredentialCode              = "meshery-server-1308"
-	ErrPersistConnectionCode              = "meshery-server-1309"
-	ErrPrometheusScanCode                 = "meshery-server-1310"
-	ErrGrafanaScanCode                    = "meshery-server-1311"
-	ErrDBCreateCode                       = "meshery-server-1312"
-	ErrDoRequestCode                      = "meshery-server-1321"
-	ErrMarshalYAMLCode                    = "meshery-server-1322"
-	ErrSessionNotReadIntactCode           = "meshery-server-1332"
-	ErrSessionNotFoundCode                = "meshery-server-1333"
-	ErrTokenRetryCode                     = "meshery-server-1334"
-	ErrUrlParseCode                       = "meshery-server-1335"
-	ErrCloseIoReaderCode                  = "meshery-server-1336"
-	ErrDownloadPackageCode                = "meshery-server-1337"
-	ErrOperationNotAvaibaleCode           = "meshery-server-1338"
-	ErrTokenVerifyCode                    = "meshery-server-1339"
-	ErrLogoutCode                         = "meshery-server-1340"
-	ErrGetSessionCookieCode               = "meshery-server-1341"
-	ErrCloneCode                          = "meshery-server-1342"
-	ErrPublishCode                        = "meshery-server-1343"
-	ErrUnPublishCode                      = "meshery-server-1344"
-	ErrSaveConnectionCode                 = "meshery-server-1345"
-	ErrGenerateK8sHandlerCode             = "meshery-server-1346"
-	ErrRetrieveK8sClusterIDCode           = "meshery-server-1347"
-	ErrCreateResourceEntryCode            = "meshery-server-1348"
-	ErrInitializeDBHandlerCode            = "meshery-server-1349"
-	ErrDeleteK8sResourceCode              = "meshery-server-1350"
-	ErrCreateK8sResourceCode              = "meshery-server-1351"
-	ErrGetResourceCode                    = "meshery-server-1352"
-	ErrDeleteResourceCode                 = "meshery-server-1353"
-	ErrRecreateResourceCode               = "meshery-server-1354"
-	ErrUpdateResourceCode                 = "meshery-server-1355"
-	ErrEmptySessionCode                   = "meshery-server-1356"
-	ErrSeedingComponentsCode              = "meshery-server-1358"
-	ErrImportFailureCode                  = "meshery-server-1359"
-	ErrMarshallingDesignIntoYAMLCode      = "meshery-server-1135"
+	ErrGrafanaClientCode                  = "meshplay-server-1220"
+	ErrPageSizeCode                       = "meshplay-server-1221"
+	ErrPageNumberCode                     = "meshplay-server-1222"
+	ErrResultIDCode                       = "meshplay-server-1223"
+	ErrPerfIDCode                         = "meshplay-server-1224"
+	ErrMarshalCode                        = "meshplay-server-1225"
+	ErrUnmarshalCode                      = "meshplay-server-1226"
+	ErrGenerateUUIDCode                   = "meshplay-server-1227"
+	ErrLocalProviderSupportCode           = "meshplay-server-1228"
+	ErrGrafanaOrgCode                     = "meshplay-server-1229"
+	ErrGrafanaBoardsCode                  = "meshplay-server-1230"
+	ErrGrafanaDashboardCode               = "meshplay-server-1231"
+	ErrGrafanaDataSourceCode              = "meshplay-server-1232"
+	ErrNilQueryCode                       = "meshplay-server-1233"
+	ErrGrafanaDataCode                    = "meshplay-server-1234"
+	ErrApplicationFileNameCode            = "meshplay-server-1235"
+	ErrFilterFileNameCode                 = "meshplay-server-1236"
+	ErrPatternFileNameCode                = "meshplay-server-1237"
+	ErrMakeDirCode                        = "meshplay-server-1238"
+	ErrFolderStatCode                     = "meshplay-server-1239"
+	ErrUserIDCode                         = "meshplay-server-1240"
+	ErrDBConnectionCode                   = "meshplay-server-1241"
+	ErrNilConfigDataCode                  = "meshplay-server-1242"
+	ErrDBOpenCode                         = "meshplay-server-1243"
+	ErrDBRLockCode                        = "meshplay-server-1244"
+	ErrDBLockCode                         = "meshplay-server-1245"
+	ErrDBReadCode                         = "meshplay-server-1246"
+	ErrDBDeleteCode                       = "meshplay-server-1247"
+	ErrCopyCode                           = "meshplay-server-1248"
+	ErrDBPutCode                          = "meshplay-server-1249"
+	ErrPrometheusGetNodesCode             = "meshplay-server-1250"
+	ErrPrometheusLabelSeriesCode          = "meshplay-server-1251"
+	ErrPrometheusQueryRangeCode           = "meshplay-server-1252"
+	ErrPrometheusStaticBoardCode          = "meshplay-server-1253"
+	ErrTokenRefreshCode                   = "meshplay-server-1254"
+	ErrGetTokenCode                       = "meshplay-server-1255"
+	ErrDataReadCode                       = "meshplay-server-1256"
+	ErrTokenDecodeCode                    = "meshplay-server-1257"
+	ErrNilJWKsCode                        = "meshplay-server-1258"
+	ErrNilKeysCode                        = "meshplay-server-1259"
+	ErrTokenExpiredCode                   = "meshplay-server-1260"
+	ErrTokenClaimsCode                    = "meshplay-server-1261"
+	ErrTokenClientCheckCode               = "meshplay-server-1262"
+	ErrTokenPraseCode                     = "meshplay-server-1263"
+	ErrJWKsKeysCode                       = "meshplay-server-1264"
+	ErrDecodeBase64Code                   = "meshplay-server-1265"
+	ErrMarshalPKIXCode                    = "meshplay-server-1266"
+	ErrEncodingPEMCode                    = "meshplay-server-1267"
+	ErrPraseUnverifiedCode                = "meshplay-server-1268"
+	ErrEncodingCode                       = "meshplay-server-1269"
+	ErrFetchCode                          = "meshplay-server-1270"
+	ErrPostCode                           = "meshplay-server-1271"
+	ErrDeleteCode                         = "meshplay-server-1272"
+	ErrInvalidCapabilityCode              = "meshplay-server-1273"
+	ErrResultDataCode                     = "meshplay-server-1274"
+	ErrUnableToPersistsResultCode         = "meshplay-server-1275"
+	ErrValidURLCode                       = "meshplay-server-1276"
+	ErrTestEndpointCode                   = "meshplay-server-1277"
+	ErrLoadgeneratorCode                  = "meshplay-server-1278"
+	ErrProtocolCode                       = "meshplay-server-1279"
+	ErrTestClientCode                     = "meshplay-server-1280"
+	ErrParsingTestCode                    = "meshplay-server-1281"
+	ErrFieldCode                          = "meshplay-server-1282"
+	ErrFetchDataCode                      = "meshplay-server-1283"
+	ErrIndexOutOfRangeCode                = "meshplay-server-1284"
+	ErrSessionCopyCode                    = "meshplay-server-1285"
+	ErrSavingSeededComponentsCode         = "meshplay-server-1286"
+	ErrGettingSeededComponentsCode        = "meshplay-server-1287"
+	ErrDownloadingSeededComponentsCode    = "meshplay-server-1288"
+	ErrContextIDCode                      = "meshplay-server-1289"
+	ErrMesheryInstanceIDCode              = "meshplay-server-1290"
+	ErrMesheryNotInClusterCode            = "meshplay-server-1291"
+	ErrBrokerNotFoundCode                 = "meshplay-server-1292"
+	ErrCreateOperatorDeploymentConfigCode = "meshplay-server-1293"
+	ErrRequestMeshsyncStoreCode           = "meshplay-server-1294"
+	ErrBrokerSubscriptionCode             = "meshplay-server-1295"
+	ErrContextAlreadyPersistedCode        = "meshplay-server-1296"
+	ErrGetPackageCode                     = "meshplay-server-1297"
+	ErrTokenRevokeCode                    = "meshplay-server-1298"
+	ErrTokenIntrospectCode                = "meshplay-server-1299"
+	ErrShareDesignCode                    = "meshplay-server-1300"
+	ErrUnreachableRemoteProviderCode      = "meshplay-server-1301"
+	ErrShareFilterCode                    = "meshplay-server-1302"
+	ErrPersistEventCode                   = "meshplay-server-1303"
+	ErrInvalidEventDataCode               = "meshplay-server-1357"
+	ErrUnreachableKubeAPICode             = "meshplay-server-1304"
+	ErrFlushMeshSyncDataCode              = "meshplay-server-1305"
+	ErrUpdateConnectionStatusCode         = "meshplay-server-1306"
+	ErrResultNotFoundCode                 = "meshplay-server-1307"
+	ErrPersistCredentialCode              = "meshplay-server-1308"
+	ErrPersistConnectionCode              = "meshplay-server-1309"
+	ErrPrometheusScanCode                 = "meshplay-server-1310"
+	ErrGrafanaScanCode                    = "meshplay-server-1311"
+	ErrDBCreateCode                       = "meshplay-server-1312"
+	ErrDoRequestCode                      = "meshplay-server-1321"
+	ErrMarshalYAMLCode                    = "meshplay-server-1322"
+	ErrSessionNotReadIntactCode           = "meshplay-server-1332"
+	ErrSessionNotFoundCode                = "meshplay-server-1333"
+	ErrTokenRetryCode                     = "meshplay-server-1334"
+	ErrUrlParseCode                       = "meshplay-server-1335"
+	ErrCloseIoReaderCode                  = "meshplay-server-1336"
+	ErrDownloadPackageCode                = "meshplay-server-1337"
+	ErrOperationNotAvaibaleCode           = "meshplay-server-1338"
+	ErrTokenVerifyCode                    = "meshplay-server-1339"
+	ErrLogoutCode                         = "meshplay-server-1340"
+	ErrGetSessionCookieCode               = "meshplay-server-1341"
+	ErrCloneCode                          = "meshplay-server-1342"
+	ErrPublishCode                        = "meshplay-server-1343"
+	ErrUnPublishCode                      = "meshplay-server-1344"
+	ErrSaveConnectionCode                 = "meshplay-server-1345"
+	ErrGenerateK8sHandlerCode             = "meshplay-server-1346"
+	ErrRetrieveK8sClusterIDCode           = "meshplay-server-1347"
+	ErrCreateResourceEntryCode            = "meshplay-server-1348"
+	ErrInitializeDBHandlerCode            = "meshplay-server-1349"
+	ErrDeleteK8sResourceCode              = "meshplay-server-1350"
+	ErrCreateK8sResourceCode              = "meshplay-server-1351"
+	ErrGetResourceCode                    = "meshplay-server-1352"
+	ErrDeleteResourceCode                 = "meshplay-server-1353"
+	ErrRecreateResourceCode               = "meshplay-server-1354"
+	ErrUpdateResourceCode                 = "meshplay-server-1355"
+	ErrEmptySessionCode                   = "meshplay-server-1356"
+	ErrSeedingComponentsCode              = "meshplay-server-1358"
+	ErrImportFailureCode                  = "meshplay-server-1359"
+	ErrMarshallingDesignIntoYAMLCode      = "meshplay-server-1135"
 )
 
 var (
@@ -157,7 +157,7 @@ var (
 	ErrLoadgenerator           = errors.New(ErrLoadgeneratorCode, errors.Alert, []string{"specify valid Loadgenerator"}, []string{}, []string{}, []string{})
 	ErrProtocol                = errors.New(ErrProtocolCode, errors.Alert, []string{"specify the Protocol for all clients"}, []string{}, []string{}, []string{})
 	ErrTestClient              = errors.New(ErrTestClientCode, errors.Alert, []string{"minimum one test client needs to be specified"}, []string{}, []string{}, []string{})
-	ErrParsingTest             = errors.New(ErrParsingTestCode, errors.Alert, []string{"error parsing test duration, please refer to: https://docs.meshery.io/guides/mesheryctl#performance-management"}, []string{}, []string{}, []string{})
+	ErrParsingTest             = errors.New(ErrParsingTestCode, errors.Alert, []string{"error parsing test duration, please refer to: https://docs.meshplay.io/guides/meshplayctl#performance-management"}, []string{}, []string{}, []string{})
 	ErrField                   = errors.New(ErrFieldCode, errors.Alert, []string{"Error: name field is blank"}, []string{}, []string{}, []string{})
 	ErrIndexOutOfRange         = errors.New(ErrIndexOutOfRangeCode, errors.Alert, []string{"Error: index out of range"}, []string{}, []string{}, []string{})
 	ErrContextID               = errors.New(ErrContextIDCode, errors.Alert, []string{"Error: Context ID is empty"}, []string{}, []string{}, []string{})
@@ -183,13 +183,13 @@ func ErrUrlParse(err error) error {
 	return errors.New(ErrUrlParseCode, errors.Alert, []string{"Error parsing the URL"}, []string{"", err.Error()}, []string{""}, []string{"Make sure the URL is correct"})
 }
 func ErrBrokerSubscription(err error) error {
-	return errors.New(ErrBrokerSubscriptionCode, errors.Alert, []string{"Could not subscribe to the broker subject"}, []string{"", err.Error()}, []string{""}, []string{"Make sure meshery broker is healthy"})
+	return errors.New(ErrBrokerSubscriptionCode, errors.Alert, []string{"Could not subscribe to the broker subject"}, []string{"", err.Error()}, []string{""}, []string{"Make sure meshplay broker is healthy"})
 }
 func ErrLogout(err error) error {
 	return errors.New(ErrLogoutCode, errors.Alert, []string{"Unable to perform logout"}, []string{err.Error()}, []string{"Session might already been revoked", "Remote provider is not able to complete the request"}, []string{"Close the tabs and open Meshery UI again. Optionally, try using a private/incognito browser window."})
 }
 func ErrRequestMeshsyncStore(err error) error {
-	return errors.New(ErrRequestMeshsyncStoreCode, errors.Alert, []string{"Meshsync store request could not be issued"}, []string{"", err.Error()}, []string{""}, []string{"Make sure meshery broker is healthy"})
+	return errors.New(ErrRequestMeshsyncStoreCode, errors.Alert, []string{"Meshsync store request could not be issued"}, []string{"", err.Error()}, []string{""}, []string{"Make sure meshplay broker is healthy"})
 }
 
 func ErrCreateOperatorDeploymentConfig(err error) error {
@@ -204,7 +204,7 @@ func ErrCreateResourceEntry(err error) error {
 }
 
 func ErrBrokerNotFound(err error) error {
-	return errors.New(ErrBrokerNotFoundCode, errors.Alert, []string{"Meshery broker not found"}, []string{"Unable to find meshery broker in the cluster", err.Error()}, []string{"Invalid Grafana Endpoint or API-Key"}, []string{"Update your Grafana URL and API-Key from the settings page in the UI"})
+	return errors.New(ErrBrokerNotFoundCode, errors.Alert, []string{"Meshery broker not found"}, []string{"Unable to find meshplay broker in the cluster", err.Error()}, []string{"Invalid Grafana Endpoint or API-Key"}, []string{"Update your Grafana URL and API-Key from the settings page in the UI"})
 }
 
 func ErrGrafanaClient(err error) error {
@@ -445,7 +445,7 @@ func ErrGettingSeededComponents(err error, content string) error {
 }
 
 func ErrSavingSeededComponents(err error, content string) error {
-	return errors.New(ErrSavingSeededComponentsCode, errors.Alert, []string{"Error while saving sample ", content}, []string{err.Error()}, []string{"User doesn't have permission to save content.\nDatabase unreachable.\nDatabase locked or corrupt.\nContent unsupported."}, []string{"Retry fetching content\nRetry sigining in\nLogin with correct user account\nRetry after deleting '~/.meshery/config'."})
+	return errors.New(ErrSavingSeededComponentsCode, errors.Alert, []string{"Error while saving sample ", content}, []string{err.Error()}, []string{"User doesn't have permission to save content.\nDatabase unreachable.\nDatabase locked or corrupt.\nContent unsupported."}, []string{"Retry fetching content\nRetry sigining in\nLogin with correct user account\nRetry after deleting '~/.meshplay/config'."})
 }
 
 func ErrDownloadingSeededComponents(err error, content string) error {
@@ -570,7 +570,7 @@ func ErrSeedingComponents(err error) error {
 	return errors.New(
 		ErrSeedingComponentsCode,
 		errors.Alert,
-		[]string{"Failed to register the given models into meshery's registry"},
+		[]string{"Failed to register the given models into meshplay's registry"},
 		[]string{err.Error()},
 		[]string{"Given models may not be in accordance with Meshery's schema", "Internal(OS level) error while reading files"},
 		[]string{"Make sure the models being seeded are valid in accordance with Meshery's schema", "If it is an internal error, please try again after some time"},
@@ -584,7 +584,7 @@ func ErrImportFailure(hostname string, failedMsg string) error {
 		[]string{fmt.Sprintf("Errors while registering entities for registrant: %s", hostname)},
 		[]string{failedMsg},
 		[]string{"Entity definition might not be in accordance with schema", "Entity version might not be supported by Meshery"},
-		[]string{"See the registration logs (found at $HOME/.meshery/logs/registry/registry-logs.log) to find out which Entity failed to be imported with more specific error information."},
+		[]string{"See the registration logs (found at $HOME/.meshplay/logs/registry/registry-logs.log) to find out which Entity failed to be imported with more specific error information."},
 	)
 }
 

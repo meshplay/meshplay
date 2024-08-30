@@ -30,7 +30,7 @@ type WorkspacePage struct {
 	Workspaces []Workspace `json:"workspaces"`
 }
 
-// MesheryDesignPage - represents a page of meshery patterns
+// MesheryDesignPage - represents a page of meshplay patterns
 type MesheryDesignPage struct {
 	Page       int               `json:"page"`
 	PageSize   int               `json:"page_size"`

@@ -31,17 +31,17 @@ test.describe('Settings Page Tests', () => {
   test.beforeEach(async ({ page }) => {
     const meshAdapterReq = page.waitForRequest(
       (request) =>
-        request.url() === `${ENV.MESHERY_SERVER_URL}/api/system/adapters` &&
+        request.url() === `${ENV.MESHPLAY_SERVER_URL}/api/system/adapters` &&
         request.method() === 'GET',
     );
     const meshAdapterRes = page.waitForResponse(
       (response) =>
-        response.url() === `${ENV.MESHERY_SERVER_URL}/api/system/adapters` &&
+        response.url() === `${ENV.MESHPLAY_SERVER_URL}/api/system/adapters` &&
         response.status() === 200,
     );
 
     // Visit Settings Page
-    await page.goto(`${ENV.MESHERY_SERVER_URL}/settings`);
+    await page.goto(`${ENV.MESHPLAY_SERVER_URL}/settings`);
 
     // Verify requests and responses expected on initial page load
     await meshAdapterReq;
@@ -56,12 +56,12 @@ test.describe('Settings Page Tests', () => {
 
     const meshManageReq = page.waitForRequest(
       (request) =>
-        request.url() === `${ENV.MESHERY_SERVER_URL}/api/system/adapter/manage` &&
+        request.url() === `${ENV.MESHPLAY_SERVER_URL}/api/system/adapter/manage` &&
         request.method() === 'POST',
     );
     const meshManageRes = page.waitForResponse(
       (response) =>
-        response.url() === `${ENV.MESHERY_SERVER_URL}/api/system/adapter/manage` &&
+        response.url() === `${ENV.MESHPLAY_SERVER_URL}/api/system/adapter/manage` &&
         response.status() === 200,
     );
 

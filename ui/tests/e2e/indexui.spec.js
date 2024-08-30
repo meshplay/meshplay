@@ -4,7 +4,7 @@ import { ENV } from './env';
 test.describe('Index Page UI Tests', () => {
   test.beforeEach(async ({ page }) => {
     // Visit Index Page
-    await page.goto(ENV.MESHERY_SERVER_URL);
+    await page.goto(ENV.MESHPLAY_SERVER_URL);
   });
 
   test('Test if Left Navigation Panel is displayed', async ({ page }) => {

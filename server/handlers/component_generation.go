@@ -6,14 +6,14 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/layer5io/meshery/server/helpers"
-	"github.com/layer5io/meshery/server/helpers/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/generators/artifacthub"
 
 	meshkitmodels "github.com/layer5io/meshkit/generators/models"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
 )
 
 type generationPayloadItem struct {
@@ -76,7 +76,7 @@ func (h *Handler) MeshModelGenerationHandler(rw http.ResponseWriter, r *http.Req
 				var isModelError bool
 				var isRegistranError bool
 				utils.WriteSVGsOnFileSystem(&comp)
-				host := fmt.Sprintf("%s.artifacthub.meshery", gpi.Name)
+				host := fmt.Sprintf("%s.artifacthub.meshplay", gpi.Name)
 				isRegistranError, isModelError, err = h.registryManager.RegisterEntity(connection.Connection{
 					Kind: artifacthub.ArtifactHub,
 					Metadata: map[string]interface{}{

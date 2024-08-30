@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/models"
 )
 
 // swagger:route GET /api/user/login UserAPI idGetUserLogin

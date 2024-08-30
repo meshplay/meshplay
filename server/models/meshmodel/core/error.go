@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	ErrCreatingKubernetesComponentsCode = "meshery-server-1313"
-	ErrRegisterEntityCode               = "meshery-server-1319"
+	ErrCreatingKubernetesComponentsCode = "meshplay-server-1313"
+	ErrRegisterEntityCode               = "meshplay-server-1319"
 )
 
 func ErrCreatingKubernetesComponents(err error, ctxID string) error {

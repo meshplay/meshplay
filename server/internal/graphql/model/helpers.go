@@ -6,19 +6,19 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/handlers"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/controllers"
-	mesherykube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
 // to be moved elsewhere
 const (
-	chartRepo = "https://meshery.github.io/meshery.io/charts"
+	chartRepo = "https://meshplay.github.io/meshplay.io/charts"
 )
 
 var (
@@ -53,41 +53,41 @@ var (
 
 // installs operator
 // To be depricated
-func installUsingHelm(client *mesherykube.Client, delete bool, _ models.AdaptersTrackerInterface) error {
-	// retrieving meshery's version to apply the appropriate chart
-	mesheryReleaseVersion := viper.GetString("BUILD")
-	if mesheryReleaseVersion == "" || mesheryReleaseVersion == "Not Set" || mesheryReleaseVersion == "edge-latest" {
-		_, latestRelease, err := handlers.CheckLatestVersion(mesheryReleaseVersion)
+func installUsingHelm(client *meshplaykube.Client, delete bool, _ models.AdaptersTrackerInterface) error {
+	// retrieving meshplay's version to apply the appropriate chart
+	meshplayReleaseVersion := viper.GetString("BUILD")
+	if meshplayReleaseVersion == "" || meshplayReleaseVersion == "Not Set" || meshplayReleaseVersion == "edge-latest" {
+		_, latestRelease, err := handlers.CheckLatestVersion(meshplayReleaseVersion)
 		// if unable to fetch latest release tag, meshkit helm functions handle
 		// this automatically fetch the latest one
 		if err != nil {
 			logrus.Errorf("Couldn't check release tag: %s. Will use latest version", err)
-			mesheryReleaseVersion = ""
+			meshplayReleaseVersion = ""
 		} else {
-			mesheryReleaseVersion = latestRelease
+			meshplayReleaseVersion = latestRelease
 		}
 	}
 	var (
-		act   = mesherykube.INSTALL
-		chart = "meshery-operator"
+		act   = meshplaykube.INSTALL
+		chart = "meshplay-operator"
 	)
 	if delete {
-		act = mesherykube.UNINSTALL
+		act = meshplaykube.UNINSTALL
 	}
-	// a basic check to see if meshery is installed in cluster
+	// a basic check to see if meshplay is installed in cluster
 	// this helps decide what chart should be used for installing operator
 	if viper.GetString("KUBERNETES_SERVICE_HOST") != "" {
-		// act = mesherykube.UPGRADE
-		chart = "meshery"
+		// act = meshplaykube.UPGRADE
+		chart = "meshplay"
 	}
 
-	err := client.ApplyHelmChart(mesherykube.ApplyHelmChartConfig{
-		Namespace:   "meshery",
-		ReleaseName: "meshery-operator",
-		ChartLocation: mesherykube.HelmChartLocation{
+	err := client.ApplyHelmChart(meshplaykube.ApplyHelmChartConfig{
+		Namespace:   "meshplay",
+		ReleaseName: "meshplay-operator",
+		ChartLocation: meshplaykube.HelmChartLocation{
 			Repository: chartRepo,
 			Chart:      chart,
-			Version:    mesheryReleaseVersion,
+			Version:    meshplayReleaseVersion,
 		},
 		// CreateNamespace doesn't have any effect when the action is UNINSTALL
 		CreateNamespace: true,
@@ -116,38 +116,38 @@ func SetOverrideValues(delete bool, adapterTracker models.AdaptersTrackerInterfa
 	}
 
 	overrideValues := map[string]interface{}{
-		"fullnameOverride": "meshery-operator",
-		"meshery": map[string]interface{}{
+		"fullnameOverride": "meshplay-operator",
+		"meshplay": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-istio": map[string]interface{}{
+		"meshplay-istio": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-cilium": map[string]interface{}{
+		"meshplay-cilium": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-linkerd": map[string]interface{}{
+		"meshplay-linkerd": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-consul": map[string]interface{}{
+		"meshplay-consul": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-kuma": map[string]interface{}{
+		"meshplay-kuma": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-nsm": map[string]interface{}{
+		"meshplay-nsm": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-nginx-sm": map[string]interface{}{
+		"meshplay-nginx-sm": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-traefik-mesh": map[string]interface{}{
+		"meshplay-traefik-mesh": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-app-mesh": map[string]interface{}{
+		"meshplay-app-mesh": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-operator": map[string]interface{}{
+		"meshplay-operator": map[string]interface{}{
 			"enabled": true,
 		},
 	}
@@ -161,7 +161,7 @@ func SetOverrideValues(delete bool, adapterTracker models.AdaptersTrackerInterfa
 	}
 
 	if delete {
-		overrideValues["meshery-operator"] = map[string]interface{}{
+		overrideValues["meshplay-operator"] = map[string]interface{}{
 			"enabled": false,
 		}
 	}

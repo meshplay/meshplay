@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/utils"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	meshkube "github.com/layer5io/meshkit/utils/kubernetes"
 
@@ -80,7 +80,7 @@ func dryRun(rClient rest.Interface, k8sResource map[string]interface{}, namespac
 		return
 	}
 
-	req := rClient.Post().AbsPath(path).Body(data).SetHeader("Content-Type", "application/json").SetHeader("Accept", "application/json").Param("dryRun", "All").Param("fieldValidation", "Strict").Param("fieldManager", "meshery")
+	req := rClient.Post().AbsPath(path).Body(data).SetHeader("Content-Type", "application/json").SetHeader("Accept", "application/json").Param("dryRun", "All").Param("fieldValidation", "Strict").Param("fieldManager", "meshplay")
 	res := req.Do(context.Background())
 
 	// ignoring the error since this client-go treats failure of dryRun as an error

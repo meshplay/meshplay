@@ -4,14 +4,14 @@ import (
 	"context"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/machines/kubernetes"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/handlers"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/machines/kubernetes"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/controllers"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/broadcast"
-	mesherykube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
 )
 
 /*
@@ -50,7 +50,7 @@ func (r *Resolver) changeOperatorStatus(ctx context.Context, provider models.Pro
 		r.Log.Info("Uninstalling Operator in context ", ctxID)
 	}
 
-	var kubeclient *mesherykube.Client
+	var kubeclient *meshplaykube.Client
 	var k8scontext models.K8sContext
 	var err error
 	if ctxID != "" {
@@ -93,7 +93,7 @@ func (r *Resolver) changeOperatorStatus(ctx context.Context, provider models.Pro
 		return model.StatusUnknown, ErrNilClient
 	}
 
-	go func(del bool, kubeclient *mesherykube.Client) {
+	go func(del bool, kubeclient *meshplaykube.Client) {
 		if r.Config.OperatorTracker.DisableOperator { //Do not deploy operator is explicitly in disabled mode
 			r.Log.Info("skipping operator deployment (in disabled mode)")
 			return

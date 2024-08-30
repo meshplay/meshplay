@@ -1,12 +1,12 @@
 {
-  "schemaVersion": "relationships.meshery.io/v1alpha3",
+  "schemaVersion": "relationships.meshplay.io/v1alpha3",
   "version": "v1.0.0",
   "kind": "edge",
   "metadata": {
     "description": "A relationship that defines network edges between components"
   },
   "model": {
-    "schemaVersion": "core.meshery.io/v1alpha2",
+    "schemaVersion": "core.meshplay.io/v1alpha2",
     "version": "*",
     "name": "istio-base",
     "model": {

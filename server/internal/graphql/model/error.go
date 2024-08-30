@@ -5,23 +5,23 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrNilClientCode                            = "meshery-server-1170"
-	ErrCreateDataCode                           = "meshery-server-1171"
-	ErrQueryCode                                = "meshery-server-1172"
-	ErrMeshsyncSubscriptionCode                 = "meshery-server-1173"
-	ErrMesheryClientCode                        = "meshery-server-1174"
-	ErrSubscribeChannelCode                     = "meshery-server-1175"
-	ErrPublishBrokerCode                        = "meshery-server-1176"
-	ErrEmptyHandlerCode                         = "meshery-server-1177"
-	ErrApplyHelmChartCode                       = "meshery-server-1178"
-	ErrMesheryControllersStatusSubscriptionCode = "meshery-server-1179"
-	ErrMeshSyncEventsSubscriptionCode           = "meshery-server-1180"
-	ErrMesheryClientNilCode                     = "meshery-server-1181"
-	ErrUpdateDataCode                           = "meshery-server-1182"
-	ErrDeleteDataCode                           = "meshery-server-1183"
+	ErrNilClientCode                            = "meshplay-server-1170"
+	ErrCreateDataCode                           = "meshplay-server-1171"
+	ErrQueryCode                                = "meshplay-server-1172"
+	ErrMeshsyncSubscriptionCode                 = "meshplay-server-1173"
+	ErrMesheryClientCode                        = "meshplay-server-1174"
+	ErrSubscribeChannelCode                     = "meshplay-server-1175"
+	ErrPublishBrokerCode                        = "meshplay-server-1176"
+	ErrEmptyHandlerCode                         = "meshplay-server-1177"
+	ErrApplyHelmChartCode                       = "meshplay-server-1178"
+	ErrMesheryControllersStatusSubscriptionCode = "meshplay-server-1179"
+	ErrMeshSyncEventsSubscriptionCode           = "meshplay-server-1180"
+	ErrMesheryClientNilCode                     = "meshplay-server-1181"
+	ErrUpdateDataCode                           = "meshplay-server-1182"
+	ErrDeleteDataCode                           = "meshplay-server-1183"
 )
 
 var (
@@ -34,7 +34,7 @@ func ErrMeshSyncEventsSubscription(err error) error {
 }
 
 func ErrMesheryControllersStatusSubscription(err error) error {
-	return errors.New(ErrMesheryControllersStatusSubscriptionCode, errors.Alert, []string{"Could not create meshery controllers status subcription", err.Error()}, []string{"Meshery controller handlers may not be available"}, []string{""}, []string{"Make sure the controllers are deployed and their handlers are configured"})
+	return errors.New(ErrMesheryControllersStatusSubscriptionCode, errors.Alert, []string{"Could not create meshplay controllers status subcription", err.Error()}, []string{"Meshery controller handlers may not be available"}, []string{""}, []string{"Make sure the controllers are deployed and their handlers are configured"})
 }
 
 func ErrCreateData(err error) error {
@@ -54,7 +54,7 @@ func ErrQuery(err error) error {
 }
 
 func ErrMeshsyncSubscription(err error) error {
-	return errors.New(ErrMeshsyncSubscriptionCode, errors.Alert, []string{"MeshSync Subscription failed", err.Error()}, []string{"GraphQL subscription for MeshSync stopped"}, []string{"Could be a network issue"}, []string{"Check if meshery server is reachable from the browser"})
+	return errors.New(ErrMeshsyncSubscriptionCode, errors.Alert, []string{"MeshSync Subscription failed", err.Error()}, []string{"GraphQL subscription for MeshSync stopped"}, []string{"Could be a network issue"}, []string{"Check if meshplay server is reachable from the browser"})
 }
 
 func ErrSubscribeChannel(err error) error {

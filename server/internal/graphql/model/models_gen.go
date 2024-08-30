@@ -181,7 +181,7 @@ type K8sContext struct {
 	Server             string `json:"server"`
 	Owner              string `json:"owner"`
 	CreatedBy          string `json:"created_by"`
-	MesheryInstanceID  string `json:"meshery_instance_id"`
+	MesheryInstanceID  string `json:"meshplay_instance_id"`
 	KubernetesServerID string `json:"kubernetes_server_id"`
 	DeploymentType     string `json:"deployment_type"`
 	Version            string `json:"version"`
@@ -240,7 +240,7 @@ type MesheryControllersStatusListItem struct {
 }
 
 type MesheryResult struct {
-	MesheryID          *string                `json:"meshery_id,omitempty"`
+	MesheryID          *string                `json:"meshplay_id,omitempty"`
 	Name               *string                `json:"name,omitempty"`
 	Mesh               *string                `json:"mesh,omitempty"`
 	PerformanceProfile *string                `json:"performance_profile,omitempty"`

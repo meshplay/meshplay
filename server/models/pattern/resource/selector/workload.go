@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	"github.com/layer5io/meshkit/models/meshmodel/entity"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"

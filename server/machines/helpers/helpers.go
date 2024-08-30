@@ -5,12 +5,12 @@ import (
 	"fmt"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/machines"
-	"github.com/layer5io/meshery/server/machines/grafana"
-	"github.com/layer5io/meshery/server/machines/kubernetes"
-	"github.com/layer5io/meshery/server/machines/prometheus"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/machines"
+	"github.com/layer5io/meshplay/server/machines/grafana"
+	"github.com/layer5io/meshplay/server/machines/kubernetes"
+	"github.com/layer5io/meshplay/server/machines/prometheus"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
 )

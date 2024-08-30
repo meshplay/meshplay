@@ -9,7 +9,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/utils"
 	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
@@ -103,16 +103,16 @@ func (h *Handler) GetSystemDatabase(w http.ResponseWriter, r *http.Request, _ *m
 // Reset the system database to its initial state.
 func (h *Handler) ResetSystemDatabase(w http.ResponseWriter, r *http.Request, _ *models.Preference, _ *models.User, provider models.Provider) {
 
-	mesherydbPath := path.Join(utils.GetHome(), ".meshery/config")
-	err := os.Mkdir(path.Join(mesherydbPath, ".archive"), os.ModePerm)
+	meshplaydbPath := path.Join(utils.GetHome(), ".meshplay/config")
+	err := os.Mkdir(path.Join(meshplaydbPath, ".archive"), os.ModePerm)
 	if err != nil && os.IsNotExist(err) {
 		http.Error(w, "Directory could not be created due to a non-existent path.", http.StatusInternalServerError)
 		return
 	}
-	src := path.Join(mesherydbPath, "mesherydb.sql")
+	src := path.Join(meshplaydbPath, "meshplaydb.sql")
 	currentTime := time.Now().Format("20060102150407")
-	newFileName := ".archive/mesherydb" + currentTime + ".sql"
-	dst := path.Join(mesherydbPath, newFileName)
+	newFileName := ".archive/meshplaydb" + currentTime + ".sql"
+	dst := path.Join(meshplaydbPath, newFileName)
 
 	fin, err := os.Open(src)
 	if err != nil {

@@ -126,7 +126,7 @@ A sample workflow that could be added to your `.github/workflows` folder is give
          uses: layer5io/mesheryctl-smi-conformance-action@master
          with:
            service_mesh: open_service_mesh
-           provider_token: ${{ secrets.MESHERY_PROVIDER_TOKEN }}
+           provider_token: ${{ secrets.MESHPLAY_PROVIDER_TOKEN }}
            mesh_deployed: false
  </div></div>
  </pre>

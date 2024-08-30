@@ -4,13 +4,13 @@ import (
 	"context"
 	"errors"
 
-	"github.com/layer5io/meshery/server/internal/graphql/model"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/layer5io/meshplay/server/models"
 	registry "github.com/layer5io/meshkit/models/meshmodel/registry"
 	regv1alpha3 "github.com/layer5io/meshkit/models/meshmodel/registry/v1alpha3"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1alpha3/relationship"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 )
 
 func (r *Resolver) subscribeMeshModelSummary(ctx context.Context, provider models.Provider, selector model.MeshModelSummarySelector) (<-chan *model.MeshModelSummary, error) {

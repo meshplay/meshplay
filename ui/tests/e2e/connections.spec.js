@@ -65,11 +65,11 @@ test.describe.serial('Connections Page Tests', () => {
   test.beforeEach(async ({ page }) => {
     const connectionsReq = page.waitForRequest(
       (request) =>
-        request.url().startsWith(`${ENV.MESHERY_SERVER_URL}/api/integrations/connections`) &&
+        request.url().startsWith(`${ENV.MESHPLAY_SERVER_URL}/api/integrations/connections`) &&
         request.method() === 'GET',
     );
     const connectionsRes = page.waitForResponse(async (response) => {
-      if (!response.url().startsWith(`${ENV.MESHERY_SERVER_URL}/api/integrations/connections`))
+      if (!response.url().startsWith(`${ENV.MESHPLAY_SERVER_URL}/api/integrations/connections`))
         return false;
       if (response.status() !== 200) return false;
       const body = await response.json();
@@ -78,7 +78,7 @@ test.describe.serial('Connections Page Tests', () => {
     });
 
     // Visit Connections Page
-    await page.goto(`${ENV.MESHERY_SERVER_URL}`);
+    await page.goto(`${ENV.MESHPLAY_SERVER_URL}`);
     await page.getByRole('button', { name: 'Lifecycle' }).click();
     await page.getByRole('button', { name: 'Connections' }).click();
 
@@ -107,12 +107,12 @@ test.describe.serial('Connections Page Tests', () => {
 
     const addConnectionReq = page.waitForRequest(
       (request) =>
-        request.url() === `${ENV.MESHERY_SERVER_URL}/api/system/kubernetes` &&
+        request.url() === `${ENV.MESHPLAY_SERVER_URL}/api/system/kubernetes` &&
         request.method() === 'POST',
     );
     const addConnectionRes = page.waitForResponse(
       (response) =>
-        response.url() === `${ENV.MESHERY_SERVER_URL}/api/system/kubernetes` &&
+        response.url() === `${ENV.MESHPLAY_SERVER_URL}/api/system/kubernetes` &&
         response.status() === 200,
     );
 
@@ -148,26 +148,26 @@ test.describe.serial('Connections Page Tests', () => {
       const stateTransitionReq = page.waitForRequest(
         (request) =>
           request.url() ===
-            `${ENV.MESHERY_SERVER_URL}/api/integrations/connections/kubernetes/status` &&
+            `${ENV.MESHPLAY_SERVER_URL}/api/integrations/connections/kubernetes/status` &&
           request.method() === 'PUT',
       );
 
       const stateTransitionRes = page.waitForResponse(
         (response) =>
           response.url() ===
-            `${ENV.MESHERY_SERVER_URL}/api/integrations/connections/kubernetes/status` &&
+            `${ENV.MESHPLAY_SERVER_URL}/api/integrations/connections/kubernetes/status` &&
           response.status() === 202,
       );
 
       const getConnectionsReq = page.waitForRequest(
         (request) =>
-          request.url().startsWith(`${ENV.MESHERY_SERVER_URL}/api/integrations/connections`) &&
+          request.url().startsWith(`${ENV.MESHPLAY_SERVER_URL}/api/integrations/connections`) &&
           request.method() === 'GET',
       );
 
       const getConnectionsRes = page.waitForResponse(
         (response) =>
-          response.url().startsWith(`${ENV.MESHERY_SERVER_URL}/api/integrations/connections`) &&
+          response.url().startsWith(`${ENV.MESHPLAY_SERVER_URL}/api/integrations/connections`) &&
           response.status() === 200,
       );
 

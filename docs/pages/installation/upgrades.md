@@ -120,7 +120,7 @@ The Meshery command line client, `mesheryctl`, is available in different package
 Upgrade `mesheryctl` and run Meshery on Mac or Linux with this script:
 
  <pre class="codeblock-pre">
- <div class="codeblock"><div class="clipboardjs">curl -L https://meshery.io/install | DEPLOY_MESHERY=false bash -</div></div>
+ <div class="codeblock"><div class="clipboardjs">curl -L https://meshery.io/install | DEPLOY_MESHPLAY=false bash -</div></div>
  </pre>
 
 ### Upgrading `mesheryctl` using Scoop

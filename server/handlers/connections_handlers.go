@@ -10,11 +10,11 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshery/server/machines"
-	"github.com/layer5io/meshery/server/machines/helpers"
-	"github.com/layer5io/meshery/server/machines/kubernetes"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/machines"
+	"github.com/layer5io/meshplay/server/machines/helpers"
+	"github.com/layer5io/meshplay/server/machines/kubernetes"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/models/events"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 )
@@ -189,9 +189,9 @@ func (h *Handler) SaveConnection(w http.ResponseWriter, req *http.Request, _ *mo
 //
 // ```?status={status}``` Status takes array as param to filter connections based on status, eg /api/integrations/connections?status=["connected", "deleted"]
 //
-// ```?kind={kind}``` Kind takes array as param to filter connections based on kind, eg /api/integrations/connections?kind=["meshery", "kubernetes"]
+// ```?kind={kind}``` Kind takes array as param to filter connections based on kind, eg /api/integrations/connections?kind=["meshplay", "kubernetes"]
 // responses:
-// 200: mesheryConnectionsResponseWrapper
+// 200: meshplayConnectionsResponseWrapper
 func (h *Handler) GetConnections(w http.ResponseWriter, req *http.Request, prefObj *models.Preference, user *models.User, provider models.Provider) {
 	q := req.URL.Query()
 	page, _ := strconv.Atoi(q.Get("page"))
@@ -324,7 +324,7 @@ func (h *Handler) GetConnectionsByKind(w http.ResponseWriter, req *http.Request,
 //
 // Get all connections status
 // responses:
-// 200: mesheryConnectionsStatusPage
+// 200: meshplayConnectionsStatusPage
 func (h *Handler) GetConnectionsStatus(w http.ResponseWriter, req *http.Request, _ *models.Preference, user *models.User, provider models.Provider) {
 	connectionsStatusPage, err := provider.GetConnectionsStatus(req, user.ID)
 	obj := "connections status"
@@ -522,7 +522,7 @@ func (h *Handler) UpdateConnection(w http.ResponseWriter, req *http.Request, _ *
 //
 // Updates existing connection using ID
 // responses:
-// 200: mesheryConnectionResponseWrapper
+// 200: meshplayConnectionResponseWrapper
 func (h *Handler) UpdateConnectionById(w http.ResponseWriter, req *http.Request, _ *models.Preference, user *models.User, provider models.Provider) {
 	connectionID := uuid.FromStringOrNil(mux.Vars(req)["connectionId"])
 	userID := uuid.FromStringOrNil(user.ID)

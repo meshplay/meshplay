@@ -56,7 +56,7 @@ function CatalogCard({ pattern, patternType, catalog }) {
             <ServiceMeshIcon width={120} height={100} />
             <DesignId>
               <DesignIcon width={20} height={20} />
-              {`MESHERY${pattern.id.split("-")[2]}`}
+              {`MESHPLAY${pattern.id.split("-")[2]}`}
             </DesignId>
           </CardFront>
           <CardBack>
@@ -84,7 +84,7 @@ function CatalogCard({ pattern, patternType, catalog }) {
             </DesignDetailsDiv>
             <DesignId style={{ color: "white" }}>
               <WhiteDesignIcon width={20} height={20} />
-              {` MESHERY${pattern.id.split("-")[2]}`}
+              {` MESHPLAY${pattern.id.split("-")[2]}`}
 
               <Tooltip title={copied ? "Copied" : "Copy"}>
                 <CopyButton onClick={handleCopyClick}>

@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 )
 
 // Data is the struct that will be passed on each stage

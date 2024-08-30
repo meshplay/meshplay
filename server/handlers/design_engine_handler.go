@@ -11,23 +11,23 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/meshes"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/pattern/core"
-	"github.com/layer5io/meshery/server/models/pattern/patterns"
+	"github.com/layer5io/meshplay/server/meshes"
+	"github.com/layer5io/meshplay/server/models"
+	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/layer5io/meshplay/server/models/pattern/patterns"
 	"github.com/spf13/viper"
 
-	"github.com/layer5io/meshery/server/models/pattern/patterns/k8s"
-	patternutils "github.com/layer5io/meshery/server/models/pattern/utils"
+	"github.com/layer5io/meshplay/server/models/pattern/patterns/k8s"
+	patternutils "github.com/layer5io/meshplay/server/models/pattern/utils"
 
-	"github.com/layer5io/meshery/server/models/pattern/stages"
+	"github.com/layer5io/meshplay/server/models/pattern/stages"
 	"github.com/layer5io/meshkit/logger"
 	events "github.com/layer5io/meshkit/models/events"
 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/utils"
 	meshkube "github.com/layer5io/meshkit/utils/kubernetes"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -264,7 +264,7 @@ func _processPattern(opts *core.ProcessPatternOptions) (map[string]interface{}, 
 			// that the validation stage also formats the `data` (chain function parameter) that the
 			// subsequent stages depend on.
 			// We are skipping the `Validation` based on "verify" query paramerter
-			Add(stages.Validator(sip, sap, opts.Validate)) // not required as client side RJSF validation is enough, but for mesheryctl client it's required
+			Add(stages.Validator(sip, sap, opts.Validate)) // not required as client side RJSF validation is enough, but for meshplayctl client it's required
 		if opts.DryRun {
 			chain.Add(stages.DryRun(sip, sap))
 		}
@@ -497,7 +497,7 @@ func (sap *serviceActionProvider) Provision(ccp stages.CompConfigPair) ([]patter
 	msgs := []patterns.DeploymentMessagePerContext{}
 	for _, host := range ccp.Hosts {
 		// Hack until adapters fix the concurrent client
-		// creation issue: https://github.com/layer5io/meshery-adapter-library/issues/32
+		// creation issue: https://github.com/layer5io/meshplay-adapter-library/issues/32
 		time.Sleep(50 * time.Microsecond)
 		sap.log.Debug("Execute operations on: ", host.Kind)
 

@@ -30,7 +30,7 @@ helm install meshery meshery/meshery --namespace meshery --create-namespace
 
 Optionally, Meshery Server supports customizing the callback URL for your remote provider, like so:
 
-{% capture code_content %}helm install meshery meshery/meshery --namespace meshery --set env.MESHERY_SERVER_CALLBACK_URL=https://custom-host --create-namespace{% endcapture %}
+{% capture code_content %}helm install meshery meshery/meshery --namespace meshery --set env.MESHPLAY_SERVER_CALLBACK_URL=https://custom-host --create-namespace{% endcapture %}
 {% include code.html code=code_content %}
 
 ### Customizing Meshery's Installation with values.yaml

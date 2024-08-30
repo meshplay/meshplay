@@ -66,7 +66,7 @@ Verify your kubeconfig's current context.
 1. If you are using port-forwarding, please refer to the [port-forwarding]({{ site.baseurl }}/reference/mesheryctl/system/dashboard) guide for detailed instructions.
 2. Customize your Meshery Provider Callback URL. Meshery Server supports customizing authentication flow callback URL, which can be configured in the following way:
 
-{% capture code_content %}$ MESHERY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start{% endcapture %}
+{% capture code_content %}$ MESHPLAY_SERVER_CALLBACK_URL=https://custom-host mesheryctl system start{% endcapture %}
 {% include code.html code=code_content %}
 
 Meshery should now be running in your Minikube cluster and Meshery UI should be accessible at the `INTERNAL IP` of `meshery` service.

@@ -10,8 +10,8 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	"github.com/meshery/schemas/models/v1alpha1/capability"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1alpha1/capability"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"

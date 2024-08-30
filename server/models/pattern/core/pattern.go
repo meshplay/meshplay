@@ -7,16 +7,16 @@ import (
 	"io"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/models/pattern/utils"
+	"github.com/layer5io/meshplay/server/models/pattern/utils"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/encoding"
 	registry "github.com/layer5io/meshkit/models/meshmodel/registry"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 	mutils "github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/manifests"
-	"github.com/meshery/schemas/models/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	cytoscapejs "gonum.org/v1/gonum/graph/formats/cytoscapejs"
 	"gopkg.in/yaml.v2"
 )
@@ -166,7 +166,7 @@ func NewPatternFile(yml []byte) (patternFile pattern.PatternFile, err error) {
 	return
 }
 
-// AssignAdditionalLabels adds labels to identify resources deployed by meshery.
+// AssignAdditionalLabels adds labels to identify resources deployed by meshplay.
 func AssignAdditionalLabels(comp *component.ComponentDefinition) error {
 
 	if comp.Configuration == nil {
@@ -185,7 +185,7 @@ func AssignAdditionalLabels(comp *component.ComponentDefinition) error {
 		}
 	}
 
-	existingLabels["resource.pattern.meshery.io/id"] = comp.Id.String() //set the patternID to track back the object
+	existingLabels["resource.pattern.meshplay.io/id"] = comp.Id.String() //set the patternID to track back the object
 	comp.Configuration["labels"] = existingLabels
 	return nil
 }

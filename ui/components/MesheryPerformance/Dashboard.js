@@ -20,8 +20,8 @@ import DefaultError from '@/components/General/error-404/index';
 import { Modal } from '@layer5/sistent';
 import { UsesSistent } from '../SistentWrapper';
 
-// const MESHERY_PERFORMANCE_URL = "/api/user/performance/profiles";
-// const MESHERY_PERFORMANCE_TEST_URL = "/api/user/performance/profiles/results";
+// const MESHPLAY_PERFORMANCE_URL = "/api/user/performance/profiles";
+// const MESHPLAY_PERFORMANCE_TEST_URL = "/api/user/performance/profiles/results";
 
 const styles = (theme) => ({
   paper: { padding: '1rem', backgroundColor: theme.palette.secondary.elevatedComponents },

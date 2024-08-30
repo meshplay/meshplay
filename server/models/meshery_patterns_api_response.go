@@ -1,6 +1,6 @@
 package models
 
-// PatternsAPIResponse response retruned by patternfile endpoint on meshery server
+// PatternsAPIResponse response retruned by patternfile endpoint on meshplay server
 type PatternsAPIResponse struct {
 	Page       uint             `json:"page"`
 	PageSize   uint             `json:"page_size"`

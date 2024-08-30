@@ -3,10 +3,10 @@ package application
 // import (
 // 	"os"
 
-// 	"github.com/layer5io/meshery/server/helpers"
-// 	"github.com/layer5io/meshery/server/models"
-// 	"github.com/layer5io/meshery/server/models/pattern/patterns/application/argo/v1alpha1"
-// 	patternUtils "github.com/layer5io/meshery/server/models/pattern/utils"
+// 	"github.com/layer5io/meshplay/server/helpers"
+// 	"github.com/layer5io/meshplay/server/models"
+// 	"github.com/layer5io/meshplay/server/models/pattern/patterns/application/argo/v1alpha1"
+// 	patternUtils "github.com/layer5io/meshplay/server/models/pattern/utils"
 // 	"github.com/layer5io/meshkit/logger"
 // 	"github.com/layer5io/meshkit/utils"
 // 	meshkube "github.com/layer5io/meshkit/utils/kubernetes"
@@ -42,7 +42,7 @@ package application
 // 		logLevel = int(logrus.DebugLevel)
 // 	}
 // 	// Initialize Logger instance
-// 	log, err := logger.New("meshery", logger.Options{
+// 	log, err := logger.New("meshplay", logger.Options{
 // 		Format:   logger.SyslogLogFormat,
 // 		LogLevel: logLevel,
 // 	})
@@ -233,7 +233,7 @@ package application
 // 		ObjectMeta: metav1.ObjectMeta{
 // 			Name: opt.Name,
 // 			Annotations: helpers.MergeStringMaps(map[string]string{
-// 				"meshery-engine": "argo",
+// 				"meshplay-engine": "argo",
 // 			}, opt.Metadata.Annotations),
 // 			Labels:    opt.Metadata.Labels,
 // 			Namespace: opt.Namespace,

@@ -4,14 +4,14 @@ import (
 	"net/http"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
-	mesherykube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
 	SMP "github.com/layer5io/service-mesh-performance/spec"
-	"github.com/meshery/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1"
 )
 
 // ContextKey is a custom type for setting context key
@@ -246,25 +246,25 @@ const (
 
 	PersistSMPTestProfile Feature = "persist-smp-test-profile" // /user/test-config
 
-	PersistMesheryPatterns Feature = "persist-meshery-patterns" // /patterns
+	PersistMesheryPatterns Feature = "persist-meshplay-patterns" // /patterns
 
-	PersistMesheryPatternResources Feature = "persist-meshery-pattern-resources" // /patterns/resources
+	PersistMesheryPatternResources Feature = "persist-meshplay-pattern-resources" // /patterns/resources
 
-	PersistMesheryFilters Feature = "persist-meshery-filters" // /filter
+	PersistMesheryFilters Feature = "persist-meshplay-filters" // /filter
 
-	PersistMesheryApplications Feature = "persist-meshery-applications" // /applications
+	PersistMesheryApplications Feature = "persist-meshplay-applications" // /applications
 
 	PersistPerformanceProfiles Feature = "persist-performance-profiles" // /user/performance/profile
 
 	PersistSchedules Feature = "persist-schedules" // /user/schedules
 
-	MesheryPatternsCatalog Feature = "meshery-patterns-catalog" // /patterns/catalog
+	MesheryPatternsCatalog Feature = "meshplay-patterns-catalog" // /patterns/catalog
 
-	MesheryFiltersCatalog Feature = "meshery-filters-catalog" // /filters/catalog
+	MesheryFiltersCatalog Feature = "meshplay-filters-catalog" // /filters/catalog
 
-	CloneMesheryPatterns Feature = "clone-meshery-patterns" // /patterns/clone
+	CloneMesheryPatterns Feature = "clone-meshplay-patterns" // /patterns/clone
 
-	CloneMesheryFilters Feature = "clone-meshery-filters" // /filters/clone
+	CloneMesheryFilters Feature = "clone-meshplay-filters" // /filters/clone
 
 	ShareDesigns Feature = "share-designs"
 
@@ -312,15 +312,15 @@ const (
 	KubeClustersKey   ContextKey = "kubeclusters"
 	AllKubeClusterKey ContextKey = "allkubeclusters"
 
-	MesheryControllerHandlersKey ContextKey = "mesherycontrollerhandlerskey"
+	MesheryControllerHandlersKey ContextKey = "meshplaycontrollerhandlerskey"
 	MeshSyncDataHandlersKey      ContextKey = "meshsyncdatahandlerskey"
 
 	RegistryManagerKey ContextKey = "registrymanagerkey"
 
 	HandlerKey               ContextKey = "handlerkey"
 	SystemIDKey              ContextKey = "systemidKey"
-	MesheryServerURL         ContextKey = "mesheryserverurl"
-	MesheryServerCallbackURL ContextKey = "mesheryservercallbackurl"
+	MesheryServerURL         ContextKey = "meshplayserverurl"
+	MesheryServerCallbackURL ContextKey = "meshplayservercallbackurl"
 )
 
 // IsSupported returns true if the given feature is listed as one of
@@ -419,8 +419,8 @@ type Provider interface {
 
 	GetGenericPersister() *database.Handler
 
-	SetKubeClient(client *mesherykube.Client)
-	GetKubeClient() *mesherykube.Client
+	SetKubeClient(client *meshplaykube.Client)
+	GetKubeClient() *meshplaykube.Client
 
 	SaveMesheryPattern(tokenString string, pattern *MesheryPattern) ([]byte, error)
 	GetMesheryPatterns(tokenString, page, pageSize, search, order string, updatedAfter string, visbility []string, includeMetrics string) ([]byte, error)

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/layer5io/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
 	"gorm.io/gorm"
 )
@@ -45,14 +45,14 @@ func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContexts(search, order stri
 
 	Paginate(uint(page), uint(pageSize))(query).Find(&contexts)
 
-	mesheryK8sContextPage := MesheryK8sContextPage{
+	meshplayK8sContextPage := MesheryK8sContextPage{
 		Page:       page,
 		PageSize:   pageSize,
 		TotalCount: int(count),
 		Contexts:   contexts,
 	}
 
-	resp, _ := json.Marshal(mesheryK8sContextPage)
+	resp, _ := json.Marshal(meshplayK8sContextPage)
 	return resp, nil
 }
 
@@ -77,10 +77,10 @@ func (mkcp *MesheryK8sContextPersister) SaveMesheryK8sContext(mkc K8sContext) (c
 
 	// Perform the operation in a transaction
 	err := mkcp.DB.Transaction(func(tx *gorm.DB) error {
-		var mesheryK8sContext K8sContext
+		var meshplayK8sContext K8sContext
 
 		// Check if there is already an entry for this context
-		if err := tx.First(&mesheryK8sContext, "id = ?", mkc.ID).Error; err == nil {
+		if err := tx.First(&meshplayK8sContext, "id = ?", mkc.ID).Error; err == nil {
 			return ErrContextAlreadyPersisted
 		}
 
@@ -91,28 +91,28 @@ func (mkcp *MesheryK8sContextPersister) SaveMesheryK8sContext(mkc K8sContext) (c
 }
 
 func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContext(id string) (K8sContext, error) {
-	var mesheryK8sContext K8sContext
+	var meshplayK8sContext K8sContext
 
-	err := mkcp.DB.First(&mesheryK8sContext, "id = ?", id).Error
-	return mesheryK8sContext, err
+	err := mkcp.DB.First(&meshplayK8sContext, "id = ?", id).Error
+	return meshplayK8sContext, err
 }
 
 // func (mkcp *MesheryK8sContextPersister) SetMesheryK8sCurrentContext(id string) error {
 // 	// Perform the operation in a transaction
 // 	return mkcp.DB.Transaction(func(tx *gorm.DB) error {
-// 		var mesheryK8sContext K8sContext
+// 		var meshplayK8sContext K8sContext
 
 // 		// Get context which is currently in use
-// 		if err := tx.First(&mesheryK8sContext, "is_current_context = true").Error; err != nil {
+// 		if err := tx.First(&meshplayK8sContext, "is_current_context = true").Error; err != nil {
 // 			return err
 // 		}
 
 // 		// If the context id matches with the provided id then skip the next steps
-// 		if mesheryK8sContext.ID == id {
+// 		if meshplayK8sContext.ID == id {
 // 			return nil
 // 		}
 
-// 		if err := tx.Save(&mesheryK8sContext).Error; err != nil {
+// 		if err := tx.Save(&meshplayK8sContext).Error; err != nil {
 // 			return err
 // 		}
 
@@ -122,9 +122,9 @@ func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContext(id string) (K8sCont
 // }
 
 // func (mkcp *MesheryK8sContextPersister) GetMesheryK8sCurrentContext() (K8sContext, error) {
-// 	var mesheryK8sContext K8sContext
+// 	var meshplayK8sContext K8sContext
 
-// 	err := mkcp.DB.First(&mesheryK8sContext, "is_current_context = true").Error
+// 	err := mkcp.DB.First(&meshplayK8sContext, "is_current_context = true").Error
 
-// 	return mesheryK8sContext, err
+// 	return meshplayK8sContext, err
 // }
