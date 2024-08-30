@@ -4,7 +4,7 @@ title: Athenz
 subtitle: Collaborative and visual infrastructure as design for Athenz
 image: /assets/img/integrations/athenz/icons/color/athenz-color.svg
 permalink: extensibility/integrations/athenz
-docURL: https://docs.meshplay.io/extensibility/integrations/athenz
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/athenz
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Key Management

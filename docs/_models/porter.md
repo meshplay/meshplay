@@ -4,7 +4,7 @@ title: Porter
 subtitle: Collaborative and visual infrastructure as design for Porter
 image: /assets/img/integrations/porter/icons/color/porter-color.svg
 permalink: extensibility/integrations/porter
-docURL: https://docs.meshplay.io/extensibility/integrations/porter
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/porter
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

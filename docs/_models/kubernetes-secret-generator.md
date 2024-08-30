@@ -4,7 +4,7 @@ title: Kubernetes Secret Generator
 subtitle: Collaborative and visual infrastructure as design for Kubernetes Secret Generator
 image: /assets/img/integrations/kubernetes-secret-generator/icons/color/kubernetes-secret-generator-color.svg
 permalink: extensibility/integrations/kubernetes-secret-generator
-docURL: https://docs.meshplay.io/extensibility/integrations/kubernetes-secret-generator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubernetes-secret-generator
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Uncategorized

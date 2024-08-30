@@ -4,7 +4,7 @@ title: Kubernetes
 subtitle: The easiest way to get a production-grade Kubernetes cluster up and running
 image: /assets/img/integrations/kubernetes/icons/color/kubernetes-color.svg
 permalink: extensibility/integrations/kubernetes
-docURL: https://docs.meshplay.io/installation/kubernetes
+docURL: https://docs.meshplay.khulnasofy.com/installation/kubernetes
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Orchestration & Management

@@ -20,7 +20,7 @@ Meshplay provides 220+ built-in integrations which refer to the supported connec
 {% endcapture %}
 {{totalled}}
 
-Optionally, you can [navigate all integrations visually](https://meshplay.io/integrations).
+Optionally, you can [navigate all integrations visually](https://meshplay.khulnasofy.com/integrations).
 
 <!--
 UNCOMMENT WHEN INTEGRATIONS COLLECTION IS READY

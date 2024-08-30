@@ -4,7 +4,7 @@ title: AWS VPC CNI
 subtitle: Collaborative and visual infrastructure as code for AWS VPC CNI
 image: /assets/img/integrations/aws-vpc-cni/icons/color/aws-vpc-cni-color.svg
 permalink: extensibility/integrations/aws-vpc-cni
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-vpc-cni
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-vpc-cni
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Cloud Native Network

@@ -4,7 +4,7 @@ title: Kubeflow MPI Operator
 subtitle: Collaborative and visual infrastructure as design for Kubeflow MPI Operator
 image: /assets/img/integrations/mpi-operator/icons/color/mpi-operator-color.svg
 permalink: extensibility/integrations/mpi-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/mpi-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/mpi-operator
 description: 
 integrations-category: Machine Learning
 integrations-subcategory: Machine Learning

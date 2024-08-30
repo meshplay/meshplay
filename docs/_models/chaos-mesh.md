@@ -4,7 +4,7 @@ title: Chaos Mesh
 subtitle: Collaborative and visual infrastructure as design for Chaos Mesh
 image: /assets/img/integrations/chaos-mesh/icons/color/chaos-mesh-color.svg
 permalink: extensibility/integrations/chaos-mesh
-docURL: https://docs.meshplay.io/extensibility/integrations/chaos-mesh
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/chaos-mesh
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Chaos Engineering

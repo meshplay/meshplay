@@ -294,7 +294,7 @@ function MeshplayPatternGrid({
               uiSchema={publishSchema.uiSchema}
               submitBtnText="Submit for Approval"
               handleSubmit={handlePublish}
-              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
+              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.khulnasoft.com/concepts/catalog)"
               handleClose={handlePublishModalClose}
             />
           </SistentModal>

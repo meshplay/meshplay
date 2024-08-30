@@ -4,7 +4,7 @@ title: Emissary Ingress
 subtitle: Collaborative and visual infrastructure as design for Emissary Ingress
 image: /assets/img/integrations/emissary-ingress/icons/color/emissary-ingress-color.svg
 permalink: extensibility/integrations/emissary-ingress
-docURL: https://docs.meshplay.io/extensibility/integrations/emissary-ingress
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/emissary-ingress
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

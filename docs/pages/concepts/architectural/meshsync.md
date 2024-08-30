@@ -40,14 +40,14 @@ The resources that are present inside the cluster are discovered efficiently wit
 
 Meshplay earmarks infrastucture for which it is the orginal lifecycle manager. In other words, Meshplay tags the resources it creates. In Kubernetes deployments, earmarking is performed using annotations, notably the key/value pair:
 
-`designs.meshplay.io: <design-id>`
+`designs.meshplay.khulnasofy.com: <design-id>`
 
 The propagation of the labels and annotations to the native k8s resources would be the responsibility of the workload/trait implementor.
 The following annotations are added to resources that are created by Meshplay Server.
 
 ```yaml
 Labels:
-  - resource.pattern.meshplay.io/id=<uuid> # unique identifier for the design
+  - resource.pattern.meshplay.khulnasofy.com/id=<uuid> # unique identifier for the design
 ```
 
 ## Identifying Infrastructure under Management

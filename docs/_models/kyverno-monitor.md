@@ -4,7 +4,7 @@ title: Kyverno Monitor
 subtitle: Collaborative and visual infrastructure as design for Kyverno Monitor
 image: /assets/img/integrations/kyverno-monitor/icons/color/kyverno-monitor-color.svg
 permalink: extensibility/integrations/kyverno-monitor
-docURL: https://docs.meshplay.io/extensibility/integrations/kyverno-monitor
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kyverno-monitor
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

@@ -80,7 +80,7 @@ function CustomErrorMessage() {
             <Link
               className={classes.discussionforumlink}
               underline="none"
-              href="http://discuss.meshplay.io/c/meshplay/5"
+              href="http://discuss.meshplay.khulnasoft.com/c/meshplay/5"
               target="_blank"
             >
               discussion forum

@@ -47,7 +47,7 @@ var (
 		Use:   "adapter",
 		Short: "Cloud Native Lifecycle Management",
 		Long: `Provisioning, configuration, and on-going operational management of cloud and cloud native infrastructure.
-	Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
+	Find more information at: https://docs.meshplay.khulnasofy.com/reference/meshplayctl#command-reference`,
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 
 			// if `mesh` command is ran without any subcommands, show Help and exit

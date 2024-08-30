@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	ChartRepo                     = "https://meshplay.github.io/meshplay.io/charts"
+	ChartRepo                     = "https://meshplay.github.io/meshplay.khulnasofy.com/charts"
 	MeshplayServerBrokerConnection = "meshplay-server"
 )
 

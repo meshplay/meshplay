@@ -4,7 +4,7 @@ title: Cockroachdb Operator
 subtitle: Collaborative and visual infrastructure as design for Cockroachdb Operator
 image: /assets/img/integrations/cockroachdb-operator/icons/color/cockroachdb-operator-color.svg
 permalink: extensibility/integrations/cockroachdb-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/cockroachdb-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/cockroachdb-operator
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

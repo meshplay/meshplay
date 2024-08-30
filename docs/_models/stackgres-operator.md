@@ -4,7 +4,7 @@ title: Stackgres Operator
 subtitle: Collaborative and visual infrastructure as design for Stackgres Operator
 image: /assets/img/integrations/stackgres-operator/icons/color/stackgres-operator-color.svg
 permalink: extensibility/integrations/stackgres-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/stackgres-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/stackgres-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

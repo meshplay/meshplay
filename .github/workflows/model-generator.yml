@@ -78,8 +78,8 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: GitHub Actions - Workflow Failure
           from: |
-            "Model Generator and Updater" <no-reply@meshplay.io>
-          to: developers@meshplay.io
+            "Model Generator and Updater" <no-reply@meshplay.khulnasoft.com>
+          to: developers@meshplay.khulnasoft.com
           body: |
             The GitHub Actions workflow in ${{ github.repository }} has failed.
             You can find more details in the GitHub Actions log ${{ github.workflow }}.
@@ -94,10 +94,10 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Model Generator Error Log
           from: |
-            "Model Generator" <no-reply@meshplay.io>
-          to: developers@meshplay.io
+            "Model Generator" <no-reply@meshplay.khulnasoft.com>
+          to: developers@meshplay.khulnasoft.com
           body: |
                The Model Generator workflow (https://github.com/meshplay/meshplay/actions/workflows/model-generator.yml) encountered one or more errors. Refer to the attached error log for details or review the results of the failed workflow - https://github.com/meshplay/meshplay/actions/runs/${{ github.run_id }}.
 
-               Learn more about the Meshplay Registry - https://docs.meshplay.io/concepts/logical/registry.
+               Learn more about the Meshplay Registry - https://docs.meshplay.khulnasoft.com/concepts/logical/registry.
           attachments: ~/.meshplay/logs/registry/registry-errors.log

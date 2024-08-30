@@ -4,7 +4,7 @@ title: Kubeflow Katib
 subtitle: Collaborative and visual infrastructure as design for Kubeflow Katib
 image: /assets/img/integrations/katib/icons/color/katib-color.svg
 permalink: extensibility/integrations/katib
-docURL: https://docs.meshplay.io/extensibility/integrations/katib
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/katib
 description: 
 integrations-category: Machine Learning
 integrations-subcategory: Machine Learning

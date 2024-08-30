@@ -446,7 +446,7 @@ function MeshplayFilters({
           title: `Unpublish Catalog item?`,
           subtitle: `Are you sure that you want to unpublish "${filter?.name}"?`,
           options: ['Yes', 'No'],
-          showInfoIcon: `Unpublishing a catolog item removes the item from the public-facing catalog (a public website accessible to anonymous visitors at meshplay.io/catalog). The catalog item's visibility will change to either public (or private with a subscription). The ability to for other users to continue to access, edit, clone and collaborate on your content depends upon the assigned visibility level (public or private). Prior collaborators (users with whom you have shared your catalog item) will retain access. However, you can always republish it whenever you want.  Remember: unpublished catalog items can still be available to other users if that item is set to public visibility. For detailed information, please refer to the documentation https://docs.meshplay.io/concepts/designs.`,
+          showInfoIcon: `Unpublishing a catolog item removes the item from the public-facing catalog (a public website accessible to anonymous visitors at meshplay.khulnasoft.com/catalog). The catalog item's visibility will change to either public (or private with a subscription). The ability to for other users to continue to access, edit, clone and collaborate on your content depends upon the assigned visibility level (public or private). Prior collaborators (users with whom you have shared your catalog item) will retain access. However, you can always republish it whenever you want.  Remember: unpublished catalog items can still be available to other users if that item is set to public visibility. For detailed information, please refer to the documentation https://docs.meshplay.khulnasoft.com/concepts/designs.`,
         });
         if (response === 'Yes') {
           updateProgress({ showProgress: true });
@@ -1390,7 +1390,7 @@ const PublishModal = React.memo((props) => {
           uiSchema={publishCatalogItemUiSchema}
           submitBtnText="Submit for Approval"
           handleSubmit={handleSubmit}
-          helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
+          helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.khulnasoft.com/concepts/catalog)"
           handleClose={handleClose}
         />
       </SistentModal>

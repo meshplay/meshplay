@@ -4,7 +4,7 @@ title: Jfrog Distribution
 subtitle: Managed release binary distribution with JFrog distribution
 image: /assets/img/integrations/distribution/icons/color/distribution-color.svg
 permalink: extensibility/integrations/distribution
-docURL: https://docs.meshplay.io/extensibility/integrations/distribution
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/distribution
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Container Registry

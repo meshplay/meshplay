@@ -92,7 +92,7 @@ export default function MeshplayConfigurationChart({ classes }) {
               placement="left"
               interactive={true}
               variant="standard"
-              title={`Meshplay Designs are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured. [Learn more](https://docs.meshplay.io/concepts/logical/designs)`}
+              title={`Meshplay Designs are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured. [Learn more](https://docs.meshplay.khulnasoft.com/concepts/logical/designs)`}
             >
               <IconButton disableRipple={true} disableFocusRipple={true}>
                 <InfoOutlined

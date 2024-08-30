@@ -4,7 +4,7 @@ title: Dapr
 subtitle: Collaborative and visual infrastructure as design for Dapr
 image: /assets/img/integrations/dapr/icons/color/dapr-color.svg
 permalink: extensibility/integrations/dapr
-docURL: https://docs.meshplay.io/extensibility/integrations/dapr
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/dapr
 description: 
 integrations-category: Serverless
 integrations-subcategory: Framework

@@ -22,7 +22,7 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshplay.io/project/contributing/contributing-error
+// https://docs.meshplay.khulnasofy.com/project/contributing/contributing-error
 // https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
 	ErrHealthCheckFailedCode             = "meshplayctl-1060"
@@ -59,13 +59,13 @@ const (
 
 var (
 	cmdType     string
-	contextdocs string = "See https://docs.meshplay.io/reference/meshplayctl/system/context for usage details."
+	contextdocs string = "See https://docs.meshplay.khulnasofy.com/reference/meshplayctl/system/context for usage details."
 	contextDir  string = "see that you have a correct context in your  meshconfig at `$HOME/.meshplay/config.yaml`."
 )
 
 // A Format reference that returns Meshplayctl's URL docs for system command and sub commands
 func FormatErrorReference() string {
-	baseURL := "https://docs.meshplay.io/reference/meshplayctl/system"
+	baseURL := "https://docs.meshplay.khulnasofy.com/reference/meshplayctl/system"
 	switch cmdType {
 	case "channel":
 		return fmt.Sprintf("\nSee %s for usage details\n", baseURL+"/channel")
@@ -187,11 +187,11 @@ func ErrRestartMeshplay(err error) error {
 }
 
 func ErrK8sConfig(err error) error {
-	return errors.New(ErrK8sConfigCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the cluster is running", " See https://docs.meshplay.io/installation/quick-start for additional instructions."}, []string{"Kubernetes cluster isn't running or inaccessible"}, []string{"Verify kubernetes and Meshplay connectivity or Verify kubeconfig certificates."})
+	return errors.New(ErrK8sConfigCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the cluster is running", " See https://docs.meshplay.khulnasofy.com/installation/quick-start for additional instructions."}, []string{"Kubernetes cluster isn't running or inaccessible"}, []string{"Verify kubernetes and Meshplay connectivity or Verify kubeconfig certificates."})
 }
 
 func ErrK8SQuery(err error) error {
-	return errors.New(ErrK8sQueryCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the token is valid", " See https://docs.meshplay.io/installation/quick-start for additional instructions"}, []string{"Kubernetes cluster is unavailable and that the token is invalid"}, []string{"Please confirm that your cluster is available and that the token is valid. See https://docs.meshplay.io/installation/quick-start for additional instructions"})
+	return errors.New(ErrK8sQueryCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the token is valid", " See https://docs.meshplay.khulnasofy.com/installation/quick-start for additional instructions"}, []string{"Kubernetes cluster is unavailable and that the token is invalid"}, []string{"Please confirm that your cluster is available and that the token is valid. See https://docs.meshplay.khulnasofy.com/installation/quick-start for additional instructions"})
 }
 
 func ErrInitPortForward(err error) error {

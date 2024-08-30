@@ -4,7 +4,7 @@ title: Knative
 subtitle: Collaborative and visual infrastructure as design for Knative
 image: /assets/img/integrations/knative/icons/color/knative-color.svg
 permalink: extensibility/integrations/knative
-docURL: https://docs.meshplay.io/extensibility/integrations/knative
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/knative
 description: 
 integrations-category: Serverless
 integrations-subcategory: Installable Platform

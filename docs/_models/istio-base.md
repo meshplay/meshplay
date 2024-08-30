@@ -4,7 +4,7 @@ title: Istio
 subtitle: The easiest way to get production-grade Istio service mesh up and running
 image: /assets/img/integrations/istio-base/icons/color/istio-base-color.svg
 permalink: extensibility/integrations/istio-base
-docURL: https://docs.meshplay.io/extensibility/adapters/istio
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/adapters/istio
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

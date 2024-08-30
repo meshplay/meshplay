@@ -4,7 +4,7 @@ title: Bitwarden
 subtitle: Collaborative and visual infrastructure as design for Bitwarden
 image: /assets/img/integrations/sm-kubernetes/icons/color/sm-kubernetes-color.svg
 permalink: extensibility/integrations/sm-kubernetes
-docURL: https://docs.meshplay.io/extensibility/integrations/sm-kubernetes
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/sm-kubernetes
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Key Management

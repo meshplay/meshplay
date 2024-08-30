@@ -5,9 +5,9 @@ import (
 )
 
 const (
-	CoreResource = "pattern.meshplay.io/core"
-	MeshResource = "pattern.meshplay.io/mesh/workload"
-	K8sResource  = "pattern.meshplay.io/k8s"
+	CoreResource = "pattern.meshplay.khulnasofy.com/core"
+	MeshResource = "pattern.meshplay.khulnasofy.com/mesh/workload"
+	K8sResource  = "pattern.meshplay.khulnasofy.com/k8s"
 )
 
 type Selector struct {

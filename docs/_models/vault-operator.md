@@ -4,7 +4,7 @@ title: Vault Operator
 subtitle: Collaborative and visual infrastructure as design for Vault Operator
 image: /assets/img/integrations/vault-operator/icons/color/vault-operator-color.svg
 permalink: extensibility/integrations/vault-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/vault-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/vault-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Key Management

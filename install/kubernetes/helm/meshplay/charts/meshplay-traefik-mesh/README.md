@@ -9,7 +9,7 @@ Meshplay Adapter for Traefik Mesh chart.
 | Name | Email | Url |
 | ---- | ------ | --- |
 | aisuko | <urakiny@gmail.com> |  |
-| Meshplay Authors | <maintainers@meshplay.io> |  |
+| Meshplay Authors | <maintainers@meshplay.khulnasoft.com> |  |
 
 ## Values
 

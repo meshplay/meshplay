@@ -4,7 +4,7 @@ title: AWS SageMaker
 subtitle: Collaborative and visual infrastructure as design for AWS SageMaker
 image: /assets/img/integrations/aws-sagemaker-controller/icons/color/aws-sagemaker-controller-color.svg
 permalink: extensibility/integrations/aws-sagemaker-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-sagemaker-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-sagemaker-controller
 description: 
 integrations-category: Machine Learning
 integrations-subcategory: Machine Learning

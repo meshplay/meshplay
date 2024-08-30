@@ -4,7 +4,7 @@ title: Kong API Gateway
 subtitle: Collaborative and visual infrastructure as design for Kong API Gateway
 image: /assets/img/integrations/kong/icons/color/kong-color.svg
 permalink: extensibility/integrations/kong
-docURL: https://docs.meshplay.io/extensibility/integrations/kong
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kong
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: API Gateway

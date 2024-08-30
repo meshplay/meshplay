@@ -12,7 +12,7 @@ export default function useDesignLifecycle() {
   const [designJson, setDesignJson] = useState({
     name: 'Untitled Design',
     components: [],
-    schemaVersion: 'designs.meshplay.io/v1beta1',
+    schemaVersion: 'designs.meshplay.khulnasoft.com/v1beta1',
   });
   const [designYaml, setDesignyaml] = useState('');
   const { notify } = useNotification();
@@ -152,7 +152,7 @@ export default function useDesignLifecycle() {
       setDesignJson({
         name: 'Untitled Design',
         components: [],
-        schemaVersion: 'designs.meshplay.io/v1beta1',
+        schemaVersion: 'designs.meshplay.khulnasoft.com/v1beta1',
       });
     } catch (err) {
       return notify({

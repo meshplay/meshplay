@@ -4,7 +4,7 @@ title: OpenTelemetry Operator
 subtitle: Collaborative and visual infrastructure as design for OpenTelemetry Operator
 image: /assets/img/integrations/opentelemetry-operator/icons/color/opentelemetry-operator-color.svg
 permalink: extensibility/integrations/opentelemetry-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/opentelemetry-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/opentelemetry-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Tracing

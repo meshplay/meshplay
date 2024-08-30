@@ -107,7 +107,7 @@ jobs:
           providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshplay Cloud Authentication token, signin to meshplay-cloud to get one, example: ey.....
           prNumber: ${{ env.PULL_NO }} # auto-filled from the above step
           application_type: "Helm Chart" # your application type, could be any of three: "Kubernetes Manifest", "Docker Compose", "Helm Chart"
-          application_url: "https://github.com/meshplay/meshplay.io/raw/master/charts/meshplay-v0.6.88.tgz"
+          application_url: "https://github.com/meshplay/meshplay.khulnasofy.com/raw/master/charts/meshplay-v0.6.88.tgz"
 ```
 
 #### FileSystem Approach Notes

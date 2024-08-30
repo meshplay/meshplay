@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "relationships.meshplay.io/v1alpha3",
+  "schemaVersion": "relationships.meshplay.khulnasofy.com/v1alpha3",
   "version": "v1.0.0",
   "kind": "hierarchical",
   "type": "parent",
@@ -8,7 +8,7 @@
     "description": "A hierarchical inventory relationship in which the configuration of (parent) component is patched with the configuration of other (child) component. In this case, the configuration of the Kubernetes Node (parent) component is patched with the configuration as received from KubeArmorHostPolicy (child) component."
   },
   "model": {
-    "schemaVersion": "models.meshplay.io/v1lpha2",
+    "schemaVersion": "models.meshplay.khulnasofy.com/v1lpha2",
     "version": "v1.0.0",
     "name": "kubearmor",
     "model": {

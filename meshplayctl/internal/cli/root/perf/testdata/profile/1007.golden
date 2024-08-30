@@ -251,7 +251,7 @@
   created_at: "2021-06-19T13:40:37.79544Z"
   duration: 3s
   endpoints:
-  - http://imagehub.meshplay.io:31004/pull
+  - http://imagehub.meshplay.khulnasofy.com:31004/pull
   id: 597edd67-c865-414e-bf77-1e016fb2e22b
   last_run: "2021-06-23T18:38:28.356221Z"
   load_generators:

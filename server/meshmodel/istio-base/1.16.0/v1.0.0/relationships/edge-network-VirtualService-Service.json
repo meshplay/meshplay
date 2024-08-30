@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "relationships.meshplay.io/v1alpha3",
+  "schemaVersion": "relationships.meshplay.khulnasofy.com/v1alpha3",
   "version": "v1.0.0",
   "kind": "edge",
   "subType": "network",
@@ -7,7 +7,7 @@
     "description": "A relationship that defines network edges between components"
   },
   "model": {
-    "schemaVersion": "core.meshplay.io/v1alpha2",
+    "schemaVersion": "core.meshplay.khulnasofy.com/v1alpha2",
     "version": "*",
     "name": "istio-base",
     "model": {

@@ -4,7 +4,7 @@ title: Pulsar Operator
 subtitle: Collaborative and visual infrastructure as design for Pulsar Operator
 image: /assets/img/integrations/pulsar-operator/icons/color/pulsar-operator-color.svg
 permalink: extensibility/integrations/pulsar-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/pulsar-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/pulsar-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

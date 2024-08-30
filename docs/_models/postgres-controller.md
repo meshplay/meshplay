@@ -4,7 +4,7 @@ title: Postgres Controller
 subtitle: Collaborative and visual infrastructure as design for Postgres Controller
 image: /assets/img/integrations/postgres-controller/icons/color/postgres-controller-color.svg
 permalink: extensibility/integrations/postgres-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/postgres-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/postgres-controller
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

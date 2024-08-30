@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "core.meshplay.io/v1alpha2",
+  "schemaVersion": "core.meshplay.khulnasofy.com/v1alpha2",
   "version": "*",
   "kind": "hierarchical",
   "type": "parent",
@@ -8,7 +8,7 @@
     "description": "A hierarchical inventory relationship in which the configuration of (parent) component is patched with the configuration of other (child) component. E.g Secret->Pod, ConfigMaps->Deployment, etc..."
   },
   "model": {
-    "schemaVersion": "core.meshplay.io/v1beta2",
+    "schemaVersion": "core.meshplay.khulnasofy.com/v1beta2",
     "version": "*",
     "name": "cert-manager",
     "model": {

@@ -54,7 +54,7 @@ jobs:
       #    token: ${{ secrets.GH_ACCESS_TOKEN }}
       #    charts_dir: install/kubernetes/helm
       #    owner: layer5io
-      #    repository: meshplay.io
+      #    repository: meshplay.khulnasoft.com
       #    branch: master
       #    target_dir: charts
       #    commit_username: l5io
@@ -67,7 +67,7 @@ jobs:
       #    token: ${{ secrets.GH_ACCESS_TOKEN }}
       #    charts_dir: install/kubernetes/helm
       #    owner: layer5io
-      #    repository: meshplay.io
+      #    repository: meshplay.khulnasoft.com
       #    branch: master
       #    target_dir: charts
       #    commit_username: l5io
@@ -80,7 +80,7 @@ jobs:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
           charts_dir: install/kubernetes/helm
           owner: meshplay
-          repository: meshplay.io
+          repository: meshplay.khulnasoft.com
           branch: master
           target_dir: charts
           commit_username: l5io
@@ -95,7 +95,7 @@ jobs:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
           charts_dir: install/kubernetes/helm
           owner: meshplay
-          repository: meshplay.io
+          repository: meshplay.khulnasoft.com
           branch: master
           target_dir: charts
           commit_username: l5io

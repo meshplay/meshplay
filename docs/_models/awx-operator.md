@@ -4,7 +4,7 @@ title: AWX Operator
 subtitle: Collaborative and visual infrastructure as design for AWX Operator
 image: /assets/img/integrations/awx-operator/icons/color/awx-operator-color.svg
 permalink: extensibility/integrations/awx-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/awx-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/awx-operator
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Automation & Configuration

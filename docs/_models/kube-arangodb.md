@@ -4,7 +4,7 @@ title: ArangoDB Kubernetes Operator
 subtitle: Collaborative and visual infrastructure as design for ArangoDB Kubernetes Operator
 image: /assets/img/integrations/kube-arangodb/icons/color/kube-arangodb-color.svg
 permalink: extensibility/integrations/kube-arangodb
-docURL: https://docs.meshplay.io/extensibility/integrations/kube-arangodb
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kube-arangodb
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

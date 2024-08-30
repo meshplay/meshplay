@@ -46,7 +46,7 @@ func TestRunProviderWithNoCmdOrFlag(t *testing.T) {
 	actualResponse := err.Error()
 
 	expectedResponse := "please specify a flag or subcommand. Use 'meshplayctl system provider --help' to display user guide." + "\n\n"
-	expectedResponse += "See https://docs.meshplay.io/reference/meshplayctl/system/provider for usage details\n"
+	expectedResponse += "See https://docs.meshplay.khulnasofy.com/reference/meshplayctl/system/provider for usage details\n"
 
 	if expectedResponse != actualResponse {
 		t.Errorf("expected response %v and actual response %v don't match", expectedResponse, actualResponse)

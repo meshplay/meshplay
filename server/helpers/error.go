@@ -5,7 +5,7 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshplay.io/project/contributing/contributing-error
+// https://docs.meshplay.khulnasofy.com/project/contributing/contributing-error
 // https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
 	ErrErrNewDynamicClientGeneratorCode    = "meshplay-server-1138"

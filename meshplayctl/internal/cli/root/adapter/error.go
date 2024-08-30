@@ -17,7 +17,7 @@ package adapter
 import "github.com/layer5io/meshkit/errors"
 
 // Please reference the following before contributing an error code:
-// https://docs.meshplay.io/project/contributing/contributing-error
+// https://docs.meshplay.khulnasofy.com/project/contributing/contributing-error
 // https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
 	ErrGettingSessionDataCode                = "meshplayctl-1020"
@@ -45,7 +45,7 @@ var (
 		[]string{"Unable to validate adapter"},
 		[]string{"Adapter for required mesh not found"},
 		[]string{"Unable to fetch Mesh adapter, adapter not valid."},
-		[]string{"Run the appropriate Meshplay Adapter for your specific use case. See https://docs.meshplay.io/concepts/architecture/adapters for list of adapters"})
+		[]string{"Run the appropriate Meshplay Adapter for your specific use case. See https://docs.meshplay.khulnasofy.com/concepts/architecture/adapters for list of adapters"})
 
 	ErrFailedDeployingMesh = errors.New(ErrFailedDeployingMeshCode, errors.Fatal,
 		[]string{"Failed to deploy"},

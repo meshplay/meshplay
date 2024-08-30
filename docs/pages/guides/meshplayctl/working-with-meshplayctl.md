@@ -184,7 +184,7 @@ Install `meshplayctl` and run Meshplay on Mac or Linux with this script:
 
  <pre class="codeblock-pre"><div class="codeblock">
  <div class="clipboardjs">
- curl -L https://meshplay.io/install | bash -
+ curl -L https://meshplay.khulnasofy.com/install | bash -
  </div></div>
  </pre>
 
@@ -194,7 +194,7 @@ Upgrade `meshplayctl` and run Meshplay on Mac or Linux with this script:
 
  <pre class="codeblock-pre"><div class="codeblock">
  <div class="clipboardjs">
- curl -L https://meshplay.io/install | bash -
+ curl -L https://meshplay.khulnasofy.com/install | bash -
  </div></div>
  </pre>
 

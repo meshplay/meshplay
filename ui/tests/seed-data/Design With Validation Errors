@@ -3,7 +3,7 @@ services:
   Section:
     name: Section
     type: Section
-    apiVersion: core.meshplay.io/v1alpha1
+    apiVersion: core.meshplay.khulnasoft.com/v1alpha1
     version: 0.7.1
     model: meshplay-shapes
     traits:
@@ -32,7 +32,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: App Definition and Development
           version: v1.0.0
@@ -100,7 +100,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -171,7 +171,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -238,7 +238,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -276,7 +276,7 @@ services:
   comment-lg:
     name: comment-lg
     type: Comment
-    apiVersion: core.meshplay.io/v1alpha1
+    apiVersion: core.meshplay.khulnasoft.com/v1alpha1
     namespace: default
     version: 0.7.1
     model: meshplay-core
@@ -310,7 +310,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: App Definition and Development
           version: v1.0.0
@@ -370,7 +370,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -447,7 +447,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -512,7 +512,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshplay.io/v1beta1
+          schemaVersion: core.meshplay.khulnasoft.com/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0

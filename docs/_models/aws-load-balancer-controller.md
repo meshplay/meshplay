@@ -4,7 +4,7 @@ title: AWS Load Balancer
 subtitle: Collaborative and visual infrastructure as design for AWS Load Balancer
 image: /assets/img/integrations/aws-load-balancer-controller/icons/color/aws-load-balancer-controller-color.svg
 permalink: extensibility/integrations/aws-load-balancer-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-load-balancer-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-load-balancer-controller
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

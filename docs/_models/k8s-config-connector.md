@@ -4,7 +4,7 @@ title: Google Cloud Platform
 subtitle: Collaborative and visual infrastructure as design for Google Cloud Platform
 image: /assets/img/integrations/k8s-config-connector/icons/color/k8s-config-connector-color.svg
 permalink: extensibility/integrations/k8s-config-connector
-docURL: https://docs.meshplay.io/extensibility/integrations/k8s-config-connector
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/k8s-config-connector
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Google Cloud Platform

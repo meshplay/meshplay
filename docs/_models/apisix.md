@@ -4,7 +4,7 @@ title: APISIX
 subtitle: Collaborative and visual infrastructure as design for APISIX
 image: /assets/img/integrations/apisix/icons/color/apisix-color.svg
 permalink: extensibility/integrations/apisix
-docURL: https://docs.meshplay.io/extensibility/integrations/apisix
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/apisix
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

@@ -4,7 +4,7 @@ title: Containerssh
 subtitle: Collaborative and visual infrastructure as design for Containerssh
 image: /assets/img/integrations/containerssh/icons/color/containerssh-color.svg
 permalink: extensibility/integrations/containerssh
-docURL: https://docs.meshplay.io/extensibility/integrations/containerssh
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/containerssh
 description: 
 integrations-category: Tools
 integrations-subcategory: Security & Compliance

@@ -22,8 +22,8 @@ Meshplay documentation is built using the following components:
 - Framework - [Jekyll](https://jekyllrb.com)
 - Theme - [https://github.com/vsoch/docsy-jekyll](https://github.com/vsoch/docsy-jekyll)
 - Repo - [https://github.com/meshplay/meshplay/tree/master/docs](https://github.com/meshplay/meshplay/tree/master/docs)
-- Site - [https://docs.meshplay.io](https://docs.meshplay.io)
-- AWS API GW - an instance is configured to redirect from docs.meshplay.io to meshplay.layer5.io, because of the repo location of where the docs currently reside.
+- Site - [https://docs.meshplay.khulnasofy.com](https://docs.meshplay.khulnasofy.com)
+- AWS API GW - an instance is configured to redirect from docs.meshplay.khulnasofy.com to meshplay.layer5.io, because of the repo location of where the docs currently reside.
 
 ## Set up your development environment
 
@@ -181,7 +181,7 @@ Meshplay documentation is built using the following components:
 
 - Use docs here [Jekyll installation](https://jekyllrb.com/docs/installation/macos/)
 
-{% include alert.html type="light" title="Note" content="In case of any installation issues, use the <a href='http://discuss.meshplay.io)'>discussion forum</a>." %}
+{% include alert.html type="light" title="Note" content="In case of any installation issues, use the <a href='http://discuss.meshplay.khulnasofy.com)'>discussion forum</a>." %}
 
 ### Get the code
 

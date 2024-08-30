@@ -17,7 +17,7 @@ package root
 import "github.com/layer5io/meshkit/errors"
 
 // Please reference the following before contributing an error code:
-// https://docs.meshplay.io/project/contributing/contributing-error
+// https://docs.meshplay.khulnasofy.com/project/contributing/contributing-error
 // https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
 	ErrProcessingConfigCode        = "meshplayctl-1010"
@@ -45,7 +45,7 @@ func ErrProcessingConfig(err error) error {
 }
 
 func ErrConnectingToServer(err error) error {
-	return errors.New(ErrConnectingToServerCode, errors.Fatal, []string{"Unable to communicate with Meshplay server"}, []string{"Unable to communicate with Meshplay server", err.Error(), "See https://docs.meshplay.io for help getting started with Meshplay"}, []string{}, []string{"See https://docs.meshplay.io for help getting started with Meshplay"})
+	return errors.New(ErrConnectingToServerCode, errors.Fatal, []string{"Unable to communicate with Meshplay server"}, []string{"Unable to communicate with Meshplay server", err.Error(), "See https://docs.meshplay.khulnasofy.com for help getting started with Meshplay"}, []string{}, []string{"See https://docs.meshplay.khulnasofy.com for help getting started with Meshplay"})
 }
 
 func ErrGettingRequestContext(err error) error {

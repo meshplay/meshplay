@@ -35,7 +35,7 @@ var PerfCmd = &cobra.Command{
 	Use:   "perf",
 	Short: "Performance Management",
 	Long: `Performance Management & Benchmarking.
-Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
+Find more information at: https://docs.meshplay.khulnasofy.com/reference/meshplayctl#command-reference`,
 	Example: `
 // Run performance test:
 meshplayctl perf apply test-3 --name "a quick stress test" --url http://192.168.1.15/productpage --qps 300 --concurrent-requests 2 --duration 30s

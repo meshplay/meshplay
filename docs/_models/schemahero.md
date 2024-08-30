@@ -4,7 +4,7 @@ title: Schemahero
 subtitle: Collaborative and visual infrastructure as design for Schemahero
 image: /assets/img/integrations/schemahero/icons/color/schemahero-color.svg
 permalink: extensibility/integrations/schemahero
-docURL: https://docs.meshplay.io/extensibility/integrations/schemahero
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/schemahero
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

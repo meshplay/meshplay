@@ -2,11 +2,11 @@
 
 <h2>Contributing to the Meshplay Documentation</h2>
 
-Please do! Thank you for your help in improving [Meshplay Docs](https://docs.meshplay.io)! :balloon:
+Please do! Thank you for your help in improving [Meshplay Docs](https://docs.meshplay.khulnasofy.com)! :balloon:
 
 <details>
 <summary>
-Find the complete set of Meshplay Docs contributor guides at https://docs.meshplay.io/project/contributing/contributing-docs</summary>
+Find the complete set of Meshplay Docs contributor guides at https://docs.meshplay.khulnasofy.com/project/contributing/contributing-docs</summary>
 
 Before contributing, please review the [Documentation Contribution Flow](https://github.com/meshplay/meshplay/blob/master/CONTRIBUTING.md#documentation-contribution-flow). In the following steps you will set up your development environment, fork and clone the repository, run the site locally, and finally commit, sign-off, and push any changes made for review.
 

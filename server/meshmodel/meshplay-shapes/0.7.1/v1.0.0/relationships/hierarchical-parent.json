@@ -1,5 +1,5 @@
 {
-    "schemaVersion": "relationships.meshplay.io/v1alpha3",
+    "schemaVersion": "relationships.meshplay.khulnasofy.com/v1alpha3",
     "version": "v1.0.0",
     "kind": "hierarchical",
     "metadata": {
@@ -7,7 +7,7 @@
     },
     "model": {
         "name": "meshplay-shapes",
-        "schemaVersion": "core.meshplay.io/v1lpha2",
+        "schemaVersion": "core.meshplay.khulnasofy.com/v1lpha2",
         "version": "v1.0.0",
         "model": {
             "version": "0.7.1"

@@ -4,7 +4,7 @@ title: Wasmedge Runtime
 subtitle: Collaborative and visual infrastructure as design for Wasmedge Runtime
 image: /assets/img/integrations/wasmedgeruntime/icons/color/wasmedgeruntime-color.svg
 permalink: extensibility/integrations/wasmedgeruntime
-docURL: https://docs.meshplay.io/extensibility/integrations/wasmedgeruntime
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/wasmedgeruntime
 description: 
 integrations-category: Runtime
 integrations-subcategory: Container Runtime

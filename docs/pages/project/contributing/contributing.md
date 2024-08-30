@@ -29,7 +29,7 @@ Follow these steps and you'll be right at home.
 - **Identify** your area of interest: Use the time with your MeshMate to familiarize yourself with the architecture and technologies used in the projects. Inform your MeshMate of your current skills and what skills you aim to develop.
 - **Run** Meshplay: Put on your user hat and walk-through all of Meshplay’s features and functions as a user.
 - **Build** Meshplay: Confirm that you have a usable development environment.
-- **Discuss** with the community by engaging in the [discussion forum](http://discuss.meshplay.io).
+- **Discuss** with the community by engaging in the [discussion forum](http://discuss.meshplay.khulnasofy.com).
 - **Contribute** by grabbing any open issue with the [help-wanted label](https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshplay+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+label%3A%22help+wanted%22+) and jump in. If needed, create a [new issue](https://github.com/meshplay/meshplay/issues/new/choose). All [pull requests](https://github.com/meshplay/meshplay/pulls) should reference an open issue. Include keywords in your pull request descriptions, as well as commit messages, to [automatically close issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
 - **Fill-in** a [community member form](https://layer5.io/newcomers) community member form to gain access to community resources.
 

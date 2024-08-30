@@ -4,7 +4,7 @@ title: Nirmata Venafi Adapter
 subtitle: Collaborative and visual infrastructure as design for Nirmata Venafi Adapter
 image: /assets/img/integrations/nirmata-venafi-adapter/icons/color/nirmata-venafi-adapter-color.svg
 permalink: extensibility/integrations/nirmata-venafi-adapter
-docURL: https://docs.meshplay.io/extensibility/integrations/nirmata-venafi-adapter
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/nirmata-venafi-adapter
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance

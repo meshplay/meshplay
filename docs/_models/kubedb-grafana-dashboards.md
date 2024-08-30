@@ -4,7 +4,7 @@ title: Kubedb Grafana Dashboards
 subtitle: Collaborative and visual infrastructure as design for Kubedb Grafana Dashboards
 image: /assets/img/integrations/kubedb-grafana-dashboards/icons/color/kubedb-grafana-dashboards-color.svg
 permalink: extensibility/integrations/kubedb-grafana-dashboards
-docURL: https://docs.meshplay.io/extensibility/integrations/kubedb-grafana-dashboards
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubedb-grafana-dashboards
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

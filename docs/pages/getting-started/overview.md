@@ -43,7 +43,7 @@ Whether making a Day 0 adoption choice or maintaining a Day 2 deployment, Meshpl
 
 ### Meshplay is for cloud native patterns
 
-Through [Models]({{site.baseurl}}/concepts/logical/models), Meshplay describes infrastructure under management, enabling you to define cloud native designs and patterns and then to export those designs and share within the <a href="https://meshplay.io/catalog" target="_self_">Meshplay Catalog</a>.
+Through [Models]({{site.baseurl}}/concepts/logical/models), Meshplay describes infrastructure under management, enabling you to define cloud native designs and patterns and then to export those designs and share within the <a href="https://meshplay.khulnasofy.com/catalog" target="_self_">Meshplay Catalog</a>.
 
 ### Meshplay is for performance management
 

@@ -4,7 +4,7 @@ title: Crossplane
 subtitle: Collaborative and visual infrastructure as design for Crossplane
 image: /assets/img/integrations/crossplane/icons/color/crossplane-color.svg
 permalink: extensibility/integrations/crossplane
-docURL: https://docs.meshplay.io/extensibility/integrations/crossplane
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/crossplane
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

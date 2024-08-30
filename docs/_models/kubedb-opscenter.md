@@ -4,7 +4,7 @@ title: Kubedb Opscenter
 subtitle: Collaborative and visual infrastructure as design for Kubedb Opscenter
 image: /assets/img/integrations/kubedb-opscenter/icons/color/kubedb-opscenter-color.svg
 permalink: extensibility/integrations/kubedb-opscenter
-docURL: https://docs.meshplay.io/extensibility/integrations/kubedb-opscenter
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubedb-opscenter
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

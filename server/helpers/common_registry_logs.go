@@ -186,7 +186,7 @@ func FailedEventCompute(hostname string, meshplayInstanceID gofrs.UUID, provider
 		errorEvent := errorEventBuilder.Build()
 		errorEventBuilder.WithMetadata(map[string]interface{}{
 			"LongDescription":      fmt.Sprintf("One or more entities failed to register. The import process for registrant, %s, encountered the following issue: %s.", hostname, failedMsg),
-			"SuggestedRemediation": fmt.Sprintf("Open Meshplay Error Reference with error code %s", "https://docs.meshplay.io/reference/error-codes"),
+			"SuggestedRemediation": fmt.Sprintf("Open Meshplay Error Reference with error code %s", "https://docs.meshplay.khulnasofy.com/reference/error-codes"),
 			"DownloadLink":         filePath,
 			"ViewLink":             filePath,
 		})

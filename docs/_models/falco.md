@@ -4,7 +4,7 @@ title: Falco
 subtitle: Collaborative and visual infrastructure as design for Falco
 image: /assets/img/integrations/falco/icons/color/falco-color.svg
 permalink: extensibility/integrations/falco
-docURL: https://docs.meshplay.io/extensibility/integrations/falco
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/falco
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

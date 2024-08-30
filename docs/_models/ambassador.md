@@ -4,7 +4,7 @@ title: Ambassador
 subtitle: Collaborative and visual infrastructure as design for Ambassador
 image: /assets/img/integrations/ambassador/icons/color/ambassador-color.svg
 permalink: extensibility/integrations/ambassador
-docURL: https://docs.meshplay.io/extensibility/integrations/ambassador
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/ambassador
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: API Gateway

@@ -32,7 +32,7 @@ You can retrieve your authentication token from either of Meshplay's two clients
   </pre>
   <br />
 
-**_The need for authentication to `Meshplay` [provider](https://docs.meshplay.io/extensibility/providers) is to save your environment setup while also having persistent/steady sessions and to be able to retrieve performance test results._**
+**_The need for authentication to `Meshplay` [provider](https://docs.meshplay.khulnasofy.com/extensibility/providers) is to save your environment setup while also having persistent/steady sessions and to be able to retrieve performance test results._**
 
 <br/>
 

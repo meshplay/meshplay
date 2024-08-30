@@ -4,7 +4,7 @@ title: EPAM Delivery Platform
 subtitle: Collaborative and visual infrastructure as design for EPAM Delivery Platform
 image: /assets/img/integrations/admin-console-operator/icons/color/admin-console-operator-color.svg
 permalink: extensibility/integrations/admin-console-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/admin-console-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/admin-console-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

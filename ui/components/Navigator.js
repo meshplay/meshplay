@@ -513,14 +513,14 @@ const ExternalLinkIcon = (
 const externlinks = [
   {
     id: 'doc',
-    href: 'https://docs.meshplay.io',
+    href: 'https://docs.meshplay.khulnasoft.com',
     title: 'Documentation',
     icon: <DocumentIcon style={drawerIconsStyle} />,
     external_icon: ExternalLinkIcon,
   },
   {
     id: 'community',
-    href: 'https://slack.meshplay.io',
+    href: 'https://slack.meshplay.khulnasoft.com',
     title: 'Community',
     icon: (
       <SlackIcon
@@ -531,7 +531,7 @@ const externlinks = [
   },
   {
     id: 'forum',
-    href: 'http://discuss.meshplay.io',
+    href: 'http://discuss.meshplay.khulnasoft.com',
     title: 'Discussion Forum',
     icon: <ChatIcon style={drawerIconsStyle} />,
     external_icon: ExternalLinkIcon,
@@ -1099,7 +1099,7 @@ class Navigator extends React.Component {
         <span style={{ marginLeft: '15px' }}>
           {'Update available '}
           <a
-            href={`https://docs.meshplay.io/project/releases/${latest}`}
+            href={`https://docs.meshplay.khulnasoft.com/project/releases/${latest}`}
             target="_blank"
             rel="noreferrer"
             style={{ color: 'white' }}
@@ -1129,7 +1129,7 @@ class Navigator extends React.Component {
     if (release_channel === 'edge')
       return (
         <a
-          href="https://docs.meshplay.io/project/releases"
+          href="https://docs.meshplay.khulnasoft.com/project/releases"
           target="_blank"
           rel="noreferrer"
           style={{ color: 'white' }}
@@ -1140,7 +1140,7 @@ class Navigator extends React.Component {
 
     return (
       <a
-        href={`https://docs.meshplay.io/project/releases/${build}`}
+        href={`https://docs.meshplay.khulnasoft.com/project/releases/${build}`}
         target="_blank"
         rel="noreferrer"
         style={{ color: 'white' }}

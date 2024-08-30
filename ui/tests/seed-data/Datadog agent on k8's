@@ -3,7 +3,7 @@ services:
   NodeGroupInventoryWallet:
     name: NodeGroupInventoryWallet
     type: NodeGroupInventoryWallet
-    apiVersion: core.meshplay.io/v1alpha1
+    apiVersion: core.meshplay.khulnasoft.com/v1alpha1
     version: 0.7.1
     model: meshplay-core
     dependsOn:

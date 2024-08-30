@@ -4,7 +4,7 @@ title: OpenGitOps
 subtitle: Collaborative and visual infrastructure as design for OpenGitOps
 image: /assets/img/integrations/opengitops/icons/color/opengitops-color.svg
 permalink: extensibility/integrations/opengitops
-docURL: https://docs.meshplay.io/extensibility/integrations/opengitops
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/opengitops
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

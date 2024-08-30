@@ -4,7 +4,7 @@ title: AWS Route 53
 subtitle: Collaborative and visual infrastructure as design for AWS Route 53
 image: /assets/img/integrations/aws-route53-controller/icons/color/aws-route53-controller-color.svg
 permalink: extensibility/integrations/aws-route53-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-route53-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-route53-controller
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Networking Content Delivery

@@ -4,7 +4,7 @@ title: Elastic Search
 subtitle: Collaborative and visual infrastructure as design for Elastic Search
 image: /assets/img/integrations/elasticsearch-operator/icons/color/elasticsearch-operator-color.svg
 permalink: extensibility/integrations/elasticsearch-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/elasticsearch-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/elasticsearch-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Logging

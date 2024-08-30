@@ -31,7 +31,7 @@ var FilterCmd = &cobra.Command{
 	Use:   "filter",
 	Short: "Cloud Native Filter Management",
 	Long: `Cloud Native Filter Management
-Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
+Find more information at: https://docs.meshplay.khulnasofy.com/reference/meshplayctl#command-reference`,
 	Example: `
 // Base command for WASM filters:
 meshplayctl filter [subcommands]

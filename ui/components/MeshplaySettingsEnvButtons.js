@@ -162,7 +162,7 @@ const MeshplaySettingsEnvButtons = () => {
       ),
       options: ['IMPORT', 'CANCEL'],
       showInfoIcon:
-        'If your config has not been autodetected, you can manually upload your kubeconfig file (or any number of kubeconfig files). By default, Meshplay will attempt to connect to and deploy Meshplay Operator to each reachable context contained in the imported kubeconfig files. [See Managing Kubernetes Clusters for more information](https://docs.meshplay.io/installation/kubernetes).',
+        'If your config has not been autodetected, you can manually upload your kubeconfig file (or any number of kubeconfig files). By default, Meshplay will attempt to connect to and deploy Meshplay Operator to each reachable context contained in the imported kubeconfig files. [See Managing Kubernetes Clusters for more information](https://docs.meshplay.khulnasoft.com/installation/kubernetes).',
     });
 
     if (response === 'IMPORT') {

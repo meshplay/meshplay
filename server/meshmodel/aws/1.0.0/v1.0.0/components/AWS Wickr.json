@@ -9,7 +9,7 @@
     "key": "",
     "kind": "mutate",
     "metadata": null,
-    "schemaVersion": "capability.meshplay.io/v1alpha1",
+    "schemaVersion": "capability.meshplay.khulnasofy.com/v1alpha1",
     "status": "enabled",
     "subType": "",
     "type": "style",
@@ -24,7 +24,7 @@
     "key": "",
     "kind": "mutate",
     "metadata": null,
-    "schemaVersion": "capability.meshplay.io/v1alpha1",
+    "schemaVersion": "capability.meshplay.khulnasofy.com/v1alpha1",
     "status": "enabled",
     "subType": "shape",
     "type": "style",
@@ -39,7 +39,7 @@
     "key": "",
     "kind": "interaction",
     "metadata": null,
-    "schemaVersion": "capability.meshplay.io/v1alpha1",
+    "schemaVersion": "capability.meshplay.khulnasofy.com/v1alpha1",
     "status": "enabled",
     "subType": "compoundDnd",
     "type": "graph",
@@ -54,7 +54,7 @@
     "key": "",
     "kind": "mutate",
     "metadata": null,
-    "schemaVersion": "capability.meshplay.io/v1alpha1",
+    "schemaVersion": "capability.meshplay.khulnasofy.com/v1alpha1",
     "status": "enabled",
     "subType": "body-text",
     "type": "style",
@@ -64,7 +64,7 @@
   "component": {
    "kind": "AWS Wickr",
    "schema": "",
-   "version": "core.meshplay.io/v1alpha1"
+   "version": "core.meshplay.khulnasofy.com/v1alpha1"
   },
   "configuration": null,
   "description": "",
@@ -111,14 +111,14 @@
     "user_id": "00000000-0000-0000-0000-000000000000"
    },
    "connection_id": "00000000-0000-0000-0000-000000000000",
-   "schemaVersion": "models.meshplay.io/v1beta1",
+   "schemaVersion": "models.meshplay.khulnasofy.com/v1beta1",
    "status": "enabled",
    "subCategory": "Automation \u0026 Configuration",
    "version": "v1.0.0",
    "components": null,
    "relationships": null
   },
-  "schemaVersion": "components.meshplay.io/v1beta1",
+  "schemaVersion": "components.meshplay.khulnasofy.com/v1beta1",
   "status": "enabled",
   "styles": {
    "primaryColor": "#DD344C",

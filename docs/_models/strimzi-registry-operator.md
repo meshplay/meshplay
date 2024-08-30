@@ -4,7 +4,7 @@ title: Strimzi Registry Operator
 subtitle: Collaborative and visual infrastructure as design for Strimzi Registry Operator
 image: /assets/img/integrations/strimzi-registry-operator/icons/color/strimzi-registry-operator-color.svg
 permalink: extensibility/integrations/strimzi-registry-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/strimzi-registry-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/strimzi-registry-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

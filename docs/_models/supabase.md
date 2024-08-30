@@ -4,7 +4,7 @@ title: supabase
 subtitle: Collaborative and visual infrastructure as design for supabase
 image: /assets/img/integrations/supabase/icons/color/supabase-color.svg
 permalink: extensibility/integrations/supabase
-docURL: https://docs.meshplay.io/extensibility/integrations/supabase
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/supabase
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

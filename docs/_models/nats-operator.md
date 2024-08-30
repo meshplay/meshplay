@@ -4,7 +4,7 @@ title: NATS Operator
 subtitle: Collaborative and visual infrastructure as design for NATS Operator
 image: /assets/img/integrations/nats-operator/icons/color/nats-operator-color.svg
 permalink: extensibility/integrations/nats-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/nats-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/nats-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

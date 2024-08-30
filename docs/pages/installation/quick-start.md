@@ -21,11 +21,11 @@ If you are on macOS or Linux system, you can download, install, and run both `me
 <!-- <pre class="codeblock-pre" style="padding: 0; font-size:0px;">
 <div class="codeblock" style="display: block;">
   <div class="clipboardjs" style="visibility:hidden;padding: 0;">
-    <span style="visibility:hidden">curl -L https://meshplay.io/install | PLATFORM=kubernetes bash -</span>
+    <span style="visibility:hidden">curl -L https://meshplay.khulnasofy.com/install | PLATFORM=kubernetes bash -</span>
   </div>
   <div class="window-buttons"></div>
   <div id="termynal0" style="width:fit-content;min-height:content-fit;" data-termynal="">
-    <span data-ty="input">curl -L https://meshplay.io/install | PLATFORM=kubernetes bash -</span>
+    <span data-ty="input">curl -L https://meshplay.khulnasofy.com/install | PLATFORM=kubernetes bash -</span>
   </div>
 </div>
 </pre>-->
@@ -33,7 +33,7 @@ If you are on macOS or Linux system, you can download, install, and run both `me
 
 <pre class="codeblock-pre">
   <div class="codeblock">
-  <div class="clipboardjs">$ curl -L https://meshplay.io/install | PLATFORM=kubernetes bash -</div>
+  <div class="clipboardjs">$ curl -L https://meshplay.khulnasofy.com/install | PLATFORM=kubernetes bash -</div>
   </div>
 </pre>
 

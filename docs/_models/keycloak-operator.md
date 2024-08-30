@@ -4,7 +4,7 @@ title: Keycloak Operator
 subtitle: Collaborative and visual infrastructure as design for Keycloak Operator
 image: /assets/img/integrations/keycloak-operator/icons/color/keycloak-operator-color.svg
 permalink: extensibility/integrations/keycloak-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/keycloak-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/keycloak-operator
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Key Management

@@ -17,15 +17,15 @@
   <img src="https://img.shields.io/github/workflow/status/meshplay/meshplay/Meshplay%20Build%20and%20Releaser%20(edge)" /></a>
 <a href="https://bestpractices.coreinfrastructure.org/projects/3564" alt="CLI Best Practices">
   <img src="https://bestpractices.coreinfrastructure.org/projects/3564/badge" /></a>
-<a href="http://discuss.meshplay.io" alt="Discuss Users">
+<a href="http://discuss.meshplay.khulnasoft.com" alt="Discuss Users">
   <img src="https://img.shields.io/discourse/users?label=discuss&logo=discourse&server=https%3A%2F%2Fdiscuss.layer5.io" /></a>
-<a href="https://slack.meshplay.io" alt="Join Slack">
+<a href="https://slack.meshplay.khulnasoft.com" alt="Join Slack">
   <img src="https://img.shields.io/badge/Slack-@layer5.svg?logo=slack"></a>
 <a href="https://twitter.com/intent/follow?screen_name=meshplayio" alt="Twitter Follow">
   <img src="https://img.shields.io/twitter/follow/meshplayio.svg?label=Follow+Meshplay&style=social" /></a>
 </p>
 
-[Meshplay](https://meshplay.io) is the cloud native management plane offering lifecycle, configuration, and performance management of Kubernetes, service meshes, and your workloads.
+[Meshplay](https://meshplay.khulnasoft.com) is the cloud native management plane offering lifecycle, configuration, and performance management of Kubernetes, service meshes, and your workloads.
 
 <p align="center">
 Meshplay is a Cloud Native Computing Foundation project.
@@ -43,7 +43,7 @@ The Docker Extension for Meshplay extends Docker Desktop’s position as the clo
 <h3>Using <code>docker</code></h3>
 <p>Meshplay runs as a set of containers inside your Docker Desktop virtual machine.</p>
 <pre>docker extension install meshplay/docker-extension-meshplay</pre>
-<p>See the <a href="https://docs.meshplay.io/installation/quick-start">quick start</a> guide.</p>
+<p>See the <a href="https://docs.meshplay.khulnasoft.com/installation/quick-start">quick start</a> guide.</p>
 <p style="clear:both;">&nbsp;</p>
 
 ## Using the Docker Extension for Meshplay
@@ -58,7 +58,7 @@ The Docker Extension for Meshplay extends Docker Desktop’s position as the clo
 The Docker Extension for Meshplay deploys Meshplay to your local Docker host as a Docker Compose application.
 
 <p align="center"><a href="https://raw.githubusercontent.com/meshplay/meshplay/master/install/docker-extension/docs/img/docker-extension-for-meshplay-architecture.png"><img src="https://raw.githubusercontent.com/meshplay/meshplay/master/install/docker-extension/docs/img/docker-extension-for-meshplay-architecture.png" width="90%" align="center" /></a></p>
-Learn more about <a href="https://docs.meshplay.io/architecture">Meshplay's architecture</a>.
+Learn more about <a href="https://docs.meshplay.khulnasoft.com/architecture">Meshplay's architecture</a>.
 
 ## Docker Extension for Meshplay
 
@@ -86,8 +86,8 @@ docker extension update meshplay/docker-extension-meshplay:edge-latest
 ```
 
 <p style="text-align:center; width:100%;" align="center">
-<a href ="https://layer5.io/community"><img alt="MeshMates" src="https://docs.meshplay.io/assets/img/readme/layer5-community-sign.png" style="margin-right:10px; margin-bottom:7px;" width="28%" align="center" /></a>
+<a href ="https://layer5.io/community"><img alt="MeshMates" src="https://docs.meshplay.khulnasoft.com/assets/img/readme/layer5-community-sign.png" style="margin-right:10px; margin-bottom:7px;" width="28%" align="center" /></a>
 </p>
 <p style="text-align:center; width:100%;" align="center">
-<h3 style="text-align:center;" align="center"><em>Have questions? Need help?</em> <strong>Ask in the <a href="http://discuss.meshplay.io">Community Forum</a></strong>.</h3></p>
+<h3 style="text-align:center;" align="center"><em>Have questions? Need help?</em> <strong>Ask in the <a href="http://discuss.meshplay.khulnasoft.com">Community Forum</a></strong>.</h3></p>
 

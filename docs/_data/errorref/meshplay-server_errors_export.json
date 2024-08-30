@@ -523,7 +523,7 @@
         "long_description": "",
         "short_description": "error parsing test duration",
         "probable_cause": "The format of the duration passed could be incorrect",
-        "suggested_remediation": "please refer to:  https://docs.meshplay.io/guides/meshplayctl#performance-management"
+        "suggested_remediation": "please refer to:  https://docs.meshplay.khulnasofy.com/guides/meshplayctl#performance-management"
       },
       "1059": {
         "name": "ErrLoadTestCode",
@@ -568,7 +568,7 @@
         "long_description": "",
         "short_description": "invalid loadtest url: ",
         "probable_cause": "URL for load test could be invalid",
-        "suggested_remediation": "please refer to: https://docs.meshplay.io/tasks/performance-management"
+        "suggested_remediation": "please refer to: https://docs.meshplay.khulnasofy.com/tasks/performance-management"
       },
       "1064": {
         "name": "ErrVersionCompareCode",
@@ -2528,7 +2528,7 @@
         "code": "1281",
         "severity": "Alert",
         "long_description": "",
-        "short_description": "error parsing test duration, please refer to: https://docs.meshplay.io/guides/meshplayctl#performance-management",
+        "short_description": "error parsing test duration, please refer to: https://docs.meshplay.khulnasofy.com/guides/meshplayctl#performance-management",
         "probable_cause": "",
         "suggested_remediation": ""
       },

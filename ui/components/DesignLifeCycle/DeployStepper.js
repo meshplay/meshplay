@@ -170,7 +170,7 @@ const DryRunStep = ({
       <CheckBoxField
         label="Include Dependencies"
         checked={includeDependencies}
-        helpText="Deploys Custom Resource Definitions (CRDs) and operators based on the source from which a particular component was registered, [learn more](https://docs.meshplay.io/guides/infrastructure-management/overview#auto-deployment-of-crds-and-operators) about auto deployment of dependencies"
+        helpText="Deploys Custom Resource Definitions (CRDs) and operators based on the source from which a particular component was registered, [learn more](https://docs.meshplay.khulnasoft.com/guides/infrastructure-management/overview#auto-deployment-of-crds-and-operators) about auto deployment of dependencies"
         onChange={toggleIncludeDependencies}
       />
     </Box>
@@ -221,7 +221,7 @@ export const UpdateDeploymentStepper = ({
           </StepContent>
         ),
         icon: CheckIcon,
-        helpText: `Validate the design before deploying, [learn more](https://docs.meshplay.io/guides/infrastructure-management/overview) about the validation process`,
+        helpText: `Validate the design before deploying, [learn more](https://docs.meshplay.khulnasoft.com/guides/infrastructure-management/overview) about the validation process`,
         label: 'Validate Design',
       },
       {
@@ -232,7 +232,7 @@ export const UpdateDeploymentStepper = ({
           </StepContent>
         ),
         helpText:
-          'Select the environment  and cluster to deploy the design,[learn more](https://docs.meshplay.io/guides/infrastructure-management/overview)  about the environment selection',
+          'Select the environment  and cluster to deploy the design,[learn more](https://docs.meshplay.khulnasoft.com/guides/infrastructure-management/overview)  about the environment selection',
         icon: EnvironmentIcon,
         label: 'Identify Environments',
       },
@@ -254,7 +254,7 @@ export const UpdateDeploymentStepper = ({
         ),
         helpText:
           'Dry Run is a simulation of the deployment process, it helps to identify potential errors before the actual deployment ,\
-          [learn more](https://docs.meshplay.io/guides/infrastructure-management/overview ) about Dry Run.',
+          [learn more](https://docs.meshplay.khulnasoft.com/guides/infrastructure-management/overview ) about Dry Run.',
         label: 'Dry Run',
         icon: DryRunIcon,
       },
@@ -271,7 +271,7 @@ export const UpdateDeploymentStepper = ({
         ),
         helpText:
           'Finalize the deployment process and overview the configuration for your deployment.\
-          [Learn more](https://docs.meshplay.io/guides/infrastructure-management/overview) about the deployment process.',
+          [Learn more](https://docs.meshplay.khulnasoft.com/guides/infrastructure-management/overview) about the deployment process.',
         label: 'Finalize Deployment',
         icon: DeploymentSelectorIcon,
       },
@@ -287,7 +287,7 @@ export const UpdateDeploymentStepper = ({
           </StepContent>
         ),
         helpText:
-          'Receipt of your deployment,includes the deployment status of components within the design and error logs. [Learn more](https://docs.meshplay.io/guides/infrastructure-management/overview) about the deployment process.',
+          'Receipt of your deployment,includes the deployment status of components within the design and error logs. [Learn more](https://docs.meshplay.khulnasoft.com/guides/infrastructure-management/overview) about the deployment process.',
         label: 'Finsh',
         icon: FinishFlagIcon,
       },

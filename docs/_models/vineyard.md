@@ -4,7 +4,7 @@ title: Vineyard
 subtitle: Collaborative and visual infrastructure as design for Vineyard
 image: /assets/img/integrations/vineyard/icons/color/vineyard-color.svg
 permalink: extensibility/integrations/vineyard
-docURL: https://docs.meshplay.io/extensibility/integrations/vineyard
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/vineyard
 description: 
 integrations-category: Runtime
 integrations-subcategory: Cloud Native Storage

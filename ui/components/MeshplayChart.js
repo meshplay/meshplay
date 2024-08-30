@@ -359,7 +359,7 @@ function MeshplayChart(props) {
               <Paper className={classes.paper}>
                 <TwitterShareButton
                   className={classes.socialIcon}
-                  url={'https://meshplay.io'}
+                  url={'https://meshplay.khulnasoft.com'}
                   title={socialMessage}
                   hashtags={['opensource']}
                 >
@@ -367,14 +367,14 @@ function MeshplayChart(props) {
                 </TwitterShareButton>
                 <LinkedinShareButton
                   className={classes.socialIcon}
-                  url={'https://meshplay.io'}
+                  url={'https://meshplay.khulnasoft.com'}
                   summary={socialMessage}
                 >
                   <LinkedinIcon size={32} />
                 </LinkedinShareButton>
                 <FacebookShareButton
                   className={classes.socialIcon}
-                  url={'https://meshplay.io'}
+                  url={'https://meshplay.khulnasoft.com'}
                   quote={socialMessage}
                   hashtag={'#opensource'}
                 >

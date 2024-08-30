@@ -4,7 +4,7 @@ title: AWS ElastiCache
 subtitle: Collaborative and visual infrastructure as design for AWS ElastiCache
 image: /assets/img/integrations/aws-elasticache-controller/icons/color/aws-elasticache-controller-color.svg
 permalink: extensibility/integrations/aws-elasticache-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-elasticache-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-elasticache-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

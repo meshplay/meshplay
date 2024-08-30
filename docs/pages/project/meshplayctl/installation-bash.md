@@ -6,7 +6,7 @@ To install or upgrade `meshplayctl` using `bash`, execute anyone of the followin
  <pre class="codeblock-pre">
  <div class="codeblock">
  <div class="clipboardjs">
-  $ curl -L https://meshplay.io/install | DEPLOY_MESHPLAY=false bash -
+  $ curl -L https://meshplay.khulnasofy.com/install | DEPLOY_MESHPLAY=false bash -
  </div></div>
  </pre>
 <br />
@@ -16,7 +16,7 @@ To install or upgrade `meshplayctl` using `bash`, execute anyone of the followin
  <pre class="codeblock-pre">
  <div class="codeblock">
  <div class="clipboardjs">
-  $ curl -L https://meshplay.io/install | PLATFORM=docker bash -
+  $ curl -L https://meshplay.khulnasofy.com/install | PLATFORM=docker bash -
  </div></div>
  </pre>
 <br />
@@ -26,7 +26,7 @@ To install or upgrade `meshplayctl` using `bash`, execute anyone of the followin
  <pre class="codeblock-pre">
  <div class="codeblock">
  <div class="clipboardjs">
-  $ curl -L https://meshplay.io/install | PLATFORM=kubernetes bash -
+  $ curl -L https://meshplay.khulnasofy.com/install | PLATFORM=kubernetes bash -
  </div></div>
  </pre>
 <br />
@@ -38,7 +38,7 @@ Install `meshplayctl` binary and include one or more [adapters]({{ site.baseurl 
  <pre class="codeblock-pre">
  <div class="codeblock">
  <div class="clipboardjs">
-  $ curl -L https://meshplay.io/install | ADAPTERS=consul PLATFORM=kubernetes bash -
+  $ curl -L https://meshplay.khulnasofy.com/install | ADAPTERS=consul PLATFORM=kubernetes bash -
  </div></div>
  </pre>
 <br />

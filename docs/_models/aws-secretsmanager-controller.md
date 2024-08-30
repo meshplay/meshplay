@@ -4,7 +4,7 @@ title: AWS Secrets Manager
 subtitle: Collaborative and visual infrastructure as design for AWS Secrets Manager
 image: /assets/img/integrations/aws-secretsmanager-controller/icons/color/aws-secretsmanager-controller-color.svg
 permalink: extensibility/integrations/aws-secretsmanager-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-secretsmanager-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-secretsmanager-controller
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security Identity Compliance

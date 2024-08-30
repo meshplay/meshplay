@@ -1,5 +1,5 @@
 # Test configuration file for running performance benchmarks
-# See: https://docs.meshplay.io/guides/performance-management#running-performance-benchmarks-through-meshplayctl
+# See: https://docs.meshplay.khulnasoft.com/guides/performance-management#running-performance-benchmarks-through-meshplayctl
 test:
   smp_version: v0.0.1
   
@@ -19,7 +19,7 @@ test:
       body: ''
       content_type: ''
       endpoint_urls:
-        - 'https://meshplay.io'
+        - 'https://meshplay.khulnasoft.com'
   duration: 2s
 
 # Service mesh under test in Service Mesh Performance Spec format

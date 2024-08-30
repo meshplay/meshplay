@@ -23,14 +23,14 @@ Use Meshplay to deploy a cloud native pattern. Cloud native patterns are detaile
 
 ### Pattern Repository
 
-_See [Meshplay Catalog](https://meshplay.io/catalog)_.
+_See [Meshplay Catalog](https://meshplay.khulnasofy.com/catalog)_.
 
 You may bring your own patterns or find them available through your chosen provider. Each cloud native pattern carries a unique identifier for reference. The patterns in this repository serve in an educational capacity, facilitating learning, and also serve in an operational capacity, facilitating implementation and validation of your cloud native deployment’s adherence to a pattern.
 
 {% include alert.html
     type="info"
     title="Repository of Cloud Native Patterns"
-    content="A central set of design patterns is available in Meshplay Catalog (<a href='/concepts/catalog'>concept</a>, <a href='https://meshplay.io/catalog'>site</a>)." %}
+    content="A central set of design patterns is available in Meshplay Catalog (<a href='/concepts/catalog'>concept</a>, <a href='https://meshplay.khulnasofy.com/catalog'>site</a>)." %}
 
 
 ## Importing Patterns

@@ -12,7 +12,7 @@ category: meshmap
 
 # Publishing a Design
 
-Publishing a design lets you make your content visible to any anonymous visitor of meshplay.io/catalog and any Meshplay Cloud user. Anyone with the link can view the design.
+Publishing a design lets you make your content visible to any anonymous visitor of meshplay.khulnasofy.com/catalog and any Meshplay Cloud user. Anyone with the link can view the design.
 
 You can publish design into Meshplay's Catalog using Extensions. Let's discuss the process below.
 

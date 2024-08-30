@@ -34,12 +34,12 @@ jobs:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
           path: layer5
 
-      - name: Checkout Meshplay.io repo
+      - name: Checkout Meshplay.khulnasoft.com repo
         uses: actions/checkout@master
         with:
-          repository: meshplay/meshplay.io
+          repository: meshplay/meshplay.khulnasoft.com
           token: ${{ secrets.GH_ACCESS_TOKEN }}
-          path: meshplay.io
+          path: meshplay.khulnasoft.com
 
       - name: Checkout cloud repo
         uses: actions/checkout@master
@@ -52,19 +52,19 @@ jobs:
         working-directory: ./meshplay/meshplayctl
         run: make;
 
-      - name: Publish to meshplay.io site
+      - name: Publish to meshplay.khulnasoft.com site
         working-directory: ./meshplay/meshplayctl
-        run: ./meshplayctl registry publish website ${{ secrets.INTEGRATION_SPREADSHEET_CRED }} 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw ../../meshplay.io/integrations ../meshplay.io/assets/images/integration -o js
+        run: ./meshplayctl registry publish website ${{ secrets.INTEGRATION_SPREADSHEET_CRED }} 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw ../../meshplay.khulnasoft.com/integrations ../meshplay.khulnasoft.com/assets/images/integration -o js
 
-      - name: Pull latest changes from Meshplay.io repo
-        working-directory: ./meshplay.io
+      - name: Pull latest changes from Meshplay.khulnasoft.com repo
+        working-directory: ./meshplay.khulnasoft.com
         run: git pull origin master
 
-      - name: Commit changes to Meshplay.io repo
+      - name: Commit changes to Meshplay.khulnasoft.com repo
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_user_name: l5io
-          repository: ./meshplay.io
+          repository: ./meshplay.khulnasoft.com
           commit_user_email: ci@layer5.io
           commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit_options: "--signoff"
@@ -138,8 +138,8 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: GitHub Actions - Workflow Failure
           from: |
-            "Model Updater" <no-reply@meshplay.io>
-          to: developers@meshplay.io
+            "Model Updater" <no-reply@meshplay.khulnasoft.com>
+          to: developers@meshplay.khulnasoft.com
           body: |
             The GitHub Actions workflow in ${{ github.repository }} has failed.
             You can find more details in the GitHub Actions log ${{ github.workflow }}.

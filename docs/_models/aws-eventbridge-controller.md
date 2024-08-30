@@ -4,7 +4,7 @@ title: AWS EventBridge
 subtitle: Collaborative and visual infrastructure as design for AWS EventBridge
 image: /assets/img/integrations/aws-eventbridge-controller/icons/color/aws-eventbridge-controller-color.svg
 permalink: extensibility/integrations/aws-eventbridge-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-eventbridge-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-eventbridge-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

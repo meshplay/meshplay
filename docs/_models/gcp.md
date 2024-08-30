@@ -4,7 +4,7 @@ title: Google Cloud Platform
 subtitle: Google Cloud Platform, offered by Google, is a suite of cloud computing services that provides a series of modular cloud services including computing, data storage, data analytics and machine learning, alongside a set of management tools.
 image: /assets/img/integrations/gcp/icons/color/gcp-color.svg
 permalink: extensibility/integrations/gcp
-docURL: https://docs.meshplay.io/extensibility/integrations/gcp
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/gcp
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Cloud Provider

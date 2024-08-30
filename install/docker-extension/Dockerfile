@@ -43,18 +43,18 @@ LABEL org.opencontainers.image.title="Meshplay" \
       } \
     ]" \
   com.docker.extension.detailed-description="\
-  <h2>Visually and collaboratively design and operate your Kubernetes clusters (<a href='https://meshplay.io/catalog'>video</a>).</h2> \
+  <h2>Visually and collaboratively design and operate your Kubernetes clusters (<a href='https://meshplay.khulnasoft.com/catalog'>video</a>).</h2> \
   <p>The Meshplay Docker Extension is your cloud native infrastructure designer, complete with multi-cluster Kubernetes management. Meshplay provides cloud native engineers with visual and collaborative interface to designing and operating cloud native infrastructure.</p> \
   <ul> \
     <li><b>Discovery of your Kubernetes environments</b> - Meshplay is a multi-cluster manager and will scan your kubeconfig, allowing you to select which of your Kubernetes contexts to connect. Switch from one K8s cluster to the next or manage multiple concurrently.</li> \
     <li><b>Support for your Docker Compose apps -</b> Import your Docker Compose apps. Configure and deploy them to Kubernetes.</li> \
     <li><b>Visual designer for Docker Compose apps, Helm charts, and Kubernetes manifests -</b> No code, visual topology for designing Docker Compose applications, operating Kubernetes and their workloads.</li> \
-    <li><b>Save time with design patterns - </b>Turbo-charge your infrastructure with best practice cloud native design patterns from the <a href='https://meshplay.io/catalog'>Meshplay Catalog</a>.</li> \
+    <li><b>Save time with design patterns - </b>Turbo-charge your infrastructure with best practice cloud native design patterns from the <a href='https://meshplay.khulnasoft.com/catalog'>Meshplay Catalog</a>.</li> \
     <li><b>Single-click deployment of all cloud native infrastructure -</b> Support for hundreds of different cloud native infrastructure tools right at your fingertips.</li> \
   </ul>" \
   com.docker.desktop.extension.icon="https://raw.githubusercontent.com/meshplay/meshplay/master/install/docker-extension/docs/img/meshplay-logo-light.svg" \
-  com.docker.extension.publisher-url="https://meshplay.io" \
-  com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://docs.meshplay.io\"},{\"title\":\"Project\",\"url\":\"https://layer5.io/meshplay\"},{\"title\":\"Slack\",\"url\":\"https://slack.meshplay.io\"},{\"title\":\"Discussion Forum\",\"url\":\"http://discuss.meshplay.io\"}]"
+  com.docker.extension.publisher-url="https://meshplay.khulnasoft.com" \
+  com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://docs.meshplay.khulnasoft.com\"},{\"title\":\"Project\",\"url\":\"https://layer5.io/meshplay\"},{\"title\":\"Slack\",\"url\":\"https://slack.meshplay.khulnasoft.com\"},{\"title\":\"Discussion Forum\",\"url\":\"http://discuss.meshplay.khulnasoft.com\"}]"
 COPY --from=builder /backend/bin/service /
 COPY docker-compose.yaml .
 COPY metadata.json .

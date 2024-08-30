@@ -4,7 +4,7 @@ title: GitLab
 subtitle: Collaborative and visual infrastructure as design for GitLab
 image: /assets/img/integrations/gitlab/icons/color/gitlab-color.svg
 permalink: extensibility/integrations/gitlab
-docURL: https://docs.meshplay.io/extensibility/integrations/gitlab
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/gitlab
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Security & Compliance

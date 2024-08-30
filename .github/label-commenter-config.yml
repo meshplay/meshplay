@@ -2,7 +2,7 @@ comment:
   # header: "Please note the following requirement:"
   footer: "\
     ---\n\n
-    > &nbsp; &#9; &nbsp; &#9;  &nbsp; &#9;  &nbsp; &#9; Be sure to [join the community](https://slack.meshplay.io), if you haven't yet and please leave a :star: [star on the project](../stargazers) :smile:
+    > &nbsp; &#9; &nbsp; &#9;  &nbsp; &#9;  &nbsp; &#9; Be sure to [join the community](https://slack.meshplay.khulnasoft.com), if you haven't yet and please leave a :star: [star on the project](../stargazers) :smile:
     "
 
 labels:
@@ -34,10 +34,10 @@ labels:
   - name: component/ui
     labeled:
       issue:
-        body: This issue has been labeled with 'component/ui'. 🧰 Here are docs on [Contributing to Meshplay UI](https://docs.meshplay.io/project/contributing/contributing-ui). 🎨 Here is the [Meshplay UI Figma File](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI?node-id=4%3A0) File. Lastly, here are docs on [Contributing to Meshplay's End-to-End Tests](https://docs.meshplay.io/project/contributing/contributing-ui-tests).
+        body: This issue has been labeled with 'component/ui'. 🧰 Here are docs on [Contributing to Meshplay UI](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-ui). 🎨 Here is the [Meshplay UI Figma File](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI?node-id=4%3A0) File. Lastly, here are docs on [Contributing to Meshplay's End-to-End Tests](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-ui-tests).
         action: open
       pr:
-        body: This PR has been labeled with 'component/ui'. 🧰 Here are docs on [Contributing to Meshplay UI](https://docs.meshplay.io/project/contributing/contributing-ui). 🎨 Here is the [Meshplay UI Figma File](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI?node-id=4%3A0) File. Lastly, here are docs on [Contributing to Meshplay's End-to-End Tests](https://docs.meshplay.io/project/contributing/contributing-ui-tests).
+        body: This PR has been labeled with 'component/ui'. 🧰 Here are docs on [Contributing to Meshplay UI](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-ui). 🎨 Here is the [Meshplay UI Figma File](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI?node-id=4%3A0) File. Lastly, here are docs on [Contributing to Meshplay's End-to-End Tests](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-ui-tests).
         action: open
   - name: component/meshplayctl
     labeled:
@@ -53,7 +53,7 @@ labels:
   - name: issue/docs-needed
     labeled:
       pr:
-        body: This PR has been labeled with 'issue/docs-needed'. It looks like this PR might need an update to the Meshplay Docs. Please ensure the documentation is updated accordingly. Here are docs on [Contributing to Meshplay Docs](https://docs.meshplay.io/project/contributing/contributing-docs).
+        body: This PR has been labeled with 'issue/docs-needed'. It looks like this PR might need an update to the Meshplay Docs. Please ensure the documentation is updated accordingly. Here are docs on [Contributing to Meshplay Docs](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-docs).
         action: open
 
 

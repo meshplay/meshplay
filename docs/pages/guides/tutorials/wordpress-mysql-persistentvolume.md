@@ -18,12 +18,12 @@ abstract: "Deploy a WordPress site and a MySQL database with Persistent Volumes 
 
 In this tutorial, we will learn how to deploy a **WordPress site and a MySQL database with Persistent Volumes** using Meshplay Playground. Meshplay Playground is an interactive and collaborative live cluster environment that simplifies the deployment process and enhances user experience by providing visual tools for managing Kubernetes resources.
 
-> **NOTE:** If this is your first time working with Meshplay Playground, consider starting with the [Exploring Kubernetes Pods with Meshplay Playground](https://docs.meshplay.io/guides/tutorials/kubernetes-pods) tutorial first.
+> **NOTE:** If this is your first time working with Meshplay Playground, consider starting with the [Exploring Kubernetes Pods with Meshplay Playground](https://docs.meshplay.khulnasofy.com/guides/tutorials/kubernetes-pods) tutorial first.
 
 ### Prerequisites
 
 - Basic understanding of Kubernetes concepts.
-- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.io/).
+- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.khulnasofy.com/).
 
 ### Lab Scenario
 

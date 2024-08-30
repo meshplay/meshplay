@@ -4,7 +4,7 @@ title: Kubegems Models
 subtitle: Collaborative and visual infrastructure as design for Kubegems Models
 image: /assets/img/integrations/kubegems-models/icons/color/kubegems-models-color.svg
 permalink: extensibility/integrations/kubegems-models
-docURL: https://docs.meshplay.io/extensibility/integrations/kubegems-models
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubegems-models
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

@@ -4,7 +4,7 @@ title: Percona Postgres Operator
 subtitle: Create and manage highly available, enterprise-ready MySQL, PostgreSQL, and MongoDB clusters on Kubernetes.
 image: /assets/img/integrations/pg-operator/icons/color/pg-operator-color.svg
 permalink: extensibility/integrations/pg-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/pg-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/pg-operator
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

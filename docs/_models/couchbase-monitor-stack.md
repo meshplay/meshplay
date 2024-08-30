@@ -4,7 +4,7 @@ title: Couchbase Monitor Stack
 subtitle: Collaborative and visual infrastructure as design for Couchbase Monitor Stack
 image: /assets/img/integrations/couchbase-monitor-stack/icons/color/couchbase-monitor-stack-color.svg
 permalink: extensibility/integrations/couchbase-monitor-stack
-docURL: https://docs.meshplay.io/extensibility/integrations/couchbase-monitor-stack
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/couchbase-monitor-stack
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

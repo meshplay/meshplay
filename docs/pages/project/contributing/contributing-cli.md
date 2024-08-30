@@ -195,7 +195,7 @@ Annotations: linkDocPatternApply,
 
 ## Adding New/Removing Existing commands in the reference index
 
-Though the command page is generated automatically by the Cobra CLI library, there are chances where the command does not appear in the [reference index page](https://docs.meshplay.io/reference/meshplayctl). In such cases, the command details must be manually added to the reference index YAML file. This is generally done by editing the below two files:
+Though the command page is generated automatically by the Cobra CLI library, there are chances where the command does not appear in the [reference index page](https://docs.meshplay.khulnasofy.com/reference/meshplayctl). In such cases, the command details must be manually added to the reference index YAML file. This is generally done by editing the below two files:
 
 - [cmds.yml](https://github.com/meshplay/meshplay/blob/master/docs/_data/meshplayctlcommands/cmds.yml) - The YAML file containing the data about the commands
 - [meshplayctl-commands.md](https://github.com/meshplay/meshplay/blob/master/docs/pages/reference/meshplayctl-commands.md) - The markdown page of the command reference documentation

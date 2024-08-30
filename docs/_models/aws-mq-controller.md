@@ -4,7 +4,7 @@ title: AWS MQ
 subtitle: Collaborative and visual infrastructure as design for AWS MQ
 image: /assets/img/integrations/aws-mq-controller/icons/color/aws-mq-controller-color.svg
 permalink: extensibility/integrations/aws-mq-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-mq-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-mq-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

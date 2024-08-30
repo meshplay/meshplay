@@ -255,13 +255,13 @@ const BasicMenu = withSuppressedErrorBoundary(({ event }) => {
             </Box>
             <Collapse in={isSocialShareOpen}>
               <Box className={classes.socialListItem}>
-                <FacebookShareButton url={'https://meshplay.io'} quote={event.description || ''}>
+                <FacebookShareButton url={'https://meshplay.khulnasoft.com'} quote={event.description || ''}>
                   <FacebookIcon {...iconMedium} fill={theme.palette.secondary.iconMain} />
                 </FacebookShareButton>
-                <LinkedinShareButton url={'https://meshplay.io'} summary={event.description || ''}>
+                <LinkedinShareButton url={'https://meshplay.khulnasoft.com'} summary={event.description || ''}>
                   <LinkedInIcon {...iconMedium} fill={theme.palette.secondary.iconMain} />
                 </LinkedinShareButton>
-                <TwitterShareButton url={'https://meshplay.io'} title={event.description || ''}>
+                <TwitterShareButton url={'https://meshplay.khulnasoft.com'} title={event.description || ''}>
                   <TwitterIcon {...iconMedium} fill={theme.palette.secondary.iconMain} />
                 </TwitterShareButton>
               </Box>

@@ -41,7 +41,7 @@ For example, you might know that a Kubernetes `Service` can have a network-based
 <summary>Relationship Example</summary>
 <pre><code class="language-yaml highlighter-rouge">
 {
-  "schemaVersion": "core.meshplay.io/v1alpha2",
+  "schemaVersion": "core.meshplay.khulnasofy.com/v1alpha2",
   "kind": "edge",
   "type": "network",
   "version": "v1.0.0",

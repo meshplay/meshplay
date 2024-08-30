@@ -44,7 +44,7 @@ var (
 // meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
 
 // Example publishing to meshplayio docs
-// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.io/integrations meshplay.io/assets/images/integration -o js
+// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.khulnasofy.com/integrations meshplay.khulnasofy.com/assets/images/integration -o js
 
 // Example publishing to layer5 docs
 // meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
@@ -72,7 +72,7 @@ cd docs;
 meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
 
 // Publishing to meshplayio site
-meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.io/integrations meshplay.io/assets/images/integration -o js
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.khulnasofy.com/integrations meshplay.khulnasofy.com/assets/images/integration -o js
 
 // Publishing to layer5 site
 meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx

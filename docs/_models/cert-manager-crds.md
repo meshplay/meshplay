@@ -4,7 +4,7 @@ title: cert-manager CRDs
 subtitle: Collaborative and visual infrastructure as design for cert-manager CRDs
 image: /assets/img/integrations/cert-manager-crds/icons/color/cert-manager-crds-color.svg
 permalink: extensibility/integrations/cert-manager-crds
-docURL: https://docs.meshplay.io/extensibility/integrations/cert-manager-crds
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/cert-manager-crds
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance

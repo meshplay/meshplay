@@ -4,7 +4,7 @@ title: Actions Runner Controller (ARC)
 subtitle: Collaborative and visual infrastructure as design for Actions Runner Controller (ARC)
 image: /assets/img/integrations/actions-runner-controller/icons/color/actions-runner-controller-color.svg
 permalink: extensibility/integrations/actions-runner-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/actions-runner-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/actions-runner-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

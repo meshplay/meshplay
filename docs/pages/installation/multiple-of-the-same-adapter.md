@@ -39,7 +39,7 @@ While installing meshplayctl using bash installation script, we can choose which
 This is done by passing ADAPTERS environment variable to meshplay bash script.
 
 *For e.g.* 
-`curl -L https://meshplay.io/install | ADAPTERS=consul PLATFORM=kubernetes bash -` installs meshplayctl and starts Meshplay Server in your connected Kubernetes cluster deploying only the Meshplay Adapter for Consul and not the rest of Meshplay's adapters.
+`curl -L https://meshplay.khulnasofy.com/install | ADAPTERS=consul PLATFORM=kubernetes bash -` installs meshplayctl and starts Meshplay Server in your connected Kubernetes cluster deploying only the Meshplay Adapter for Consul and not the rest of Meshplay's adapters.
 
 <h5>Demo of Meshplay managing deployments across multiple Kubernetes clusters:</h5>
 

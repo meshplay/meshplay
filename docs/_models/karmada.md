@@ -4,7 +4,7 @@ title: Karmada
 subtitle: Collaborative and visual infrastructure as design for Karmada
 image: /assets/img/integrations/karmada/icons/color/karmada-color.svg
 permalink: extensibility/integrations/karmada
-docURL: https://docs.meshplay.io/extensibility/integrations/karmada
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/karmada
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

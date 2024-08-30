@@ -6,7 +6,7 @@ services:
             - ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-traefik-mesh:10006 meshplay-nginx-sm:10010 meshplay-cilium:10012
             - EVENT=meshplayLocal
             - PORT=9081
-            - MESHPLAY_SERVER_CALLBACK_URL=https://playground.meshplay.io/api/user/token
+            - MESHPLAY_SERVER_CALLBACK_URL=https://playground.meshplay.khulnasoft.com/api/user/token
             - PROVIDER=Meshplay
         volumes:
             - $HOME/.kube:/home/appuser/.kube:ro

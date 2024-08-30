@@ -4,7 +4,7 @@ title: Kyverno
 subtitle: Collaborative and visual infrastructure as design for Kyverno
 image: /assets/img/integrations/kyverno/icons/color/kyverno-color.svg
 permalink: extensibility/integrations/kyverno
-docURL: https://docs.meshplay.io/extensibility/integrations/kyverno
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kyverno
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Container Security

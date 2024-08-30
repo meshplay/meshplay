@@ -311,7 +311,7 @@ const Extensions = ({ classes, toggleCatalogContent, capabilitiesRegistry }) => 
                 <Typography variant="subtitle2" style={{ fontStyle: 'italic' }}>
                   Explore the{' '}
                   <a
-                    href="https://meshplay.io/catalog"
+                    href="https://meshplay.khulnasoft.com/catalog"
                     target="_blank"
                     rel="noreferrer"
                     className={classes.link}

@@ -4,7 +4,7 @@ title: Devfile
 subtitle: Collaborative and visual infrastructure as design for Devfile
 image: /assets/img/integrations/devfile/icons/color/devfile-color.svg
 permalink: extensibility/integrations/devfile
-docURL: https://docs.meshplay.io/extensibility/integrations/devfile
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/devfile
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "relationships.meshplay.io/v1alpha3",
+  "schemaVersion": "relationships.meshplay.khulnasofy.com/v1alpha3",
   "version": "v1.0.0",
   "kind": "edge",
   "subType": "network",
@@ -18,7 +18,7 @@
     }
   },
   "model": {
-    "schemaVersion": "models.meshplay.io/v1beta1",
+    "schemaVersion": "models.meshplay.khulnasofy.com/v1beta1",
     "version": "v1.0.0",
     "name": "kubernetes",
     "registrant": {

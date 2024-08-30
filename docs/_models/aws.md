@@ -4,7 +4,7 @@ title: Amazon Web Services
 subtitle: Collaborative and visual infrastructure as design for Amazon Web Services
 image: /assets/img/integrations/aws/icons/color/aws-color.svg
 permalink: extensibility/integrations/aws
-docURL: https://docs.meshplay.io/extensibility/integrations/aws
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

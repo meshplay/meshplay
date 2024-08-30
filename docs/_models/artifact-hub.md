@@ -4,7 +4,7 @@ title: Artifact Hub
 subtitle: Collaborative and visual infrastructure as design for Artifact Hub
 image: /assets/img/integrations/artifact-hub/icons/color/artifact-hub-color.svg
 permalink: extensibility/integrations/artifact-hub
-docURL: https://docs.meshplay.io/extensibility/integrations/artifact-hub
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/artifact-hub
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

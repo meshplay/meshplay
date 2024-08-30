@@ -4,7 +4,7 @@ title: Kubevault Metrics
 subtitle: Collaborative and visual infrastructure as design for Kubevault Metrics
 image: /assets/img/integrations/kubevault-metrics/icons/color/kubevault-metrics-color.svg
 permalink: extensibility/integrations/kubevault-metrics
-docURL: https://docs.meshplay.io/extensibility/integrations/kubevault-metrics
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubevault-metrics
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Uncategorized

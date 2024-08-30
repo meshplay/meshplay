@@ -34,7 +34,7 @@ var PatternCmd = &cobra.Command{
 	Use:   "pattern",
 	Short: "Cloud Native Patterns Management",
 	Long: `Manage cloud and cloud native infrastructure using predefined patterns.
-Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
+Find more information at: https://docs.meshplay.khulnasofy.com/reference/meshplayctl#command-reference`,
 	Example: `
 // Apply pattern file:
 meshplayctl pattern apply --file [path to pattern file | URL of the file]

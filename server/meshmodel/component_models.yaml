@@ -32159,7 +32159,7 @@
 - name: meshplay
   repository: meshplay
   version: 0.6.66
-  repo_url: https://meshplay.io/charts/
+  repo_url: https://meshplay.khulnasofy.com/charts/
   verified_publisher: false
   official: false
   cncf: false
@@ -68496,7 +68496,7 @@
 - name: meshplay-operator
   repository: meshplay
   version: 0.6.66
-  repo_url: https://meshplay.io/charts/
+  repo_url: https://meshplay.khulnasofy.com/charts/
   verified_publisher: false
   official: false
   cncf: false

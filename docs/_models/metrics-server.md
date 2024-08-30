@@ -4,7 +4,7 @@ title: Kubernetes Metrics Server
 subtitle: Collaborative and visual infrastructure as design for Kubernetes Metrics Server
 image: /assets/img/integrations/metrics-server/icons/color/metrics-server-color.svg
 permalink: extensibility/integrations/metrics-server
-docURL: https://docs.meshplay.io/extensibility/integrations/metrics-server
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/metrics-server
 description: Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

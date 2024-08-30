@@ -4,7 +4,7 @@ title: Notary
 subtitle: Collaborative and visual infrastructure as design for Notary
 image: /assets/img/integrations/notary/icons/color/notary-color.svg
 permalink: extensibility/integrations/notary
-docURL: https://docs.meshplay.io/extensibility/integrations/notary
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/notary
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

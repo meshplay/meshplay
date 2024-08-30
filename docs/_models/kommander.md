@@ -4,7 +4,7 @@ title: Kommander
 subtitle: Collaborative and visual infrastructure as design for Kommander
 image: /assets/img/integrations/kommander/icons/color/kommander-color.svg
 permalink: extensibility/integrations/kommander
-docURL: https://docs.meshplay.io/extensibility/integrations/kommander
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kommander
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

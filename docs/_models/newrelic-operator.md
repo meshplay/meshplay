@@ -4,7 +4,7 @@ title: New Relic Operator
 subtitle: Collaborative and visual infrastructure as design for New Relic Operator
 image: /assets/img/integrations/newrelic-operator/icons/color/newrelic-operator-color.svg
 permalink: extensibility/integrations/newrelic-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/newrelic-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/newrelic-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Observability and Analysis

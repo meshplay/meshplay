@@ -4,7 +4,7 @@ title: Vitess
 subtitle: Collaborative and visual infrastructure as design for Vitess
 image: /assets/img/integrations/vitess/icons/color/vitess-color.svg
 permalink: extensibility/integrations/vitess
-docURL: https://docs.meshplay.io/extensibility/integrations/vitess
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/vitess
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

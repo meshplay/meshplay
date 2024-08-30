@@ -4,7 +4,7 @@ title: AWS Relational Database Service
 subtitle: Collaborative and visual infrastructure as design for AWS Relational Database Service
 image: /assets/img/integrations/aws-rds-controller/icons/color/aws-rds-controller-color.svg
 permalink: extensibility/integrations/aws-rds-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-rds-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-rds-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

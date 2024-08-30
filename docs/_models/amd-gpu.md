@@ -4,7 +4,7 @@ title: AMD GPU
 subtitle: Collaborative and visual infrastructure as design for AMD GPU
 image: /assets/img/integrations/amd-gpu/icons/color/amd-gpu-color.svg
 permalink: extensibility/integrations/amd-gpu
-docURL: https://docs.meshplay.io/extensibility/integrations/amd-gpu
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/amd-gpu
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

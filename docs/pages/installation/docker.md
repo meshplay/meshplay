@@ -23,11 +23,11 @@ Start Meshplay by executing:
 
 <!-- <pre class="codeblock-pre" style="padding: 0; font-size:0px;"><div class="codeblock" style="display: block;">
  <div class="clipboardjs" style="padding: 0">
- <span style="font-size:0;">curl -L https://meshplay.io/install | PLATFORM=docker bash -</span>  
+ <span style="font-size:0;">curl -L https://meshplay.khulnasofy.com/install | PLATFORM=docker bash -</span>  
  </div>
  <div class="window-buttons"></div>
  <div id="termynal1" style="width:100%; height:150px; max-width:100%;" data-termynal="">
-            <span data-ty="input">curl -L https://meshplay.io/install | PLATFORM=docker bash -</span>
+            <span data-ty="input">curl -L https://meshplay.khulnasofy.com/install | PLATFORM=docker bash -</span>
             <span data-ty="progress"></span>
             <span data-ty="">Successfully installed Meshplay</span>
   </div>

@@ -4,7 +4,7 @@ title: Vald Helm Operator
 subtitle: Collaborative and visual infrastructure as design for Vald Helm Operator
 image: /assets/img/integrations/vald-helm-operator/icons/color/vald-helm-operator-color.svg
 permalink: extensibility/integrations/vald-helm-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/vald-helm-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/vald-helm-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Key Management

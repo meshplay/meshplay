@@ -4,7 +4,7 @@ title: Metallb
 subtitle: Collaborative and visual infrastructure as design for Metallb
 image: /assets/img/integrations/metallb/icons/color/metallb-color.svg
 permalink: extensibility/integrations/metallb
-docURL: https://docs.meshplay.io/extensibility/integrations/metallb
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/metallb
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

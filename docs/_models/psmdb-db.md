@@ -4,7 +4,7 @@ title: Percona Server for MongoDB
 subtitle: Collaborative and visual infrastructure as design for Percona Server for MongoDB
 image: /assets/img/integrations/psmdb-db/icons/color/psmdb-db-color.svg
 permalink: extensibility/integrations/psmdb-db
-docURL: https://docs.meshplay.io/extensibility/integrations/psmdb-db
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/psmdb-db
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

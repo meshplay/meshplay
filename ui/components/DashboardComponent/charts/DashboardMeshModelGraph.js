@@ -88,7 +88,7 @@ function MeshModelContructs({ classes }) {
               placement="left"
               interactive={true}
               variant="standard"
-              title={`The Meshplay Registry is a critical component acting as the central repository for all capabilities known to Meshplay. [Learn More](https://docs.meshplay.io/concepts/logical/registry)`}
+              title={`The Meshplay Registry is a critical component acting as the central repository for all capabilities known to Meshplay. [Learn More](https://docs.meshplay.khulnasoft.com/concepts/logical/registry)`}
             >
               <IconButton disableRipple={true} disableFocusRipple={true}>
                 <InfoOutlined
@@ -167,7 +167,7 @@ function MeshModelCategories({ classes }) {
 
           <div onClick={(e) => e.stopPropagation()}>
             <CustomTextTooltip
-              title={`Meshplay Models represent the fundamental building blocks of your infrastructure. Models are categorized by their function. For example, a model for Prometheus belongs in the "Observability and Analysis" category. [Learn More](https://docs.meshplay.io/concepts/logical/models)`}
+              title={`Meshplay Models represent the fundamental building blocks of your infrastructure. Models are categorized by their function. For example, a model for Prometheus belongs in the "Observability and Analysis" category. [Learn More](https://docs.meshplay.khulnasoft.com/concepts/logical/models)`}
               placement="left"
               variant="standard"
               interactive={true}

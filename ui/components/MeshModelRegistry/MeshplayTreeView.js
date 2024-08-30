@@ -734,7 +734,7 @@ const MeshplayTreeView = ({
                   interactive={true}
                   title={`View all duplicate entries of ${_.toLower(
                     view,
-                  )}. Entries with identical name and version attributes are considered duplicates. [Learn More](https://docs.meshplay.io/concepts/logical/models#models)`}
+                  )}. Entries with identical name and version attributes are considered duplicates. [Learn More](https://docs.meshplay.khulnasoft.com/concepts/logical/models#models)`}
                 >
                   <IconButton color="primary">
                     <InfoOutlinedIcon height={20} width={20} />

@@ -52,7 +52,7 @@ Each model package can be imported and exported from the system as OCI-compatibl
 ### Model Schema
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: ModelDefinition
 metadata:
   name:
@@ -110,7 +110,7 @@ Any user should be able to easily create his own `ComponentDefinition` and publi
 ### Component Schema
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: ComponentDefinition
 format: "CUE",
 metadata:
@@ -287,7 +287,7 @@ Scope: package / model level.
 ### Relationship Schema
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: RelationshipDefinition
 metadata:
 	name: Network Edge Relationship
@@ -374,7 +374,7 @@ Using the Kubernetes Service as a specific example for which the following Relat
 
 ```
 name:
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: Relationship
 metadata:
 	Description: Network edge relationship
@@ -425,7 +425,7 @@ Use cases for Edges in Designer:
 This Relationship identifies a component as being **parent-capable**. In other words, this Relationship identifies the matching component as being a compound node.
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: RelationshipDefinition
 Metadata:
 	name: Namespaced Kubernetes Component
@@ -444,7 +444,7 @@ Metadata:
 This Relationship identifies a component as being **child-capable**. In other words, this Relationship identifies the matching component as being a compound node.
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: RelationshipDefinition
 Metadata:
 	name: MeshMap Compound Node
@@ -463,7 +463,7 @@ Metadata:
 AttributeDefinition Schema
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: AttributeDefinition
 metadata:
 	componentType: compound-node
@@ -485,7 +485,7 @@ nonself:
 ### Policy Schema
 
 ```
-apiVersion: core.meshplay.io/v1alpha1
+apiVersion: core.meshplay.khulnasofy.com/v1alpha1
 kind: PolicyDefinition
 metadata:
 	type: match

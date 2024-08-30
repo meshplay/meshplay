@@ -7,7 +7,7 @@ language: en
 published: false
 ---
 {% include alert.html type="info" title="Validating SMI Conformance with Meshplay" content="<p>Meshplay is SMI's 
-<a href='https://smi-spec.io/blog/validating-smi-conformance-with-meshplay'>official tool for validating conformance</a>.</p> <p>The <a href='https://meshplay.io/service-mesh-interface'>SMI Conformance dashboard</a> displays the current and historical test results of each of the service mesh projects.</p>" %}
+<a href='https://smi-spec.io/blog/validating-smi-conformance-with-meshplay'>official tool for validating conformance</a>.</p> <p>The <a href='https://meshplay.khulnasofy.com/service-mesh-interface'>SMI Conformance dashboard</a> displays the current and historical test results of each of the service mesh projects.</p>" %}
 
 As service mesh providers and the surrounding ecosystem start adopting Service Mesh Interface, there is a growing need for validating the SMI implementation.
 
@@ -54,4 +54,4 @@ The conformance tool will run the test suite and automatically update the confor
 
 Ideally, this GitHub account is a service-robot account used within the project’s CI pipeline.
 
-The [SMI Conformance dashboard](https://meshplay.io/service-mesh-interface) displays the current and historical test results of each of the service mesh projects. These results are automatically updated through the projects official accounts as mentioned above. -->
+The [SMI Conformance dashboard](https://meshplay.khulnasofy.com/service-mesh-interface) displays the current and historical test results of each of the service mesh projects. These results are automatically updated through the projects official accounts as mentioned above. -->

@@ -23,7 +23,7 @@ abstract: Install Meshplay on Kubernetes using Helm. Deploy Meshplay in Kubernet
 
 ## Install Meshplay on Your Kubernetes Cluster Using Helm
 
-{% capture code_content %}helm repo add meshplay https://meshplay.io/charts/
+{% capture code_content %}helm repo add meshplay https://meshplay.khulnasofy.com/charts/
 helm install meshplay meshplay/meshplay --namespace meshplay --create-namespace
 {% endcapture %}
 {% include code.html code=code_content %}

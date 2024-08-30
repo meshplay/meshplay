@@ -4,7 +4,7 @@ title: NGINX
 subtitle: Collaborative and visual infrastructure as design for NGINX
 image: /assets/img/integrations/nginx/icons/color/nginx-color.svg
 permalink: extensibility/integrations/nginx
-docURL: https://docs.meshplay.io/extensibility/integrations/nginx
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/nginx
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

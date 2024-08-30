@@ -4,7 +4,7 @@ title: Fluentd Operator
 subtitle: Collaborative and visual infrastructure as design for Fluentd Operator
 image: /assets/img/integrations/fluentd-operator/icons/color/fluentd-operator-color.svg
 permalink: extensibility/integrations/fluentd-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/fluentd-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/fluentd-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Logging

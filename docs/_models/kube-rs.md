@@ -4,7 +4,7 @@ title: kube-rs
 subtitle: Collaborative and visual infrastructure as design for kube-rs
 image: /assets/img/integrations/kube-rs/icons/color/kube-rs-color.svg
 permalink: extensibility/integrations/kube-rs
-docURL: https://docs.meshplay.io/extensibility/integrations/kube-rs
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kube-rs
 description: 
 integrations-category: Runtime
 integrations-subcategory: Scheduling & Orchestration

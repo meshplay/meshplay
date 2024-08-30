@@ -25,15 +25,15 @@ The following is a list of top-level frameworks, libraries, design system used i
 
 ## Meshplay Server APIs
 
-The [API overview](https://docs.meshplay.io/extensibility/api) in the Extensibility guide offers high-level insight, while each API reference (below) offers details pertaining to each API endpoints' behavior and use.
+The [API overview](https://docs.meshplay.khulnasofy.com/extensibility/api) in the Extensibility guide offers high-level insight, while each API reference (below) offers details pertaining to each API endpoints' behavior and use.
 
 ### REST API
 
-Meshplay provides a REST API available through the default port of `9081/tcp` at `<hostname>:<port>/api/`. See the [REST API Reference](https://docs.meshplay.io/reference/rest-apis) for a complete list of endpoints available with short description of their purpose and example code.
+Meshplay provides a REST API available through the default port of `9081/tcp` at `<hostname>:<port>/api/`. See the [REST API Reference](https://docs.meshplay.khulnasofy.com/reference/rest-apis) for a complete list of endpoints available with short description of their purpose and example code.
 
 ### GraphQL API
 
-Meshplay provides a GraphQl API available through the default port of `9081/tcp` at `<hostname>:<port>/api/graphql/query`. See the [GraphQL API Reference](https://docs.meshplay.io/reference/graphql-apis) [Relay](https://relay.dev) is the client used.
+Meshplay provides a GraphQl API available through the default port of `9081/tcp` at `<hostname>:<port>/api/graphql/query`. See the [GraphQL API Reference](https://docs.meshplay.khulnasofy.com/reference/graphql-apis) [Relay](https://relay.dev) is the client used.
 
 ## Design
 
@@ -55,7 +55,7 @@ The designs in this specification should result in enabling:
 
 ## Setup
 
-{% include alert.html type="info" title="Windows User?" content="See <a href='https://docs.meshplay.io/project/contributing/meshplay-windows'>Setting up Meshplay Development Environment on Windows</a>."
+{% include alert.html type="info" title="Windows User?" content="See <a href='https://docs.meshplay.khulnasofy.com/project/contributing/meshplay-windows'>Setting up Meshplay Development Environment on Windows</a>."
 %}
 
 ### Node Version Recommendations

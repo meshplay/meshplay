@@ -4,7 +4,7 @@ title: Linux
 subtitle: Collaborative and visual infrastructure as design for Linux
 image: /assets/img/integrations/linux/icons/color/linux-color.svg
 permalink: extensibility/integrations/linux
-docURL: https://docs.meshplay.io/installation/linux-mac
+docURL: https://docs.meshplay.khulnasofy.com/installation/linux-mac
 description: 
 integrations-category: Platform
 integrations-subcategory: Operating System

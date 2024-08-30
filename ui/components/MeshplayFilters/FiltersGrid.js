@@ -229,7 +229,7 @@ function FiltersGrid({
               handleSubmit={handlePublish}
               handleClose={handlePublishModalClose}
               submitBtnText="Submit for Approval"
-              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
+              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.khulnasoft.com/concepts/catalog)"
             />
           </SistentModal>
         </UsesSistent>

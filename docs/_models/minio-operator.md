@@ -4,7 +4,7 @@ title: MinIO Operator
 subtitle: Collaborative and visual infrastructure as design for MinIO Operator
 image: /assets/img/integrations/minio-operator/icons/color/minio-operator-color.svg
 permalink: extensibility/integrations/minio-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/minio-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/minio-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

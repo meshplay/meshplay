@@ -4,7 +4,7 @@ title: OPA Gatekeeper
 subtitle: Collaborative and visual infrastructure as design for OPA Gatekeeper
 image: /assets/img/integrations/gatekeeper/icons/color/gatekeeper-color.svg
 permalink: extensibility/integrations/gatekeeper
-docURL: https://docs.meshplay.io/extensibility/integrations/gatekeeper
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/gatekeeper
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance

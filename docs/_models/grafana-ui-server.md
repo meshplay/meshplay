@@ -4,7 +4,7 @@ title: Grafana UI Server
 subtitle: Operational dashboards for your data with Grafana and Meshplay
 image: /assets/img/integrations/grafana-ui-server/icons/color/grafana-ui-server-color.svg
 permalink: extensibility/integrations/grafana-ui-server
-docURL: https://docs.meshplay.io/extensibility/integrations/grafana-ui-server
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/grafana-ui-server
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

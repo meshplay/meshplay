@@ -186,7 +186,7 @@ jobs:
       MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
     with:
       release-tag: ${{github.ref_name}}
-      to: developers@meshplay.io
+      to: developers@meshplay.khulnasoft.com
   call-cncf-playground-rollout:
     needs:
       - build

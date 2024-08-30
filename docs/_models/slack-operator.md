@@ -4,7 +4,7 @@ title: Slack Operator
 subtitle: Collaborative and visual infrastructure as design for Slack Operator
 image: /assets/img/integrations/slack-operator/icons/color/slack-operator-color.svg
 permalink: extensibility/integrations/slack-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/slack-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/slack-operator
 description: 
 integrations-category: Tools
 integrations-subcategory: Uncategorized

@@ -4,7 +4,7 @@ title: Karpenter
 subtitle: Collaborative and visual infrastructure as design for Karpenter
 image: /assets/img/integrations/karpenter/icons/color/karpenter-color.svg
 permalink: extensibility/integrations/karpenter
-docURL: https://docs.meshplay.io/extensibility/integrations/karpenter
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/karpenter
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

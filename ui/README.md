@@ -6,7 +6,7 @@ Please do! Thank you for your help in improving Meshplay! :balloon:
 
 <details>
 
-  <summary><h3>Find the complete set of contributor guides at https://docs.meshplay.io/project/contributing</h3></summary>
+  <summary><h3>Find the complete set of contributor guides at https://docs.meshplay.khulnasoft.com/project/contributing</h3></summary>
 
 # Contributor Guide for UI component
 
@@ -19,7 +19,7 @@ Meshplay UI can be built and run in different ways. You will choose one of the t
 #### 1. User Build:
 
 For general usage, one can run Meshplay UI using Meshplay's command client `meshplayctl`, by simply running the `meshplayctl system start` command.
-If you don't have the `meshplayctl` tool installed already, you can follow the [meshplayctl installation docs](https://docs.meshplay.io/installation/meshplayctl) to install `meshplayctl` using various `package management` tools supported.
+If you don't have the `meshplayctl` tool installed already, you can follow the [meshplayctl installation docs](https://docs.meshplay.khulnasoft.com/installation/meshplayctl) to install `meshplayctl` using various `package management` tools supported.
 
 #### 2. Development Build:
 

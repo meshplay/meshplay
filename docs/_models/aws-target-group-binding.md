@@ -4,7 +4,7 @@ title: AWS Target Group Binding
 subtitle: Collaborative and visual infrastructure as design for AWS Target Group Binding
 image: /assets/img/integrations/aws-target-group-binding/icons/color/aws-target-group-binding-color.svg
 permalink: extensibility/integrations/aws-target-group-binding
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-target-group-binding
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-target-group-binding
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

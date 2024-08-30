@@ -274,7 +274,7 @@ export default function Provider() {
         </DialogContent>
         <CustomDialogActions>
           <div className="learnmore">
-            <a href="https://docs.meshplay.io/extensibility/providers">
+            <a href="https://docs.meshplay.khulnasoft.com/extensibility/providers">
               Providers in Meshplay Docs
               <img src="/provider/static/img/external-link.svg" width="16px" />
             </a>

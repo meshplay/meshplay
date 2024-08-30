@@ -4,7 +4,7 @@ title: Cortex
 subtitle: Collaborative and visual infrastructure as design for Cortex
 image: /assets/img/integrations/cortex/icons/color/cortex-color.svg
 permalink: extensibility/integrations/cortex
-docURL: https://docs.meshplay.io/extensibility/integrations/cortex
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/cortex
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Metrics

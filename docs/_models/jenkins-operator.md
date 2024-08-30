@@ -4,7 +4,7 @@ title: Jenkins Operator
 subtitle: Collaborative and visual infrastructure as design for Jenkins Operator
 image: /assets/img/integrations/jenkins-operator/icons/color/jenkins-operator-color.svg
 permalink: extensibility/integrations/jenkins-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/jenkins-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/jenkins-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

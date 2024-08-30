@@ -4,7 +4,7 @@ title: AWS Elastic Kubernetes Service
 subtitle: Diagram and configure your Azure Kubernetes Service clusters
 image: /assets/img/integrations/eks/icons/color/eks-color.svg
 permalink: extensibility/integrations/eks
-docURL: https://docs.meshplay.io/installation/kubernetes/eks
+docURL: https://docs.meshplay.khulnasofy.com/installation/kubernetes/eks
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

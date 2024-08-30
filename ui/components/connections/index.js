@@ -329,8 +329,8 @@ function Connections(props) {
   const meshSyncResetRef = useRef(null);
   const { notify } = useNotification();
   const StyleClass = useStyles();
-  const url = `https://docs.meshplay.io/concepts/logical/connections#states-and-the-lifecycle-of-connections`;
-  const envUrl = `https://docs.meshplay.io/concepts/logical/environments`;
+  const url = `https://docs.meshplay.khulnasoft.com/concepts/logical/connections#states-and-the-lifecycle-of-connections`;
+  const envUrl = `https://docs.meshplay.khulnasoft.com/concepts/logical/environments`;
 
   const icons = {
     [CONNECTION_STATES.IGNORED]: () => <RemoveCircleIcon />,
@@ -474,7 +474,7 @@ function Connections(props) {
                   <CustomTextTooltip
                     placement="top"
                     interactive={true}
-                    title="Learn more about connection status and how to [troubleshoot Kubernetes connections](https://docs.meshplay.io/guides/troubleshooting/meshplay-operator-meshsync)"
+                    title="Learn more about connection status and how to [troubleshoot Kubernetes connections](https://docs.meshplay.khulnasoft.com/guides/troubleshooting/meshplay-operator-meshsync)"
                   >
                     <IconButton className={classes.infoIconButton} color="primary">
                       <InfoOutlinedIcon height={20} width={20} className={classes.infoIcon} />
@@ -989,7 +989,7 @@ function Connections(props) {
       title: `Connection Status Transition`,
       subtitle: `Are you sure that you want to transition the connection status to ${e.target.value.toUpperCase()}?`,
       options: ['Confirm', 'Cancel'],
-      showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.io/concepts/logical/connections) in Meshplay Docs.`,
+      showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.khulnasoft.com/concepts/logical/connections) in Meshplay Docs.`,
       // variant: PROMPT_VARIANTS.CONFIRMATION,
     });
     if (response === 'Confirm') {
@@ -1006,7 +1006,7 @@ function Connections(props) {
         title: `Delete Connection`,
         subtitle: `Are you sure that you want to delete the connection?`,
         options: ['Delete', 'Cancel'],
-        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.io/concepts/logical/connections) in Meshplay Docs.`,
+        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.khulnasoft.com/concepts/logical/connections) in Meshplay Docs.`,
         variant: PROMPT_VARIANTS.DANGER,
       });
       if (response === 'Delete') {
@@ -1024,7 +1024,7 @@ function Connections(props) {
         title: `Delete Connections`,
         subtitle: `Are you sure that you want to delete the connections?`,
         options: ['Delete', 'Cancel'],
-        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.io/concepts/logical/connections) in Meshplay Docs.`,
+        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.khulnasoft.com/concepts/logical/connections) in Meshplay Docs.`,
         variant: PROMPT_VARIANTS.DANGER,
       });
       if (response === 'Delete') {

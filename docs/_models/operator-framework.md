@@ -4,7 +4,7 @@ title: Operator Framework
 subtitle: Collaborative and visual infrastructure as design for Operator Framework
 image: /assets/img/integrations/operator-framework/icons/color/operator-framework-color.svg
 permalink: extensibility/integrations/operator-framework
-docURL: https://docs.meshplay.io/extensibility/integrations/operator framework
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/operator framework
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

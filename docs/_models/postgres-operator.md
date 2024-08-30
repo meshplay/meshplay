@@ -4,7 +4,7 @@ title: Postgres Operator
 subtitle: Collaborative and visual infrastructure as design for Postgres Operator
 image: /assets/img/integrations/postgres-operator/icons/color/postgres-operator-color.svg
 permalink: extensibility/integrations/postgres-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/postgres-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/postgres-operator
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

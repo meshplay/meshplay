@@ -4,7 +4,7 @@ title: Kubedb CRDs
 subtitle: Collaborative and visual infrastructure as design for Kubedb CRDs
 image: /assets/img/integrations/kubedb-crds/icons/color/kubedb-crds-color.svg
 permalink: extensibility/integrations/kubedb-crds
-docURL: https://docs.meshplay.io/extensibility/integrations/kubedb-crds
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubedb-crds
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

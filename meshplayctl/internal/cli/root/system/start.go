@@ -126,7 +126,7 @@ meshplayctl system start --provider Meshplay
 			if latest != version {
 				log.Printf("A new release of meshplayctl is available: %s → %s", version, latest)
 				log.Printf("https://github.com/meshplay/meshplay/releases/tag/%s", latest)
-				log.Print("Check https://docs.meshplay.io/installation/upgrades#upgrading-meshplay-cli for instructions on how to update meshplayctl\n")
+				log.Print("Check https://docs.meshplay.khulnasofy.com/installation/upgrades#upgrading-meshplay-cli for instructions on how to update meshplayctl\n")
 			}
 		}
 	},

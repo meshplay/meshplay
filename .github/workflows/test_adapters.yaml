@@ -97,7 +97,7 @@ jobs:
       # Start Meshplay Server (Assuming that this step will create the meshplay namespace)
       - name: Start Meshplay Server using meshplayctl
         run: |
-          curl -L https://meshplay.io/install | PLATFORM=kubernetes bash -
+          curl -L https://meshplay.khulnasoft.com/install | PLATFORM=kubernetes bash -
 
       # Start the adapter using yamls
       - name: Start adapter

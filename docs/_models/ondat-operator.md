@@ -4,7 +4,7 @@ title: ondat-operator
 subtitle: Collaborative and visual infrastructure as design for ondat-operator
 image: /assets/img/integrations/ondat-operator/icons/color/ondat-operator-color.svg
 permalink: extensibility/integrations/ondat-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/ondat-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/ondat-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

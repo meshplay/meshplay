@@ -4,7 +4,7 @@ title: Docker
 subtitle: Collaborative and visual infrastructure as design for Docker
 image: /assets/img/integrations/docker/icons/color/docker-color.svg
 permalink: extensibility/integrations/docker
-docURL: https://docs.meshplay.io/installation/docker 
+docURL: https://docs.meshplay.khulnasofy.com/installation/docker 
 description: 
 integrations-category: Runtime
 integrations-subcategory: Container Runtime

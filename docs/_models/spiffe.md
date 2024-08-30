@@ -4,7 +4,7 @@ title: SPIFFE
 subtitle: Collaborative and visual infrastructure as design for SPIFFE
 image: /assets/img/integrations/spiffe/icons/color/spiffe-color.svg
 permalink: extensibility/integrations/spiffe
-docURL: https://docs.meshplay.io/extensibility/integrations/spiffe
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/spiffe
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Key Management

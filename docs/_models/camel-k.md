@@ -4,7 +4,7 @@ title: Camel K
 subtitle: Collaborative and visual infrastructure as design for Camel K
 image: /assets/img/integrations/camel-k/icons/color/camel-k-color.svg
 permalink: extensibility/integrations/camel-k
-docURL: https://docs.meshplay.io/extensibility/integrations/camel-k
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/camel-k
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

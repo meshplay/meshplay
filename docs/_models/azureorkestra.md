@@ -4,7 +4,7 @@ title: Azure Orkestra
 subtitle: Collaborative and visual infrastructure as design for Azure Orkestra
 image: /assets/img/integrations/azureorkestra/icons/color/azureorkestra-color.svg
 permalink: extensibility/integrations/azureorkestra
-docURL: https://docs.meshplay.io/extensibility/integrations/azureorkestra
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/azureorkestra
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

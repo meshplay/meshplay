@@ -40,9 +40,9 @@ This section aids in your understanding of the vernacular of Meshplay's internal
 The schema represents the skeletal structure of an entity and provides a logical view of its size, shape, and characteristics. It defines the expected properties and attributes of the entity. The schema serves as a blueprint or template for creating instances of the entity. It is a static representation that defines the structure and properties but does not contain specific configuration values.
 
 {% include alert.html type="info" title="Schema example" content='<details><summary>Component schema excerpt</summary><pre> {
-"$id": "https://schemas.meshplay.io/component.json",
+"$id": "https://schemas.meshplay.khulnasofy.com/component.json",
   "$schema": "<http://json-schema.org/draft-07/schema#>",
-"description": "Components are the atomic units for designing infrastructure. Learn more at <https://docs.meshplay.io/concepts/components>",
+"description": "Components are the atomic units for designing infrastructure. Learn more at <https://docs.meshplay.khulnasofy.com/concepts/components>",
 "required": [
 "apiVersion",
 "kind",

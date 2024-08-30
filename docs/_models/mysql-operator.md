@@ -4,7 +4,7 @@ title: MySQL Operator
 subtitle: Collaborative and visual infrastructure as design for MySQL Operator
 image: /assets/img/integrations/mysql-operator/icons/color/mysql-operator-color.svg
 permalink: extensibility/integrations/mysql-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/mysql-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/mysql-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

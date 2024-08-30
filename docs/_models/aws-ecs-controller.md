@@ -4,7 +4,7 @@ title: AWS Elastic Container Service
 subtitle: Collaborative and visual infrastructure as design for AWS Elastic Container Service
 image: /assets/img/integrations/aws-ecs-controller/icons/color/aws-ecs-controller-color.svg
 permalink: extensibility/integrations/aws-ecs-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-ecs-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-ecs-controller
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

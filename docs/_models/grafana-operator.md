@@ -4,7 +4,7 @@ title: Grafana Operator
 subtitle: Operational dashboards for your data with Grafana and Meshplay
 image: /assets/img/integrations/grafana-operator/icons/color/grafana-operator-color.svg
 permalink: extensibility/integrations/grafana-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/grafana-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/grafana-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

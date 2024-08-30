@@ -19,7 +19,7 @@ Before diving into Meshplay's testing environment, certain prerequisites are nec
 - A compatible browser such as Chromium, Chrome, or Firefox.
 - Installations of Golang, NodeJS, and Makefiles for Native OS build (Optional for docker based build).
 - Kubernetes clusters (Required for several test cases)
-- Already have [Meshplay Adapters](https://docs.meshplay.io/concepts/architecture/adapters) up and running (Required for several test cases)
+- Already have [Meshplay Adapters](https://docs.meshplay.khulnasofy.com/concepts/architecture/adapters) up and running (Required for several test cases)
 
 ## Setting up environment variable
 
@@ -80,7 +80,7 @@ make docker-testing-env
 
 ### Meshplay CLI
 
-There is also Meshplay CLI which can help you run the UI and Server, for more detail, you go to [Meshplay CLI documentation](https://docs.meshplay.io/project/contributing/contributing-cli-guide#process)
+There is also Meshplay CLI which can help you run the UI and Server, for more detail, you go to [Meshplay CLI documentation](https://docs.meshplay.khulnasofy.com/project/contributing/contributing-cli-guide#process)
 
 ## Setup playwright & Run the test cases
 

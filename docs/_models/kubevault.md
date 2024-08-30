@@ -4,7 +4,7 @@ title: Kubevault
 subtitle: Collaborative and visual infrastructure as design for Kubevault
 image: /assets/img/integrations/kubevault/icons/color/kubevault-color.svg
 permalink: extensibility/integrations/kubevault
-docURL: https://docs.meshplay.io/extensibility/integrations/kubevault
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubevault
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Uncategorized

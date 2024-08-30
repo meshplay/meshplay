@@ -4,7 +4,7 @@ title: OpenELB
 subtitle: Collaborative and visual infrastructure as design for OpenELB
 image: /assets/img/integrations/openelb/icons/color/openelb-color.svg
 permalink: extensibility/integrations/openelb
-docURL: https://docs.meshplay.io/extensibility/integrations/openelb
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/openelb
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

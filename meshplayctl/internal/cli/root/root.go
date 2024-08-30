@@ -50,7 +50,7 @@ var RootCmd = &cobra.Command{
 	Use:   "meshplayctl",
 	Short: "Meshplay Command Line tool",
 	Long: `As a self-service engineering platform, Meshplay enables collaborative design and operation of cloud native infrastructure.
-Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
+Find more information at: https://docs.meshplay.khulnasofy.com/reference/meshplayctl#command-reference`,
 	Example: `
 // Base command:
 meshplayctl

@@ -4,7 +4,7 @@ title: Bitwarden by Lerentis
 subtitle: Collaborative and visual infrastructure as design for Bitwarden by Lerentis
 image: /assets/img/integrations/bitwarden-crd-operator/icons/color/bitwarden-crd-operator-color.svg
 permalink: extensibility/integrations/bitwarden-crd-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/bitwarden-crd-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/bitwarden-crd-operator
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Key Management

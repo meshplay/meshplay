@@ -119,11 +119,11 @@ scoops:
   # Defaults are shown.
     commit_author:
       name: meshplayctl releaser
-      email: community@meshplay.io
+      email: community@meshplay.khulnasoft.com
 
     # Your app's homepage.
     # Default is empty.
-    homepage: "https://meshplay.io"
+    homepage: "https://meshplay.khulnasoft.com"
 
     # Your app's description.
     # Default is empty.

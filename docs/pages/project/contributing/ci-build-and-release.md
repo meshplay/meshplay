@@ -15,7 +15,7 @@ Meshplay’s build and release system incorporates many tools, organized into di
 
 ## Artifacts
 
-Today, Meshplay and Meshplay adapters are released as Docker container images, available on Docker Hub. Meshplay adapters are out-of-process adapters (meaning not compiled into the main Meshplay binary), and as such, are independent build artifacts and Helm charts. The Docker images are created and tagged with the git commit SHA, then pushed to Docker Hub automatically using GitHub Actions. Subsequently, when contributions containing content for the Helm charts of Meshplay and Meshplay Adapter are linted and merged, they will be pushed and released to [meshplay.io](https://github.com/meshplay/meshplay.io) Github page by GitHub Action automatically.
+Today, Meshplay and Meshplay adapters are released as Docker container images, available on Docker Hub. Meshplay adapters are out-of-process adapters (meaning not compiled into the main Meshplay binary), and as such, are independent build artifacts and Helm charts. The Docker images are created and tagged with the git commit SHA, then pushed to Docker Hub automatically using GitHub Actions. Subsequently, when contributions containing content for the Helm charts of Meshplay and Meshplay Adapter are linted and merged, they will be pushed and released to [meshplay.khulnasofy.com](https://github.com/meshplay/meshplay.khulnasofy.com) Github page by GitHub Action automatically.
 
 ### Artifact Repositories
 
@@ -26,9 +26,9 @@ Artifacts produced in the build processes are published and persisted in differe
 | Docker Hub | Meshplay                                         | [https://hub.docker.com/r/meshplay/meshplay](https://hub.docker.com/r/meshplay/meshplay)                                   |
 | GitHub     | meshplayctl                                      | [https://github.com/meshplay/meshplay/releases](https://github.com/meshplay/meshplay/releases)                         |
 | Docker Hub | Meshplay Adapter for \<adapter-name\>            | https://hub.docker.com/r/meshplay/meshplay-\<adapter-name>\>                                                             |
-| Docs       | Meshplay Documentation                           | [https://docs.meshplay.io](https://docs.meshplay.io)                                                                   |
+| Docs       | Meshplay Documentation                           | [https://docs.meshplay.khulnasofy.com](https://docs.meshplay.khulnasofy.com)                                                                   |
 | GitHub     | [Cloud Native Performance](https://smp-spec.io) | [https://github.com/service-mesh-performance](https://github.com/service-mesh-performance/service-mesh-performance)         |
-| Github     | Helm charts                                     | [https://github.com/meshplay/meshplay.io/tree/master/charts](https://github.com/meshplay/meshplay.io/tree/master/charts) |
+| Github     | Helm charts                                     | [https://github.com/meshplay/meshplay.khulnasofy.com/tree/master/charts](https://github.com/meshplay/meshplay.khulnasofy.com/tree/master/charts) |
 
 ## Secrets
 
@@ -221,7 +221,7 @@ Every PR which includes changes to the files under `install/kubernetes/` directo
 
 ### Release Helm Charts to Github and Artifact Hub
 
-New Meshplay Helm charts are published upon trigger of a release event in the `meshplay/meshplay` repo. New versions of Meshplay's Helm charts are published to [Meshplay's Helm charts release page](https://github.com/meshplay/meshplay.io/tree/master/charts). [Artifact Hub] (https://artifacthub.io/packages/helm/meshplay/meshplay) syncs with these updated Meshplay Helm charts.
+New Meshplay Helm charts are published upon trigger of a release event in the `meshplay/meshplay` repo. New versions of Meshplay's Helm charts are published to [Meshplay's Helm charts release page](https://github.com/meshplay/meshplay.khulnasofy.com/tree/master/charts). [Artifact Hub] (https://artifacthub.io/packages/helm/meshplay/meshplay) syncs with these updated Meshplay Helm charts.
 
 ## Release Versioning
 
@@ -269,7 +269,7 @@ The publishing of release notes to Meshplay Docs is automated. Triggered by a re
 
 #### Automated Release Notes Sending
 
-The sending of release notes is now automated as a step in the stable release channel workflow. The release notes are automatically sent to the [developers@meshplay.io mailing list](https://groups.google.com/a/meshplay.io/g/developers).
+The sending of release notes is now automated as a step in the stable release channel workflow. The release notes are automatically sent to the [developers@meshplay.khulnasofy.com mailing list](https://groups.google.com/a/meshplay.khulnasofy.com/g/developers).
 
 #### Automated Pull Request Labeler
 
@@ -386,5 +386,5 @@ For older releases we have to travel back in time. Using the `Tags` in github we
 
 ## Bi-Weekly Meetings
 
-If you are passionate about CI/CD pipelines, DevOps, automated testing, managing deployments, or if you want to learn how to use Meshplay and its features, you are invited to join the bi-weekly Build and Release meetings. Find meeting details and agenda in the [community calendar](https://meshplay.io/calendar) and the [meeting minutes document](https://docs.google.com/document/d/1GrVdGHZAYeu6wHNLLoiaKNqBtk7enXE9XeDRCvdA4bY/edit#). The meetings are open to everyone and recorded for later viewing. We hope to see you there!
+If you are passionate about CI/CD pipelines, DevOps, automated testing, managing deployments, or if you want to learn how to use Meshplay and its features, you are invited to join the bi-weekly Build and Release meetings. Find meeting details and agenda in the [community calendar](https://meshplay.khulnasofy.com/calendar) and the [meeting minutes document](https://docs.google.com/document/d/1GrVdGHZAYeu6wHNLLoiaKNqBtk7enXE9XeDRCvdA4bY/edit#). The meetings are open to everyone and recorded for later viewing. We hope to see you there!
 

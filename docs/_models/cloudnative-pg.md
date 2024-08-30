@@ -4,7 +4,7 @@ title: CloudNativePG
 subtitle: Collaborative and visual infrastructure as design for CloudNativePG
 image: /assets/img/integrations/cloudnative-pg/icons/color/cloudnative-pg-color.svg
 permalink: extensibility/integrations/cloudnative-pg
-docURL: https://docs.meshplay.io/extensibility/integrations/cloudnative-pg
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/cloudnative-pg
 description: CloudNativePG is the Kubernetes operator that covers the full lifecycle of a highly available PostgreSQL database cluster with a primary/standby architecture, using native streaming replication.
 integrations-category: App Definition and Development
 integrations-subcategory: Database

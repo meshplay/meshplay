@@ -4,7 +4,7 @@ title: Datadog Operator
 subtitle: Collaborative and visual infrastructure as design for Datadog Operator
 image: /assets/img/integrations/datadog-operator/icons/color/datadog-operator-color.svg
 permalink: extensibility/integrations/datadog-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/datadog-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/datadog-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

@@ -65,7 +65,7 @@ export default function PlaygroundMeshDeploy(props) {
   const classes = styles();
 
   const handlePage = (e) => {
-    window.open('https://meshplay.io/#getting-started', '_blank');
+    window.open('https://meshplay.khulnasoft.com/#getting-started', '_blank');
     e.stopPropagation();
   };
 

@@ -395,7 +395,7 @@ export const encodeDesignFile = (designJson) => {
  */
 export const processDesign = (design) => {
   console.log('Design to process', design);
-  if (design.schemaVersion != 'designs.meshplay.io/v1beta1') {
+  if (design.schemaVersion != 'designs.meshplay.khulnasoft.com/v1beta1') {
     console.error('Invalid design schema version', design);
     return {
       configurableComponents: [],

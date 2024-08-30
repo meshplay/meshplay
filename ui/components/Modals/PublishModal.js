@@ -52,7 +52,7 @@ export default function PublishModal(props) {
       submitBtnIcon={<PublicIcon data-cy="import-button" />}
       showInfoIcon={{
         text: 'Upon submitting your catalog item, an approval flow will be initiated.',
-        link: 'https://docs.meshplay.io/concepts/catalog',
+        link: 'https://docs.meshplay.khulnasoft.com/concepts/catalog',
       }}
     />
   );

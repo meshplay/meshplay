@@ -4,7 +4,7 @@ title: Fluentbit Skt
 subtitle: Collaborative and visual infrastructure as design for Fluentbit Skt
 image: /assets/img/integrations/fluentbit-skt/icons/color/fluentbit-skt-color.svg
 permalink: extensibility/integrations/fluentbit-skt
-docURL: https://docs.meshplay.io/extensibility/integrations/fluentbit-skt
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/fluentbit-skt
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Logging

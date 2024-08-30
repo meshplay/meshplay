@@ -4,7 +4,7 @@ title: OpenFeature
 subtitle: Collaborative and visual infrastructure as design for OpenFeature
 image: /assets/img/integrations/openfeature/icons/color/openfeature-color.svg
 permalink: extensibility/integrations/openfeature
-docURL: https://docs.meshplay.io/extensibility/integrations/openfeature
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/openfeature
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

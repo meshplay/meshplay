@@ -77,7 +77,7 @@ spec:
 ```
 ## MeshSync CRD
 
-The MeshSync CRD is used as a configuration tool the [MeshSync](https://docs.meshplay.io/concepts/architecture/MeshSync). The CRD is used to control the replica count for MeshSync instances, [Broker](https://docs.meshplay.io/concepts/architecture/broker) configuration and the resources that MeshSync watches and listens to in a cluster.
+The MeshSync CRD is used as a configuration tool the [MeshSync](https://docs.meshplay.khulnasofy.com/concepts/architecture/MeshSync). The CRD is used to control the replica count for MeshSync instances, [Broker](https://docs.meshplay.khulnasofy.com/concepts/architecture/broker) configuration and the resources that MeshSync watches and listens to in a cluster.
 
 ### YAML Synopsis
 
@@ -132,7 +132,7 @@ The following section outlines the fields and their descriptions
   The specification section defines the desired state of our custom resource that Kubernetes can then use to take corrective measures to bring the cluster to.
   - **size**: The size is an integer value denoting the number of MeshSync instances that that should be in one cluster, currently only one instance of MeshSync is supported.
   - **broker**:
-    This section contains the configuration for [Broker](https://docs.meshplay.io/concepts/architecture/broker)
+    This section contains the configuration for [Broker](https://docs.meshplay.khulnasofy.com/concepts/architecture/broker)
     - **native**:
       Configuration instruction for a broker instance in the cluster.
       - **name**:
@@ -167,7 +167,7 @@ The following section outlines the fields and their descriptions
 
 The following section defines the usage for this Custom Resource
 
-The Custom Resource is used to configure the [Broker](https://docs.meshplay.io/concepts/architecture/broker) and Events to be tracked by [MeshSync](https://docs.meshplay.io/concepts/architecture/MeshSync)
+The Custom Resource is used to configure the [Broker](https://docs.meshplay.khulnasofy.com/concepts/architecture/broker) and Events to be tracked by [MeshSync](https://docs.meshplay.khulnasofy.com/concepts/architecture/MeshSync)
 
 #### Example Use
 

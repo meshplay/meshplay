@@ -4,7 +4,7 @@ title: Envoy
 subtitle: Collaborative and visual infrastructure as design for Envoy
 image: /assets/img/integrations/envoy/icons/color/envoy-color.svg
 permalink: extensibility/integrations/envoy
-docURL: https://docs.meshplay.io/extensibility/integrations/envoy
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/envoy
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Service Proxy

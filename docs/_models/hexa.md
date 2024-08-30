@@ -4,7 +4,7 @@ title: Hexa
 subtitle: Collaborative and visual infrastructure as design for Hexa
 image: /assets/img/integrations/hexa/icons/color/hexa-color.svg
 permalink: extensibility/integrations/hexa
-docURL: https://docs.meshplay.io/extensibility/integrations/hexa
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/hexa
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

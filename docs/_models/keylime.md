@@ -4,7 +4,7 @@ title: Keylime
 subtitle: Collaborative and visual infrastructure as design for Keylime
 image: /assets/img/integrations/keylime/icons/color/keylime-color.svg
 permalink: extensibility/integrations/keylime
-docURL: https://docs.meshplay.io/extensibility/integrations/keylime
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/keylime
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

@@ -4,7 +4,7 @@ title: BFE
 subtitle: Collaborative and visual infrastructure as design for BFE
 image: /assets/img/integrations/bfe/icons/color/bfe-color.svg
 permalink: extensibility/integrations/bfe
-docURL: https://docs.meshplay.io/extensibility/integrations/bfe
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/bfe
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

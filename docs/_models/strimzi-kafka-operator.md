@@ -4,7 +4,7 @@ title: Strimzi Kafka Operator
 subtitle: Collaborative and visual infrastructure as design for Strimzi Kafka Operator
 image: /assets/img/integrations/strimzi-kafka-operator/icons/color/strimzi-kafka-operator-color.svg
 permalink: extensibility/integrations/strimzi-kafka-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/strimzi-kafka-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/strimzi-kafka-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

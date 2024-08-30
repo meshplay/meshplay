@@ -59,4 +59,4 @@ export const GRAFANA = 'Grafana';
 export const PROMETHEUS = 'Prometheus';
 export const INCLUSTER_CONFIG = 'Inclusterconfig';
 export const OUTCLUSTER_CONFIG = 'Outclusterconfig';
-export const ENDPOINTURL = 'https://playground.meshplay.io/';
+export const ENDPOINTURL = 'https://playground.meshplay.khulnasoft.com/';

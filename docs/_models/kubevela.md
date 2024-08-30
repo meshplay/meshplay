@@ -4,7 +4,7 @@ title: Kubevela
 subtitle: Collaborative and visual infrastructure as design for Kubevela
 image: /assets/img/integrations/kubevela/icons/color/kubevela-color.svg
 permalink: extensibility/integrations/kubevela
-docURL: https://docs.meshplay.io/extensibility/integrations/kubevela
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubevela
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

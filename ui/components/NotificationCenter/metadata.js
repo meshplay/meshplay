@@ -49,7 +49,7 @@ export const ErrorMetadataFormatter = ({ metadata, event }) => {
   const errorCode = metadata?.error_code || '';
   const code = metadata?.Code || '';
   const formattedErrorCode = errorCode ? `${errorCode}-${code}` : code;
-  const errorLink = `https://docs.meshplay.io/reference/error-codes#${formattedErrorCode}`;
+  const errorLink = `https://docs.meshplay.khulnasoft.com/reference/error-codes#${formattedErrorCode}`;
   return (
     <Grid container>
       <div>

@@ -4,7 +4,7 @@ title: Nocalhost
 subtitle: Collaborative and visual infrastructure as design for Nocalhost
 image: /assets/img/integrations/nocalhost/icons/color/nocalhost-color.svg
 permalink: extensibility/integrations/nocalhost
-docURL: https://docs.meshplay.io/extensibility/integrations/nocalhost
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/nocalhost
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

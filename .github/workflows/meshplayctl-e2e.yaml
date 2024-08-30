@@ -130,11 +130,11 @@ jobs:
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: ${{ matrix.platform }}
-          pattern_url: https://raw.githubusercontent.com/meshplay/meshplay.io/master/catalog/57f7230d-015b-4892-9042-cd1ea97fcb30.yaml
+          pattern_url: https://raw.githubusercontent.com/meshplay/meshplay.khulnasoft.com/master/catalog/57f7230d-015b-4892-9042-cd1ea97fcb30.yaml
 
       - name: Load "Serve An LLM With Multiple GPUs In GKE" design
         uses: layer5io/meshplayctl-service-mesh-patterns-action@master
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: ${{ matrix.platform }}
-          pattern_url: https://raw.githubusercontent.com/meshplay/meshplay.io/master/catalog/9d3b33bf-eaf6-4d06-9dd6-64aa725ab383.yaml
+          pattern_url: https://raw.githubusercontent.com/meshplay/meshplay.khulnasoft.com/master/catalog/9d3b33bf-eaf6-4d06-9dd6-64aa725ab383.yaml

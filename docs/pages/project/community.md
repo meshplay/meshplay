@@ -22,8 +22,8 @@ Please see our [contributing guide]({{ site.baseurl }}/project/contributing) for
 
 The Meshplay project is community-built and welcomes collaboration! <a href="https://github.com/meshplay/meshplay"><i class="fab fa-github"></i> Fork Meshplay</a>
 
-* Join any of the [community meetings](https://meshplay.io/calendar). 
-* Watch [meeting recordings](https://www.youtube.com/@Layer5io?sub_confirmation=1) and subscribe to the [community calendar](https://meshplay.io/calendar).
+* Join any of the [community meetings](https://meshplay.khulnasofy.com/calendar). 
+* Watch [meeting recordings](https://www.youtube.com/@Layer5io?sub_confirmation=1) and subscribe to the [community calendar](https://meshplay.khulnasofy.com/calendar).
 * Fill-in a <a href="https://layer5.io/newcomers">community member form</a> to gain access to community resources.
 
 ## Talking about Meshplay?

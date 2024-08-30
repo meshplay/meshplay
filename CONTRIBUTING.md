@@ -6,11 +6,11 @@ Please do! Thank you for your help in improving Meshplay! :balloon:
 
 <details>
 
-  <summary><h3>Find the complete set of contributor guides at https://docs.meshplay.io/project/contributing</h3></summary>
+  <summary><h3>Find the complete set of contributor guides at https://docs.meshplay.khulnasoft.com/project/contributing</h3></summary>
 
 All contributors are welcome. Not sure where to start? Please see the [newcomers welcome guide](https://layer5.io/community/newcomers) for how, where, and why to contribute. This project is community-built and welcomes collaboration. Contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-All set to contribute? Grab an open issue with the [help-wanted label](../../labels/help%20wanted) and jump in. Join our [Slack channel](https://slack.meshplay.io) and engage in conversation. Create a [new issue](/../../issues/new/choose) if needed. All [pull requests](/../../pulls) should ideally reference an open [issue](/../../issues). Include keywords in your pull request descriptions, as well as commit messages, to [automatically close related issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
+All set to contribute? Grab an open issue with the [help-wanted label](../../labels/help%20wanted) and jump in. Join our [Slack channel](https://slack.meshplay.khulnasoft.com) and engage in conversation. Create a [new issue](/../../issues/new/choose) if needed. All [pull requests](/../../pulls) should ideally reference an open [issue](/../../issues). Include keywords in your pull request descriptions, as well as commit messages, to [automatically close related issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
 
 **Sections**
 
@@ -335,7 +335,7 @@ We are using ES-Lint to maintain code quality & consistency in our UI Code. To m
 - Remember to run `make ui-lint` & `make ui-provider-lint` if you are making changes in Meshplay-UI & Provider-UI respectively.
 - The above commands will only fix some basic indenting rules. You will have to manually check your code to ensure there are no duplications, un-used variables or un-declared constants.
 - We will soon be adding Pre-Commit Hooks to make sure you get to know your errors before you commit the code.
-- In case you are unable to fix your lint errors, ping us on our [Slack](https://slack.meshplay.io).
+- In case you are unable to fix your lint errors, ping us on our [Slack](https://slack.meshplay.khulnasoft.com).
 
 
 # Using Sistent in Meshplay UI
@@ -423,7 +423,7 @@ const IncorrectUsage = () => (
 
 ### Contributing
 
-Please refer to the [Meshplay Contributing Guidelines](https://docs.meshplay.io/project/contributing/contributing-cli) for setting up your development environment and the [meshplayctl Command Reference and Tracker](https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0) for current status of `meshplayctl`.
+Please refer to the [Meshplay Contributing Guidelines](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-cli) for setting up your development environment and the [meshplayctl Command Reference and Tracker](https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0) for current status of `meshplayctl`.
 
 For a quick introduction to `meshplayctl`, checkout [Beginner's guide to contributing to Meshplay and meshplayctl](https://youtu.be/hh_kFLZx3G4).
 
@@ -437,7 +437,7 @@ After making changes, run `make` in the `meshplayctl` folder to build the binary
 
 ### `meshplayctl` command reference
 
-- See user-facing, documentation of the `meshplayctl` commands is available in the [Meshplay Docs](https://docs.meshplay.io/reference/meshplayctl).
+- See user-facing, documentation of the `meshplayctl` commands is available in the [Meshplay Docs](https://docs.meshplay.khulnasoft.com/reference/meshplayctl).
 - See contributor-facing design spec for [Meshplay CLI Commands and Documentation](https://docs.google.com/document/d/1xRlFpElRmybJ3WacgPKXgCSiQ2poJl3iCCV1dAalf0k/edit#heading=h.5fucij4hc5wt) for a complete reference of `meshplayctl`.
 
 ### General guidelines and resources

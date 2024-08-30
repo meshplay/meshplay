@@ -4,7 +4,7 @@ title: Contrail Analytics
 subtitle: Collaborative and visual infrastructure as design for Contrail Analytics
 image: /assets/img/integrations/contrail-analytics/icons/color/contrail-analytics-color.svg
 permalink: extensibility/integrations/contrail-analytics
-docURL: https://docs.meshplay.io/extensibility/integrations/contrail-analytics
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/contrail-analytics
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Analytics

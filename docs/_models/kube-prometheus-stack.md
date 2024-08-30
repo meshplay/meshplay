@@ -4,7 +4,7 @@ title: Kube Prometheus Stack
 subtitle: Collaborative and visual infrastructure as design for Kube Prometheus Stack
 image: /assets/img/integrations/kube-prometheus-stack/icons/color/kube-prometheus-stack-color.svg
 permalink: extensibility/integrations/kube-prometheus-stack
-docURL: https://docs.meshplay.io/extensibility/integrations/kube-prometheus-stack
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kube-prometheus-stack
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

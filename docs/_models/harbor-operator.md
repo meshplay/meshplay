@@ -4,7 +4,7 @@ title: Harbor Operator
 subtitle: Collaborative and visual infrastructure as design for Harbor Operator
 image: /assets/img/integrations/harbor-operator/icons/color/harbor-operator-color.svg
 permalink: extensibility/integrations/harbor-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/harbor-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/harbor-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Container Registry

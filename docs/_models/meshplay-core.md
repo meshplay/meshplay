@@ -4,7 +4,7 @@ title: Meshplay Core
 subtitle: Collaborative and visual infrastructure as design for Meshplay Core
 image: /assets/img/integrations/meshplay-core/icons/color/meshplay-core-color.svg
 permalink: extensibility/integrations/meshplay-core
-docURL: https://docs.meshplay.io/extensibility/integrations/meshplay-core
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/meshplay-core
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: App Definition and Development

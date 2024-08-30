@@ -121,7 +121,7 @@ const generateMsgForSampleApp = (name) => {
 };
 
 const generateMsgForAppsPatt = (name) => {
-  return `I deployed ${name} [design | application] in a single-click using @meshplayio!\nFind design patterns like mine in the Meshplay Catalog - https://meshplay.io/catalog`;
+  return `I deployed ${name} [design | application] in a single-click using @meshplayio!\nFind design patterns like mine in the Meshplay Catalog - https://meshplay.khulnasoft.com/catalog`;
 };
 
 const getDefaultMessage = (message) => {
@@ -159,7 +159,7 @@ function MeshplaySnackbarWrapper(props) {
   } = props;
   const variant = eventType.type;
   const Icon = variantIcon[variant];
-  const ERROR_DOC_LINK = 'https://docs.meshplay.io/reference/error-codes';
+  const ERROR_DOC_LINK = 'https://docs.meshplay.khulnasoft.com/reference/error-codes';
   const [expanded, setExpanded] = useState(false);
   const [cardHover, setCardHover] = useState(false);
   const [socialExpand, setSocialExpand] = useState(false);
@@ -324,7 +324,7 @@ function MeshplaySnackbarWrapper(props) {
                   <Paper className={classes.paper}>
                     <TwitterShareButton
                       className={classes.shareIcon}
-                      url={'https://meshplay.io'}
+                      url={'https://meshplay.khulnasoft.com'}
                       title={socialMessage}
                       hashtags={['opensource']}
                     >
@@ -332,14 +332,14 @@ function MeshplaySnackbarWrapper(props) {
                     </TwitterShareButton>
                     <LinkedinShareButton
                       className={classes.shareIcon}
-                      url={'https://meshplay.io'}
+                      url={'https://meshplay.khulnasoft.com'}
                       summary={socialMessage}
                     >
                       <LinkedinIcon size={32} />
                     </LinkedinShareButton>
                     <FacebookShareButton
                       className={classes.shareIcon}
-                      url={'https://meshplay.io'}
+                      url={'https://meshplay.khulnasoft.com'}
                       quote={socialMessage}
                       hashtag={'#opensource'}
                     >

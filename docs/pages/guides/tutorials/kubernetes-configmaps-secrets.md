@@ -23,7 +23,7 @@ In this tutorial, we will work with Kubernetes ConfigMaps and Secrets. _ConfigMa
 ## Prerequisites
 
 - Basic understanding of containerization and Kubernetes concepts.
-- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.io/).
+- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.khulnasofy.com/).
 
 ## Lab Scenario
 
@@ -39,7 +39,7 @@ Learn how to create and manage _Kubernetes ConfigMaps and Secrets_ within the co
 
 ### Access Meshplay Playground
 
-- Log in to the [Meshplay Playground](http://playground.meshplay.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
+- Log in to the [Meshplay Playground](http://playground.meshplay.khulnasofy.com/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
 - Click **MeshMap** in the navigation menu to navigate to _MeshMap_.
 
 > **_NOTE:_** MeshMap is still in beta.

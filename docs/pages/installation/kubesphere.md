@@ -15,7 +15,7 @@ abstract: Install Meshplay on KubeSphere
 
 {% include installation/installation_prerequisites.html %}
 
-[Meshplay](https://meshplay.io/) is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
+[Meshplay](https://meshplay.khulnasofy.com/) is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
 
 This tutorial walks you through an example of deploying Meshplay from the App Store of KubeSphere.
 

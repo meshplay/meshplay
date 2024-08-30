@@ -1,7 +1,7 @@
 apiVersion: v2
 name: meshplay-broker
 description: Meshplay Broker
-icon: https://meshplay.io/images/logos/meshplay-logo.png
+icon: https://meshplay.khulnasoft.com/images/logos/meshplay-logo.png
 type: application
 version: 0.5.0
 appVersion: stable-latest

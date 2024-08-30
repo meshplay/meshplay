@@ -4,7 +4,7 @@ title: Kubevirt
 subtitle: Collaborative and visual infrastructure as design for Kubevirt
 image: /assets/img/integrations/kubevirt/icons/color/kubevirt-color.svg
 permalink: extensibility/integrations/kubevirt
-docURL: https://docs.meshplay.io/extensibility/integrations/kubevirt
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubevirt
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

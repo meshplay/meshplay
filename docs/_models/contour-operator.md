@@ -4,7 +4,7 @@ title: Contour
 subtitle: Collaborative and visual infrastructure as design for Contour
 image: /assets/img/integrations/contour-operator/icons/color/contour-operator-color.svg
 permalink: extensibility/integrations/contour-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/contour-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/contour-operator
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

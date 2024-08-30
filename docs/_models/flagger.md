@@ -4,7 +4,7 @@ title: Flagger
 subtitle: Collaborative and visual infrastructure as design for Flagger
 image: /assets/img/integrations/flagger/icons/color/flagger-color.svg
 permalink: extensibility/integrations/flagger
-docURL: https://docs.meshplay.io/extensibility/integrations/flagger
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/flagger
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

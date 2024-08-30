@@ -4,7 +4,7 @@ title: PGO (CrunchyData)
 subtitle: Collaborative and visual infrastructure as design for PGO (CrunchyData)
 image: /assets/img/integrations/pgo/icons/color/pgo-color.svg
 permalink: extensibility/integrations/pgo
-docURL: https://docs.meshplay.io/extensibility/integrations/pgo
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/pgo
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

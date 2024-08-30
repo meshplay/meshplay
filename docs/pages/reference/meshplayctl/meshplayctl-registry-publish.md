@@ -76,7 +76,7 @@ meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwi
 Publishing to meshplayio site
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.io/integrations meshplay.io/assets/images/integration -o js
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.khulnasofy.com/integrations meshplay.khulnasofy.com/assets/images/integration -o js
 
 </div>
 </pre> 

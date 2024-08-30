@@ -4,7 +4,7 @@ title: Couchbase Operator
 subtitle: Collaborative and visual infrastructure as design for Couchbase Operator
 image: /assets/img/integrations/couchbase-operator/icons/color/couchbase-operator-color.svg
 permalink: extensibility/integrations/couchbase-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/couchbase-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/couchbase-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

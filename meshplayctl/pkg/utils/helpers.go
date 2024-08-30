@@ -50,7 +50,7 @@ const (
 	MeshsyncURL   = baseConfigURL + "samples/meshplay_v1alpha1_meshsync.yaml"
 
 	// Documentation URLs
-	docsBaseURL                    = "https://docs.meshplay.io/"
+	docsBaseURL                    = "https://docs.meshplay.khulnasofy.com/"
 	rootUsageURL                   = docsBaseURL + "reference/meshplayctl"
 	perfUsageURL                   = docsBaseURL + "reference/meshplayctl/perf"
 	systemUsageURL                 = docsBaseURL + "reference/meshplayctl/system"
@@ -185,7 +185,7 @@ const (
 )
 
 const (
-	HelmChartURL          = "https://meshplay.io/charts/"
+	HelmChartURL          = "https://meshplay.khulnasofy.com/charts/"
 	HelmChartName         = "meshplay"
 	HelmChartOperatorName = "meshplay-operator"
 )

@@ -4,7 +4,7 @@ title: AWS Route 53 Resolver
 subtitle: Collaborative and visual infrastructure as design for AWS Route 53 Resolver
 image: /assets/img/integrations/aws-route53resolver-controller/icons/color/aws-route53resolver-controller-color.svg
 permalink: extensibility/integrations/aws-route53resolver-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-route53resolver-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-route53resolver-controller
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Networking Content Delivery

@@ -4,7 +4,7 @@ title: Grafana Agent Operator
 subtitle: Operational dashboards for your data with Grafana and Meshplay
 image: /assets/img/integrations/grafana-agent-operator/icons/color/grafana-agent-operator-color.svg
 permalink: extensibility/integrations/grafana-agent-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/grafana-agent-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/grafana-agent-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

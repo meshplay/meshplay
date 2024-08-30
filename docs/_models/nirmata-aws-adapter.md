@@ -4,7 +4,7 @@ title: Nirmata AWS Adapter
 subtitle: Collaborative and visual infrastructure as design for Nirmata AWS Adapter
 image: /assets/img/integrations/nirmata-aws-adapter/icons/color/nirmata-aws-adapter-color.svg
 permalink: extensibility/integrations/nirmata-aws-adapter
-docURL: https://docs.meshplay.io/extensibility/integrations/nirmata-aws-adapter
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/nirmata-aws-adapter
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance

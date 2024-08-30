@@ -4,7 +4,7 @@ title: Velero S3 Deployment
 subtitle: Collaborative and visual infrastructure as design for Velero S3 Deployment
 image: /assets/img/integrations/velero-s3-deployment/icons/color/velero-s3-deployment-color.svg
 permalink: extensibility/integrations/velero-s3-deployment
-docURL: https://docs.meshplay.io/extensibility/integrations/velero-s3-deployment
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/velero-s3-deployment
 description: 
 integrations-category: Runtime
 integrations-subcategory: Cloud Native Storage

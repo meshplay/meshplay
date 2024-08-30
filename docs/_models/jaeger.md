@@ -4,7 +4,7 @@ title: Jaeger
 subtitle: Collaborative and visual infrastructure as design for Jaeger
 image: /assets/img/integrations/jaeger/icons/color/jaeger-color.svg
 permalink: extensibility/integrations/jaeger
-docURL: https://docs.meshplay.io/extensibility/integrations/jaeger
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/jaeger
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Tracing

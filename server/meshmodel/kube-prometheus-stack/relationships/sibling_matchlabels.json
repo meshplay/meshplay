@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "relationships.meshplay.io/v1alpha3",
+  "schemaVersion": "relationships.meshplay.khulnasofy.com/v1alpha3",
   "version": "v1.0.0",
   "kind": "hierarchical",
   "type": "sibling",
@@ -8,7 +8,7 @@
     "description": "Sibling relationships represent connections between components that are at the same hierarchical level or share a common parent. An example of this relationship is a Service and a Pod in Kubernetes. In kube-prometheus-stack, ServiceMonitor and PodMonitor resources configure Prometheus to scrape metrics from Kubernetes services and Pods respectively."
   },
   "model": {
-    "schemaVersion": "models.meshplay.io/v1beta1",
+    "schemaVersion": "models.meshplay.khulnasofy.com/v1beta1",
     "version": "*",
     "name": "kube-prometheus-stack",
     "model": {

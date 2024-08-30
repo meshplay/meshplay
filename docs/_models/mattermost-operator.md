@@ -4,7 +4,7 @@ title: Mattermost Operator
 subtitle: Collaborative and visual infrastructure as design for Mattermost Operator
 image: /assets/img/integrations/mattermost-operator/icons/color/mattermost-operator-color.svg
 permalink: extensibility/integrations/mattermost-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/mattermost-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/mattermost-operator
 description: 
 integrations-category: Tools
 integrations-subcategory: Uncategorized

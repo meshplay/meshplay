@@ -185,7 +185,7 @@ func AssignAdditionalLabels(comp *component.ComponentDefinition) error {
 		}
 	}
 
-	existingLabels["resource.pattern.meshplay.io/id"] = comp.Id.String() //set the patternID to track back the object
+	existingLabels["resource.pattern.meshplay.khulnasofy.com/id"] = comp.Id.String() //set the patternID to track back the object
 	comp.Configuration["labels"] = existingLabels
 	return nil
 }

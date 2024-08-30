@@ -4,7 +4,7 @@ title: Curiefense
 subtitle: Collaborative and visual infrastructure as design for Curiefense
 image: /assets/img/integrations/curiefense/icons/color/curiefense-color.svg
 permalink: extensibility/integrations/curiefense
-docURL: https://docs.meshplay.io/extensibility/integrations/curiefense
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/curiefense
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

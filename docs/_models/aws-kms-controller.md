@@ -4,7 +4,7 @@ title: AWS KMS
 subtitle: Collaborative and visual infrastructure as design for AWS KMS
 image: /assets/img/integrations/aws-kms-controller/icons/color/aws-kms-controller-color.svg
 permalink: extensibility/integrations/aws-kms-controller
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-kms-controller
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-kms-controller
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Key Management Service

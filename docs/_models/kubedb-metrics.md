@@ -4,7 +4,7 @@ title: Kubedb Metrics
 subtitle: Collaborative and visual infrastructure as design for Kubedb Metrics
 image: /assets/img/integrations/kubedb-metrics/icons/color/kubedb-metrics-color.svg
 permalink: extensibility/integrations/kubedb-metrics
-docURL: https://docs.meshplay.io/extensibility/integrations/kubedb-metrics
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubedb-metrics
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

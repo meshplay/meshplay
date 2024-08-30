@@ -4,7 +4,7 @@ title: Inlets Operator
 subtitle: Collaborative and visual infrastructure as design for Inlets Operator
 image: /assets/img/integrations/inlets-operator/icons/color/inlets-operator-color.svg
 permalink: extensibility/integrations/inlets-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/inlets-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/inlets-operator
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Uncategorized

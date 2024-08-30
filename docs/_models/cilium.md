@@ -4,7 +4,7 @@ title: Cilium
 subtitle: The easiest way to get production-grade Kubernetes clusters with Cilium up and running
 image: /assets/img/integrations/cilium/icons/color/cilium-color.svg
 permalink: extensibility/integrations/cilium
-docURL: https://docs.meshplay.io/extensibility/adapters/cilium
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/adapters/cilium
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

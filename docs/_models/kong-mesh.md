@@ -4,7 +4,7 @@ title: Kong Mesh
 subtitle: Collaborative and visual infrastructure as design for Kong Mesh
 image: /assets/img/integrations/kong-mesh/icons/color/kong-mesh-color.svg
 permalink: extensibility/integrations/kong-mesh
-docURL: https://docs.meshplay.io/extensibility/integrations/kong-mesh
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kong-mesh
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

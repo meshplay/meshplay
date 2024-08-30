@@ -4,7 +4,7 @@ title: Argo Workflows
 subtitle: Collaborative and visual infrastructure as design for Argo Workflows
 image: /assets/img/integrations/argo-workflows/icons/color/argo-workflows-color.svg
 permalink: extensibility/integrations/argo-workflows
-docURL: https://docs.meshplay.io/extensibility/integrations/argo-workflows
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/argo-workflows
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

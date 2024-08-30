@@ -4,7 +4,7 @@ title: Identity Manager
 subtitle: Collaborative and visual infrastructure as design for Identity Manager
 image: /assets/img/integrations/identity-manager/icons/color/identity-manager-color.svg
 permalink: extensibility/integrations/identity-manager
-docURL: https://docs.meshplay.io/extensibility/integrations/identity-manager
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/identity-manager
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Key Management

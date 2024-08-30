@@ -4,7 +4,7 @@ title: Kyverno Operator
 subtitle: Collaborative and visual infrastructure as design for Kyverno Operator
 image: /assets/img/integrations/kyverno-operator/icons/color/kyverno-operator-color.svg
 permalink: extensibility/integrations/kyverno-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/kyverno-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kyverno-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

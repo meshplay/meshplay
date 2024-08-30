@@ -4,7 +4,7 @@ title: Postgres Database (CrunchyData)
 subtitle: Collaborative and visual infrastructure as design for Postgres Database (CrunchyData)
 image: /assets/img/integrations/pg-db/icons/color/pg-db-color.svg
 permalink: extensibility/integrations/pg-db
-docURL: https://docs.meshplay.io/extensibility/integrations/pg-db
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/pg-db
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

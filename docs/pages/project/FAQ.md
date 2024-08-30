@@ -97,7 +97,7 @@ category: project
 
 <details>
 <summary><h6>Question: What systems does Meshplay manage?</h6></summary>
-<p><strong>Answer:</strong> Many. See Meshplay's <a href="https://meshplay.io/integrations">Integrations</a></p>
+<p><strong>Answer:</strong> Many. See Meshplay's <a href="https://meshplay.khulnasofy.com/integrations">Integrations</a></p>
 </details>
 
 <details>

@@ -4,7 +4,7 @@ title: Ingress Azure
 subtitle: Collaborative and visual infrastructure as design for Ingress Azure
 image: /assets/img/integrations/ingress-azure/icons/color/ingress-azure-color.svg
 permalink: extensibility/integrations/ingress-azure
-docURL: https://docs.meshplay.io/extensibility/integrations/ingress-azure
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/ingress-azure
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Uncategorized

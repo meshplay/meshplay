@@ -4,7 +4,7 @@ title: Kubedb Catalog
 subtitle: Collaborative and visual infrastructure as design for Kubedb Catalog
 image: /assets/img/integrations/kubedb-catalog/icons/color/kubedb-catalog-color.svg
 permalink: extensibility/integrations/kubedb-catalog
-docURL: https://docs.meshplay.io/extensibility/integrations/kubedb-catalog
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/kubedb-catalog
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

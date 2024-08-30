@@ -73,7 +73,7 @@ export default function ConnectionStatsChart({ classes }) {
             <CustomTextTooltip
               interactive={true}
               variant="standard"
-              title={`Meshplay Connections are managed and unmanaged resources that either through discovery or manual entry can be assigned to one or more Environments. [Learn More](https://docs.meshplay.io/concepts/logical/connections)`}
+              title={`Meshplay Connections are managed and unmanaged resources that either through discovery or manual entry can be assigned to one or more Environments. [Learn More](https://docs.meshplay.khulnasoft.com/concepts/logical/connections)`}
               placement="left"
             >
               <IconButton

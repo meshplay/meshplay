@@ -120,7 +120,7 @@ The Meshplay command line client, `meshplayctl`, is available in different packa
 Upgrade `meshplayctl` and run Meshplay on Mac or Linux with this script:
 
  <pre class="codeblock-pre">
- <div class="codeblock"><div class="clipboardjs">curl -L https://meshplay.io/install | DEPLOY_MESHPLAY=false bash -</div></div>
+ <div class="codeblock"><div class="clipboardjs">curl -L https://meshplay.khulnasofy.com/install | DEPLOY_MESHPLAY=false bash -</div></div>
  </pre>
 
 ### Upgrading `meshplayctl` using Scoop

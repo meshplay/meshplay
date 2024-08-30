@@ -4,7 +4,7 @@ title: AWS Node Termination Handler
 subtitle: Collaborative and visual infrastructure as design for AWS Node Termination Handler
 image: /assets/img/integrations/aws-node-termination-handler-2/icons/color/aws-node-termination-handler-2-color.svg
 permalink: extensibility/integrations/aws-node-termination-handler-2
-docURL: https://docs.meshplay.io/extensibility/integrations/aws-node-termination-handler-2
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/aws-node-termination-handler-2
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

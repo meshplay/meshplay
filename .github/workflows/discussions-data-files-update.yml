@@ -27,7 +27,7 @@ jobs:
         with:
           file_pattern: docs/_data/discuss/*.json
           commit_user_name: Discussions bot
-          commit_user_email: discussions@meshplay.io
+          commit_user_email: discussions@meshplay.khulnasoft.com
           commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit_options: "--signoff"
           commit_message: "latest discussion data files added"

@@ -181,7 +181,7 @@ Last Run: 2021-06-26 06:23:22
 Name: ih-test
 ID: 597edd67-c865-414e-bf77-1e016fb2e22b
 Total Results: 2
-Endpoint: http://imagehub.meshplay.io:31004/pull
+Endpoint: http://imagehub.meshplay.khulnasofy.com:31004/pull
 Load Generators: fortio
 Test run duration: 3s
 QPS: 1

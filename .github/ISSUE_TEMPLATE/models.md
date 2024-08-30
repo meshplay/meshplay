@@ -15,22 +15,22 @@ assignees: ''
 
 ---
 
-### General Contributor [Guides](https://docs.meshplay.io/project/contributing) and [Handbook](https://layer5.io/community/handbook)
+### General Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://layer5.io/community/handbook)
 
-- 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshplay.io) and [Community Slack](https://slack.meshplay.io)
+- 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshplay.khulnasoft.com) and [Community Slack](https://slack.meshplay.khulnasoft.com)
 
 ### Understanding Meshplay Models
 
-- 📚 [Models](https://docs.meshplay.io/concepts/logical/models)
-  - 📚 [Components](https://docs.meshplay.io/concepts/logical/components)
-  - 📚 [Relationships](https://docs.meshplay.io/concepts/logical/components)
+- 📚 [Models](https://docs.meshplay.khulnasoft.com/concepts/logical/models)
+  - 📚 [Components](https://docs.meshplay.khulnasoft.com/concepts/logical/components)
+  - 📚 [Relationships](https://docs.meshplay.khulnasoft.com/concepts/logical/components)
 - 👨‍💻[Models Repository](https://github.com/meshplay/meshplay/tree/master/server/meshmodel)
 
  ### Contributing to Meshplay Models
- - [Contributing Models](https://docs.meshplay.io/project/contributing/contributing-models)
-   - [Contributing Components](https://docs.meshplay.io/project/contributing/contributing-components)
-   - [Contributing Relationships](https://docs.meshplay.io/project/contributing/contributing-relationships)
+ - [Contributing Models](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-models)
+   - [Contributing Components](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-components)
+   - [Contributing Relationships](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-relationships)
 
  <!-- ### Instructions for Policies
- - [Contributing Policies](https://docs.meshplay.io/project/contributing/contributing-policies)
+ - [Contributing Policies](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-policies)
   -->

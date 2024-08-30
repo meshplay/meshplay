@@ -4,7 +4,7 @@ title: Redis Operator
 subtitle: Collaborative and visual infrastructure as design for Redis Operator
 image: /assets/img/integrations/redis-operator/icons/color/redis-operator-color.svg
 permalink: extensibility/integrations/redis-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/redis-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/redis-operator
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

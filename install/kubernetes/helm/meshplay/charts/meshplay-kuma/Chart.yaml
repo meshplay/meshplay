@@ -1,7 +1,7 @@
 apiVersion: v2
 name: meshplay-kuma
 description: Meshplay Adapter for Kuma.
-icon: https://meshplay.io/images/logos/meshplay-logo.png
+icon: https://meshplay.khulnasoft.com/images/logos/meshplay-logo.png
 source: 
   - https://github.com/khulnasoft/meshplay-kuma
 

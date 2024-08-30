@@ -4,7 +4,7 @@ title: Fluentbit Operator
 subtitle: Collaborative and visual infrastructure as design for Fluentbit Operator
 image: /assets/img/integrations/fluentbit-operator/icons/color/fluentbit-operator-color.svg
 permalink: extensibility/integrations/fluentbit-operator
-docURL: https://docs.meshplay.io/extensibility/integrations/fluentbit-operator
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/fluentbit-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Logging

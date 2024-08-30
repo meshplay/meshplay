@@ -4,7 +4,7 @@ title: Rook
 subtitle: Collaborative and visual infrastructure as design for Rook
 image: /assets/img/integrations/rook/icons/color/rook-color.svg
 permalink: extensibility/integrations/rook
-docURL: https://docs.meshplay.io/extensibility/integrations/rook
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/rook
 description: 
 integrations-category: Runtime
 integrations-subcategory: Cloud Native Storage

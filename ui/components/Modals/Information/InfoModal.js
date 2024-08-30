@@ -437,7 +437,7 @@ const InfoModal_ = React.memo((props) => {
         </ModalBody>
         <ModalFooter
           helpText={
-            'Upon submitting your catalog item, an approval flow will be initiated. [Learn More](https://docs.meshplay.io/concepts/catalog)'
+            'Upon submitting your catalog item, an approval flow will be initiated. [Learn More](https://docs.meshplay.khulnasoft.com/concepts/catalog)'
           }
           variant="filled"
         >

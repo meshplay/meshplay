@@ -22,7 +22,7 @@ Refer the [Meshplay CLI Commands and Documentation](https://docs.google.com/docu
 
 ## `meshplayctl` command reference
 
-Detailed documentation of the `meshplayctl` commands is available in the [Meshplay Docs](https://docs.meshplay.io/reference/meshplayctl).
+Detailed documentation of the `meshplayctl` commands is available in the [Meshplay Docs](https://docs.meshplay.khulnasofy.com/reference/meshplayctl).
 
 ## General guidelines and resources
 

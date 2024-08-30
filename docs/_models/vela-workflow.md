@@ -4,7 +4,7 @@ title: Vela Workflow
 subtitle: Collaborative and visual infrastructure as design for Vela Workflow
 image: /assets/img/integrations/vela-workflow/icons/color/vela-workflow-color.svg
 permalink: extensibility/integrations/vela-workflow
-docURL: https://docs.meshplay.io/extensibility/integrations/vela-workflow
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/vela-workflow
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

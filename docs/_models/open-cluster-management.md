@@ -4,7 +4,7 @@ title: Open Cluster Management
 subtitle: Collaborative and visual infrastructure as design for Open Cluster Management
 image: /assets/img/integrations/open-cluster-management/icons/color/open-cluster-management-color.svg
 permalink: extensibility/integrations/open-cluster-management
-docURL: https://docs.meshplay.io/extensibility/integrations/open cluster management
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/open cluster management
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

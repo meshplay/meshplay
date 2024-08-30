@@ -4,7 +4,7 @@ title: Openkruise
 subtitle: Collaborative and visual infrastructure as design for Openkruise
 image: /assets/img/integrations/openkruise/icons/color/openkruise-color.svg
 permalink: extensibility/integrations/openkruise
-docURL: https://docs.meshplay.io/extensibility/integrations/openkruise
+docURL: https://docs.meshplay.khulnasofy.com/extensibility/integrations/openkruise
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

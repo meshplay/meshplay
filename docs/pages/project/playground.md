@@ -9,7 +9,7 @@ category: project
 list: include
 ---
 
-_Try out Meshplay Playground at [https://playground.meshplay.io/](https://playground.meshplay.io/)_
+_Try out Meshplay Playground at [https://playground.meshplay.khulnasofy.com/](https://playground.meshplay.khulnasofy.com/)_
 
 Meshplay Playground is a web-based, collaborative environment that provides you with the ability to explore not only Meshplay as a cloud native manager, but also all of the infrastructure that it manages, including multiple Kubernetes clusters, every CNCF project and application, service, or operator that runs on Kubernetes. Meshplay Playground provides a sandboxed environment to experiment with different infrastructure configurations and deployment options. Its multi-player plugins allow you to collaborate in real-time with your teammates on infrastructure design and operation.
 
@@ -51,4 +51,4 @@ _Creating your own account ensures that any designs you create or save will be s
 _To ensure accountability in the Playground, it's crucial to promote the use of individual named accounts. This helps prevent bad actors from hiding behind anonymous general-use accounts and maliciously abusing the Playground. Therefore, the use of named accounts is an essential step towards achieving this goal._
 
 ### Question: Can I deploy the Meshplay on-premises?
-**Answer:** _Yes, Meshplay can be deployed on-premises with a single command to download, install, and run your own instance of Meshplay in your environment. See all supported platforms to deploy your own Meshplay instance at [https://docs.meshplay.io/installation](https://docs.meshplay.io/installation)_
+**Answer:** _Yes, Meshplay can be deployed on-premises with a single command to download, install, and run your own instance of Meshplay in your environment. See all supported platforms to deploy your own Meshplay instance at [https://docs.meshplay.khulnasofy.com/installation](https://docs.meshplay.khulnasofy.com/installation)_

@@ -56,7 +56,7 @@ On the day chosen for public disclosure, a sequence of activities takes place as
 branches.
 - Meshplay team ensures all necessary binaries are promptly built and published.
 - Once the binaries are available, an announcement is sent out on the following channels:
-  - The [Meshplay blog](https://meshplay.io/blog/)
+  - The [Meshplay blog](https://meshplay.khulnasoft.com/blog/)
   - The [Meshplay Twitter feed](https://twitter.com/meshplayio)
   - The #announcements channel on Slack
 
