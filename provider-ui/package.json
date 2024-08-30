@@ -36,7 +36,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.12.39",
+    "@cypress/code-coverage": "^3.12.46",
     "cypress": "^13.13.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
