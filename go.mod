@@ -11,7 +11,7 @@ replace (
 
 require (
 	cuelang.org/go v0.6.0
-	fortio.org/fortio v1.65.0
+	fortio.org/fortio v1.66.1
 	github.com/99designs/gqlgen v0.17.45
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/briandowns/spinner v1.23.1
@@ -87,11 +87,11 @@ require (
 	cloud.google.com/go/auth/oauth2adapt v0.2.4 // indirect
 	cloud.google.com/go/compute/metadata v0.5.0 // indirect
 	dario.cat/mergo v1.0.0 // indirect
-	fortio.org/cli v1.6.0 // indirect
+	fortio.org/cli v1.8.0 // indirect
 	fortio.org/dflag v1.7.2 // indirect
-	fortio.org/log v1.12.2 // indirect
-	fortio.org/scli v1.15.0 // indirect
-	fortio.org/sets v1.1.1 // indirect
+	fortio.org/log v1.16.0 // indirect
+	fortio.org/scli v1.15.1 // indirect
+	fortio.org/sets v1.2.0 // indirect
 	fortio.org/struct2env v0.4.1 // indirect
 	fortio.org/version v1.0.4 // indirect
 	github.com/AdaLogics/go-fuzz-headers v0.0.0-20230811130428-ced1acdcaa24 // indirect
@@ -222,6 +222,7 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
+	github.com/kortschak/goroutine v1.1.2 // indirect
 	github.com/kubernetes/kompose v1.34.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
@@ -304,7 +305,7 @@ require (
 	go.starlark.net v0.0.0-20230814145427-12f4cb8177e4 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.26.0 // indirect
-	golang.org/x/crypto/x509roots/fallback v0.0.0-20240604170348-d4e7c9cb6cb8 // indirect
+	golang.org/x/crypto/x509roots/fallback v0.0.0-20240806160748-b2d3a6a4b4d3 // indirect
 	golang.org/x/exp v0.0.0-20240823005443-9b4947da3948 // indirect
 	golang.org/x/net v0.28.0 // indirect
 	golang.org/x/sys v0.24.0 // indirect
