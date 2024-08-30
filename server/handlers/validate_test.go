@@ -77,11 +77,11 @@ properties?: {
 
 var value1 = `
 firstName: "Meshplay"
-lastName: "Layer5"
+lastName: "KhulnaSoft"
 `
 var value2 = `
 firstName: "Meshplay"
-lastName: "Layer5"
+lastName: "KhulnaSoft"
 age: "string"
 `
 var value3 = `
@@ -90,7 +90,7 @@ task: "nothing"
 `
 var value4 = `
 firstName: "Meshplay"
-lastName: "Layer5"
+lastName: "KhulnaSoft"
 age: 34
 `
 var value5 = `

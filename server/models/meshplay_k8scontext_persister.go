@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/khulnasoft/meshplay/server/models/connections"
-	"github.com/layer5io/meshkit/database"
+	"github.com/khulnasoft/meshkit/database"
 	"gorm.io/gorm"
 )
 

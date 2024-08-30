@@ -63,7 +63,7 @@ jobs:
           driver: docker
 
       - name: Run Performance Test
-        uses: layer5io/meshplay-smp-action@master
+        uses: khulnasoft/meshplay-smp-action@master
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker
@@ -138,7 +138,7 @@ jobs:
     steps:
 
       - name: SMI conformance tests
-        uses: layer5io/meshplayctl-smi-conformance-action@master
+        uses: khulnasoft/meshplayctl-smi-conformance-action@master
         with:
           provider_token: ${{ secrets.MESHPLAY_PROVIDER_TOKEN }}
           service_mesh: open_service_mesh
@@ -177,7 +177,7 @@ jobs:
            osm-bin install --osm-namespace default
 
       - name: SMI conformance tests
-        uses: layer5io/meshplayctl-smi-conformance-action@master
+        uses: khulnasoft/meshplayctl-smi-conformance-action@master
         with:
           provider_token: ${{ secrets.MESHPLAY_PROVIDER_TOKEN }}
           service_mesh: open_service_mesh

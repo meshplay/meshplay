@@ -24,14 +24,14 @@ import (
 	"github.com/khulnasoft/meshplay/server/models/connections"
 	meshplaymeshmodel "github.com/khulnasoft/meshplay/server/models/meshmodel"
 	"github.com/khulnasoft/meshplay/server/router"
-	"github.com/layer5io/meshkit/broker/nats"
-	"github.com/layer5io/meshkit/logger"
-	_events "github.com/layer5io/meshkit/models/events"
-	"github.com/layer5io/meshkit/models/meshmodel/core/policies"
-	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
-	"github.com/layer5io/meshkit/utils/broadcast"
-	"github.com/layer5io/meshkit/utils/events"
-	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
+	"github.com/khulnasoft/meshkit/broker/nats"
+	"github.com/khulnasoft/meshkit/logger"
+	_events "github.com/khulnasoft/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/meshmodel/core/policies"
+	meshmodel "github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	"github.com/khulnasoft/meshkit/utils/broadcast"
+	"github.com/khulnasoft/meshkit/utils/events"
+	meshsyncmodel "github.com/khulnasoft/meshsync/pkg/model"
 	"github.com/spf13/viper"
 
 	"github.com/meshplay/schemas/models/v1beta1"
@@ -47,7 +47,7 @@ var (
 
 const (
 	// DefaultProviderURL is the provider url for the "none" provider
-	DefaultProviderURL = "https://meshplay.layer5.io"
+	DefaultProviderURL = "https://meshplay.khulnasoft.com"
 	PoliciesPath       = "../meshmodel/kubernetes/v1.25.2/v1.0.0/policies"
 	RelationshipsPath  = "../meshmodel/kubernetes/"
 )

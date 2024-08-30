@@ -7,9 +7,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/khulnasoft/meshplay/server/helpers"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/models/meshmodel/entity"
-	"github.com/layer5io/meshkit/models/meshmodel/registry"
-	regv1alpha3 "github.com/layer5io/meshkit/models/meshmodel/registry/v1alpha3"
+	"github.com/khulnasoft/meshkit/models/meshmodel/entity"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	regv1alpha3 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1alpha3"
 	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 )
 

@@ -91,13 +91,13 @@ Yes, if you need to establish a session with your Meshplay Server, you can [auth
 ## Advanced Installation
 
 Users can control the specific container image and tag (version) of Meshplay that they would like to run by editing their local _~/.meshplay/meshplay.yaml_ (a docker compose file).
-Aligned with the Meshplay container image, instead of leaving the implicit :stable-latest tag behind image: layer5/meshplay, users will instead identify a specific image tag like so:
+Aligned with the Meshplay container image, instead of leaving the implicit :stable-latest tag behind image: khulnasoft/meshplay, users will instead identify a specific image tag like so:
 
 {% capture code_content %}bash
 version: '3'
 services:
   meshplay:
-    image: layer5/meshplay:v0.5.0
+    image: khulnasoft/meshplay:v0.5.0
     labels:
       - "com.centurylinklabs.watchtower.enable=true"{% endcapture %}
 {% include code.html code=code_content %}
@@ -220,7 +220,7 @@ Add the Meshplay Scoop Bucket and install:
 
  <pre class="codeblock-pre"><div class="codeblock">
  <div class="clipboardjs">
- scoop bucket add meshplayctl https://github.com/layer5io/scoop-bucket.git
+ scoop bucket add meshplayctl https://github.com/khulnasoft/scoop-bucket.git
  scoop install meshplayctl
  </div></div>
  </pre>

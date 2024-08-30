@@ -22,7 +22,7 @@ spec:
     spec:
       serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshplay-cilium:stable-latest
+      - image: khulnasoft/meshplay-cilium:stable-latest
         imagePullPolicy: Always
         name: meshplay-cilium
         ports:

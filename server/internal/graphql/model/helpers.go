@@ -8,10 +8,10 @@ import (
 
 	"github.com/khulnasoft/meshplay/server/handlers"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/controllers"
-	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/controllers"
+	meshplaykube "github.com/khulnasoft/meshkit/utils/kubernetes"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )

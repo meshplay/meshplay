@@ -77,7 +77,7 @@ Like patterns, Meshplay also comes with some sample WebAssembly Filters for you 
 
 <img src="{{ site.baseurl }}/assets/img/configuration-management/meshplay-filters.png" width="50%" />
 
-You can also import these filters manually to your provider from the [wasm-filters](https://github.com/layer5io/wasm-filters) repo.
+You can also import these filters manually to your provider from the [wasm-filters](https://github.com/khulnasoft/wasm-filters) repo.
 
 Meshplay's sample application [ImageHub]({{ site.baseurl }}/guides/infrastructure-management/deploying-sample-apps) will let you test out configuring these filters out-of-the-box.
 

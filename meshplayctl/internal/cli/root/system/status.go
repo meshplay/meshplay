@@ -24,7 +24,7 @@ import (
 
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
-	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

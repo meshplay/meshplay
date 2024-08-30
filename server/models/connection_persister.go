@@ -8,7 +8,7 @@ import (
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/khulnasoft/meshplay/server/models/environments"
-	"github.com/layer5io/meshkit/database"
+	"github.com/khulnasoft/meshkit/database"
 	"gorm.io/gorm"
 )
 

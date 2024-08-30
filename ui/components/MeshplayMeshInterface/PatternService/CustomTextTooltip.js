@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { styled } from '@material-ui/core';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import { UsesSistent } from '@/components/SistentWrapper';
 
 const useStyles = makeStyles((theme) => ({

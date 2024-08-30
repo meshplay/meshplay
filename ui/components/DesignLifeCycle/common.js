@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Checkbox, CircularProgress, Stack, Typography } from '@layer5/sistent';
+import { Box, Checkbox, CircularProgress, Stack, Typography } from '@khulnasoft/sistent';
 import PatternIcon from '@/assets/icons/Pattern';
 import { processDesign } from '@/utils/utils';
-import { CustomTooltip } from '@layer5/sistent';
-import { InfoCircleIcon, useTheme } from '@layer5/sistent';
-import { IconButton } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
+import { InfoCircleIcon, useTheme } from '@khulnasoft/sistent';
+import { IconButton } from '@khulnasoft/sistent';
 
 export const DEPLOYMENT_TYPE = {
   DEPLOY: 'deploy',

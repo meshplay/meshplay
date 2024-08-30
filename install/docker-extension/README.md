@@ -1,4 +1,4 @@
-<p style="text-align:center;" align="center"><a href="https://layer5.io/meshplay"><picture align="center">
+<p style="text-align:center;" align="center"><a href="https://khulnasoft.com/meshplay"><picture align="center">
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/meshplay/meshplay/blob/master/.github/assets/images/meshplay/meshplay-logo-dark-text-side.svg"  width="70%" align="center" style="margin-bottom:20px;">
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/meshplay/meshplay/blob/master/.github/assets/images/meshplay/meshplay-logo-light-text-side.svg" width="70%" align="center" style="margin-bottom:20px;">
   <img alt="Shows an illustrated light mode meshplay logo in light color mode and a dark mode meshplay logo dark color mode." src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/meshplay/meshplay-logo-tag-light-text-side.png" width="70%" align="center" style="margin-bottom:20px;">
@@ -7,8 +7,8 @@
 <p align="center">
 <a href="https://hub.docker.com/r/meshplay/meshplay" alt="Docker pulls">
   <img src="https://img.shields.io/docker/pulls/meshplay/meshplay.svg" /></a>
-<a href="https://github.com/issues?utf8=✓&q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+label%3A%22help+wanted%22+" alt="GitHub issues by-label">
-  <img src="https://img.shields.io/github/issues/layer5io/meshplay/help%20wanted.svg?color=informational" /></a>
+<a href="https://github.com/issues?utf8=✓&q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Akhulnasoft+label%3A%22help+wanted%22+" alt="GitHub issues by-label">
+  <img src="https://img.shields.io/github/issues/khulnasoft/meshplay/help%20wanted.svg?color=informational" /></a>
 <a href="https://github.com/meshplay/meshplay/blob/master/LICENSE" alt="LICENSE">
   <img src="https://img.shields.io/github/license/meshplay/meshplay?color=brightgreen" /></a>
 <a href="https://goreportcard.com/report/github.com/meshplay/meshplay" alt="Go Report Card">
@@ -18,9 +18,9 @@
 <a href="https://bestpractices.coreinfrastructure.org/projects/3564" alt="CLI Best Practices">
   <img src="https://bestpractices.coreinfrastructure.org/projects/3564/badge" /></a>
 <a href="http://discuss.meshplay.khulnasoft.com" alt="Discuss Users">
-  <img src="https://img.shields.io/discourse/users?label=discuss&logo=discourse&server=https%3A%2F%2Fdiscuss.layer5.io" /></a>
+  <img src="https://img.shields.io/discourse/users?label=discuss&logo=discourse&server=https%3A%2F%2Fdiscuss.khulnasoft.com" /></a>
 <a href="https://slack.meshplay.khulnasoft.com" alt="Join Slack">
-  <img src="https://img.shields.io/badge/Slack-@layer5.svg?logo=slack"></a>
+  <img src="https://img.shields.io/badge/Slack-@khulnasoft.svg?logo=slack"></a>
 <a href="https://twitter.com/intent/follow?screen_name=meshplayio" alt="Twitter Follow">
   <img src="https://img.shields.io/twitter/follow/meshplayio.svg?label=Follow+Meshplay&style=social" /></a>
 </p>
@@ -86,7 +86,7 @@ docker extension update meshplay/docker-extension-meshplay:edge-latest
 ```
 
 <p style="text-align:center; width:100%;" align="center">
-<a href ="https://layer5.io/community"><img alt="MeshMates" src="https://docs.meshplay.khulnasoft.com/assets/img/readme/layer5-community-sign.png" style="margin-right:10px; margin-bottom:7px;" width="28%" align="center" /></a>
+<a href ="https://khulnasoft.com/community"><img alt="MeshMates" src="https://docs.meshplay.khulnasoft.com/assets/img/readme/khulnasoft-community-sign.png" style="margin-right:10px; margin-bottom:7px;" width="28%" align="center" /></a>
 </p>
 <p style="text-align:center; width:100%;" align="center">
 <h3 style="text-align:center;" align="center"><em>Have questions? Need help?</em> <strong>Ask in the <a href="http://discuss.meshplay.khulnasoft.com">Community Forum</a></strong>.</h3></p>

@@ -7,9 +7,9 @@ import (
 	"github.com/khulnasoft/meshplay/server/helpers"
 	"github.com/khulnasoft/meshplay/server/machines"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/events"
-	"github.com/layer5io/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/utils/kubernetes"
 	"github.com/spf13/viper"
 )
 

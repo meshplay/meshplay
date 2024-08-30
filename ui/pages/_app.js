@@ -148,7 +148,7 @@ const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
                 }}
                 className={classes.footerIcon}
               />{' '}
-              by the Layer5 Community
+              by the KhulnaSoft Community
             </>
           )}
         </span>

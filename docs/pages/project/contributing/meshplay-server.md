@@ -97,7 +97,7 @@ $ git clone https://github.com/meshplay/meshkit.git
   <li>
     <p>In your <code>meshplay</code> go.mod, update the meshkit package.</p>
     {% capture code_content %}
-github.com/layer5io/meshkit => ../meshkit
+github.com/khulnasoft/meshkit => ../meshkit
     {% endcapture %}
     {% include code.html code=code_content %}
     <p>Remember to remove this go.mod change when creating pull requests.</p>

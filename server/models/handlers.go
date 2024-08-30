@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/khulnasoft/meshplay/server/models/meshmodel"
-	"github.com/layer5io/meshkit/utils/events"
+	"github.com/khulnasoft/meshkit/utils/events"
 )
 
 // HandlerInterface defines the methods a Handler should define

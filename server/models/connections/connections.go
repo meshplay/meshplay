@@ -5,12 +5,12 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 
 	"github.com/gofrs/uuid"
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/models/environments"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/logger"
 )
 
 // swagger:response ConnectionStatus

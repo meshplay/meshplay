@@ -171,7 +171,7 @@ jobs:
           driver: docker
 
       - name: Run Performance Test
-        uses: layer5io/meshplay-smp-action@master
+        uses: khulnasoft/meshplay-smp-action@master
         with:
           provider_token: ${{ secrets.PROVIDER_TOKEN }}
           platform: docker

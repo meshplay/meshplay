@@ -17,7 +17,7 @@ import { ArrowDropDown } from '@material-ui/icons';
 import { getSchema } from './MeshplayMeshInterface/PatternService/helper';
 import { Snackbar } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
-import { ModalBody, ModalFooter, PrimaryActionButtons } from '@layer5/sistent';
+import { ModalBody, ModalFooter, PrimaryActionButtons } from '@khulnasoft/sistent';
 
 const useStyles = makeStyles((theme) => ({
   '@keyframes rotateCloseIcon': {

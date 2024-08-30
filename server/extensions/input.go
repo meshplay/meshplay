@@ -2,9 +2,9 @@ package extensions
 
 import (
 	"github.com/khulnasoft/meshplay/server/machines"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/logger"
 )
 
 type ExtensionInput struct {

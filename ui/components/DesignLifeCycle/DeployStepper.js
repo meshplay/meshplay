@@ -10,7 +10,7 @@ import {
   ModalButtonSecondary,
   Box,
   Typography,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import { CheckBoxField, DEPLOYMENT_TYPE, Loading } from './common';
 import DryRunIcon from '@/assets/icons/DryRunIcon';
 import { DeploymentSelectorIcon } from '@/assets/icons/DeploymentSelectorIcon';
@@ -27,9 +27,9 @@ import {
   useIsValidatingDryRun,
 } from 'machines/validator/designValidator';
 import { useSelectorRtk } from '@/store/hooks';
-import { styled } from '@layer5/sistent';
-import { useTheme } from '@layer5/sistent';
-import { EnvironmentIcon } from '@layer5/sistent';
+import { styled } from '@khulnasoft/sistent';
+import { useTheme } from '@khulnasoft/sistent';
+import { EnvironmentIcon } from '@khulnasoft/sistent';
 import { useContext } from 'react';
 import { NotificationCenterContext } from '../NotificationCenter';
 import { useEffect } from 'react';

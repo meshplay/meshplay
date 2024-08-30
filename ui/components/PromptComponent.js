@@ -14,7 +14,7 @@ import {
   ModalButtonPrimary,
   ModalButtonSecondary,
   ModalFooter,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import { UsesSistent } from './SistentWrapper';
 
 const styles = (theme) => ({

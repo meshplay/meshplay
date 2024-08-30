@@ -3,8 +3,8 @@ package models
 import (
 	"fmt"
 
-	"github.com/layer5io/meshkit/generators/artifacthub"
-	"github.com/layer5io/meshkit/generators/models"
+	"github.com/khulnasoft/meshkit/generators/artifacthub"
+	"github.com/khulnasoft/meshkit/generators/models"
 )
 
 type ArtifactHubPackageManager struct {

@@ -16,4 +16,4 @@ jobs:
               key: ${{ secrets.METAL_SSH_KEY }}
               script: |
                 meshplayctl system channel set edge
-                PROVIDER_BASE_URLS="https://staging-meshplay.layer5.io" meshplayctl system update
+                PROVIDER_BASE_URLS="https://staging-meshplay.khulnasoft.com" meshplayctl system update

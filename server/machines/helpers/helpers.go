@@ -11,8 +11,8 @@ import (
 	"github.com/khulnasoft/meshplay/server/machines/prometheus"
 	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/khulnasoft/meshplay/server/models/connections"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/logger"
 )
 
 func StatusToEvent(status connections.ConnectionStatus) machines.EventType {

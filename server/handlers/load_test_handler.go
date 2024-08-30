@@ -22,7 +22,7 @@ import (
 	"github.com/khulnasoft/meshplay/server/helpers"
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/models"
-	SMP "github.com/layer5io/service-mesh-performance/spec"
+	SMP "github.com/khulnasoft/service-mesh-performance/spec"
 	"github.com/pkg/errors"
 	corev1 "k8s.io/api/core/v1"
 )

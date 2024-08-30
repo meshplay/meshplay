@@ -26,10 +26,10 @@ spec:
         - name: EVENT
           value: meshplayLocal
         - name: PROVIDER_BASE_URLS
-          value: https://meshplay.layer5.io
+          value: https://meshplay.khulnasoft.com
         - name: ADAPTER_URLS
           value: meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-nginx-sm:10010
-        image: layer5/meshplay:stable-latest
+        image: khulnasoft/meshplay:stable-latest
         imagePullPolicy: Always
         name: meshplay
         ports:

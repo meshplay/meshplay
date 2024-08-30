@@ -14,7 +14,7 @@ import { updateProgress } from '../../lib/store';
 import ExportModal from '../ExportModal';
 import downloadContent from '@/utils/fileDownloader';
 import { useNotification } from '@/utils/hooks/useNotification';
-import { Modal as SistentModal } from '@layer5/sistent';
+import { Modal as SistentModal } from '@khulnasoft/sistent';
 import { UsesSistent } from '../SistentWrapper';
 import Pattern from '../../public/static/img/drawer-icons/pattern_svg';
 const INITIAL_GRID_SIZE = { xl: 4, md: 6, xs: 12 };

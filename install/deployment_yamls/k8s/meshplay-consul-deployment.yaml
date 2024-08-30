@@ -22,7 +22,7 @@ spec:
     spec:
       serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshplay-consul:stable-latest
+      - image: khulnasoft/meshplay-consul:stable-latest
         imagePullPolicy: Always
         name: meshplay-consul
         ports:

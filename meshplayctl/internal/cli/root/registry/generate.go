@@ -28,14 +28,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/layer5io/meshkit/encoding"
+	"github.com/khulnasoft/meshkit/encoding"
 
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
-	"github.com/layer5io/meshkit/generators"
-	"github.com/layer5io/meshkit/generators/github"
-	mutils "github.com/layer5io/meshkit/utils"
-	"github.com/layer5io/meshkit/utils/store"
-	"github.com/layer5io/meshkit/utils/walker"
+	"github.com/khulnasoft/meshkit/generators"
+	"github.com/khulnasoft/meshkit/generators/github"
+	mutils "github.com/khulnasoft/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils/store"
+	"github.com/khulnasoft/meshkit/utils/walker"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	v1beta1Model "github.com/meshplay/schemas/models/v1beta1/model"
 

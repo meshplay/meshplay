@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/layer5io/meshkit/errors"
+	"github.com/khulnasoft/meshkit/errors"
 )
 
 // Please reference the following before contributing an error code:

@@ -15,7 +15,7 @@ import {
   StyledDivider,
   ErrorLink,
 } from './styles';
-import { Typography, InfoCircleIcon, CustomTooltip } from '@layer5/sistent';
+import { Typography, InfoCircleIcon, CustomTooltip } from '@khulnasoft/sistent';
 import OrgSwitcher from './OrgSwitcher';
 // import RequestForm from './RequestForm';
 import CurrentSessionInfo from './CurrentSession';
@@ -117,8 +117,8 @@ const DefaultError = (props) => {
         </StyledButton>
         <Typography variant="textB1Regular" component="p" align="center">
           For more help, please inquire on the
-          <ErrorLink href="https://discuss.layer5.io"> discussion forum</ErrorLink> or the{' '}
-          <ErrorLink href="https://slack.layer5.io"> Slack workspace</ErrorLink>.
+          <ErrorLink href="https://discuss.khulnasoft.com"> discussion forum</ErrorLink> or the{' '}
+          <ErrorLink href="https://slack.khulnasoft.com"> Slack workspace</ErrorLink>.
         </Typography>
       </ErrorMain>
     </UsesSistent>

@@ -19,7 +19,7 @@ import {
   enumOptionsValueForIndex,
   labelValue,
 } from '@rjsf/utils';
-import { Checkbox } from '@layer5/sistent';
+import { Checkbox } from '@khulnasoft/sistent';
 import { UsesSistent } from '@/components/SistentWrapper';
 
 export default function CustomSelectWidget({

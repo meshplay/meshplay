@@ -8,7 +8,7 @@ Meshplay Operator chart.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Layer5 Authors | <community@layer5.io> |  |
+| KhulnaSoft Authors | <community@khulnasoft.com> |  |
 | aisuko | <urakiny@gmail.com> |  |
 | leecalcote | <leecalcote@gmail.com> |  |
 
@@ -50,7 +50,7 @@ Meshplay Operator chart.
 | meshplayOperator.args[1] | string | `"--enable-leader-election"` |  |
 | meshplayOperator.command[0] | string | `"/manager"` |  |
 | meshplayOperator.image.pullPolicy | string | `"Always"` |  |
-| meshplayOperator.image.repository | string | `"layer5/meshplay-operator:stable-latest"` |  |
+| meshplayOperator.image.repository | string | `"khulnasoft/meshplay-operator:stable-latest"` |  |
 | meshplayOperator.name | string | `"manager"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |

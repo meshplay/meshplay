@@ -3,10 +3,10 @@ package k8s
 import (
 	"encoding/json"
 	"fmt"
-	meshkitutils "github.com/layer5io/meshkit/utils/kubernetes"
+	meshkitutils "github.com/khulnasoft/meshkit/utils/kubernetes"
 
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshkit/errors"
+	"github.com/khulnasoft/meshkit/errors"
 	kubeerror "k8s.io/apimachinery/pkg/api/errors"
 )
 

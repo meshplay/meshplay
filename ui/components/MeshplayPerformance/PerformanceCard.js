@@ -16,7 +16,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import FlipCard from '../FlipCard';
 import PerformanceResults from './PerformanceResults';
 import { MESHPLAY_CLOUD_PROD } from '../../constants/endpoints';

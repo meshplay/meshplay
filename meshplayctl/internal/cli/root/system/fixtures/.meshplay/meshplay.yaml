@@ -1,11 +1,11 @@
 services:
     meshplay:
         environment:
-            - PROVIDER_BASE_URLS=https://meshplay.layer5.io
+            - PROVIDER_BASE_URLS=https://meshplay.khulnasoft.com
             - EVENT=meshplayLocal
             - KUBECONFIG_FOLDER=/home/appuser/.kube
             - PORT=9081
-        image: layer5/meshplay:stable-latest
+        image: khulnasoft/meshplay:stable-latest
         labels:
             - com.centurylinklabs.watchtower.enable=true
         ports:
@@ -15,7 +15,7 @@ services:
             - $HOME/.minikube:$HOME/.minikube:ro
             - /var/run/docker.sock:/var/run/docker.sock
     meshplay-istio:
-        image: layer5/meshplay-istio:stable-latest
+        image: khulnasoft/meshplay-istio:stable-latest
         labels:
             - com.centurylinklabs.watchtower.enable=true
         ports:

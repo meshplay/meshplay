@@ -3,9 +3,9 @@ package resolver
 import (
 	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/utils/broadcast"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/utils/broadcast"
 )
 
 // This file will not be regenerated automatically.

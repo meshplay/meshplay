@@ -10,7 +10,7 @@ import {
   useTheme,
   styled,
   EnvironmentIcon,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import { Loading, StepHeading } from './common';
 import { K8sContextConnectionChip } from '../Header';
 import { createContext } from 'react';
@@ -24,8 +24,8 @@ import {
 } from '@/store/slices/globalEnvironmentContext';
 import { useSelectorRtk, useDispatchRtk } from '@/store/hooks';
 import Link from 'next/link';
-import { Button } from '@layer5/sistent';
-import { AddIcon } from '@layer5/sistent';
+import { Button } from '@khulnasoft/sistent';
+import { AddIcon } from '@khulnasoft/sistent';
 
 export const DeploymentTargetContext = createContext({
   meshsyncControllerState: null,

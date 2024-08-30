@@ -2,7 +2,7 @@ package machines
 
 import (
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/logger"
 )
 
 func Discovered() State {

@@ -107,7 +107,7 @@ Meshplay's event-driven approach ensures high-speed operations, making it suitab
 
 MeshSync is managed by [Meshplay Operator]({{site.baseurl}}/concepts/architecture/operator), which watches for changes on the `meshsync` CRD for changes and updates the deployed MeshSync instance accordingly. You can blacklist specific Kubernetes resources from being discovered and watched by MeshSync. In order to identify the list of one or more resources for MeshSync to ignore, update the `meshsync` CRD using kubectl:
 
-- Download the CRD with `kubectl get crd meshsyncs.meshplay.layer5.io -o yaml > meshsync.yaml`
+- Download the CRD with `kubectl get crd meshsyncs.meshplay.khulnasoft.com -o yaml > meshsync.yaml`
 - Open the downloaded file and edit the field `informer_config` to blacklist all the types of resources that you don't want updates from.
 - Apply the new definition with `kubectl apply -f meshsync.yaml`
 

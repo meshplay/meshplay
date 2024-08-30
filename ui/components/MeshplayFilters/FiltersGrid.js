@@ -9,7 +9,7 @@ import useStyles from '../MeshplayPatterns/Grid.styles';
 import { RJSFModalWrapper } from '../Modal';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
-import { Modal as SistentModal } from '@layer5/sistent';
+import { Modal as SistentModal } from '@khulnasoft/sistent';
 import { UsesSistent } from '../SistentWrapper';
 import Filter from '../../public/static/img/drawer-icons/filter_svg.js';
 

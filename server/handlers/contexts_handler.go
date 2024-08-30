@@ -11,7 +11,7 @@ import (
 	mhelpers "github.com/khulnasoft/meshplay/server/machines/helpers"
 	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 )
 
 // swagger:route GET /api/system/kubernetes/contexts GetAllContexts idGetAllContexts

@@ -35,9 +35,9 @@ jobs:
       - uses: actions/checkout@v4 #this step would go away
         with:
           path: action
-          repository: layer5labs/meshmap-snapshot
+          repository: khulnasoft/meshmap-snapshot
       - id: test_result
-        uses: layer5labs/MeshMap-Snapshot@v0.2.9
+        uses: khulnasoft/MeshMap-Snapshot@v0.2.9
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} # github's personal access token example: "ghp_...."
           meshplayToken: ${{ secrets.MESHPLAY_TOKEN }} # Meshplay Cloud Authentication token, signin to meshplay-cloud to get one, example: ey.....

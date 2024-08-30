@@ -41,7 +41,7 @@ Meshplay UI is a significant component of the value proposition Meshplay offers 
 
 ### User Flows / Wireframing / Mockups
 
-Figma is used as the user flow and UI mockup design tool. The [Meshplay UI design file](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI) can be viewed by using this [open invitation](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9) for view access. Fill-in a [community member form](https://layer5.io/newcomers) to gain access to additional community resources.
+Figma is used as the user flow and UI mockup design tool. The [Meshplay UI design file](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI) can be viewed by using this [open invitation](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9) for view access. Fill-in a [community member form](https://khulnasoft.com/newcomers) to gain access to additional community resources.
 
 ### Design Goals
 

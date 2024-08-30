@@ -8,9 +8,9 @@ Meshplay Adapter for Consul chart.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Layer5 Authors | <community@layer5.io> |  |
+| KhulnaSoft Authors | <community@khulnasoft.com> |  |
 | aisuko | <urakiny@gmail.com> |  |
-| leecalcote | <lee.calcote@layer5.io> |  |
+| leecalcote | <lee.calcote@khulnasoft.com> |  |
 
 ## Values
 
@@ -21,7 +21,7 @@ Meshplay Adapter for Consul chart.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"layer5/meshplay-consul:stable-latest"` |  |
+| image.repository | string | `"khulnasoft/meshplay-consul:stable-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | string | `nil` |  |
 | ingress.enabled | bool | `false` |  |

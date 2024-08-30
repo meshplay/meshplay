@@ -15,9 +15,9 @@ jobs:
         with:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: Fetch data for meshplayctl tag
-        run: curl https://discuss.layer5.io/tag/meshplayctl.json -o docs/_data/discuss/meshplayctl.json
+        run: curl https://discuss.khulnasoft.com/tag/meshplayctl.json -o docs/_data/discuss/meshplayctl.json
       - name: Fetch data for meshplay tag
-        run: curl https://discuss.layer5.io/tag/meshplay.json -o docs/_data/discuss/meshplay.json
+        run: curl https://discuss.khulnasoft.com/tag/meshplay.json -o docs/_data/discuss/meshplay.json
 
       - name: Pull changes from remote
         run: git pull origin master

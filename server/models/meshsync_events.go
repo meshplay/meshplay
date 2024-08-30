@@ -2,13 +2,13 @@ package models
 
 import (
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/encoding"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/encoding"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/utils"
 
-	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
+	meshsyncmodel "github.com/khulnasoft/meshsync/pkg/model"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"gorm.io/gorm"
 )

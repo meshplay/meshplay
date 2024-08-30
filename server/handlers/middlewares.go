@@ -13,8 +13,8 @@ import (
 	mhelpers "github.com/khulnasoft/meshplay/server/machines/helpers"
 	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/utils"
-	"github.com/layer5io/meshsync/pkg/model"
+	"github.com/khulnasoft/meshkit/utils"
+	"github.com/khulnasoft/meshsync/pkg/model"
 	"github.com/spf13/viper"
 )
 

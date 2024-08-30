@@ -10,7 +10,7 @@ Meshplay Adapter for Cilium chart.
 | ---- | ------ | --- |
 | aisuko | <urakiny@gmail.com> |  |
 | leecalcote | <leecalcote@gmail.com> |  |
-| Layer5 Authors | <community@layer5.io> |  |
+| KhulnaSoft Authors | <community@khulnasoft.com> |  |
 
 ## Values
 
@@ -22,7 +22,7 @@ Meshplay Adapter for Cilium chart.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"layer5/meshplay-cilium:stable-latest"` |  |
+| image.repository | string | `"khulnasoft/meshplay-cilium:stable-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | string | `nil` |  |
 | ingress.enabled | bool | `false` |  |

@@ -1,4 +1,4 @@
-import { ToggleButton } from '@layer5/sistent';
+import { ToggleButton } from '@khulnasoft/sistent';
 import GridOnIcon from '@material-ui/icons/GridOn';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import { makeStyles } from '@material-ui/core/styles';

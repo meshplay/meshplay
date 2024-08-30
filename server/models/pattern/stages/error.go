@@ -1,6 +1,6 @@
 package stages
 
-import "github.com/layer5io/meshkit/errors"
+import "github.com/khulnasoft/meshkit/errors"
 
 const (
 	ErrResolveReferenceCode = "meshplay-server-1361"

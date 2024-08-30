@@ -126,7 +126,7 @@
   "component": {
    "kind": "GrafanaConnection",
    "schema": "{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"url\":{\"type\":\"string\",\"format\":\"uri\"}}}",
-   "version": "meshplay.layer5.io/v1alpha1"
+   "version": "meshplay.khulnasoft.com/v1alpha1"
   },
   "configuration": null,
   "description": "",

@@ -28,7 +28,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/client-go/kubernetes"
 
-	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -271,8 +271,8 @@ func deleteCR(resourceName, instanceName string, client *meshkitkube.Client) err
 // invokeDeleteCRs is a wrapper of deleteCRD to delete CRDs (brokers and meshsyncs)
 func invokeDeleteCRDs() error {
 	const (
-		brokerCRDName   = "brokers.meshplay.layer5.io"
-		meshsyncCRDName = "meshsyncs.meshplay.layer5.io"
+		brokerCRDName   = "brokers.meshplay.khulnasoft.com"
+		meshsyncCRDName = "meshsyncs.meshplay.khulnasoft.com"
 	)
 
 	cfg := controllerConfig.GetConfigOrDie()

@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { scrollToTop } from '../../utils/utils';
 import { generateUUID } from '../MeshplayPerformance/helper';
 
-import { ErrorBoundary } from '@layer5/sistent';
+import { ErrorBoundary } from '@khulnasoft/sistent';
 
 /**
  * usePatternServiceForm seperates the form logic from its UI representation

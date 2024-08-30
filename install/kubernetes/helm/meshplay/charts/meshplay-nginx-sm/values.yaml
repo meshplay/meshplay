@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: layer5/meshplay-nginx-sm:stable-latest
+  repository: khulnasoft/meshplay-nginx-sm:stable-latest
   pullPolicy: Always
 
 ports:

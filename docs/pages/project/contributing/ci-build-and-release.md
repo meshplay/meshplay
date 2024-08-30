@@ -37,9 +37,9 @@ Some portions of the workflow require secrets to accomplish their tasks. These s
 - `DOCKER_USERNAME`: Username of the Docker Hub user with the right privileges to push images
 - `DOCKER_PASSWORD`: Password for the Docker Hub user
 - `GO_VERSION`: As of March, 2024 is 1.21
-- `IMAGE_NAME`: appropriate image name for each of the Docker container images. All are under the `layer5io` org.
+- `IMAGE_NAME`: appropriate image name for each of the Docker container images. All are under the `khulnasoft` org.
 - `SLACK_BOT_TOKEN`: Used for notification of new GitHub stars given to the Meshplay repo.
-- `CYPRESS_RECORD_KEY`: Used for integration with the Layer5 account on Cypress.
+- `CYPRESS_RECORD_KEY`: Used for integration with the KhulnaSoft account on Cypress.
 - `GLOBAL_TOKEN`: Used for securely transmitting performance test results for the None Provider.
 - `NPM_TOKEN`: npm authentication token, used to perform authentication against the npm registry in meshplay deployment workflow.
 - `GH_ACCESS_TOKEN`: GitHub access token for various operations
@@ -209,7 +209,7 @@ GoReleaser facilitates the creation of a brew formula for meshplayctl. The [home
 
 ##### Scoop
 
-GoReleaser facilitates the creation of a Scoop app for meshplayctl. The [scoop-bucket](https://github.com/layer5io/scoop-bucket) repository is the location of Layer5’s Scoop bucket.
+GoReleaser facilitates the creation of a Scoop app for meshplayctl. The [scoop-bucket](https://github.com/khulnasoft/scoop-bucket) repository is the location of KhulnaSoft’s Scoop bucket.
 
 ## Helm Charts Lint Check, Build, and Release
 
@@ -287,14 +287,14 @@ The following is an example of the release channels and the docker tags used to 
 
 **Latest Stable Image**
 
-- layer5/meshplay:stable-latest
-- layer5/meshplay:stable-v0.4.1
-- layer5/meshplay:stable-324vdgb (sha)
+- khulnasoft/meshplay:stable-latest
+- khulnasoft/meshplay:stable-v0.4.1
+- khulnasoft/meshplay:stable-324vdgb (sha)
 
 **Older Stable Image**
 
-- layer5/meshplay:stable-v0.4.0
-- layer5/meshplay:stable-289d02 (sha)
+- khulnasoft/meshplay:stable-v0.4.0
+- khulnasoft/meshplay:stable-289d02 (sha)
 
 Every docker image built receives either the edge tags or the stable tags. Which set of image tags assigned is determined by whether a release tag is present or not. In other words, stable channel docker images get the “stable” tags only in the presence of a release tag (e.g. v0.4.1).
 
@@ -306,12 +306,12 @@ Stable and edge releases are both published to the same Docker Hub repository. D
 
 **Latest Edge Image**
 
-- layer5/meshplay:edge-latest
-- layer5/meshplay:edge-289d02 (sha)
+- khulnasoft/meshplay:edge-latest
+- khulnasoft/meshplay:edge-289d02 (sha)
 
 **Older Edge Image**
 
-- layer5/meshplay:edge-324vdgb (sha)
+- khulnasoft/meshplay:edge-324vdgb (sha)
 
 ### Switching Between Meshplay Release Channels
 
@@ -331,7 +331,7 @@ Minor releases of the Meshplay project are release frequently (on a monthly basi
 
 ### Release Support
 
-General community support and commercial support from Layer5 is available. Separately, third parties and partners may offer longer-term support solutions.
+General community support and commercial support from KhulnaSoft is available. Separately, third parties and partners may offer longer-term support solutions.
 
 #### Pre v1.0
 

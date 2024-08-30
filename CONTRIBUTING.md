@@ -8,7 +8,7 @@ Please do! Thank you for your help in improving Meshplay! :balloon:
 
   <summary><h3>Find the complete set of contributor guides at https://docs.meshplay.khulnasoft.com/project/contributing</h3></summary>
 
-All contributors are welcome. Not sure where to start? Please see the [newcomers welcome guide](https://layer5.io/community/newcomers) for how, where, and why to contribute. This project is community-built and welcomes collaboration. Contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
+All contributors are welcome. Not sure where to start? Please see the [newcomers welcome guide](https://khulnasoft.com/community/newcomers) for how, where, and why to contribute. This project is community-built and welcomes collaboration. Contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 All set to contribute? Grab an open issue with the [help-wanted label](../../labels/help%20wanted) and jump in. Join our [Slack channel](https://slack.meshplay.khulnasoft.com) and engage in conversation. Create a [new issue](/../../issues/new/choose) if needed. All [pull requests](/../../pulls) should ideally reference an open [issue](/../../issues). Include keywords in your pull request descriptions, as well as commit messages, to [automatically close related issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
 
@@ -316,7 +316,7 @@ Any UI changes made now will automatically be recompiled and served in the brows
 If you want to run Meshplay from IDE like Goland, VSCode. set below environment variable
 
 ```
-PROVIDER_BASE_URLS="https://meshplay.layer5.io"
+PROVIDER_BASE_URLS="https://meshplay.khulnasoft.com"
 PORT=9081
 DEBUG=true
 ADAPTER_URLS=localhost:10000 localhost:10001 localhost:10002 localhost:10003 localhost:10004 localhost:10005 localhost:10006 localhost:10007 localhost:10008 localhost:10009

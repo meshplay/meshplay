@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/meshmodel/registry"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry"
 	"github.com/meshplay/schemas/models/v1beta1/pattern"
 )
 

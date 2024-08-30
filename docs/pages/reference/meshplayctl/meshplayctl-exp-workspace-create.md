@@ -37,7 +37,7 @@ meshplayctl exp workspace create --orgId [orgId] --name [name] --description [de
 Documentation for workspace can be found at:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-https://docs.layer5.io/cloud/spaces/workspaces/
+https://docs.khulnasoft.com/cloud/spaces/workspaces/
 
 </div>
 </pre> 

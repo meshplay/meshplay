@@ -23,7 +23,7 @@ Meshplay documentation is built using the following components:
 - Theme - [https://github.com/vsoch/docsy-jekyll](https://github.com/vsoch/docsy-jekyll)
 - Repo - [https://github.com/meshplay/meshplay/tree/master/docs](https://github.com/meshplay/meshplay/tree/master/docs)
 - Site - [https://docs.meshplay.khulnasofy.com](https://docs.meshplay.khulnasofy.com)
-- AWS API GW - an instance is configured to redirect from docs.meshplay.khulnasofy.com to meshplay.layer5.io, because of the repo location of where the docs currently reside.
+- AWS API GW - an instance is configured to redirect from docs.meshplay.khulnasofy.com to meshplay.khulnasoft.com, because of the repo location of where the docs currently reside.
 
 ## Set up your development environment
 

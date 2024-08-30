@@ -76,7 +76,7 @@ Meshplay supports the deployment of a variety of sample applications on {{ page.
 - [Image Hub]({{site.baseurl}}/guides/sample-apps#imagehub)
   - Image Hub is a sample application written to run on Consul for exploring WebAssembly modules used as Envoy filters.
 
-[![Layer5 Image Hub on HashiCorp Consul]({{ site.baseurl }}/extensibility/adapters/consul/layer5-image-hub-on-hashicorp-consul.png)]({{ site.baseurl }}/extensibility/adapters/consul/layer5-image-hub-on-hashicorp-consul.png)
+[![KhulnaSoft Image Hub on HashiCorp Consul]({{ site.baseurl }}/extensibility/adapters/consul/khulnasoft-image-hub-on-hashicorp-consul.png)]({{ site.baseurl }}/extensibility/adapters/consul/khulnasoft-image-hub-on-hashicorp-consul.png)
 
 ### Performance management of Consul and it workloads
 

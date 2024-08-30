@@ -25,7 +25,7 @@ import (
 
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
-	smp "github.com/layer5io/service-mesh-performance/spec"
+	smp "github.com/khulnasoft/service-mesh-performance/spec"
 	"github.com/manifoldco/promptui"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

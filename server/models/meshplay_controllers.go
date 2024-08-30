@@ -8,12 +8,12 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshkit/broker/nats"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/controllers"
-	"github.com/layer5io/meshkit/utils"
-	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshkit/broker/nats"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/controllers"
+	"github.com/khulnasoft/meshkit/utils"
+	meshplaykube "github.com/khulnasoft/meshkit/utils/kubernetes"
 	"github.com/spf13/viper"
 )
 

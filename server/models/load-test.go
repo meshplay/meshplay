@@ -9,7 +9,7 @@ import (
 	"fortio.org/fortio/fhttp"
 	"fortio.org/fortio/periodic"
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/logger"
 )
 
 // LoadGenerator - represents the load generator type

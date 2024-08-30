@@ -16,10 +16,10 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/khulnasoft/meshplay/server/meshes"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/errors"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/events"
-	_events "github.com/layer5io/meshkit/utils/events"
+	"github.com/khulnasoft/meshkit/errors"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/events"
+	_events "github.com/khulnasoft/meshkit/utils/events"
 )
 
 var (

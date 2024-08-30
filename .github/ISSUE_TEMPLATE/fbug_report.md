@@ -30,7 +30,7 @@ assignees: ''
 -->
 
 ---
-### Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://layer5.io/community/handbook)
+### Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://khulnasoft.com/community/handbook)
 - 🛠 [Meshplay Build & Release Strategy](https://docs.meshplay.khulnasoft.com/project/contributing/build-and-release)
 - 📚 [Instructions for contributing to documentation](https://github.com/meshplay/meshplay/blob/master/CONTRIBUTING.md#documentation-contribution-flow)
    - Meshplay documentation [site](https://docs.meshplay.khulnasoft.com/) and [source](https://github.com/meshplay/meshplay/tree/master/docs)

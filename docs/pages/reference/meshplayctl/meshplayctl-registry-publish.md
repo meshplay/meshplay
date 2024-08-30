@@ -81,10 +81,10 @@ meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwi
 </div>
 </pre> 
 
-Publishing to layer5 site
+Publishing to khulnasoft site
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw khulnasoft/src/collections/integrations khulnasoft/src/collections/integrations -o mdx
 
 </div>
 </pre> 

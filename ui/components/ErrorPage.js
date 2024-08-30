@@ -76,7 +76,7 @@ function CustomErrorMessage() {
         <img src="/static/img/service-mesh.svg" alt="service meshed" className={classes.mesh} />
         <Typography variant="body1">
           <p className={classes.helpMessage}>
-            Start a conversation at Layer5 community{' '}
+            Start a conversation at KhulnaSoft community{' '}
             <Link
               className={classes.discussionforumlink}
               underline="none"

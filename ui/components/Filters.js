@@ -54,7 +54,7 @@ import {
   importFilterUiSchema,
   publishCatalogItemSchema,
   publishCatalogItemUiSchema,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import useStyles from '../assets/styles/general/tool.styles';
 import { updateVisibleColumns } from '../utils/responsive-column';
 import { useWindowDimensions } from '../utils/dimension';
@@ -66,7 +66,7 @@ import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
 import DefaultError from './General/error-404/index';
 import { UsesSistent } from './SistentWrapper';
-import { Modal as SistentModal } from '@layer5/sistent';
+import { Modal as SistentModal } from '@khulnasoft/sistent';
 import {
   useGetFiltersQuery,
   useCloneFilterMutation,

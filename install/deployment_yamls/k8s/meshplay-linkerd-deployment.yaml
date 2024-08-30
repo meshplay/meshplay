@@ -22,7 +22,7 @@ spec:
     spec:
       serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshplay-linkerd:stable-latest
+      - image: khulnasoft/meshplay-linkerd:stable-latest
         imagePullPolicy: Always
         name: meshplay-linkerd
         ports:

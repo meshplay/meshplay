@@ -8,7 +8,7 @@ import { useGetEnvironmentConnectionsQuery } from '../../../rtk-query/environmen
 import classNames from 'classnames';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
-import { Checkbox } from '@layer5/sistent';
+import { Checkbox } from '@khulnasoft/sistent';
 import { UsesSistent } from '@/components/SistentWrapper';
 
 export const formattoLongDate = (date) => {

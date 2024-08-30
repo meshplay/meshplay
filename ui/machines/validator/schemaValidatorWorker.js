@@ -1,4 +1,4 @@
-import { workerfyActor } from '@layer5/sistent';
+import { workerfyActor } from '@khulnasoft/sistent';
 import { schemaValidatorMachine } from './schemaValidator';
 
 console.log('Workerfying schemaValidatorMachine');

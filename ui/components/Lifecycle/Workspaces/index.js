@@ -18,7 +18,7 @@ import {
   PrimaryActionButtons,
   createAndEditWorkspaceSchema,
   createAndEditWorkspaceUiSchema,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import useStyles from '../../../assets/styles/general/tool.styles';
 import styles from '../Environments/styles';
 import SearchBar from '../../../utils/custom-search';
@@ -44,7 +44,7 @@ import PromptComponent, { PROMPT_VARIANTS } from '../../PromptComponent';
 import { debounce } from 'lodash';
 import { EVENT_TYPES } from '../../../lib/event-types';
 import EnvironmentIcon from '../../../assets/icons/Environment';
-import { DeleteIcon } from '@layer5/sistent';
+import { DeleteIcon } from '@khulnasoft/sistent';
 import theme from '../../../themes/app';
 import { keys } from '@/utils/permission_constants';
 import CAN from '@/utils/can';

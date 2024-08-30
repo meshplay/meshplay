@@ -6,10 +6,10 @@ services:
     ports:
       - "7877:7877"
   meshplay:
-    image: layer5/meshplay:stable-latest
+    image: khulnasoft/meshplay:stable-latest
     pull_policy: always
     environment:
-      - "PROVIDER_BASE_URLS=https://meshplay.layer5.io"
+      - "PROVIDER_BASE_URLS=https://meshplay.khulnasoft.com"
       # - "ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nginx-sm:10010 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-traefik-mesh:10006  meshplay-cilium:10012"
       - "EVENT=meshplayLocal"
       - "KUBECONFIG_FOLDER=/home/appuser/.kube"

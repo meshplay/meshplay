@@ -19,7 +19,7 @@ import {
   useDryRunValidationResults,
   useIsValidatingDryRun,
 } from '../../machines/validator/designValidator';
-import { ErrorIcon } from '@layer5/sistent';
+import { ErrorIcon } from '@khulnasoft/sistent';
 import { NOTIFICATIONCOLORS } from '@/themes/index';
 import { getComponentFromDesign } from '@/utils/utils';
 

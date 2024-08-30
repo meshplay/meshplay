@@ -17,7 +17,7 @@ Meshplay and its components are written using the following languages and techno
 | :------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
 | Meshplay Server                                                       | Golang, gRPC, GraphQL, [SMP](https://smp-spec.io)                                 |
 | [Meshplay Adapters](/concepts/architecture/adapters)                  | Golang, gRPC, [CloudEvents](https://cloudevents.io/), [SMI](https://smi-spec.io), [OAM](https://oam.dev)  |
-| [Meshplay WASM Filters](https://github.com/layer5io/wasm-filters)     | Rust and C++                                                                      |
+| [Meshplay WASM Filters](https://github.com/khulnasoft/wasm-filters)     | Rust and C++                                                                      |
 | Meshplay UI                                                           | ReactJS, NextJS, BillboardJS                                                      |
 | Meshplay Provider UI                                                  | ReactJS, NextJS                                                                   |
 | [Meshplay Remote Providers](/extensibility/providers)                 | _any_ - must adhere to Meshplay [Extension Points]({{site.baseurl}}/extensibility) |
@@ -154,7 +154,7 @@ Meshplay uses the following list of network ports to interface with its various 
 | [Meshplay Broker](/concepts/architecture/broker)            | 7422/tcp | Incoming/outgoing leaf node connections. Unused as of Meshplay v0.6.0-rc-2 |
 | [Meshplay Broker](/concepts/architecture/broker)            | 7522/tcp | Gateway to gateway communication. Unused as of Meshplay v0.6.0-rc-2 |
 | [Meshplay Broker](/concepts/architecture/broker)            | 7777/tcp | used for Prometheus NATS Exporter. Unused as of Meshplay v0.6.0-rc-2 |
-| Learn Layer5 Application | 10011/tcp  | SMI conformance testing                        |
+| Learn KhulnaSoft Application | 10011/tcp  | SMI conformance testing                        |
 | [Meshplay Remote Providers]((/extensibility/providers)) | 443/tcp    | e.g. Meshplay Cloud                             |
 {% for adapter in site.adapters -%}
 {% if adapter.port -%}

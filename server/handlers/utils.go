@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/layer5io/meshkit/models/meshmodel/registry"
-	"github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry/v1beta1"
+	"github.com/khulnasoft/meshkit/utils"
 	"github.com/meshplay/schemas/models/v1beta1/model"
 )
 

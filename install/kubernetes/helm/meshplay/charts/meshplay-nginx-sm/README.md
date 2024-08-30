@@ -8,9 +8,9 @@ Meshplay Adapter for NGINX Service Mesh.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Layer5 Authors | <community@layer5.io> |  |
+| KhulnaSoft Authors | <community@khulnasoft.com> |  |
 | darrenlau | <panyuenlau@gmail.com> |  |
-| leecalcote | <lee.calcote@layer5.io> |  |
+| leecalcote | <lee.calcote@khulnasoft.com> |  |
 
 ## Values
 
@@ -22,7 +22,7 @@ Meshplay Adapter for NGINX Service Mesh.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"layer5/meshplay-nginx-sm:stable-latest"` |  |
+| image.repository | string | `"khulnasoft/meshplay-nginx-sm:stable-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |

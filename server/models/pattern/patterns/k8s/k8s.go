@@ -7,10 +7,10 @@ import (
 	"strings"
 
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 
-	meshkube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 
 	"gopkg.in/yaml.v2"
 	"k8s.io/client-go/rest"

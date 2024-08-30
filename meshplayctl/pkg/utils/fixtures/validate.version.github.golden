@@ -218,7 +218,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/trees/344463f405bc41c8a79261434ed9a2adeca2f5b8"
     },
     {
-      "path": ".github/assets/images/image-hub/layer5-image-hub.png",
+      "path": ".github/assets/images/image-hub/khulnasoft-image-hub.png",
       "mode": "100644",
       "type": "blob",
       "sha": "45c13e67f67ba294437ee1f4fc0d518558f9b01c",
@@ -226,14 +226,14 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/blobs/45c13e67f67ba294437ee1f4fc0d518558f9b01c"
     },
     {
-      "path": ".github/assets/images/layer5",
+      "path": ".github/assets/images/khulnasoft",
       "mode": "040000",
       "type": "tree",
       "sha": "c4f6c6658be2dd2399f43d7871ea0292ad2a63ec",
       "url": "https://api.github.com/repos/meshplay/meshplay/git/trees/c4f6c6658be2dd2399f43d7871ea0292ad2a63ec"
     },
     {
-      "path": ".github/assets/images/layer5/5-light-bg.png",
+      "path": ".github/assets/images/khulnasoft/5-light-bg.png",
       "mode": "100644",
       "type": "blob",
       "sha": "974c238b8fe5a3361b3e9b960607e5ba76285015",
@@ -241,7 +241,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/blobs/974c238b8fe5a3361b3e9b960607e5ba76285015"
     },
     {
-      "path": ".github/assets/images/layer5/layer5-tag-white-bg.png",
+      "path": ".github/assets/images/khulnasoft/khulnasoft-tag-white-bg.png",
       "mode": "100644",
       "type": "blob",
       "sha": "04696b3b978147de883fa4edce0e41e505e1ab2a",
@@ -381,7 +381,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/trees/df278182a4e303c4d24566dae73a59fedb33f313"
     },
     {
-      "path": ".github/welcome/Layer5-celebration.png",
+      "path": ".github/welcome/KhulnaSoft-celebration.png",
       "mode": "100644",
       "type": "blob",
       "sha": "b23a5f0f82f6ccb7cc7ba1e2de52625057daca94",
@@ -800,7 +800,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/blobs/d3bf5c33c8750a1e431f3ec042653fe5ad8162c5"
     },
     {
-      "path": "docs/_adapters/consul/layer5-image-hub-on-hashicorp-consul.png",
+      "path": "docs/_adapters/consul/khulnasoft-image-hub-on-hashicorp-consul.png",
       "mode": "100644",
       "type": "blob",
       "sha": "69a94e5369ad53430bfbd94e266f98f2e38d3e86",
@@ -3539,7 +3539,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/blobs/5b7e0382fd95705284579e162538cfcc93a03211"
     },
     {
-      "path": "docs/assets/img/readme/layer5-community-sign.png",
+      "path": "docs/assets/img/readme/khulnasoft-community-sign.png",
       "mode": "100644",
       "type": "blob",
       "sha": "d40d9997f615296442d814df59a46a06338dcf53",
@@ -9922,7 +9922,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/trees/0380510070f6bda6a20ce268d645c5a567210715"
     },
     {
-      "path": "oam/traits/meshmap.meshplay.layer5.io.schema.json",
+      "path": "oam/traits/meshmap.meshplay.khulnasoft.com.schema.json",
       "mode": "100644",
       "type": "blob",
       "sha": "071a6ebfd42affbb854395fafddd454293803d25",
@@ -9945,7 +9945,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/trees/d41bc898de6e55a8ece331c7f251c6029f284939"
     },
     {
-      "path": "oam/workloads/application.meshplay.layer5.io.schema.json",
+      "path": "oam/workloads/application.meshplay.khulnasoft.com.schema.json",
       "mode": "100644",
       "type": "blob",
       "sha": "676b41291e30d8cce10bbd90c752f3d743f84de7",
@@ -9961,7 +9961,7 @@
       "url": "https://api.github.com/repos/meshplay/meshplay/git/blobs/568e479cc330f5ac8ef3c7244e862cb71be626e8"
     },
     {
-      "path": "oam/workloads/service.k8s.meshplay.layer5.io.schema.json",
+      "path": "oam/workloads/service.k8s.meshplay.khulnasoft.com.schema.json",
       "mode": "100644",
       "type": "blob",
       "sha": "477db4141bd0f8c2e1340c9771519cf5d98ac3a9",

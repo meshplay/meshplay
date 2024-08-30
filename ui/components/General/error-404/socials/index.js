@@ -17,9 +17,9 @@ export default function Socials() {
         <Tooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          title="Get connected with the Layer5 community"
+          title="Get connected with the KhulnaSoft community"
         >
-          <a href="mailto:community@layer5.io">
+          <a href="mailto:community@khulnasoft.com">
             <MessageIcon height={45} width={45} />
           </a>
         </Tooltip>
@@ -29,7 +29,7 @@ export default function Socials() {
           TransitionProps={{ timeout: 600 }}
           title="Join the community Slack"
         >
-          <a href="https://slack.layer5.io">
+          <a href="https://slack.khulnasoft.com">
             <SlackIcon height={45} width={45} />
           </a>
         </Tooltip>
@@ -37,9 +37,9 @@ export default function Socials() {
         <Tooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          title="Follow Layer5 on Twitter"
+          title="Follow KhulnaSoft on Twitter"
         >
-          <a href="https://twitter.com/layer5">
+          <a href="https://twitter.com/khulnasoft">
             <TwitterIcon height={40} width={40} />
           </a>
         </Tooltip>
@@ -47,9 +47,9 @@ export default function Socials() {
         <Tooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          title="Contribute to Layer5 projects"
+          title="Contribute to KhulnaSoft projects"
         >
-          <a href="https://github.com/layer5io">
+          <a href="https://github.com/khulnasoft">
             <GithubIcon height={45} width={45} />
           </a>
         </Tooltip>
@@ -69,7 +69,7 @@ export default function Socials() {
           TransitionProps={{ timeout: 600 }}
           title="Access Docker images"
         >
-          <a href="https://hub.docker.com/u/layer5/">
+          <a href="https://hub.docker.com/u/khulnasoft/">
             <DockerIcon height={45} width={45} />
           </a>
         </Tooltip>

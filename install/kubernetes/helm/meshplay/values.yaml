@@ -7,13 +7,13 @@ restartPolicy: Always
 metadata:
   name: meshplay
 image:
-  repository: layer5/meshplay
+  repository: khulnasoft/meshplay
   tag: stable-latest
   pullPolicy: Always
 
 env:
   EVENT: meshplayLocal
-  PROVIDER_BASE_URLS: https://meshplay.layer5.io
+  PROVIDER_BASE_URLS: https://meshplay.khulnasoft.com
   ADAPTER_URLS: meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-kuma:10007 meshplay-nginx-sm:10010 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-traefik-mesh:10006 meshplay-cilium:10012
   PROVIDER: ""
   MESHPLAY_SERVER_CALLBACK_URL: ""

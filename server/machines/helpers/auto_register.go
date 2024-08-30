@@ -12,15 +12,15 @@ import (
 	helpers "github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/machines"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/encoding"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/events"
-	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/encoding"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/events"
+	regv1beta1 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1beta1"
+	"github.com/khulnasoft/meshkit/utils"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 
-	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
+	meshsyncmodel "github.com/khulnasoft/meshsync/pkg/model"
 	"github.com/spf13/viper"
 )
 
@@ -171,7 +171,7 @@ func getConnectionPayload(connType, objName, objID string, identifier interface{
 func (arh *AutoRegistrationHelper) getConnectionDefinitions(connType string) []component.ComponentDefinition {
 	connectionCompFilter := &regv1beta1.ComponentFilter{
 		Name:       fmt.Sprintf("%sConnection", connType),
-		APIVersion: "meshplay.layer5.io/v1beta1",
+		APIVersion: "meshplay.khulnasoft.com/v1beta1",
 		Greedy:     true,
 	}
 

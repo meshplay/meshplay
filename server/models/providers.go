@@ -5,12 +5,12 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/khulnasoft/meshplay/server/models/connections"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/events"
-	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
-	SMP "github.com/layer5io/service-mesh-performance/spec"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/events"
+	meshplaykube "github.com/khulnasoft/meshkit/utils/kubernetes"
+	SMP "github.com/khulnasoft/service-mesh-performance/spec"
 	"github.com/meshplay/schemas/models/v1beta1"
 )
 

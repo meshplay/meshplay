@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils"
 )
 
 type SystemType int

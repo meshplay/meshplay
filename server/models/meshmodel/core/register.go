@@ -16,10 +16,10 @@ import (
 	"github.com/khulnasoft/meshplay/server/models"
 
 	"github.com/khulnasoft/meshplay/server/models/pattern/core"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/models/events"
-	"github.com/layer5io/meshkit/models/meshmodel/registry"
-	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	regv1beta1 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1beta1"
 
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	meshplayutils "github.com/khulnasoft/meshplay/server/helpers/utils"
@@ -30,9 +30,9 @@ import (
 
 	"github.com/meshplay/schemas/models/v1beta1"
 
-	_component "github.com/layer5io/meshkit/utils/component"
-	"github.com/layer5io/meshkit/utils/kubernetes"
-	"github.com/layer5io/meshkit/utils/manifests"
+	_component "github.com/khulnasoft/meshkit/utils/component"
+	"github.com/khulnasoft/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshkit/utils/manifests"
 
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )

@@ -1,8 +1,8 @@
 package models
 
 import (
-	models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"
-	"github.com/layer5io/meshkit/models/meshmodel/entity"
+	models "github.com/khulnasoft/meshkit/models/meshmodel/core/v1beta1"
+	"github.com/khulnasoft/meshkit/models/meshmodel/entity"
 	"github.com/meshplay/schemas/models/v1beta1/model"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 )

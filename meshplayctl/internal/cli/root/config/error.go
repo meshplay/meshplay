@@ -14,7 +14,7 @@
 
 package config
 
-import "github.com/layer5io/meshkit/errors"
+import "github.com/khulnasoft/meshkit/errors"
 
 const (
 	ErrInvalidMeshConfigCode = "meshplayctl-1008"

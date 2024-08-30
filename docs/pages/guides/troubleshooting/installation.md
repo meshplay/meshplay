@@ -98,10 +98,10 @@ Use the arrow keys to navigate: ↓ ↑ → ←
     None
 ```
 
-If you cannot see "Meshplay" Remote Provider and find such error logs in Meshplay Server's logs (`meshplayctl system logs`), please make sure that Meshplay Server is able to reach "https://meshplay.layer5.io" in order to initialize the "Meshplay" Remote Provider.
+If you cannot see "Meshplay" Remote Provider and find such error logs in Meshplay Server's logs (`meshplayctl system logs`), please make sure that Meshplay Server is able to reach "https://meshplay.khulnasoft.com" in order to initialize the "Meshplay" Remote Provider.
 
 ```bash
-time="2021-11-10T11:05:30Z" level=error msg="[Initialize Provider]: Failed to get capabilities Get \"https://meshplay.layer5.io/v0.5.71/capabilities?os=meshplay\": dial tcp 3.140.89.205:443: i/o timeout"
+time="2021-11-10T11:05:30Z" level=error msg="[Initialize Provider]: Failed to get capabilities Get \"https://meshplay.khulnasoft.com/v0.5.71/capabilities?os=meshplay\": dial tcp 3.140.89.205:443: i/o timeout"
 ```
 
 For more details about Meshplay Providers:

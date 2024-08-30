@@ -101,7 +101,7 @@ func TestSetFileLocation(t *testing.T) {
 
 func TestNavigateToBrowser(t *testing.T) {
 	// opens up a browser window whenever this test runs
-	err := NavigateToBrowser("https://layer5.io")
+	err := NavigateToBrowser("https://khulnasoft.com")
 	if err != nil {
 		t.Errorf("NavigateToBrowser error: %v", err)
 	}
@@ -218,17 +218,17 @@ func TestValidateURL(t *testing.T) {
 	}{
 		{
 			name: "Correct URL",
-			url:  "https://www.layer5.io",
+			url:  "https://www.khulnasoft.com",
 		},
 		{
 			name:    "Unsupported scheme",
-			url:     "mqtt://www.layer5.io",
+			url:     "mqtt://www.khulnasoft.com",
 			wantErr: "mqtt is not a supported protocol",
 		},
 		{
 			name:    "invalid URL",
-			url:     "layer5.io",
-			wantErr: "parse \"layer5.io\": invalid URI for request",
+			url:     "khulnasoft.com",
+			wantErr: "parse \"khulnasoft.com\": invalid URI for request",
 		},
 	}
 	for _, tt := range tests {
@@ -352,8 +352,8 @@ func TestParseURLGithub(t *testing.T) {
 	}{
 		{
 			name:          "test with non-github url",
-			url:           "https://layer5.io",
-			rawRepoOutput: "https://layer5.io",
+			url:           "https://khulnasoft.com",
+			rawRepoOutput: "https://khulnasoft.com",
 			pathOutput:    "",
 			expectedError: "only github urls are supported",
 		},
@@ -365,8 +365,8 @@ func TestParseURLGithub(t *testing.T) {
 		},
 		{
 			name:          "test with raw.githubusercontent.com",
-			url:           "https://raw.githubusercontent.com/layer5io/meshplay/master/.goreleaser.yml",
-			rawRepoOutput: "https://raw.githubusercontent.com/layer5io/meshplay/master/.goreleaser.yml",
+			url:           "https://raw.githubusercontent.com/khulnasoft/meshplay/master/.goreleaser.yml",
+			rawRepoOutput: "https://raw.githubusercontent.com/khulnasoft/meshplay/master/.goreleaser.yml",
 			pathOutput:    "",
 		},
 	}

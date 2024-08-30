@@ -9,14 +9,14 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import PatternIcon from '@/assets/icons/Pattern';
-import { CloseIcon } from '@layer5/sistent';
+import { CloseIcon } from '@khulnasoft/sistent';
 import { GetApp as GetAppIcon } from '@material-ui/icons';
 import OriginalApplicationFileIcon from '@/assets/icons/OriginalApplicationIcon';
 import ModifiedApplicationFileIcon from '@/assets/icons/ModifiedApplicationIcon';
 import { withStyles } from '@material-ui/core/styles';
 import { CustomTextTooltip } from '@/components/MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import InfoOutlinedIcon from '@/assets/icons/InfoOutlined';
-import { DialogActions } from '@layer5/sistent';
+import { DialogActions } from '@khulnasoft/sistent';
 import { Colors } from '@/themes/app';
 
 const styles = (theme) => ({
@@ -248,7 +248,7 @@ const ExportModal = (props) => {
         <CustomTextTooltip
           placement="top"
           interactive={true}
-          title="MeshMap Designer offers multiple export options, allowing you to choose the format that suits your needs. [Learn more](https://docs.layer5.io/meshmap/designer/export-designs/)"
+          title="MeshMap Designer offers multiple export options, allowing you to choose the format that suits your needs. [Learn more](https://docs.khulnasoft.com/meshmap/designer/export-designs/)"
         >
           <IconButton className={classes.infoIconButton} color="primary">
             <InfoOutlinedIcon height={24} width={24} className={classes.infoIcon} />

@@ -19,7 +19,7 @@ import {
   ResponsiveDataTable,
   SearchBar,
   UniversalFilter,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import useStyles from '../../../assets/styles/general/tool.styles';
 import { MeshSyncDataFormatter } from '../metadata';
 import { getK8sClusterIdsFromCtxId } from '../../../utils/multi-ctx';

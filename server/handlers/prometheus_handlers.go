@@ -15,7 +15,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/khulnasoft/meshplay/server/models/connections"
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 )
 
 func init() {

@@ -1,8 +1,8 @@
 package planner
 
 import (
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/utils"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"

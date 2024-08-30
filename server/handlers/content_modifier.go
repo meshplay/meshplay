@@ -7,7 +7,7 @@ import (
 
 	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/khulnasoft/meshplay/server/models/pattern/core"
-	"github.com/layer5io/meshkit/models/patterns"
+	"github.com/khulnasoft/meshkit/models/patterns"
 )
 
 // ContentModifier To be used while adding metadata to patterns,filters and applicationss

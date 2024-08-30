@@ -15,9 +15,9 @@ import (
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1beta1/pattern"
 
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 
-	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
+	regv1beta1 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1beta1"
 )
 
 const (

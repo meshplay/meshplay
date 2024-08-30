@@ -39,7 +39,7 @@ var listEnvironmentCmd = &cobra.Command{
 meshplayctl exp environment list --orgID [orgId]
 
 // Documentation for environment can be found at:
-https://docs.layer5.io/cloud/spaces/environments/
+https://docs.khulnasoft.com/cloud/spaces/environments/
 
 `,
 

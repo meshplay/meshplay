@@ -8,10 +8,10 @@ import (
 	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
 	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/models/controllers"
-	"github.com/layer5io/meshkit/utils"
-	"github.com/layer5io/meshkit/utils/broadcast"
-	meshplaykube "github.com/layer5io/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshkit/models/controllers"
+	"github.com/khulnasoft/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils/broadcast"
+	meshplaykube "github.com/khulnasoft/meshkit/utils/kubernetes"
 )
 
 /*

@@ -9,9 +9,9 @@ import (
 	"github.com/khulnasoft/meshplay/server/helpers"
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/generators/artifacthub"
+	"github.com/khulnasoft/meshkit/generators/artifacthub"
 
-	meshkitmodels "github.com/layer5io/meshkit/generators/models"
+	meshkitmodels "github.com/khulnasoft/meshkit/generators/models"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1beta1/connection"
 )

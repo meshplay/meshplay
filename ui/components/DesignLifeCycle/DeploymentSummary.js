@@ -1,13 +1,13 @@
 import { useGetComponentsByModelAndKindQuery } from '@/rtk-query/meshModel';
 import { NOTIFICATIONCOLORS } from '@/themes/index';
-import { Box, Stack, Typography, styled, useTheme } from '@layer5/sistent';
+import { Box, Stack, Typography, styled, useTheme } from '@khulnasoft/sistent';
 import { alpha } from '@mui/material';
 import { FormatStructuredData, TextWithLinks } from '../DataFormatter';
 import { SEVERITY_STYLE } from '../NotificationCenter/constants';
 import { ErrorMetadataFormatter } from '../NotificationCenter/metadata';
 import { ComponentIcon } from './common';
-import { Button } from '@layer5/sistent';
-import { ExternalLinkIcon } from '@layer5/sistent';
+import { Button } from '@khulnasoft/sistent';
+import { ExternalLinkIcon } from '@khulnasoft/sistent';
 import { UsesSistent } from '../SistentWrapper';
 
 const StyledDetailBox = styled(Box)(({ theme, severityColor, bgOpacity }) => ({

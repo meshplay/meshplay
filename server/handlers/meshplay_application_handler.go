@@ -18,12 +18,12 @@ package handlers
 // 	"github.com/khulnasoft/meshplay/server/meshes"
 // 	"github.com/khulnasoft/meshplay/server/models"
 // 	pCore "github.com/khulnasoft/meshplay/server/models/pattern/core"
-// 	"github.com/layer5io/meshkit/logger"
-// 	"github.com/layer5io/meshkit/models/events"
-// 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
-// 	"github.com/layer5io/meshkit/utils/kubernetes"
-// 	"github.com/layer5io/meshkit/utils/kubernetes/kompose"
-// 	"github.com/layer5io/meshkit/utils/walker"
+// 	"github.com/khulnasoft/meshkit/logger"
+// 	"github.com/khulnasoft/meshkit/models/events"
+// 	meshmodel "github.com/khulnasoft/meshkit/models/meshmodel/registry"
+// 	"github.com/khulnasoft/meshkit/utils/kubernetes"
+// 	"github.com/khulnasoft/meshkit/utils/kubernetes/kompose"
+// 	"github.com/khulnasoft/meshkit/utils/walker"
 // 	"gopkg.in/yaml.v2"
 // )
 

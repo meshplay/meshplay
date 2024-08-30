@@ -38,12 +38,12 @@ require (
 	github.com/grafana-tools/sdk v0.0.0-20220919052116-6562121319fc
 	github.com/jarcoal/httpmock v1.3.1
 	github.com/jinzhu/copier v0.4.0
-	github.com/layer5io/gowrk2 v0.6.1
+	github.com/khulnasoft/gowrk2 v0.6.1
 	github.com/khulnasoft/meshplay-operator v0.7.0
-	github.com/layer5io/meshkit v0.7.72
-	github.com/layer5io/meshsync v0.6.24
-	github.com/layer5io/nighthawk-go v1.0.3
-	github.com/layer5io/service-mesh-performance v0.6.1
+	github.com/khulnasoft/meshkit v0.7.72
+	github.com/khulnasoft/meshsync v0.6.24
+	github.com/khulnasoft/nighthawk-go v1.0.3
+	github.com/khulnasoft/service-mesh-performance v0.6.1
 	github.com/lib/pq v1.10.9
 	github.com/manifoldco/promptui v0.9.0
 	github.com/meshplay/schemas v0.7.30

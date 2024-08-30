@@ -19,7 +19,7 @@ import {
   CardHeader,
   Box,
 } from '@material-ui/core';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import NoSsr from '@material-ui/core/NoSsr';
 import { updateUser, updateProgress, toggleCatalogContent } from '../../lib/store';
 import Tabs from '@material-ui/core/Tabs';

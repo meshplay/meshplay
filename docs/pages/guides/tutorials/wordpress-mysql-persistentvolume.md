@@ -49,7 +49,7 @@ These YAML files contain the Service definitions, Persistent Volume Claims, and 
 
 #### Access Meshplay Playground
 
-1. Log in to the [Meshplay Playground](https://meshplay.layer5.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
+1. Log in to the [Meshplay Playground](https://meshplay.khulnasoft.com/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
 
 2. Click **Explore** in the Cloud Native Playground tile to navigate to _MeshMap_
 

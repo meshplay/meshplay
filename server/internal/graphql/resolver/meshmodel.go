@@ -6,9 +6,9 @@ import (
 
 	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
 	"github.com/khulnasoft/meshplay/server/models"
-	registry "github.com/layer5io/meshkit/models/meshmodel/registry"
-	regv1alpha3 "github.com/layer5io/meshkit/models/meshmodel/registry/v1alpha3"
-	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
+	registry "github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	regv1alpha3 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1alpha3"
+	regv1beta1 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1beta1"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 )

@@ -9,9 +9,9 @@ import {
   Select,
   IconButton,
 } from '@material-ui/core';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import { withStyles } from '@material-ui/core/styles';
-import { FilterIcon } from '@layer5/sistent';
+import { FilterIcon } from '@khulnasoft/sistent';
 
 const styles = (theme) => ({
   epaper: {

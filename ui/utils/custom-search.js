@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import TextField from '@mui/material/TextField';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import IconButton from '@mui/material/IconButton';
 // import SearchIcon from '../assets/icons/search';
 // import CloseIcon from '@mui/icons-material/Close';
 import { makeStyles } from '@material-ui/core/styles';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import debounce from './debounce';
-import { CloseIcon, SearchIcon } from '@layer5/sistent';
+import { CloseIcon, SearchIcon } from '@khulnasoft/sistent';
 
 const useStyles = makeStyles((theme) => ({
   icon: {

@@ -8,7 +8,7 @@ import (
 	"github.com/khulnasoft/meshplay/server/machines"
 	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/khulnasoft/meshplay/server/models/meshmodel/core"
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 )
 
 type RegisterAction struct{}

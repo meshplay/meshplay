@@ -24,19 +24,19 @@ include install/Makefile.show-help.mk
 docker-build:
 	# `make docker-build` builds Meshplay inside of a multi-stage Docker container.
 	# This method does NOT require that you have Go, NPM, etc. installed locally.
-	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t layer5/meshplay --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} .
+	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t khulnasoft/meshplay --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} .
 
 ## Build Meshplay Server and UI container in Playground mode.
 docker-playground-build:
 	# `make docker-playground-build` builds Meshplay inside of a multi-stage Docker container.
 	# This method does NOT require that you have Go, NPM, etc. installed locally.
-	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t layer5/meshplay --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} --build-arg PROVIDER=$(LOCAL_PROVIDER) --build-arg PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_PROD) --build-arg PLAYGROUND=true .
+	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t khulnasoft/meshplay --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} --build-arg PROVIDER=$(LOCAL_PROVIDER) --build-arg PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_PROD) --build-arg PLAYGROUND=true .
 
 ## Build Meshplay Server and UI container for e2e testing.
 docker-testing-env-build:
 	# `make docker-build` builds Meshplay inside of a multi-stage Docker container.
 	# This method does NOT require that you have Go, NPM, etc. installed locally.
-	DOCKER_BUILDKIT=1 docker build -f install/docker/testing/Dockerfile -t layer5/meshplay-testing-env --build-arg GIT_VERSION=$(GIT_VERSION) .
+	DOCKER_BUILDKIT=1 docker build -f install/docker/testing/Dockerfile -t khulnasoft/meshplay-testing-env --build-arg GIT_VERSION=$(GIT_VERSION) .
 
 ## Meshplay Cloud for user authentication.
 ## Runs Meshplay in a container locally and points to locally-running
@@ -49,7 +49,7 @@ docker-local-cloud:
 	-e ADAPTER_URLS=$(ADAPTER_URLS) \
 	-e KEYS_PATH=$(KEYS_PATH) \
 	-p 9081:8080 \
-	layer5/meshplay ./meshplay
+	khulnasoft/meshplay ./meshplay
 
 ## Runs Meshplay in a container locally and points to remote
 ## Remote Provider for user authentication.
@@ -63,7 +63,7 @@ docker-cloud:
 	-v meshplay-config:/home/appuser/.meshplay/config \
   -v $(HOME)/.kube:/home/appuser/.kube:ro \
 	-p 9081:8080 \
-	layer5/meshplay ./meshplay
+	khulnasoft/meshplay ./meshplay
 
 ## Runs Meshplay in a container locally and points to remote
 ## Remote Provider for user authentication.
@@ -76,7 +76,7 @@ docker-testing-env:
 	-v meshplay-config:/home/appuser/.meshplay/config \
   -v $(HOME)/.kube:/home/appuser/.kube:ro \
 	-p 9081:8080 \
-	layer5/meshplay-testing-env ./meshplay
+	khulnasoft/meshplay-testing-env ./meshplay
 
 #-----------------------------------------------------------------------------
 # Meshplay Server Native Builds
@@ -85,11 +85,11 @@ docker-testing-env:
 ## Setup wrk2 for local development.
 wrk2-setup:
 	echo "setup-wrk does not work on Mac Catalina at the moment"
-	cd server; cd cmd; git clone https://github.com/layer5io/wrk2.git; cd wrk2; make; cd ..
+	cd server; cd cmd; git clone https://github.com/khulnasoft/wrk2.git; cd wrk2; make; cd ..
 
 ## Setup nighthawk for local development.
 nighthawk-setup: dep-check
-	cd server; cd cmd; git clone https://github.com/layer5io/nighthawk-go.git; cd nighthawk-go; make setup; cd ..
+	cd server; cd cmd; git clone https://github.com/khulnasoft/nighthawk-go.git; cd nighthawk-go; make setup; cd ..
 
 run-local: server-local error
 
@@ -255,11 +255,11 @@ proto-build:
 
 ## Analyze error codes
 error: dep-check
-	go run github.com/layer5io/meshkit/cmd/errorutil -d . analyze -i ./server/helpers -o ./server/helpers --skip-dirs meshplayctl
+	go run github.com/khulnasoft/meshkit/cmd/errorutil -d . analyze -i ./server/helpers -o ./server/helpers --skip-dirs meshplayctl
 
 ## Runs meshkit error utility to update error codes for meshplay server only.
 error-util:
-	go run github.com/layer5io/meshkit/cmd/errorutil -d . --skip-dirs meshplayctl update -i ./server/helpers/ -o ./server/helpers
+	go run github.com/khulnasoft/meshkit/cmd/errorutil -d . --skip-dirs meshplayctl update -i ./server/helpers/ -o ./server/helpers
 
 ## Build Meshplay UI; Build and run Meshplay Server on your local machine.
 ui-server: ui-meshplay-build ui-provider-build server

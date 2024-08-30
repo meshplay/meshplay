@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshkit/logger"
-	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
-	"github.com/layer5io/meshkit/models/registration"
+	"github.com/khulnasoft/meshkit/logger"
+	meshmodel "github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	"github.com/khulnasoft/meshkit/models/registration"
 )
 
 var ModelsPath = "../meshmodel"

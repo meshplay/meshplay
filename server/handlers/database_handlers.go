@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/models/meshmodel/registry"
-	"github.com/layer5io/meshkit/utils"
-	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	"github.com/khulnasoft/meshkit/utils"
+	meshsyncmodel "github.com/khulnasoft/meshsync/pkg/model"
 	"github.com/spf13/viper"
 	"gorm.io/gorm/clause"
 )

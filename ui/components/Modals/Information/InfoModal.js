@@ -35,7 +35,7 @@ import {
   ModalButtonPrimary,
   ModalButtonSecondary,
   ModalBody,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import TooltipButton from '@/utils/TooltipButton';
 import { keys } from '@/utils/permission_constants';
 import CAN from '@/utils/can';

@@ -1,4 +1,4 @@
-// Copyright 2024 Layer5, Inc.
+// Copyright 2024 KhulnaSoft, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ var deleteEnvironmentCmd = &cobra.Command{
 // delete a new environment
 meshplayctl exp environment delete [environmentId]
 // Documentation for environment can be found at:
-https://docs.layer5.io/cloud/spaces/environments/
+https://docs.khulnasoft.com/cloud/spaces/environments/
 `,
 
 	Args: func(cmd *cobra.Command, args []string) error {

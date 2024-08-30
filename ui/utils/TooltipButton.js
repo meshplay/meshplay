@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 
 export default function TooltipButton({ children, onClick, title, variant, ...props }) {
   return (

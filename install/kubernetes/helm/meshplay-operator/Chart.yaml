@@ -37,8 +37,8 @@ dependencies:
     condition: meshplay-meshsync.enabled
 
 maintainers:
-  - name: Layer5 Authors
-    email: community@layer5.io
+  - name: KhulnaSoft Authors
+    email: community@khulnasoft.com
   - name: aisuko
     email: urakiny@gmail.com
   - name: leecalcote

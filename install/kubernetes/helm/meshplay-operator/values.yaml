@@ -7,7 +7,7 @@ replicaCount: 1
 meshplayOperator:
   name: manager
   image:
-    repository: layer5/meshplay-operator:stable-latest
+    repository: khulnasoft/meshplay-operator:stable-latest
     pullPolicy: Always
   args:
     - --metrics-addr=127.0.0.1:8080

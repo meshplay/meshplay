@@ -16,7 +16,7 @@ In this tutorial, we will explore Kubernetes CronJobs, a resource that allows yo
 
 Prerequisites:
 - Basic understanding of Kubernetes concepts.
-- Meshplay Playground access. If you don't have an account, you can sign up at [Meshplay Playground](https://meshplay.layer5.io/play).
+- Meshplay Playground access. If you don't have an account, you can sign up at [Meshplay Playground](https://meshplay.khulnasoft.com/play).
 
 Lab Scenario: Scheduled Backups using CronJobs
 
@@ -26,7 +26,7 @@ Learn how to use Kubernetes CronJobs to schedule and automate periodic backups o
 ### Steps:
 
 #### 1. **Accessing Meshplay Playground:**
-   - Log in to the [Meshplay Playground](https://meshplay.layer5.io/play) using your credentials.
+   - Log in to the [Meshplay Playground](https://meshplay.khulnasoft.com/play) using your credentials.
    - Once logged in, navigate to the Meshplay Playground dashboard.
 
 #### 2. **Deploying an Application:**

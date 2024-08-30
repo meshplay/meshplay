@@ -1,7 +1,7 @@
 import { useSelectorRtk } from '@/store/hooks';
 import { selectSelectedEnvs } from '@/store/slices/globalEnvironmentContext';
 import { useSelector } from 'react-redux';
-const { Box, Typography, Stack, EnvironmentIcon, useTheme, styled } = require('@layer5/sistent');
+const { Box, Typography, Stack, EnvironmentIcon, useTheme, styled } = require('@khulnasoft/sistent');
 const { processDesign, CheckBoxField, StepHeading } = require('./common');
 const _ = require('lodash');
 

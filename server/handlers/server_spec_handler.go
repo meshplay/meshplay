@@ -7,7 +7,7 @@ import (
 
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils"
 	"github.com/spf13/viper"
 )
 

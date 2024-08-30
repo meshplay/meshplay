@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: layer5/meshplay-nsm:stable-latest
+  repository: khulnasoft/meshplay-nsm:stable-latest
   pullPolicy: Always
 
 ports:

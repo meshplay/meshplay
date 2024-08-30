@@ -7,11 +7,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/layer5io/meshkit/encoding"
+	"github.com/khulnasoft/meshkit/encoding"
 
-	"github.com/layer5io/meshkit/models/meshmodel/entity"
-	"github.com/layer5io/meshkit/utils"
-	"github.com/layer5io/meshkit/utils/csv"
+	"github.com/khulnasoft/meshkit/models/meshmodel/entity"
+	"github.com/khulnasoft/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils/csv"
 	"github.com/meshplay/schemas/models/v1alpha1/capability"
 	"github.com/meshplay/schemas/models/v1beta1"
 	"github.com/meshplay/schemas/models/v1beta1/category"

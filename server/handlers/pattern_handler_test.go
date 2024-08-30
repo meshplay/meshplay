@@ -8,9 +8,9 @@ package handlers
 
 // 	"github.com/gofrs/uuid"
 // 	"github.com/khulnasoft/meshplay/server/models"
-// 	"github.com/layer5io/meshkit/logger"
-// 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
-// 	"github.com/layer5io/meshkit/validator"
+// 	"github.com/khulnasoft/meshkit/logger"
+// 	meshmodel "github.com/khulnasoft/meshkit/models/meshmodel/registry"
+// 	"github.com/khulnasoft/meshkit/validator"
 // 	"github.com/meshplay/schemas/models/v1beta1/pattern"
 // 	"github.com/spf13/viper"
 // )

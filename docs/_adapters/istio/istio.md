@@ -68,7 +68,7 @@ Click on (+) and choose the {{page.earliest_version}} of the {{page.component}}.
 The ({{page.name}}) includes a handful of sample applications. Use Meshplay to deploy any of these sample applications:
 
 - [Bookinfo]({{site.baseurl}}/guides/sample-apps#bookinfo)
-  - Follow this [tutorial workshop](https://github.com/layer5io/istio-service-mesh-workshop/blob/master/lab-2/README.md) to set up and deploy the BookInfo sample app on Istio using Meshplay.
+  - Follow this [tutorial workshop](https://github.com/khulnasoft/istio-service-mesh-workshop/blob/master/lab-2/README.md) to set up and deploy the BookInfo sample app on Istio using Meshplay.
 - [Httpbin]({{site.baseurl}}/guides/sample-apps#httpbin)
   - Httpbin is a simple HTTP request and response service.
 - [Online Boutique]({{site.baseurl}}/guides/sample-apps#online-boutique)

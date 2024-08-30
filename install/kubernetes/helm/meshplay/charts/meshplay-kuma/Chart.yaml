@@ -26,9 +26,9 @@ version: 0.7.0
 appVersion: stable-latest
 
 maintainers:
-  - name: Layer5 Authors
-    email: community@layer5.io
+  - name: KhulnaSoft Authors
+    email: community@khulnasoft.com
   - name: aisuko
     email: urakiny@gmail.com
   - name: leecalcote
-    email: lee.calcote@layer5.io
+    email: lee.calcote@khulnasoft.com

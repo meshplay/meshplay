@@ -63,7 +63,7 @@
   ],
   "component": {
    "kind": "Comment",
-   "schema": "{\"$id\": \"https://meshplay.layer5.io/system/models/definition/Uitlity/Comments\", \"$schema\": \"http://json-schema.org/draft-07/schema\", \"properties\": {\"userMessages\": {\"type\": \"array\", \"title\": \"User Messages\", \"x-chat-field\": true, \"items\": {\"type\": \"object\", \"properties\": {\"userid\": {\"type\": \"string\", \"title\": \"User UUID\"}, \"message\": {\"type\": \"string\", \"title\": \"Message\"}, \"timestamp\": {\"type\": \"string\", \"format\": \"date-time\", \"title\": \"Timestamp\"}}}}}, \"title\": \"Comments\", \"type\": \"object\", \"description\": \"This is a component to add your comments\"}",
+   "schema": "{\"$id\": \"https://meshplay.khulnasoft.com/system/models/definition/Uitlity/Comments\", \"$schema\": \"http://json-schema.org/draft-07/schema\", \"properties\": {\"userMessages\": {\"type\": \"array\", \"title\": \"User Messages\", \"x-chat-field\": true, \"items\": {\"type\": \"object\", \"properties\": {\"userid\": {\"type\": \"string\", \"title\": \"User UUID\"}, \"message\": {\"type\": \"string\", \"title\": \"Message\"}, \"timestamp\": {\"type\": \"string\", \"format\": \"date-time\", \"title\": \"Timestamp\"}}}}}, \"title\": \"Comments\", \"type\": \"object\", \"description\": \"This is a component to add your comments\"}",
    "version": "core.meshplay.khulnasofy.com/v1alpha1"
   },
   "configuration": null,

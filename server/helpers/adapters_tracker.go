@@ -16,7 +16,7 @@ import (
 	"github.com/docker/go-connections/nat"
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/models"
-	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 	"github.com/spf13/viper"
 )
 
@@ -87,12 +87,12 @@ func (a *AdaptersTracker) DeployAdapter(ctx context.Context, adapter models.Adap
 		}
 		var meshplayNetworkSettings *types.SummaryNetworkSettings
 		for _, container := range containers {
-			if strings.Contains(container.Image, "layer5/meshplay") {
+			if strings.Contains(container.Image, "khulnasoft/meshplay") {
 				meshplayNetworkSettings = container.NetworkSettings
 			}
 		}
 
-		adapterImage := "layer5/" + adapter.Name + ":stable-latest"
+		adapterImage := "khulnasoft/" + adapter.Name + ":stable-latest"
 
 		// Pull the latest image
 		resp, err := cli.ImagePull(ctx, adapterImage, types.ImagePullOptions{})

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Avatar, Divider, Grid, IconButton, Typography, Link } from '@material-ui/core';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Save from '@material-ui/icons/Save';
 import Fullscreen from '@material-ui/icons/Fullscreen';

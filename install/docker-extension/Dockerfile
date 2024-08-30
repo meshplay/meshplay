@@ -31,7 +31,7 @@ ARG GIT_VERSION
 ARG RELEASE_CHANNEL
 LABEL org.opencontainers.image.title="Meshplay" \
   org.opencontainers.image.description="Meshplay, the collaborative Kubernetes manager. Go multi-player as you design and operate your cloud native infrastructure with teammates." \
-  org.opencontainers.image.vendor="Layer5, Inc." \
+  org.opencontainers.image.vendor="KhulnaSoft, Inc." \
   com.docker.desktop.extension.api.version=">= 0.2.0" \
    com.docker.extension.screenshots="[ \
       { \
@@ -54,7 +54,7 @@ LABEL org.opencontainers.image.title="Meshplay" \
   </ul>" \
   com.docker.desktop.extension.icon="https://raw.githubusercontent.com/meshplay/meshplay/master/install/docker-extension/docs/img/meshplay-logo-light.svg" \
   com.docker.extension.publisher-url="https://meshplay.khulnasoft.com" \
-  com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://docs.meshplay.khulnasoft.com\"},{\"title\":\"Project\",\"url\":\"https://layer5.io/meshplay\"},{\"title\":\"Slack\",\"url\":\"https://slack.meshplay.khulnasoft.com\"},{\"title\":\"Discussion Forum\",\"url\":\"http://discuss.meshplay.khulnasoft.com\"}]"
+  com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://docs.meshplay.khulnasoft.com\"},{\"title\":\"Project\",\"url\":\"https://khulnasoft.com/meshplay\"},{\"title\":\"Slack\",\"url\":\"https://slack.meshplay.khulnasoft.com\"},{\"title\":\"Discussion Forum\",\"url\":\"http://discuss.meshplay.khulnasoft.com\"}]"
 COPY --from=builder /backend/bin/service /
 COPY docker-compose.yaml .
 COPY metadata.json .

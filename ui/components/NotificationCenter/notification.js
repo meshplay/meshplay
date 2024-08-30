@@ -46,7 +46,7 @@ import {
 import { FormattedMetadata } from './metadata';
 import theme from '../../themes/app';
 import { truncate } from 'lodash';
-import { Checkbox } from '@layer5/sistent';
+import { Checkbox } from '@khulnasoft/sistent';
 import { UsesSistent } from '../SistentWrapper';
 
 const useStyles = makeStyles(() => ({

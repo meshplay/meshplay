@@ -7,7 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshsync/pkg/model"
+	"github.com/khulnasoft/meshsync/pkg/model"
 	"gorm.io/gorm/clause"
 )
 

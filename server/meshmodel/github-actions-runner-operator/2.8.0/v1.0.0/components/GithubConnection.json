@@ -3,7 +3,7 @@
   "component": {
     "kind": "GithubConnection",
     "schema": "{\"type\":\"object\",\"properties\":{\"installation_id\":{\"type\":\"string\",\"title\":\"Installation ID\",\"description\":\"The installation ID of the GitHub App\"},\"repository_paths\":{\"type\":\"object\",\"title\":\"Repositories for which the Connection has been configured.\",\"description\":\"The repository paths to be used for the connection\",\"items\":{\"type\":\"object\",\"title\":\"Repository Path\",\"description\":\"The repository path to be used for the connection\",\"additionalProperties\":{\"type\":\"string\"}}}}}",
-    "version": "meshplay.layer5.io/v1alpha1"
+    "version": "meshplay.khulnasoft.com/v1alpha1"
   },
   "configuration": null,
   "description": "",

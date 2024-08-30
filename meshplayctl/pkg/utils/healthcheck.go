@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
-	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
+	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"

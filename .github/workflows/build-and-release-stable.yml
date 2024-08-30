@@ -41,7 +41,7 @@ jobs:
         with:
           file_pattern: docs
           commit_user_name: l5io
-          commit_user_email: ci@layer5.io
+          commit_user_email: ci@khulnasoft.com
           commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit_options: "--signoff"
           commit_message: "[Docs] Updated Swagger Docs for REST API"
@@ -82,7 +82,7 @@ jobs:
         with:
           file_pattern: docs
           commit_user_name: l5io
-          commit_user_email: ci@layer5.io
+          commit_user_email: ci@khulnasoft.com
           commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit_options: "--signoff"
           commit_message: "[Docs] Updated GraphQL API Documentation"
@@ -179,7 +179,7 @@ jobs:
       - call-helm-chart-releaser
       - call-dde-release-workflow
     name: Email Meshplay Release Notes
-    uses: layer5labs/meshplay-extensions-packages/.github/workflows/notify-email.yml@master
+    uses: khulnasoft/meshplay-extensions-packages/.github/workflows/notify-email.yml@master
     secrets:
       token: ${{ secrets.GH_ACCESS_TOKEN }}
       MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
@@ -218,7 +218,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Job(s) failure in the build-and-release-stable workflow
-          to: support@layer5.io
+          to: support@khulnasoft.com
           from: Build and Release Stable workflow
           body: |
             The workflow failed. Here are the details:

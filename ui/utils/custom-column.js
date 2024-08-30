@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { CustomTooltip } from '@layer5/sistent';
+import { CustomTooltip } from '@khulnasoft/sistent';
 import Popper from '@mui/material/Popper';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Box from '@mui/material/Box';
 import { Card } from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import { ColumnIcon } from '@layer5/sistent';
+import { ColumnIcon } from '@khulnasoft/sistent';
 
 const styles = (theme) => ({
   epaper: {

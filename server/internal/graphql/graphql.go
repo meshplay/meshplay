@@ -14,9 +14,9 @@ import (
 	"github.com/khulnasoft/meshplay/server/internal/graphql/generated"
 	"github.com/khulnasoft/meshplay/server/internal/graphql/resolver"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/logger"
-	"github.com/layer5io/meshkit/utils/broadcast"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/logger"
+	"github.com/khulnasoft/meshkit/utils/broadcast"
 )
 
 type Options struct {

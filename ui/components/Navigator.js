@@ -48,7 +48,7 @@ import {
   updateCapabilities,
 } from '../lib/store';
 import { ButtonGroup, IconButton } from '@material-ui/core';
-import { CatalogIcon, CustomTooltip } from '@layer5/sistent';
+import { CatalogIcon, CustomTooltip } from '@khulnasoft/sistent';
 import { UsesSistent } from './SistentWrapper';
 import ExtensionPointSchemaValidator from '../utils/ExtensionPointSchemaValidator';
 import dataFetch from '../lib/data-fetch';

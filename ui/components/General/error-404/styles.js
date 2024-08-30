@@ -8,7 +8,7 @@ import {
   Button,
   Divider,
   LeftArrowIcon,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import { styled } from '@material-ui/core';
 
 export const ErrorMain = styled('main')(({ theme }) => ({

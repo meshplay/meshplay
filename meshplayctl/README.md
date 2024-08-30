@@ -47,4 +47,4 @@ For logs, `meshplayctl` uses [Logrus](https://github.com/sirupsen/logrus). Going
 
 `meshplayctl` uses [golangci-lint](https://github.com/golangci/golangci-lint). Refer it for lint checks.
 
-All contributors are invited to review [pull requests](https://github.com/meshplay/meshplay/pulls) on `meshplayctl` as on other Layer5 projects.
+All contributors are invited to review [pull requests](https://github.com/meshplay/meshplay/pulls) on `meshplayctl` as on other KhulnaSoft projects.

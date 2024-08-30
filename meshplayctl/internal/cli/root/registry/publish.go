@@ -25,7 +25,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
-	meshkitUtils "github.com/layer5io/meshkit/utils"
+	meshkitUtils "github.com/khulnasoft/meshkit/utils"
 )
 
 var (
@@ -46,8 +46,8 @@ var (
 // Example publishing to meshplayio docs
 // meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.khulnasofy.com/integrations meshplay.khulnasofy.com/assets/images/integration -o js
 
-// Example publishing to layer5 docs
-// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
+// Example publishing to khulnasoft docs
+// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw khulnasoft/src/collections/integrations khulnasoft/src/collections/integrations -o mdx
 
 // publishCmd represents the publish command to publish Meshplay Models to Websites, Remote Provider, Meshplay
 var publishCmd = &cobra.Command{
@@ -74,8 +74,8 @@ meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwi
 // Publishing to meshplayio site
 meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.khulnasofy.com/integrations meshplay.khulnasofy.com/assets/images/integration -o js
 
-// Publishing to layer5 site
-meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
+// Publishing to khulnasoft site
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw khulnasoft/src/collections/integrations khulnasoft/src/collections/integrations -o mdx
 
 // Publishing to any website
 meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw path/to/models path/to/icons -o mdx
@@ -222,7 +222,7 @@ func websiteSystem() error {
 		case "mdx":
 			err := utils.GenerateMDXStyleDocs(model, comps, modelsOutputPath, imgsOutputPath) // creates mdx file
 			if err != nil {
-				log.Fatalln(fmt.Printf("Error generating layer5 docs for model %s: %v\n", model.Model, err.Error()))
+				log.Fatalln(fmt.Printf("Error generating khulnasoft docs for model %s: %v\n", model.Model, err.Error()))
 			}
 		case "md":
 			err := utils.GenerateMDStyleDocs(model, comps, modelsOutputPath, imgsOutputPath) // creates md file

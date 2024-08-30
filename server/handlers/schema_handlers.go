@@ -6,7 +6,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/schemas"
+	"github.com/khulnasoft/meshkit/schemas"
 )
 
 // HandleResourceSchemas handles the request to retrieve and merge resource schemas.

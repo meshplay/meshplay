@@ -5,7 +5,7 @@ import theme, { Colors } from '../themes/app';
 import { MenuItem } from '@material-ui/core';
 import { Paper } from '@material-ui/core';
 import { FormControlLabel } from '@material-ui/core';
-import { Checkbox } from '@layer5/sistent';
+import { Checkbox } from '@khulnasoft/sistent';
 import { UsesSistent } from './SistentWrapper';
 
 const MultiSelectWrapper = (props) => {

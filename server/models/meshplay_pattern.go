@@ -7,7 +7,7 @@ import (
 
 	"github.com/gofrs/uuid"
 	isql "github.com/khulnasoft/meshplay/server/internal/sql"
-	"github.com/layer5io/meshkit/models/catalog/v1alpha1"
+	"github.com/khulnasoft/meshkit/models/catalog/v1alpha1"
 	"gopkg.in/yaml.v2"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"

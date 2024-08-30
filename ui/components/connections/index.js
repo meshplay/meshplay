@@ -24,7 +24,7 @@ import {
   CustomTooltip,
   SearchBar,
   UniversalFilter,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { connect } from 'react-redux';
@@ -35,7 +35,7 @@ import { useNotification } from '../../utils/hooks/useNotification';
 import { EVENT_TYPES } from '../../lib/event-types';
 // import CustomColumnVisibilityControl from '../../utils/custom-column';
 // import SearchBar from '../../utils/custom-search';
-import { ResponsiveDataTable } from '@layer5/sistent';
+import { ResponsiveDataTable } from '@khulnasoft/sistent';
 import useStyles from '../../assets/styles/general/tool.styles';
 import Modal from '../Modal';
 import { iconMedium } from '../../css/icons.styles';
@@ -84,7 +84,7 @@ import { useGetConnectionsQuery, useUpdateConnectionMutation } from '@/rtk-query
 import { useGetSchemaQuery } from '@/rtk-query/schema';
 import { CustomTextTooltip } from '../MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import InfoOutlinedIcon from '@/assets/icons/InfoOutlined';
-import { DeleteIcon } from '@layer5/sistent';
+import { DeleteIcon } from '@khulnasoft/sistent';
 import { withRouter } from 'next/router';
 import { UsesSistent } from '../SistentWrapper';
 import { formatDate } from '../DataFormatter';

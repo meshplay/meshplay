@@ -25,7 +25,7 @@ assignees: ''
 
 ---
 
-### Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://layer5.io/community/handbook)
+### Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://khulnasoft.com/community/handbook)
 
 - 🎨 Wireframes and [designs for Meshplay UI](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI) in Figma [(open invite)](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9)
 - 🖥 [Contributing to Meshplay UI](https://docs.meshplay.khulnasoft.com/project/contributing/contributing-ui)

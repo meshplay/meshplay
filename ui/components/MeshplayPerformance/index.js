@@ -23,7 +23,7 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
 } from '@material-ui/core';
-import { CustomTooltip, ModalBody, ModalFooter } from '@layer5/sistent';
+import { CustomTooltip, ModalBody, ModalFooter } from '@khulnasoft/sistent';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

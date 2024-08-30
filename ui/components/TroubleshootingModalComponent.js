@@ -285,16 +285,16 @@ const TroubleshootingModal = (props) => {
                   <li className={classes.troubleshootListitem}>
                     <b>Building</b>: Ensure that <code>go.mod</code> in the{' '}
                     <code>meshplay/meshplay</code> repository is identical to the <code>go.mod</code>{' '}
-                    in the <code>layer5labs/meshplay-extensions</code> repository are identical.
+                    in the <code>khulnasoft/meshplay-extensions</code> repository are identical.
                   </li>
                   <li className={classes.troubleshootListitem}>
                     <b>Loading</b>: Confirm that the <code>plugin</code> version offered by Meshplay
                     Cloud (at{' '}
                     <a
                       className={classes.troubleshootHelpLink}
-                      href="https://meshplay.layer5.io/capabilities"
+                      href="https://meshplay.khulnasoft.com/capabilities"
                     >
-                      https://meshplay.layer5.io/capabilities
+                      https://meshplay.khulnasoft.com/capabilities
                     </a>
                     ), from which MeshMap files are retreived, matches the <code>plugin</code>{' '}
                     version that Meshplay Server is using as the filesystem reference in{' '}
@@ -348,7 +348,7 @@ const TroubleshootingModal = (props) => {
               Need help? Contact us via{' '}
               <a
                 className={classes.contactHelpLink}
-                href="mailto:meshmap@layer5.io"
+                href="mailto:meshmap@khulnasoft.com"
                 target="_blank"
                 rel="noreferrer"
               >

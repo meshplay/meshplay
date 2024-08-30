@@ -5,7 +5,7 @@ import (
 	"github.com/khulnasoft/meshplay/server/internal/sql"
 	"github.com/lib/pq"
 
-	SMP "github.com/layer5io/service-mesh-performance/spec"
+	SMP "github.com/khulnasoft/service-mesh-performance/spec"
 )
 
 // PerformanceProfile represents the performance profile that needs

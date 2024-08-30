@@ -28,7 +28,7 @@ To run the tests successfully, three environment variables must be configured:
 • `REMOTE_PROVIDER_USER_PASSWORD` : The password associated with your account within your provider.  
 • `PROVIDER_TOKEN`: You're provider token, that can be generated from your provider account  
 
-In the case you are using Layer5 Cloud as provider, you can generate your token on [Layer5 cloud account token](https://meshplay.layer5.io/security/tokens)
+In the case you are using KhulnaSoft Cloud as provider, you can generate your token on [KhulnaSoft cloud account token](https://meshplay.khulnasoft.com/security/tokens)
 
 During the setup phase, Playwright utilizes these environment variables to log in and store credentials securely in the `playwright/.auth` directory. To protect sensitive data, the `.gitignore` file is configured to exclude the `.env` file and any JSON files within the `/playwright/.auth` directory from the GitHub repository.
 

@@ -9,7 +9,7 @@ You need to have `scoop` installed on your Windows system to perform these actio
 To install `meshplayctl` using Scoop, execute the following commands.
 
 <pre class="codeblock-pre"><div class="codeblock">
-<div class="clipboardjs">scoop bucket add meshplayctl https://github.com/layer5io/scoop-bucket.git
+<div class="clipboardjs">scoop bucket add meshplayctl https://github.com/khulnasoft/scoop-bucket.git
 scoop install meshplayctl</div></div>
 </pre>
 

@@ -234,7 +234,7 @@ func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 				HttpOnly: true,
 			})
 			req.AddCookie(&http.Cookie{
-				Name:     "meshplay.layer5.io_ref",
+				Name:     "meshplay.khulnasoft.com_ref",
 				Value:    "/",
 				Path:     "/",
 				HttpOnly: true,

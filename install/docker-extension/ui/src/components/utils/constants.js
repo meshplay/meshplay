@@ -16,6 +16,6 @@ export const topicsList = [
   { label: "Resiliency", value: "resiliency" },
 ];
 
-export const meshplayCloudUrl = 'https://meshplay.layer5.io'
+export const meshplayCloudUrl = 'https://meshplay.khulnasoft.com'
 
 export const MESHMAP = 'meshmap'

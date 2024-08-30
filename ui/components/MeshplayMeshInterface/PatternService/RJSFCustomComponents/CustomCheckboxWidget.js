@@ -5,7 +5,7 @@ import { CustomTextTooltip } from '../CustomTextTooltip';
 import HelpOutlineIcon from '../../../../assets/icons/HelpOutlineIcon';
 import { iconSmall } from '../../../../css/icons.styles';
 import { UsesSistent } from '@/components/SistentWrapper';
-import { Checkbox } from '@layer5/sistent';
+import { Checkbox } from '@khulnasoft/sistent';
 
 export const CustomCheckboxWidget = (props) => {
   const {

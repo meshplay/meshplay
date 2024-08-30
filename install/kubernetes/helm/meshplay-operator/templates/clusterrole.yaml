@@ -19,7 +19,7 @@ metadata:
 {{- include "meshplay-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - meshplay.layer5.io
+  - meshplay.khulnasoft.com
   resources:
   - brokers
   verbs:
@@ -31,7 +31,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - meshplay.layer5.io
+  - meshplay.khulnasoft.com
   resources:
   - brokers/status
   verbs:

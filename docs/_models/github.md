@@ -4,7 +4,7 @@ title: Github
 subtitle: Integrate GitOps into your cloud native management process
 image: /assets/img/integrations/github/icons/color/github-color.svg
 permalink: extensibility/integrations/github
-docURL: https://layer5.io/resources/cloud-native/what-is-gitops
+docURL: https://khulnasoft.com/resources/cloud-native/what-is-gitops
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Source Version Control

@@ -14,7 +14,7 @@ import (
 	"golang.org/x/text/language"
 
 	"github.com/gosimple/slug"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/logger"
 
 	"github.com/grafana-tools/sdk"
 )

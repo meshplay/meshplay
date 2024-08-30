@@ -1,11 +1,11 @@
 version: "3"
 services:
   meshplay:
-    image: layer5/meshplay:stable-latest
+    image: khulnasoft/meshplay:stable-latest
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     environment:
-      - "PROVIDER_BASE_URLS=https://meshplay.layer5.io"
+      - "PROVIDER_BASE_URLS=https://meshplay.khulnasoft.com"
       # - "ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-traefik-mesh:10006 meshplay-nginx-sm:10010 meshplay-cilium:10012"
       - "EVENT=meshplayLocal"
       - "KUBECONFIG_FOLDER=/home/appuser/.kube"

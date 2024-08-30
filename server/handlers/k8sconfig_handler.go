@@ -21,9 +21,9 @@ import (
 	"github.com/khulnasoft/meshplay/server/models"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 )

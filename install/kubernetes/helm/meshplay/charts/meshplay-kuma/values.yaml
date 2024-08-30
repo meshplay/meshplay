@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: layer5/meshplay-kuma:stable-latest
+  repository: khulnasoft/meshplay-kuma:stable-latest
   pullPolicy: Always
 
 ports:

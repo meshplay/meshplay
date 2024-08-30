@@ -11,7 +11,7 @@ import OrgIcon from 'assets/icons/OrgIcon';
 import ErrorBoundary from '../../ErrorBoundary';
 import { Provider } from 'react-redux';
 import { store } from '../../../store';
-import { FormControl, FormGroup, MenuItem } from '@layer5/sistent';
+import { FormControl, FormGroup, MenuItem } from '@khulnasoft/sistent';
 import {
   OrgName,
   StyledSelect,

@@ -57,7 +57,7 @@ services:
                       code:
                         remote:
                           http_uri:
-                            uri: https://github.com/layer5io/image-hub/raw/master/rate-limit-filter/pkg/rate_limit_filter_bg.wasm
+                            uri: https://github.com/khulnasoft/image-hub/raw/master/rate-limit-filter/pkg/rate_limit_filter_bg.wasm
 
                       runtime: envoy.wasm.runtime.v8
                       vm_id: rate_limit_filter

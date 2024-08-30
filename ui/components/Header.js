@@ -38,7 +38,7 @@ import { useNotification, withNotify } from '../utils/hooks/useNotification';
 import useKubernetesHook, { useControllerStatus } from './hooks/useKubernetesHook';
 import { formatToTitleCase } from '../utils/utils';
 import { CONNECTION_KINDS } from '../utils/Enum';
-import { Checkbox, OutlinedSettingsIcon } from '@layer5/sistent';
+import { Checkbox, OutlinedSettingsIcon } from '@khulnasoft/sistent';
 import { CustomTextTooltip } from './MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { Colors } from '@/themes/app';
 import CAN from '@/utils/can';

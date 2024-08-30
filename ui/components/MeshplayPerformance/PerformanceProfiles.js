@@ -23,7 +23,7 @@ import {
   Modal,
   ResponsiveDataTable,
   SearchBar,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import MeshplayPerformanceComponent from './index';
 import PerformanceProfileGrid from './PerformanceProfileGrid';
 import PerformanceResults from './PerformanceResults';

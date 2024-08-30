@@ -64,9 +64,9 @@ jobs:
       - uses: actions/checkout@v3 #this step would go and would be no longer needed to be written
         with:
           path: action
-          repository: layer5labs/meshmap-snapshot
+          repository: khulnasoft/meshmap-snapshot
       - id: test_result
-        uses: layer5labs/MeshMap-Snapshot@v0.0.4
+        uses: khulnasoft/MeshMap-Snapshot@v0.0.4
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} # github's personal access token example: "ghp_...."
           providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshplay Cloud Authentication token, signin to meshplay-cloud to get one, example: ey.....
@@ -99,9 +99,9 @@ jobs:
       - uses: actions/checkout@v3 #this step would go and would be no longer needed to be written
         with:
           path: action
-          repository: layer5labs/meshmap-snapshot
+          repository: khulnasoft/meshmap-snapshot
       - id: test_result
-        uses: layer5labs/MeshMap-Snapshot@v0.0.4
+        uses: khulnasoft/MeshMap-Snapshot@v0.0.4
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} # github's personal access token example: "ghp_...."
           providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshplay Cloud Authentication token, signin to meshplay-cloud to get one, example: ey.....
@@ -203,11 +203,11 @@ After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/
 
 # General Upgrade Guide
 
-[MeshMap Snapshot Release Page](https://github.com/layer5labs/meshmap-snapshot/releases)
+[MeshMap Snapshot Release Page](https://github.com/khulnasoft/meshmap-snapshot/releases)
 
 ```
  - id: test_result
-        uses: layer5labs/MeshMap-Snapshot@v0.0.5 # <-- Update the version to latest from the MeshMap-Snapshot release page
+        uses: khulnasoft/MeshMap-Snapshot@v0.0.5 # <-- Update the version to latest from the MeshMap-Snapshot release page
         with:
         ...
 ```

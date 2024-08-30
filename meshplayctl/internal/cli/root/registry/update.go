@@ -22,8 +22,8 @@ import (
 	"path/filepath"
 
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
-	mutils "github.com/layer5io/meshkit/utils"
-	"github.com/layer5io/meshkit/utils/store"
+	mutils "github.com/khulnasoft/meshkit/utils"
+	"github.com/khulnasoft/meshkit/utils/store"
 	comp "github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/sirupsen/logrus"
 

@@ -17,7 +17,7 @@ import { EVENT_TYPES } from '../../lib/event-types';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
 import DefaultError from '@/components/General/error-404/index';
-import { Modal } from '@layer5/sistent';
+import { Modal } from '@khulnasoft/sistent';
 import { UsesSistent } from '../SistentWrapper';
 
 // const MESHPLAY_PERFORMANCE_URL = "/api/user/performance/profiles";

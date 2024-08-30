@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button, Grid, Switch, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { CatalogIcon } from '@layer5/sistent';
+import { CatalogIcon } from '@khulnasoft/sistent';
 import { useGetUserPrefQuery, useUpdateUserPrefMutation } from '@/rtk-query/user';
 import { UsesSistent } from '@/components/SistentWrapper';
 import { Adapters } from '../components/extensions';
@@ -22,7 +22,7 @@ const INITIAL_GRID_SIZE = { lg: 6, md: 12, xs: 12 };
 
 const MeshMapSignUpcard = ({ classes, hasAccessToMeshMap = false }) => {
   const handleSignUp = (e) => {
-    window.open('https://docs.layer5.io/meshmap', '_blank');
+    window.open('https://docs.khulnasoft.com/meshmap', '_blank');
     e.stopPropagation();
   };
 
@@ -73,7 +73,7 @@ const MeshMapSnapShotLogo = withStyles(LogoStyles)(({ classes }) => {
 
 const MeshMapSnapShotCard = ({ classes, githubActionEnabled = false }) => {
   const handleEnable = (e) => {
-    window.open('https://meshplay.layer5.io/connect/github/new/', '_blank');
+    window.open('https://meshplay.khulnasoft.com/connect/github/new/', '_blank');
     e.stopPropagation();
   };
 

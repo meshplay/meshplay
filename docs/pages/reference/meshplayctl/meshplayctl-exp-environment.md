@@ -45,7 +45,7 @@ meshplayctl exp environment create --orgID [orgId] --name [name] --description [
 Documentation for environment can be found at:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-https://docs.layer5.io/cloud/spaces/environments/
+https://docs.khulnasoft.com/cloud/spaces/environments/
 
 </div>
 </pre> 

@@ -46,7 +46,7 @@ There are two types of providers defined in Meshplay, `local` and `remote`.
 
 ### Remote Providers
 
-The use of a Remote Provider, puts Meshplay into multi-user mode and requires user authentication. This provides security for the public-facing Meshplay UI as the remote provider enforces identity with authentication and authorization. You should also use a remote provider when your use of Meshplay is ongoing or used in a team environment (used by multiple people). This can be seen when using Meshplay Playground, where a user is prompted to login through the _Layer5 Meshplay Cloud_ remote provider. Visit [Meshplay Playground](https://playground.meshplay.khulnasofy.com/) to experience this.
+The use of a Remote Provider, puts Meshplay into multi-user mode and requires user authentication. This provides security for the public-facing Meshplay UI as the remote provider enforces identity with authentication and authorization. You should also use a remote provider when your use of Meshplay is ongoing or used in a team environment (used by multiple people). This can be seen when using Meshplay Playground, where a user is prompted to login through the _KhulnaSoft Meshplay Cloud_ remote provider. Visit [Meshplay Playground](https://playground.meshplay.khulnasofy.com/) to experience this.
 
 A specific remote provider can be enforced in a Meshplay instance by passing the name of the provider with the env variable `PROVIDER`.  
 
@@ -130,7 +130,7 @@ Meshplay Server will proxy all requests to remote provider endpoints. Endpoints 
 {% capture code_content %}{
   "provider_type": "remote",
   "package_version": "v0.1.0",
-  "package_url": "https://layer5labs.github.io/meshplay-extensions-packages/provider.tar.gz",
+  "package_url": "https://khulnasoft.github.io/meshplay-extensions-packages/provider.tar.gz",
   "provider_name": "Meshplay",
   "provider_description": [
     "Persistent sessions",

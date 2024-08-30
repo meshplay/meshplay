@@ -14,8 +14,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/layer5io/meshkit/encoding"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/encoding"
+	"github.com/khulnasoft/meshkit/utils"
 
 	"github.com/meshplay/schemas/models/v1beta1/component"
 

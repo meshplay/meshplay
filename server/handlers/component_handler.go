@@ -16,18 +16,18 @@ import (
 	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/khulnasoft/meshplay/server/models/pattern/core"
 
-	"github.com/layer5io/meshkit/models/events"
-	_models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"
+	"github.com/khulnasoft/meshkit/models/events"
+	_models "github.com/khulnasoft/meshkit/models/meshmodel/core/v1beta1"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 	"github.com/meshplay/schemas/models/v1beta1/connection"
 	_model "github.com/meshplay/schemas/models/v1beta1/model"
 
-	"github.com/layer5io/meshkit/models/meshmodel/entity"
-	"github.com/layer5io/meshkit/models/meshmodel/registry"
-	meshkitutils "github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/models/meshmodel/entity"
+	"github.com/khulnasoft/meshkit/models/meshmodel/registry"
+	meshkitutils "github.com/khulnasoft/meshkit/utils"
 
-	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
+	regv1beta1 "github.com/khulnasoft/meshkit/models/meshmodel/registry/v1beta1"
 )
 
 /**Meshmodel endpoints **/

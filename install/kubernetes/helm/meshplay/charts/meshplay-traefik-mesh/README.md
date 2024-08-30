@@ -20,7 +20,7 @@ Meshplay Adapter for Traefik Mesh chart.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"layer5/meshplay-traefik-mesh:stable-latest"` |  |
+| image.repository | string | `"khulnasoft/meshplay-traefik-mesh:stable-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | string | `nil` |  |
 | ingress.enabled | bool | `false` |  |

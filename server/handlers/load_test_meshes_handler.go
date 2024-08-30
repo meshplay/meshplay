@@ -9,7 +9,7 @@ import (
 	"golang.org/x/text/language"
 
 	"github.com/khulnasoft/meshplay/server/models"
-	SMP "github.com/layer5io/service-mesh-performance/spec"
+	SMP "github.com/khulnasoft/service-mesh-performance/spec"
 )
 
 // SMPMeshes defines the JSON payload structure for available meshes api

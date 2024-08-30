@@ -24,8 +24,8 @@ import (
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/encoding"
-	"github.com/layer5io/meshkit/logger"
+	"github.com/khulnasoft/meshkit/encoding"
+	"github.com/khulnasoft/meshkit/logger"
 	"github.com/olekukonko/tablewriter"
 	"github.com/pkg/browser"
 	"github.com/pkg/errors"
@@ -44,7 +44,7 @@ const (
 	dockerComposeBinary         = "/usr/local/bin/docker-compose"
 
 	// Meshplay Kubernetes Deployment URLs
-	baseConfigURL = "https://raw.githubusercontent.com/layer5io/meshplay-operator/master/config/"
+	baseConfigURL = "https://raw.githubusercontent.com/khulnasoft/meshplay-operator/master/config/"
 	OperatorURL   = baseConfigURL + "manifests/default.yaml"
 	BrokerURL     = baseConfigURL + "samples/meshplay_v1alpha1_broker.yaml"
 	MeshsyncURL   = baseConfigURL + "samples/meshplay_v1alpha1_meshsync.yaml"
@@ -278,10 +278,10 @@ var TemplateContext = config.Context{
 
 var Services = map[string]Service{
 	"meshplay": {
-		Image:  "layer5/meshplay:stable-latest",
+		Image:  "khulnasoft/meshplay:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Environment: []string{
-			"PROVIDER_BASE_URLS=https://meshplay.layer5.io",
+			"PROVIDER_BASE_URLS=https://meshplay.khulnasoft.com",
 			"ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-osm:10009 meshplay-traefik-mesh:10006 meshplay-nginx-sm:10010 meshplay-cilium:10012",
 			"EVENT=meshplayLocal",
 			"PORT=9081",
@@ -290,52 +290,52 @@ var Services = map[string]Service{
 		Ports:   []string{"9081:9081"},
 	},
 	"meshplay-istio": {
-		Image:  "layer5/meshplay-istio:stable-latest",
+		Image:  "khulnasoft/meshplay-istio:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10000:10000"},
 	},
 	"meshplay-linkerd": {
-		Image:  "layer5/meshplay-linkerd:stable-latest",
+		Image:  "khulnasoft/meshplay-linkerd:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10001:10001"},
 	},
 	"meshplay-consul": {
-		Image:  "layer5/meshplay-consul:stable-latest",
+		Image:  "khulnasoft/meshplay-consul:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10002:10002"},
 	},
 	"meshplay-nsm": {
-		Image:  "layer5/meshplay-nsm:stable-latest",
+		Image:  "khulnasoft/meshplay-nsm:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10004:10004"},
 	},
 	"meshplay-app-mesh": {
-		Image:  "layer5/meshplay-app-mesh:stable-latest",
+		Image:  "khulnasoft/meshplay-app-mesh:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10005:10005"},
 	},
 	"meshplay-traefik-mesh": {
-		Image:  "layer5/meshplay-traefik-mesh:stable-latest",
+		Image:  "khulnasoft/meshplay-traefik-mesh:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10006:10006"},
 	},
 	"meshplay-kuma": {
-		Image:  "layer5/meshplay-kuma:stable-latest",
+		Image:  "khulnasoft/meshplay-kuma:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10007:10007"},
 	},
 	"meshplay-osm": {
-		Image:  "layer5/meshplay-osm:stable-latest",
+		Image:  "khulnasoft/meshplay-osm:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10009:10009"},
 	},
 	"meshplay-nginx-sm": {
-		Image:  "layer5/meshplay-nginx-sm:stable-latest",
+		Image:  "khulnasoft/meshplay-nginx-sm:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10010:10010"},
 	},
 	"meshplay-cilium": {
-		Image:  "layer5/meshplay-cilium:stable-latest",
+		Image:  "khulnasoft/meshplay-cilium:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10012:10012"},
 	},
@@ -783,7 +783,7 @@ func AskForInput(prompt string, allowed []string) string {
 func ParseURLGithub(URL string) (string, string, error) {
 	// GitHub URL:
 	// - https://github.com/meshplay/meshplay/blob/master/.goreleaser.yml
-	// - https://raw.githubusercontent.com/layer5io/meshplay/master/.goreleaser.yml
+	// - https://raw.githubusercontent.com/khulnasoft/meshplay/master/.goreleaser.yml
 	parsedURL, err := url.Parse(URL)
 	if err != nil {
 		return "", "", ErrParsingUrl(fmt.Errorf("failed to retrieve file from URL: %s", URL))

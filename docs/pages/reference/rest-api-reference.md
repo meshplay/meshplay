@@ -72,7 +72,7 @@ Using curl, you can access Meshplay's REST API by executing this command:
   <pre class="codeblock-pre">
   <div class="codeblock"><div class="clipboardjs">curl --location 'localhost:9081/api/&lt;endpoint&gt;' \
 --header 'meshplay-token: &lt;yourToken&gt;\
---header 'Cookie: meshplay-provider=Meshplay; meshplay.layer5.io_ref=/;token=&lt;yourToken&gt;
+--header 'Cookie: meshplay-provider=Meshplay; meshplay.khulnasoft.com_ref=/;token=&lt;yourToken&gt;
 </div>
 </div>
   </pre>

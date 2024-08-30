@@ -57,14 +57,14 @@ FROM alpine:3.15.3 as base-alpine
 FROM base-alpine as wrk2
 RUN apk update \
     && apk --no-cache --update add alpine-sdk zlib-dev openssl-dev wget git
-RUN git config --global user.email "meshplay@layer5.io"
+RUN git config --global user.email "meshplay@khulnasoft.com"
 RUN git config --global user.name "meshplay"
-RUN git clone --depth=1 https://github.com/layer5io/wrk2 && cd wrk2 && make
+RUN git clone --depth=1 https://github.com/khulnasoft/wrk2 && cd wrk2 && make
 
 FROM base-alpine as seed_content
 RUN apk add --no-cache curl
 WORKDIR /
-RUN lines=$(curl -s https://api.github.com/repos/layer5io/wasm-filters/releases/latest | grep "browser_download_url.*wasm" | cut -d : -f 2,3 | sed 's/"//g') \
+RUN lines=$(curl -s https://api.github.com/repos/khulnasoft/wasm-filters/releases/latest | grep "browser_download_url.*wasm" | cut -d : -f 2,3 | sed 's/"//g') \
     && mkdir -p seed_content/filters/binaries \
     && cd seed_content/filters/binaries  \
     for line in $lines \
@@ -83,7 +83,7 @@ RUN curl -L -s https://github.com/service-mesh-patterns/service-mesh-patterns/ta
 RUN mkdir -p /seed_content/applications && cd /seed_content/applications \
     && curl -LO https://raw.githubusercontent.com/istio/istio/master/samples/bookinfo/platform/kube/bookinfo.yaml \
     && curl -LO https://raw.githubusercontent.com/istio/istio/master/samples/httpbin/httpbin.yaml \
-    && curl -L https://raw.githubusercontent.com/layer5io/image-hub/master/deployment.yaml -o imagehub.yaml \
+    && curl -L https://raw.githubusercontent.com/khulnasoft/image-hub/master/deployment.yaml -o imagehub.yaml \
     && mkdir /emojivoto && (cd /emojivoto && curl --remote-name-all -L https://raw.githubusercontent.com/BuoyantIO/emojivoto/main/kustomize/deployment/emoji.yml \
     https://raw.githubusercontent.com/BuoyantIO/emojivoto/main/kustomize/deployment/vote-bot.yml \
     https://raw.githubusercontent.com/BuoyantIO/emojivoto/main/kustomize/deployment/voting.yml \
@@ -93,9 +93,9 @@ RUN mkdir -p /seed_content/applications && cd /seed_content/applications \
 #FROM ubuntu as nighthawk
 #RUN apt-get -y update && apt-get -y install git && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
 #RUN apt-get -y update && apt-get -y  install build-essential libssl-dev git zlib1g-dev
-#RUN git config --global user.email "meshplay@layer5.io"
+#RUN git config --global user.email "meshplay@khulnasoft.com"
 #RUN git config --global user.name "meshplay"
-#RUN git clone https://github.com/layer5io/nighthawk-go
+#RUN git clone https://github.com/khulnasoft/nighthawk-go
 #RUN cd nighthawk-go/apinighthawk/bin && chmod +x ./nighthawk_client
 
 FROM base-alpine
@@ -129,8 +129,8 @@ COPY --from=ui-provider-builder /app/out /app/provider-ui/out
 COPY --from=wrk2 /wrk2 /app/server/cmd/wrk2
 COPY --from=wrk2 /wrk2/wrk /usr/local/bin
 COPY --from=seed_content /seed_content /home/appuser/.meshplay/seed_content
-COPY --from=layer5/getnighthawk:v1.0.1 /usr/local/bin/nighthawk_service /app/server/cmd/
-COPY --from=layer5/getnighthawk:v1.0.1 /usr/local/bin/nighthawk_output_transform /app/server/cmd/
+COPY --from=khulnasoft/getnighthawk:v1.0.1 /usr/local/bin/nighthawk_service /app/server/cmd/
+COPY --from=khulnasoft/getnighthawk:v1.0.1 /usr/local/bin/nighthawk_output_transform /app/server/cmd/
 
 RUN addgroup docker
 RUN mkdir -p /var/run; chown -R appuser:docker /var/run/

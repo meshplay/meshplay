@@ -16,8 +16,8 @@ import (
 	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
 	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/broker"
-	"github.com/layer5io/meshkit/utils"
+	"github.com/khulnasoft/meshkit/broker"
+	"github.com/khulnasoft/meshkit/utils"
 )
 
 // ChangeOperatorStatus is the resolver for the changeOperatorStatus field.

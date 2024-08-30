@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Team Management in Layer5 Cloud
+title: Team Management in KhulnaSoft Cloud
 permalink: extensions/team-management
 language: en
 abstract: Learn how to efficiently add team members to Meshplay Cloud, assign roles and permissions, and facilitate collaboration within the platform.
 display-title: "false"
 list: include
 type: extensions
-category: provider-layer5
+category: provider-khulnasoft
 published: false
 ---
 

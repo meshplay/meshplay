@@ -22,7 +22,7 @@ spec:
     spec:
       serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshplay-traefik-mesh:stable-latest
+      - image: khulnasoft/meshplay-traefik-mesh:stable-latest
         imagePullPolicy: Always
         name: meshplay-traefik-mesh
         ports:

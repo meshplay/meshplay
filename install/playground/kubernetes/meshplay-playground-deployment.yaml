@@ -19,14 +19,14 @@ spec:
       containers:
         - env:
             - name: PROVIDER_BASE_URLS
-              value: https://meshplay.layer5.io
+              value: https://meshplay.khulnasoft.com
             - name: PROVIDER
               value: Meshplay
             - name: PLAYGROUND
               value: "true"
             - name: DISABLE_OPERATOR
               value: "true"
-          image: layer5/meshplay:playground-v0.6.35
+          image: khulnasoft/meshplay:playground-v0.6.35
           imagePullPolicy: Always
           name: meshplay
           ports:

@@ -123,7 +123,7 @@ A sample workflow that could be added to your `.github/workflows` folder is give
      steps:
  
        - name: Validate SMI Conformance
-         uses: layer5io/meshplayctl-smi-conformance-action@master
+         uses: khulnasoft/meshplayctl-smi-conformance-action@master
          with:
            service_mesh: open_service_mesh
            provider_token: ${{ secrets.MESHPLAY_PROVIDER_TOKEN }}

@@ -27,7 +27,7 @@ import (
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/khulnasoft/meshplay/server/handlers"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/models/oci"
+	"github.com/khulnasoft/meshkit/models/oci"
 	"github.com/manifoldco/promptui"
 	"github.com/meshplay/schemas/models/v1beta1/model"
 	"github.com/pkg/errors"

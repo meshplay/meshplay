@@ -15,7 +15,7 @@ assignees: ''
 
 ---
 
-### General Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://layer5.io/community/handbook)
+### General Contributor [Guides](https://docs.meshplay.khulnasoft.com/project/contributing) and [Handbook](https://khulnasoft.com/community/handbook)
 
 - 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshplay.khulnasoft.com) and [Community Slack](https://slack.meshplay.khulnasoft.com)
 

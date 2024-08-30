@@ -9,7 +9,7 @@ import (
 	"github.com/gofrs/uuid"
 	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/khulnasoft/meshplay/server/models/connections"
-	"github.com/layer5io/meshkit/database"
+	"github.com/khulnasoft/meshkit/database"
 	"github.com/meshplay/schemas/models/v1beta1"
 	"gorm.io/gorm"
 )

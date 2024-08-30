@@ -8,7 +8,7 @@ import (
 	"github.com/gofrs/uuid"
 	"github.com/khulnasoft/meshplay/server/machines"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/models/events"
 )
 
 type DiscoverAction struct{}

@@ -16,7 +16,7 @@ list: include
 
 ## <a name="contributing-ui-sistent">Contributing to Meshplay UI - Sistent</a>
 
-`Sistent` is the Layer5 Design System - an open source design system that offers building blocks to create consistent, accessible, and user-friendly interfaces. It's aimed at developers who want to design applications aligned with the same brand and ensure a uniform user experience across different products.
+`Sistent` is the KhulnaSoft Design System - an open source design system that offers building blocks to create consistent, accessible, and user-friendly interfaces. It's aimed at developers who want to design applications aligned with the same brand and ensure a uniform user experience across different products.
 
 Sistent leverages Material UI libraries and provides a custom theme on top of it for a consistent look and feel. It includes components, icons, and design tokens that developers can readily integrate into their applications. By using Sistent, developers can save time and effort while maintaining a high-quality user experience throughout Meshplay.
 
@@ -35,15 +35,15 @@ Sistent leverages Material UI libraries and provides a custom theme on top of it
 - [How to use Sistent tokens/theme colors](#how-to-use-tokenscolors-from-sistent-theme)
 - [Examples](#examples)
 
-The Sistent design system includes a variety of base components such as `Button`, `Textfield`, `Checkbox`, and more, which can be found [here](https://github.com/layer5io/sistent/tree/master/src/base)
- Additionally, it provides custom components like `Modal`, `TransferList`, and others, which are available [here](https://github.com/layer5io/sistent/tree/master/src/custom)
+The Sistent design system includes a variety of base components such as `Button`, `Textfield`, `Checkbox`, and more, which can be found [here](https://github.com/khulnasoft/sistent/tree/master/src/base)
+ Additionally, it provides custom components like `Modal`, `TransferList`, and others, which are available [here](https://github.com/khulnasoft/sistent/tree/master/src/custom)
 
 ###  Usage
 
-- **Import any base or custom component from `@layer5/sistent`**. Here's how you can do it:
+- **Import any base or custom component from `@khulnasoft/sistent`**. Here's how you can do it:
 
 ```javascript
-import {Button} from `@layer5/sistent`
+import {Button} from `@khulnasoft/sistent`
 
 function MyComponent() {
     return (
@@ -96,20 +96,20 @@ Let's start with a few of the common terms that we will come across frequently, 
 A value is a unique visual attribute assigned to a token via themes, such as hex codes or RGBA values, used to highlight specific colors. Avoid referencing exact values directly to ensure consistency; instead, use tokens to manage and implement reusable values.
 
 - **Tokens:**
-Tokens serve as a shared language between design and development, detailing how to build user interfaces. Tokens represent context (background, text, component), role (success, warning, brand, inverse), and modifiers (secondary, tertiary, hover) derived from the [color palette](https://github.com/layer5io/sistent/blob/master/src/theme/palette.ts).
+Tokens serve as a shared language between design and development, detailing how to build user interfaces. Tokens represent context (background, text, component), role (success, warning, brand, inverse), and modifiers (secondary, tertiary, hover) derived from the [color palette](https://github.com/khulnasoft/sistent/blob/master/src/theme/palette.ts).
 
 - **Role:**
 Roles specify the context for applying colors. Different roles can share the same value but will have different use cases due to the token structure. These values can vary depending on the current theme.
 
 #### How to use these tokens/colors from sistent theme.
 
-- Import `useTheme` hook from `@layer5/sistent` to access the current theme
+- Import `useTheme` hook from `@khulnasoft/sistent` to access the current theme
 - Use the `UsesSistent` wrapper to ensure the Sistent theme is applied to your components.
 - Utilize the `useTheme` hook to access theme properties and apply them to your components, such as setting the background style of the `Button`.
 
 ```javascript
 import { UsesSistent } from '<path>/SistentWrapper';
-import {Button, useTheme} from `@layer5/sistent`
+import {Button, useTheme} from `@khulnasoft/sistent`
 
 function MyComponent() {
  const theme = useTheme()
@@ -136,4 +136,4 @@ function MyComponent() {
 export default MyComponent;
 ```
 
-{% include alert.html type="info" title="NOTE" content="The <a href='https://github.com/layer5io/sistent/blob/master/src/theme/palette.ts'>tokens</a> and their roles are specific to their use. For example, use the background palette for background styles and the text palette for text styles." %}
+{% include alert.html type="info" title="NOTE" content="The <a href='https://github.com/khulnasoft/sistent/blob/master/src/theme/palette.ts'>tokens</a> and their roles are specific to their use. For example, use the background palette for background styles and the text palette for text styles." %}

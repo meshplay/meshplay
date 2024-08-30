@@ -22,7 +22,7 @@ import {
   importDesignUiSchema,
   publishCatalogItemSchema,
   publishCatalogItemUiSchema,
-} from '@layer5/sistent';
+} from '@khulnasoft/sistent';
 import { withStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -64,7 +64,7 @@ import { EVENT_TYPES } from '../lib/event-types';
 import _ from 'lodash';
 import { getMeshModels } from '../api/meshmodel';
 import { modifyRJSFSchema } from '../utils/utils';
-import { ResponsiveDataTable } from '@layer5/sistent';
+import { ResponsiveDataTable } from '@khulnasoft/sistent';
 import useStyles from '../assets/styles/general/tool.styles';
 import { Edit as EditIcon } from '@material-ui/icons';
 import { updateVisibleColumns } from '../utils/responsive-column';
@@ -76,7 +76,7 @@ import DefaultError from './General/error-404/index';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
 import ExportModal from './ExportModal';
-import { useModal, Modal as SistentModal, ModalBody } from '@layer5/sistent';
+import { useModal, Modal as SistentModal, ModalBody } from '@khulnasoft/sistent';
 import PatternIcon from '@/assets/icons/Pattern';
 import { UsesSistent } from './SistentWrapper';
 import DryRunIcon from '@/assets/icons/DryRunIcon';

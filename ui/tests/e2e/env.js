@@ -1,11 +1,11 @@
 const MESHPLAY_SERVER_URL = process.env.MESHPLAY_SERVER_URL || 'http://localhost:9081';
-const REMOTE_PROVIDER_URL = process.env.REMOTE_PROVIDER_URL || 'https://staging-meshplay.layer5.io';
+const REMOTE_PROVIDER_URL = process.env.REMOTE_PROVIDER_URL || 'https://staging-meshplay.khulnasoft.com';
 
 const USER_EMAIL = process.env.REMOTE_PROVIDER_USER_EMAIL;
 const USER_PASSWORD = process.env.REMOTE_PROVIDER_USER_PASSWORD;
 
 const REMOTE_PROVIDER_USER = {
-  email: USER_EMAIL || 'test-admin@layer5.io',
+  email: USER_EMAIL || 'test-admin@khulnasoft.com',
   password: USER_PASSWORD || 'test-admin',
 };
 const PROVIDER_SELECTION_URL = `${MESHPLAY_SERVER_URL}/provider`;
@@ -22,7 +22,7 @@ if (process.env.CI) {
 
   if (!PROVIDER_TOKEN) {
     core.setFailed(
-      'Token is required, please provide token from Meshplay Cloud Provider https://staging-meshplay.layer5.io/security/tokens',
+      'Token is required, please provide token from Meshplay Cloud Provider https://staging-meshplay.khulnasoft.com/security/tokens',
     );
   }
 } else {
@@ -34,7 +34,7 @@ if (process.env.CI) {
 
   if (!PROVIDER_TOKEN) {
     throw new Error(
-      'Token is required, please provide token from Meshplay Cloud Provider https://meshplay.layer5.io/security/tokens',
+      'Token is required, please provide token from Meshplay Cloud Provider https://meshplay.khulnasoft.com/security/tokens',
     );
   }
 }

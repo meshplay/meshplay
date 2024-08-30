@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import { SistentThemeProviderWithoutBaseLine } from '@layer5/sistent';
+import { SistentThemeProviderWithoutBaseLine } from '@khulnasoft/sistent';
 
 export const UsesSistent = ({ children }) => {
   const theme = useTheme();

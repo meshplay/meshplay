@@ -22,7 +22,7 @@ spec:
     spec:
       serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshplay-nginx-sm:stable-latest
+      - image: khulnasoft/meshplay-nginx-sm:stable-latest
         imagePullPolicy: Always
         name: meshplay-nginx-sm
         ports:

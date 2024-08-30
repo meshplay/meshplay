@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshkit/database"
-	"github.com/layer5io/meshkit/models/events"
+	"github.com/khulnasoft/meshkit/database"
+	"github.com/khulnasoft/meshkit/models/events"
 )
 
 // EventsPersister assists with persisting events in local SQLite DB

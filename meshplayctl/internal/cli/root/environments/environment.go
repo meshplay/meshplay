@@ -50,7 +50,7 @@ meshplayctl exp environment list --orgID [orgId]
 // To create a environment
 meshplayctl exp environment create --orgID [orgId] --name [name] --description [description]
 // Documentation for environment can be found at:
-https://docs.layer5.io/cloud/spaces/environments/
+https://docs.khulnasoft.com/cloud/spaces/environments/
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {

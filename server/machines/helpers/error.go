@@ -2,7 +2,7 @@ package helpers
 
 import (
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/layer5io/meshkit/errors"
+	"github.com/khulnasoft/meshkit/errors"
 )
 
 var (

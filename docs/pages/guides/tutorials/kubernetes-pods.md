@@ -35,7 +35,7 @@ Learn how to create, manage, and explore _Kubernetes Pods and Services_ within t
 
 #### Access Meshplay Playground
 
-- Log in to the [Meshplay Playground](https://meshplay.layer5.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
+- Log in to the [Meshplay Playground](https://meshplay.khulnasoft.com/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
 - Click **Explore** in the Cloud Native Playground tile to navigate to _MeshMap_.
 
 > **_NOTE:_** MeshMap is still in beta.

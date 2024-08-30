@@ -3,7 +3,7 @@ package model
 import (
 	"fmt"
 
-	"github.com/layer5io/meshkit/errors"
+	"github.com/khulnasoft/meshkit/errors"
 )
 
 const (

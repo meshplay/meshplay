@@ -105,7 +105,7 @@ branches.
 - Once the binaries are available, an announcement is sent out on the following channels:
   - The [Meshplay blog](https://meshplay.khulnasofy.com/blog/)
   - The [Meshplay Twitter feed](https://twitter.com/meshplayio)
-  - The [#announcements](https://layer5io.slack.com/archives/CSF3PSZT9) channel on community [Slack](https://slack.meshplay.khulnasofy.com/)
+  - The [#announcements](https://khulnasoft.slack.com/archives/CSF3PSZT9) channel on community [Slack](https://slack.meshplay.khulnasofy.com/)
 
 As much as possible this announcement will be actionable, and include any mitigating steps customers can take prior to upgrading to a fixed version.
 

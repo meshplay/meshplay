@@ -38,7 +38,7 @@ var createWorkspaceCmd = &cobra.Command{
 meshplayctl exp workspace create --orgId [orgId] --name [name] --description [description]
 
 // Documentation for workspace can be found at:
-https://docs.layer5.io/cloud/spaces/workspaces/
+https://docs.khulnasoft.com/cloud/spaces/workspaces/
 `,
 
 	Args: func(cmd *cobra.Command, args []string) error {

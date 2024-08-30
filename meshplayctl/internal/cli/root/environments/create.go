@@ -37,7 +37,7 @@ var createEnvironmentCmd = &cobra.Command{
 // Create a new environment
 meshplayctl exp environment create --orgID [orgID] --name [name] --description [description] 
 // Documentation for environment can be found at:
-https://docs.layer5.io/cloud/spaces/environments/
+https://docs.khulnasoft.com/cloud/spaces/environments/
 `,
 	Args: func(cmd *cobra.Command, args []string) error {
 		// Check if all three flags are set
