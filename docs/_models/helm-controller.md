@@ -4,7 +4,7 @@ title: Helm Controller
 subtitle: Collaborative and visual infrastructure as design for Helm Controller
 image: /assets/img/integrations/helm-controller/icons/color/helm-controller-color.svg
 permalink: extensibility/integrations/helm-controller
-docURL: https://docs.meshery.io/installation/kubernetes/helm
+docURL: https://docs.meshplay.io/installation/kubernetes/helm
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

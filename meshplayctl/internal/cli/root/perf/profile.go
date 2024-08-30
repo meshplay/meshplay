@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,9 +26,9 @@ import (
 	termbox "github.com/nsf/termbox-go"
 
 	"github.com/ghodss/yaml"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -46,13 +46,13 @@ var profileCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(0),
 	Example: `
 // List performance profiles (maximum 25 profiles)
-mesheryctl perf profile
+meshplayctl perf profile
 
 // List performance profiles with search (maximum 25 profiles)
-mesheryctl perf profile test 2
+meshplayctl perf profile test 2
 
 // View single performance profile with detailed information
-mesheryctl perf profile test --view
+meshplayctl perf profile test --view
 `,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// used for searching performance profile
@@ -60,7 +60,7 @@ mesheryctl perf profile test --view
 		// setting up for error formatting
 		cmdUsed = "profile"
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 		}
@@ -72,7 +72,7 @@ mesheryctl perf profile test --view
 		// Merge args to get profile-name
 		searchString = strings.Join(args, "%20")
 
-		profiles, _, err := fetchPerformanceProfiles(mctlCfg.GetBaseMesheryURL(), searchString, pageSize, pageNumber-1)
+		profiles, _, err := fetchPerformanceProfiles(mctlCfg.GetBaseMeshplayURL(), searchString, pageSize, pageNumber-1)
 		if err != nil {
 			utils.Log.Error(err)
 			return nil

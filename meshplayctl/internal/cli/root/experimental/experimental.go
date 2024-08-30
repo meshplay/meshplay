@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@ package experimental
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/connections"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/environments"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/relationships"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/workspaces"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/connections"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/environments"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/relationships"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/workspaces"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )
@@ -33,14 +33,14 @@ var (
 // ExpCmd represents the Experimental commands
 var ExpCmd = &cobra.Command{
 	Use:   "exp",
-	Short: "Experimental commands for mesheryctl",
+	Short: "Experimental commands for meshplayctl",
 	Long:  `Commands under the Experimental group are for testing and evaluation prior to promotion to general availability. Experimental commands are subject to change.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
 			return cmd.Help()
 		}
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return errors.New(utils.ExpError(fmt.Sprintf("'%s' is an invalid command. Use 'mesheryctl exp --help' to display usage guide.'\n", args[0])))
+			return errors.New(utils.ExpError(fmt.Sprintf("'%s' is an invalid command. Use 'meshplayctl exp --help' to display usage guide.'\n", args[0])))
 		}
 		return nil
 	},

@@ -4,7 +4,7 @@ title: Oras
 subtitle: Collaborative and visual infrastructure as design for Oras
 image: /assets/img/integrations/oras/icons/color/oras-color.svg
 permalink: extensibility/integrations/oras
-docURL: https://docs.meshery.io/extensibility/integrations/oras
+docURL: https://docs.meshplay.io/extensibility/integrations/oras
 description: 
 integrations-category: Cloud Native Storage
 integrations-subcategory: Cloud Native Storage

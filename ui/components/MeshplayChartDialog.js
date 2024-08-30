@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function MesheryChartDialog(props) {
+function MeshplayChartDialog(props) {
   const { open, title, handleClose, content } = props;
   return (
     <React.Fragment>
@@ -34,10 +34,10 @@ function MesheryChartDialog(props) {
   );
 }
 
-MesheryChartDialog.propTypes = {
+MeshplayChartDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   content: PropTypes.node.isRequired,
 };
 
-export default MesheryChartDialog;
+export default MeshplayChartDialog;

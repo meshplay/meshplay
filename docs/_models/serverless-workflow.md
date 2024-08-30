@@ -4,7 +4,7 @@ title: Serverless Workflow
 subtitle: Collaborative and visual infrastructure as design for Serverless Workflow
 image: /assets/img/integrations/serverless-workflow/icons/color/serverless-workflow-color.svg
 permalink: extensibility/integrations/serverless-workflow
-docURL: https://docs.meshery.io/extensibility/integrations/serverless workflow
+docURL: https://docs.meshplay.io/extensibility/integrations/serverless workflow
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Application Definition & Image Build

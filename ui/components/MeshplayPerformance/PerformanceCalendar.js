@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import GenericModal from '../GenericModal';
 import GrafanaCustomCharts from '../telemetry/grafana/GrafanaCustomCharts';
-import MesheryChart from '../MesheryChart';
+import MeshplayChart from '../MeshplayChart';
 import { Paper, withStyles } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import fetchAllResults from '../graphql/queries/FetchAllResultsQuery';
@@ -103,7 +103,7 @@ const styles = (theme) => ({
  * and generate calendar events from them
  *
  * @param {{
- *  meshery_id: string,
+ *  meshplay_id: string,
  *  name: string,
  *  test_start_time: string,
  *  runner_results: {
@@ -245,7 +245,7 @@ function PerformanceCalendar({ style, updateProgress, classes }) {
           <Typography variant="h6" gutterBottom align="center">
             Performance Graph
           </Typography>
-          <MesheryChart
+          <MeshplayChart
             rawdata={[result && result.runner_results ? result : {}]}
             data={[result && result.runner_results ? result.runner_results : {}]}
           />

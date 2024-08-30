@@ -39,7 +39,7 @@ import useKubernetesHook, { useControllerStatus } from './hooks/useKubernetesHoo
 import { formatToTitleCase } from '../utils/utils';
 import { CONNECTION_KINDS } from '../utils/Enum';
 import { Checkbox, OutlinedSettingsIcon } from '@layer5/sistent';
-import { CustomTextTooltip } from './MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from './MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { Colors } from '@/themes/app';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
@@ -315,7 +315,7 @@ function K8sContextMenu({
   const handleKubernetesDelete = async (name, connectionID) => {
     let responseOfDeleteK8sCtx = await deleteCtxtRef.current.show({
       title: `Delete ${name} context ?`,
-      subtitle: `Are you sure you want to delete ${name} cluster from Meshery?`,
+      subtitle: `Are you sure you want to delete ${name} cluster from Meshplay?`,
       options: ['CONFIRM', 'CANCEL'],
       variant: PROMPT_VARIANTS.DANGER,
     });

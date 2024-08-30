@@ -6,7 +6,7 @@ import (
 
 	"encoding/json"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 )
 
 type SessionSyncData struct {

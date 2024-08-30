@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/logger"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"

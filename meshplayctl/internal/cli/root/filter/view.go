@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ import (
 	"strings"
 
 	"github.com/ghodss/yaml"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -41,17 +41,17 @@ var viewCmd = &cobra.Command{
 	Example: `
 // View the specified WASM filter
 // A unique prefix of the name or ID can also be provided. If the prefix is not unique, the first match will be returned.
-mesheryctl filter view "[filter-name | ID]"
+meshplayctl filter view "[filter-name | ID]"
 
 // View all filter files
-mesheryctl filter view --all
+meshplayctl filter view --all
 
 //View multi-word named filter files. Multi-word filter names should be enclosed in quotes
-mesheryctl filter view "filter name"
+meshplayctl filter view "filter name"
         `,
 	Args: cobra.ArbitraryArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
@@ -62,7 +62,7 @@ mesheryctl filter view "filter name"
 		// if filter name/id available
 		if len(args) > 0 {
 			if viewAllFlag {
-				return errors.New(utils.FilterViewError("--all cannot be used when filter name or ID is specified\nUse 'mesheryctl filter view --help' to display usage guide\n"))
+				return errors.New(utils.FilterViewError("--all cannot be used when filter name or ID is specified\nUse 'meshplayctl filter view --help' to display usage guide\n"))
 			}
 			fullArg := strings.Join(args, " ")
 
@@ -75,22 +75,22 @@ mesheryctl filter view "filter name"
 				filterArg = args[0]
 			} else {
 				// If multiple words without quotes, return an error
-				return errors.New(utils.FilterViewError("multi-word filter names must be enclosed in double quotes\nUse 'mesheryctl filter view --help' to display usage guide\n"))
+				return errors.New(utils.FilterViewError("multi-word filter names must be enclosed in double quotes\nUse 'meshplayctl filter view --help' to display usage guide\n"))
 			}
 
-			filter, isID, err = utils.ValidId(mctlCfg.GetBaseMesheryURL(), filterArg, "filter")
+			filter, isID, err = utils.ValidId(mctlCfg.GetBaseMeshplayURL(), filterArg, "filter")
 			if err != nil {
 				utils.Log.Error(ErrFilterNameOrID(err))
 				return nil
 			}
 		}
 
-		urlString := mctlCfg.GetBaseMesheryURL()
+		urlString := mctlCfg.GetBaseMeshplayURL()
 		if len(filter) == 0 {
 			if viewAllFlag {
 				urlString += "/api/filter?pagesize=10000"
 			} else {
-				return errors.New(utils.FilterViewError("filter-name or ID not specified, use -a to view all filters\nUse 'mesheryctl filter view --help' to display usage guide\n"))
+				return errors.New(utils.FilterViewError("filter-name or ID not specified, use -a to view all filters\nUse 'meshplayctl filter view --help' to display usage guide\n"))
 			}
 		} else if isID {
 			// if filter is a valid uuid, then directly fetch the filter

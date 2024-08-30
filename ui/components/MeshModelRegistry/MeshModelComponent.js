@@ -14,7 +14,7 @@ import {
 } from '../../constants/navigator';
 // import { SORT } from '../../constants/endpoints';
 import useStyles from '../../assets/styles/general/tool.styles';
-import MesheryTreeView from './MesheryTreeView';
+import MeshplayTreeView from './MeshplayTreeView';
 import MeshModelDetails from './MeshModelDetails';
 import { toLower } from 'lodash';
 import { DisableButton } from './MeshModel.style';
@@ -427,7 +427,7 @@ const MeshModelComponent_ = ({
                 overflow: 'hidden',
               }}
             >
-              <MesheryTreeView
+              <MeshplayTreeView
                 data={modifyData()}
                 view={view}
                 setSearchText={setSearchText}

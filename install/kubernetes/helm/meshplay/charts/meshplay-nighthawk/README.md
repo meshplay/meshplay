@@ -1,8 +1,8 @@
-# meshery-nighthawk
+# meshplay-nighthawk
 
 ![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge-latest](https://img.shields.io/badge/AppVersion-edge--latest-informational?style=flat-square)
 
-Meshery Adapter for Meshery Nighthawk.
+Meshplay Adapter for Meshplay Nighthawk.
 
 ## Maintainers
 
@@ -20,7 +20,7 @@ Meshery Adapter for Meshery Nighthawk.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"meshery/meshery-nighthawk:edge-latest"` |  |
+| image.repository | string | `"meshplay/meshplay-nighthawk:edge-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | string | `nil` |  |
 | ingress.enabled | bool | `false` |  |

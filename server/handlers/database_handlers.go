@@ -9,7 +9,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/utils"
 	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
@@ -163,11 +163,11 @@ func (h *Handler) ResetSystemDatabase(w http.ResponseWriter, r *http.Request, _ 
 			&meshsyncmodel.KubernetesResourceStatus{},
 			&meshsyncmodel.KubernetesResourceObjectMeta{},
 			&models.PerformanceProfile{},
-			&models.MesheryResult{},
-			&models.MesheryPattern{},
-			&models.MesheryFilter{},
+			&models.MeshplayResult{},
+			&models.MeshplayPattern{},
+			&models.MeshplayFilter{},
 			&models.PatternResource{},
-			&models.MesheryApplication{},
+			&models.MeshplayApplication{},
 			&models.UserPreference{},
 			&models.PerformanceTestConfig{},
 			&models.SmiResultWithID{},

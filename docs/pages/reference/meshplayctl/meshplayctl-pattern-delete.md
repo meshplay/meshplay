@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern-delete
-permalink: reference/mesheryctl/pattern/delete
-redirect_from: reference/mesheryctl/pattern/delete/
+title: meshplayctl-pattern-delete
+permalink: reference/meshplayctl/pattern/delete
+redirect_from: reference/meshplayctl/pattern/delete/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: pattern
 subcommand: delete
 ---
 
-# mesheryctl pattern delete
+# meshplayctl pattern delete
 
 Delete pattern file
 
@@ -19,7 +19,7 @@ Delete pattern file
 delete pattern file will trigger deletion of the pattern file
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern delete [flags]
+meshplayctl pattern delete [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl pattern delete [flags]
 delete a pattern file
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern delete [file | URL]
+meshplayctl pattern delete [file | URL]
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl pattern delete [file | URL]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -57,4 +57,4 @@ mesheryctl pattern delete [file | URL]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

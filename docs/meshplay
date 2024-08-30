@@ -1,4 +1,4 @@
-# Copyright Meshery Authors
+# Copyright Meshplay Authors
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@
 
 #!/usr/bin/env bash
 
-# Get the platform to deploy Meshery from the flag
-# Get the deploy option on whether to install cli alone or to deploy Meshery server as well
-# Default option is to start Meshery server
+# Get the platform to deploy Meshplay from the flag
+# Get the deploy option on whether to install cli alone or to deploy Meshplay server as well
+# Default option is to start Meshplay server
 
 while getopts ":np:" opt; do
     case $opt in
@@ -32,7 +32,7 @@ while getopts ":np:" opt; do
             PLATFORM="kubernetes"
             ;;
         *)
-            echo "Invalid platform. Enter a valid platform to deploy Meshery [docker, kubernetes]:"
+            echo "Invalid platform. Enter a valid platform to deploy Meshplay [docker, kubernetes]:"
             read PLATFORM < /dev/tty
             LCOUNTER=1
             # Loop until a valid platform is provided from the user, exit after 5 tries
@@ -42,7 +42,7 @@ while getopts ":np:" opt; do
                     echo "Too many invalid attempts. Please try again."
                     exit 1
                 fi
-            echo "Invalid platform. Enter a valid platform to deploy Meshery [docker, kubernetes]:"
+            echo "Invalid platform. Enter a valid platform to deploy Meshplay [docker, kubernetes]:"
             read PLATFORM < /dev/tty
             let LCOUNTER++
             done
@@ -60,11 +60,11 @@ while getopts ":np:" opt; do
     esac
 done
 
-# If user wants to install the cli and deploy meshery as well, read the platform flag
+# If user wants to install the cli and deploy meshplay as well, read the platform flag
 if [ "$DEPLOY_MESHPLAY" != false ]; then
   # If no platform flag is present, prompt the user for a platform
   if [ ! "$PLATFORM" ]; then
-      echo Enter a platform to deploy Meshery. Available platforms [docker, kubernetes]:
+      echo Enter a platform to deploy Meshplay. Available platforms [docker, kubernetes]:
       read PLATFORM < /dev/tty
   fi
 
@@ -72,7 +72,7 @@ if [ "$DEPLOY_MESHPLAY" != false ]; then
   docker | kubernetes) ;;
 
   *)
-      echo "Invalid platform. Enter a valid platform to deploy Meshery [docker, kubernetes]:"
+      echo "Invalid platform. Enter a valid platform to deploy Meshplay [docker, kubernetes]:"
       read PLATFORM < /dev/tty
       LCOUNTER=1
       # Loop until a valid platform is provided from the user, exit after 5 tries
@@ -82,7 +82,7 @@ if [ "$DEPLOY_MESHPLAY" != false ]; then
               echo "Too many invalid attempts. Please try again."
               exit 1
           fi
-          echo "Invalid platform. Enter a valid platform to deploy Meshery [docker, kubernetes]:"
+          echo "Invalid platform. Enter a valid platform to deploy Meshplay [docker, kubernetes]:"
           read PLATFORM < /dev/tty
           let LCOUNTER++
       done
@@ -123,25 +123,25 @@ if ! command_exists unzip ; then
 fi
 
 if [ "x${MESHPLAY_VERSION}" = "x" ] ; then
-  MESHPLAY_VERSION=$(curl -L -s https://github.com/meshery/meshery/releases/latest | \
+  MESHPLAY_VERSION=$(curl -L -s https://github.com/meshplay/meshplay/releases/latest | \
                   grep "/releases/tag/" | head -1 | awk -F '"' '{print $4}' | \
                   awk -F '/' '{print $NF}' )
 fi
 
 if [ "x${MESHPLAY_VERSION}" = "x" ] ; then
-  printf "Unable to get latest mesheryctl version. Set MESHPLAY_VERSION env var and re-run. For example: export MESHPLAY_VERSION=v0.1.6\n"
+  printf "Unable to get latest meshplayctl version. Set MESHPLAY_VERSION env var and re-run. For example: export MESHPLAY_VERSION=v0.1.6\n"
   exit;
 fi
 
-NAME="mesheryctl-${MESHPLAY_VERSION}"
-URL="https://github.com/meshery/meshery/releases/download/${MESHPLAY_VERSION}/mesheryctl_${MESHPLAY_VERSION:1}_${OSEXT}_${OSARCHITECTURE}.zip"
+NAME="meshplayctl-${MESHPLAY_VERSION}"
+URL="https://github.com/meshplay/meshplay/releases/download/${MESHPLAY_VERSION}/meshplayctl_${MESHPLAY_VERSION:1}_${OSEXT}_${OSARCHITECTURE}.zip"
 
 printf "\nDownloading %s for %s...\n\n" "$NAME" "$OSEXT"
-curl -L ${URL} -o ${PWD}/meshery.zip
+curl -L ${URL} -o ${PWD}/meshplay.zip
 
-validFile=`file ${PWD}/meshery.zip | grep 'Zip archive data'`
+validFile=`file ${PWD}/meshplay.zip | grep 'Zip archive data'`
 if [ -z "$validFile" ] ; then
-  printf "Unable to download meshery.zip file from ${URL}. Set MESHPLAY_VERSION environment variable to a different version and re-run. For example: export MESHPLAY_VERSION=v0.1.6\n"
+  printf "Unable to download meshplay.zip file from ${URL}. Set MESHPLAY_VERSION environment variable to a different version and re-run. For example: export MESHPLAY_VERSION=v0.1.6\n"
   exit;
 fi
 
@@ -153,13 +153,13 @@ fi
 
 mkdir $temporary_dir_name
 if [ $? -ne 0 ] ; then
-  rm ${PWD}/meshery.zip
+  rm ${PWD}/meshplay.zip
   printf "Disk space is low on the system, Re-try installation after cleaning up some files.\n"
   exit 1;
 fi
 
 printf "\nExtracting %s to temporary folder %s...\n" "$NAME" "$temporary_dir_name"
-unzip ${PWD}/meshery.zip -d ${PWD}/$temporary_dir_name
+unzip ${PWD}/meshplay.zip -d ${PWD}/$temporary_dir_name
 
 # Use user provided installation path from env variable(MESHPLAY_INSTALL_DIR)
 # by default its /usr/local/bin
@@ -169,15 +169,15 @@ then
     install_dir="/usr/local/bin"
 fi
 
-printf "\nInstalling mesheryctl in $install_dir.\n"
+printf "\nInstalling meshplayctl in $install_dir.\n"
 WHOAMI=$(whoami)
-if mv ${PWD}/$temporary_dir_name/mesheryctl $install_dir/mesheryctl >/dev/null 2>&1; then
-  echo "mesheryctl installed."
+if mv ${PWD}/$temporary_dir_name/meshplayctl $install_dir/meshplayctl >/dev/null 2>&1; then
+  echo "meshplayctl installed."
 else
-  if sudo mv ${PWD}/$temporary_dir_name/mesheryctl $install_dir/mesheryctl ; then
-    echo "Permission Resolved: mesheryctl installed using sudo permissions."
+  if sudo mv ${PWD}/$temporary_dir_name/meshplayctl $install_dir/meshplayctl ; then
+    echo "Permission Resolved: meshplayctl installed using sudo permissions."
   else
-    echo "Cannot install mesheryctl. Check permissions of $WHOAMI for $install_dir."
+    echo "Cannot install meshplayctl. Check permissions of $WHOAMI for $install_dir."
     exit 1
   fi
 fi
@@ -185,8 +185,8 @@ fi
 #Transferring permissions and ownership to client USER
 if [ "$SUDO_USER" == "" ] ;
 then
-  if chown $WHOAMI $install_dir/mesheryctl ; then
-    # Give write access to user to create .meshery folder in home directory
+  if chown $WHOAMI $install_dir/meshplayctl ; then
+    # Give write access to user to create .meshplay folder in home directory
     chown $WHOAMI $HOME
     chmod u+w $HOME
     echo "permissions moved to "$WHOAMI
@@ -195,24 +195,24 @@ then
     exit 1
   fi
 else
-  if chown $SUDO_USER /usr/local/bin/mesheryctl ; then
-    # Give write access to SUDO_USER to create .meshery folder in home directory
+  if chown $SUDO_USER /usr/local/bin/meshplayctl ; then
+    # Give write access to SUDO_USER to create .meshplay folder in home directory
     chown $SUDO_USER $HOME
     chmod u+w $HOME
     echo "permissions moved to "$SUDO_USER
   else
-    echo "Unable to write to $install_dir/mesheryctl. Please verify write permission for $SUDO_USER."
+    echo "Unable to write to $install_dir/meshplayctl. Please verify write permission for $SUDO_USER."
     exit 1
   fi
 fi
 
 
 printf "Removing installation files"
-rm -rf meshery.zip ${PWD}/$temporary_dir_name/
+rm -rf meshplay.zip ${PWD}/$temporary_dir_name/
 
 if [ "$DEPLOY_MESHPLAY" == false ] ;
 then
-    printf "\nRun \"mesheryctl system start\" to start Meshery.\n"
+    printf "\nRun \"meshplayctl system start\" to start Meshplay.\n"
     exit 0
 fi
 
@@ -238,13 +238,13 @@ if [ ! -z "$ADAPTERS" ]; then
     for adapter in $ADAPTERS; do
         case $adapter in
             cpx|consul|istio|linkerd|nsm|kuma|cpx|osm|cilium)
-                adapterString="$adapterString -a meshery-$adapter "
+                adapterString="$adapterString -a meshplay-$adapter "
             ;;
             nginx|tanzu)
-                adapterString="$adapterString -a meshery-$adapter-sm "
+                adapterString="$adapterString -a meshplay-$adapter-sm "
             ;;
             traefik|app)
-                adapterString="$adapterString -a meshery-$adapter-mesh "
+                adapterString="$adapterString -a meshplay-$adapter-mesh "
             ;;
             *)
                 # We are just neglecting invalid mesh options
@@ -252,8 +252,8 @@ if [ ! -z "$ADAPTERS" ]; then
         esac    
     done
 
-    mesheryctl system context create custom -s $adapterString --yes
+    meshplayctl system context create custom -s $adapterString --yes
 fi
 
-printf "\nDeploying Meshery...\n"
-mesheryctl system start --yes --platform $PLATFORM
+printf "\nDeploying Meshplay...\n"
+meshplayctl system start --yes --platform $PLATFORM

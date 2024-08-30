@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { updateProgress } from '../../../lib/store';
-import { pingMesheryOperator } from '../helpers/mesheryOperator';
-import fetchMesheryOperatorStatus from '../../graphql/queries/OperatorStatusQuery';
+import { pingMeshplayOperator } from '../helpers/meshplayOperator';
+import fetchMeshplayOperatorStatus from '../../graphql/queries/OperatorStatusQuery';
 import AdapterChip from './AdapterChip';
 import { useNotification } from '../../../utils/hooks/useNotification';
 import { EVENT_TYPES } from '../../../lib/event-types';
@@ -19,9 +19,9 @@ const chipStyles = (theme) => ({
 
 // Connection Wizard
 // TODO: bind to contextID prop, leaving due to no use in current UI
-const MesheryOperatorDataPanel = ({ operatorInformation }) => {
+const MeshplayOperatorDataPanel = ({ operatorInformation }) => {
   const { notify } = useNotification();
-  const handleMesheryOperatorClick = () => {
+  const handleMeshplayOperatorClick = () => {
     const successCb = (res) => {
       if (res?.operator?.status == 'ENABLED') {
         notify({ message: 'Operator was pinged!', type: EVENT_TYPES.SUCCESS });
@@ -32,22 +32,22 @@ const MesheryOperatorDataPanel = ({ operatorInformation }) => {
 
     const errorCb = (err) => {
       notify({
-        message: 'Unable to ping meshery operator!',
+        message: 'Unable to ping meshplay operator!',
         type: EVENT_TYPES.ERROR,
         details: err.toString(),
       });
     };
 
-    pingMesheryOperator(fetchMesheryOperatorStatus, successCb, errorCb);
+    pingMeshplayOperator(fetchMeshplayOperatorStatus, successCb, errorCb);
   };
 
   return (
     <Paper style={{ padding: '2rem' }}>
       <AdapterChip
-        handleClick={handleMesheryOperatorClick}
+        handleClick={handleMeshplayOperatorClick}
         isActive={true}
-        image="/static/img/meshery-operator.svg"
-        label="Meshery Operator"
+        image="/static/img/meshplay-operator.svg"
+        label="Meshplay Operator"
       />
       <Grid container spacing={1}>
         <Grid item xs={12} md={4}>
@@ -104,4 +104,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateProgress: bindActionCreators(updateProgress, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(MesheryOperatorDataPanel);
+export default connect(null, mapDispatchToProps)(MeshplayOperatorDataPanel);

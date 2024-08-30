@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ import (
 	"path"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -37,19 +37,19 @@ var (
 
 var importCmd = &cobra.Command{
 	Use:   "import",
-	Short: "Import a Meshery design",
+	Short: "Import a Meshplay design",
 	Long: `
-		Import Helm Charts, Kubernetes Manifest, Docker Compose or Meshery designs by passing
+		Import Helm Charts, Kubernetes Manifest, Docker Compose or Meshplay designs by passing
 		remote URL or local file system path to the file. Source type must be provided.
 
-		YAML and TGZ (with helm only) format of file is accepted, if you are importing Meshery Design OCI file format is also supported
+		YAML and TGZ (with helm only) format of file is accepted, if you are importing Meshplay Design OCI file format is also supported
 
 		If you are providing remote URL, it should be a direct URL to a downloadable file.
 		For example, if the file is stored on GitHub, the URL should be 'https://raw.githubusercontent.com/path-to-file'.
 	`,
 	Example: `
 // Import pattern manifest
-mesheryctl pattern import -f [file/URL] -s [source-type] -n [name]
+meshplayctl pattern import -f [file/URL] -s [source-type] -n [name]
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
 
@@ -70,13 +70,13 @@ mesheryctl pattern import -f [file/URL] -s [source-type] -n [name]
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var err error
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		patternURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern"
+		patternURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern"
 
 		// If pattern file is passed via flags
 		if sourceType, err = getFullSourceType(sourceType); err != nil {
@@ -96,9 +96,9 @@ mesheryctl pattern import -f [file/URL] -s [source-type] -n [name]
 	},
 }
 
-func importPattern(sourceType string, file string, patternURL string, save bool) (*models.MesheryPattern, error) {
+func importPattern(sourceType string, file string, patternURL string, save bool) (*models.MeshplayPattern, error) {
 	var req *http.Request
-	var pattern *models.MesheryPattern
+	var pattern *models.MeshplayPattern
 
 	// If design name is not provided
 	// use file name as default
@@ -134,7 +134,7 @@ func importPattern(sourceType string, file string, patternURL string, save bool)
 			return nil, err
 		}
 		utils.Log.Debug("pattern file saved")
-		var response []*models.MesheryPattern
+		var response []*models.MeshplayPattern
 		defer resp.Body.Close()
 
 		body, err := io.ReadAll(resp.Body)
@@ -168,7 +168,7 @@ func importPattern(sourceType string, file string, patternURL string, save bool)
 			return nil, utils.ErrRequestResponse(err)
 		}
 		utils.Log.Debug("Fetched the design from the remote host")
-		var response []*models.MesheryPattern
+		var response []*models.MeshplayPattern
 		defer resp.Body.Close()
 
 		body, err := io.ReadAll(resp.Body)

@@ -2,7 +2,7 @@
 layout: default
 title: Releases
 permalink: project/releases
-abstract: List of released Meshery versions and their release notes.
+abstract: List of released Meshplay versions and their release notes.
 redirect_from: project/releases/
 language: en
 type: project
@@ -10,7 +10,7 @@ category: project
 list: include
 ---
 
-See also Meshery's [Compatibility Matrix]({{site.baseurl}}/installation) and [Build and Release](/project/contributing/build-and-release) process.
+See also Meshplay's [Compatibility Matrix]({{site.baseurl}}/installation) and [Build and Release](/project/contributing/build-and-release) process.
 
 {% assign sorted_release = site.releases | sort: 'date' | reverse %}
 

@@ -48,15 +48,15 @@ div.overview:hover { background: linear-gradient(337deg, #3c494f 0%, rgba(0, 179
 .image-right { float: right; padding-right: 10px; }
 
 /* COMMAND REFERENCE */
-table.mesherycomponents th { background-color: #3C494F; color: white; }
-table.mesherycomponents td.childcomponent { color: white; background-color: #477E96; }
+table.meshplaycomponents th { background-color: #3C494F; color: white; }
+table.meshplaycomponents td.childcomponent { color: white; background-color: #477E96; }
 
 .cmd-caption { margin-bottom: 2rem; }
 
 /* INSTALLATION */
 div.prereqs { background-color: #3C494F; color: #ddd; margin: 20px; padding: 15px; border-radius: 0.3rem; }
 
-a.meshery-light { color: #00b39f; }
+a.meshplay-light { color: #00b39f; }
 
 div .td-sidebar__search { padding-top: 2.5rem; }
 

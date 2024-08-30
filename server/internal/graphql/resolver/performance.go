@@ -6,12 +6,12 @@ import (
 	"fmt"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/handlers"
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 )
 
-func (r *Resolver) getPerfResult(ctx context.Context, provider models.Provider, id string) (*model.MesheryResult, error) {
+func (r *Resolver) getPerfResult(ctx context.Context, provider models.Provider, id string) (*model.MeshplayResult, error) {
 	if id == "" {
 		return nil, handlers.ErrQueryGet("*id")
 	}
@@ -38,8 +38,8 @@ func (r *Resolver) getPerfResult(ctx context.Context, provider models.Provider, 
 	meshplayID := fmt.Sprintf("%v", bdr.ID)
 	performanceProfile := fmt.Sprintf("%v", bdr.PerformanceProfileInfo.ID)
 
-	return &model.MesheryResult{
-		MesheryID:          &meshplayID,
+	return &model.MeshplayResult{
+		MeshplayID:          &meshplayID,
 		Name:               &bdr.Name,
 		Mesh:               &bdr.Mesh,
 		PerformanceProfile: &performanceProfile,
@@ -78,14 +78,14 @@ func (r *Resolver) fetchResults(ctx context.Context, provider models.Provider, s
 	return result, nil
 }
 
-// func (r *Resolver) listenToPerformanceResult(ctx context.Context, provider models.Provider, profileID string) (<-chan *model.MesheryResult, error) {
+// func (r *Resolver) listenToPerformanceResult(ctx context.Context, provider models.Provider, profileID string) (<-chan *model.MeshplayResult, error) {
 // 	// fmt.Println("SUBSCRIPTION STARTED!")
 // 	// fmt.Println(r.Config.PerformanceChannels)
 // 	if r.Config.PerformanceChannels == nil {
-// 		r.Config.PerformanceChannels = make(map[string](chan *model.MesheryResult))
+// 		r.Config.PerformanceChannels = make(map[string](chan *model.MeshplayResult))
 // 	}
 // 	if r.Config.PerformanceChannels[profileID] == nil {
-// 		r.Config.PerformanceChannels[profileID] = make(chan *model.MesheryResult)
+// 		r.Config.PerformanceChannels[profileID] = make(chan *model.MeshplayResult)
 // 	}
 // 	// fmt.Println(r.Config.PerformanceChannels)
 // 	go func() {

@@ -1,7 +1,7 @@
 import { fetchQuery, graphql } from 'react-relay';
 import { createRelayEnvironment } from '../../../lib/relayEnvironment';
 
-export default function fetchMesheryOperatorStatus(variables) {
+export default function fetchMeshplayOperatorStatus(variables) {
   const environment = createRelayEnvironment({});
   const vars = { connectionID: variables.connectionID };
 

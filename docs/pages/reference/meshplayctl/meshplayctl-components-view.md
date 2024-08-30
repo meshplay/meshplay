@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-components-view
-permalink: reference/mesheryctl/components/view
-redirect_from: reference/mesheryctl/components/view/
+title: meshplayctl-components-view
+permalink: reference/meshplayctl/components/view
+redirect_from: reference/meshplayctl/components/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: components
 subcommand: view
 ---
 
-# mesheryctl components view
+# meshplayctl components view
 
 view registered components
 
 ## Synopsis
 
-view a component registered in Meshery Server
+view a component registered in Meshplay Server
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components view [flags]
+meshplayctl components view [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl components view [flags]
 View details of a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components view [component-name]
+meshplayctl components view [component-name]
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl components view [component-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -57,4 +57,4 @@ mesheryctl components view [component-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

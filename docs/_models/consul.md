@@ -4,7 +4,7 @@ title: Consul
 subtitle: Collaborative and visual infrastructure as design for Consul
 image: /assets/img/integrations/consul/icons/color/consul-color.svg
 permalink: extensibility/integrations/consul
-docURL: https://docs.meshery.io/extensibility/adapters/consul
+docURL: https://docs.meshplay.io/extensibility/adapters/consul
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

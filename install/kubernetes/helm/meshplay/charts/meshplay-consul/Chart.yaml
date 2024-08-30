@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-consul
-description: Meshery Adapter for Consul chart.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-consul
+description: Meshplay Adapter for Consul chart.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/layer5io/meshery-consul
+  - https://github.com/khulnasoft/meshplay-consul
 
 deprecated: false
 

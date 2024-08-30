@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 )
 
 func TestTokenCreateCmd(t *testing.T) {
@@ -27,7 +27,7 @@ func TestTokenCreateCmd(t *testing.T) {
 		},
 		{
 			Name:                 "create the passed token with passed location",
-			Args:                 []string{"token", "create", "default2", "-f", "~/.meshery/auth.json"},
+			Args:                 []string{"token", "create", "default2", "-f", "~/.meshplay/auth.json"},
 			ExpectedResponse:     "create.golden",
 			ExpectedResponseYaml: "create.yaml",
 			ExpectError:          false,
@@ -95,7 +95,7 @@ func TestTokenCreateCmd(t *testing.T) {
 			//Check the modified yaml against the golden file
 			path, err := os.Getwd()
 			if err != nil {
-				t.Error("unable to locate meshery directory")
+				t.Error("unable to locate meshplay directory")
 			}
 			filepath := path + "/testdata/token/" + tt.ExpectedResponseYaml
 			content, err := os.ReadFile(filepath)
@@ -111,7 +111,7 @@ func TestTokenCreateCmd(t *testing.T) {
 			if actualResponse != createExpected {
 				t.Errorf("expected response %v and actual response %v don't match", createExpected, actualResponse)
 			}
-			if err := utils.Populate(path+"/fixtures/.meshery/config.yaml", filepath); err != nil {
+			if err := utils.Populate(path+"/fixtures/.meshplay/config.yaml", filepath); err != nil {
 				t.Error(err, "Could not complete test. Unable to configure create test file")
 			}
 			BreakupFunc()
@@ -186,7 +186,7 @@ func TestTokenDeleteCmd(t *testing.T) {
 			//Check the modified yaml against the golden file
 			path, err := os.Getwd()
 			if err != nil {
-				t.Error("unable to locate meshery directory")
+				t.Error("unable to locate meshplay directory")
 			}
 			filepath := path + "/testdata/token/" + tt.ExpectedResponseYaml
 			content, err := os.ReadFile(filepath)
@@ -202,7 +202,7 @@ func TestTokenDeleteCmd(t *testing.T) {
 			if actualResponse != createExpected {
 				t.Errorf("expected response %v and actual response %v don't match", createExpected, actualResponse)
 			}
-			if err := utils.Populate(path+"/fixtures/.meshery/config.yaml", filepath); err != nil {
+			if err := utils.Populate(path+"/fixtures/.meshplay/config.yaml", filepath); err != nil {
 				t.Error(err, "Could not complete test. Unable to configure create test file")
 			}
 			BreakupFunc()
@@ -285,7 +285,7 @@ func TestTokenSetCmd(t *testing.T) {
 			//Check the modified yaml against the golden file
 			path, err := os.Getwd()
 			if err != nil {
-				t.Error("unable to locate meshery directory")
+				t.Error("unable to locate meshplay directory")
 			}
 			filepath := path + "/testdata/token/" + tt.ExpectedResponseYaml
 			content, err := os.ReadFile(filepath)

@@ -1,33 +1,33 @@
 ---
 layout: page
-title: Contributing to Meshery Docs
+title: Contributing to Meshplay Docs
 permalink: project/contributing/contributing-docs
-abstract: How to contribute to Meshery Docs.
+abstract: How to contribute to Meshplay Docs.
 language: en
 type: project
 category: contributing
 list: include
 ---
 
-{% include alert.html type="info" title="Important" content="Before contributing, please review the <a href='https://github.com/meshery/meshery/blob/master/CONTRIBUTING.md#documentation-contribution-flow'>Documentation Contribution Flow</a>." %}
+{% include alert.html type="info" title="Important" content="Before contributing, please review the <a href='https://github.com/meshplay/meshplay/blob/master/CONTRIBUTING.md#documentation-contribution-flow'>Documentation Contribution Flow</a>." %}
 
 Use the following steps to set up your development environment depending on your Operating System of choice, fork the repository, install dependencies and run the site locally.  You can then make changes, test locally, sign-off and commit, and push the changes made for review.
 
-{% include alert.html type="info" title="Meshery Documentation Design Specification" content="See the <a href='https://docs.google.com/document/d/17guuaxb0xsfutBCzyj2CT6OZiFnMu9w4PzoILXhRXSo/edit#'>Meshery Documentation Design Specification</a> which serves to provide an overview of the tooling and approach used to create Meshery’s documentation and it information architecture." %}
+{% include alert.html type="info" title="Meshplay Documentation Design Specification" content="See the <a href='https://docs.google.com/document/d/17guuaxb0xsfutBCzyj2CT6OZiFnMu9w4PzoILXhRXSo/edit#'>Meshplay Documentation Design Specification</a> which serves to provide an overview of the tooling and approach used to create Meshplay’s documentation and it information architecture." %}
 
 ## Documentation Framework
 
-Meshery documentation is built using the following components:
+Meshplay documentation is built using the following components:
 
 - Framework - [Jekyll](https://jekyllrb.com)
 - Theme - [https://github.com/vsoch/docsy-jekyll](https://github.com/vsoch/docsy-jekyll)
-- Repo - [https://github.com/meshery/meshery/tree/master/docs](https://github.com/meshery/meshery/tree/master/docs)
-- Site - [https://docs.meshery.io](https://docs.meshery.io)
-- AWS API GW - an instance is configured to redirect from docs.meshery.io to meshery.layer5.io, because of the repo location of where the docs currently reside.
+- Repo - [https://github.com/meshplay/meshplay/tree/master/docs](https://github.com/meshplay/meshplay/tree/master/docs)
+- Site - [https://docs.meshplay.io](https://docs.meshplay.io)
+- AWS API GW - an instance is configured to redirect from docs.meshplay.io to meshplay.layer5.io, because of the repo location of where the docs currently reside.
 
 ## Set up your development environment
 
-{% include alert.html type="info" title="Jekyll" content="The Meshery Docs site is built using Jekyll - a simple static site generator. Jekyll can be installed on different platforms like Windows, Linux, and MacOS by the following steps " %}
+{% include alert.html type="info" title="Jekyll" content="The Meshplay Docs site is built using Jekyll - a simple static site generator. Jekyll can be installed on different platforms like Windows, Linux, and MacOS by the following steps " %}
 
 ### For Windows
 
@@ -75,7 +75,7 @@ Meshery documentation is built using the following components:
     </code>
     </div></pre>
   
-- Update the Gemfile located in meshery/docs directory
+- Update the Gemfile located in meshplay/docs directory
 
     <pre class="codeblock-pre"><div class="codeblock">
     <code class="clipboardjs">ruby '3.0.2'
@@ -181,14 +181,14 @@ Meshery documentation is built using the following components:
 
 - Use docs here [Jekyll installation](https://jekyllrb.com/docs/installation/macos/)
 
-{% include alert.html type="light" title="Note" content="In case of any installation issues, use the <a href='http://discuss.meshery.io)'>discussion forum</a>." %}
+{% include alert.html type="light" title="Note" content="In case of any installation issues, use the <a href='http://discuss.meshplay.io)'>discussion forum</a>." %}
 
 ### Get the code
 
-- Fork and then clone the [Meshery repository](https://github.com/meshery/meshery)
+- Fork and then clone the [Meshplay repository](https://github.com/meshplay/meshplay)
 
   <pre class="codeblock-pre"><div class="codeblock">
-  <code class="clipboardjs">git clone https://github.com/YOUR-USERNAME/meshery
+  <code class="clipboardjs">git clone https://github.com/YOUR-USERNAME/meshplay
   </code>
   </div></pre>
 
@@ -263,11 +263,11 @@ The `Gemfile.lock` will be updated automatically once the `make docs` command is
 {% include alert.html type="warning" title="Don't Commit Gemfile" content="If you have followed the third step then please don't commit the changes made on `Gemfile` and `Gemfile.lock` in your branch to preserve integrity, else the CI action will fail to generate the site preview during PR." %}
 
 ### Using Gitpod
-- Ensure you have an account on <a href="https://www.gitpod.io/" class="meshery-light">Gitpod</a> and add the <a href="https://chromewebstore.google.com/detail/gitpod/dodmmooeoklaejobgleioelladacbeki" class="meshery-light">Gitpod extension</a> to your browser.
-- Open your forked Meshery repository on GitHub.
-- Click on the "**Gitpod**" button in the top right corner of the repository page (it is only visible with the <a href="https://chromewebstore.google.com/detail/gitpod/dodmmooeoklaejobgleioelladacbeki" class="meshery-light">Gitpod browser extension</a> installed).
+- Ensure you have an account on <a href="https://www.gitpod.io/" class="meshplay-light">Gitpod</a> and add the <a href="https://chromewebstore.google.com/detail/gitpod/dodmmooeoklaejobgleioelladacbeki" class="meshplay-light">Gitpod extension</a> to your browser.
+- Open your forked Meshplay repository on GitHub.
+- Click on the "**Gitpod**" button in the top right corner of the repository page (it is only visible with the <a href="https://chromewebstore.google.com/detail/gitpod/dodmmooeoklaejobgleioelladacbeki" class="meshplay-light">Gitpod browser extension</a> installed).
 
-{% include alert.html type="dark" title="About Gitpod" content="Gitpod will automatically clone and open the repository for you in a browser-based version of Visual Studio Code. It will also automatically build the project for you on launch, comes with Docker and other tools pre-installed, making it one of the fastest ways to spin up a development environment for <a href='https://github.com/meshery/meshery'>Meshery.</a>" %}
+{% include alert.html type="dark" title="About Gitpod" content="Gitpod will automatically clone and open the repository for you in a browser-based version of Visual Studio Code. It will also automatically build the project for you on launch, comes with Docker and other tools pre-installed, making it one of the fastest ways to spin up a development environment for <a href='https://github.com/meshplay/meshplay'>Meshplay.</a>" %}
 
 - After opening the project on Gitpod, change to the docs directory.
   
@@ -308,13 +308,13 @@ You should be able to access the site on port `4000`. If you want to access it i
   </code>
   </div></pre>
 
-- Then on Github, navigate to the [Meshery repository](https://github.com/layer5io/meshery) and create a pull request from your recently pushed changes!
+- Then on Github, navigate to the [Meshplay repository](https://github.com/khulnasoft/meshplay) and create a pull request from your recently pushed changes!
 
 ---
 
-- _See the [Meshery Documentation Google Doc](https://docs.google.com/document/d/17guuaxb0xsfutBCzyj2CT6OZiFnMu9w4PzoILXhRXSo/edit) for additional reference._
+- _See the [Meshplay Documentation Google Doc](https://docs.google.com/document/d/17guuaxb0xsfutBCzyj2CT6OZiFnMu9w4PzoILXhRXSo/edit) for additional reference._
 
-## Using the features of Meshery Docs
+## Using the features of Meshplay Docs
 
 ### Clipboard Feature
 
@@ -358,10 +358,10 @@ Whenever the code tags are detected, the clipboard javascript file is automatica
 
 ## Documentation Contribution Flow Summary
 
-{% include alert.html type="light" title="Note" content="For contributing `mesheryctl` reference section, refer <a href='/contributing-cli'>Contributing CLI</a>" %}
+{% include alert.html type="light" title="Note" content="For contributing `meshplayctl` reference section, refer <a href='/contributing-cli'>Contributing CLI</a>" %}
 
 
-The following is a concise summary of the steps to contribute to Meshery documentation.
+The following is a concise summary of the steps to contribute to Meshplay documentation.
 
 1. Create a fork, if you have not already, by following the steps described [here](CONTRIBUTING-gitflow.md)
 2. In the local copy of your fork, navigate to the docs folder.
@@ -375,7 +375,7 @@ The following is a concise summary of the steps to contribute to Meshery documen
    `make docs`
 6. Commit, [sign-off](#commit-signing), and push changes to your remote branch.
    `git push origin <my-changes>`
-7. Open a pull request (in your web browser) against the repo: https://github.com/meshery/meshery.
+7. Open a pull request (in your web browser) against the repo: https://github.com/meshplay/meshplay.
 
 ### Navigation Table of Contents in Sidebar (toc)
 
@@ -466,7 +466,7 @@ Just for fun, here are all the types:
 
 #### alert.html
 
-Meshery Docs has a common include file [alert.html](https://github.com/meshery/meshery/blob/master/docs/_includes/alert.html), to provide consistent formatting for notes, warnings, and various informative callouts intended for the readers.
+Meshplay Docs has a common include file [alert.html](https://github.com/meshplay/meshplay/blob/master/docs/_includes/alert.html), to provide consistent formatting for notes, warnings, and various informative callouts intended for the readers.
 
 To use the `alert.html` feature in our documentation include the following code:
 ``` 

@@ -24,7 +24,7 @@ import {
   ResponsiveDataTable,
   SearchBar,
 } from '@layer5/sistent';
-import MesheryPerformanceComponent from './index';
+import MeshplayPerformanceComponent from './index';
 import PerformanceProfileGrid from './PerformanceProfileGrid';
 import PerformanceResults from './PerformanceResults';
 import PromptComponent, { PROMPT_VARIANTS } from '../PromptComponent';
@@ -462,8 +462,8 @@ function PerformanceProfile({ updateProgress, classes, user, handleDelete }) {
     filter: false,
     search: false,
     viewColumns: false,
-    sort: !(user && user.user_id === 'meshery'),
-    // search : !(user && user.user_id === "meshery"),
+    sort: !(user && user.user_id === 'meshplay'),
+    // search : !(user && user.user_id === "meshplay"),
     filterType: 'textField',
     responsive: 'standard',
     resizableColumns: true,
@@ -647,7 +647,7 @@ function PerformanceProfile({ updateProgress, classes, user, handleDelete }) {
             closeModal={() => setProfileForModal(undefined)}
             maxWidth="md"
           >
-            <MesheryPerformanceComponent
+            <MeshplayPerformanceComponent
               loadAsPerformanceProfile
               performanceProfileID={profileForModal?.id}
               profileName={profileForModal?.name}

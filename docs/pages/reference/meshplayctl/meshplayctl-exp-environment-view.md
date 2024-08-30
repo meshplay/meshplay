@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-environment-view
-permalink: reference/mesheryctl/exp/environment/view
-redirect_from: reference/mesheryctl/exp/environment/view/
+title: meshplayctl-exp-environment-view
+permalink: reference/meshplayctl/exp/environment/view
+redirect_from: reference/meshplayctl/exp/environment/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: exp
 subcommand: environment
 ---
 
-# mesheryctl exp environment view
+# meshplayctl exp environment view
 
 view registered environmnents
 
 ## Synopsis
 
-view a environments registered in Meshery Server
+view a environments registered in Meshplay Server
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment view [flags]
+meshplayctl exp environment view [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp environment view [flags]
 View details of a specific environment
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment view --orgID [orgId]
+meshplayctl exp environment view --orgID [orgId]
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl exp environment view --orgID [orgId]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -57,4 +57,4 @@ mesheryctl exp environment view --orgID [orgId]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

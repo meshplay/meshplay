@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern-list
-permalink: reference/mesheryctl/pattern/list
-redirect_from: reference/mesheryctl/pattern/list/
+title: meshplayctl-pattern-list
+permalink: reference/meshplayctl/pattern/list
+redirect_from: reference/meshplayctl/pattern/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: pattern
 subcommand: list
 ---
 
-# mesheryctl pattern list
+# meshplayctl pattern list
 
 List patterns
 
@@ -19,7 +19,7 @@ List patterns
 Display list of all available pattern files.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern list [flags]
+meshplayctl pattern list [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl pattern list [flags]
 list all available patterns
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern list
+meshplayctl pattern list
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl pattern list
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
 
 </div>
@@ -57,9 +57,9 @@ mesheryctl pattern list
 
 ## Screenshots
 
-Usage of mesheryctl pattern list
-![pattern-list-usage](/assets/img/mesheryctl/patternList.png)
+Usage of meshplayctl pattern list
+![pattern-list-usage](/assets/img/meshplayctl/patternList.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@ import (
 	"os"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -39,36 +39,36 @@ var importCmd = &cobra.Command{
 	Long:  "Import a WASM filter from a URI (http/s) or local filesystem path",
 	Example: `
 // Import a filter file from local filesystem
-mesheryctl filter import /path/to/filter.wasm
+meshplayctl filter import /path/to/filter.wasm
 
 // Import a filter file from a remote URI
-mesheryctl filter import https://example.com/myfilter.wasm
+meshplayctl filter import https://example.com/myfilter.wasm
 
 // Add WASM configuration 
 // If the string is a valid file in the filesystem, the file is read and passed as a string. Otherwise, the string is passed as is.
 // Use quotes if the string contains spaces
-mesheryctl filter import /path/to/filter.wasm --wasm-config [filepath|string]
+meshplayctl filter import /path/to/filter.wasm --wasm-config [filepath|string]
 
 // Specify the name of the filter to be imported. Use quotes if the name contains spaces
-mesheryctl filter import /path/to/filter.wasm --name [string]
+meshplayctl filter import /path/to/filter.wasm --name [string]
 	`,
 	Args: cobra.MinimumNArgs(0),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		filterURL := mctlCfg.GetBaseMesheryURL() + "/api/filter"
+		filterURL := mctlCfg.GetBaseMeshplayURL() + "/api/filter"
 
 		if len(args) == 0 {
-			return errors.New(utils.FilterImportError("URI is required\nUse 'mesheryctl filter import --help' to display usage guide\n"))
+			return errors.New(utils.FilterImportError("URI is required\nUse 'meshplayctl filter import --help' to display usage guide\n"))
 		}
 
-		body := models.MesheryFilterRequestBody{
+		body := models.MeshplayFilterRequestBody{
 			Save:       true,
-			FilterData: &models.MesheryFilterPayload{},
+			FilterData: &models.MeshplayFilterPayload{},
 		}
 
 		uri := args[0]

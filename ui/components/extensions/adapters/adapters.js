@@ -115,7 +115,7 @@ const Adapters = ({ updateProgress, classes }) => {
         <Grid item {...LARGE_6_MED_12_GRID_STYLE} key={adapterId}>
           <div className={classes.card}>
             <Typography className={classes.frontContent} variant="h5" component="div">
-              Meshery Adapter for {adapter.name}
+              Meshplay Adapter for {adapter.name}
             </Typography>
 
             <Typography className={classes.frontSideDescription} variant="body">
@@ -146,7 +146,7 @@ const Adapters = ({ updateProgress, classes }) => {
             >
               <Typography variant="subtitle2" style={{ fontStyle: 'italic' }}>
                 <a
-                  href="https://docs.meshery.io/concepts/architecture/adapters"
+                  href="https://docs.meshplay.io/concepts/architecture/adapters"
                   target="_blank"
                   rel="noreferrer"
                   className={classes.link}

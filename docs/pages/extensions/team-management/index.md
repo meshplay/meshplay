@@ -3,7 +3,7 @@ layout: default
 title: Team Management in Layer5 Cloud
 permalink: extensions/team-management
 language: en
-abstract: Learn how to efficiently add team members to Meshery Cloud, assign roles and permissions, and facilitate collaboration within the platform.
+abstract: Learn how to efficiently add team members to Meshplay Cloud, assign roles and permissions, and facilitate collaboration within the platform.
 display-title: "false"
 list: include
 type: extensions
@@ -11,12 +11,12 @@ category: provider-layer5
 published: false
 ---
 
-## Seamlessly Add and Manage Team Members in Meshery Cloud
+## Seamlessly Add and Manage Team Members in Meshplay Cloud
 
 
-Highlighting Meshery Cloud's seamless integration with third-party OAuth providers like GitHub and Google, the platform efficiently adds and manages team members through its intuitive interface. Follow this comprehensive guide to seamlessly integrate new members and streamline collaboration within your Meshery Cloud team.
+Highlighting Meshplay Cloud's seamless integration with third-party OAuth providers like GitHub and Google, the platform efficiently adds and manages team members through its intuitive interface. Follow this comprehensive guide to seamlessly integrate new members and streamline collaboration within your Meshplay Cloud team.
 
-* Log in to your Meshery Cloud account and access your cloud Dashboard.
+* Log in to your Meshplay Cloud account and access your cloud Dashboard.
 
 * In the Dashboard, navigate to your profile section or settings.
 
@@ -38,8 +38,8 @@ Highlighting Meshery Cloud's seamless integration with third-party OAuth provide
 
 * As the team admin or owner, you can now invite other team members by following the steps outlined earlier in the conversation.
 
-By following these steps, you can successfully join an existing team or create a new team within Meshery Cloud, allowing you to collaborate and contribute to the team'scloud native infrastructure management activities.
+By following these steps, you can successfully join an existing team or create a new team within Meshplay Cloud, allowing you to collaborate and contribute to the team'scloud native infrastructure management activities.
 
 ## Notifying Team Members about Updates
 
-In Meshery Cloud, team members are notified about team updates through various communication channels to ensure they stay informed and engaged. Notifications are used to disseminate important information and keep team members up to date with the latest developments.
+In Meshplay Cloud, team members are notified about team updates through various communication channels to ensure they stay informed and engaged. Notifications are used to disseminate important information and keep team members up to date with the latest developments.

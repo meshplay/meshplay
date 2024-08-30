@@ -1,4 +1,4 @@
-// Copyright 2024 Meshery Authors
+// Copyright 2024 Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@ import (
 	"strings"
 
 	"github.com/eiannone/keyboard"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -38,16 +38,16 @@ var (
 	searchKind      string
 )
 
-// represents the mesheryctl exp relationship search [query-text] subcommand.
+// represents the meshplayctl exp relationship search [query-text] subcommand.
 var SearchComponentsCmd = &cobra.Command{
 	Use:   "search",
 	Short: "Searches registered relationships",
 	Long:  "Searches and finds the realtionship used by different models based on the query-text.",
 	Example: `
 // Search for relationship using a query
-mesheryctl exp relationship search --[flag] [query-text]`,
+meshplayctl exp relationship search --[flag] [query-text]`,
 	Args: func(cmd *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp relationship search --[flag] [query-text] \nRun 'mesheryctl exp relationship search --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp relationship search --[flag] [query-text] \nRun 'meshplayctl exp relationship search --help' to see detailed help message"
 		if len(args) == 1 {
 			return fmt.Errorf("flag is missing. Please provide flag \n\n%v", errMsg)
 		}
@@ -64,12 +64,12 @@ mesheryctl exp relationship search --[flag] [query-text]`,
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			log.Fatalln(err, "error processing config")
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := ""
 		kind, _ := cmd.Flags().GetString("kind")
 		subType, _ := cmd.Flags().GetString("subtype")

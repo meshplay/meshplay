@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Deploying WordPress and MySQL with Persistent Volumes with Meshery
-abstract: Learn how to deploy WordPress and MySQL on Kubernetes using Meshery.
+title: Deploying WordPress and MySQL with Persistent Volumes with Meshplay
+abstract: Learn how to deploy WordPress and MySQL on Kubernetes using Meshplay.
 permalink: guides/tutorials/wordpress-mysql-persistentvolume
 model: kubernetes
 kind: deployments
@@ -9,35 +9,35 @@ type: guides
 category: tutorials
 language: en
 list: include
-abstract: "Deploy a WordPress site and a MySQL database with Persistent Volumes using Meshery Playground in an interactive live cluster environment."
+abstract: "Deploy a WordPress site and a MySQL database with Persistent Volumes using Meshplay Playground in an interactive live cluster environment."
 ---
 
-## Deploying WordPress and MySql with Persistent Volumes with Meshery
+## Deploying WordPress and MySql with Persistent Volumes with Meshplay
 
 ### Introduction
 
-In this tutorial, we will learn how to deploy a **WordPress site and a MySQL database with Persistent Volumes** using Meshery Playground. Meshery Playground is an interactive and collaborative live cluster environment that simplifies the deployment process and enhances user experience by providing visual tools for managing Kubernetes resources.
+In this tutorial, we will learn how to deploy a **WordPress site and a MySQL database with Persistent Volumes** using Meshplay Playground. Meshplay Playground is an interactive and collaborative live cluster environment that simplifies the deployment process and enhances user experience by providing visual tools for managing Kubernetes resources.
 
-> **NOTE:** If this is your first time working with Meshery Playground, consider starting with the [Exploring Kubernetes Pods with Meshery Playground](https://docs.meshery.io/guides/tutorials/kubernetes-pods) tutorial first.
+> **NOTE:** If this is your first time working with Meshplay Playground, consider starting with the [Exploring Kubernetes Pods with Meshplay Playground](https://docs.meshplay.io/guides/tutorials/kubernetes-pods) tutorial first.
 
 ### Prerequisites
 
 - Basic understanding of Kubernetes concepts.
-- Access to the _Meshery Playground_. If you don't have an account, sign up at [Meshery Playground](https://play.meshery.io/).
+- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.io/).
 
 ### Lab Scenario
 
-- Import the WordPress and MySQL manifest files into Meshery Playground.
+- Import the WordPress and MySQL manifest files into Meshplay Playground.
 
-- Create persistent volumes and a secret for the resources using the visual tools provided by Meshery.
+- Create persistent volumes and a secret for the resources using the visual tools provided by Meshplay.
 
 - Deploy these resources on the playground.
 
-In this lab, you will import the WordPress and MySQL manifest files into Meshery Playground. You will visualize these Kubernetes resources and create persistent volumes for them using the visual tools provided by Meshery. Finally, you will deploy these resources on the Playground.
+In this lab, you will import the WordPress and MySQL manifest files into Meshplay Playground. You will visualize these Kubernetes resources and create persistent volumes for them using the visual tools provided by Meshplay. Finally, you will deploy these resources on the Playground.
 
 ### Objective
 
-Learn how to import manifest files, visualize Kubernetes resources, create new resource components, and deploy the application using Meshery Playground.
+Learn how to import manifest files, visualize Kubernetes resources, create new resource components, and deploy the application using Meshplay Playground.
 
 ### Steps
 
@@ -47,15 +47,15 @@ Go ahead and download these yaml files [mysql-deployment.yaml](https://kubernete
 
 These YAML files contain the Service definitions, Persistent Volume Claims, and Deployment configurations for the WordPress site and the MySQL database.
 
-#### Access Meshery Playground
+#### Access Meshplay Playground
 
-1. Log in to the [Meshery Playground](https://meshery.layer5.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
+1. Log in to the [Meshplay Playground](https://meshplay.layer5.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
 
 2. Click **Explore** in the Cloud Native Playground tile to navigate to _MeshMap_
 
-#### Import the Files to Meshery Playground
+#### Import the Files to Meshplay Playground
 
-1. In the left sidebar, click on the upward arrow symbol(import icon) to import the designs into Meshery.
+1. In the left sidebar, click on the upward arrow symbol(import icon) to import the designs into Meshplay.
 
 2. In the modal that appears:
    - Enter a name for your design in the "Design File Name" field (e.g.`mysql-deployment`).
@@ -203,7 +203,7 @@ This functionality aids in visualizing the relationships between various resourc
 
     ![Choose deployment Environment](./screenshots/wp17.png)
 
-    **_Note_**: The Meshery Playground is connected to live Kubernetes cluster(s) and allows users full control over these clusters but you can also have the option to add your own Kubernetes cluster to the Playground.
+    **_Note_**: The Meshplay Playground is connected to live Kubernetes cluster(s) and allows users full control over these clusters but you can also have the option to add your own Kubernetes cluster to the Playground.
 
 4. Finally click `Deploy` to deploy the application to the cluster.
 
@@ -250,4 +250,4 @@ To delete the resources, use the `Undeploy` option from the Action dropdown in t
 
 #### Conclusion
 
-Congratulations! You’ve successfully completed the tutorial on deploying a WordPress site and MySQL database with Persistent Volumes using Meshery Playground. This hands-on experience should have given you valuable insights into importing manifest files, visualizing resources, creating persistent volumes, and managing deployments in Meshery Playground.
+Congratulations! You’ve successfully completed the tutorial on deploying a WordPress site and MySQL database with Persistent Volumes using Meshplay Playground. This hands-on experience should have given you valuable insights into importing manifest files, visualizing resources, creating persistent volumes, and managing deployments in Meshplay Playground.

@@ -1,6 +1,6 @@
 {
   "errors_export": {
-    "component_name": "meshery-istio",
+    "component_name": "meshplay-istio",
     "component_type": "adapter",
     "errors": {
       "1000": {
@@ -82,7 +82,7 @@
         "long_description": "Error occurred while trying to install a sample application using manifests",
         "short_description": "Error with sample app operation",
         "probable_cause": "Invalid kubeclient config\nInvalid manifest",
-        "suggested_remediation": "Reconnect your adapter to meshery server to refresh the kubeclient"
+        "suggested_remediation": "Reconnect your adapter to meshplay server to refresh the kubeclient"
       },
       "1009": {
         "name": "ErrEnvoyFilterCode",
@@ -100,7 +100,7 @@
         "long_description": "Error occurred while trying to install a sample application using manifests",
         "short_description": "Error with apply policy operation",
         "probable_cause": "Invalid kubeclient config\nInvalid manifest",
-        "suggested_remediation": "Reconnect your adapter to meshery server to refresh the kubeclient"
+        "suggested_remediation": "Reconnect your adapter to meshplay server to refresh the kubeclient"
       },
       "1011": {
         "name": "ErrCustomOperationCode",
@@ -160,19 +160,19 @@
         "name": "ErrParseOAMComponentCode",
         "code": "1017",
         "severity": "Alert",
-        "long_description": "Error occurred while parsing application component in the OAM request made by Meshery server",
+        "long_description": "Error occurred while parsing application component in the OAM request made by Meshplay server",
         "short_description": "error parsing the component",
         "probable_cause": "Could not unmarshall configuration component received via ProcessOAM gRPC call into a valid Component struct",
-        "suggested_remediation": "Check if Meshery Server is creating valid component for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshery Server. Also check if Meshery Server and adapters are referring to same component struct provided in MeshKit."
+        "suggested_remediation": "Check if Meshplay Server is creating valid component for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshplay Server. Also check if Meshplay Server and adapters are referring to same component struct provided in MeshKit."
       },
       "1018": {
         "name": "ErrParseOAMConfigCode",
         "code": "1018",
         "severity": "Alert",
-        "long_description": "Error occurred while parsing configuration in the request made by Meshery Server",
+        "long_description": "Error occurred while parsing configuration in the request made by Meshplay Server",
         "short_description": "error parsing the configuration",
         "probable_cause": "Could not unmarshall OAM config received via ProcessOAM gRPC call into a valid Config struct",
-        "suggested_remediation": "Check if Meshery Server is creating valid config for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshery Server. Also, confirm that Meshery Server and Adapters are referring to same config struct provided in MeshKit"
+        "suggested_remediation": "Check if Meshplay Server is creating valid config for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshplay Server. Also, confirm that Meshplay Server and Adapters are referring to same config struct provided in MeshKit"
       },
       "1019": {
         "name": "ErrNilClientCode",
@@ -181,7 +181,7 @@
         "long_description": "Kubernetes client is nil",
         "short_description": "kubernetes client not initialized",
         "probable_cause": "kubernetes client not initialized",
-        "suggested_remediation": "Reconnect the adaptor to Meshery server"
+        "suggested_remediation": "Reconnect the adaptor to Meshplay server"
       },
       "1020": {
         "name": "ErrParseIstioCoreComponentCode",

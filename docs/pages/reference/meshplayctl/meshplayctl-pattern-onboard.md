@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern-onboard
-permalink: reference/mesheryctl/pattern/onboard
-redirect_from: reference/mesheryctl/pattern/onboard/
+title: meshplayctl-pattern-onboard
+permalink: reference/meshplayctl/pattern/onboard
+redirect_from: reference/meshplayctl/pattern/onboard/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: pattern
 subcommand: onboard
 ---
 
-# mesheryctl pattern onboard
+# meshplayctl pattern onboard
 
 Onboard pattern
 
@@ -19,7 +19,7 @@ Onboard pattern
 Command will trigger deploy of pattern
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern onboard [flags]
+meshplayctl pattern onboard [flags]
 
 </div>
 </pre> 
@@ -29,14 +29,14 @@ mesheryctl pattern onboard [flags]
 Onboard pattern by providing file path
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern onboard -f [filepath] -s [source type]
+meshplayctl pattern onboard -f [filepath] -s [source type]
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
+meshplayctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 
 </div>
 </pre> 
@@ -57,7 +57,7 @@ mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -66,9 +66,9 @@ mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 
 ## Screenshots
 
-Usage of mesheryctl pattern onboard
-![pattern-onboard-usage](/assets/img/mesheryctl/pattern-onboard.png)
+Usage of meshplayctl pattern onboard
+![pattern-onboard-usage](/assets/img/meshplayctl/pattern-onboard.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -1,8 +1,8 @@
-# meshery-operator
+# meshplay-operator
 
 ![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Meshery Operator chart.
+Meshplay Operator chart.
 
 ## Maintainers
 
@@ -16,8 +16,8 @@ Meshery Operator chart.
 
 | Repository | Name | Version |
 |------------|------|---------|
-|  | meshery-broker | 0.5.0 |
-|  | meshery-meshsync | 0.5.0 |
+|  | meshplay-broker | 0.5.0 |
+|  | meshplay-meshsync | 0.5.0 |
 
 ## Values
 
@@ -26,7 +26,7 @@ Meshery Operator chart.
 | affinity | object | `{}` |  |
 | annotations | object | `{}` |  |
 | env | object | `{}` |  |
-| fullnameOverride | string | `"meshery-operator"` |  |
+| fullnameOverride | string | `"meshplay-operator"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
@@ -40,18 +40,18 @@ Meshery Operator chart.
 | kubeRbac.image.pullPolicy | string | `"Always"` |  |
 | kubeRbac.image.repository | string | `"gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0"` |  |
 | kubeRbac.name | string | `"kube-rbac-proxy"` |  |
-| meshery-broker.enabled | bool | `true` |  |
-| meshery-broker.fullnameOverride | string | `"meshery-broker"` |  |
-| meshery-broker.serviceAccountNameOverride | string | `"meshery-server"` |  |
-| meshery-meshsync.enabled | bool | `true` |  |
-| meshery-meshsync.fullnameOverride | string | `"meshery-meshsync"` |  |
-| meshery-meshsync.serviceAccountNameOverride | string | `"meshery-server"` |  |
-| mesheryOperator.args[0] | string | `"--metrics-addr=127.0.0.1:8080"` |  |
-| mesheryOperator.args[1] | string | `"--enable-leader-election"` |  |
-| mesheryOperator.command[0] | string | `"/manager"` |  |
-| mesheryOperator.image.pullPolicy | string | `"Always"` |  |
-| mesheryOperator.image.repository | string | `"layer5/meshery-operator:stable-latest"` |  |
-| mesheryOperator.name | string | `"manager"` |  |
+| meshplay-broker.enabled | bool | `true` |  |
+| meshplay-broker.fullnameOverride | string | `"meshplay-broker"` |  |
+| meshplay-broker.serviceAccountNameOverride | string | `"meshplay-server"` |  |
+| meshplay-meshsync.enabled | bool | `true` |  |
+| meshplay-meshsync.fullnameOverride | string | `"meshplay-meshsync"` |  |
+| meshplay-meshsync.serviceAccountNameOverride | string | `"meshplay-server"` |  |
+| meshplayOperator.args[0] | string | `"--metrics-addr=127.0.0.1:8080"` |  |
+| meshplayOperator.args[1] | string | `"--enable-leader-election"` |  |
+| meshplayOperator.command[0] | string | `"/manager"` |  |
+| meshplayOperator.image.pullPolicy | string | `"Always"` |  |
+| meshplayOperator.image.repository | string | `"layer5/meshplay-operator:stable-latest"` |  |
+| meshplayOperator.name | string | `"manager"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
@@ -64,7 +64,7 @@ Meshery Operator chart.
 | service.port | int | `10000` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.create | string | `"create"` |  |
-| serviceAccount.name | string | `"meshery-operator"` |  |
+| serviceAccount.name | string | `"meshplay-operator"` |  |
 | testCase.enabled | bool | `false` |  |
 | tolerations | list | `[]` |  |
 

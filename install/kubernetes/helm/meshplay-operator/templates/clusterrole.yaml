@@ -2,9 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: meshery-metrics-reader
+  name: meshplay-metrics-reader
   labels:
-{{- include "meshery-operator.labels" . | nindent 4 }}
+{{- include "meshplay-operator.labels" . | nindent 4 }}
 rules:
 - nonResourceURLs:
   - /metrics
@@ -14,12 +14,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: meshery-operator-role
+  name: meshplay-operator-role
   labels:
-{{- include "meshery-operator.labels" . | nindent 4 }}
+{{- include "meshplay-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - meshery.layer5.io
+  - meshplay.layer5.io
   resources:
   - brokers
   verbs:
@@ -31,7 +31,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - meshery.layer5.io
+  - meshplay.layer5.io
   resources:
   - brokers/status
   verbs:
@@ -42,9 +42,9 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: meshery-proxy-role
+  name: meshplay-proxy-role
   labels:
-{{- include "meshery-operator.labels" . | nindent 4 }}
+{{- include "meshplay-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups:
   - authentication.k8s.io
@@ -62,10 +62,10 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: meshery-leader-election-role
+  name: meshplay-leader-election-role
   namespace: {{ .Release.Namespace }}
   labels:
-{{- include "meshery-operator.labels" . | nindent 4 }}
+{{- include "meshplay-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups:
   - ""
@@ -98,9 +98,9 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: meshery-controller-role
+  name: meshplay-controller-role
   labels:
-  {{- include "meshery-operator.labels" . | nindent 4 }}
+  {{- include "meshplay-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups:
   - '*'

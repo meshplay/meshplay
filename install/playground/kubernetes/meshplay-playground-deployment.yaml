@@ -2,33 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: meshery
-  name: meshery
+    app: meshplay
+  name: meshplay
 spec:
   selector:
     matchLabels:
-      app: meshery
+      app: meshplay
   replicas: 1
   strategy: {}
   template:
     metadata:
       labels:
-        app: meshery
+        app: meshplay
     spec:
-      serviceAccountName: meshery-server
+      serviceAccountName: meshplay-server
       containers:
         - env:
             - name: PROVIDER_BASE_URLS
-              value: https://meshery.layer5.io
+              value: https://meshplay.layer5.io
             - name: PROVIDER
-              value: Meshery
+              value: Meshplay
             - name: PLAYGROUND
               value: "true"
             - name: DISABLE_OPERATOR
               value: "true"
-          image: layer5/meshery:playground-v0.6.35
+          image: layer5/meshplay:playground-v0.6.35
           imagePullPolicy: Always
-          name: meshery
+          name: meshplay
           ports:
             - containerPort: 8080
           resources: {}

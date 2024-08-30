@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package system
 import (
 	"os"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -32,21 +32,21 @@ var (
 
 var loginCmd = &cobra.Command{
 	Use:   "login",
-	Short: "Authenticate to a Meshery Server",
+	Short: "Authenticate to a Meshplay Server",
 	Long: `
-Authenticate to the Local or a Remote Provider of a Meshery Server
+Authenticate to the Local or a Remote Provider of a Meshplay Server
 
 The authentication mode is web-based browser flow`,
 	Args: cobra.MinimumNArgs(0),
 	Example: `
-// Login with the Meshery Provider of your choice: the Local Provider or a Remote Provider.
-mesheryctl system login
+// Login with the Meshplay Provider of your choice: the Local Provider or a Remote Provider.
+meshplayctl system login
 
-// Login with the Meshery Provider by specifying it via -p or --provider flag.
-mesheryctl system login -p Meshery
+// Login with the Meshplay Provider by specifying it via -p or --provider flag.
+meshplayctl system login -p Meshplay
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return errors.Wrap(err, "error processing config")
 		}
@@ -56,14 +56,14 @@ mesheryctl system login -p Meshery
 			return err
 		}
 
-		isRunning, err := utils.IsMesheryRunning(currCtx.GetPlatform())
+		isRunning, err := utils.IsMeshplayRunning(currCtx.GetPlatform())
 		if err != nil {
-			log.Error("failed to check Meshery Server status: ", err)
+			log.Error("failed to check Meshplay Server status: ", err)
 			return nil
 		}
 
 		if !isRunning {
-			log.Error(`Meshery Server is not running. Run "mesheryctl system start" to start Meshery.`)
+			log.Error(`Meshplay Server is not running. Run "meshplayctl system start" to start Meshplay.`)
 			return nil
 		}
 
@@ -76,7 +76,7 @@ mesheryctl system login -p Meshery
 		}
 
 		if err != nil {
-			log.Printf("authentication failed: Unable to reach Meshery server at %s. Verify your environment's readiness for a Meshery deployment by running `mesheryctl system check`.", mctlCfg.GetBaseMesheryURL())
+			log.Printf("authentication failed: Unable to reach Meshplay server at %s. Verify your environment's readiness for a Meshplay deployment by running `meshplayctl system check`.", mctlCfg.GetBaseMeshplayURL())
 			return nil
 		}
 
@@ -103,5 +103,5 @@ mesheryctl system login -p Meshery
 }
 
 func init() {
-	loginCmd.PersistentFlags().StringVarP(&providerFlag, "provider", "p", "", "login Meshery with specified provider")
+	loginCmd.PersistentFlags().StringVarP(&providerFlag, "provider", "p", "", "login Meshplay with specified provider")
 }

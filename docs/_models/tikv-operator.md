@@ -4,7 +4,7 @@ title: Tikv Operator
 subtitle: Collaborative and visual infrastructure as design for Tikv Operator
 image: /assets/img/integrations/tikv-operator/icons/color/tikv-operator-color.svg
 permalink: extensibility/integrations/tikv-operator
-docURL: https://docs.meshery.io/extensibility/integrations/tikv-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/tikv-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

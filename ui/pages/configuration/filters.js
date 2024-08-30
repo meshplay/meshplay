@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NoSsr, withStyles } from '@material-ui/core';
-import MesheryFilters from '../../components/Filters';
+import MeshplayFilters from '../../components/Filters';
 import { updatepagepath } from '../../lib/store';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -23,9 +23,9 @@ function NewFilters(props) {
   return (
     <NoSsr>
       <Head>
-        <title>Filters | Meshery</title>
+        <title>Filters | Meshplay</title>
       </Head>
-      <MesheryFilters />
+      <MeshplayFilters />
     </NoSsr>
   );
 }

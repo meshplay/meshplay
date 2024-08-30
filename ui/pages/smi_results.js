@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MesherySMIResults from '../components/MesherySMIResults';
+import MeshplaySMIResults from '../components/MeshplaySMIResults';
 import { updatepagepath } from '../lib/store';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -20,10 +20,10 @@ const SMIResults = (props) => {
   return (
     <React.Fragment>
       <Head>
-        <title>SMI Results | Meshery</title>
+        <title>SMI Results | Meshplay</title>
       </Head>
       <Paper className={props.classes.paper}>
-        <MesherySMIResults />
+        <MeshplaySMIResults />
       </Paper>
     </React.Fragment>
   );

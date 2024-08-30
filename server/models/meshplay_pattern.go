@@ -6,7 +6,7 @@ import (
 	"database/sql"
 
 	"github.com/gofrs/uuid"
-	isql "github.com/layer5io/meshplay/server/internal/sql"
+	isql "github.com/khulnasoft/meshplay/server/internal/sql"
 	"github.com/layer5io/meshkit/models/catalog/v1alpha1"
 	"gopkg.in/yaml.v2"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -81,13 +81,13 @@ type StatusApplyConfiguration struct {
 	Code                        *int32                           `json:"code,omitempty"`
 }
 
-// MesheryPattern represents the patterns that needs to be saved
-type MesheryPattern struct {
+// MeshplayPattern represents the patterns that needs to be saved
+type MeshplayPattern struct {
 	ID *uuid.UUID `json:"id,omitempty"`
 
 	Name        string `json:"name,omitempty"`
 	PatternFile string `json:"pattern_file"`
-	// Meshery doesn't have the user id fields
+	// Meshplay doesn't have the user id fields
 	// but the remote provider is allowed to provide one
 	UserID *string `json:"user_id"`
 
@@ -107,16 +107,16 @@ type MesheryPattern struct {
 	DeploymentCount int `json:"deployment_count" db:"deployment_count"`
 }
 
-// MesheryCatalogPatternRequestBody refers to the type of request body
+// MeshplayCatalogPatternRequestBody refers to the type of request body
 // that PublishCatalogPattern would receive
-type MesheryCatalogPatternRequestBody struct {
+type MeshplayCatalogPatternRequestBody struct {
 	ID          uuid.UUID `json:"id,omitempty"`
 	CatalogData isql.Map  `json:"catalog_data,omitempty"`
 }
 
-// MesheryCatalogPatternRequestBody refers to the type of request body
-// that CloneMesheryPatternHandler would receive
-type MesheryClonePatternRequestBody struct {
+// MeshplayCatalogPatternRequestBody refers to the type of request body
+// that CloneMeshplayPatternHandler would receive
+type MeshplayClonePatternRequestBody struct {
 	Name string `json:"name,omitempty"`
 }
 
@@ -137,7 +137,7 @@ func GetPatternName(stringifiedFile string) (string, error) {
 	return name, nil
 }
 
-type MesheryPatternFileDeployPayload struct {
+type MeshplayPatternFileDeployPayload struct {
 	PatternFile string    `json:"pattern_file"`
 	PatternID   uuid.UUID `json:"pattern_id"`
 }

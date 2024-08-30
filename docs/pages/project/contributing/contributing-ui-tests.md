@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Contributing to Meshery's End-to-End Tests
+title: Contributing to Meshplay's End-to-End Tests
 permalink: project/contributing/contributing-ui-tests
 abstract: How to contribute to End-to-End Tests using Playwright.
 language: en
@@ -9,17 +9,17 @@ category: contributing
 list: include
 ---
 
-To automate functional integration and end-to-end testing Meshery uses [Playwright](https://playwright.dev/) as one of the tools to automate browser testing. End-to-end tests run with each pull request to ensure that the changes do not break the existing functionality.
+To automate functional integration and end-to-end testing Meshplay uses [Playwright](https://playwright.dev/) as one of the tools to automate browser testing. End-to-end tests run with each pull request to ensure that the changes do not break the existing functionality.
 
 ## Prerequisites:
 
-Before diving into Meshery's testing environment, certain prerequisites are necessary:
+Before diving into Meshplay's testing environment, certain prerequisites are necessary:
 
-- A verified account in your choosen provider which integrate with Meshery.
+- A verified account in your choosen provider which integrate with Meshplay.
 - A compatible browser such as Chromium, Chrome, or Firefox.
 - Installations of Golang, NodeJS, and Makefiles for Native OS build (Optional for docker based build).
 - Kubernetes clusters (Required for several test cases)
-- Already have [Meshery Adapters](https://docs.meshery.io/concepts/architecture/adapters) up and running (Required for several test cases)
+- Already have [Meshplay Adapters](https://docs.meshplay.io/concepts/architecture/adapters) up and running (Required for several test cases)
 
 ## Setting up environment variable
 
@@ -28,17 +28,17 @@ To run the tests successfully, three environment variables must be configured:
 • `REMOTE_PROVIDER_USER_PASSWORD` : The password associated with your account within your provider.  
 • `PROVIDER_TOKEN`: You're provider token, that can be generated from your provider account  
 
-In the case you are using Layer5 Cloud as provider, you can generate your token on [Layer5 cloud account token](https://meshery.layer5.io/security/tokens)
+In the case you are using Layer5 Cloud as provider, you can generate your token on [Layer5 cloud account token](https://meshplay.layer5.io/security/tokens)
 
 During the setup phase, Playwright utilizes these environment variables to log in and store credentials securely in the `playwright/.auth` directory. To protect sensitive data, the `.gitignore` file is configured to exclude the `.env` file and any JSON files within the `/playwright/.auth` directory from the GitHub repository.
 
 There are several tools to help you to working with environment variables locally for each project such as [direnv](https://github.com/direnv/direnv), it can work across multiple shell such as Bash, Powershell, Oh my zsh, Fish, etc
 
-## Starting up Meshery UI and Server
+## Starting up Meshplay UI and Server
 
-There are a few ways to set up the Meshery UI and server, but for end-to-end testing, we aim to get as close to a production environment as possible. We know developers might need to make some tweaks for UI and Server. Rebuilding the whole project can take time, and we don’t support hot reload because it’s more for development than for end-to-end testing.
+There are a few ways to set up the Meshplay UI and server, but for end-to-end testing, we aim to get as close to a production environment as possible. We know developers might need to make some tweaks for UI and Server. Rebuilding the whole project can take time, and we don’t support hot reload because it’s more for development than for end-to-end testing.
 
-{% include alert.html type="warning" content="Some test cases required you to have kubernetes cluster and build meshery adapter as well, be aware of that. Which is out of scope for this documentation" %}
+{% include alert.html type="warning" content="Some test cases required you to have kubernetes cluster and build meshplay adapter as well, be aware of that. Which is out of scope for this documentation" %}
 
 ### Native OS
 
@@ -78,9 +78,9 @@ make docker-testing-env-build
 make docker-testing-env
 ```
 
-### Meshery CLI
+### Meshplay CLI
 
-There is also Meshery CLI which can help you run the UI and Server, for more detail, you go to [Meshery CLI documentation](https://docs.meshery.io/project/contributing/contributing-cli-guide#process)
+There is also Meshplay CLI which can help you run the UI and Server, for more detail, you go to [Meshplay CLI documentation](https://docs.meshplay.io/project/contributing/contributing-cli-guide#process)
 
 ## Setup playwright & Run the test cases
 

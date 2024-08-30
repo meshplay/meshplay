@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Meshery Adapter for App Mesh
-name: Meshery Adapter for App Mesh
+title: Meshplay Adapter for App Mesh
+name: Meshplay Adapter for App Mesh
 component: App Mesh
 earliest_version: v1.4.1
 port: 10005/gRPC
 project_status: beta
-github_link: https://github.com/meshery/meshery-app-mesh
+github_link: https://github.com/meshplay/meshplay-app-mesh
 image: /assets/img/service-meshes/app-mesh.svg
 white_image: /assets/img/service-meshes/app-mesh-white.svg
 permalink: extensibility/adapters/app-mesh
@@ -14,14 +14,14 @@ redirect_from: service-meshes/adapters/app-mesh
 language: en
 ---
 
-{% assign sorted_tests_group = site.compatibility | group_by: "meshery-component" %}
+{% assign sorted_tests_group = site.compatibility | group_by: "meshplay-component" %}
 {% for group in sorted_tests_group %}
-      {% if group.name == "meshery-app-mesh" %}
-        {% assign items = group.items | sort: "meshery-component-version" | reverse %}
+      {% if group.name == "meshplay-app-mesh" %}
+        {% assign items = group.items | sort: "meshplay-component-version" | reverse %}
         {% for item in items %}
-          {% if item.meshery-component-version != "edge" %}
+          {% if item.meshplay-component-version != "edge" %}
             {% if item.overall-status == "passing" %}
-              {% assign adapter_version_dynamic = item.meshery-component-version %}
+              {% assign adapter_version_dynamic = item.meshplay-component-version %}
               {% break %}
             {% elsif item.overall-status == "failing" %}
               {% continue %}
@@ -45,7 +45,7 @@ The {{page.name}} can install **{{page.earliest_version}}** of {{page.component}
 
 ### Sample Applications
 
-The {{ page.name }} includes a handful of sample applications. Use Meshery to deploy any of these sample applications.
+The {{ page.name }} includes a handful of sample applications. Use Meshplay to deploy any of these sample applications.
 
 - [Emojivoto]({{site.baseurl}}/guides/sample-apps#emojivoto)
 
@@ -53,7 +53,7 @@ The {{ page.name }} includes a handful of sample applications. Use Meshery to de
 
 - [Bookinfo]({{site.baseurl}}/guides/sample-apps#bookinfo)
 
-  - Follow this [tutorial workshop](https://github.com/layer5io/istio-service-mesh-workshop/blob/master/lab-2/README.md) to set up and deploy the BookInfo sample app on Istio using Meshery.
+  - Follow this [tutorial workshop](https://github.com/layer5io/istio-service-mesh-workshop/blob/master/lab-2/README.md) to set up and deploy the BookInfo sample app on Istio using Meshplay.
 
 - [Httpbin]({{site.baseurl}}/guides/sample-apps#httpbin)
 

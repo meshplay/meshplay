@@ -3,7 +3,7 @@ layout: default
 title: Patterns
 permalink: concepts/logical/patterns
 type: concepts
-abstract: "Meshery Patterns are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured."
+abstract: "Meshplay Patterns are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured."
 language: en
 list: include
 redirect_from:

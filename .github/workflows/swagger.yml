@@ -7,7 +7,7 @@ on:
       - 'handlers/**'
 jobs:
   swaggerci:
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     name: swagger-docs
     runs-on: ubuntu-22.04
     steps:

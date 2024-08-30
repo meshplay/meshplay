@@ -6,13 +6,13 @@ import {
   IconButton,
   Tooltip,
 } from '@layer5/sistent';
-import useStyles from './MesheryPatterns/Cards.styles';
+import useStyles from './MeshplayPatterns/Cards.styles';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import FullscreenExit from '@material-ui/icons/FullscreenExit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Fullscreen from '@material-ui/icons/Fullscreen';
 import Save from '@material-ui/icons/Save';
-import { StyledDialog, YamlDialogTitleText } from './MesheryPatterns/style';
+import { StyledDialog, YamlDialogTitleText } from './MeshplayPatterns/style';
 
 const YAMLDialog = ({
   fullScreen,

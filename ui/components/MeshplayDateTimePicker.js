@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { TextField } from '@material-ui/core';
 import moment from 'moment';
 
-class MesheryDateTimePicker extends Component {
+class MeshplayDateTimePicker extends Component {
   constructor(props) {
     super(props);
     this.dateFormat = 'YYYY-MM-DD, hh:mm:ss a';
@@ -65,11 +65,11 @@ class MesheryDateTimePicker extends Component {
   }
 }
 
-MesheryDateTimePicker.propTypes = {
+MeshplayDateTimePicker.propTypes = {
   label: PropTypes.string.isRequired,
   selectedDate: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   className: PropTypes.object.isRequired,
 };
 
-export default MesheryDateTimePicker;
+export default MeshplayDateTimePicker;

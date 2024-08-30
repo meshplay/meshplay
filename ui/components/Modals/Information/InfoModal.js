@@ -21,14 +21,14 @@ import { useNotification } from '../../../utils/hooks/useNotification';
 import { EVENT_TYPES } from '../../../lib/event-types';
 import axios from 'axios';
 import _ from 'lodash';
-import RJSFWrapper from '../../MesheryMeshInterface/PatternService/RJSF_wrapper';
+import RJSFWrapper from '../../MeshplayMeshInterface/PatternService/RJSF_wrapper';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Provider } from 'react-redux';
 import { store } from '../../../store';
 import { useGetUserByIdQuery } from '../../../rtk-query/user.js';
 import { ErrorBoundary } from '../../General/ErrorBoundary';
 import { getUnit8ArrayForDesign } from '@/utils/utils';
-import ServiceMesheryIcon from '@/assets/icons/ServiceMesheryIcon';
+import ServiceMeshplayIcon from '@/assets/icons/ServiceMeshplayIcon';
 import {
   Modal,
   ModalFooter,
@@ -320,7 +320,7 @@ const InfoModal_ = React.memo((props) => {
                     onError={handleError}
                   />
                 ) : (
-                  <ServiceMesheryIcon
+                  <ServiceMeshplayIcon
                     style={{
                       boxShadow: '0px 0px 6px 2px rgba(0, 0, 0, 0.25)',
                       borderRadius: '20px',
@@ -437,7 +437,7 @@ const InfoModal_ = React.memo((props) => {
         </ModalBody>
         <ModalFooter
           helpText={
-            'Upon submitting your catalog item, an approval flow will be initiated. [Learn More](https://docs.meshery.io/concepts/catalog)'
+            'Upon submitting your catalog item, an approval flow will be initiated. [Learn More](https://docs.meshplay.io/concepts/catalog)'
           }
           variant="filled"
         >

@@ -6,25 +6,25 @@ metadata:
     kompose.version: 1.32.0 ()
   creationTimestamp: null
   labels:
-    io.kompose.service: meshery-consul
-  name: meshery-consul
+    io.kompose.service: meshplay-consul
+  name: meshplay-consul
 spec:
   selector:
     matchLabels:
-      io.kompose.service: meshery-consul
+      io.kompose.service: meshplay-consul
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: meshery-consul
+        io.kompose.service: meshplay-consul
     spec:
-      serviceAccount: meshery-server
+      serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshery-consul:stable-latest
+      - image: layer5/meshplay-consul:stable-latest
         imagePullPolicy: Always
-        name: meshery-consul
+        name: meshplay-consul
         ports:
         - containerPort: 10002
         resources: {}

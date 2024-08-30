@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-perf-result
-permalink: reference/mesheryctl/perf/result
-redirect_from: reference/mesheryctl/perf/result/
+title: meshplayctl-perf-result
+permalink: reference/meshplayctl/perf/result
+redirect_from: reference/meshplayctl/perf/result/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: perf
 subcommand: result
 ---
 
-# mesheryctl perf result
+# meshplayctl perf result
 
 List performance test results
 
@@ -19,7 +19,7 @@ List performance test results
 List all the available test results of a performance profile
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result [profile-name] [flags]
+meshplayctl perf result [profile-name] [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl perf result [profile-name] [flags]
 List Test results (maximum 25 results)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result saturday-profile
+meshplayctl perf result saturday-profile
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl perf result saturday-profile
 View other set of performance results with --page (maximum 25 results)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result saturday-profile --page 2
+meshplayctl perf result saturday-profile --page 2
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl perf result saturday-profile --page 2
 View single performance result with detailed information
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result saturday-profile --view
+meshplayctl perf result saturday-profile --view
 
 </div>
 </pre> 
@@ -65,9 +65,9 @@ mesheryctl perf result saturday-profile --view
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string          path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string          path to config file (default "/home/runner/.meshplay/config.yaml")
   -o, --output-format string   (optional) format to display in [json|yaml]
-  -t, --token string           (required) Path to meshery auth config
+  -t, --token string           (required) Path to meshplay auth config
   -v, --verbose                verbose output
   -y, --yes                    (optional) assume yes for user interactive prompts.
 
@@ -76,9 +76,9 @@ mesheryctl perf result saturday-profile --view
 
 ## Screenshots
 
-Usage of mesheryctl perf result
-![perf-result-usage](/assets/img/mesheryctl/perf-result.png)
+Usage of meshplayctl perf result
+![perf-result-usage](/assets/img/meshplayctl/perf-result.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

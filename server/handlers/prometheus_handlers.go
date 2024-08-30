@@ -13,8 +13,8 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/models/events"
 )
 

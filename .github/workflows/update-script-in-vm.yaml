@@ -17,5 +17,5 @@ jobs:
             username: root
             key: ${{ secrets.METAL_SSH_KEY }}
             script: |
-                cd meshery/install/playground; curl -O https://raw.githubusercontent.com/meshery/meshery/meshery/install/playground-cleanup.sh
+                cd meshplay/install/playground; curl -O https://raw.githubusercontent.com/meshplay/meshplay/meshplay/install/playground-cleanup.sh
           

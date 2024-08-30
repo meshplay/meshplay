@@ -8,7 +8,7 @@ import Moment from 'react-moment';
 import FlipCard from '../FlipCard';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import FullscreenExit from '@material-ui/icons/FullscreenExit';
-import useStyles from '../MesheryPatterns/Cards.styles';
+import useStyles from '../MeshplayPatterns/Cards.styles';
 import YAMLDialog from '../YamlDialog';
 import CloneIcon from '../../public/static/img/CloneIcon';
 import PublicIcon from '@material-ui/icons/Public';

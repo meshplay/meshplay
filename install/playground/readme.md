@@ -1,19 +1,19 @@
 
-# Meshery Playground Bare Metal Configuration 
+# Meshplay Playground Bare Metal Configuration 
 
-_Deployment Topology - see Meshery Architecture deck_
+_Deployment Topology - see Meshplay Architecture deck_
 
 ### DNS
-playground.meshery.io - 147.28.141.9
+playground.meshplay.io - 147.28.141.9
 
 ### Hosts
-- c3-medium-x86-01-meshery - docker host with Meshery Server
-- c3-medium-x86-02-meshery - single node k8s cluster
+- c3-medium-x86-01-meshplay - docker host with Meshplay Server
+- c3-medium-x86-02-meshplay - single node k8s cluster
 
 #### Access
 ```
-ssh -i ~/.ssh/equinix-metal root@c3-medium-x86-01-meshery
-ssh -i ~/.ssh/equinix-metal root@c3-medium-x86-02-meshery
+ssh -i ~/.ssh/equinix-metal root@c3-medium-x86-01-meshplay
+ssh -i ~/.ssh/equinix-metal root@c3-medium-x86-02-meshplay
 ```
 
 #### Static IP address configuration
@@ -47,10 +47,10 @@ iptables -I INPUT -s 192.210.143.199 -j DROP
 > protect-kubelet
 chmod +x protect-kubelet
 
-## Reinstalling Meshery after a clean Meshery uninstall
-If mistakenly or for some reason Meshery is uninstalled (along with `meshery` namespace) then follow the below steps to bring it back up.
-1. `helm install meshery meshery/meshery --namespace meshery --set env.PROVIDER=Meshery`
-2. `kubectl create secret tls -n meshery tls-secret-meshery --cert=/etc/letsencrypt/live/playground.meshery.io-0001/fullchain.pem --key=/etc/letsencrypt/live/playground.meshery.io-0001/privkey.pem`  Make sure to have private and public keys generated for `playground.meshery.io` in appropriate directories.
+## Reinstalling Meshplay after a clean Meshplay uninstall
+If mistakenly or for some reason Meshplay is uninstalled (along with `meshplay` namespace) then follow the below steps to bring it back up.
+1. `helm install meshplay meshplay/meshplay --namespace meshplay --set env.PROVIDER=Meshplay`
+2. `kubectl create secret tls -n meshplay tls-secret-meshplay --cert=/etc/letsencrypt/live/playground.meshplay.io-0001/fullchain.pem --key=/etc/letsencrypt/live/playground.meshplay.io-0001/privkey.pem`  Make sure to have private and public keys generated for `playground.meshplay.io` in appropriate directories.
 3. kubectl apply -f contour-http-proxy.yaml 
 ## Prometheus deployment
 For monitoring the playground deployment we have a node exporter running on both the nodes.
@@ -77,7 +77,7 @@ Nginx ingress controller by default (sometimes) doesn't pick up the custom confi
 
 ```
 	location /api/system/graphql/query {
-	   set $service "meshery"; 
+	   set $service "meshplay"; 
 	   proxy_set_header Upgrade $http_upgrade;
 	   proxy_http_version 1.1;
 	   proxy_set_header X-Forwarded-Host $http_host;
@@ -86,10 +86,10 @@ Nginx ingress controller by default (sometimes) doesn't pick up the custom confi
 	   proxy_set_header Host $host;
 	   proxy_set_header Connection "upgrade";
 	   proxy_cache_bypass $http_upgrade;
-	   proxy_pass http://meshery-meshery-playground.meshery.io-meshery-9082;
+	   proxy_pass http://meshplay-meshplay-playground.meshplay.io-meshplay-9082;
 	 }
 	location /api/provider/extension/server/graphql/query {
-	   set $service "meshery"; 
+	   set $service "meshplay"; 
 	   proxy_set_header Upgrade $http_upgrade;
 	   proxy_http_version 1.1;
 	   proxy_set_header X-Forwarded-Host $http_host;
@@ -98,7 +98,7 @@ Nginx ingress controller by default (sometimes) doesn't pick up the custom confi
 	   proxy_set_header Host $host;
 	   proxy_set_header Connection "upgrade";
 	   proxy_cache_bypass $http_upgrade;
-	   proxy_pass http://meshery-meshery-playground.meshery.io-meshery-9082;
+	   proxy_pass http://meshplay-meshplay-playground.meshplay.io-meshplay-9082;
 	 }	
 ```
 
@@ -115,10 +115,10 @@ Nginx ingress controller by default (sometimes) doesn't pick up the custom confi
 ### Renewing SSL certificate for playground. (When cert manager is not used and certificates are generated manually)
 NOTE: Make sure to renew certificates before they expire
 
-- Run sudo certbot certonly --manual --preferred-challenges http -d playground.meshery.io and press 2 to renew the certificates. 
-- New certs will be stored at /etc/letsencrypt/live/playground.meshery.io/fullchain.pem and /etc/letsencrypt/live/playground.meshery.io/privkey.pem
-- Delete the previous secrets named tls-secret or tls-meshery-secret(check the name in the Ingress resource) and delete the the secret with `nginx-ingress-default-server-tls` in the name in meshery namespace
-- Run `kubectl create secret tls tls-secret --cert=/etc/letsencrypt/live/playground.meshery.io/fullchain.pem --key=/etc/letsencrypt/live/playground.meshery.io/privkey.pem`  and `kubectl create secret tls nginx-ingress-default-server-tls --cert=/etc/letsencrypt/live/playground.meshery.io/fullchain.pem --key=/etc/letsencrypt/live/playground.meshery.io/privkey.pem`
+- Run sudo certbot certonly --manual --preferred-challenges http -d playground.meshplay.io and press 2 to renew the certificates. 
+- New certs will be stored at /etc/letsencrypt/live/playground.meshplay.io/fullchain.pem and /etc/letsencrypt/live/playground.meshplay.io/privkey.pem
+- Delete the previous secrets named tls-secret or tls-meshplay-secret(check the name in the Ingress resource) and delete the the secret with `nginx-ingress-default-server-tls` in the name in meshplay namespace
+- Run `kubectl create secret tls tls-secret --cert=/etc/letsencrypt/live/playground.meshplay.io/fullchain.pem --key=/etc/letsencrypt/live/playground.meshplay.io/privkey.pem`  and `kubectl create secret tls nginx-ingress-default-server-tls --cert=/etc/letsencrypt/live/playground.meshplay.io/fullchain.pem --key=/etc/letsencrypt/live/playground.meshplay.io/privkey.pem`
 - Delete the ingress pod so that it can restart and use the newly configured secrets.
 
 

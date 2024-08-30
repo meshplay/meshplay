@@ -1,33 +1,33 @@
 # <a name="contributing">Contributing Overview</a>
 
-Please do! Thank you for your help in improving Meshery! :balloon:
+Please do! Thank you for your help in improving Meshplay! :balloon:
 
 ---
 
 <details>
 
-  <summary><h3>Find the complete set of contributor guides at https://docs.meshery.io/project/contributing</h3></summary>
+  <summary><h3>Find the complete set of contributor guides at https://docs.meshplay.io/project/contributing</h3></summary>
 
 All contributors are welcome. Not sure where to start? Please see the [newcomers welcome guide](https://layer5.io/community/newcomers) for how, where, and why to contribute. This project is community-built and welcomes collaboration. Contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-All set to contribute? Grab an open issue with the [help-wanted label](../../labels/help%20wanted) and jump in. Join our [Slack channel](https://slack.meshery.io) and engage in conversation. Create a [new issue](/../../issues/new/choose) if needed. All [pull requests](/../../pulls) should ideally reference an open [issue](/../../issues). Include keywords in your pull request descriptions, as well as commit messages, to [automatically close related issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
+All set to contribute? Grab an open issue with the [help-wanted label](../../labels/help%20wanted) and jump in. Join our [Slack channel](https://slack.meshplay.io) and engage in conversation. Create a [new issue](/../../issues/new/choose) if needed. All [pull requests](/../../pulls) should ideally reference an open [issue](/../../issues). Include keywords in your pull request descriptions, as well as commit messages, to [automatically close related issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
 
 **Sections**
 
 - <a name="contributing">General Contribution Flow</a>
   - <a href="#commit-signing">Developer Certificate of Origin</a>
-- Meshery Contribution Flow
-  - <a href="#contributing-docs">Meshery Documentation</a>
-  - <a href="#contributing-meshery">Meshery Backend</a>
-    - <a href="#adapter">Writing a Meshery Adapter</a>
-  - <a href="#contributing-ui">Meshery UI</a>
+- Meshplay Contribution Flow
+  - <a href="#contributing-docs">Meshplay Documentation</a>
+  - <a href="#contributing-meshplay">Meshplay Backend</a>
+    - <a href="#adapter">Writing a Meshplay Adapter</a>
+  - <a href="#contributing-ui">Meshplay UI</a>
     Relevant coding style guidelines are the Go Code Review Comments and the Formatting and style section of Peter Bourgon's Go: Best Practices for Production Environments.
-  - <a href="#contributing-mesheryctl">Mesheryctl Documentation</a>
+  - <a href="#contributing-meshplayctl">Meshplayctl Documentation</a>
     - <a href="https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0">Command Reference and Tracker</a>
 
 # <a name="contributing">General Contribution Flow</a>
 
-To contribute to Meshery, please follow the fork-and-pull request workflow described [here](docs/CONTRIBUTING-gitflow.md).
+To contribute to Meshplay, please follow the fork-and-pull request workflow described [here](docs/CONTRIBUTING-gitflow.md).
 
 ## Issues & Pull Requests
 
@@ -117,7 +117,7 @@ Or you may configure your IDE, for example, Visual Studio Code to automatically 
 
 ## <a name="contributing-docs">Documentation Contribution Flow</a>
 
-Please contribute! Meshery documentation uses GitHub Pages to host the docs site. Learn more about [Meshery's documentation framework](https://docs.google.com/document/d/17guuaxb0xsfutBCzyj2CT6OZiFnMu9w4PzoILXhRXSo/edit?usp=sharing). The process of contributing follows this flow:
+Please contribute! Meshplay documentation uses GitHub Pages to host the docs site. Learn more about [Meshplay's documentation framework](https://docs.google.com/document/d/17guuaxb0xsfutBCzyj2CT6OZiFnMu9w4PzoILXhRXSo/edit?usp=sharing). The process of contributing follows this flow:
 
 1. Create a fork, if you have not already, by following the steps described [here](docs/CONTRIBUTING-gitflow.md)
 1. In the local copy of your fork, navigate to the docs folder.
@@ -134,33 +134,33 @@ Please contribute! Meshery documentation uses GitHub Pages to host the docs site
 
 1. Commit, [sign-off](#commit-signing), and push changes to your remote branch.
    `git push origin <my-changes>`
-1. Open a pull request (in your web browser) against our main repo: https://github.com/meshery/meshery.
+1. Open a pull request (in your web browser) against our main repo: https://github.com/meshplay/meshplay.
 
 _Alternatively, LiveReload is available as an option during development: with jekyll serve --livereload no more manual page refresh. 
 
 `bundle exec jekyll serve --drafts --livereload --incremental --config _config_dev.yml`
 
 
-## <a name="contributing-meshery">Meshery Contribution Flow</a>
+## <a name="contributing-meshplay">Meshplay Contribution Flow</a>
 
-Meshery is written in `Go` (Golang) and leverages Go Modules. UI is built on React and Next.js. To make building and packaging easier a `Makefile` is included in the main repository folder.
+Meshplay is written in `Go` (Golang) and leverages Go Modules. UI is built on React and Next.js. To make building and packaging easier a `Makefile` is included in the main repository folder.
 
 Relevant coding style guidelines are the [Go Code Review Comments](https://code.google.com/p/go-wiki/wiki/CodeReviewComments) and the _Formatting and style_ section of Peter Bourgon's [Go: Best
 Practices for Production Environments](https://peter.bourgon.org/go-in-production/#formatting-and-style).
 
-**Please note**: All `make` commands should be run in a terminal from within the Meshery's main folder.
+**Please note**: All `make` commands should be run in a terminal from within the Meshplay's main folder.
 
-### Prerequisites for building Meshery in your development environment:
+### Prerequisites for building Meshplay in your development environment:
 
 1. Go version 1.21.1 must be installed if you want to build and/or make changes to the existing code. The binary `go1.21.1` should be available in your path. If you don't want to disturb your existing version of Go, then follow these [instructions](https://go.dev/doc/manage-install#:~:text=and%20run%20them.-,Installing%20multiple%20Go%20versions,-You%20can%20install) to keep multiple versions of Go in your system.
 2. `GOPATH` environment variable should be configured appropriately
 3. `npm` and `node` should be installed on your machine, preferably the latest versions.
-4. Fork this repository (`git clone https://github.com/meshery/meshery.git`), and clone your forked version of Meshery to your development environment, preferably outside `GOPATH`.
+4. Fork this repository (`git clone https://github.com/meshplay/meshplay.git`), and clone your forked version of Meshplay to your development environment, preferably outside `GOPATH`.
 5. `golangci-lint` should be installed if you want to test Go code, for MacOS and linux users.
 
-#### Build and Run Meshery Server
+#### Build and Run Meshplay Server
 
-Before you can access the Meshery UI, you need to install the UI dependencies,
+Before you can access the Meshplay UI, you need to install the UI dependencies,
 
 ```sh
 make ui-setup
@@ -172,27 +172,27 @@ and then build and export the UI
 make ui-build
 ```
 
-To build & run Meshery Server, run the following command:
+To build & run Meshplay Server, run the following command:
 
 ```sh
 make server
 ```
 
 Any time changes are made to the Go code, you will have to stop the server and run the above command again.
-Once the Meshery server is up and running, you should be able to access Meshery on your `localhost` on port `9081` at `http://localhost:9081`.
+Once the Meshplay server is up and running, you should be able to access Meshplay on your `localhost` on port `9081` at `http://localhost:9081`.
 
-**Please note**: If you see "Meshery Development Incompatible" while trying to sign into Meshery Server, then follow these steps:
+**Please note**: If you see "Meshplay Development Incompatible" while trying to sign into Meshplay Server, then follow these steps:
 
-<img src="./docs/assets/img/meshery-development-incompatible-error.png" width="50%">
+<img src="./docs/assets/img/meshplay-development-incompatible-error.png" width="50%">
 
 Potential Solution:
 
--  Go to your meshery folder in your local-system where you’ve cloned it.
+-  Go to your meshplay folder in your local-system where you’ve cloned it.
 Execute:
 
-- `git remote add upstream https://github.com/meshery/meshery`
+- `git remote add upstream https://github.com/meshplay/meshplay`
 - `git fetch upstream`
-- Restart the meshery server
+- Restart the meshplay server
 - Additionally, before restarting the server, if you like to pull the latest changes, you can do: `git pull upstream master`
 ### UI Development Server
 
@@ -202,16 +202,16 @@ If you want to work on the UI, it will be a good idea to use the included UI dev
 make ui
 ```
 
-Once you have the server configured, and running successfully on the default port `http://localhost:9081`, you may proceed to access the Meshery UI at `http://localhost:3000`.
+Once you have the server configured, and running successfully on the default port `http://localhost:9081`, you may proceed to access the Meshplay UI at `http://localhost:3000`.
 Any UI changes made now will automatically be recompiled and served in the browser.
 
-To access the [Meshery UI Development Server](#ui-development-server) on port `3000`, you will need to select your **Cloud Provider** by navigating to `localhost:9081` after running the Meshery server.
+To access the [Meshplay UI Development Server](#ui-development-server) on port `3000`, you will need to select your **Cloud Provider** by navigating to `localhost:9081` after running the Meshplay server.
 
 **Please note**: When running `make server` on the macOS platform, some may face errors with the crypto module in Go. This is caused due to invalid C headers in Clang installed with XCode platform tools. Replacing Clang with gcc by adding `export CC=gcc` to .bashrc / .zshrc should fix the issue. More information on the issue can be found [here](https://github.com/golang/go/issues/30072)
 
 **Please Note** : Little minor things where you can face some issues in the windows platform -
 
-1. Meshery requires gcc at the `make server` step, **x64 windows** architecture can face issues while finding the best **GCC compiler**, You can install [tdm64-GCC](https://jmeubank.github.io/tdm-gcc/) which worked smoothly but many compilers other than that can cause issues, you also have to set an environment variable for this step.
+1. Meshplay requires gcc at the `make server` step, **x64 windows** architecture can face issues while finding the best **GCC compiler**, You can install [tdm64-GCC](https://jmeubank.github.io/tdm-gcc/) which worked smoothly but many compilers other than that can cause issues, you also have to set an environment variable for this step.
 
 2. Installing `make` in windows requires you to install [choco](https://chocolatey.org/install) first, which makes it easier to install `make` then, It requires security access which can only be done in admin mode.
 
@@ -227,18 +227,18 @@ make golangci-run
 
 #### Building Docker image
 
-To build a Docker image of Meshery, please ensure you have `Docker` installed to be able to build the image. Now, run the following command to build the Docker image:
+To build a Docker image of Meshplay, please ensure you have `Docker` installed to be able to build the image. Now, run the following command to build the Docker image:
 
 ```sh
 make docker
 ```
 
-#### <a name="adapter">Writing a Meshery Adapter</a>
+#### <a name="adapter">Writing a Meshplay Adapter</a>
 
-Meshery uses adapters to provision and interact with different service meshes. Follow these instructions to create a new adapter or modify an existing adapter.
+Meshplay uses adapters to provision and interact with different service meshes. Follow these instructions to create a new adapter or modify an existing adapter.
 
-1. Get the proto buf spec file from Meshery repo:
-   `wget https://raw.githubusercontent.com/meshery/meshery/master/server/meshes/meshops.proto`
+1. Get the proto buf spec file from Meshplay repo:
+   `wget https://raw.githubusercontent.com/meshplay/meshplay/master/server/meshes/meshops.proto`
 1. Generate code
    1. Using Go as an example, do the following:
       - install the protocol buffer compiler: https://grpc.io/docs/protoc-installation/
@@ -253,25 +253,25 @@ Meshery uses adapters to provision and interact with different service meshes. F
    1. For other languages, please refer to gRPC.io for language-specific guides.
 1. Implement the service methods and expose the gRPC server on a port of your choice (e.g. 10000).
 
-_Tip:_ The [Meshery adapter for Istio](https://github.com/meshery/meshery-istio) is a good reference adapter to use as an example of a Meshery adapter written in Go.
+_Tip:_ The [Meshplay adapter for Istio](https://github.com/meshplay/meshplay-istio) is a good reference adapter to use as an example of a Meshplay adapter written in Go.
 
-#### <a name="meshery-istio">Running Meshery Adapter (Meshery-Istio)</a>
+#### <a name="meshplay-istio">Running Meshplay Adapter (Meshplay-Istio)</a>
 
-**Meshery-Istio** is a pre-written example of Meshery Adapter written in Go. Follow these instructions to run meshery-istio to avoid errors related to Meshery Adapters
+**Meshplay-Istio** is a pre-written example of Meshplay Adapter written in Go. Follow these instructions to run meshplay-istio to avoid errors related to Meshplay Adapters
 
-1. Fork [Meshery-Istio](https://github.com/meshery/meshery-istio)
+1. Fork [Meshplay-Istio](https://github.com/meshplay/meshplay-istio)
 2. Clone your fork locally
-3. Run this command from the root directory of **meshery-istio**
+3. Run this command from the root directory of **meshplay-istio**
    ```sh
    make run
    ```
-4. Try connecting to port 10000 as Meshery Adapter URL
+4. Try connecting to port 10000 as Meshplay Adapter URL
 
 ## <a name="contributing-ui">UI Contribution Flow</a>
 
-Meshery is written in `Go` (Golang) and leverages Go Modules. UI is built on React, Billboard.js and Next.js. To make building and packaging easier a `Makefile` is included in the main repository folder.
+Meshplay is written in `Go` (Golang) and leverages Go Modules. UI is built on React, Billboard.js and Next.js. To make building and packaging easier a `Makefile` is included in the main repository folder.
 
-![ui/assets/img/readme/meshery_ui.png](ui/assets/img/readme/meshery_ui.png)
+![ui/assets/img/readme/meshplay_ui.png](ui/assets/img/readme/meshplay_ui.png)
 
 ### Install UI dependencies
 
@@ -289,15 +289,15 @@ To build and export the UI code:
 make ui-build
 ```
 
-### Build and run Meshery Server
+### Build and run Meshplay Server
 
-To build & run Meshery Server:
+To build & run Meshplay Server:
 
 ```
 make server
 ```
 
-Now that the UI code is built, Meshery UI will be available at `http://localhost:9081`.
+Now that the UI code is built, Meshplay UI will be available at `http://localhost:9081`.
 Any time changes are made to the UI code, the above code will have to run to rebuild the UI.
 
 ### UI Development Server
@@ -308,15 +308,15 @@ If you want to work on the UI, it will be a good idea to use the included UI dev
 make ui
 ```
 
-Once you have the server configured, and running successfully on the default port `http://localhost:9081`, you may proceed to access the Meshery UI at `http://localhost:3000`.
+Once you have the server configured, and running successfully on the default port `http://localhost:9081`, you may proceed to access the Meshplay UI at `http://localhost:3000`.
 Any UI changes made now will automatically be recompiled and served in the browser.
 
-### Running Meshery from IDE
+### Running Meshplay from IDE
 
-If you want to run Meshery from IDE like Goland, VSCode. set below environment variable
+If you want to run Meshplay from IDE like Goland, VSCode. set below environment variable
 
 ```
-PROVIDER_BASE_URLS="https://meshery.layer5.io"
+PROVIDER_BASE_URLS="https://meshplay.layer5.io"
 PORT=9081
 DEBUG=true
 ADAPTER_URLS=localhost:10000 localhost:10001 localhost:10002 localhost:10003 localhost:10004 localhost:10005 localhost:10006 localhost:10007 localhost:10008 localhost:10009
@@ -332,23 +332,23 @@ go tool argument
 
 We are using ES-Lint to maintain code quality & consistency in our UI Code. To make sure your PR passes all the UI & ES-Lint Tests, please see below :
 
-- Remember to run `make ui-lint` & `make ui-provider-lint` if you are making changes in Meshery-UI & Provider-UI respectively.
+- Remember to run `make ui-lint` & `make ui-provider-lint` if you are making changes in Meshplay-UI & Provider-UI respectively.
 - The above commands will only fix some basic indenting rules. You will have to manually check your code to ensure there are no duplications, un-used variables or un-declared constants.
 - We will soon be adding Pre-Commit Hooks to make sure you get to know your errors before you commit the code.
-- In case you are unable to fix your lint errors, ping us on our [Slack](https://slack.meshery.io).
+- In case you are unable to fix your lint errors, ping us on our [Slack](https://slack.meshplay.io).
 
 
-# Using Sistent in Meshery UI
+# Using Sistent in Meshplay UI
 
 ## Overview
 
-Meshery UI utilizes three component libraries:
+Meshplay UI utilizes three component libraries:
 
 1. Material-UI (MUI) v4
 2. Material-UI (MUI) v5
 3. Sistent
 
-While MUI v4 and v5 are being phased out, Sistent is now the preferred component library. Sistent internally uses MUI v5, and Meshery UI globally still relies on MUI v4. This can lead to conflicts between themes when Sistent components are used directly.
+While MUI v4 and v5 are being phased out, Sistent is now the preferred component library. Sistent internally uses MUI v5, and Meshplay UI globally still relies on MUI v4. This can lead to conflicts between themes when Sistent components are used directly.
 
 ## The `UseSistent` Wrapper
 
@@ -415,55 +415,55 @@ const IncorrectUsage = () => (
 
 
 
-## <a name="contributing-mesheryctl">Mesheryctl Documentation</a>
+## <a name="contributing-meshplayctl">Meshplayctl Documentation</a>
 
-### mesheryctl
+### meshplayctl
 
-`mesheryctl` is the CLI client for Meshery.
+`meshplayctl` is the CLI client for Meshplay.
 
 ### Contributing
 
-Please refer to the [Meshery Contributing Guidelines](https://docs.meshery.io/project/contributing/contributing-cli) for setting up your development environment and the [mesheryctl Command Reference and Tracker](https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0) for current status of `mesheryctl`.
+Please refer to the [Meshplay Contributing Guidelines](https://docs.meshplay.io/project/contributing/contributing-cli) for setting up your development environment and the [meshplayctl Command Reference and Tracker](https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0) for current status of `meshplayctl`.
 
-For a quick introduction to `mesheryctl`, checkout [Beginner's guide to contributing to Meshery and mesheryctl](https://youtu.be/hh_kFLZx3G4).
+For a quick introduction to `meshplayctl`, checkout [Beginner's guide to contributing to Meshplay and meshplayctl](https://youtu.be/hh_kFLZx3G4).
 
-### Building and running `mesheryctl`
+### Building and running `meshplayctl`
 
-The [`/mesheryctl`](https://github.com/meshery/meshery/tree/master/mesheryctl) folder contains the complete code for `mesheryctl`.
+The [`/meshplayctl`](https://github.com/meshplay/meshplay/tree/master/meshplayctl) folder contains the complete code for `meshplayctl`.
 
-`mesheryctl` is written in Golang or the Go Programming Language. For development use Go version 1.15+.
+`meshplayctl` is written in Golang or the Go Programming Language. For development use Go version 1.15+.
 
-After making changes, run `make` in the `mesheryctl` folder to build the binary. You can then use the binary by, say, `./mesheryctl system start`.
+After making changes, run `make` in the `meshplayctl` folder to build the binary. You can then use the binary by, say, `./meshplayctl system start`.
 
-### `mesheryctl` command reference
+### `meshplayctl` command reference
 
-- See user-facing, documentation of the `mesheryctl` commands is available in the [Meshery Docs](https://docs.meshery.io/reference/mesheryctl).
-- See contributor-facing design spec for [Meshery CLI Commands and Documentation](https://docs.google.com/document/d/1xRlFpElRmybJ3WacgPKXgCSiQ2poJl3iCCV1dAalf0k/edit#heading=h.5fucij4hc5wt) for a complete reference of `mesheryctl`.
+- See user-facing, documentation of the `meshplayctl` commands is available in the [Meshplay Docs](https://docs.meshplay.io/reference/meshplayctl).
+- See contributor-facing design spec for [Meshplay CLI Commands and Documentation](https://docs.google.com/document/d/1xRlFpElRmybJ3WacgPKXgCSiQ2poJl3iCCV1dAalf0k/edit#heading=h.5fucij4hc5wt) for a complete reference of `meshplayctl`.
 
 ### General guidelines and resources
 
-`mesheryctl` might be the interface that the users first have with Meshery. As such, `mesheryctl` needs to provide a great UX.
+`meshplayctl` might be the interface that the users first have with Meshplay. As such, `meshplayctl` needs to provide a great UX.
 
-The following principles should be taken in mind while designing `mesheryctl` commands-
+The following principles should be taken in mind while designing `meshplayctl` commands-
 
 1. Provide user experiences that are familiar.
 2. Make the commands and their behavior intuitive.
 3. Avoid long commands with chained series of flags.
 4. Design with automated testing in mind, e.g. provide possibility to specify output format as json (-o json) for easy inspection of command response.
 
-Part of delivering a great user experience is providing intuitive interfaces. In the case of `mesheryctl`, we should take inspiration from and deliver similar user experiences as popular CLIs do in this ecosystem, like `kubectl` and `docker`. Here is relevant `kubectl` information to reference - [Kubectl SIG CLI Community Meeting Minutes](https://docs.google.com/document/u/2/d/1r0YElcXt6G5mOWxwZiXgGu_X6he3F--wKwg-9UBc29I/edit#), [contributing to kubectl](https://github.com/kubernetes/community/blob/master/sig-cli/CONTRIBUTING.md), [code](https://github.com/kubernetes/kubernetes/tree/master/pkg/kubectl/cmd/config).
+Part of delivering a great user experience is providing intuitive interfaces. In the case of `meshplayctl`, we should take inspiration from and deliver similar user experiences as popular CLIs do in this ecosystem, like `kubectl` and `docker`. Here is relevant `kubectl` information to reference - [Kubectl SIG CLI Community Meeting Minutes](https://docs.google.com/document/u/2/d/1r0YElcXt6G5mOWxwZiXgGu_X6he3F--wKwg-9UBc29I/edit#), [contributing to kubectl](https://github.com/kubernetes/community/blob/master/sig-cli/CONTRIBUTING.md), [code](https://github.com/kubernetes/kubernetes/tree/master/pkg/kubectl/cmd/config).
 
-`mesheryctl` uses the [Cobra](https://github.com/spf13/cobra) framework. A good first-step towards contributing to `mesheryctl` would be to familiarise yourself with the [Cobra concepts](https://github.com/spf13/cobra#concepts).
+`meshplayctl` uses the [Cobra](https://github.com/spf13/cobra) framework. A good first-step towards contributing to `meshplayctl` would be to familiarise yourself with the [Cobra concepts](https://github.com/spf13/cobra#concepts).
 
-For manipulating config files, `mesheryctl` uses [Viper](https://github.com/spf13/viper).
+For manipulating config files, `meshplayctl` uses [Viper](https://github.com/spf13/viper).
 
-A central `struct` is maintained in the `mesheryctl/internal/cli/root/config/config.go` file. These are updated and should be used for getting the Meshery configuration.
+A central `struct` is maintained in the `meshplayctl/internal/cli/root/config/config.go` file. These are updated and should be used for getting the Meshplay configuration.
 
-For logs, `mesheryctl` uses [Logrus](https://github.com/sirupsen/logrus). Going through the docs and understanding the different [log-levels](https://github.com/sirupsen/logrus#level-logging) will help a lot.
+For logs, `meshplayctl` uses [Logrus](https://github.com/sirupsen/logrus). Going through the docs and understanding the different [log-levels](https://github.com/sirupsen/logrus#level-logging) will help a lot.
 
-`mesheryctl` uses [golangci-lint](https://github.com/golangci/golangci-lint). Refer to it for lint checks.
+`meshplayctl` uses [golangci-lint](https://github.com/golangci/golangci-lint). Refer to it for lint checks.
 
-All contributors are invited to review [pull requests](https://github.com/meshery/meshery/pulls) on `mesheryctl` as on other Meshery components.
+All contributors are invited to review [pull requests](https://github.com/meshplay/meshplay/pulls) on `meshplayctl` as on other Meshplay components.
 
 # <a name="maintaining"> Reviews</a>
 

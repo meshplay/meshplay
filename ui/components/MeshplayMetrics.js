@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function MesheryMetrics({
+function MeshplayMetrics({
   boardConfigs = [],
   grafanaURL = '',
   grafanaAPIKey = '',
@@ -69,4 +69,4 @@ function MesheryMetrics({
   );
 }
 
-export default MesheryMetrics;
+export default MeshplayMetrics;

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-relationship
-permalink: reference/mesheryctl/exp/relationship
-redirect_from: reference/mesheryctl/exp/relationship/
+title: meshplayctl-exp-relationship
+permalink: reference/meshplayctl/exp/relationship
+redirect_from: reference/meshplayctl/exp/relationship/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: exp
 subcommand: relationship
 ---
 
-# mesheryctl exp relationship
+# meshplayctl exp relationship
 
 View list of relationships and details of relationship
 
 ## Synopsis
 
-Meshery uses relationships to define how interconnected components interact. View list of relationships and detailed information of a specific relationship
+Meshplay uses relationships to define how interconnected components interact. View list of relationships and detailed information of a specific relationship
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationship [flags]
+meshplayctl exp relationship [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp relationship [flags]
 To view list of relationships
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationships list
+meshplayctl exp relationships list
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl exp relationships list
 To view a specific relationship
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationships view [model-name]
+meshplayctl exp relationships view [model-name]
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl exp relationships view [model-name]
 //To search a specific relationship
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationships search --[flag] [query-text]
+meshplayctl exp relationships search --[flag] [query-text]
 
 </div>
 </pre> 
@@ -63,7 +63,7 @@ mesheryctl exp relationships search --[flag] [query-text]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -71,4 +71,4 @@ mesheryctl exp relationships search --[flag] [query-text]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

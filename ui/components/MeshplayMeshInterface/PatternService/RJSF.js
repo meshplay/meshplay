@@ -6,15 +6,15 @@ import React, { useEffect } from 'react';
 import { rjsfTheme } from '../../../themes';
 import darkRjsfTheme from '../../../themes/rjsf';
 import { CustomTextTooltip } from './CustomTextTooltip';
-import MesheryArrayFieldTemplate from './RJSFCustomComponents/ArrayFieldTemlate';
+import MeshplayArrayFieldTemplate from './RJSFCustomComponents/ArrayFieldTemlate';
 import CustomDateTimeWidget from './RJSFCustomComponents/CustomDateTimeWidget';
 import CustomTextWidget from './RJSFCustomComponents/CustomTextWidget';
 import { CustomFieldTemplate } from './RJSFCustomComponents/FieldTemplate';
-import MesheryCustomObjFieldTemplate from './RJSFCustomComponents/ObjectFieldTemplate';
-import MesheryWrapIfAdditionalTemplate from './RJSFCustomComponents/WrapIfAdditionalTemplate';
+import MeshplayCustomObjFieldTemplate from './RJSFCustomComponents/ObjectFieldTemplate';
+import MeshplayWrapIfAdditionalTemplate from './RJSFCustomComponents/WrapIfAdditionalTemplate';
 import _ from 'lodash';
 import { CustomCheckboxWidget } from './RJSFCustomComponents/CustomCheckboxWidget';
-import MesheryCustomSelectWidget from './RJSFCustomComponents/CustomSelectWidget';
+import MeshplayCustomSelectWidget from './RJSFCustomComponents/CustomSelectWidget';
 import CustomTextAreaWidget from './RJSFCustomComponents/CustomTextAreaWidget';
 import CustomFileWidget from './RJSFCustomComponents/CustomFileWidget';
 import CustomURLWidget from './RJSFCustomComponents/CustomURLWidget';
@@ -26,7 +26,7 @@ const MuiRJSFForm = withTheme(MaterialUITheme);
  * The Custom RJSF Form that accepts custom fields from the extension
  * or seed it's own default
  * Adding a new custom component:
- * 1. Pass the new prop from the Meshery Extension
+ * 1. Pass the new prop from the Meshplay Extension
  * 2. Extract from props in the RJSFForm Component
  * @param {*} props
  * @returns
@@ -37,11 +37,11 @@ function RJSFForm({
   data,
   onChange,
   isLoading,
-  ArrayFieldTemplate = MesheryArrayFieldTemplate,
-  ObjectFieldTemplate = MesheryCustomObjFieldTemplate,
+  ArrayFieldTemplate = MeshplayArrayFieldTemplate,
+  ObjectFieldTemplate = MeshplayCustomObjFieldTemplate,
   BaseInputTemplate,
-  WrapIfAdditionalTemplate = MesheryWrapIfAdditionalTemplate,
-  SelectWidget = MesheryCustomSelectWidget,
+  WrapIfAdditionalTemplate = MeshplayWrapIfAdditionalTemplate,
+  SelectWidget = MeshplayCustomSelectWidget,
   LoadingComponent,
   liveValidate,
   // prop should be present in order for the cloned element to override this property

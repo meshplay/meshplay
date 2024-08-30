@@ -19,7 +19,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { updateResultsSelection, clearResultsSelection, updateProgress } from '../../lib/store';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import CustomToolbarSelect from '../CustomToolbarSelect';
-import MesheryChart from '../MesheryChart';
+import MeshplayChart from '../MeshplayChart';
 import GrafanaCustomCharts from '../telemetry/grafana/GrafanaCustomCharts';
 import GenericModal from '../GenericModal';
 import BarChartIcon from '@material-ui/icons/BarChart';
@@ -315,7 +315,7 @@ function generateColumnsForDisplay(
                       <Paper className={classes.paper}>
                         <TwitterShareButton
                           className={classes.socialIcon}
-                          url={'https://meshery.io'}
+                          url={'https://meshplay.io'}
                           title={socialMessage}
                           hashtags={['opensource']}
                         >
@@ -324,7 +324,7 @@ function generateColumnsForDisplay(
                         </TwitterShareButton>
                         <LinkedinShareButton
                           className={classes.socialIcon}
-                          url={'https://meshery.io'}
+                          url={'https://meshplay.io'}
                           summary={socialMessage}
                         >
                           {/* <img src={`/static/img/linkedin.svg`} /> */}
@@ -332,7 +332,7 @@ function generateColumnsForDisplay(
                         </LinkedinShareButton>
                         <FacebookShareButton
                           className={classes.socialIcon}
-                          url={'https://meshery.io'}
+                          url={'https://meshplay.io'}
                           quote={socialMessage}
                           hashtag={'#opensource'}
                         >
@@ -361,7 +361,7 @@ function generateColumnsForDisplay(
 }
 
 function getSocialMessageForPerformanceTest(rps, percentile) {
-  return `I achieved ${rps.trim()} RPS running my service at a P99.9 of ${percentile} ms using @mesheryio with @smp_spec! Find out how fast your service is with`;
+  return `I achieved ${rps.trim()} RPS running my service at a P99.9 of ${percentile} ms using @meshplayio with @smp_spec! Find out how fast your service is with`;
 }
 
 function generateSelectedRows(results_selection, page, pageSize) {
@@ -426,7 +426,7 @@ function ResultChart({ result, handleTabChange, tabValue }) {
       {tabValue == 0 ? (
         <div>
           <div>
-            <MesheryChart
+            <MeshplayChart
               rawdata={[result && result.runner_results ? result : {}]}
               data={[result && result.runner_results ? result.runner_results : {}]}
             />
@@ -493,7 +493,7 @@ function ResultNodeDetails({ result, handleTabChange, tabValue }) {
       ) : tabValue == 0 ? (
         <div>
           <div>
-            <MesheryChart
+            <MeshplayChart
               rawdata={[result && result.runner_results ? result : {}]}
               data={[result && result.runner_results ? result.runner_results : {}]}
             />
@@ -533,7 +533,7 @@ function ResultNodeDetails({ result, handleTabChange, tabValue }) {
  *  elevation?: Number
  * }} props
  */
-function MesheryResults({
+function MeshplayResults({
   updateProgress,
   endpoint,
   updateResultsSelection,
@@ -684,8 +684,8 @@ function MesheryResults({
   const options = {
     elevation: elevation,
     filter: false,
-    sort: !(user?.user_id === 'meshery'),
-    search: !(user?.user_id === 'meshery'),
+    sort: !(user?.user_id === 'meshplay'),
+    search: !(user?.user_id === 'meshplay'),
     filterType: 'textField',
     responsive: 'standard',
     resizableColumns: true,
@@ -829,4 +829,4 @@ const mapStateToProps = (state) => {
 };
 
 // @ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MesheryResults));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MeshplayResults));

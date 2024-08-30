@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 jobs:
     cncf-playground-rollout:
-        name: Update Meshery on CNCF playground
-        if: github.repository == 'meshery/meshery'
+        name: Update Meshplay on CNCF playground
+        if: github.repository == 'meshplay/meshplay'
         runs-on: ubuntu-latest 
         steps:
         - name: Pull latest images and restart containers
@@ -15,7 +15,7 @@ jobs:
               username: root
               key: ${{ secrets.METAL_SSH_KEY }}
               script: |
-                cd meshery
+                cd meshplay
                 git pull
                 docker compose -f install/playground/docker/docker-compose.yaml pull
                 docker compose -f install/playground/docker/docker-compose.yaml up -d --remove-orphans
@@ -23,6 +23,6 @@ jobs:
 #          - uses: azure/setup-kubectl@v3
 #          - name: Extract kubeconfig
 #            run: mkdir ~/.kube; touch ~/.kube/config ;echo "${{ secrets.PLAYGROUND_CONFIG }}" | base64 --decode > ~/.kube/config
-#          - name: Rollout Meshery so that pods can restart with latest Meshery image
+#          - name: Rollout Meshplay so that pods can restart with latest Meshplay image
 #            run: |
-#             kubectl -n meshery rollout restart deployment meshery
+#             kubectl -n meshplay rollout restart deployment meshplay

@@ -255,13 +255,13 @@ const BasicMenu = withSuppressedErrorBoundary(({ event }) => {
             </Box>
             <Collapse in={isSocialShareOpen}>
               <Box className={classes.socialListItem}>
-                <FacebookShareButton url={'https://meshery.io'} quote={event.description || ''}>
+                <FacebookShareButton url={'https://meshplay.io'} quote={event.description || ''}>
                   <FacebookIcon {...iconMedium} fill={theme.palette.secondary.iconMain} />
                 </FacebookShareButton>
-                <LinkedinShareButton url={'https://meshery.io'} summary={event.description || ''}>
+                <LinkedinShareButton url={'https://meshplay.io'} summary={event.description || ''}>
                   <LinkedInIcon {...iconMedium} fill={theme.palette.secondary.iconMain} />
                 </LinkedinShareButton>
-                <TwitterShareButton url={'https://meshery.io'} title={event.description || ''}>
+                <TwitterShareButton url={'https://meshplay.io'} title={event.description || ''}>
                   <TwitterIcon {...iconMedium} fill={theme.palette.secondary.iconMain} />
                 </TwitterShareButton>
               </Box>
@@ -362,8 +362,8 @@ export const Notification = withErrorBoundary(({ event_id }) => {
     ...(event.system_id
       ? [
           {
-            name: 'Meshery',
-            avatar_url: '/static/img/meshery-logo.png',
+            name: 'Meshplay',
+            avatar_url: '/static/img/meshplay-logo.png',
             tooltip: `System ID: ${event.system_id}`,
           },
         ]

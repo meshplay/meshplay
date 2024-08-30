@@ -4,7 +4,7 @@ title: Flyte Sandbox
 subtitle: Collaborative and visual infrastructure as design for Flyte Sandbox
 image: /assets/img/integrations/flyte-sandbox/icons/color/flyte-sandbox-color.svg
 permalink: extensibility/integrations/flyte-sandbox
-docURL: https://docs.meshery.io/extensibility/integrations/flyte-sandbox
+docURL: https://docs.meshplay.io/extensibility/integrations/flyte-sandbox
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

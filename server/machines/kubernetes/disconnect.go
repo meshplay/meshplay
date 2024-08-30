@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/machines"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/events"
 )
 
@@ -31,18 +31,18 @@ func (da *DisconnectAction) Execute(ctx context.Context, machineCtx interface{},
 
 	contextID := machinectx.K8sContext.ID
 	go func() {
-		machinectx.MesheryCtrlsHelper.
+		machinectx.MeshplayCtrlsHelper.
 			UpdateOperatorsStatusMap(machinectx.OperatorTracker).
 			UndeployDeployedOperators(machinectx.OperatorTracker).
 			RemoveCtxControllerHandler(ctx, contextID)
-		machinectx.MesheryCtrlsHelper.RemoveMeshSyncDataHandler(ctx, contextID)
+		machinectx.MeshplayCtrlsHelper.RemoveMeshSyncDataHandler(ctx, contextID)
 
 	}()
 
 	_ctx, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
 	defer cancel()
 	context.AfterFunc(_ctx, func() {
-		// machinectx.MesheryCtrlsHelper.UpdateOperatorsStatusMap(machinectx.OperatorTracker)
+		// machinectx.MeshplayCtrlsHelper.UpdateOperatorsStatusMap(machinectx.OperatorTracker)
 	})
 
 	return machines.NoOp, nil, nil

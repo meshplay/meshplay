@@ -1,17 +1,17 @@
-# Default values for meshery-consul.
+# Default values for meshplay-consul.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: layer5/meshery-consul:stable-latest
+  repository: layer5/meshplay-consul:stable-latest
   pullPolicy: Always
 
 env: {}
 
 probe:
-  #TODO: Need to confirm the health check path of meshery.
+  #TODO: Need to confirm the health check path of meshplay.
   livenessProbe:
     enabled: false
   readinessProbe:
@@ -19,9 +19,9 @@ probe:
 
 imagePullSecrets: []
 nameOverride: ""
-# By default, this is provided by the top-level chart as "meshery-consul"
+# By default, this is provided by the top-level chart as "meshplay-consul"
 fullnameOverride: ""
-# By default, this is provided by the top-level chart as "meshery-server"
+# By default, this is provided by the top-level chart as "meshplay-server"
 serviceAccountNameOverride: ""
 
 # The serviceAccount info is used when the serviceAccountNameOverride is empty

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-version
-permalink: reference/mesheryctl/version
-redirect_from: reference/mesheryctl/version/
+title: meshplayctl-version
+permalink: reference/meshplayctl/version
+redirect_from: reference/meshplayctl/version/
 type: reference
 display-title: "false"
 language: en
@@ -10,26 +10,26 @@ command: version
 subcommand: nil
 ---
 
-# mesheryctl version
+# meshplayctl version
 
-Version of mesheryctl
+Version of meshplayctl
 
 ## Synopsis
 
-Version of Meshery command line client - mesheryctl.
+Version of Meshplay command line client - meshplayctl.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl version [flags]
+meshplayctl version [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-To view the current version and SHA of release binary of mesheryctl client 
+To view the current version and SHA of release binary of meshplayctl client 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl version
+meshplayctl version
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl version
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -55,9 +55,9 @@ mesheryctl version
 
 ## Screenshots
 
-Usage of mesheryctl version
-![version-usage](/assets/img/mesheryctl/version.png)
+Usage of meshplayctl version
+![version-usage](/assets/img/meshplayctl/version.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

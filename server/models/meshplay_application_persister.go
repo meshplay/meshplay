@@ -8,22 +8,22 @@ import (
 	"github.com/layer5io/meshkit/database"
 )
 
-// MesheryApplicationPersister is the persister for persisting
+// MeshplayApplicationPersister is the persister for persisting
 // applications on the database
-type MesheryApplicationPersister struct {
+type MeshplayApplicationPersister struct {
 	DB *database.Handler
 }
 
-// MesheryApplicationPage represents a page of applications
-type MesheryApplicationPage struct {
+// MeshplayApplicationPage represents a page of applications
+type MeshplayApplicationPage struct {
 	Page         uint64                `json:"page"`
 	PageSize     uint64                `json:"page_size"`
 	TotalCount   int                   `json:"total_count"`
-	Applications []*MesheryApplication `json:"applications"`
+	Applications []*MeshplayApplication `json:"applications"`
 }
 
-// GetMesheryApplications returns all of the applications
-func (maap *MesheryApplicationPersister) GetMesheryApplications(search, order string, page, pageSize uint64, updatedAfter string) ([]byte, error) {
+// GetMeshplayApplications returns all of the applications
+func (maap *MeshplayApplicationPersister) GetMeshplayApplications(search, order string, page, pageSize uint64, updatedAfter string) ([]byte, error) {
 	order = SanitizeOrderInput(order, []string{"created_at", "updated_at", "name"})
 
 	if order == "" {
@@ -31,7 +31,7 @@ func (maap *MesheryApplicationPersister) GetMesheryApplications(search, order st
 	}
 
 	count := int64(0)
-	applications := []*MesheryApplication{}
+	applications := []*MeshplayApplication{}
 
 	query := maap.DB.Where("updated_at > ?", updatedAfter).Order(order)
 
@@ -44,25 +44,25 @@ func (maap *MesheryApplicationPersister) GetMesheryApplications(search, order st
 
 	Paginate(uint(page), uint(pageSize))(query).Find(&applications)
 
-	meshplayApplicationPage := &MesheryApplicationPage{
+	meshplayApplicationPage := &MeshplayApplicationPage{
 		Page:         page,
 		PageSize:     pageSize,
 		TotalCount:   int(count),
 		Applications: applications,
 	}
 
-	return marshalMesheryApplicationPage(meshplayApplicationPage), nil
+	return marshalMeshplayApplicationPage(meshplayApplicationPage), nil
 }
 
-// DeleteMesheryApplication takes in an application id and delete it if it already exists
-func (maap *MesheryApplicationPersister) DeleteMesheryApplication(id uuid.UUID) ([]byte, error) {
-	application := MesheryApplication{ID: &id}
+// DeleteMeshplayApplication takes in an application id and delete it if it already exists
+func (maap *MeshplayApplicationPersister) DeleteMeshplayApplication(id uuid.UUID) ([]byte, error) {
+	application := MeshplayApplication{ID: &id}
 	err := maap.DB.Delete(&application).Error
 
-	return marshalMesheryApplication(&application), err
+	return marshalMeshplayApplication(&application), err
 }
 
-func (maap *MesheryApplicationPersister) SaveMesheryApplication(application *MesheryApplication) ([]byte, error) {
+func (maap *MeshplayApplicationPersister) SaveMeshplayApplication(application *MeshplayApplication) ([]byte, error) {
 	if application.ID == nil {
 		id, err := uuid.NewV4()
 		if err != nil {
@@ -72,12 +72,12 @@ func (maap *MesheryApplicationPersister) SaveMesheryApplication(application *Mes
 		application.ID = &id
 	}
 
-	return marshalMesheryApplications([]MesheryApplication{*application}), maap.DB.Save(application).Error
+	return marshalMeshplayApplications([]MeshplayApplication{*application}), maap.DB.Save(application).Error
 }
 
-// SaveMesheryApplications batch inserts the given applications
-func (maap *MesheryApplicationPersister) SaveMesheryApplications(applications []MesheryApplication) ([]byte, error) {
-	finalApplications := []MesheryApplication{}
+// SaveMeshplayApplications batch inserts the given applications
+func (maap *MeshplayApplicationPersister) SaveMeshplayApplications(applications []MeshplayApplication) ([]byte, error) {
+	finalApplications := []MeshplayApplication{}
 	for _, application := range applications {
 		if application.ID == nil {
 			id, err := uuid.NewV4()
@@ -91,34 +91,34 @@ func (maap *MesheryApplicationPersister) SaveMesheryApplications(applications []
 		finalApplications = append(finalApplications, application)
 	}
 
-	return marshalMesheryApplications(finalApplications), maap.DB.Create(finalApplications).Error
+	return marshalMeshplayApplications(finalApplications), maap.DB.Create(finalApplications).Error
 }
 
-func (maap *MesheryApplicationPersister) GetMesheryApplication(id uuid.UUID) ([]byte, error) {
-	var meshplayApplication MesheryApplication
+func (maap *MeshplayApplicationPersister) GetMeshplayApplication(id uuid.UUID) ([]byte, error) {
+	var meshplayApplication MeshplayApplication
 	err := maap.DB.First(&meshplayApplication, id).Error
-	return marshalMesheryApplication(&meshplayApplication), err
+	return marshalMeshplayApplication(&meshplayApplication), err
 }
 
-func (maap *MesheryApplicationPersister) GetMesheryApplicationSource(id uuid.UUID) ([]byte, error) {
-	var meshplayApplication MesheryApplication
+func (maap *MeshplayApplicationPersister) GetMeshplayApplicationSource(id uuid.UUID) ([]byte, error) {
+	var meshplayApplication MeshplayApplication
 	err := maap.DB.First(&meshplayApplication, id).Error
 	return meshplayApplication.SourceContent, err
 }
 
-func marshalMesheryApplicationPage(maap *MesheryApplicationPage) []byte {
+func marshalMeshplayApplicationPage(maap *MeshplayApplicationPage) []byte {
 	res, _ := json.Marshal(maap)
 
 	return res
 }
 
-func marshalMesheryApplication(ma *MesheryApplication) []byte {
+func marshalMeshplayApplication(ma *MeshplayApplication) []byte {
 	res, _ := json.Marshal(ma)
 
 	return res
 }
 
-func marshalMesheryApplications(mas []MesheryApplication) []byte {
+func marshalMeshplayApplications(mas []MeshplayApplication) []byte {
 	res, _ := json.Marshal(mas)
 
 	return res

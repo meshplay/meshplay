@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@ package main
 import (
 	"os"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root"
 )
 
-// main is the entrypoint of the mesheryctl command-line tool
+// main is the entrypoint of the meshplayctl command-line tool
 func main() {
 	// Execute the root command
 	err := root.Execute()

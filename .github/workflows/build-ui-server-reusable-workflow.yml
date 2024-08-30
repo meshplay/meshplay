@@ -15,7 +15,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@master
         with:
-          repository: meshery/meshery
+          repository: meshplay/meshplay
           fetch-depth: 1
       - name: Setup Go
         uses: actions/setup-go@master
@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: meshery
+          name: meshplay
           path: ./main
   ui-build:
     name: UI build
@@ -42,7 +42,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@master
         with:
-          repository: meshery/meshery
+          repository: meshplay/meshplay
           fetch-depth: 1
       - uses: actions/setup-node@v4
         with:
@@ -68,20 +68,20 @@ jobs:
           cd ..
           cd provider-ui
           npm i
-      - name: build meshery-ui
+      - name: build meshplay-ui
         run: |
-          make ui-meshery-build
+          make ui-meshplay-build
       - name: build provider-ui
         run: |
           make ui-provider-build
-      - name: upload meshery-ui artifact
+      - name: upload meshplay-ui artifact
         uses: actions/upload-artifact@v4
         with:
-          name: meshery-ui-build
+          name: meshplay-ui-build
           path: ui/out/
-      - name: upload Meshery-provider-ui artifacts
+      - name: upload Meshplay-provider-ui artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: meshery-provider-ui build
+          name: meshplay-provider-ui build
           path: provider-ui/out/
 

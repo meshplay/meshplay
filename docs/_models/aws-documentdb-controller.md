@@ -4,7 +4,7 @@ title: AWS DocumentDB
 subtitle: Collaborative and visual infrastructure as design for AWS DocumentDB
 image: /assets/img/integrations/aws-documentdb-controller/icons/color/aws-documentdb-controller-color.svg
 permalink: extensibility/integrations/aws-documentdb-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-documentdb-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-documentdb-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

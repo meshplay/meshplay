@@ -1,9 +1,9 @@
 import { graphql, requestSubscription } from 'react-relay';
 import { createRelayEnvironment } from '../../../lib/relayEnvironment';
 
-const mesheryControllersStatusSubscription = graphql`
-  subscription MesheryControllersStatusSubscription($connectionIDs: [String!]) {
-    subscribeMesheryControllersStatus(connectionIDs: $connectionIDs) {
+const meshplayControllersStatusSubscription = graphql`
+  subscription MeshplayControllersStatusSubscription($connectionIDs: [String!]) {
+    subscribeMeshplayControllersStatus(connectionIDs: $connectionIDs) {
       connectionID
       controller
       status
@@ -12,10 +12,10 @@ const mesheryControllersStatusSubscription = graphql`
   }
 `;
 
-export default function subscribeMesheryControllersStatus(dataCB, variables) {
+export default function subscribeMeshplayControllersStatus(dataCB, variables) {
   const environment = createRelayEnvironment({});
   return requestSubscription(environment, {
-    subscription: mesheryControllersStatusSubscription,
+    subscription: meshplayControllersStatusSubscription,
     variables: { connectionIDs: variables },
     onNext: dataCB,
     onError: (error) => console.log(`An error occured:`, error),

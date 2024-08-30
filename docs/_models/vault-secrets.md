@@ -4,7 +4,7 @@ title: Vault Secrets
 subtitle: Collaborative and visual infrastructure as design for Vault Secrets
 image: /assets/img/integrations/vault-secrets/icons/color/vault-secrets-color.svg
 permalink: extensibility/integrations/vault-secrets
-docURL: https://docs.meshery.io/extensibility/integrations/vault-secrets
+docURL: https://docs.meshplay.io/extensibility/integrations/vault-secrets
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Key Management

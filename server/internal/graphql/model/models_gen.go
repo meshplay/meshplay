@@ -181,7 +181,7 @@ type K8sContext struct {
 	Server             string `json:"server"`
 	Owner              string `json:"owner"`
 	CreatedBy          string `json:"created_by"`
-	MesheryInstanceID  string `json:"meshplay_instance_id"`
+	MeshplayInstanceID  string `json:"meshplay_instance_id"`
 	KubernetesServerID string `json:"kubernetes_server_id"`
 	DeploymentType     string `json:"deployment_type"`
 	Version            string `json:"version"`
@@ -232,15 +232,15 @@ type MeshSyncEvent struct {
 	ConnectionID string      `json:"connectionID"`
 }
 
-type MesheryControllersStatusListItem struct {
+type MeshplayControllersStatusListItem struct {
 	ConnectionID string                  `json:"connectionID"`
-	Controller   MesheryController       `json:"controller"`
-	Status       MesheryControllerStatus `json:"status"`
+	Controller   MeshplayController       `json:"controller"`
+	Status       MeshplayControllerStatus `json:"status"`
 	Version      string                  `json:"version"`
 }
 
-type MesheryResult struct {
-	MesheryID          *string                `json:"meshplay_id,omitempty"`
+type MeshplayResult struct {
+	MeshplayID          *string                `json:"meshplay_id,omitempty"`
 	Name               *string                `json:"name,omitempty"`
 	Mesh               *string                `json:"mesh,omitempty"`
 	PerformanceProfile *string                `json:"performance_profile,omitempty"`
@@ -324,7 +324,7 @@ type PerfPageResult struct {
 	Page       int              `json:"page"`
 	PageSize   int              `json:"page_size"`
 	TotalCount int              `json:"total_count"`
-	Results    []*MesheryResult `json:"results,omitempty"`
+	Results    []*MeshplayResult `json:"results,omitempty"`
 }
 
 type PerfProfile struct {
@@ -486,99 +486,99 @@ func (e MeshType) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-type MesheryController string
+type MeshplayController string
 
 const (
-	MesheryControllerBroker   MesheryController = "BROKER"
-	MesheryControllerOperator MesheryController = "OPERATOR"
-	MesheryControllerMeshsync MesheryController = "MESHSYNC"
+	MeshplayControllerBroker   MeshplayController = "BROKER"
+	MeshplayControllerOperator MeshplayController = "OPERATOR"
+	MeshplayControllerMeshsync MeshplayController = "MESHSYNC"
 )
 
-var AllMesheryController = []MesheryController{
-	MesheryControllerBroker,
-	MesheryControllerOperator,
-	MesheryControllerMeshsync,
+var AllMeshplayController = []MeshplayController{
+	MeshplayControllerBroker,
+	MeshplayControllerOperator,
+	MeshplayControllerMeshsync,
 }
 
-func (e MesheryController) IsValid() bool {
+func (e MeshplayController) IsValid() bool {
 	switch e {
-	case MesheryControllerBroker, MesheryControllerOperator, MesheryControllerMeshsync:
+	case MeshplayControllerBroker, MeshplayControllerOperator, MeshplayControllerMeshsync:
 		return true
 	}
 	return false
 }
 
-func (e MesheryController) String() string {
+func (e MeshplayController) String() string {
 	return string(e)
 }
 
-func (e *MesheryController) UnmarshalGQL(v interface{}) error {
+func (e *MeshplayController) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = MesheryController(str)
+	*e = MeshplayController(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid MesheryController", str)
+		return fmt.Errorf("%s is not a valid MeshplayController", str)
 	}
 	return nil
 }
 
-func (e MesheryController) MarshalGQL(w io.Writer) {
+func (e MeshplayController) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-type MesheryControllerStatus string
+type MeshplayControllerStatus string
 
 const (
-	MesheryControllerStatusDeployed    MesheryControllerStatus = "DEPLOYED"
-	MesheryControllerStatusNotdeployed MesheryControllerStatus = "NOTDEPLOYED"
-	MesheryControllerStatusDeploying   MesheryControllerStatus = "DEPLOYING"
-	MesheryControllerStatusUnkown      MesheryControllerStatus = "UNKOWN"
-	MesheryControllerStatusUndeployed  MesheryControllerStatus = "UNDEPLOYED"
-	MesheryControllerStatusEnabled     MesheryControllerStatus = "ENABLED"
-	MesheryControllerStatusRunning     MesheryControllerStatus = "RUNNING"
-	MesheryControllerStatusConnected   MesheryControllerStatus = "CONNECTED"
+	MeshplayControllerStatusDeployed    MeshplayControllerStatus = "DEPLOYED"
+	MeshplayControllerStatusNotdeployed MeshplayControllerStatus = "NOTDEPLOYED"
+	MeshplayControllerStatusDeploying   MeshplayControllerStatus = "DEPLOYING"
+	MeshplayControllerStatusUnkown      MeshplayControllerStatus = "UNKOWN"
+	MeshplayControllerStatusUndeployed  MeshplayControllerStatus = "UNDEPLOYED"
+	MeshplayControllerStatusEnabled     MeshplayControllerStatus = "ENABLED"
+	MeshplayControllerStatusRunning     MeshplayControllerStatus = "RUNNING"
+	MeshplayControllerStatusConnected   MeshplayControllerStatus = "CONNECTED"
 )
 
-var AllMesheryControllerStatus = []MesheryControllerStatus{
-	MesheryControllerStatusDeployed,
-	MesheryControllerStatusNotdeployed,
-	MesheryControllerStatusDeploying,
-	MesheryControllerStatusUnkown,
-	MesheryControllerStatusUndeployed,
-	MesheryControllerStatusEnabled,
-	MesheryControllerStatusRunning,
-	MesheryControllerStatusConnected,
+var AllMeshplayControllerStatus = []MeshplayControllerStatus{
+	MeshplayControllerStatusDeployed,
+	MeshplayControllerStatusNotdeployed,
+	MeshplayControllerStatusDeploying,
+	MeshplayControllerStatusUnkown,
+	MeshplayControllerStatusUndeployed,
+	MeshplayControllerStatusEnabled,
+	MeshplayControllerStatusRunning,
+	MeshplayControllerStatusConnected,
 }
 
-func (e MesheryControllerStatus) IsValid() bool {
+func (e MeshplayControllerStatus) IsValid() bool {
 	switch e {
-	case MesheryControllerStatusDeployed, MesheryControllerStatusNotdeployed, MesheryControllerStatusDeploying, MesheryControllerStatusUnkown, MesheryControllerStatusUndeployed, MesheryControllerStatusEnabled, MesheryControllerStatusRunning, MesheryControllerStatusConnected:
+	case MeshplayControllerStatusDeployed, MeshplayControllerStatusNotdeployed, MeshplayControllerStatusDeploying, MeshplayControllerStatusUnkown, MeshplayControllerStatusUndeployed, MeshplayControllerStatusEnabled, MeshplayControllerStatusRunning, MeshplayControllerStatusConnected:
 		return true
 	}
 	return false
 }
 
-func (e MesheryControllerStatus) String() string {
+func (e MeshplayControllerStatus) String() string {
 	return string(e)
 }
 
-func (e *MesheryControllerStatus) UnmarshalGQL(v interface{}) error {
+func (e *MeshplayControllerStatus) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = MesheryControllerStatus(str)
+	*e = MeshplayControllerStatus(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid MesheryControllerStatus", str)
+		return fmt.Errorf("%s is not a valid MeshplayControllerStatus", str)
 	}
 	return nil
 }
 
-func (e MesheryControllerStatus) MarshalGQL(w io.Writer) {
+func (e MeshplayControllerStatus) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 

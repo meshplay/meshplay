@@ -4,7 +4,7 @@ title: Jitsi
 subtitle: Collaborative and visual infrastructure as design for Jitsi
 image: /assets/img/integrations/jitsi/icons/color/jitsi-color.svg
 permalink: extensibility/integrations/jitsi
-docURL: https://docs.meshery.io/extensibility/integrations/jitsi
+docURL: https://docs.meshplay.io/extensibility/integrations/jitsi
 description: 
 integrations-category: Tools
 integrations-subcategory: Video Conferencing

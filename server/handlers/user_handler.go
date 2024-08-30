@@ -11,7 +11,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 )
 
 // UserHandler returns info about the logged in user

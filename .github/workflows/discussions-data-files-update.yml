@@ -8,16 +8,16 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
-      - name: Fetch data for mesheryctl tag
-        run: curl https://discuss.layer5.io/tag/mesheryctl.json -o docs/_data/discuss/mesheryctl.json
-      - name: Fetch data for meshery tag
-        run: curl https://discuss.layer5.io/tag/meshery.json -o docs/_data/discuss/meshery.json
+      - name: Fetch data for meshplayctl tag
+        run: curl https://discuss.layer5.io/tag/meshplayctl.json -o docs/_data/discuss/meshplayctl.json
+      - name: Fetch data for meshplay tag
+        run: curl https://discuss.layer5.io/tag/meshplay.json -o docs/_data/discuss/meshplay.json
 
       - name: Pull changes from remote
         run: git pull origin master
@@ -27,7 +27,7 @@ jobs:
         with:
           file_pattern: docs/_data/discuss/*.json
           commit_user_name: Discussions bot
-          commit_user_email: discussions@meshery.io
+          commit_user_email: discussions@meshplay.io
           commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit_options: "--signoff"
           commit_message: "latest discussion data files added"

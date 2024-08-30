@@ -7,8 +7,8 @@ import "github.com/layer5io/meshkit/errors"
 // https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
 	ErrCreatingUUIDInstanceCode                   = "meshplay-server-1001"
-	ErrRegisteringMesheryOAMTraitsCode            = "meshplay-server-1002"
-	ErrRegisteringMesheryOAMWorkloadsCode         = "meshplay-server-1003"
+	ErrRegisteringMeshplayOAMTraitsCode            = "meshplay-server-1002"
+	ErrRegisteringMeshplayOAMWorkloadsCode         = "meshplay-server-1003"
 	ErrRetrievingUserHomeDirectoryCode            = "meshplay-server-1004"
 	ErrCreatingUserDataDirectoryCode              = "meshplay-server-1005"
 	ErrCreatingMapPreferencePersisterInstanceCode = "meshplay-server-1006"
@@ -30,12 +30,12 @@ func ErrCreatingUUIDInstance(err error) error {
 	return errors.New(ErrCreatingUUIDInstanceCode, errors.Fatal, []string{"Unable to create UUID instance"}, []string{"Unable to create UUID instance: ", err.Error()}, []string{}, []string{})
 }
 
-func ErrRegisteringMesheryOAMTraits(err error) error {
-	return errors.New(ErrRegisteringMesheryOAMTraitsCode, errors.Alert, []string{"Error registering local OAM traits"}, []string{"Error registering local OAM traits: ", err.Error()}, []string{}, []string{})
+func ErrRegisteringMeshplayOAMTraits(err error) error {
+	return errors.New(ErrRegisteringMeshplayOAMTraitsCode, errors.Alert, []string{"Error registering local OAM traits"}, []string{"Error registering local OAM traits: ", err.Error()}, []string{}, []string{})
 }
 
-func ErrRegisteringMesheryOAMWorkloads(err error) error {
-	return errors.New(ErrRegisteringMesheryOAMWorkloadsCode, errors.Alert, []string{"Error registering local OAM workloads"}, []string{"Error registering local OAM workloads: ", err.Error()}, []string{}, []string{})
+func ErrRegisteringMeshplayOAMWorkloads(err error) error {
+	return errors.New(ErrRegisteringMeshplayOAMWorkloadsCode, errors.Alert, []string{"Error registering local OAM workloads"}, []string{"Error registering local OAM workloads: ", err.Error()}, []string{}, []string{})
 }
 
 func ErrRetrievingUserHomeDirectory(err error) error {

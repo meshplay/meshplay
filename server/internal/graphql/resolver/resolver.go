@@ -1,8 +1,8 @@
 package resolver
 
 import (
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/utils/broadcast"

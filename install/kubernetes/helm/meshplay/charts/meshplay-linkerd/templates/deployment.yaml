@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "meshery-linkerd.fullname" . }}
+  name: {{ include "meshplay-linkerd.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "meshery-linkerd.labels" . | nindent 4 }}
+    {{- include "meshplay-linkerd.labels" . | nindent 4 }}
   annotations:
     {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "meshery-linkerd.selectorLabels" . | nindent 6 }}
+      {{- include "meshplay-linkerd.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "meshery-linkerd.selectorLabels" . | nindent 8 }}
+        {{- include "meshplay-linkerd.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "meshery-linkerd.serviceAccountName" . }}
+      serviceAccountName: {{ include "meshplay-linkerd.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

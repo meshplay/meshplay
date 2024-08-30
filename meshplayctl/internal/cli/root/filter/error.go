@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,11 +19,11 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrFilterNameOrIDCode = "mesheryctl-1018"
-	ErrFetchFilterCode    = "mesheryctl-1019"
+	ErrFilterNameOrIDCode = "meshplayctl-1018"
+	ErrFetchFilterCode    = "meshplayctl-1019"
 )
 
 func ErrFilterNameOrID(err error) error {
@@ -33,7 +33,7 @@ func ErrFilterNameOrID(err error) error {
 		[]string{"Unable to fetch filter"},
 		[]string{err.Error()},
 		[]string{"Probable invalid filter name or id"},
-		[]string{"Run `mesheryctl filter list` to view all available filters."})
+		[]string{"Run `meshplayctl filter list` to view all available filters."})
 }
 
 func ErrFetchFilter(err error) error {
@@ -43,5 +43,5 @@ func ErrFetchFilter(err error) error {
 		[]string{"Unable to Fetch Filter"},
 		[]string{err.Error()},
 		[]string{"Filter name or id doesn't exist"},
-		[]string{"Run `mesheryctl filter view -a` to view all available filters."})
+		[]string{"Run `meshplayctl filter view -a` to view all available filters."})
 }

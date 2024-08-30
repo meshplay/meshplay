@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Accessing Meshery UI
-permalink: installation/accessing-meshery-ui
+title: Accessing Meshplay UI
+permalink: installation/accessing-meshplay-ui
 type: installation
 display-title: "false"
 language: en
 list: exclude
 ---
-{% include installation/accessing-meshery-ui.md %}
+{% include installation/accessing-meshplay-ui.md %}

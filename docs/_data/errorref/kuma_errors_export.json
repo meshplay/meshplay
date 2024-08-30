@@ -1,6 +1,6 @@
 {
   "errors_export": {
-    "component_name": "meshery-kuma",
+    "component_name": "meshplay-kuma",
     "component_type": "adapter",
     "errors": {
       "1000": {
@@ -46,7 +46,7 @@
         "long_description": "Error getting MeshSpecKey config from in-memory configuration",
         "short_description": "Error configuration mesh",
         "probable_cause": "",
-        "suggested_remediation": "Reconnect the adapter to the Meshery Server"
+        "suggested_remediation": "Reconnect the adapter to the Meshplay Server"
       },
       "1005": {
         "name": "ErrFetchManifestCode",
@@ -91,13 +91,13 @@
         "long_description": "Error occurred while trying to install a sample application using manifests",
         "short_description": "Error with sample app operation",
         "probable_cause": "Invalid kubeclient config\nInvalid manifest",
-        "suggested_remediation": "Reconnect your adapter to Meshery Server to refresh the kubeclient"
+        "suggested_remediation": "Reconnect your adapter to Meshplay Server to refresh the kubeclient"
       },
       "1010": {
         "name": "ErrGetKumactlCode",
         "code": "1010",
         "severity": "Alert",
-        "long_description": "Error occurred while downloading`kumactl` and moving it to .meshery/bin]",
+        "long_description": "Error occurred while downloading`kumactl` and moving it to .meshplay/bin]",
         "short_description": "Error getting kumactl comamndline",
         "probable_cause": "https://download.konghq.com/mesh-alpine/kuma-<release>-<platform>-<arch>.tar.gz might be deprecated",
         "suggested_remediation": ""
@@ -144,7 +144,7 @@
         "severity": "Alert",
         "long_description": "",
         "short_description": "Error occurred while moving the kumactl binary",
-        "probable_cause": "Meshery adapter might not have write access",
+        "probable_cause": "Meshplay adapter might not have write access",
         "suggested_remediation": ""
       },
       "1016": {
@@ -154,7 +154,7 @@
         "long_description": "Error occurred while applying custom manifest to the cluster",
         "short_description": "Error with custom operation",
         "probable_cause": "Invalid kubeclient config\nInvalid manifest",
-        "suggested_remediation": "Reupload the kubconfig in the Meshery Server and reconnect the adapter"
+        "suggested_remediation": "Reupload the kubconfig in the Meshplay Server and reconnect the adapter"
       },
       "1017": {
         "name": "ErrNilClientCode",
@@ -163,7 +163,7 @@
         "long_description": "Kubernetes client is nil",
         "short_description": "Kubernetes client not initialized",
         "probable_cause": "Kubernetes client not initialized",
-        "suggested_remediation": "Reconnect the adapter to Meshery Server"
+        "suggested_remediation": "Reconnect the adapter to Meshplay Server"
       },
       "1018": {
         "name": "ErrApplyHelmChartCode",
@@ -223,19 +223,19 @@
         "name": "ErrParseOAMComponentCode",
         "code": "1025",
         "severity": "Alert",
-        "long_description": "Error occurred while parsing application component in the OAM request made by Meshery server",
+        "long_description": "Error occurred while parsing application component in the OAM request made by Meshplay server",
         "short_description": "error parsing the component",
         "probable_cause": "Could not unmarshall configuration component received via ProcessOAM gRPC call into a valid Component struct",
-        "suggested_remediation": "Check if Meshery Server is creating valid component for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshery Server. Also check if Meshery Server and adapters are referring to same component struct provided in MeshKit."
+        "suggested_remediation": "Check if Meshplay Server is creating valid component for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshplay Server. Also check if Meshplay Server and adapters are referring to same component struct provided in MeshKit."
       },
       "1026": {
         "name": "ErrParseOAMConfigCode",
         "code": "1026",
         "severity": "Alert",
-        "long_description": "Error occurred while parsing configuration in the request made by Meshery Server",
+        "long_description": "Error occurred while parsing configuration in the request made by Meshplay Server",
         "short_description": "error parsing the configuration",
         "probable_cause": "Could not unmarshall OAM config received via ProcessOAM gRPC call into a valid Config struct",
-        "suggested_remediation": "Check if Meshery Server is creating valid config for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshery Server. Also, confirm that Meshery Server and Adapters are referring to same config struct provided in MeshKit"
+        "suggested_remediation": "Check if Meshplay Server is creating valid config for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshplay Server. Also, confirm that Meshplay Server and Adapters are referring to same config struct provided in MeshKit"
       },
       "1027": {
         "name": "ErrEmptyConfigCode",
@@ -253,7 +253,7 @@
         "long_description": "",
         "short_description": "Error occurred while applying namespace ",
         "probable_cause": "Trying to access a namespace which is not available",
-        "suggested_remediation": "Verify presence of namespace. Confirm Meshery ServiceAccount permissions"
+        "suggested_remediation": "Verify presence of namespace. Confirm Meshplay ServiceAccount permissions"
       }
     }
   }

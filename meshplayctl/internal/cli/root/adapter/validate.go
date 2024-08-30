@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -38,8 +38,8 @@ type Operation struct {
 var spec string
 
 var linkDocMeshValidate = map[string]string{
-	"link":    "![mesh-validate-usage](/assets/img/mesheryctl/mesh-validate.png)",
-	"caption": "Usage of mesheryctl adapter validate",
+	"link":    "![mesh-validate-usage](/assets/img/meshplayctl/mesh-validate.png)",
+	"caption": "Usage of meshplayctl adapter validate",
 }
 
 // validateCmd represents the infrastructure validation command
@@ -48,17 +48,17 @@ var validateCmd = &cobra.Command{
 	Short: "Validate conformance to predefined standards",
 	Example: `
 // Validate conformance to predefined standards
-mesheryctl adapter validate [mesh name] --adapter [name of the adapter] --tokenPath [path to token for authentication] --spec [specification to be used for conformance test] --namespace [namespace to be used]
+meshplayctl adapter validate [mesh name] --adapter [name of the adapter] --tokenPath [path to token for authentication] --spec [specification to be used for conformance test] --namespace [namespace to be used]
 
 // Validate Istio to predefined standards
-mesheryctl adapter validate istio --adapter meshery-istio --spec smi
+meshplayctl adapter validate istio --adapter meshplay-istio --spec smi
 	`,
 	Annotations: linkDocMeshValidate,
 	Long:        `Validate predefined conformance to different standard specifications`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		log.Infof("Verifying prerequisites...")
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -86,7 +86,7 @@ mesheryctl adapter validate istio --adapter meshery-istio --spec smi
 	RunE: func(cmd *cobra.Command, args []string) error {
 		log.Infof("Starting cloud and cloud native infrastructure validation...")
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -116,8 +116,8 @@ mesheryctl adapter validate istio --adapter meshery-istio --spec smi
 func init() {
 	validateCmd.Flags().StringVarP(&spec, "spec", "s", "smi", "(Required) specification to be used for conformance test (smi/istio-vet)")
 	_ = validateCmd.MarkFlagRequired("spec")
-	validateCmd.Flags().StringVarP(&adapterURL, "adapter", "a", "meshery-nsm", "(Required) Adapter to use for validation")
+	validateCmd.Flags().StringVarP(&adapterURL, "adapter", "a", "meshplay-nsm", "(Required) Adapter to use for validation")
 	_ = validateCmd.MarkFlagRequired("adapter")
-	validateCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshery API")
+	validateCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshplay API")
 	validateCmd.Flags().BoolVarP(&watch, "watch", "w", false, "Watch for events and verify operation (in beta testing)")
 }

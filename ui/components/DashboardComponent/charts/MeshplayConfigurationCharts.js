@@ -8,7 +8,7 @@ import Link from 'next/link';
 import CreateDesignBtn from '../../General/CreateDesignBtn';
 import theme from '../../../themes/app';
 import { iconSmall } from '../../../css/icons.styles';
-import { CustomTextTooltip } from '@/components/MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '@/components/MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { InfoOutlined } from '@material-ui/icons';
 import { useGetPatternsQuery } from '@/rtk-query/design';
 import { useGetFiltersQuery } from '@/rtk-query/filter';
@@ -16,7 +16,7 @@ import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
 import { useRouter } from 'next/router';
 
-export default function MesheryConfigurationChart({ classes }) {
+export default function MeshplayConfigurationChart({ classes }) {
   const router = useRouter();
   const [chartData, setChartData] = useState([]);
 
@@ -92,7 +92,7 @@ export default function MesheryConfigurationChart({ classes }) {
               placement="left"
               interactive={true}
               variant="standard"
-              title={`Meshery Designs are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured. [Learn more](https://docs.meshery.io/concepts/logical/designs)`}
+              title={`Meshplay Designs are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured. [Learn more](https://docs.meshplay.io/concepts/logical/designs)`}
             >
               <IconButton disableRipple={true} disableFocusRipple={true}>
                 <InfoOutlined
@@ -128,7 +128,7 @@ export default function MesheryConfigurationChart({ classes }) {
               }}
             >
               <Typography style={{ fontSize: '1.5rem', marginBottom: '1rem' }} align="center">
-                No Meshery configuration found
+                No Meshplay configuration found
               </Typography>
               <CreateDesignBtn />
             </div>

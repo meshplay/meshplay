@@ -301,7 +301,7 @@ const Environments = ({ organization, classes }) => {
       options: ['DELETE', 'CANCEL'],
       showInfoIcon: `Deleting an environment does not delete any resources (e.g. connections) currently contained with the environment.
       Resources that belong to others environments will continue to belong to those other environments.
-      Learn more about the behavior of [lifecycle of environments and their resources](https://docs.meshery.io/concepts/logical/environments) in Meshery Docs.`,
+      Learn more about the behavior of [lifecycle of environments and their resources](https://docs.meshplay.io/concepts/logical/environments) in Meshplay Docs.`,
       variant: PROMPT_VARIANTS.DANGER,
     });
     if (response === 'DELETE') {

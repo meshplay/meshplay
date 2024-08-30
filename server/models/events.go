@@ -10,7 +10,7 @@ const (
 	Update = "update"
 )
 
-type MesheryEvents interface {
+type MeshplayEvents interface {
 	GetAllEvents(eventFilter *events.EventsFilter, userID uuid.UUID, sysID uuid.UUID) (*EventsResponse, error)
 	GetEventTypes(userID uuid.UUID, sysID uuid.UUID) (map[string]interface{}, error)
 	PersistEvent(data *events.Event) error

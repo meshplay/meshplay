@@ -9,7 +9,7 @@ import blue from '@material-ui/core/colors/blue';
 
 import DashboardMeshModelGraph from './charts/DashboardMeshModelGraph.js';
 import ConnectionStatsChart from './charts/ConnectionCharts.js';
-import MesheryConfigurationChart from './charts/MesheryConfigurationCharts.js';
+import MeshplayConfigurationChart from './charts/MeshplayConfigurationCharts.js';
 import { Provider } from 'react-redux';
 import { store } from '@/store/index';
 
@@ -96,7 +96,7 @@ const Overview = ({ classes }) => {
                   <ConnectionStatsChart classes={classes} />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <MesheryConfigurationChart classes={classes} />
+                  <MeshplayConfigurationChart classes={classes} />
                 </Grid>
               </Grid>
             </Grid>

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,14 +20,14 @@ var (
 	releasechannel = "Not Set"
 )
 
-func GetMesheryctlVersion() string {
+func GetMeshplayctlVersion() string {
 	return version
 }
 
-func GetMesheryctlCommitsha() string {
+func GetMeshplayctlCommitsha() string {
 	return commitsha
 }
 
-func GetMesheryctlReleaseChannel() string {
+func GetMeshplayctlReleaseChannel() string {
 	return releasechannel
 }

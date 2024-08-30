@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/layer5io/meshplay/server/models/pattern/core"
-	"github.com/layer5io/meshplay/server/models/pattern/jsonschema"
-	"github.com/layer5io/meshplay/server/models/pattern/resource/selector"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/models/pattern/jsonschema"
+	"github.com/khulnasoft/meshplay/server/models/pattern/resource/selector"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 
 	"gopkg.in/yaml.v2"

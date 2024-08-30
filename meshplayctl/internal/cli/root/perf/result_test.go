@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/jarcoal/httpmock"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 )
 
 var tempProfileID = "a2a555cf-ae16-479c-b5d2-a35656ba741e"
@@ -25,23 +25,23 @@ var (
 	result1006 = "1006.golden"
 )
 
-// golden file mesheryctl outputs
+// golden file meshplayctl outputs
 var (
-	// mesheryctl response of 25 performance result
+	// meshplayctl response of 25 performance result
 	result1001output = "1001.golden"
-	// mesheryctl response of 25 performance result in json output
+	// meshplayctl response of 25 performance result in json output
 	result1006output = "1006.golden"
-	// mesheryctl response of 25 performance result in yaml output
+	// meshplayctl response of 25 performance result in yaml output
 	result1007output = "1007.golden"
-	// mesheryctl response for invalid output format
+	// meshplayctl response for invalid output format
 	result1008output = "1008.golden"
-	// mesheryctl response for server response code error
+	// meshplayctl response for server response code error
 	result1009output = "1009.golden"
-	// mesheryctl response for unmarshal error
+	// meshplayctl response for unmarshal error
 	result1010output = "1010.golden"
-	// mesheryctl response for failing attach authentication
+	// meshplayctl response for failing attach authentication
 	result1011output = "1011.golden"
-	// mesheryctl response for no profile-id passed
+	// meshplayctl response for no profile-id passed
 	result1012output = "1012.golden"
 )
 

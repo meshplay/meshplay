@@ -4,7 +4,7 @@ title: Argo CD Operator
 subtitle: Collaborative and visual infrastructure as design for Argo CD Operator
 image: /assets/img/integrations/argocd-operator/icons/color/argocd-operator-color.svg
 permalink: extensibility/integrations/argocd-operator
-docURL: https://docs.meshery.io/extensibility/integrations/argocd-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/argocd-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

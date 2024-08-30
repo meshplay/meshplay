@@ -3,7 +3,7 @@ package models
 import (
 	"sync"
 
-	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
 )
 
 type ConfigurationChannel struct {

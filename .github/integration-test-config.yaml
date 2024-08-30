@@ -1,10 +1,10 @@
 # Test configuration file for running performance benchmarks
-# See: https://docs.meshery.io/guides/performance-management#running-performance-benchmarks-through-mesheryctl
+# See: https://docs.meshplay.io/guides/performance-management#running-performance-benchmarks-through-meshplayctl
 test:
   smp_version: v0.0.1
   
   # The name of the test
-  name: Performance Profile for Meshery's Nightly Integration Testing
+  name: Performance Profile for Meshplay's Nightly Integration Testing
   labels: {}
   
   # Test configuration to be defined here
@@ -19,7 +19,7 @@ test:
       body: ''
       content_type: ''
       endpoint_urls:
-        - 'https://meshery.io'
+        - 'https://meshplay.io'
   duration: 2s
 
 # Service mesh under test in Service Mesh Performance Spec format

@@ -73,7 +73,7 @@ const MeshMapSnapShotLogo = withStyles(LogoStyles)(({ classes }) => {
 
 const MeshMapSnapShotCard = ({ classes, githubActionEnabled = false }) => {
   const handleEnable = (e) => {
-    window.open('https://meshery.layer5.io/connect/github/new/', '_blank');
+    window.open('https://meshplay.layer5.io/connect/github/new/', '_blank');
     e.stopPropagation();
   };
 
@@ -107,7 +107,7 @@ const MeshMapSnapShotCard = ({ classes, githubActionEnabled = false }) => {
   );
 };
 
-const MesheryPerformacneLogoStyles = () => ({
+const MeshplayPerformacneLogoStyles = () => ({
   img: {
     paddingRight: '1rem',
     height: 'auto',
@@ -117,14 +117,14 @@ const MesheryPerformacneLogoStyles = () => ({
   },
 });
 
-const MesheryPerformanceActionLogo = withStyles(MesheryPerformacneLogoStyles)(({ classes }) => {
+const MeshplayPerformanceActionLogo = withStyles(MeshplayPerformacneLogoStyles)(({ classes }) => {
   return <img className={classes.img} src="/static/img/smp-dark.svg" />;
 });
 
-const MesheryPerformanceAction = ({ classes, githubActionEnabled = false }) => {
+const MeshplayPerformanceAction = ({ classes, githubActionEnabled = false }) => {
   const handleEnable = (e) => {
     window.open(
-      'https://github.com/marketplace/actions/performance-testing-with-meshery',
+      'https://github.com/marketplace/actions/performance-testing-with-meshplay',
       '_blank',
     );
     e.stopPropagation();
@@ -138,8 +138,8 @@ const MesheryPerformanceAction = ({ classes, githubActionEnabled = false }) => {
         </Typography>
 
         <Typography className={classes.frontSideDescription} variant="body">
-          <MesheryPerformanceActionLogo />
-          Characterize the performance of your services using Meshery&apos;s performance analysis
+          <MeshplayPerformanceActionLogo />
+          Characterize the performance of your services using Meshplay&apos;s performance analysis
           GitHub Action to benchmark and visually compare percentiles (e.g. P99) over time.
         </Typography>
         {
@@ -160,13 +160,13 @@ const MesheryPerformanceAction = ({ classes, githubActionEnabled = false }) => {
   );
 };
 
-const MesheryDockerExtensionLogo = withStyles(MesheryPerformacneLogoStyles)(({ classes }) => {
+const MeshplayDockerExtensionLogo = withStyles(MeshplayPerformacneLogoStyles)(({ classes }) => {
   return <img className={classes.img} src="/static/img/docker.svg" />;
 });
 
-const MesheryDockerExtension = ({ classes }) => {
+const MeshplayDockerExtension = ({ classes }) => {
   const handleDownload = (e) => {
-    window.open('https://hub.docker.com/extensions/meshery/docker-extension-meshery', '_blank');
+    window.open('https://hub.docker.com/extensions/meshplay/docker-extension-meshplay', '_blank');
     e.stopPropagation();
   };
 
@@ -174,14 +174,14 @@ const MesheryDockerExtension = ({ classes }) => {
     <Grid item {...LARGE_6_MED_12_GRID_STYLE}>
       <div className={classes.card}>
         <Typography className={classes.frontContent} variant="h5" component="div">
-          Meshery Docker Extension
+          Meshplay Docker Extension
         </Typography>
 
         <Typography className={classes.frontSideDescription} variant="body">
-          <MesheryDockerExtensionLogo />
-          Connect Meshery to your Kubernetes cluster via Docker Desktop and let MeshSync discover
+          <MeshplayDockerExtensionLogo />
+          Connect Meshplay to your Kubernetes cluster via Docker Desktop and let MeshSync discover
           your clusters. Use MeshMap&apos;s no-code designer to collaboratively design and manage
-          your infrastructure with ready-made patterns from Meshery Catalog.
+          your infrastructure with ready-made patterns from Meshplay Catalog.
         </Typography>
         {
           <div style={{ textAlign: 'right' }}>
@@ -202,8 +202,8 @@ const MesheryDockerExtension = ({ classes }) => {
 
 export const WrappedMeshMapSignupCard = withStyles(styles)(MeshMapSignUpcard);
 export const WrappedMeshMapSnapShopCard = withStyles(styles)(MeshMapSnapShotCard);
-export const WrappedMesheryPerformanceAction = withStyles(styles)(MesheryPerformanceAction);
-export const WrappedMesheryDockerExtension = withStyles(styles)(MesheryDockerExtension);
+export const WrappedMeshplayPerformanceAction = withStyles(styles)(MeshplayPerformanceAction);
+export const WrappedMeshplayDockerExtension = withStyles(styles)(MeshplayDockerExtension);
 const Extensions = ({ classes, toggleCatalogContent, capabilitiesRegistry }) => {
   const [catalogContent, setCatalogContent] = useState(true);
   const [extensionPreferences, setExtensionPreferences] = useState({});
@@ -263,18 +263,18 @@ const Extensions = ({ classes, toggleCatalogContent, capabilitiesRegistry }) => 
   return (
     <React.Fragment>
       <Head>
-        <title>Extensions | Meshery</title>
+        <title>Extensions | Meshplay</title>
       </Head>
       {CAN(keys.VIEW_EXTENSIONS.action, keys.VIEW_EXTENSIONS.subject) ? (
         <Grid container spacing={1}>
           <WrappedMeshMapSnapShopCard githubActionEnabled={false} />
-          <WrappedMesheryPerformanceAction githubActionEnabled={false} />
+          <WrappedMeshplayPerformanceAction githubActionEnabled={false} />
           <WrappedMeshMapSignupCard hasAccessToMeshMap={hasAccessToMeshMap} />
-          <WrappedMesheryDockerExtension />
+          <WrappedMeshplayDockerExtension />
           <Grid item {...INITIAL_GRID_SIZE}>
             <div className={classes.card}>
               <Typography className={classes.frontContent} variant="h5" component="div">
-                {'Meshery Catalog'}
+                {'Meshplay Catalog'}
               </Typography>
 
               <Typography className={classes.frontSideDescription} variant="body">
@@ -311,12 +311,12 @@ const Extensions = ({ classes, toggleCatalogContent, capabilitiesRegistry }) => 
                 <Typography variant="subtitle2" style={{ fontStyle: 'italic' }}>
                   Explore the{' '}
                   <a
-                    href="https://meshery.io/catalog"
+                    href="https://meshplay.io/catalog"
                     target="_blank"
                     rel="noreferrer"
                     className={classes.link}
                   >
-                    Meshery Catalog
+                    Meshplay Catalog
                   </a>
                 </Typography>
 

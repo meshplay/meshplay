@@ -19,9 +19,9 @@ import (
 	yaml "github.com/ghodss/yaml"
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	SMP "github.com/layer5io/service-mesh-performance/spec"
 	"github.com/pkg/errors"
 	corev1 "k8s.io/api/core/v1"
@@ -448,7 +448,7 @@ func (h *Handler) executeLoadTest(ctx context.Context, req *http.Request, profil
 
 	// If no Kubernetes context is selected, skip cluster discovery
 	if len(mk8sContexts) == 0 {
-		result := &models.MesheryResult{
+		result := &models.MeshplayResult{
 			Name:   testName,
 			Mesh:   meshName,
 			Result: resultsMap,
@@ -532,7 +532,7 @@ func (h *Handler) executeLoadTest(ctx context.Context, req *http.Request, profil
 				Message: "Obtained the needed metadatas, attempting to persist the result for cluster " + mk8scontext.Name,
 			}
 
-			result := &models.MesheryResult{
+			result := &models.MeshplayResult{
 				Name:   testName,
 				Mesh:   meshName,
 				Result: resultsMap,
@@ -545,7 +545,7 @@ func (h *Handler) executeLoadTest(ctx context.Context, req *http.Request, profil
 }
 
 // persistPerformanceTestResult takes the test result and saves it on the provider
-func (h *Handler) persistPerformanceTestResult(ctx context.Context, req *http.Request, result *models.MesheryResult, testUUID, profileID string, resultInst *periodic.RunnerResults, prefObj *models.Preference, provider models.Provider, respChan chan *models.LoadTestResponse) {
+func (h *Handler) persistPerformanceTestResult(ctx context.Context, req *http.Request, result *models.MeshplayResult, testUUID, profileID string, resultInst *periodic.RunnerResults, prefObj *models.Preference, provider models.Provider, respChan chan *models.LoadTestResponse) {
 	resultID, err := provider.PublishResults(req, result, profileID)
 	if err != nil {
 		h.log.Error(ErrLoadTest(err, "unable to persist in cluster"))
@@ -636,7 +636,7 @@ func (h *Handler) CollectStaticMetrics(config *models.SubmitMetricsConfig) error
 		h.log.Error(ErrParseBool(err, "result uuid"))
 		return err
 	}
-	result := &models.MesheryResult{
+	result := &models.MeshplayResult{
 		ID:                resultUUID,
 		TestID:            config.TestUUID,
 		ServerMetrics:     queryResults,

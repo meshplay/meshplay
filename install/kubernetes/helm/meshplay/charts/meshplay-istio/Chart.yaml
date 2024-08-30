@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-istio
-description: Meshery Adapter for Istio chart.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-istio
+description: Meshplay Adapter for Istio chart.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/layer5io/meshery-istio
+  - https://github.com/khulnasoft/meshplay-istio
 
 deprecated: false
 

@@ -3,7 +3,7 @@ package model
 import (
 	"context"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 
 	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"
 )

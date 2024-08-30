@@ -11,7 +11,7 @@ directive @KubernetesMiddleware on FIELD_DEFINITION
 
 # Service Mesh Types
 enum MeshType {
-  # All meshes that Meshery supports
+  # All meshes that Meshplay supports
   ALL_MESH
 
   # Invalid Mesh
@@ -57,13 +57,13 @@ enum MeshType {
   CILIUM_SERVICE_MESH
 }
 
-enum MesheryController {
+enum MeshplayController {
     BROKER
     OPERATOR
     MESHSYNC
   }
 
-enum MesheryControllerStatus {
+enum MeshplayControllerStatus {
     DEPLOYED
     NOTDEPLOYED
     DEPLOYING
@@ -74,10 +74,10 @@ enum MesheryControllerStatus {
     CONNECTED
   }
 
-type MesheryControllersStatusListItem {
+type MeshplayControllersStatusListItem {
     connectionID: String!
-    controller: MesheryController! 
-    status: MesheryControllerStatus!
+    controller: MeshplayController! 
+    status: MeshplayControllerStatus!
     version: String!
   }
 
@@ -266,15 +266,15 @@ enum MeshSyncEventType {
 
 # ============== OPERATOR =============================
 
-# Input for status change of Meshery Operator
+# Input for status change of Meshplay Operator
 input OperatorStatusInput {
-  # Desired status for Meshery Operator
+  # Desired status for Meshplay Operator
   targetStatus: Status!
   
   contextID: String!
 }
 
-# Controllers of Meshery Operator
+# Controllers of Meshplay Operator
 type OperatorControllerStatus {
   # Controller Name
   name: String!
@@ -441,7 +441,7 @@ type PerfPageResult {
   page_size: Int!
   total_count: Int!
 
-  results: [MesheryResult]
+  results: [MeshplayResult]
 }
 
 type PerfPageProfiles {
@@ -473,7 +473,7 @@ type PerfProfile {
   metadata: Map
 }
 
-type MesheryResult {
+type MeshplayResult {
   meshplay_id: String
   name: String
   mesh: String
@@ -570,10 +570,10 @@ type Query {
     filter: ServiceMeshFilter
   ): [DataPlane!]!
 
-  # Query status of Meshery Operator in your cluster
+  # Query status of Meshplay Operator in your cluster
   getOperatorStatus(
         connectionID: String!
-  ): MesheryControllersStatusListItem @KubernetesMiddleware
+  ): MeshplayControllersStatusListItem @KubernetesMiddleware
 
   # Query to resync the cluster discovery
   resyncCluster(
@@ -598,7 +598,7 @@ type Query {
   ): [NameSpace!]!
 
   # Query for performance result
-  getPerfResult(id: ID!): MesheryResult
+  getPerfResult(id: ID!): MeshplayResult
 
   # Query for fetching all results for profile ID
   fetchResults(selector: PageFilter!, profileID: String!): PerfPageResult!
@@ -633,9 +633,9 @@ type Query {
 
 #
 
-# Input for status change of Meshery Operator
+# Input for status change of Meshplay Operator
 input AdapterStatusInput {
-  # Desired status for Meshery Operator
+  # Desired status for Meshplay Operator
   targetStatus: Status!
   
   # The port on which adapter will be deployed
@@ -661,11 +661,11 @@ type Subscription {
   subscribePerfResults(selector: PageFilter!, profileID: String!): PerfPageResult!
 
   # Listen to changes in the status of meshplay controllers
-  subscribeMesheryControllersStatus(
+  subscribeMeshplayControllersStatus(
     connectionIDs: [String!]
-  ): [MesheryControllersStatusListItem!]! @KubernetesMiddleware
+  ): [MeshplayControllersStatusListItem!]! @KubernetesMiddleware
 
-  # Listen to the events that MeshSync is sending through Meshery Broker.
+  # Listen to the events that MeshSync is sending through Meshplay Broker.
   # Note: It does not listen to the changes in meshplay database, but to meshsync events
   subscribeMeshSyncEvents(
     connectionIDs: [String!]

@@ -27,7 +27,7 @@ const (
 	// Stores the JWT issued by the remote provider to provide secure access to its API
 	TokenCookieName = "token"
 
-	// Stores the remote provider session cookie (identity cookie) to facilitate logout from remote provider as user logs out of Meshery
+	// Stores the remote provider session cookie (identity cookie) to facilitate logout from remote provider as user logs out of Meshplay
 	ProviderSessionCookieName = "session_cookie"
 )
 

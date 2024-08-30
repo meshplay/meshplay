@@ -77,7 +77,7 @@ import {
 import { iconSmall } from '../css/icons.styles';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
-import { CustomTextTooltip } from './MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from './MeshplayMeshInterface/PatternService/CustomTextTooltip';
 
 const styles = (theme) => ({
   root: {
@@ -513,14 +513,14 @@ const ExternalLinkIcon = (
 const externlinks = [
   {
     id: 'doc',
-    href: 'https://docs.meshery.io',
+    href: 'https://docs.meshplay.io',
     title: 'Documentation',
     icon: <DocumentIcon style={drawerIconsStyle} />,
     external_icon: ExternalLinkIcon,
   },
   {
     id: 'community',
-    href: 'https://slack.meshery.io',
+    href: 'https://slack.meshplay.io',
     title: 'Community',
     icon: (
       <SlackIcon
@@ -531,14 +531,14 @@ const externlinks = [
   },
   {
     id: 'forum',
-    href: 'http://discuss.meshery.io',
+    href: 'http://discuss.meshplay.io',
     title: 'Discussion Forum',
     icon: <ChatIcon style={drawerIconsStyle} />,
     external_icon: ExternalLinkIcon,
   },
   {
     id: 'issues',
-    href: 'https://github.com/meshery/meshery/issues/new/choose',
+    href: 'https://github.com/meshplay/meshplay/issues/new/choose',
     title: 'Issues',
     icon: <GithubIcon style={drawerIconsStyle} />,
     external_icon: ExternalLinkIcon,
@@ -750,7 +750,7 @@ class Navigator extends React.Component {
         cat.children?.forEach((ch) => {
           if (ch.id === 'Designs') {
             const idx = self.props.capabilitiesRegistry?.capabilities?.findIndex(
-              (cap) => cap.feature === 'persist-meshery-patterns',
+              (cap) => cap.feature === 'persist-meshplay-patterns',
             );
             if (idx != -1) {
               ch.show = true;
@@ -856,7 +856,7 @@ class Navigator extends React.Component {
   pickIcon(aName, href) {
     aName = aName.toLowerCase();
     const { classes } = this.props;
-    let image = '/static/img/meshery-logo.png';
+    let image = '/static/img/meshplay-logo.png';
     let filter =
       window.location.pathname === href
         ? 'invert(50%) sepia(78%) saturate(2392%) hue-rotate(160deg) brightness(93%) contrast(101%)'
@@ -1060,15 +1060,15 @@ class Navigator extends React.Component {
   }
 
   /**
-   * getMesheryVersionText returs a well formatted version text
+   * getMeshplayVersionText returs a well formatted version text
    *
-   * If the meshery is running latest version then and is using "edge" channel
-   * then it will just show "edge-latest". However, if the meshery is on edge and
+   * If the meshplay is running latest version then and is using "edge" channel
+   * then it will just show "edge-latest". However, if the meshplay is on edge and
    * is running an outdated version then it will return "edge-$version".
    *
    * If on stable channel, then it will always show "stable-$version"
    */
-  getMesheryVersionText() {
+  getMeshplayVersionText() {
     const { build, outdated, release_channel } = this.state.versionDetail;
 
     // If the version is outdated then no matter what the
@@ -1086,7 +1086,7 @@ class Navigator extends React.Component {
 
   /**
    * versionUpdateMsg returns the appropriate message
-   * based on the meshery's current running version and latest available
+   * based on the meshplay's current running version and latest available
    * version.
    *
    * @returns {React.ReactNode} react component to display
@@ -1099,13 +1099,13 @@ class Navigator extends React.Component {
         <span style={{ marginLeft: '15px' }}>
           {'Update available '}
           <a
-            href={`https://docs.meshery.io/project/releases/${latest}`}
+            href={`https://docs.meshplay.io/project/releases/${latest}`}
             target="_blank"
             rel="noreferrer"
             style={{ color: 'white' }}
           >
             <CustomTextTooltip
-              title={`Newer version of Meshery available: ${latest}`}
+              title={`Newer version of Meshplay available: ${latest}`}
               placement="right"
             >
               <OpenInNewIcon style={{ width: '0.85rem', verticalAlign: 'middle' }} />
@@ -1119,7 +1119,7 @@ class Navigator extends React.Component {
 
   /**
    * openReleaseNotesInNew returns the appropriate link to the release note
-   * based on the meshery's current running channel and version.
+   * based on the meshplay's current running channel and version.
    *
    * @returns {React.ReactNode} react component to display
    */
@@ -1129,7 +1129,7 @@ class Navigator extends React.Component {
     if (release_channel === 'edge')
       return (
         <a
-          href="https://docs.meshery.io/project/releases"
+          href="https://docs.meshplay.io/project/releases"
           target="_blank"
           rel="noreferrer"
           style={{ color: 'white' }}
@@ -1140,7 +1140,7 @@ class Navigator extends React.Component {
 
     return (
       <a
-        href={`https://docs.meshery.io/project/releases/${build}`}
+        href={`https://docs.meshplay.io/project/releases/${build}`}
         target="_blank"
         rel="noreferrer"
         style={{ color: 'white' }}
@@ -1177,16 +1177,16 @@ class Navigator extends React.Component {
         >
           <img
             className={isDrawerCollapsed ? classes.mainLogoCollapsed : classes.mainLogo}
-            src="/static/img/meshery-logo.png"
+            src="/static/img/meshplay-logo.png"
             onClick={this.handleTitleClick}
           />
           <img
             className={isDrawerCollapsed ? classes.mainLogoTextCollapsed : classes.mainLogoText}
-            src="/static/img/meshery-logo-text.png"
+            src="/static/img/meshplay-logo-text.png"
             onClick={this.handleTitleClick}
           />
 
-          {/* <span className={isDrawerCollapsed ? classes.isHidden : classes.isDisplayed}>Meshery</span> */}
+          {/* <span className={isDrawerCollapsed ? classes.isHidden : classes.isDisplayed}>Meshplay</span> */}
         </ListItem>
       </div>
     );
@@ -1371,7 +1371,7 @@ class Navigator extends React.Component {
             style={{ textAlign: 'center', width: '100%' }}
           >
             <span>
-              {this.getMesheryVersionText()} {'  '}
+              {this.getMeshplayVersionText()} {'  '}
               <span style={{ cursor: 'pointer' }}>{this.openReleaseNotesInNew()}</span>
               {this.versionUpdateMsg()}
             </span>

@@ -2,7 +2,7 @@ package models
 
 import (
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/internal/sql"
+	"github.com/khulnasoft/meshplay/server/internal/sql"
 	"github.com/lib/pq"
 
 	SMP "github.com/layer5io/service-mesh-performance/spec"

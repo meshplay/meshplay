@@ -1,4 +1,4 @@
-module github.com/docker/meshery-extension
+module github.com/docker/meshplay-extension
 
 go 1.21
 

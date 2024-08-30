@@ -13,7 +13,7 @@ export function mergeOperatorStateSubscription(currentState, newData) {
   return mergeMeshSyncSubscription(currentState, newData);
 }
 
-export function mergeMesheryController(currentState, newData) {
+export function mergeMeshplayController(currentState, newData) {
   if (!currentState) {
     return newData;
   }

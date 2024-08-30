@@ -4,7 +4,7 @@ title: Kuma
 subtitle: Collaborative and visual infrastructure as design for Kuma
 image: /assets/img/integrations/kuma/icons/color/kuma-color.svg
 permalink: extensibility/integrations/kuma
-docURL: https://docs.meshery.io/extensibility/integrations/kuma
+docURL: https://docs.meshplay.io/extensibility/integrations/kuma
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

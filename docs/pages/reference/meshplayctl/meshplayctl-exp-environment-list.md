@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-environment-list
-permalink: reference/mesheryctl/exp/environment/list
-redirect_from: reference/mesheryctl/exp/environment/list/
+title: meshplayctl-exp-environment-list
+permalink: reference/meshplayctl/exp/environment/list
+redirect_from: reference/meshplayctl/exp/environment/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: environment
 ---
 
-# mesheryctl exp environment list
+# meshplayctl exp environment list
 
 List registered environments
 
@@ -19,7 +19,7 @@ List registered environments
 List name of all registered environments
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment list [flags]
+meshplayctl exp environment list [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp environment list [flags]
 List all registered environment
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment list --orgID [orgId]
+meshplayctl exp environment list --orgID [orgId]
 
 </div>
 </pre> 
@@ -56,7 +56,7 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -64,4 +64,4 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

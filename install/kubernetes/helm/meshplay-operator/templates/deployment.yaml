@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "meshery-operator.fullname" . }}
+  name: {{ include "meshplay-operator.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "meshery-operator.labels" . | nindent 4 }}
+    {{- include "meshplay-operator.labels" . | nindent 4 }}
   annotations:
     {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "meshery-operator.selectorLabels" . | nindent 6 }}
+      {{- include "meshplay-operator.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "meshery-operator.selectorLabels" . | nindent 8 }}
+        {{- include "meshplay-operator.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "meshery-operator.serviceAccountName" . }}
+      serviceAccountName: {{ include "meshplay-operator.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Values.mesheryOperator.name }}
+        - name: {{ .Values.meshplayOperator.name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          # TODO: Need to confirm the meshery-operator image version
-          image: "{{ .Values.mesheryOperator.image.repository }}"
-          imagePullPolicy: {{ .Values.mesheryOperator.image.pullPolicy }}
+          # TODO: Need to confirm the meshplay-operator image version
+          image: "{{ .Values.meshplayOperator.image.repository }}"
+          imagePullPolicy: {{ .Values.meshplayOperator.image.pullPolicy }}
           ports:
             - containerPort: 9443
               # hostPort: 9443
@@ -58,10 +58,10 @@ spec:
             value: {{ $val }}
           {{- end }}
           {{- end }}
-          args: {{- toYaml .Values.mesheryOperator.args | nindent 12}}
+          args: {{- toYaml .Values.meshplayOperator.args | nindent 12}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          command: {{- toYaml .Values.mesheryOperator.command | nindent 12 }}
+          command: {{- toYaml .Values.meshplayOperator.command | nindent 12 }}
         - name: {{ .Values.kubeRbac.name }}
           image: {{ .Values.kubeRbac.image.repository }}
           imagePullPolicy: {{ .Values.kubeRbac.image.pullPolicy }}

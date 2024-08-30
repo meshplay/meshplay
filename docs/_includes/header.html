@@ -2,10 +2,10 @@
   <nav class="js-navbar-scroll navbar">
     <a class="navbar-brand" href="{{ site.baseurl }}/{{linkUrlSelected}}">
       <div class="navbar-logo">
-        {% include svg/meshery-docs.html %}
+        {% include svg/meshplay-docs.html %}
       </div>
       <div class="mobile">
-        {% include svg/meshery-logo.html %}
+        {% include svg/meshplay-logo.html %}
       </div>
     </a>
 
@@ -27,7 +27,7 @@
         </li>
         {% endfor %}
         
-        <a href="https://play.meshery.io">
+        <a href="https://play.meshplay.io">
           <div class="nav-btn">Playground</div>
         </a>
         <!--Version Selector -->
@@ -84,7 +84,7 @@
     <!--Search Bar
     <div class="navbar-nav d-none d-lg-block"><input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off"></div>-->
 
-    <!-- meshery-custom-begin
+    <!-- meshplay-custom-begin
 	<div class="navbar-nav d-none d-lg-block">
           <a class="gh-source" data-gh-source="github" href="{{ site.repo }}" title="Go to repository" data-md-state="done">
           <div class="gh-source__repository">
@@ -93,11 +93,11 @@
           <ul class="gh-source__facts"><li class="gh-source__fact" id='stars'></li><li id="forks" class="gh-source__fact"></li></ul></div></a>
         </div>
       </div>
-meshery-custom-end -->
+meshplay-custom-end -->
   </nav>
 </header>
 
-<!-- meshery-custom-begin
+<!-- meshplay-custom-begin
 <script>
 $(document).ready(function() {
   var url = "https://api.github.com/search/repositories?q={{ site.github_user }}/{{ site.github_repo }}";
@@ -114,5 +114,5 @@ $(document).ready(function() {
   });
 });
 </script>
-meshery-custom-end -->
+meshplay-custom-end -->
 

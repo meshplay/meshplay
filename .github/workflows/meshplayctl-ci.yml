@@ -1,15 +1,15 @@
-name: Mesheryctl
+name: Meshplayctl
 on:
   push:
     branches:
       - "master"
     paths:
-      - "mesheryctl/**"
+      - "meshplayctl/**"
   pull_request:
     branches:
       - "master"
     paths:
-      - "mesheryctl/**"
+      - "meshplayctl/**"
   workflow_dispatch:
     inputs:
       logLevel:
@@ -20,7 +20,7 @@ on:
 jobs:
   golangci:
     name: golangci-lint
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -31,12 +31,12 @@ jobs:
         uses: golangci/golangci-lint-action@v6
         with:
           version: v1.59
-          working-directory: mesheryctl
+          working-directory: meshplayctl
           args: --timeout 10m --verbose
           skip-cache: true
-  mesheryctl_build:
-    name: Mesheryctl build & release
-    if: github.repository == 'meshery/meshery'
+  meshplayctl_build:
+    name: Meshplayctl build & release
+    if: github.repository == 'meshplay/meshplay'
     runs-on: macos-latest
     needs: [golangci]
     steps:
@@ -63,8 +63,8 @@ jobs:
         with:
           version: latest
           args: release --snapshot --skip-publish --clean
-  mesheryctl_docs:
-    if: "always() && github.event_name != 'pull_request' && github.repository == 'meshery/meshery' "
+  meshplayctl_docs:
+    if: "always() && github.event_name != 'pull_request' && github.repository == 'meshplay/meshplay' "
     runs-on: ubuntu-22.04
     steps:
       - name: Skip if needed
@@ -78,7 +78,7 @@ jobs:
           fi
       - uses: actions/checkout@v4
         with:
-          repository: meshery/meshery
+          repository: meshplay/meshplay
           token: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: Setup go
         uses: actions/setup-go@v5
@@ -87,7 +87,7 @@ jobs:
           check-latest: "true"
       - name: Run script 📜
         run: |
-          cd mesheryctl
+          cd meshplayctl
           make docs
 
       - name: Pull changes from remote
@@ -101,4 +101,4 @@ jobs:
           commit_user_email: ci@layer5.io
           commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           commit_options: "--signoff"
-          commit_message: "[Docs] Update mesheryctl docs"
+          commit_message: "[Docs] Update meshplayctl docs"

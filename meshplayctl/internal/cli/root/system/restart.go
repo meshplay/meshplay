@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package system
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 
 	log "github.com/sirupsen/logrus"
@@ -34,14 +34,14 @@ var (
 // restartCmd represents the restart command
 var restartCmd = &cobra.Command{
 	Use:   "restart",
-	Short: "Stop, then start Meshery",
-	Long:  `Restart all Meshery containers / pods.`,
+	Short: "Stop, then start Meshplay",
+	Long:  `Restart all Meshplay containers / pods.`,
 	Example: `
-// Restart all Meshery containers, their instances and their connected volumes
-mesheryctl system restart
+// Restart all Meshplay containers, their instances and their connected volumes
+meshplayctl system restart
 
-// (optional) skip checking for new updates available in Meshery.
-mesheryctl system restart --skip-update
+// (optional) skip checking for new updates available in Meshplay.
+meshplayctl system restart --skip-update
 	`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		//Check prerequisite
@@ -72,7 +72,7 @@ mesheryctl system restart --skip-update
 
 func restart() error {
 	// Get viper instance used for context
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		utils.Log.Error(err)
 		return nil
@@ -93,13 +93,13 @@ func restart() error {
 
 	currPlatform := currCtx.GetPlatform()
 
-	running, err := utils.AreMesheryComponentsRunning(currPlatform)
+	running, err := utils.AreMeshplayComponentsRunning(currPlatform)
 	if err != nil {
 		return err
 	}
-	if !running { // Meshery is not running
+	if !running { // Meshplay is not running
 		if err := start(); err != nil {
-			return ErrRestartMeshery(err)
+			return ErrRestartMeshplay(err)
 		}
 	} else {
 		if currPlatform == "kubernetes" {
@@ -108,7 +108,7 @@ func restart() error {
 				userResponse = true
 			} else {
 				// ask user for confirmation
-				userResponse = utils.AskForConfirmation("Meshery deployments will be deleted from your cluster. Are you sure you want to continue")
+				userResponse = utils.AskForConfirmation("Meshplay deployments will be deleted from your cluster. Are you sure you want to continue")
 			}
 			if !userResponse {
 				log.Info("Restart aborted.")
@@ -120,23 +120,23 @@ func restart() error {
 			utils.SilentFlag = true
 		}
 
-		log.Info("Restarting Meshery...")
+		log.Info("Restarting Meshplay...")
 
 		if err := stop(); err != nil {
-			return ErrRestartMeshery(err)
+			return ErrRestartMeshplay(err)
 		}
 
 		// reset the silent flag to avoid overriding the flag for start command
 		utils.SilentFlag = silentFlagSet
 
 		if err := start(); err != nil {
-			return ErrRestartMeshery(err)
+			return ErrRestartMeshplay(err)
 		}
 	}
 	return nil
 }
 
 func init() {
-	restartCmd.Flags().BoolVarP(&skipUpdateFlag, "skip-update", "", false, "(optional) skip checking for new Meshery's container images.")
-	restartCmd.Flags().StringVar(&providerFlag, "provider", "", "Provider to use with the Meshery server")
+	restartCmd.Flags().BoolVarP(&skipUpdateFlag, "skip-update", "", false, "(optional) skip checking for new Meshplay's container images.")
+	restartCmd.Flags().StringVar(&providerFlag, "provider", "", "Provider to use with the Meshplay server")
 }

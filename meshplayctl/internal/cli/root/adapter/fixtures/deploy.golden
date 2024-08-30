@@ -4,7 +4,7 @@ contexts:
         token: default
         platform: docker
         components:
-            - meshery-istio
+            - meshplay-istio
         channel: stable
         version: latest
 current-context: local

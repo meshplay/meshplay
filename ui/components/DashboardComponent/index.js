@@ -11,9 +11,9 @@ import ResourcesTable from './resources/resources-table';
 import ResourcesSubMenu from './resources/resources-sub-menu';
 import Overview from './overview';
 import KubernetesIcon from '../../assets/icons/technology/kubernetes';
-import MesheryIcon from './images/meshery-icon.js';
+import MeshplayIcon from './images/meshplay-icon.js';
 import { TabPanel } from './tabpanel';
-import { CustomTextTooltip } from '../MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '../MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { iconLarge } from '../../css/icons.styles';
 import { useWindowDimensions } from '@/utils/dimension';
 
@@ -184,7 +184,7 @@ const DashboardComponent = ({ classes, k8sconfig, selectedK8sContexts, updatePro
                     className={classes.tab}
                     icon={
                       resource === 'Overview' ? (
-                        <MesheryIcon style={iconLarge} />
+                        <MeshplayIcon style={iconLarge} />
                       ) : (
                         <KubernetesIcon style={iconLarge} />
                       )

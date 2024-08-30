@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,26 +17,26 @@ package adapter
 import "github.com/layer5io/meshkit/errors"
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrGettingSessionDataCode                = "mesheryctl-1020"
-	ErrNoAdaptersCode                        = "mesheryctl-1021"
-	ErrPromptCode                            = "mesheryctl-1022"
-	ErrCreatingDeployRequestCode             = "mesheryctl-1023"
-	ErrCreatingDeployResponseRequestCode     = "mesheryctl-1024"
-	ErrCreatingDeployResponseStreamCode      = "mesheryctl-1025"
-	ErrCreatingValidateResponseStreamCode    = "mesheryctl-1026"
-	ErrTimeoutWaitingForDeployResponseCode   = "mesheryctl-1027"
-	ErrFailedDeployingMeshCode               = "mesheryctl-1028"
-	ErrCreatingValidateRequestCode           = "mesheryctl-1029"
-	ErrCreatingValidateResponseRequestCode   = "mesheryctl-1030"
-	ErrTimeoutWaitingForValidateResponseCode = "mesheryctl-1031"
-	ErrSMIConformanceTestsFailedCode         = "mesheryctl-1032"
-	ErrValidateAdapterCode                   = "mesheryctl-1033"
-	ErrSendOperationCode                     = "mesheryctl-1034"
-	ErrValidMeshNameCode                     = "mesheryctl-1035"
-	ErrWaitValidateResponseCode              = "mesheryctl-1036"
+	ErrGettingSessionDataCode                = "meshplayctl-1020"
+	ErrNoAdaptersCode                        = "meshplayctl-1021"
+	ErrPromptCode                            = "meshplayctl-1022"
+	ErrCreatingDeployRequestCode             = "meshplayctl-1023"
+	ErrCreatingDeployResponseRequestCode     = "meshplayctl-1024"
+	ErrCreatingDeployResponseStreamCode      = "meshplayctl-1025"
+	ErrCreatingValidateResponseStreamCode    = "meshplayctl-1026"
+	ErrTimeoutWaitingForDeployResponseCode   = "meshplayctl-1027"
+	ErrFailedDeployingMeshCode               = "meshplayctl-1028"
+	ErrCreatingValidateRequestCode           = "meshplayctl-1029"
+	ErrCreatingValidateResponseRequestCode   = "meshplayctl-1030"
+	ErrTimeoutWaitingForValidateResponseCode = "meshplayctl-1031"
+	ErrSMIConformanceTestsFailedCode         = "meshplayctl-1032"
+	ErrValidateAdapterCode                   = "meshplayctl-1033"
+	ErrSendOperationCode                     = "meshplayctl-1034"
+	ErrValidMeshNameCode                     = "meshplayctl-1035"
+	ErrWaitValidateResponseCode              = "meshplayctl-1036"
 )
 
 var (
@@ -45,7 +45,7 @@ var (
 		[]string{"Unable to validate adapter"},
 		[]string{"Adapter for required mesh not found"},
 		[]string{"Unable to fetch Mesh adapter, adapter not valid."},
-		[]string{"Run the appropriate Meshery Adapter for your specific use case. See https://docs.meshery.io/concepts/architecture/adapters for list of adapters"})
+		[]string{"Run the appropriate Meshplay Adapter for your specific use case. See https://docs.meshplay.io/concepts/architecture/adapters for list of adapters"})
 
 	ErrFailedDeployingMesh = errors.New(ErrFailedDeployingMeshCode, errors.Fatal,
 		[]string{"Failed to deploy"},
@@ -74,7 +74,7 @@ func ErrGettingSessionData(err error) error {
 		[]string{"Unable to fetch session data"},
 		[]string{err.Error()},
 		[]string{"Unable to get session from server"},
-		[]string{"Check your network connection and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Check your network connection and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrPrompt(err error) error {
@@ -89,8 +89,8 @@ func ErrCreatingDeployRequest(err error) error {
 	return errors.New(ErrCreatingDeployRequestCode, errors.Fatal,
 		[]string{"Error sending deploy request"},
 		[]string{err.Error()},
-		[]string{"There might be a connection failure with Meshery Server"},
-		[]string{"Check your network connection and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"There might be a connection failure with Meshplay Server"},
+		[]string{"Check your network connection and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrCreatingDeployResponseRequest(err error) error {
@@ -99,7 +99,7 @@ func ErrCreatingDeployResponseRequest(err error) error {
 		[]string{"Failed to create a response"},
 		[]string{err.Error()},
 		[]string{"Error occurred while generating a response from deployed request"},
-		[]string{"Check your network connection and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Check your network connection and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrCreatingDeployResponseStream(err error) error {
@@ -108,7 +108,7 @@ func ErrCreatingDeployResponseStream(err error) error {
 		[]string{"Error creating deploy event response stream"},
 		[]string{err.Error()},
 		[]string{"Unable convert a connection to a stream of server sent events"},
-		[]string{"Ensure your connection is valid and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Ensure your connection is valid and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrCreatingValidateRequest(err error) error {
@@ -116,7 +116,7 @@ func ErrCreatingValidateRequest(err error) error {
 		[]string{"Error sending Validate request"},
 		[]string{err.Error()},
 		[]string{"An HTTP error occurred due to network connection"},
-		[]string{"Check your network connection and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Check your network connection and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrCreatingValidateResponseRequest(err error) error {
@@ -124,15 +124,15 @@ func ErrCreatingValidateResponseRequest(err error) error {
 		[]string{"Error creating request for validate response"},
 		[]string{err.Error()},
 		[]string{"Unable to create response from request"},
-		[]string{"Check your network connection and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Check your network connection and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrCreatingValidateResponseStream(err error) error {
 	return errors.New(ErrCreatingValidateResponseStreamCode, errors.Fatal,
 		[]string{"Error creating validate event response stream"},
 		[]string{err.Error()},
-		[]string{"Meshery is not running or there is a network issue."},
-		[]string{"Check your network connection and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Meshplay is not running or there is a network issue."},
+		[]string{"Check your network connection and verify the status of the Meshplay server with `meshplayctl system status`."})
 }
 
 func ErrValidatingAdapters(err error) error {
@@ -148,7 +148,7 @@ func ErrSendOperation(err error) error {
 		[]string{"Unable to perform operation"},
 		[]string{err.Error()},
 		[]string{"Failed to perform an adapter operation due to network connection."},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrValidMeshName(meshName string) error {
@@ -164,5 +164,5 @@ func ErrWaitValidateResponse(err error) error {
 		[]string{"Unable to validate a response"},
 		[]string{err.Error()},
 		[]string{"Unable to create responses after verifying operation"},
-		[]string{"Ensure your connection is valid and verify the status of the Meshery server with `mesheryctl system status`."})
+		[]string{"Ensure your connection is valid and verify the status of the Meshplay server with `meshplayctl system status`."})
 }

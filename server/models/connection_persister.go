@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/models/connections"
-	"github.com/layer5io/meshplay/server/models/environments"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 	"github.com/layer5io/meshkit/database"
 	"gorm.io/gorm"
 )
@@ -112,8 +112,8 @@ func (cp *ConnectionPersister) DeleteConnection(connection *connections.Connecti
 func (cp *ConnectionPersister) fetchUserDetails() *User {
 	return &User{
 		UserID:    "meshplay",
-		FirstName: "Meshery",
-		LastName:  "Meshery",
+		FirstName: "Meshplay",
+		LastName:  "Meshplay",
 		AvatarURL: "",
 	}
 }

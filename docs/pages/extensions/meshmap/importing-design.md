@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Importing a Design
-abstract: Import your existing application definitions and infrastructure configuration into Meshery.
+abstract: Import your existing application definitions and infrastructure configuration into Meshplay.
 permalink: extensions/importing-a-design
 language: en
 display-title: "false"
@@ -16,7 +16,7 @@ You may bring your own design files or find them available through your chosen p
 
 **Step 1: Access the Extensions UI**
 
-From Meshery Extension, designs can be imported from your local filesystem or imported from a remote URL.
+From Meshplay Extension, designs can be imported from your local filesystem or imported from a remote URL.
 
 **Step 2: Navigate to the Designs Tab and Select your Import**
 
@@ -26,9 +26,9 @@ Once you have accessed the Extension's UI, navigate to the Designs tab. In this 
 
 **Step 3: Import the Design**
 
-You can import your design by clicking on the “Browse” button and selecting the file from your local machine or import in through URL Once you have selected the file, click on the “Import” button to import design into Meshery Extension. When you import a design into Extensions, it will create a Meshery Design based on definition. This Meshery design will include all of the configurations, and other parameters defined in the File.
+You can import your design by clicking on the “Browse” button and selecting the file from your local machine or import in through URL Once you have selected the file, click on the “Import” button to import design into Meshplay Extension. When you import a design into Extensions, it will create a Meshplay Design based on definition. This Meshplay design will include all of the configurations, and other parameters defined in the File.
 
 <a href="{{ site.baseurl }}/assets/img/meshmap/apps-modal.png"><img style="border-radius: 0.5%;" alt="Import-Application" style="width:800px;height:auto;" src="{{ site.baseurl }}/assets/img/meshmap/import-design.png" /></a>
 
-Once the Meshery Design has been created, you can use Meshery Extension to manage, operate and observe your cloud native infrastructure. You can also use Meshery Extension to deploy your Meshery Design to your infrastructure.
+Once the Meshplay Design has been created, you can use Meshplay Extension to manage, operate and observe your cloud native infrastructure. You can also use Meshplay Extension to deploy your Meshplay Design to your infrastructure.
 

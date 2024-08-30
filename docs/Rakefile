@@ -11,13 +11,13 @@ TEMPLATES_DIR = File.expand_path("lib/tasks/templates/default.md.haml", __dir__)
 namespace :graphql do
 
   GraphQL::RakeTask.new(
-    schema_name: 'MesherySchema',
+    schema_name: 'MeshplaySchema',
     directory: SCHEMA_DIR,
     idl_outfile: "schema.graphql",
     json_outfile: "schema.json"
   )
 
-    desc 'Meshery | GraphQL | Generate GraphQL docs'
+    desc 'Meshplay | GraphQL | Generate GraphQL docs'
     task :compile_docs do
       schema = SCHEMA_DIR
       schemas = GraphQL::Schema.from_definition(schema)

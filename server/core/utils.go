@@ -13,9 +13,9 @@ import (
 var (
 	// ManifestsFolder is where the Kubernetes manifests are stored
 	ManifestsFolder = "manifests"
-	// MesheryFolder is the default relative location of the meshplay config
+	// MeshplayFolder is the default relative location of the meshplay config
 	// related configuration files.
-	MesheryFolder = ".meshplay"
+	MeshplayFolder = ".meshplay"
 
 	ReleaseTag string
 )
@@ -29,7 +29,7 @@ func SafeClose(co io.Closer) {
 
 // CreateManifestsFolder creates a new folder (.meshplay/manifests)
 func CreateManifestsFolder() error {
-	meshplayManifestFolder := filepath.Join(MesheryFolder, ManifestsFolder)
+	meshplayManifestFolder := filepath.Join(MeshplayFolder, ManifestsFolder)
 
 	log.Debug("deleting " + ManifestsFolder + " folder...")
 	// delete manifests folder if it already exists

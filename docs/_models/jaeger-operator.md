@@ -4,7 +4,7 @@ title: Jaeger Operator
 subtitle: Collaborative and visual infrastructure as design for Jaeger Operator
 image: /assets/img/integrations/jaeger-operator/icons/color/jaeger-operator-color.svg
 permalink: extensibility/integrations/jaeger-operator
-docURL: https://docs.meshery.io/extensibility/integrations/jaeger-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/jaeger-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Tracing

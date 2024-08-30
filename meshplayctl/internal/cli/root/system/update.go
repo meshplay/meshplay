@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@ package system
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants"
-	c "github.com/layer5io/meshery/mesheryctl/pkg/constants"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/constants"
+	c "github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	meshkitutils "github.com/layer5io/meshkit/utils"
 	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
 	"github.com/pkg/errors"
@@ -30,21 +30,21 @@ import (
 )
 
 var linkDocUpdate = map[string]string{
-	"link":    "![update-usage](/assets/img/mesheryctl/update.png)",
-	"caption": "Usage of mesheryctl system update",
+	"link":    "![update-usage](/assets/img/meshplayctl/update.png)",
+	"caption": "Usage of meshplayctl system update",
 }
 
 // updateCmd represents the update command
 var updateCmd = &cobra.Command{
 	Use:   "update",
-	Short: "Pull new Meshery images/manifest files.",
-	Long:  `Pull new Meshery container images and manifests from artifact repository.`,
+	Short: "Pull new Meshplay images/manifest files.",
+	Long:  `Pull new Meshplay container images and manifests from artifact repository.`,
 	Example: `
-// Pull new Meshery images from Docker Hub. This does not update mesheryctl. This command may be executed while Meshery is running.
-mesheryctl system update
+// Pull new Meshplay images from Docker Hub. This does not update meshplayctl. This command may be executed while Meshplay is running.
+meshplayctl system update
 
 // Pull the latest manifest files alone
-mesheryctl system update --skip-reset
+meshplayctl system update --skip-reset
 	`,
 	Annotations: linkDocUpdate,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
@@ -67,7 +67,7 @@ mesheryctl system update --skip-reset
 		}
 
 		// Get viper instance used for context
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -97,7 +97,7 @@ mesheryctl system update --skip-reset
 			if utils.SilentFlag {
 				userResponse = true
 			} else {
-				userResponse = utils.AskForConfirmation("Updating Meshery container images/manifest files will supersede the version to latest. Are you sure you want to continue")
+				userResponse = utils.AskForConfirmation("Updating Meshplay container images/manifest files will supersede the version to latest. Are you sure you want to continue")
 			}
 
 			if !userResponse {
@@ -107,14 +107,14 @@ mesheryctl system update --skip-reset
 			currCtx.SetVersion("latest")
 		}
 
-		log.Info("Updating Meshery...")
+		log.Info("Updating Meshplay...")
 
 		switch currCtx.GetPlatform() {
 		case "docker":
-			log.Info("Updating Meshery containers")
-			err = utils.UpdateMesheryContainers()
+			log.Info("Updating Meshplay containers")
+			err = utils.UpdateMeshplayContainers()
 			if err != nil {
-				return errors.Wrap(err, utils.SystemError("failed to update Meshery containers"))
+				return errors.Wrap(err, utils.SystemError("failed to update Meshplay containers"))
 			}
 
 			err = config.UpdateContextInConfig(currCtx, mctlCfg.GetCurrentContextName())
@@ -129,14 +129,14 @@ mesheryctl system update --skip-reset
 			if err != nil {
 				return err
 			}
-			mesheryImageVersion := currCtx.GetVersion()
+			meshplayImageVersion := currCtx.GetVersion()
 			providerURL := viper.GetString(c.ProviderURLsENV)
 			// If the user skips reset, then just restart the pods else fetch updated manifest files and apply them
 			if !utils.SkipResetFlag {
 
 				// Apply the latest helm chart along with the default image tag specified in the charts "stable-latest"
-				if err = applyHelmCharts(kubeClient, currCtx, mesheryImageVersion, false, meshkitkube.UPGRADE, "", providerURL); err != nil {
-					return errors.Wrap(err, "cannot update Meshery")
+				if err = applyHelmCharts(kubeClient, currCtx, meshplayImageVersion, false, meshkitkube.UPGRADE, "", providerURL); err != nil {
+					return errors.Wrap(err, "cannot update Meshplay")
 				}
 			}
 
@@ -157,14 +157,14 @@ mesheryctl system update --skip-reset
 				return ErrHealthCheckFailed(err)
 			}
 
-			running, err := utils.AreMesheryComponentsRunning(currCtx.GetPlatform())
+			running, err := utils.AreMeshplayComponentsRunning(currCtx.GetPlatform())
 			if err != nil {
 				return err
 			}
 			if !running {
-				// Meshery is not running, run the start command
+				// Meshplay is not running, run the start command
 				if err := start(); err != nil {
-					return ErrRestartMeshery(err)
+					return ErrRestartMeshplay(err)
 				}
 			}
 
@@ -174,30 +174,30 @@ mesheryctl system update --skip-reset
 				return err
 			}
 
-			log.Info("... updated Meshery in the Kubernetes Cluster.")
+			log.Info("... updated Meshplay in the Kubernetes Cluster.")
 		}
 
-		log.Info("Meshery is now up-to-date")
+		log.Info("Meshplay is now up-to-date")
 		return nil
 	},
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
-		latestVersions, err := meshkitutils.GetLatestReleaseTagsSorted(c.GetMesheryGitHubOrg(), c.GetMesheryGitHubRepo())
-		version := constants.GetMesheryctlVersion()
+		latestVersions, err := meshkitutils.GetLatestReleaseTagsSorted(c.GetMeshplayGitHubOrg(), c.GetMeshplayGitHubRepo())
+		version := constants.GetMeshplayctlVersion()
 		if err == nil {
 			if len(latestVersions) == 0 {
-				log.Warn("no versions found for Meshery")
+				log.Warn("no versions found for Meshplay")
 				return
 			}
 			latest := latestVersions[len(latestVersions)-1]
 			if latest != version {
-				log.Printf("A new release of mesheryctl is available: %s → %s", version, latest)
-				log.Printf("https://github.com/meshery/meshery/releases/tag/%s", latest)
-				log.Print("Check https://docs.meshery.io/installation/upgrades#upgrading-meshery-cli for instructions on how to update mesheryctl\n")
+				log.Printf("A new release of meshplayctl is available: %s → %s", version, latest)
+				log.Printf("https://github.com/meshplay/meshplay/releases/tag/%s", latest)
+				log.Print("Check https://docs.meshplay.io/installation/upgrades#upgrading-meshplay-cli for instructions on how to update meshplayctl\n")
 			}
 		}
 	},
 }
 
 func init() {
-	updateCmd.Flags().BoolVarP(&utils.SkipResetFlag, "skip-reset", "", false, "(optional) skip checking for new Meshery manifest files.")
+	updateCmd.Flags().BoolVarP(&utils.SkipResetFlag, "skip-reset", "", false, "(optional) skip checking for new Meshplay manifest files.")
 }

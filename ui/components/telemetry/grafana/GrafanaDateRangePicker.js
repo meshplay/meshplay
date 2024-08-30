@@ -19,7 +19,7 @@ import Moment from 'react-moment';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import MesheryDateTimePicker from '../../MesheryDateTimePicker';
+import MeshplayDateTimePicker from '../../MeshplayDateTimePicker';
 import { Close } from '@material-ui/icons';
 
 const styles = (theme) => ({
@@ -677,13 +677,13 @@ class GrafanaDateRangePicker extends Component {
                   <Grid item xs={12}>
                     Custom Range
                     <div className={classes.rangeDialogRow}>
-                      <MesheryDateTimePicker
+                      <MeshplayDateTimePicker
                         selectedDate={startDate}
                         onChange={this.handleChange('startDate')}
                         label="Start"
                         className={classes.dateTimePicker}
                       />
-                      <MesheryDateTimePicker
+                      <MeshplayDateTimePicker
                         disabled={liveTail}
                         selectedDate={endDate}
                         onChange={this.handleChange('endDate')}

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-connections-delete
-permalink: reference/mesheryctl/exp/connections/delete
-redirect_from: reference/mesheryctl/exp/connections/delete/
+title: meshplayctl-exp-connections-delete
+permalink: reference/meshplayctl/exp/connections/delete
+redirect_from: reference/meshplayctl/exp/connections/delete/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: connections
 ---
 
-# mesheryctl exp connections delete
+# meshplayctl exp connections delete
 
 Delete a connection
 
@@ -20,7 +20,7 @@ Delete
 a connection
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections delete [flags]
+meshplayctl exp connections delete [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ mesheryctl exp connections delete [flags]
 Delete a connection
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections delete [connection_id]
+meshplayctl exp connections delete [connection_id]
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl exp connections delete [connection_id]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -57,4 +57,4 @@ mesheryctl exp connections delete [connection_id]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

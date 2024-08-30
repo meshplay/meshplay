@@ -39,7 +39,7 @@ const styles = (theme) => ({
 
 const schema_array = ['prometheus', 'grafana', 'kubernetes'];
 
-const MesheryCredentialComponent = ({ updateProgress, classes, connectionMetadataState }) => {
+const MeshplayCredentialComponent = ({ updateProgress, classes, connectionMetadataState }) => {
   const [credentials, setCredentials] = useState([]);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -404,7 +404,7 @@ const MesheryCredentialComponent = ({ updateProgress, classes, connectionMetadat
   };
 
   if (loading) {
-    return <LoadingScreen animatedIcon="AnimatedMeshery" message="Loading Credentials" />;
+    return <LoadingScreen animatedIcon="AnimatedMeshplay" message="Loading Credentials" />;
   }
   return (
     <div style={{ display: 'table', tableLayout: 'fixed', width: '100%' }}>
@@ -484,5 +484,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(MesheryCredentialComponent),
+  connect(mapStateToProps, mapDispatchToProps)(MeshplayCredentialComponent),
 );

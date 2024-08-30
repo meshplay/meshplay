@@ -4,7 +4,7 @@ title: AWS Simple Notification Service
 subtitle: Collaborative and visual infrastructure as design for AWS Simple Notification Service
 image: /assets/img/integrations/aws-sns-controller/icons/color/aws-sns-controller-color.svg
 permalink: extensibility/integrations/aws-sns-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-sns-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-sns-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: App Integration

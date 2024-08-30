@@ -7,7 +7,7 @@ import ConnectClustersBtn from '../../General/ConnectClustersBtn';
 import Link from 'next/link';
 import theme from '../../../themes/app';
 import { iconSmall } from '../../../css/icons.styles';
-import { CustomTextTooltip } from '@/components/MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '@/components/MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { useGetAllConnectionStatusQuery } from '@/rtk-query/connection';
 import { InfoOutlined } from '@material-ui/icons';
 import CAN from '@/utils/can';
@@ -73,7 +73,7 @@ export default function ConnectionStatsChart({ classes }) {
             <CustomTextTooltip
               interactive={true}
               variant="standard"
-              title={`Meshery Connections are managed and unmanaged resources that either through discovery or manual entry can be assigned to one or more Environments. [Learn More](https://docs.meshery.io/concepts/logical/connections)`}
+              title={`Meshplay Connections are managed and unmanaged resources that either through discovery or manual entry can be assigned to one or more Environments. [Learn More](https://docs.meshplay.io/concepts/logical/connections)`}
               placement="left"
             >
               <IconButton

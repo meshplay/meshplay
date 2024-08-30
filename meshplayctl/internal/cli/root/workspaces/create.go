@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
@@ -35,7 +35,7 @@ var createWorkspaceCmd = &cobra.Command{
 	Long:  `Create a new workspace by providing the name, description, and organization ID.`,
 	Example: `
 // Create a new workspace
-mesheryctl exp workspace create --orgId [orgId] --name [name] --description [description]
+meshplayctl exp workspace create --orgId [orgId] --name [name] --description [description]
 
 // Documentation for workspace can be found at:
 https://docs.layer5.io/cloud/spaces/workspaces/
@@ -58,12 +58,12 @@ https://docs.layer5.io/cloud/spaces/workspaces/
 	},
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := fmt.Sprintf("%s/api/workspaces", baseUrl)
 
 		nameFlag, _ := cmd.Flags().GetString("name")

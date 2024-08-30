@@ -552,7 +552,7 @@ export default function MeshSyncTable(props) {
   return (
     <>
       <div className={StyleClass.toolWrapper} style={{ marginBottom: '5px', marginTop: '-30px' }}>
-        <div className={classes.createButton}>{/* <MesherySettingsEnvButtons /> */}</div>
+        <div className={classes.createButton}>{/* <MeshplaySettingsEnvButtons /> */}</div>
         <UsesSistent>
           <div
             className={classes.searchAndView}

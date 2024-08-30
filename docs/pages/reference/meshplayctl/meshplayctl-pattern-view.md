@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern-view
-permalink: reference/mesheryctl/pattern/view
-redirect_from: reference/mesheryctl/pattern/view/
+title: meshplayctl-pattern-view
+permalink: reference/meshplayctl/pattern/view
+redirect_from: reference/meshplayctl/pattern/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: pattern
 subcommand: view
 ---
 
-# mesheryctl pattern view
+# meshplayctl pattern view
 
 Display pattern(s)
 
@@ -19,7 +19,7 @@ Display pattern(s)
 Displays the contents of a specific pattern based on name or id
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern view pattern name [flags]
+meshplayctl pattern view pattern name [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl pattern view pattern name [flags]
 view a pattern
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern view [pattern-name | ID]
+meshplayctl pattern view [pattern-name | ID]
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl pattern view [pattern-name | ID]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -58,9 +58,9 @@ mesheryctl pattern view [pattern-name | ID]
 
 ## Screenshots
 
-Usage of mesheryctl pattern view
-![pattern-view-usage](/assets/img/mesheryctl/patternView.png)
+Usage of meshplayctl pattern view
+![pattern-view-usage](/assets/img/meshplayctl/patternView.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

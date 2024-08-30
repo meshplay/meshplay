@@ -12,18 +12,18 @@ import (
 	"github.com/fsnotify/fsnotify"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/meshplayctl/pkg/constants"
-	"github.com/layer5io/meshplay/server/handlers"
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/internal/graphql"
-	"github.com/layer5io/meshplay/server/internal/store"
-	"github.com/layer5io/meshplay/server/machines"
-	mhelpers "github.com/layer5io/meshplay/server/machines/helpers"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/connections"
-	meshplaymeshmodel "github.com/layer5io/meshplay/server/models/meshmodel"
-	"github.com/layer5io/meshplay/server/router"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/internal/graphql"
+	"github.com/khulnasoft/meshplay/server/internal/store"
+	"github.com/khulnasoft/meshplay/server/machines"
+	mhelpers "github.com/khulnasoft/meshplay/server/machines/helpers"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/connections"
+	meshplaymeshmodel "github.com/khulnasoft/meshplay/server/models/meshmodel"
+	"github.com/khulnasoft/meshplay/server/router"
 	"github.com/layer5io/meshkit/broker/nats"
 	"github.com/layer5io/meshkit/logger"
 	_events "github.com/layer5io/meshkit/models/events"
@@ -59,7 +59,7 @@ func main() {
 
 	viper.AutomaticEnv()
 
-	// Meshery Server configuration
+	// Meshplay Server configuration
 	viper.SetConfigFile("./server-config.env")
 	viper.WatchConfig()
 
@@ -119,7 +119,7 @@ func main() {
 	log.Info("Local Provider capabilities are: ", version)
 
 	// Get the channel
-	log.Info("Meshery Server release channel is: ", releasechannel)
+	log.Info("Meshplay Server release channel is: ", releasechannel)
 
 	home, err := os.UserHomeDir()
 	if viper.GetString("USER_DATA_FOLDER") == "" {
@@ -150,7 +150,7 @@ func main() {
 	defer logFile.Close()
 	viper.Set("REGISTRY_LOG_FILE", logFilePath)
 
-	log.Info("Meshery Database is at: ", viper.GetString("USER_DATA_FOLDER"))
+	log.Info("Meshplay Database is at: ", viper.GetString("USER_DATA_FOLDER"))
 	if viper.GetString("KUBECONFIG_FOLDER") == "" {
 		if err != nil {
 			log.Error(ErrRetrievingUserHomeDirectory(err))
@@ -166,9 +166,9 @@ func main() {
 	adapterTracker := helpers.NewAdaptersTracker(adapterURLs)
 	queryTracker := helpers.NewUUIDQueryTracker()
 
-	// Uncomment line below to generate a new UUID and force the user to login every time Meshery is started.
+	// Uncomment line below to generate a new UUID and force the user to login every time Meshplay is started.
 	// fileSessionStore := sessions.NewFilesystemStore("", []byte(uuid.NewV4().Bytes()))
-	// fileSessionStore := sessions.NewFilesystemStore("", []byte("Meshery"))
+	// fileSessionStore := sessions.NewFilesystemStore("", []byte("Meshplay"))
 	// fileSessionStore.MaxLength(0)
 
 	provs := map[string]models.Provider{}
@@ -196,11 +196,11 @@ func main() {
 		&meshsyncmodel.KubernetesResourceStatus{},
 		&meshsyncmodel.KubernetesResourceObjectMeta{},
 		&models.PerformanceProfile{},
-		&models.MesheryResult{},
-		&models.MesheryPattern{},
-		&models.MesheryFilter{},
+		&models.MeshplayResult{},
+		&models.MeshplayPattern{},
+		&models.MeshplayFilter{},
 		&models.PatternResource{},
-		&models.MesheryApplication{},
+		&models.MeshplayApplication{},
 		&models.UserPreference{},
 		&models.PerformanceTestConfig{},
 		&models.SmiResultWithID{},
@@ -223,15 +223,15 @@ func main() {
 	lProv := &models.DefaultLocalProvider{
 		ProviderBaseURL:                 DefaultProviderURL,
 		MapPreferencePersister:          preferencePersister,
-		ResultPersister:                 &models.MesheryResultsPersister{DB: dbHandler},
+		ResultPersister:                 &models.MeshplayResultsPersister{DB: dbHandler},
 		SmiResultPersister:              &models.SMIResultsPersister{DB: dbHandler},
 		TestProfilesPersister:           &models.TestProfilesPersister{DB: dbHandler},
 		PerformanceProfilesPersister:    &models.PerformanceProfilePersister{DB: dbHandler},
-		MesheryPatternPersister:         &models.MesheryPatternPersister{DB: dbHandler},
-		MesheryFilterPersister:          &models.MesheryFilterPersister{DB: dbHandler},
-		MesheryApplicationPersister:     &models.MesheryApplicationPersister{DB: dbHandler},
-		MesheryPatternResourcePersister: &models.PatternResourcePersister{DB: dbHandler},
-		MesheryK8sContextPersister:      &models.MesheryK8sContextPersister{DB: dbHandler},
+		MeshplayPatternPersister:         &models.MeshplayPatternPersister{DB: dbHandler},
+		MeshplayFilterPersister:          &models.MeshplayFilterPersister{DB: dbHandler},
+		MeshplayApplicationPersister:     &models.MeshplayApplicationPersister{DB: dbHandler},
+		MeshplayPatternResourcePersister: &models.PatternResourcePersister{DB: dbHandler},
+		MeshplayK8sContextPersister:      &models.MeshplayK8sContextPersister{DB: dbHandler},
 		OrganizationPersister:           &models.OrganizationPersister{DB: dbHandler},
 		ConnectionPersister:             &models.ConnectionPersister{DB: dbHandler},
 		EnvironmentPersister:            &models.EnvironmentPersister{DB: dbHandler},
@@ -324,13 +324,13 @@ func main() {
 	// verifies if the provider specified in the "PROVIDER" environment variable is from one of the supported providers.
 	// If it is one of the supported providers, the server gets configured to auto select the specified provider,
 	// else the provider specified in the environment variable is ignored and  each time user logs in they need to select a provider.
-	isProviderEnvVarValid := models.VerifyMesheryProvider(providerEnvVar, provs)
+	isProviderEnvVarValid := models.VerifyMeshplayProvider(providerEnvVar, provs)
 	if !isProviderEnvVarValid {
 		providerEnvVar = ""
 	}
 
 	operatorDeploymentConfig := models.NewOperatorDeploymentConfig(adapterTracker)
-	mctrlHelper := models.NewMesheryControllersHelper(log, operatorDeploymentConfig, dbHandler)
+	mctrlHelper := models.NewMeshplayControllersHelper(log, operatorDeploymentConfig, dbHandler)
 	connToInstanceTracker := machines.ConnectionToStateMachineInstanceTracker{
 		ConnectToInstanceMap: make(map[uuid.UUID]*machines.StateMachine, 0),
 	}
@@ -361,7 +361,7 @@ func main() {
 	signal.Notify(c, os.Interrupt)
 
 	go func() {
-		log.Info("Meshery Server listening on: ", port)
+		log.Info("Meshplay Server listening on: ", port)
 		if err := r.Run(); err != nil {
 			log.Error(ErrListenAndServe(err))
 			os.Exit(1)
@@ -375,8 +375,8 @@ func main() {
 		// skipping none provider for now
 		// so it doesn't throw error each server is stopped. Reason: support for none provider is not yet implemented
 		if p.Name() != "None" {
-			log.Info("De-registering Meshery server.")
-			err = p.DeleteMesheryConnection()
+			log.Info("De-registering Meshplay server.")
+			err = p.DeleteMeshplayConnection()
 			if err != nil {
 				log.Error(err)
 			}
@@ -394,5 +394,5 @@ func main() {
 		log.Error(ErrClosingDatabaseInstance(err))
 	}
 
-	log.Info("Shutting down Meshery Server...")
+	log.Info("Shutting down Meshplay Server...")
 }

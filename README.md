@@ -1,38 +1,38 @@
 
-<p style="text-align:center;" align="center"><a href="https://meshery.io"><picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-light-text-side.svg">
- <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-dark-text-side.svg">
-<img src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-dark-text-side.svg"
-alt="Meshery Logo" width="70%" /></picture></a><br /><br /></p>
+<p style="text-align:center;" align="center"><a href="https://meshplay.io"><picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-light-text-side.svg">
+ <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-dark-text-side.svg">
+<img src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-dark-text-side.svg"
+alt="Meshplay Logo" width="70%" /></picture></a><br /><br /></p>
 <p align="center">
-<a href="https://hub.docker.com/r/meshery/meshery" alt="Docker pulls">
-  <img src="https://img.shields.io/docker/pulls/layer5/meshery.svg" /></a>
-<a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshery+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+org%3A+label%3A%22help+wanted%22+" alt="GitHub issues by-label">
-  <img src="https://img.shields.io/github/issues/layer5io/meshery/help%20wanted.svg?color=informational" /></a>
-<a href="https://github.com/meshery/meshery/blob/master/LICENSE" alt="LICENSE">
-  <img src="https://img.shields.io/github/license/meshery/meshery?color=brightgreen" /></a>
-<a href="https://artifacthub.io/packages/helm/meshery/meshery" alt="Artifact Hub Meshery">
+<a href="https://hub.docker.com/r/meshplay/meshplay" alt="Docker pulls">
+  <img src="https://img.shields.io/docker/pulls/layer5/meshplay.svg" /></a>
+<a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshplay+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+org%3A+label%3A%22help+wanted%22+" alt="GitHub issues by-label">
+  <img src="https://img.shields.io/github/issues/layer5io/meshplay/help%20wanted.svg?color=informational" /></a>
+<a href="https://github.com/meshplay/meshplay/blob/master/LICENSE" alt="LICENSE">
+  <img src="https://img.shields.io/github/license/meshplay/meshplay?color=brightgreen" /></a>
+<a href="https://artifacthub.io/packages/helm/meshplay/meshplay" alt="Artifact Hub Meshplay">
   <img src="https://img.shields.io/endpoint?color=brightgreen&label=Helm%20Chart&style=plastic&url=https%3A%2F%2Fartifacthub.io%2Fbadge%2Frepository%2Fartifact-hub" /></a>  
-<a href="https://goreportcard.com/report/github.com/meshery/meshery" alt="Go Report Card">
-  <img src="https://goreportcard.com/badge/github.com/meshery/meshery" /></a>
-<a href="https://github.com/meshery/meshery/actions" alt="Build Status">
-  <img src="https://img.shields.io/github/actions/workflow/status/meshery/meshery/release-drafter.yml" /></a>
+<a href="https://goreportcard.com/report/github.com/meshplay/meshplay" alt="Go Report Card">
+  <img src="https://goreportcard.com/badge/github.com/meshplay/meshplay" /></a>
+<a href="https://github.com/meshplay/meshplay/actions" alt="Build Status">
+  <img src="https://img.shields.io/github/actions/workflow/status/meshplay/meshplay/release-drafter.yml" /></a>
 <a href="https://bestpractices.coreinfrastructure.org/projects/3564" alt="CLI Best Practices">
   <img src="https://bestpractices.coreinfrastructure.org/projects/3564/badge" /></a>
-<a href="http://discuss.meshery.io" alt="Discuss Users">
+<a href="http://discuss.meshplay.io" alt="Discuss Users">
   <img src="https://img.shields.io/discourse/users?label=discuss&logo=discourse&server=https%3A%2F%2Fdiscuss.layer5.io" /></a>
-<a href="https://slack.meshery.io" alt="Join Slack">
+<a href="https://slack.meshplay.io" alt="Join Slack">
   <img src="https://img.shields.io/badge/Slack-@layer5.svg?logo=slack" /></a>
-<a href="https://twitter.com/intent/follow?screen_name=mesheryio" alt="Twitter Follow">
-  <img src="https://img.shields.io/twitter/follow/mesheryio.svg?label=Follow+Meshery&style=social" /></a>
-<a href="https://github.com/meshery/meshery/releases" alt="Meshery Downloads">
-  <img src="https://img.shields.io/github/downloads/meshery/meshery/total" /></a>  
-<!-- <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fmeshery%2Fmeshery?ref=badge_shield" alt="License Scan Report">
-  <img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmeshery%2Fmeshery.svg?type=shield"/></a>  
+<a href="https://twitter.com/intent/follow?screen_name=meshplayio" alt="Twitter Follow">
+  <img src="https://img.shields.io/twitter/follow/meshplayio.svg?label=Follow+Meshplay&style=social" /></a>
+<a href="https://github.com/meshplay/meshplay/releases" alt="Meshplay Downloads">
+  <img src="https://img.shields.io/github/downloads/meshplay/meshplay/total" /></a>  
+<!-- <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fmeshplay%2Fmeshplay?ref=badge_shield" alt="License Scan Report">
+  <img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmeshplay%2Fmeshplay.svg?type=shield"/></a>  
   -->
 </p>
 
-<h5><p align="center"><i>If you like Meshery, please <a href="https://github.com/meshery/meshery/stargazers">★</a> this repository to show your support! 🤩</i></p></h5>
+<h5><p align="center"><i>If you like Meshplay, please <a href="https://github.com/meshplay/meshplay/stargazers">★</a> this repository to show your support! 🤩</i></p></h5>
 <p align="center" >
 MESHPLAY IS A CLOUD NATIVE COMPUTING FOUNDATION PROJECT
 </p>
@@ -43,33 +43,33 @@ MESHPLAY IS A CLOUD NATIVE COMPUTING FOUNDATION PROJECT
 </div>
 <br />
 <p align="center">
-A self-service engineering platform, <a href="https://meshery.io">Meshery</a>, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud). Among other features,  As an extensible platform, Meshery offers visual and collaborative GitOps, freeing you from the chains of YAML while managing Kubernetes multi-cluster deployments.
+A self-service engineering platform, <a href="https://meshplay.io">Meshplay</a>, is the open source, cloud native manager that enables the design and management of all Kubernetes-based infrastructure and applications (multi-cloud). Among other features,  As an extensible platform, Meshplay offers visual and collaborative GitOps, freeing you from the chains of YAML while managing Kubernetes multi-cluster deployments.
 </p>
 <br />
 
-<!-- [Meshery](https://meshery.io) is the cloud native management plane offering lifecycle, configuration, and performance management of Kubernetes, service meshes, and your workloads. -->
+<!-- [Meshplay](https://meshplay.io) is the cloud native management plane offering lifecycle, configuration, and performance management of Kubernetes, service meshes, and your workloads. -->
 <div align="center" width="100%">
-<!-- <a href="https://youtu.be/Do7htKrRzDA"><img src="https://play.meshery.io/static/media/meshery-playground-meshmap.5242722a8cd9c3855f42.png" width="800px" /></a> -->
- <br />Try Meshery in the <a href="https://play.meshery.io">Cloud Native Playground</a> (<a href="https://youtu.be/Do7htKrRzDA">teaser video</a>)
+<!-- <a href="https://youtu.be/Do7htKrRzDA"><img src="https://play.meshplay.io/static/media/meshplay-playground-meshmap.5242722a8cd9c3855f42.png" width="800px" /></a> -->
+ <br />Try Meshplay in the <a href="https://play.meshplay.io">Cloud Native Playground</a> (<a href="https://youtu.be/Do7htKrRzDA">teaser video</a>)
 </div>
 
 <br />
 <br />
 <!--
 - [Functionality](#functionality)
-  - [Meshery Architecture](#meshery-architecture)
-  - [Join the Meshery community!](#join-the-meshery-community)
+  - [Meshplay Architecture](#meshplay-architecture)
+  - [Join the Meshplay community!](#join-the-meshplay-community)
   - [Contributing](#contributing)
     - [Stargazers](#stargazers)
     - [License](#license)
 -->
 <!-- <p style="clear:both;">&nbsp;</p>
-<a href="https://meshery.io"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-light-text-side.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-dark-text-side.svg">
-  <img alt="Meshery - the Cloud Native Manager" src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshery-logo-dark-text-side.svg" align="left" width="45%">
+<a href="https://meshplay.io"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-light-text-side.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-dark-text-side.svg">
+  <img alt="Meshplay - the Cloud Native Manager" src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-dark-text-side.svg" align="left" width="45%">
   </picture></a> 
-<a href="https://meshery.io">
+<a href="https://meshplay.io">
 <h3 style="margin:auto;"><br /><br />
   <a href="https://docs.google.com/presentation/d/14kxjwYSJ_FyE3K_6CDEd6oq2kqwn0OSE8RDJ4H-KlKU/edit?usp=sharing"><center><i>Project Overview Presentation</i></center></a>
   <br /><br /><br />
@@ -80,27 +80,27 @@ A self-service engineering platform, <a href="https://meshery.io">Meshery</a>, i
 
 <p style="clear:both;">
 <h2>Cloud Native Lifecycle Management</h2>
-Meshery manages the provisioning, configuration and operation of your Kubernetes clusters while supporting hundreds of different types of cloud native infrastructure integrations. Meshery also offers a <a href="https://meshery.io/catalog">catalog of curated design templates</a> filled with configuration best practices.
+Meshplay manages the provisioning, configuration and operation of your Kubernetes clusters while supporting hundreds of different types of cloud native infrastructure integrations. Meshplay also offers a <a href="https://meshplay.io/catalog">catalog of curated design templates</a> filled with configuration best practices.
 
-Using a GitOps-centric approach, visually and collaboratively design and manage your infrastructure and microservices. Extend Meshery as your self-service engineering platform by taking advantage of its [vast set of extensibility features](https://docs.meshery.io/extensibility), including gRPC adapters, hot-loadable Reactjs packages and Golang plugins, subscriptions on NATS topics, consumable _and_ extendable API interfaces via REST and GraphQL. 
+Using a GitOps-centric approach, visually and collaboratively design and manage your infrastructure and microservices. Extend Meshplay as your self-service engineering platform by taking advantage of its [vast set of extensibility features](https://docs.meshplay.io/extensibility), including gRPC adapters, hot-loadable Reactjs packages and Golang plugins, subscriptions on NATS topics, consumable _and_ extendable API interfaces via REST and GraphQL. 
 
-<a href="https://www.youtube.com/watch?v=034nVaQUyME"><img alt="Meshery cloud native management" src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/meshmap.gif"  style="margin-left:10px; margin-bottom:10px;" width="100%" align="center" /></a>
+<a href="https://www.youtube.com/watch?v=034nVaQUyME"><img alt="Meshplay cloud native management" src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshmap.gif"  style="margin-left:10px; margin-bottom:10px;" width="100%" align="center" /></a>
 <br /><br />
 </p>
 
 <p style="clear:both;">
  
 <h2>Multi-Cluster Kubernetes, Multi-Cloud, and Cloud Native Configuration Management</h2>
-<p>Meshery supports <a href="https://meshery.io/integrations">250+ integrations</a>.</p>
+<p>Meshplay supports <a href="https://meshplay.io/integrations">250+ integrations</a>.</p>
 
 <!-- 
 <h3><a name="iac"></a>Supported Cloud Native Infrastructure and Applications</h3>
 
 <details>
-  <summary><strong>See all of Meshery's pluggable adapters</strong></summary>
+  <summary><strong>See all of Meshplay's pluggable adapters</strong></summary>
 <div class="container flex">
   <div class="text editable">
-    <p>Meshery adapters provision, configure, and manage their respective cloud native infrastructure.
+    <p>Meshplay adapters provision, configure, and manage their respective cloud native infrastructure.
       <table class="adapters">
         <thead style="display:none;">
           <th>Status</th>
@@ -111,53 +111,53 @@ Using a GitOps-centric approach, visually and collaboratively design and manage 
           <td style="width:30%" rowspan="11" class="stable-adapters">stable</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/layer5io/meshery-istio">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/istio.svg' alt='Meshery Adapter for Istio Service Mesh' align="middle" hspace="10px" vspace="5px" height="30px" /> Meshery adapter for Istio</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-istio">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/istio.svg' alt='Meshplay Adapter for Istio Service Mesh' align="middle" hspace="10px" vspace="5px" height="30px" /> Meshplay adapter for Istio</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/layer5io/meshery-linkerd">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/linkerd.svg' alt='Linkerd' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" /> Meshery adapter for Linkerd</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-linkerd">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/linkerd.svg' alt='Linkerd' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" /> Meshplay adapter for Linkerd</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/meshery/meshery-cilium">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/cilium.svg' alt='Cilium Service mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery Adapter for Cilium Service Mesh</a>
+          <td><a href="https://github.com/meshplay/meshplay-cilium">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/cilium.svg' alt='Cilium Service mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay Adapter for Cilium Service Mesh</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/layer5io/meshery-consul">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/consul.svg' alt='Consul Connect' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" /> Meshery adapter for Consul</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-consul">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/consul.svg' alt='Consul Connect' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" /> Meshplay adapter for Consul</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/layer5io/meshery-octarine">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/octarine.svg' alt='Octarine Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Octarine**</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-octarine">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/octarine.svg' alt='Octarine Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Octarine**</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/layer5io/meshery-nsm">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/nsm.svg' alt='Network Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Network Service Mesh</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-nsm">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/nsm.svg' alt='Network Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Network Service Mesh</a>
           </td>
         </tr>
          <tr>
-           <td><a href="https://github.com/layer5io/meshery-kuma">
-             <img src='https://docs.meshery.io/assets/img/service-meshes/kuma.svg' alt='Kuma Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Kuma</a>
+           <td><a href="https://github.com/khulnasoft/meshplay-kuma">
+             <img src='https://docs.meshplay.io/assets/img/service-meshes/kuma.svg' alt='Kuma Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Kuma</a>
            </td>
         </tr>
           <tr>
-          <td><a href="https://github.com/layer5io/meshery-osm">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/osm.svg' alt='Open Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Open Service Mesh</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-osm">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/osm.svg' alt='Open Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Open Service Mesh</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/layer5io/meshery-traefik-mesh">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/traefik-mesh.svg' alt='Traefik Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Traefik Mesh</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-traefik-mesh">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/traefik-mesh.svg' alt='Traefik Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Traefik Mesh</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/meshery/meshery-nginx-sm">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/nginx-sm.svg' alt='NGINX Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for NGINX Service Mesh</a>
+          <td><a href="https://github.com/meshplay/meshplay-nginx-sm">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/nginx-sm.svg' alt='NGINX Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for NGINX Service Mesh</a>
           </td>
         </tr>          
         <tr><td colspan="2" class="stable-adapters"></td></tr>
@@ -165,13 +165,13 @@ Using a GitOps-centric approach, visually and collaboratively design and manage 
           <td rowspan="3" class="beta-adapters">beta</td>
         </tr>
          <tr>
-          <td><a href="https://github.com/layer5io/meshery-cpx">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/citrix.svg' alt='Citrix CPX Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Citrix CPX**</a>
+          <td><a href="https://github.com/khulnasoft/meshplay-cpx">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/citrix.svg' alt='Citrix CPX Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Citrix CPX**</a>
           </td>
         </tr>
         <tr>
-          <td><a href="https://github.com/meshery/meshery-app-mesh">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/app-mesh.svg' alt='AWS App Mesh Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for App Mesh</a>
+          <td><a href="https://github.com/meshplay/meshplay-app-mesh">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/app-mesh.svg' alt='AWS App Mesh Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for App Mesh</a>
           </td>
         </tr>
         <tr><td colspan="2" class="beta-adapters"></td></tr>
@@ -179,8 +179,8 @@ Using a GitOps-centric approach, visually and collaboratively design and manage 
           <td rowspan="3" class="alpha-adapters">alpha</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/meshery/meshery-tanzu-sm">
-            <img src='https://docs.meshery.io/assets/img/service-meshes/tanzu.svg' alt='Tanzu Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshery adapter for Tanzu SM</a>
+          <td><a href="https://github.com/meshplay/meshplay-tanzu-sm">
+            <img src='https://docs.meshplay.io/assets/img/service-meshes/tanzu.svg' alt='Tanzu Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px" />Meshplay adapter for Tanzu SM</a>
           </td>
         </tr>
         <tr><td colspan="2" class="alpha-adapters"></td></tr>
@@ -193,9 +193,9 @@ Using a GitOps-centric approach, visually and collaboratively design and manage 
 </details>
 <p style="clear:both;">&nbsp;</p> -->
 
-Assess your cloud native infrastructure configuration against deployment and operational best practices with Meshery's configuration validator. Manage your workloads with confidence. Check your Kubernetes configuration for anti-patterns and avoid common pitfalls.
+Assess your cloud native infrastructure configuration against deployment and operational best practices with Meshplay's configuration validator. Manage your workloads with confidence. Check your Kubernetes configuration for anti-patterns and avoid common pitfalls.
 
-<a href="https://docs.meshery.io/assets/img/readme/meshery_lifecycle_management.png"><img alt="Layer5 Service Mesh Configuration Management" src="https://docs.meshery.io/assets/img/readme/meshery_lifecycle_management.png"  style="margin-right:10px;margin-bottom:10px;" width="100%" align="center"/></a>
+<a href="https://docs.meshplay.io/assets/img/readme/meshplay_lifecycle_management.png"><img alt="Layer5 Service Mesh Configuration Management" src="https://docs.meshplay.io/assets/img/readme/meshplay_lifecycle_management.png"  style="margin-right:10px;margin-bottom:10px;" width="100%" align="center"/></a>
 <br /><br />
 
 </p>
@@ -206,16 +206,16 @@ Assess your cloud native infrastructure configuration against deployment and ope
 <h3>Context-Aware Policies For Applications</h3>
 <br /><br />
 <p>Leverage built-in relationships to enforce configuration best practices consistently from code to Kubernetes. Enhance development process by building custom rules in Open Policy Agent's Rego query language.
-<img alt="Meshery and Open Policy Agent Integration" src=".github/assets/images/readme/meshery-policies-2.png" style="margin-right:10px;" width="70%" />
+<img alt="Meshplay and Open Policy Agent Integration" src=".github/assets/images/readme/meshplay-policies-2.png" style="margin-right:10px;" width="70%" />
 </p>
 <br /><br />
 <p style="clear:both;">
 
-<img alt="WebAssembly Logo" src="https://docs.meshery.io/assets/img/readme/webassembly_logo.svg" style="margin-right:10px;" width="10%" align="left" />
+<img alt="WebAssembly Logo" src="https://docs.meshplay.io/assets/img/readme/webassembly_logo.svg" style="margin-right:10px;" width="10%" align="left" />
 <h3> Manage data plane intelligence with WebAssembly filters </h3>
 <p>Dynamically load and manage your own WebAssembly filters in Envoy-based service meshes.</p>
 <br /><br />
-<a href=".github/assets/images/readme/meshery-wasm.png"><img alt="WebAssembly filters" src=".github/assets/images/readme/meshery-wasm.png"  style="margin-right:10px; margin-bottom:10px;" width="70%" /></a>
+<a href=".github/assets/images/readme/meshplay-wasm.png"><img alt="WebAssembly filters" src=".github/assets/images/readme/meshplay-wasm.png"  style="margin-right:10px; margin-bottom:10px;" width="70%" /></a>
 <p>See <a href="https://github.com/layer5io/image-hub">Image Hub</a>.</p>
 </p>
 <br /><br />
@@ -226,66 +226,66 @@ Assess your cloud native infrastructure configuration against deployment and ope
 
 <picture align="left">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/layer5io/layer5/master/src/assets/images/service-mesh-performance/stacked/smp-light-text.svg"  width="18%" align="left" style="margin-left:10px;" />
-  <img alt="Shows an illustrated light mode meshery logo in light color mode and a dark mode meshery logo dark color mode." src="https://raw.githubusercontent.com/layer5io/layer5/master/src/assets/images/service-mesh-performance/stacked/smp-light-text.svg" width="18%" align="left" style="margin-left:10px;" />
+  <img alt="Shows an illustrated light mode meshplay logo in light color mode and a dark mode meshplay logo dark color mode." src="https://raw.githubusercontent.com/layer5io/layer5/master/src/assets/images/service-mesh-performance/stacked/smp-light-text.svg" width="18%" align="left" style="margin-left:10px;" />
 </picture>
 
-In an effort to produce service mesh agnostic tooling, Meshery uses the <a href="https://smp-spec.io">Service Mesh Performance</a> specification as a common format to capture and measure your infrastructure's performance against a universal cloud native performance index. As an implementation of Service Mesh Interface (SMI), Meshery participates in advancing cloud native infrastructure adoption through the standardization of APIs.
+In an effort to produce service mesh agnostic tooling, Meshplay uses the <a href="https://smp-spec.io">Service Mesh Performance</a> specification as a common format to capture and measure your infrastructure's performance against a universal cloud native performance index. As an implementation of Service Mesh Interface (SMI), Meshplay participates in advancing cloud native infrastructure adoption through the standardization of APIs.
 <br /><br />
 <p style="clear:both;">
 
-<!-- <a href="https://raw.githubusercontent.com/layer5io/meshery/master/assets/img/readme/Meshery-Grafana-Charts.png"><img alt="Meshery Grafana Boards" src="https://docs.meshery.io/assets/img/readme/Meshery-Grafana-Charts.png" style="padding-top:10px;margin-left:10px;" width="45%" align="right" /></a> -->
+<!-- <a href="https://raw.githubusercontent.com/layer5io/meshplay/master/assets/img/readme/Meshplay-Grafana-Charts.png"><img alt="Meshplay Grafana Boards" src="https://docs.meshplay.io/assets/img/readme/Meshplay-Grafana-Charts.png" style="padding-top:10px;margin-left:10px;" width="45%" align="right" /></a> -->
 
 <h4>Standardized Cloud Native Performance Management</h4>
 
-Meshery is the cloud native utility for uniformly managing the performance of microservices and the infrastructure that run them. As an implementation of the Service Mesh Performance ([SMP](https://smp-spec.io/)), Meshery enables you to measure the value provided by Docker, Kubernetes, or a service mesh in the context of the overhead incurred.
+Meshplay is the cloud native utility for uniformly managing the performance of microservices and the infrastructure that run them. As an implementation of the Service Mesh Performance ([SMP](https://smp-spec.io/)), Meshplay enables you to measure the value provided by Docker, Kubernetes, or a service mesh in the context of the overhead incurred.
 
-<a href="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/smp/service-mesh-performance-example.gif"><img alt="Performance Management" src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/smp/service-mesh-performance-example.gif" style="margin-left:10px;margin-bottom:10px;" width="100%" align="center" /></a>
+<a href="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/smp/service-mesh-performance-example.gif"><img alt="Performance Management" src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/smp/service-mesh-performance-example.gif" style="margin-left:10px;margin-bottom:10px;" width="100%" align="center" /></a>
 <br /><br />
 
 </p>
 
-## Meshery Architecture
+## Meshplay Architecture
 
-You may deploy Meshery internal to your cluster or external to your cluster.
+You may deploy Meshplay internal to your cluster or external to your cluster.
 
-<p align="center"><a href="https://raw.githubusercontent.com/meshery/meshery/master/docs/assets/img/architecture/Meshery-client-architecture.svg"><img src="https://docs.meshery.io/assets/img/readme/Meshery-client-architecture.svg" width="90%" align="center" /></a></p>
-Learn more about <a href="https://docs.meshery.io/architecture">Meshery's architecture</a>.
+<p align="center"><a href="https://raw.githubusercontent.com/meshplay/meshplay/master/docs/assets/img/architecture/Meshplay-client-architecture.svg"><img src="https://docs.meshplay.io/assets/img/readme/Meshplay-client-architecture.svg" width="90%" align="center" /></a></p>
+Learn more about <a href="https://docs.meshplay.io/architecture">Meshplay's architecture</a>.
 
-<h2><a name="running"></a>Get Started with Meshery</h2>
+<h2><a name="running"></a>Get Started with Meshplay</h2>
 <p style="clear:both;"></p>
-<!-- <img alt="Control Kubernetes and your workloads with mesheryctl" src=".github/assets/images/readme/mesheryctl.png"  style="margin-left:10px; margin-bottom:10px;" width="50%" align="right" /> -->
-<h3>Using `mesheryctl`</h3>
-<p>Meshery runs as a set of containers inside or outside of your Kubernetes clusters.</p>
-<pre>curl -L https://meshery.io/install | bash -</pre>
-<p>Use the <a href="https://docs.meshery.io/installation/quick-start">quick start</a> guide.</p>
+<!-- <img alt="Control Kubernetes and your workloads with meshplayctl" src=".github/assets/images/readme/meshplayctl.png"  style="margin-left:10px; margin-bottom:10px;" width="50%" align="right" /> -->
+<h3>Using `meshplayctl`</h3>
+<p>Meshplay runs as a set of containers inside or outside of your Kubernetes clusters.</p>
+<pre>curl -L https://meshplay.io/install | bash -</pre>
+<p>Use the <a href="https://docs.meshplay.io/installation/quick-start">quick start</a> guide.</p>
 <details>
   <summary><strong>See all supported platforms</strong></summary>
 
-See the [getting started](https://meshery.io/#getting-started) section to quickly deploy Meshery on any of these supported platforms:
+See the [getting started](https://meshplay.io/#getting-started) section to quickly deploy Meshplay on any of these supported platforms:
 
 | Platform                                                                                                                                                                                                                             | Supported?  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------: |
-| <img src="https://docs.meshery.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Docker](https://docs.meshery.io/installation/docker)                                                 |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Docker - Docker App](https://docs.meshery.io/installation/docker)                 |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Docker - Docker Extension](https://docs.meshery.io/installation/docker/docker-extensiongit) |     ✔️      |
-| <img src="https://docs.meshery.io/assets/img/platforms/kubernetes.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes](https://docs.meshery.io/installation/kubernetes)                                     |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/aks.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes - AKS](https://docs.meshery.io/installation/kubernetes/aks)                          |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes - Docker Desktop](https://docs.meshery.io/installation#mac-or-linux)             |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/eks.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - EKS](https://docs.meshery.io/installation/kubernetes/eks)                          |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/gke.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - GKE](https://docs.meshery.io/installation/kubernetes/gke)                          |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/helm.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes - Helm](https://docs.meshery.io/installation/kubernetes/helm)      |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/kind.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - kind](https://docs.meshery.io/installation/kubernetes/kind)                       |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/minikube.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - Minikube](https://docs.meshery.io/installation/kubernetes/minikube)           |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/openshift.svg" width="20" height="20" vertical-align="middle" /> Kubernetes - OpenShift                                                                    | In Progress |
-| <img src="https://docs.meshery.io/assets/img/platforms/linux.svg" width="20" height="20" vertical-align="middle" /> [Linux](https://docs.meshery.io/installation#mac-or-linux)                                                       |     ✔️      |
-| <img src="https://docs.meshery.io/assets/img/platforms/apple.svg" width="20" height="20" vertical-align="middle" /> [Mac](https://docs.meshery.io/installation#mac-or-linux)                                                         |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/homebrew.png" width="20" height="20" vertical-align="middle" /> [Mac - Homebrew](https://docs.meshery.io/installation#mac-or-linux)                        |     ✔️      |
-| <img src="https://docs.meshery.io/assets/img/platforms/wsl2.png" width="20" height="20" vertical-align="middle" /> [Windows](https://docs.meshery.io/installation#windows)                                                           |     ✔️      |
-| &nbsp;&nbsp;&nbsp; [Scoop](https://docs.meshery.io/installation#windows)                                                                                                                                                             |     ✔️      |
-| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshery.io/assets/img/platforms/wsl2.png" width="20" height="20" vertical-align="middle" /> [WSL2](https://docs.meshery.io/installation/platforms/windows#wsl2)                            |     ✔️      |
-| <img src="https://docs.meshery.io/assets/img/platforms/raspberry-pi.png" width="20" height="20" vertical-align="middle" /> Raspberry Pi                                                                                              | In Progress |
+| <img src="https://docs.meshplay.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Docker](https://docs.meshplay.io/installation/docker)                                                 |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Docker - Docker App](https://docs.meshplay.io/installation/docker)                 |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Docker - Docker Extension](https://docs.meshplay.io/installation/docker/docker-extensiongit) |     ✔️      |
+| <img src="https://docs.meshplay.io/assets/img/platforms/kubernetes.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes](https://docs.meshplay.io/installation/kubernetes)                                     |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/aks.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes - AKS](https://docs.meshplay.io/installation/kubernetes/aks)                          |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/docker.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes - Docker Desktop](https://docs.meshplay.io/installation#mac-or-linux)             |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/eks.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - EKS](https://docs.meshplay.io/installation/kubernetes/eks)                          |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/gke.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - GKE](https://docs.meshplay.io/installation/kubernetes/gke)                          |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/helm.svg" width="20" height="20" vertical-align="middle" /> [Kubernetes - Helm](https://docs.meshplay.io/installation/kubernetes/helm)      |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/kind.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - kind](https://docs.meshplay.io/installation/kubernetes/kind)                       |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/minikube.png" width="20" height="20" vertical-align="middle" /> [Kubernetes - Minikube](https://docs.meshplay.io/installation/kubernetes/minikube)           |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/openshift.svg" width="20" height="20" vertical-align="middle" /> Kubernetes - OpenShift                                                                    | In Progress |
+| <img src="https://docs.meshplay.io/assets/img/platforms/linux.svg" width="20" height="20" vertical-align="middle" /> [Linux](https://docs.meshplay.io/installation#mac-or-linux)                                                       |     ✔️      |
+| <img src="https://docs.meshplay.io/assets/img/platforms/apple.svg" width="20" height="20" vertical-align="middle" /> [Mac](https://docs.meshplay.io/installation#mac-or-linux)                                                         |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/homebrew.png" width="20" height="20" vertical-align="middle" /> [Mac - Homebrew](https://docs.meshplay.io/installation#mac-or-linux)                        |     ✔️      |
+| <img src="https://docs.meshplay.io/assets/img/platforms/wsl2.png" width="20" height="20" vertical-align="middle" /> [Windows](https://docs.meshplay.io/installation#windows)                                                           |     ✔️      |
+| &nbsp;&nbsp;&nbsp; [Scoop](https://docs.meshplay.io/installation#windows)                                                                                                                                                             |     ✔️      |
+| &nbsp;&nbsp;&nbsp; <img src="https://docs.meshplay.io/assets/img/platforms/wsl2.png" width="20" height="20" vertical-align="middle" /> [WSL2](https://docs.meshplay.io/installation/platforms/windows#wsl2)                            |     ✔️      |
+| <img src="https://docs.meshplay.io/assets/img/platforms/raspberry-pi.png" width="20" height="20" vertical-align="middle" /> Raspberry Pi                                                                                              | In Progress |
 
-[Meshery documentation](https://docs.meshery.io/installation) offers thorough installation guides for your platform of choice.
+[Meshplay documentation](https://docs.meshplay.io/installation) offers thorough installation guides for your platform of choice.
  </details>
  
 <p style="clear:both;">&nbsp;</p>
@@ -293,10 +293,10 @@ See the [getting started](https://meshery.io/#getting-started) section to quickl
 
 <div>&nbsp;</div>
 
-## Join the Meshery community!
+## Join the Meshplay community!
 
 <a name="contributing"></a><a name="community"></a>
-Our projects are community-built and welcome collaboration. 👍 Be sure to see the <a href="https://layer5.io/community/newcomers">Contributor Journey Map</a> and <a href="https://layer5.io/community/handbook">Community Handbook</a> for a tour of resources available to you and the <a href="https://layer5.io/community/handbook/repository-overview">Repository Overview</a> for a cursory description of repository by technology and programming language. Jump into community <a href="https://slack.meshery.io">Slack</a> or <a href="http://discuss.meshery.io">discussion forum</a> to participate.
+Our projects are community-built and welcome collaboration. 👍 Be sure to see the <a href="https://layer5.io/community/newcomers">Contributor Journey Map</a> and <a href="https://layer5.io/community/handbook">Community Handbook</a> for a tour of resources available to you and the <a href="https://layer5.io/community/handbook/repository-overview">Repository Overview</a> for a cursory description of repository by technology and programming language. Jump into community <a href="https://slack.meshplay.io">Slack</a> or <a href="http://discuss.meshplay.io">discussion forum</a> to participate.
 
 <p style="clear:both;">
 <a href ="https://layer5.io/community"><img alt="MeshMates" src=".github/assets/images/readme/layer5-community-sign.png" style="margin-right:36px; margin-bottom:7px;" width="140px" align="left" /></a>
@@ -310,31 +310,31 @@ Find out more on the <a href="https://layer5.io/community#meshmate">Layer5 commu
 <br /><br />
 <div style="display: flex; justify-content: center; align-items:center;">
 <div>
-<a href="https://meshery.io/community"><img alt="Layer5 Cloud Native Community" src="https://docs.meshery.io/assets/img/readme/community.png" width="140px" style="margin-right:36px; margin-bottom:7px;" width="140px" align="left"/></a>
+<a href="https://meshplay.io/community"><img alt="Layer5 Cloud Native Community" src="https://docs.meshplay.io/assets/img/readme/community.png" width="140px" style="margin-right:36px; margin-bottom:7px;" width="140px" align="left"/></a>
 </div>
 <div style="width:60%; padding-left: 16px; padding-right: 16px">
 <p>
-✔️ <em><strong>Join</strong></em> any or all of the weekly meetings on <a href="https://meshery.io/calendar">community calendar</a>.<br />
+✔️ <em><strong>Join</strong></em> any or all of the weekly meetings on <a href="https://meshplay.io/calendar">community calendar</a>.<br />
 ✔️ <em><strong>Watch</strong></em> community <a href="https://www.youtube.com/playlist?list=PL3A-A6hPO2IMPPqVjuzgqNU5xwnFFn3n0">meeting recordings</a>.<br />
 ✔️ <em><strong>Fill-in</strong></em> a <a href="https://layer5.io/newcomers">community member form</a> to gain access to community resources.
 <br />
-✔️ <em><strong>Discuss</strong></em> in the <a href="http://discuss.meshery.io">Community Forum</a>.<br />
+✔️ <em><strong>Discuss</strong></em> in the <a href="http://discuss.meshplay.io">Community Forum</a>.<br />
 ✔️ <em><strong>Explore more</strong></em> in the <a href="https://layer5.io/community/handbook">Community Handbook</a>.<br />
 </p>
 </div><br /><br />
 <div>
-<a href="https://slack.meshery.io">
+<a href="https://slack.meshplay.io">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/slack.svg"  width="110px" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/slack.svg" width="110px" />
-  <img alt="Shows an illustrated light mode meshery logo in light color mode and a dark mode meshery logo dark color mode." src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/slack.svg" width="110px" align="left" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/slack.svg"  width="110px" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/slack.svg" width="110px" />
+  <img alt="Shows an illustrated light mode meshplay logo in light color mode and a dark mode meshplay logo dark color mode." src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/slack.svg" width="110px" align="left" />
 </picture>
 </a>
 </div>
 </div>
 <br /><br />
 <p align="left">
-&nbsp;&nbsp;&nbsp;&nbsp; <i>Not sure where to start?</i> Grab an open issue with the <a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshery+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+label%3A%22help+wanted%22+">help-wanted label</a>.
+&nbsp;&nbsp;&nbsp;&nbsp; <i>Not sure where to start?</i> Grab an open issue with the <a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshplay+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+label%3A%22help+wanted%22+">help-wanted label</a>.
 </p>
 <br /><br />
 
@@ -342,19 +342,19 @@ Find out more on the <a href="https://layer5.io/community#meshmate">Layer5 commu
 
 ## Contributing
 
-Please do! We're a warm and welcoming community of open source contributors. Please join. All types of contributions are welcome. Be sure to read the [Contributor Guides](https://docs.meshery.io/project/contributing) for a tour of resources available to you and how to get started.
+Please do! We're a warm and welcoming community of open source contributors. Please join. All types of contributions are welcome. Be sure to read the [Contributor Guides](https://docs.meshplay.io/project/contributing) for a tour of resources available to you and how to get started.
 
-<!-- <a href="https://youtu.be/MXQV-i-Hkf8"><img alt="Deploying Linkerd with Meshery" src="https://docs.meshery.io/assets/img/readme/deploying-linkerd-with-meshery.png" width="100%" align="center" /></a> -->
+<!-- <a href="https://youtu.be/MXQV-i-Hkf8"><img alt="Deploying Linkerd with Meshplay" src="https://docs.meshplay.io/assets/img/readme/deploying-linkerd-with-meshplay.png" width="100%" align="center" /></a> -->
 
 <div>&nbsp;</div>
 
 ### Stargazers
 
 <p align="center">
-  <i>If you like Meshery, please <a href="../../stargazers">★</a> star this repository to show your support! 🤩</i>
+  <i>If you like Meshplay, please <a href="../../stargazers">★</a> star this repository to show your support! 🤩</i>
  <br />
 <a href="../../stargazers">
- <img align="center" src="https://api.star-history.com/svg?repos=meshery/meshery&type=Date" />
+ <img align="center" src="https://api.star-history.com/svg?repos=meshplay/meshplay&type=Date" />
 </a></p>
 
 ### License
@@ -366,10 +366,10 @@ This repository and site are available as open-source under the terms of the [Ap
 
 See an <a href="https://layer5.io/community/handbook/repository-overview">overview of repositories</a> and projects by tech stack in the <a href="https://layer5.io/community/handbook/">Community Handbook</a>.
 
-## See Meshery in Action
+## See Meshplay in Action
 
 - [DockerCon 2020](https://docker.events.cube365.net/docker/dockercon/content/Videos/63TCCNpzDC7Xxnm8b) | ([video](https://www.youtube.com/watch?v=5BrbbKZOctw&list=PL3A-A6hPO2IN_HSU0pSfijBboiHggs5mC&index=4&t=0s), [deck](https://calcotestudios.com/talks/decks/slides-dockercon-2020-service-meshing-with-docker-desktop-and-webassembly.html))
-- [Deploying Linkerd with Meshery](https://youtu.be/MXQV-i-Hkf8)
+- [Deploying Linkerd with Meshplay](https://youtu.be/MXQV-i-Hkf8)
 - [KubeCon EU 2019](https://kccnceu19.sched.com/event/MPf7/service-meshes-at-what-cost-lee-calcote-layer5-girish-ranganathan-solarwinds?iframe=no&w=100%&sidebar=yes&bg=no) | ([video](https://www.youtube.com/watch?v=LxP-yHrKL4M&list=PLYjO73_1efChX9NuRaU7WocTbgrfvCoPE), [deck](https://calcotestudios.com/talks/decks/slides-kubecon-eu-2019-service-meshes-at-what-cost.html))
 - Istio Founders Meetup @ KubeCon EU 2019 | [deck](https://calcotestudios.com/talks/decks/slides-istio-meetup-kubecon-eu-2019-istio-at-scale-large-and-small.html)
 - [Cloud Native Rejekts EU 2019](https://cfp.cloud-native.rejekts.io/cloud-native-rejekts-eu-2019/speaker/GZQTEM/) | [deck](https://calcotestudios.com/talks/decks/slides-cloud-native-rejekts-2019-evaluating-service-meshes.html)

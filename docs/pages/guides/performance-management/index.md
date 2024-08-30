@@ -6,10 +6,10 @@ type: guides
 category: performance
 language: en
 list: exclude
-abstract: Guides for understanding Meshery's ability to characterize and analyze performance of your infrastructure and applications.
+abstract: Guides for understanding Meshplay's ability to characterize and analyze performance of your infrastructure and applications.
 ---
 
-Guides for understanding Meshery's ability to characterize and analyze performance of your infrastructure and applications.
+Guides for understanding Meshplay's ability to characterize and analyze performance of your infrastructure and applications.
 
 {% assign sorted_pages = site.pages | sort: "name" %}
 

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package system
 import (
 	"os"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -28,18 +28,18 @@ import (
 
 var logoutCmd = &cobra.Command{
 	Use:   "logout",
-	Short: "Remove authentication for Meshery Server",
+	Short: "Remove authentication for Meshplay Server",
 	Long: `
-Remove authentication for Meshery Server
+Remove authentication for Meshplay Server
 
 This command removes the authentication token from the user's filesystem`,
 	Args: cobra.MinimumNArgs(0),
 	Example: `
-// Logout current session with your Meshery Provider.
-mesheryctl system logout
+// Logout current session with your Meshplay Provider.
+meshplayctl system logout
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil

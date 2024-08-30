@@ -4,7 +4,7 @@ title: Vald
 subtitle: Collaborative and visual infrastructure as design for Vald
 image: /assets/img/integrations/vald/icons/color/vald-color.svg
 permalink: extensibility/integrations/vald
-docURL: https://docs.meshery.io/extensibility/integrations/vald
+docURL: https://docs.meshplay.io/extensibility/integrations/vald
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

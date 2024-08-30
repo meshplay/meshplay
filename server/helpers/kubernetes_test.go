@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/layer5io/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

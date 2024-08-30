@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -105,7 +105,7 @@ func TestDoc(t *testing.T) {
 		cmd.AddCommand(&cobra.Command{
 			Use: "sub",
 		})
-		markDownPath := "../../docs/pages/reference/mesheryctl/"
+		markDownPath := "../../docs/pages/reference/meshplayctl/"
 		err := GenMarkdownTreeCustom(cmd, markDownPath, prepender, linkHandler)
 		assert.NoError(t, err)
 	})
@@ -165,7 +165,7 @@ func TestDoc(t *testing.T) {
 		cmd.AddCommand(&cobra.Command{
 			Use: "sub",
 		})
-		yamlPath := "../../docs/pages/reference/mesheryctl/"
+		yamlPath := "../../docs/pages/reference/meshplayctl/"
 		err := GenYamlTreeCustom(cmd, yamlPath, prepender, linkHandler)
 		assert.NoError(t, err)
 	})

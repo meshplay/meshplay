@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./mesheryAnimation.css";
+import "./meshplayAnimation.css";
 
 
 function getClassName(className, isActive) {
@@ -10,7 +10,7 @@ function getClassName(className, isActive) {
   return `${className} active`;
 }
 
-export const MesheryAnimation = (props) => {
+export const MeshplayAnimation = (props) => {
   const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {

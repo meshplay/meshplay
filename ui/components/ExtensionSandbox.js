@@ -17,7 +17,7 @@ function getPath() {
 }
 
 /**
- * getCapabilities queries the meshery server for the current providers
+ * getCapabilities queries the meshplay server for the current providers
  * capabilities and returns the decoded capability that mathes the
  * given type
  * @param {string} type
@@ -44,7 +44,7 @@ export function getCapabilities(type, cb) {
 }
 
 /**
- * getFullPageExtensions queries the meshery server for the current providers
+ * getFullPageExtensions queries the meshplay server for the current providers
  * capabilities and returns all the extensions names and URIs having full_page type as true
  * @param {Function} cb
  */
@@ -298,7 +298,7 @@ function createPathForRemoteComponent(componentName) {
 
 /**
  * ExtensionSandbox takes in an extension and it's type and will handle the internal mapping
- * for the uris and components by querying the meshery server for providers capabilities
+ * for the uris and components by querying the meshplay server for providers capabilities
  *
  * Only two "types" are supported by the sandbox:
  *  1. navigator - for navigator extensions
@@ -343,7 +343,7 @@ const ExtensionSandbox = React.memo(
             ''
           ) : (
             <LoadingScreen
-              animatedIcon="AnimatedMeshery"
+              animatedIcon="AnimatedMeshplay"
               message="Establishing Remote Connection"
             />
           )

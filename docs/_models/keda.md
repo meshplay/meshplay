@@ -4,7 +4,7 @@ title: KEDA
 subtitle: Collaborative and visual infrastructure as design for KEDA
 image: /assets/img/integrations/keda/icons/color/keda-color.svg
 permalink: extensibility/integrations/keda
-docURL: https://docs.meshery.io/extensibility/integrations/keda
+docURL: https://docs.meshplay.io/extensibility/integrations/keda
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

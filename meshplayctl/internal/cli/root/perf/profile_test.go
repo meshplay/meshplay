@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/jarcoal/httpmock"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 )
 
 var update = flag.Bool("update", false, "update golden files")
@@ -30,27 +30,27 @@ var (
 	profile1006 = "1006.golden"
 )
 
-// golden file mesheryctl outputs
+// golden file meshplayctl outputs
 var (
-	// mesheryctl response of 25 performance profile
+	// meshplayctl response of 25 performance profile
 	profile1001output = "1001.golden"
-	// mesheryctl response of performance profile with searched term "istio"
+	// meshplayctl response of performance profile with searched term "istio"
 	profile1002output = "1002.golden"
-	// mesheryctl response of performance profile with searched term "test 3"
+	// meshplayctl response of performance profile with searched term "test 3"
 	profile1003output = "1003.golden"
-	// mesheryctl response when no profiles found
+	// meshplayctl response when no profiles found
 	profile1005output = "1005.golden"
-	// mesheryctl response of 25 performance profile in json output
+	// meshplayctl response of 25 performance profile in json output
 	profile1006output = "1006.golden"
-	// mesheryctl response of 25 performance profile in yaml output
+	// meshplayctl response of 25 performance profile in yaml output
 	profile1007output = "1007.golden"
-	// mesheryctl response for invalid output format
+	// meshplayctl response for invalid output format
 	profile1008output = "1008.golden"
-	// mesheryctl response for server response code error
+	// meshplayctl response for server response code error
 	profile1009output = "1009.golden"
-	// mesheryctl response for unmarshal error
+	// meshplayctl response for unmarshal error
 	profile1010output = "1010.golden"
-	// mesheryctl response for failing attach authentication
+	// meshplayctl response for failing attach authentication
 	profile1011output = "1011.golden"
 )
 

@@ -3,10 +3,10 @@ package models
 import (
 	"context"
 
-	"github.com/layer5io/meshplay/server/meshes"
+	"github.com/khulnasoft/meshplay/server/meshes"
 )
 
-// Available Meshery adapters
+// Available Meshplay adapters
 var (
 	Istio     = Adapter{Name: "meshplay-istio", Location: "10000"}
 	Linkerd   = Adapter{Name: "meshplay-linkerd", Location: "10001"}
@@ -22,7 +22,7 @@ var (
 
 var ListAvailableAdapters = []Adapter{Istio, Linkerd, Consul, Kuma, NSM, Nginx, AppMesh, Cilium, Traefik, Nighthawk}
 
-// Adapter represents an adapter in Meshery
+// Adapter represents an adapter in Meshplay
 type Adapter struct {
 	Location     string                       `json:"adapter_location"`
 	Name         string                       `json:"name"`

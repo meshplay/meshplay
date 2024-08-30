@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@ package system
 
 import (
 	"fmt"
-	config "github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
+	config "github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -31,24 +31,24 @@ var (
 	// token path
 )
 
-// SystemCmd represents Meshery Lifecycle Management cli commands
+// SystemCmd represents Meshplay Lifecycle Management cli commands
 var SystemCmd = &cobra.Command{
 	Use:   "system",
-	Short: "Meshery Lifecycle Management",
-	Long:  `Manage the state and configuration of Meshery server, components, and client.`,
+	Short: "Meshplay Lifecycle Management",
+	Long:  `Manage the state and configuration of Meshplay server, components, and client.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
 			return cmd.Help()
 		}
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return errors.New(utils.SystemError(fmt.Sprintf("'%s' is an invalid command.  Use 'mesheryctl system --help' to display usage guide.\n", args[0])))
+			return errors.New(utils.SystemError(fmt.Sprintf("'%s' is an invalid command.  Use 'meshplayctl system --help' to display usage guide.\n", args[0])))
 		}
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
-		mctlCfg.GetBaseMesheryURL()
+		mctlCfg.GetBaseMeshplayURL()
 		return nil
 	},
 }

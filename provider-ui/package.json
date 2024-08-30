@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "Layer5",
-  "repository": "https://github.com/meshery/meshery",
+  "repository": "https://github.com/meshplay/meshplay",
   "license": "Apache-2.0",
   "dependencies": {
     "@babel/eslint-parser": "^7.24.7",

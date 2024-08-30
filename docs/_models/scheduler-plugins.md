@@ -4,7 +4,7 @@ title: Scheduler Plugins
 subtitle: Collaborative and visual infrastructure as design for Scheduler Plugins
 image: /assets/img/integrations/scheduler-plugins/icons/color/scheduler-plugins-color.svg
 permalink: extensibility/integrations/scheduler-plugins
-docURL: https://docs.meshery.io/extensibility/integrations/scheduler-plugins
+docURL: https://docs.meshplay.io/extensibility/integrations/scheduler-plugins
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Uncategorized

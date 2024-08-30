@@ -43,7 +43,7 @@ const chipStyles = (theme) => ({
 const MeshAdapterChip = ({ handleAdapterClick, isActive, adapter, handleAdapterDelete }) => {
   let image = isActive
     ? '/static/img/' + adapter.name?.toLowerCase() + '.svg'
-    : '/static/img/meshery-logo.png';
+    : '/static/img/meshplay-logo.png';
   return (
     <AdapterChip
       label={adapter?.label.split(':')[0]}

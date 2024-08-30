@@ -8,8 +8,8 @@ import (
 	"github.com/layer5io/meshkit/models/events"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/models/environments"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 	"github.com/layer5io/meshkit/logger"
 )
 

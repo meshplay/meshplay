@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,39 +21,39 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants"
-	c "github.com/layer5io/meshery/mesheryctl/pkg/constants"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/constants"
+	c "github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	meshkitutils "github.com/layer5io/meshkit/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
 var (
-	// Mesheryctl config - holds config handler
-	mctlCfg *config.MesheryCtlConfig
+	// Meshplayctl config - holds config handler
+	mctlCfg *config.MeshplayCtlConfig
 )
 
 var linkDoc = map[string]string{
-	"link":    "![version-usage](/assets/img/mesheryctl/version.png)",
-	"caption": "Usage of mesheryctl version",
+	"link":    "![version-usage](/assets/img/meshplayctl/version.png)",
+	"caption": "Usage of meshplayctl version",
 }
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Version of mesheryctl",
-	Long:  `Version of Meshery command line client - mesheryctl.`,
+	Short: "Version of meshplayctl",
+	Long:  `Version of Meshplay command line client - meshplayctl.`,
 	Example: `
-// To view the current version and SHA of release binary of mesheryctl client 
-mesheryctl version
+// To view the current version and SHA of release binary of meshplayctl client 
+meshplayctl version
 	`,
 	Annotations: linkDoc,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		var err error
-		mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			// get the currCtx
 			utils.Log.Error(ErrProcessingConfig(err))
@@ -61,7 +61,7 @@ mesheryctl version
 			userResponse = utils.AskForConfirmation("Looks like you are using an outdated config file. Do you want to generate a new config file?")
 			if userResponse {
 				utils.BackupConfigFile(utils.DefaultConfigPath)
-				// Create config file if not present in meshery folder
+				// Create config file if not present in meshplay folder
 				err = utils.CreateConfigFile()
 				if err != nil {
 					utils.Log.Error(ErrCreatingConfigFile)
@@ -84,7 +84,7 @@ mesheryctl version
 						utils.DefaultConfigPath,
 					))
 
-				mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+				mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 				if err != nil {
 					utils.Log.Error(ErrUnmarshallingConfigFile)
 				}
@@ -112,9 +112,9 @@ mesheryctl version
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 
-		url := mctlCfg.GetBaseMesheryURL()
-		build := constants.GetMesheryctlVersion()
-		commitsha := constants.GetMesheryctlCommitsha()
+		url := mctlCfg.GetBaseMeshplayURL()
+		build := constants.GetMeshplayctlVersion()
+		commitsha := constants.GetMeshplayctlCommitsha()
 
 		version := config.Version{
 			Build:          "unavailable",
@@ -132,7 +132,7 @@ mesheryctl version
 			return
 		}
 
-		defer checkMesheryctlClientVersion(build)
+		defer checkMeshplayctlClientVersion(build)
 		client := &http.Client{}
 		resp, err := client.Do(req)
 
@@ -164,17 +164,17 @@ mesheryctl version
 	},
 }
 
-func checkMesheryctlClientVersion(build string) {
-	utils.Log.Info("Checking for latest version of mesheryctl...\n")
+func checkMeshplayctlClientVersion(build string) {
+	utils.Log.Info("Checking for latest version of meshplayctl...\n")
 
 	// Inform user of the latest release version
-	res, err := meshkitutils.GetLatestReleaseTagsSorted(c.GetMesheryGitHubOrg(), c.GetMesheryGitHubRepo())
+	res, err := meshkitutils.GetLatestReleaseTagsSorted(c.GetMeshplayGitHubOrg(), c.GetMeshplayGitHubRepo())
 	if err != nil {
-		utils.Log.Warn(fmt.Errorf("Unable to check for latest version of mesheryctl. %s", err))
+		utils.Log.Warn(fmt.Errorf("Unable to check for latest version of meshplayctl. %s", err))
 		return
 	}
 	if len(res) == 0 {
-		utils.Log.Warn(fmt.Errorf("Unable to check for latest version of mesheryctl. %s", fmt.Errorf("no version found")))
+		utils.Log.Warn(fmt.Errorf("Unable to check for latest version of meshplayctl. %s", fmt.Errorf("no version found")))
 		return
 	}
 	r := res[len(res)-1]

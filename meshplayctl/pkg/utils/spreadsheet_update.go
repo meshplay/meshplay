@@ -7,7 +7,7 @@ import (
 
 	cuecsv "cuelang.org/go/pkg/encoding/csv"
 	"github.com/gocarina/gocsv"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 	"google.golang.org/api/sheets/v4"
 )
 

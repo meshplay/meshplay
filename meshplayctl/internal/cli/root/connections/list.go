@@ -6,9 +6,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models/connections"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -20,14 +20,14 @@ var listConnectionsCmd = &cobra.Command{
 	Long:  `List all the connections`,
 	Example: `
 // List all the connections
-mesheryctl exp connections list
+meshplayctl exp connections list
 
 // List all the connections with page number
-mesheryctl exp connections list --page 2
+meshplayctl exp connections list --page 2
 `,
 
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp connection list \nRun 'mesheryctl exp connection list --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp connection list \nRun 'meshplayctl exp connection list --help' to see detailed help message"
 		if len(args) != 0 {
 			return utils.ErrInvalidArgument(errors.New(errMsg))
 		}
@@ -35,12 +35,12 @@ mesheryctl exp connections list --page 2
 	},
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		var url string
 		if cmd.Flags().Changed("page") {
 			url = fmt.Sprintf("%s/api/integrations/connections?page=%d", baseUrl, pageNumberFlag)

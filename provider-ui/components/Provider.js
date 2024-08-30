@@ -5,7 +5,7 @@ import ProviderLayout from "./ProviderLayout";
 import {
   CustomDiv,
   CustomDialog,
-  MesheryLogo,
+  MeshplayLogo,
   MenuProviderDisabled,
   CustomDialogActions,
   LearnMore,
@@ -123,7 +123,7 @@ export default function Provider() {
 
   return (
     <ProviderLayout>
-      <MesheryLogo src="/provider/static/img/meshery-logo/meshery-logo-light-text.png" alt="logo" />
+      <MeshplayLogo src="/provider/static/img/meshplay-logo/meshplay-logo-light-text.png" alt="logo" />
       <CustomDiv>
         {availableProviders !== "" && (
           <Fragment>
@@ -229,7 +229,7 @@ export default function Provider() {
         </CustomDialogTitle>
         <DialogContent dividers>
           <DialogContentText id="customized-dialog-content">
-            Login to Meshery by choosing from the available providers. Providers extend Meshery by offering various
+            Login to Meshplay by choosing from the available providers. Providers extend Meshplay by offering various
             plugins and services, including identity services, long-term persistence, advanced performance analysis,
             multi-player user collaboration, and so on.
             <h3>Available Providers</h3>
@@ -274,8 +274,8 @@ export default function Provider() {
         </DialogContent>
         <CustomDialogActions>
           <div className="learnmore">
-            <a href="https://docs.meshery.io/extensibility/providers">
-              Providers in Meshery Docs
+            <a href="https://docs.meshplay.io/extensibility/providers">
+              Providers in Meshplay Docs
               <img src="/provider/static/img/external-link.svg" width="16px" />
             </a>
           </div>

@@ -26,9 +26,9 @@ v1 = [
         "variableName": "connectionIDs"
       }
     ],
-    "concreteType": "MesheryControllersStatusListItem",
+    "concreteType": "MeshplayControllersStatusListItem",
     "kind": "LinkedField",
-    "name": "subscribeMesheryControllersStatus",
+    "name": "subscribeMeshplayControllersStatus",
     "plural": true,
     "selections": [
       {
@@ -68,7 +68,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "MesheryControllersStatusSubscription",
+    "name": "MeshplayControllersStatusSubscription",
     "selections": (v1/*: any*/),
     "type": "Subscription",
     "abstractKey": null
@@ -77,16 +77,16 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "MesheryControllersStatusSubscription",
+    "name": "MeshplayControllersStatusSubscription",
     "selections": (v1/*: any*/)
   },
   "params": {
     "cacheID": "534d4b9391826e634ad2ab05b1a30e75",
     "id": null,
     "metadata": {},
-    "name": "MesheryControllersStatusSubscription",
+    "name": "MeshplayControllersStatusSubscription",
     "operationKind": "subscription",
-    "text": "subscription MesheryControllersStatusSubscription(\n  $connectionIDs: [String!]\n) {\n  subscribeMesheryControllersStatus(connectionIDs: $connectionIDs) {\n    connectionID\n    controller\n    status\n    version\n  }\n}\n"
+    "text": "subscription MeshplayControllersStatusSubscription(\n  $connectionIDs: [String!]\n) {\n  subscribeMeshplayControllersStatus(connectionIDs: $connectionIDs) {\n    connectionID\n    controller\n    status\n    version\n  }\n}\n"
   }
 };
 })();

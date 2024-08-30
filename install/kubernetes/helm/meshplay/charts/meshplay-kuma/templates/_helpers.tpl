@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "meshery-kuma.name" -}}
+{{- define "meshplay-kuma.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "meshery-kuma.fullname" -}}
+{{- define "meshplay-kuma.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "meshery-kuma.chart" -}}
+{{- define "meshplay-kuma.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Common labels
 */}}
-{{- define "meshery-kuma.labels" -}}
-helm.sh/chart: {{ include "meshery-kuma.chart" . }}
-{{ include "meshery-kuma.selectorLabels" . }}
+{{- define "meshplay-kuma.labels" -}}
+helm.sh/chart: {{ include "meshplay-kuma.chart" . }}
+{{ include "meshplay-kuma.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,20 +46,20 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "meshery-kuma.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "meshery-kuma.name" . }}
+{{- define "meshplay-kuma.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "meshplay-kuma.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "meshery-kuma.serviceAccountName" -}}
+{{- define "meshplay-kuma.serviceAccountName" -}}
 {{- if .Values.serviceAccountNameOverride -}}
     {{- .Values.serviceAccountNameOverride -}}
 {{- else -}}
 {{- if .Values.serviceAccount.create -}}
-    {{ default (include "meshery-kuma.fullname" .) .Values.serviceAccount.name }}
+    {{ default (include "meshplay-kuma.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}

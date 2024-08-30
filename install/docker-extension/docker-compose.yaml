@@ -1,20 +1,20 @@
 version: "3"
 services:
-  meshery-proxy:
+  meshplay-proxy:
     image: ${DESKTOP_PLUGIN_IMAGE}
     pull_policy: always
     ports:
       - "7877:7877"
-  meshery:
-    image: layer5/meshery:stable-latest
+  meshplay:
+    image: layer5/meshplay:stable-latest
     pull_policy: always
     environment:
-      - "PROVIDER_BASE_URLS=https://meshery.layer5.io"
-      # - "ADAPTER_URLS=meshery-istio:10000 meshery-linkerd:10001 meshery-consul:10002 meshery-nginx-sm:10010 meshery-app-mesh:10005 meshery-kuma:10007 meshery-traefik-mesh:10006  meshery-cilium:10012"
-      - "EVENT=mesheryLocal"
+      - "PROVIDER_BASE_URLS=https://meshplay.layer5.io"
+      # - "ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nginx-sm:10010 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-traefik-mesh:10006  meshplay-cilium:10012"
+      - "EVENT=meshplayLocal"
       - "KUBECONFIG_FOLDER=/home/appuser/.kube"
       - "PORT=9081"
-      - PROVIDER=Meshery
+      - PROVIDER=Meshplay
     volumes:
       - $HOME/.kube:/home/appuser/.kube:ro
       - $HOME/.minikube:$HOME/.minikube:ro

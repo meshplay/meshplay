@@ -1,15 +1,15 @@
-# meshery-traefik-mesh
+# meshplay-traefik-mesh
 
 ![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: stable-latest](https://img.shields.io/badge/AppVersion-stable--latest-informational?style=flat-square)
 
-Meshery Adapter for Traefik Mesh chart.
+Meshplay Adapter for Traefik Mesh chart.
 
 ## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
 | aisuko | <urakiny@gmail.com> |  |
-| Meshery Authors | <maintainers@meshery.io> |  |
+| Meshplay Authors | <maintainers@meshplay.io> |  |
 
 ## Values
 
@@ -20,7 +20,7 @@ Meshery Adapter for Traefik Mesh chart.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"layer5/meshery-traefik-mesh:stable-latest"` |  |
+| image.repository | string | `"layer5/meshplay-traefik-mesh:stable-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | string | `nil` |  |
 | ingress.enabled | bool | `false` |  |

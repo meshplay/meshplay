@@ -12,7 +12,7 @@ var (
 )
 
 // Configure MeshSync to additionally publish the resources that can be registered as connection to other broker topic/subject (meshsync.registerconnection.queue?).
-// Meshery Server subscribes to that topic/subject and performs the necessary action.
+// Meshplay Server subscribes to that topic/subject and performs the necessary action.
 type MeshSyncRegistrationQueue struct {
 	RegChan chan MeshSyncRegistrationData
 }

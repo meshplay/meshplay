@@ -11,9 +11,9 @@ import (
 	"github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/csv"
 	"github.com/layer5io/meshkit/utils/manifests"
-	"github.com/meshery/schemas/models/v1alpha1/capability"
-	schmeaVersion "github.com/meshery/schemas/models/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/meshplay/schemas/models/v1alpha1/capability"
+	schmeaVersion "github.com/meshplay/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 )
 
 const (
@@ -48,7 +48,7 @@ type ComponentCSV struct {
 	SubCategory      string `json:"subCategory" csv:"-"`
 }
 
-// The Component Definition generated assumes or is only for components which have registrant as "meshery"
+// The Component Definition generated assumes or is only for components which have registrant as "meshplay"
 func (c *ComponentCSV) CreateComponentDefinition(isModelPublished bool, defVersion string) (component.ComponentDefinition, error) {
 	var capabilities []capability.Capability
 	if c.Capabilities != "" {
@@ -181,7 +181,7 @@ type ComponentCSVHelper struct {
 func NewComponentCSVHelper(sheetURL, spreadsheetName string, spreadsheetID int64) (*ComponentCSVHelper, error) {
 	sheetURL = sheetURL + "/pub?output=csv" + "&gid=" + strconv.FormatInt(spreadsheetID, 10)
 	Log.Info("Downloading CSV from: ", sheetURL)
-	dirPath := filepath.Join(utils.GetHome(), ".meshery", "content")
+	dirPath := filepath.Join(utils.GetHome(), ".meshplay", "content")
 	_ = os.MkdirAll(dirPath, 0755)
 	csvPath := filepath.Join(dirPath, "components.csv")
 	err := utils.DownloadFile(csvPath, sheetURL)

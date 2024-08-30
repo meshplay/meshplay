@@ -26,7 +26,7 @@ v1 = [
         "variableName": "connectionID"
       }
     ],
-    "concreteType": "MesheryControllersStatusListItem",
+    "concreteType": "MeshplayControllersStatusListItem",
     "kind": "LinkedField",
     "name": "getOperatorStatus",
     "plural": false,

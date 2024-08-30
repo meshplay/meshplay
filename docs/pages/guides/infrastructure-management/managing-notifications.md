@@ -6,10 +6,10 @@ type: guides
 category: infrastructure
 language: en
 list: include
-abstract: "Meshery tracks operations performed on your infrastructure and workloads, and provides notification of environment issues, application conflicts with infrastructure configuration, policy violations, and so on."
+abstract: "Meshplay tracks operations performed on your infrastructure and workloads, and provides notification of environment issues, application conflicts with infrastructure configuration, policy violations, and so on."
 ---
 
-Meshery tracks operations that you perform on infrastructurees and their workloads. Meshery provides notification of environment issues, application conflicts with infrastructure configuration, and so on.
+Meshplay tracks operations that you perform on infrastructurees and their workloads. Meshplay provides notification of environment issues, application conflicts with infrastructure configuration, and so on.
 
 #### Acknowledging and dismissing notifications
 
@@ -17,4 +17,4 @@ Depending upon the severity of the notification, many notifications are informat
 
 #### Taking action on alerts
 
-Particular notifications that Meshery presents are immediately actionable. These are denoted by a red colored highlight. Be on the lookout for these alerts and take action promptly to ensure a smooth running infrastructure.
+Particular notifications that Meshplay presents are immediately actionable. These are denoted by a red colored highlight. Be on the lookout for these alerts and take action promptly to ensure a smooth running infrastructure.

@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	operatorv1alpha1 "github.com/layer5io/meshplay-operator/api/v1alpha1"
-	operatorClient "github.com/layer5io/meshplay-operator/pkg/client"
-	"github.com/layer5io/meshplay/server/models"
+	operatorv1alpha1 "github.com/khulnasoft/meshplay-operator/api/v1alpha1"
+	operatorClient "github.com/khulnasoft/meshplay-operator/pkg/client"
+	"github.com/khulnasoft/meshplay/server/models"
 	brokerpkg "github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/broker/nats"
 	"github.com/layer5io/meshkit/logger"
@@ -50,12 +50,12 @@ func Initialize(client *meshplaykube.Client, delete bool, adapterTracker models.
 
 func GetOperator(kubeclient *meshplaykube.Client) (string, string, error) {
 	if kubeclient == nil || kubeclient.KubeClient == nil {
-		return "", "", ErrMesheryClientNil
+		return "", "", ErrMeshplayClientNil
 	}
 
 	dep, err := kubeclient.KubeClient.AppsV1().Deployments("meshplay").Get(context.TODO(), "meshplay-operator", metav1.GetOptions{})
 	if err != nil && !kubeerror.IsNotFound(err) {
-		return "", "", ErrMesheryClient(err)
+		return "", "", ErrMeshplayClient(err)
 	}
 
 	version := ""
@@ -70,7 +70,7 @@ func GetOperator(kubeclient *meshplaykube.Client) (string, string, error) {
 	return dep.ObjectMeta.Name, version, nil
 }
 
-func GetBrokerInfo(broker controllers.IMesheryController, log logger.Handler) OperatorControllerStatus {
+func GetBrokerInfo(broker controllers.IMeshplayController, log logger.Handler) OperatorControllerStatus {
 	brokerStatus := broker.GetStatus().String()
 	monitorEndpoint, err := broker.GetEndpointForPort("monitor")
 	log.Debug("broker monitor endpoint", monitorEndpoint, err)
@@ -79,8 +79,8 @@ func GetBrokerInfo(broker controllers.IMesheryController, log logger.Handler) Op
 		brokerEndpoint, _ := broker.GetPublicEndpoint()
 		brokerStatus = fmt.Sprintf("%s %s", brokerStatus, brokerEndpoint)
 	}
-	// change the type of IMesheryController GetName() to to models.MesheryController
-	// and use MesheryControllersStatusListItem instead of OperatorControllerStatus
+	// change the type of IMeshplayController GetName() to to models.MeshplayController
+	// and use MeshplayControllersStatusListItem instead of OperatorControllerStatus
 	brokerControllerStatus := OperatorControllerStatus{
 		Name:   broker.GetName(),
 		Status: Status(brokerStatus),
@@ -91,7 +91,7 @@ func GetBrokerInfo(broker controllers.IMesheryController, log logger.Handler) Op
 	return brokerControllerStatus
 }
 
-func GetMeshSyncInfo(meshsync controllers.IMesheryController, broker controllers.IMesheryController, log logger.Handler) OperatorControllerStatus {
+func GetMeshSyncInfo(meshsync controllers.IMeshplayController, broker controllers.IMeshplayController, log logger.Handler) OperatorControllerStatus {
 	meshsyncStatus := meshsync.GetStatus().String()
 
 	// Debug block
@@ -100,8 +100,8 @@ func GetMeshSyncInfo(meshsync controllers.IMesheryController, broker controllers
 		log.Debug("broker monitor endpoint", monitorEndpoint, err)
 	}
 
-	// change the type of IMesheryController GetName() to to models.MesheryController
-	// and use MesheryControllersStatusListItem instead of OperatorControllerStatus
+	// change the type of IMeshplayController GetName() to to models.MeshplayController
+	// and use MeshplayControllersStatusListItem instead of OperatorControllerStatus
 	if meshsyncStatus == controllers.Connected.String() && broker != nil {
 		brokerEndpoint, _ := broker.GetPublicEndpoint()
 		meshsyncStatus = fmt.Sprintf("%s %s", meshsyncStatus, brokerEndpoint)
@@ -125,9 +125,9 @@ func SubscribeToBroker(_ models.Provider, meshplayKubeClient *meshplaykube.Clien
 	meshplayclient, err := operatorClient.New(&meshplayKubeClient.RestConfig)
 	if err != nil {
 		if meshplayclient == nil {
-			return "", ErrMesheryClientNil
+			return "", ErrMeshplayClientNil
 		}
-		return "", ErrMesheryClient(err)
+		return "", ErrMeshplayClient(err)
 	}
 
 	timeout := 60

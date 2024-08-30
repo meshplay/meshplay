@@ -4,7 +4,7 @@ title: Coredns
 subtitle: Collaborative and visual infrastructure as design for Coredns
 image: /assets/img/integrations/coredns/icons/color/coredns-color.svg
 permalink: extensibility/integrations/coredns
-docURL: https://docs.meshery.io/extensibility/integrations/coredns
+docURL: https://docs.meshplay.io/extensibility/integrations/coredns
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Coordination & Service Discovery

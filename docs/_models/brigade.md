@@ -4,7 +4,7 @@ title: Brigade
 subtitle: Collaborative and visual infrastructure as design for Brigade
 image: /assets/img/integrations/brigade/icons/color/brigade-color.svg
 permalink: extensibility/integrations/brigade
-docURL: https://docs.meshery.io/extensibility/integrations/brigade
+docURL: https://docs.meshplay.io/extensibility/integrations/brigade
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

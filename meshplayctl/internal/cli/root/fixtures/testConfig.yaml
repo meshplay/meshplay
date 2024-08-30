@@ -4,16 +4,16 @@ contexts:
         token: default
         platform: kubernetes
         components:
-            - meshery-app-mesh
-            - meshery-istio
-            - meshery-linkerd
-            - meshery-consul
-            - meshery-nsm
-            - meshery-kuma
-            - meshery-osm
-            - meshery-traefik-mesh
-            - meshery-nginx-sm
-            - meshery-cilium
+            - meshplay-app-mesh
+            - meshplay-istio
+            - meshplay-linkerd
+            - meshplay-consul
+            - meshplay-nsm
+            - meshplay-kuma
+            - meshplay-osm
+            - meshplay-traefik-mesh
+            - meshplay-nginx-sm
+            - meshplay-cilium
         channel: stable
         version: latest
     local2:
@@ -21,16 +21,16 @@ contexts:
         token: default
         platform: kubernetes
         components:
-            - meshery-app-mesh
-            - meshery-istio
-            - meshery-linkerd
-            - meshery-consul
-            - meshery-nsm
-            - meshery-kuma
-            - meshery-osm
-            - meshery-traefik-mesh
-            - meshery-nginx-sm
-            - meshery-cilium
+            - meshplay-app-mesh
+            - meshplay-istio
+            - meshplay-linkerd
+            - meshplay-consul
+            - meshplay-nsm
+            - meshplay-kuma
+            - meshplay-osm
+            - meshplay-traefik-mesh
+            - meshplay-nginx-sm
+            - meshplay-cilium
         channel: edge
         version: latest
 current-context: local2

@@ -3,9 +3,9 @@ import { ENV } from './env';
 
 const userPreferenceTests = [
   {
-    name: 'Toggle "Meshery Catalog Content"',
+    name: 'Toggle "Meshplay Catalog Content"',
     apiURL: `${ENV.MESHPLAY_SERVER_URL}/api/user/prefs`,
-    switchLabel: 'Meshery Catalog Content',
+    switchLabel: 'Meshplay Catalog Content',
     expectedMethod: 'POST',
     expectedStatus: 200,
   },

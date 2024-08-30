@@ -2,7 +2,7 @@
 layout: page
 title: Contributing
 permalink: project/contributing
-abstract: How to contribute to the Meshery project.
+abstract: How to contribute to the Meshplay project.
 # redirect_from:
 #  - project/contributing/
 display-title: "false"
@@ -10,10 +10,10 @@ language: en
 type: project
 category: contributing
 list: exclude
-abstract: How to contribute to the Meshery project and any of its components.
+abstract: How to contribute to the Meshplay project and any of its components.
 ---
 
-Please do! Thanks for your help! 🎈 Meshery is community-built and welcomes collaboration. Contributors are expected to adhere to the [CNCF's Code of Conduct](https://github.com/meshery/meshery/blob/master/CODE_OF_CONDUCT.md).
+Please do! Thanks for your help! 🎈 Meshplay is community-built and welcomes collaboration. Contributors are expected to adhere to the [CNCF's Code of Conduct](https://github.com/meshplay/meshplay/blob/master/CODE_OF_CONDUCT.md).
 
 # Contributing Guides
 
@@ -27,15 +27,15 @@ Follow these steps and you'll be right at home.
 
 - **Familiarize** yourself with the broader set of community projects (take a look at the [Repository Overview](https://layer5.io/community/handbook/repository-overview): Spend time understanding each of the initiatives through high-level overviews available in the community drive and through discussions with your MeshMate.
 - **Identify** your area of interest: Use the time with your MeshMate to familiarize yourself with the architecture and technologies used in the projects. Inform your MeshMate of your current skills and what skills you aim to develop.
-- **Run** Meshery: Put on your user hat and walk-through all of Meshery’s features and functions as a user.
-- **Build** Meshery: Confirm that you have a usable development environment.
-- **Discuss** with the community by engaging in the [discussion forum](http://discuss.meshery.io).
-- **Contribute** by grabbing any open issue with the [help-wanted label](https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshery+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+label%3A%22help+wanted%22+) and jump in. If needed, create a [new issue](https://github.com/meshery/meshery/issues/new/choose). All [pull requests](https://github.com/meshery/meshery/pulls) should reference an open issue. Include keywords in your pull request descriptions, as well as commit messages, to [automatically close issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
+- **Run** Meshplay: Put on your user hat and walk-through all of Meshplay’s features and functions as a user.
+- **Build** Meshplay: Confirm that you have a usable development environment.
+- **Discuss** with the community by engaging in the [discussion forum](http://discuss.meshplay.io).
+- **Contribute** by grabbing any open issue with the [help-wanted label](https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Alayer5io+org%3Ameshplay+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+label%3A%22help+wanted%22+) and jump in. If needed, create a [new issue](https://github.com/meshplay/meshplay/issues/new/choose). All [pull requests](https://github.com/meshplay/meshplay/pulls) should reference an open issue. Include keywords in your pull request descriptions, as well as commit messages, to [automatically close issues in GitHub](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
 - **Fill-in** a [community member form](https://layer5.io/newcomers) community member form to gain access to community resources.
 
 ## General Contribution Flow
 
-To contribute to Meshery, from creating a fork to creating pull request, please follow the basic fork-and-pull request workflow described [here]({{site.baseurl}}/project/contributing/contributing-gitflow).
+To contribute to Meshplay, from creating a fork to creating pull request, please follow the basic fork-and-pull request workflow described [here]({{site.baseurl}}/project/contributing/contributing-gitflow).
 
 <details>
 
@@ -85,24 +85,24 @@ Or you may configure your IDE, for example, VSCode to automatically sign-off com
 
 </details>
 
-### Meshery Contribution Flow
+### Meshplay Contribution Flow
 
-Meshery is written in `Go` (Golang) and leverages Go Modules. UI is built on React and Next.js. To make building and packaging easier a `Makefile` is included in the main repository folder.
+Meshplay is written in `Go` (Golang) and leverages Go Modules. UI is built on React and Next.js. To make building and packaging easier a `Makefile` is included in the main repository folder.
 
 Relevant coding style guidelines are the [Go Code Review Comments](https://code.google.com/p/go-wiki/wiki/CodeReviewComments) and the _Formatting and style_ section of Peter Bourgon's [Go: Best
 Practices for Production Environments](https://peter.bourgon.org/go-in-production/#formatting-and-style).
 
-**Please note**: All `make` commands should be run in a terminal from within the Meshery's main folder.
+**Please note**: All `make` commands should be run in a terminal from within the Meshplay's main folder.
 
 <details>
 
-<summary>Prequisites for building Meshery in your development environment:</summary>
+<summary>Prequisites for building Meshplay in your development environment:</summary>
 
 <ol>
 <li><code>Go</code> version 1.21 must be installed if you want to build and/or make changes to the existing code. The binary <code>go1.21</code> should be available in your path. If you don't want to disturb your existing version of Go, then follow these <a href="https://go.dev/doc/manage-install#:~:text=and%20run%20them.-,Installing%20multiple%20Go%20versions,-You%20can%20install" rel="noopener" target="_blank">instructions</a> to keep multiple versions of Go in your system.</li>
 <li> <code>GOPATH</code> environment variable should be configured appropriately</li>
 <li> <code>npm</code> and <code>node</code> should be installed on your machine, `node` version 19 or higher is not supported right now.</li>
-<li> Fork this repository <code>git clone https://github.com/meshery/meshery.git</code>, and clone your forked version of Meshery to your development environment, preferably outside `GOPATH`.</li>
+<li> Fork this repository <code>git clone https://github.com/meshplay/meshplay.git</code>, and clone your forked version of Meshplay to your development environment, preferably outside `GOPATH`.</li>
 <li> <code>golangci-lint</code> should be installed if you want to test Go code, for MacOS and linux users.</li>
 </ol>
 

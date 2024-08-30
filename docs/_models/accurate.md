@@ -4,7 +4,7 @@ title: Accurate
 subtitle: Collaborative and visual infrastructure as design for Accurate
 image: /assets/img/integrations/accurate/icons/color/accurate-color.svg
 permalink: extensibility/integrations/accurate
-docURL: https://docs.meshery.io/extensibility/integrations/accurate
+docURL: https://docs.meshplay.io/extensibility/integrations/accurate
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Security & Compliance

@@ -27,7 +27,7 @@ export function isOperatorStateSubscriptionDataUpdated(currentState, newData) {
   return !_.isEqual(oldData, newData);
 }
 
-export function isMesheryControllerStateSubscriptionDataUpdated(currentState, newData) {
+export function isMeshplayControllerStateSubscriptionDataUpdated(currentState, newData) {
   if (!currentState) {
     return true;
   }

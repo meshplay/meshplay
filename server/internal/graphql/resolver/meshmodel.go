@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 	registry "github.com/layer5io/meshkit/models/meshmodel/registry"
 	regv1alpha3 "github.com/layer5io/meshkit/models/meshmodel/registry/v1alpha3"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"

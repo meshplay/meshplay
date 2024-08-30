@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sharing a Design
-abstract: Sharing a design lets you make your content visible to any anonymous visitor of meshery.io/catalog and any Meshery Cloud user.
+abstract: Sharing a design lets you make your content visible to any anonymous visitor of meshplay.io/catalog and any Meshplay Cloud user.
 permalink: extensions/sharing-a-design
 language: en
 display-title: "false"
@@ -12,7 +12,7 @@ category: meshmap
 
 # Sharing a Design
 
-Sharing a design lets you make your content visible to any anonymous visitor of <a href="http://meshery.io/catalog">Meshery Catalog</a> and any Meshery Cloud user. Anyone with the link can view the design.
+Sharing a design lets you make your content visible to any anonymous visitor of <a href="http://meshplay.io/catalog">Meshplay Catalog</a> and any Meshplay Cloud user. Anyone with the link can view the design.
 
 You can share your design with your friends and teams using Extensions. Let's discuss the process below.
 
@@ -49,6 +49,6 @@ Add email address and choose access type. Access type can be Public or Private, 
 
 <div class="alert alert-dark" role="alert">
 <h4 class="alert-heading">Discussion Forum</h4>
-Not finding what you're looking for? Ask on the <a href="http://discuss.meshery.io">Discussion Forum</a>.
+Not finding what you're looking for? Ask on the <a href="http://discuss.meshplay.io">Discussion Forum</a>.
 </div>
 

@@ -4,7 +4,7 @@ title: Kubevault Operator
 subtitle: Collaborative and visual infrastructure as design for Kubevault Operator
 image: /assets/img/integrations/kubevault-operator/icons/color/kubevault-operator-color.svg
 permalink: extensibility/integrations/kubevault-operator
-docURL: https://docs.meshery.io/extensibility/integrations/kubevault-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/kubevault-operator
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Uncategorized

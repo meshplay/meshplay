@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	models "github.com/layer5io/meshplay/server/models"
+	models "github.com/khulnasoft/meshplay/server/models"
 )
 
 // swagger:route GET /api/provider ProvidersAPI idChoiceProvider

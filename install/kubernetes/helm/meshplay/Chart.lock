@@ -1,32 +1,32 @@
 dependencies:
-- name: meshery-istio
+- name: meshplay-istio
   repository: ""
   version: 0.7.0
-- name: meshery-linkerd
+- name: meshplay-linkerd
   repository: ""
   version: 0.7.0
-- name: meshery-consul
+- name: meshplay-consul
   repository: ""
   version: 0.7.0
-- name: meshery-kuma
+- name: meshplay-kuma
   repository: ""
   version: 0.7.0
-- name: meshery-nsm
+- name: meshplay-nsm
   repository: ""
   version: 0.7.0
-- name: meshery-traefik-mesh
+- name: meshplay-traefik-mesh
   repository: ""
   version: 0.7.0
-- name: meshery-nginx-sm
+- name: meshplay-nginx-sm
   repository: ""
   version: 0.7.0
-- name: meshery-app-mesh
+- name: meshplay-app-mesh
   repository: ""
   version: 0.7.0
-- name: meshery-cilium
+- name: meshplay-cilium
   repository: ""
   version: 0.7.0
-- name: meshery-nighthawk
+- name: meshplay-nighthawk
   repository: ""
   version: 0.7.0
 digest: sha256:2b66c37daa14297875735cc974409d2d1c58685eb9f6d48f81ef3b7e8939375d

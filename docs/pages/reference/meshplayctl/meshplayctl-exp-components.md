@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-components
-permalink: reference/mesheryctl/exp/components
-redirect_from: reference/mesheryctl/exp/components/
+title: meshplayctl-exp-components
+permalink: reference/meshplayctl/exp/components
+redirect_from: reference/meshplayctl/exp/components/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: components
 ---
 
-# mesheryctl exp components
+# meshplayctl exp components
 
 View list of components and detail of components
 
@@ -19,7 +19,7 @@ View list of components and detail of components
 View list of components and detailed information of a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components [flags]
+meshplayctl exp components [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp components [flags]
 To view list of components
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components list
+meshplayctl exp components list
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl exp components list
 To view a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components view [component-name]
+meshplayctl exp components view [component-name]
 
 </div>
 </pre> 
@@ -55,7 +55,7 @@ mesheryctl exp components view [component-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -63,4 +63,4 @@ mesheryctl exp components view [component-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

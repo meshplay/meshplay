@@ -17,8 +17,8 @@ export async function fetchData(endpoint, method = 'GET', body = null) {
   const urlWithoutProtocol = new URL(ENV.REMOTE_PROVIDER_URL).host;
 
   const headers = {
-    'meshery-token': token,
-    Cookie: `meshery-provider=Meshery; ${urlWithoutProtocol}_ref=/;token=${token}`,
+    'meshplay-token': token,
+    Cookie: `meshplay-provider=Meshplay; ${urlWithoutProtocol}_ref=/;token=${token}`,
   };
 
   try {

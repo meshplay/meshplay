@@ -70,7 +70,7 @@ const DatabaseSummary = (props) => {
   const handleResetDatabase = () => {
     return async () => {
       let responseOfResetDatabase = await props.promptRef.current.show({
-        title: 'Reset Meshery Database?',
+        title: 'Reset Meshplay Database?',
         subtitle: 'Are you sure that you want to purge all data?',
         options: ['RESET', 'CANCEL'],
         variant: PROMPT_VARIANTS.DANGER,

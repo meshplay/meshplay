@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-workspace-create
-permalink: reference/mesheryctl/exp/workspace/create
-redirect_from: reference/mesheryctl/exp/workspace/create/
+title: meshplayctl-exp-workspace-create
+permalink: reference/meshplayctl/exp/workspace/create
+redirect_from: reference/meshplayctl/exp/workspace/create/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: workspace
 ---
 
-# mesheryctl exp workspace create
+# meshplayctl exp workspace create
 
 Create a new workspace
 
@@ -19,7 +19,7 @@ Create a new workspace
 Create a new workspace by providing the name, description, and organization ID.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp workspace create [flags]
+meshplayctl exp workspace create [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp workspace create [flags]
 Create a new workspace
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp workspace create --orgId [orgId] --name [name] --description [description]
+meshplayctl exp workspace create --orgId [orgId] --name [name] --description [description]
 
 </div>
 </pre> 
@@ -58,7 +58,7 @@ https://docs.layer5.io/cloud/spaces/workspaces/
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -66,4 +66,4 @@ https://docs.layer5.io/cloud/spaces/workspaces/
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

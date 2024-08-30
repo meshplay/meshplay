@@ -4,19 +4,19 @@ contexts:
     token: default
     platform: docker
     components:
-      - meshery-istio
+      - meshplay-istio
     channel: stable
     version: v0.5.10
-    provider: Meshery
+    provider: Meshplay
   local2:
     endpoint: http://localhost:9081
     token: default
     platform: docker
     components:
-      - meshery-istio
+      - meshplay-istio
     channel: stable
     version: v0.5.10
-    provider: Meshery
+    provider: Meshplay
 current-context: local
 tokens:
   - location: auth.json

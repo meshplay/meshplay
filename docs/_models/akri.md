@@ -4,7 +4,7 @@ title: Akri
 subtitle: Collaborative and visual infrastructure as design for Akri
 image: /assets/img/integrations/akri/icons/color/akri-color.svg
 permalink: extensibility/integrations/akri
-docURL: https://docs.meshery.io/extensibility/integrations/akri
+docURL: https://docs.meshplay.io/extensibility/integrations/akri
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

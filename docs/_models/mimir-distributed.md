@@ -1,10 +1,10 @@
 ---
 layout: integration
 title: Mimir
-subtitle: Scale to 1 billion metrics and beyond with Meshery and Grafana Mimir
+subtitle: Scale to 1 billion metrics and beyond with Meshplay and Grafana Mimir
 image: /assets/img/integrations/mimir-distributed/icons/color/mimir-distributed-color.svg
 permalink: extensibility/integrations/mimir-distributed
-docURL: https://docs.meshery.io/tasks/performance/managing-performance
+docURL: https://docs.meshplay.io/tasks/performance/managing-performance
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Observability and Analysis

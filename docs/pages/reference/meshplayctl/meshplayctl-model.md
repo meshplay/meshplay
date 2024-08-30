@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-model
-permalink: reference/mesheryctl/model
-redirect_from: reference/mesheryctl/model/
+title: meshplayctl-model
+permalink: reference/meshplayctl/model
+redirect_from: reference/meshplayctl/model/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: model
 subcommand: nil
 ---
 
-# mesheryctl model
+# meshplayctl model
 
 View list of models and detail of models
 
@@ -19,7 +19,7 @@ View list of models and detail of models
 View list of models and detailed information of a specific model
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model [flags]
+meshplayctl model [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl model [flags]
 To view total of available models
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model --count
+meshplayctl model --count
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl model --count
 To view list of models
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model list
+meshplayctl model list
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl model list
 To view a specific model
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model view [model-name]
+meshplayctl model view [model-name]
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl model view [model-name]
 To search for a specific model
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model search [model-name]
+meshplayctl model search [model-name]
 
 </div>
 </pre> 
@@ -72,7 +72,7 @@ mesheryctl model search [model-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -80,4 +80,4 @@ mesheryctl model search [model-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

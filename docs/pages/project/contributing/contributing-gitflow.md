@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Contributing to Meshery using git
+title: Contributing to Meshplay using git
 permalink: project/contributing/contributing-gitflow
-abstract: How to contribute to Meshery using git
+abstract: How to contribute to Meshplay using git
 language: en
 type: project
 category: contributing
@@ -24,10 +24,10 @@ While this isn't a necessary step, if you plan on doing anything more than just 
 ## Add 'upstream' repo to list of remotes
 
 ```
-git remote add upstream https://github.com/meshery/meshery.git
+git remote add upstream https://github.com/meshplay/meshplay.git
 ```
 
-("meshery" is used as the example repo. Be sure to reference the _actual_ repo you're contributing to e.g. "meshery-linkerd").
+("meshplay" is used as the example repo. Be sure to reference the _actual_ repo you're contributing to e.g. "meshplay-linkerd").
 
 ## Verify the new remote named 'upstream'
 

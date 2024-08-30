@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-perf-profile
-permalink: reference/mesheryctl/perf/profile
-redirect_from: reference/mesheryctl/perf/profile/
+title: meshplayctl-perf-profile
+permalink: reference/meshplayctl/perf/profile
+redirect_from: reference/meshplayctl/perf/profile/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: perf
 subcommand: profile
 ---
 
-# mesheryctl perf profile
+# meshplayctl perf profile
 
 List performance profiles
 
@@ -19,7 +19,7 @@ List performance profiles
 List all the available performance profiles
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf profile [profile-name] [flags]
+meshplayctl perf profile [profile-name] [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl perf profile [profile-name] [flags]
 List performance profiles (maximum 25 profiles)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf profile
+meshplayctl perf profile
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl perf profile
 List performance profiles with search (maximum 25 profiles)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf profile test 2
+meshplayctl perf profile test 2
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl perf profile test 2
 View single performance profile with detailed information
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf profile test --view
+meshplayctl perf profile test --view
 
 </div>
 </pre> 
@@ -65,9 +65,9 @@ mesheryctl perf profile test --view
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string          path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string          path to config file (default "/home/runner/.meshplay/config.yaml")
   -o, --output-format string   (optional) format to display in [json|yaml]
-  -t, --token string           (required) Path to meshery auth config
+  -t, --token string           (required) Path to meshplay auth config
   -v, --verbose                verbose output
   -y, --yes                    (optional) assume yes for user interactive prompts.
 
@@ -76,4 +76,4 @@ mesheryctl perf profile test --view
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

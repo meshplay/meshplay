@@ -19,9 +19,9 @@ const TOUR_STEPS = [
   },
   {
     target: ".third-step",
-    title:"Open Meshery",
+    title:"Open Meshplay",
     placement: "top",
-    content: <i>Launch Meshery to  visualize and design your Docker Compose applications, run performance tests and much more.</i>
+    content: <i>Launch Meshplay to  visualize and design your Docker Compose applications, run performance tests and much more.</i>
   },
 ];
 const INITIAL_STATE = {

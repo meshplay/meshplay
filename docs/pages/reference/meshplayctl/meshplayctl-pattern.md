@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern
-permalink: reference/mesheryctl/pattern
-redirect_from: reference/mesheryctl/pattern/
+title: meshplayctl-pattern
+permalink: reference/meshplayctl/pattern
+redirect_from: reference/meshplayctl/pattern/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: pattern
 subcommand: nil
 ---
 
-# mesheryctl pattern
+# meshplayctl pattern
 
 Cloud Native Patterns Management
 
@@ -20,7 +20,7 @@ Manage cloud and cloud native infrastructure using predefined patterns.
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern [flags]
+meshplayctl pattern [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ mesheryctl pattern [flags]
 Apply pattern file:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern apply --file [path to pattern file | URL of the file]
+meshplayctl pattern apply --file [path to pattern file | URL of the file]
 
 </div>
 </pre> 
@@ -38,7 +38,7 @@ mesheryctl pattern apply --file [path to pattern file | URL of the file]
 Delete pattern file:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern delete --file [path to pattern file]
+meshplayctl pattern delete --file [path to pattern file]
 
 </div>
 </pre> 
@@ -46,7 +46,7 @@ mesheryctl pattern delete --file [path to pattern file]
 View pattern file:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern view [pattern name | ID]
+meshplayctl pattern view [pattern name | ID]
 
 </div>
 </pre> 
@@ -54,7 +54,7 @@ mesheryctl pattern view [pattern name | ID]
 List all patterns:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern list
+meshplayctl pattern list
 
 </div>
 </pre> 
@@ -73,7 +73,7 @@ mesheryctl pattern list
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -81,4 +81,4 @@ mesheryctl pattern list
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

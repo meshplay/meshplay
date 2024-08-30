@@ -4,7 +4,7 @@ title: Sidekick
 subtitle: Collaborative and visual infrastructure as design for Sidekick
 image: /assets/img/integrations/sidekick/icons/color/sidekick-color.svg
 permalink: extensibility/integrations/sidekick
-docURL: https://docs.meshery.io/extensibility/integrations/sidekick
+docURL: https://docs.meshplay.io/extensibility/integrations/sidekick
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshsync/pkg/model"
 	"gorm.io/gorm/clause"
 )

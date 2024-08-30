@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-dashboard
-permalink: reference/mesheryctl/system/dashboard
-redirect_from: reference/mesheryctl/system/dashboard/
+title: meshplayctl-system-dashboard
+permalink: reference/meshplayctl/system/dashboard
+redirect_from: reference/meshplayctl/system/dashboard/
 type: reference
 display-title: "false"
 language: en
@@ -10,47 +10,47 @@ command: system
 subcommand: dashboard
 ---
 
-# mesheryctl system dashboard
+# meshplayctl system dashboard
 
-Open Meshery UI in browser.
+Open Meshplay UI in browser.
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system dashboard [flags]
+meshplayctl system dashboard [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Open Meshery UI in browser
+Open Meshplay UI in browser
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system dashboard
+meshplayctl system dashboard
 
 </div>
 </pre> 
 
-Open Meshery UI in browser and use port-forwarding (if default port is taken already)
+Open Meshplay UI in browser and use port-forwarding (if default port is taken already)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system dashboard --port-forward
+meshplayctl system dashboard --port-forward
 
 </div>
 </pre> 
 
-Open Meshery UI in browser and use port-forwarding, listen on port 9081 locally, forwarding traffic to meshery server in the pod
+Open Meshplay UI in browser and use port-forwarding, listen on port 9081 locally, forwarding traffic to meshplay server in the pod
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system dashboard --port-forward -p 9081
+meshplayctl system dashboard --port-forward -p 9081
 
 </div>
 </pre> 
 
-(optional) skip opening of MesheryUI in browser.
+(optional) skip opening of MeshplayUI in browser.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system dashboard --skip-browser
+meshplayctl system dashboard --skip-browser
 
 </div>
 </pre> 
@@ -61,8 +61,8 @@ mesheryctl system dashboard --skip-browser
 <div class='codeblock'>
   -h, --help           help for dashboard
   -p, --port int       (optional) Local port that is not in use from which traffic is to be forwarded to the server running inside the Pod. (default 9081)
-      --port-forward   (optional) Use port forwarding to access Meshery UI
-      --skip-browser   (optional) skip opening of MesheryUI in browser.
+      --port-forward   (optional) Use port forwarding to access Meshplay UI
+      --skip-browser   (optional) skip opening of MeshplayUI in browser.
 
 </div>
 </pre>
@@ -71,7 +71,7 @@ mesheryctl system dashboard --skip-browser
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -80,7 +80,7 @@ mesheryctl system dashboard --skip-browser
 </pre>
 
 
-{% include mesheryctl/system-dashboard.md %}
+{% include meshplayctl/system-dashboard.md %}
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

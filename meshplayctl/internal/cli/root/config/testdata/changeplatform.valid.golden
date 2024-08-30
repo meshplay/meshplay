@@ -4,13 +4,13 @@ contexts:
     token: default
     platform: testplatform
     components:
-    - meshery-istio
+    - meshplay-istio
     channel: stable
     version: v0.6.1
   local:
     channel: stable
     components:
-    - meshery-istio
+    - meshplay-istio
     endpoint: http://localhost:9081
     platform: docker
     token: default

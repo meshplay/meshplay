@@ -3,14 +3,14 @@ layout: page
 title: Contributing to Model Relationships
 permalink: project/contributing/contributing-relationships
 redirect_from: project/contributing/contributing-relationships/
-abstract: How to contribute to Meshery Models Relationships, Policies...
+abstract: How to contribute to Meshplay Models Relationships, Policies...
 language: en
 type: project
 category: contributing
 list: include
 ---
 
-[Relationships](/concepts/logical/relationships) within [Models](/concepts/logical/models) play a crucial role in establishing concrete visualisations of efficient data flow between different components of Meshery. These are used to classify the nature of interaction between one or more interconnected [Components](/concepts/logical/components).
+[Relationships](/concepts/logical/relationships) within [Models](/concepts/logical/models) play a crucial role in establishing concrete visualisations of efficient data flow between different components of Meshplay. These are used to classify the nature of interaction between one or more interconnected [Components](/concepts/logical/components).
 
 ## Overview of Steps to Create Relationships
 
@@ -41,7 +41,7 @@ For example, you might know that a Kubernetes `Service` can have a network-based
 <summary>Relationship Example</summary>
 <pre><code class="language-yaml highlighter-rouge">
 {
-  "schemaVersion": "core.meshery.io/v1alpha2",
+  "schemaVersion": "core.meshplay.io/v1alpha2",
   "kind": "edge",
   "type": "network",
   "version": "v1.0.0",
@@ -136,7 +136,7 @@ Browse and pick the most appropriate visualization for this relationship by usin
 
 {% include relationships.html %}
 
-Once selected, note the relationship's `kind`, `type`, and `subtype` of your selected visualization. Alternatively, if an existing visualization does not seem appropriate for the relationship, please propose a new visualization at-will. Simply use the whiteboard feature of Meshery's extensions to sketch out the relationship and propose it as a new visualization.
+Once selected, note the relationship's `kind`, `type`, and `subtype` of your selected visualization. Alternatively, if an existing visualization does not seem appropriate for the relationship, please propose a new visualization at-will. Simply use the whiteboard feature of Meshplay's extensions to sketch out the relationship and propose it as a new visualization.
 
 ## Development
 
@@ -153,13 +153,13 @@ Create a relationship definition as a JSON file, placing this new definition fil
 - `evaluationQuery`: Name of the policy or policies (Open Policy Agent rego file(s)) to invoke for relationship evaluation. Identify an existing OPA policy as the `evaluationQuery` suitable to the relationship. If no policy exists, propose a new policy (rego). *(rarely necessary)* Create a new policy for the evaluation of your relationship using Rego. *This step is only necessary and can typically be skipped. Contact a maintainer if the relationship requires a new policy to evaluate the relationship.*
 - `description`: A characterization of the relationship, its purpose, and any constraints or considerations of its application.
 
-{% include alert.html title="Use Existing Relationships as Examples" type="info" content="Browse the <a href='https://github.com/meshery/meshery/tree/master/server/meshmodel'>existing relationships in the Meshery repository</a> to find examples of how to existing relationships, using them as a template. Alternatively, you can review a prior pull request as an example as well, for example <a href='https://github.com/meshery/meshery/pull/9880/files'>PR #9880</a>." %}
+{% include alert.html title="Use Existing Relationships as Examples" type="info" content="Browse the <a href='https://github.com/meshplay/meshplay/tree/master/server/meshmodel'>existing relationships in the Meshplay repository</a> to find examples of how to existing relationships, using them as a template. Alternatively, you can review a prior pull request as an example as well, for example <a href='https://github.com/meshplay/meshplay/pull/9880/files'>PR #9880</a>." %}
 
 <a class="anchorjs-link" id="relationship-scopes"></a>
 
 ### 4. Configuring the Scope of Relationships
 
-The extent to which a relationship affects components within a model or beyond a model is defined and controlled using scopes. Scopes exist at two levels in Meshery relationships. 
+The extent to which a relationship affects components within a model or beyond a model is defined and controlled using scopes. Scopes exist at two levels in Meshplay relationships. 
 
 #### Global Scope
 
@@ -304,7 +304,7 @@ This example relationship demonstrates how the `WASMFilter` and `EBPFFilter` com
 
 #### Understanding Relationship Policies and their Evaluation
 
-The `evaluationQuery` property in your relationship definition is used to identity the name of the policy to be used by Meshery's evaluation engine. Meshery embeds Open Policy Agent as it's policy engine
+The `evaluationQuery` property in your relationship definition is used to identity the name of the policy to be used by Meshplay's evaluation engine. Meshplay embeds Open Policy Agent as it's policy engine
 
 **How should you determine the value for `evaluationQuery`**
 
@@ -356,12 +356,12 @@ Each policy has a set of evaluation rules defined and the `evaluationQuery` attr
 
 <a class="anchorjs-link" id="relationship-contribution"></a>
 
-#### 4. Contribute your relationship to the Meshery project
+#### 4. Contribute your relationship to the Meshplay project
 
-Submit a pull request to the Meshery repository with your new relationship definition, so that all users can benefit from the relationship(s) you have defined.
+Submit a pull request to the Meshplay repository with your new relationship definition, so that all users can benefit from the relationship(s) you have defined.
 
 Keeping your relationship definition in a separate file allows for easier management and review of the relationship(s) you have defined.
 
-{% include alert.html title="Keeping your custom Relationships private" type="info" content="Alternatively, if you would like to keep the relatioship definition private, you can bundle your relatinship(s) in a custom model, import the custom model into your Meshery deployment. Your private relationship definition(s) will be registered in your Meshery Server's <a href='/concepts/logical/registry'>registry</a> and available for use within your Meshery deployment." %}
+{% include alert.html title="Keeping your custom Relationships private" type="info" content="Alternatively, if you would like to keep the relatioship definition private, you can bundle your relatinship(s) in a custom model, import the custom model into your Meshplay deployment. Your private relationship definition(s) will be registered in your Meshplay Server's <a href='/concepts/logical/registry'>registry</a> and available for use within your Meshplay deployment." %}
 
-For more information refer - [Model - Construct Models in Meshery](https://docs.google.com/document/d/16z5hA8qVfSq885of9LXFUVvfom-hQXr-6oTD_GgoFmk/edit)
+For more information refer - [Model - Construct Models in Meshplay](https://docs.google.com/document/d/16z5hA8qVfSq885of9LXFUVvfom-hQXr-6oTD_GgoFmk/edit)

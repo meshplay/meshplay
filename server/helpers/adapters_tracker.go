@@ -14,8 +14,8 @@ import (
 	"github.com/docker/docker/api/types/network"
 	"github.com/docker/docker/client"
 	"github.com/docker/go-connections/nat"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
 	"github.com/spf13/viper"
 )
@@ -183,7 +183,7 @@ func (a *AdaptersTracker) DeployAdapter(ctx context.Context, adapter models.Adap
 			return ErrDeployingAdapterInK8s(err)
 		}
 
-		overrideValues := models.SetOverrideValuesForMesheryDeploy(a.GetAdapters(ctx), adapter, true)
+		overrideValues := models.SetOverrideValuesForMeshplayDeploy(a.GetAdapters(ctx), adapter, true)
 		err = kubeclient.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
 			Namespace:       "meshplay",
 			ReleaseName:     "meshplay",
@@ -273,7 +273,7 @@ func (a *AdaptersTracker) UndeployAdapter(ctx context.Context, adapter models.Ad
 			return ErrUnDeployingAdapterInK8s(err)
 		}
 
-		overrideValues := models.SetOverrideValuesForMesheryDeploy(a.GetAdapters(ctx), adapter, false)
+		overrideValues := models.SetOverrideValuesForMeshplayDeploy(a.GetAdapters(ctx), adapter, false)
 		err = kubeclient.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
 			Namespace:       "meshplay",
 			ReleaseName:     "meshplay",

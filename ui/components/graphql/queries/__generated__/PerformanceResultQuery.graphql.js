@@ -63,7 +63,7 @@ v2 = [
       {
         "alias": null,
         "args": null,
-        "concreteType": "MesheryResult",
+        "concreteType": "MeshplayResult",
         "kind": "LinkedField",
         "name": "results",
         "plural": true,
@@ -72,7 +72,7 @@ v2 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "meshery_id",
+            "name": "meshplay_id",
             "storageKey": null
           },
           {
@@ -181,7 +181,7 @@ return {
     "metadata": {},
     "name": "PerformanceResultQuery",
     "operationKind": "query",
-    "text": "query PerformanceResultQuery(\n  $selector: PageFilter!\n  $profileID: String!\n) {\n  fetchResults(selector: $selector, profileID: $profileID) {\n    page\n    page_size\n    total_count\n    results {\n      meshery_id\n      name\n      mesh\n      performance_profile\n      test_id\n      server_metrics\n      test_start_time\n      created_at\n      user_id\n      updated_at\n      runner_results\n    }\n  }\n}\n"
+    "text": "query PerformanceResultQuery(\n  $selector: PageFilter!\n  $profileID: String!\n) {\n  fetchResults(selector: $selector, profileID: $profileID) {\n    page\n    page_size\n    total_count\n    results {\n      meshplay_id\n      name\n      mesh\n      performance_profile\n      test_id\n      server_metrics\n      test_start_time\n      created_at\n      user_id\n      updated_at\n      runner_results\n    }\n  }\n}\n"
   }
 };
 })();

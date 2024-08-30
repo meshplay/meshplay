@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +23,9 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -38,8 +38,8 @@ var (
 )
 
 var linkDocPatternList = map[string]string{
-	"link":    "![pattern-list-usage](/assets/img/mesheryctl/patternList.png)",
-	"caption": "Usage of mesheryctl pattern list",
+	"link":    "![pattern-list-usage](/assets/img/meshplayctl/patternList.png)",
+	"caption": "Usage of meshplayctl pattern list",
 }
 
 var listCmd = &cobra.Command{
@@ -49,17 +49,17 @@ var listCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(0),
 	Example: `
 // list all available patterns
-mesheryctl pattern list
+meshplayctl pattern list
 	`,
 	Annotations: linkDocPatternList,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := fmt.Sprintf("%s/api/pattern?pagesize=%d&page=%d", baseUrl, pageSize, pageNumber)
 		var response models.PatternsAPIResponse
 		req, err := utils.NewRequest(http.MethodGet, url, nil)
@@ -93,7 +93,7 @@ mesheryctl pattern list
 			return nil
 		}
 
-		provider := tokenObj["meshery-provider"]
+		provider := tokenObj["meshplay-provider"]
 		var data [][]string
 		provider_header := []string{"PATTERN ID", "USER ID", "NAME", "CREATED", "UPDATED"}
 		non_provider_header := []string{"PATTERN ID", "NAME", "CREATED", "UPDATED"}

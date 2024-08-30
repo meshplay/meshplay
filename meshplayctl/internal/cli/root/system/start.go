@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,10 +26,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants"
-	pkgconstants "github.com/layer5io/meshery/mesheryctl/pkg/constants"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/constants"
+	pkgconstants "github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 
 	dockerCmd "github.com/docker/cli/cli/command"
 	cliconfig "github.com/docker/cli/cli/config"
@@ -52,27 +52,27 @@ var (
 // startCmd represents the start command
 var startCmd = &cobra.Command{
 	Use:   "start",
-	Short: "Start Meshery",
-	Long:  `Start Meshery and each of its cloud native components.`,
+	Short: "Start Meshplay",
+	Long:  `Start Meshplay and each of its cloud native components.`,
 	Args:  cobra.NoArgs,
 	Example: `
-// Start meshery
-mesheryctl system start
+// Start meshplay
+meshplayctl system start
 
-// (optional) skip opening of MesheryUI in browser.
-mesheryctl system start --skip-browser
+// (optional) skip opening of MeshplayUI in browser.
+meshplayctl system start --skip-browser
 
-// (optional) skip checking for new updates available in Meshery.
-mesheryctl system start --skip-update
+// (optional) skip checking for new updates available in Meshplay.
+meshplayctl system start --skip-update
 
-// Reset Meshery's configuration file to default settings.
-mesheryctl system start --reset
+// Reset Meshplay's configuration file to default settings.
+meshplayctl system start --reset
 
-// Specify Platform to deploy Meshery to.
-mesheryctl system start -p docker
+// Specify Platform to deploy Meshplay to.
+meshplayctl system start -p docker
 
 // Specify Provider to use.
-mesheryctl system start --provider Meshery
+meshplayctl system start --provider Meshplay
 	`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		//Check prerequisite
@@ -91,7 +91,7 @@ mesheryctl system start --provider Meshery
 			cmd.SilenceUsage = true
 			return err
 		}
-		cfg, err := config.GetMesheryCtl(viper.GetViper())
+		cfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -110,37 +110,37 @@ mesheryctl system start --provider Meshery
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if err := start(); err != nil {
-			return errors.Wrap(err, utils.SystemError("failed to start Meshery"))
+			return errors.Wrap(err, utils.SystemError("failed to start Meshplay"))
 		}
 		return nil
 	},
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
-		latestVersions, err := meshkitutils.GetLatestReleaseTagsSorted(pkgconstants.GetMesheryGitHubOrg(), pkgconstants.GetMesheryGitHubRepo())
-		version := constants.GetMesheryctlVersion()
+		latestVersions, err := meshkitutils.GetLatestReleaseTagsSorted(pkgconstants.GetMeshplayGitHubOrg(), pkgconstants.GetMeshplayGitHubRepo())
+		version := constants.GetMeshplayctlVersion()
 		if err == nil {
 			if len(latestVersions) == 0 {
-				log.Warn("no versions found for Meshery")
+				log.Warn("no versions found for Meshplay")
 				return
 			}
 			latest := latestVersions[len(latestVersions)-1]
 			if latest != version {
-				log.Printf("A new release of mesheryctl is available: %s → %s", version, latest)
-				log.Printf("https://github.com/meshery/meshery/releases/tag/%s", latest)
-				log.Print("Check https://docs.meshery.io/installation/upgrades#upgrading-meshery-cli for instructions on how to update mesheryctl\n")
+				log.Printf("A new release of meshplayctl is available: %s → %s", version, latest)
+				log.Printf("https://github.com/meshplay/meshplay/releases/tag/%s", latest)
+				log.Print("Check https://docs.meshplay.io/installation/upgrades#upgrading-meshplay-cli for instructions on how to update meshplayctl\n")
 			}
 		}
 	},
 }
 
 func start() error {
-	if _, err := os.Stat(utils.MesheryFolder); os.IsNotExist(err) {
-		if err := os.Mkdir(utils.MesheryFolder, 0777); err != nil {
-			return ErrCreateDir(err, utils.MesheryFolder)
+	if _, err := os.Stat(utils.MeshplayFolder); os.IsNotExist(err) {
+		if err := os.Mkdir(utils.MeshplayFolder, 0777); err != nil {
+			return ErrCreateDir(err, utils.MeshplayFolder)
 		}
 	}
 
 	// Get viper instance used for context
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		return errors.Wrap(err, "error processing config")
 	}
@@ -157,9 +157,9 @@ func start() error {
 	if err != nil {
 		return err
 	}
-	mesheryImageVersion := currCtx.GetVersion()
+	meshplayImageVersion := currCtx.GetVersion()
 	if currCtx.GetChannel() == "stable" && currCtx.GetVersion() == "latest" {
-		mesheryImageVersion = "latest"
+		meshplayImageVersion = "latest"
 	}
 
 	if utils.PlatformFlag != "" {
@@ -180,9 +180,9 @@ func start() error {
 		return err
 	}
 
-	// Reset Meshery config file to default settings
+	// Reset Meshplay config file to default settings
 	if utils.ResetFlag {
-		err := resetMesheryConfig()
+		err := resetMeshplayConfig()
 		if err != nil {
 			return ErrResetMeshconfig(err)
 		}
@@ -215,11 +215,11 @@ func start() error {
 		//extracting the custom user port from config.yaml
 		userPort := strings.Split(currCtx.GetEndpoint(), ":")
 		//extracting container port from the docker-compose
-		containerPort := strings.Split(utils.Services["meshery"].Ports[0], ":")
+		containerPort := strings.Split(utils.Services["meshplay"].Ports[0], ":")
 		userPortMapping := userPort[len(userPort)-1] + ":" + containerPort[len(containerPort)-1]
-		utils.Services["meshery"].Ports[0] = userPortMapping
+		utils.Services["meshplay"].Ports[0] = userPortMapping
 
-		RequiredService := []string{"meshery", "watchtower"}
+		RequiredService := []string{"meshplay", "watchtower"}
 
 		AllowedServices := map[string]utils.Service{}
 		for _, v := range currCtx.GetComponents() {
@@ -229,7 +229,7 @@ func start() error {
 
 			temp, ok := utils.Services[v]
 			if !ok {
-				return errors.New(fmt.Sprintf("No Docker Compose service exists for Meshery component `%s`.", v))
+				return errors.New(fmt.Sprintf("No Docker Compose service exists for Meshplay component `%s`.", v))
 			}
 
 			spliter := strings.Split(temp.Image, ":")
@@ -240,8 +240,8 @@ func start() error {
 			err = utils.ViperCompose.WriteConfig()
 			if err != nil {
 				// failure while adding a service to docker compose file is not a fatal error
-				// mesheryctl will continue deploying with required services (meshery, watchtower)
-				log.Infof("Encountered an error while adding `%s` service to Docker Compose file. Verify permission to write to `.meshery/meshery.yaml` file.", v)
+				// meshplayctl will continue deploying with required services (meshplay, watchtower)
+				log.Infof("Encountered an error while adding `%s` service to Docker Compose file. Verify permission to write to `.meshplay/meshplay.yaml` file.", v)
 			}
 		}
 
@@ -253,12 +253,12 @@ func start() error {
 
 			temp, ok := utils.Services[v]
 			if !ok {
-				return errors.New("unable to extract meshery version")
+				return errors.New("unable to extract meshplay version")
 			}
 
 			spliter := strings.Split(temp.Image, ":")
 			temp.Image = fmt.Sprintf("%s:%s-%s", spliter[0], currCtx.GetChannel(), "latest")
-			if v == "meshery" {
+			if v == "meshplay" {
 				callbackEnvVaridx, ok := utils.FindInSlice(pkgconstants.CallbackURLENV, temp.Environment)
 				if !ok {
 					temp.Environment = append(temp.Environment, fmt.Sprintf("%s=%s", pkgconstants.CallbackURLENV, callbackURL))
@@ -281,20 +281,20 @@ func start() error {
 					temp.Environment[proivderEnvVaridx] = fmt.Sprintf("%s=%s", pkgconstants.ProviderENV, providerEnvVar)
 				}
 
-				temp.Image = fmt.Sprintf("%s:%s-%s", spliter[0], currCtx.GetChannel(), mesheryImageVersion)
+				temp.Image = fmt.Sprintf("%s:%s-%s", spliter[0], currCtx.GetChannel(), meshplayImageVersion)
 			}
 			utils.Services[v] = temp
 			AllowedServices[v] = utils.Services[v]
 		}
 
 		//////// FLAGS
-		// Control whether to pull for new Meshery container images
+		// Control whether to pull for new Meshplay container images
 		if skipUpdateFlag {
-			log.Info("Skipping Meshery update...")
+			log.Info("Skipping Meshplay update...")
 		} else {
-			err := utils.UpdateMesheryContainers()
+			err := utils.UpdateMeshplayContainers()
 			if err != nil {
-				return errors.Wrap(err, utils.SystemError("failed to update Meshery containers"))
+				return errors.Wrap(err, utils.SystemError("failed to update Meshplay containers"))
 			}
 		}
 
@@ -333,23 +333,23 @@ func start() error {
 		// 	return errors.Wrap(err, utils.SystemError("unable to get GID of docker group"))
 		// }
 
-		// // Create the group_add option and add GID of docker group to meshery container
-		// groupAdd := viper.GetStringSlice("services.meshery.group_add")
+		// // Create the group_add option and add GID of docker group to meshplay container
+		// groupAdd := viper.GetStringSlice("services.meshplay.group_add")
 		// groupAdd = append(groupAdd, group.Gid)
-		// utils.ViperCompose.Set("services.meshery.group_add", groupAdd)
+		// utils.ViperCompose.Set("services.meshplay.group_add", groupAdd)
 
 		// // Write the modified configuration back to the Docker Compose file
 		// if err := utils.ViperCompose.WriteConfig(); err != nil {
-		// 	return errors.Wrap(err, utils.SystemError("unable to add group_add option. Meshery Server cannot perform this privileged action"))
+		// 	return errors.Wrap(err, utils.SystemError("unable to add group_add option. Meshplay Server cannot perform this privileged action"))
 		// }
 
-		log.Info("Starting Meshery...")
+		log.Info("Starting Meshplay...")
 		start := exec.Command("docker-compose", "-f", utils.DockerComposeFile, "up", "-d")
 		start.Stdout = os.Stdout
 		start.Stderr = os.Stderr
 
 		if err := start.Run(); err != nil {
-			return errors.Wrap(err, utils.SystemError("failed to run meshery server"))
+			return errors.Wrap(err, utils.SystemError("failed to run meshplay server"))
 		}
 
 		checkFlag := 0 //flag to check
@@ -380,9 +380,9 @@ func start() error {
 			return errors.New("the endpoint is not accessible")
 		}
 
-		//check for container meshery_meshery_1 running status
+		//check for container meshplay_meshplay_1 running status
 		for _, container := range containers {
-			if container.Names[0] == "/meshery_meshery_1" {
+			if container.Names[0] == "/meshplay_meshplay_1" {
 				//check flag to check successful deployment
 				checkFlag = 0
 				break
@@ -391,10 +391,10 @@ func start() error {
 			checkFlag = 1
 		}
 
-		//if meshery_meshery_1 failed to start showing logs
+		//if meshplay_meshplay_1 failed to start showing logs
 		//code for logs
 		if checkFlag == 1 {
-			log.Info("Starting Meshery logging . . .")
+			log.Info("Starting Meshplay logging . . .")
 			cmdlog := exec.Command("docker-compose", "-f", utils.DockerComposeFile, "logs", "-f")
 			cmdReader, err := cmdlog.StdoutPipe()
 			if err != nil {
@@ -420,9 +420,9 @@ func start() error {
 			return err
 		}
 
-		log.Info("Starting Meshery...")
+		log.Info("Starting Meshplay...")
 
-		spinner := utils.CreateDefaultSpinner("Deploying Meshery on Kubernetes", "\nMeshery deployed on Kubernetes.")
+		spinner := utils.CreateDefaultSpinner("Deploying Meshplay on Kubernetes", "\nMeshplay deployed on Kubernetes.")
 		spinner.Start()
 
 		if err := utils.CreateManifestsFolder(); err != nil {
@@ -430,14 +430,14 @@ func start() error {
 			return err
 		}
 
-		// Applying Meshery Helm charts for installing Meshery
-		if err = applyHelmCharts(kubeClient, currCtx, mesheryImageVersion, false, meshkitkube.INSTALL, callbackURL, providerURL); err != nil {
+		// Applying Meshplay Helm charts for installing Meshplay
+		if err = applyHelmCharts(kubeClient, currCtx, meshplayImageVersion, false, meshkitkube.INSTALL, callbackURL, providerURL); err != nil {
 			return err
 		}
 
-		// checking if Meshery is ready
+		// checking if Meshplay is ready
 		time.Sleep(10 * time.Second) // sleeping 10 seconds to countermeasure time to apply helm charts
-		ready, err := mesheryReadinessHealthCheck()
+		ready, err := meshplayReadinessHealthCheck()
 		if err != nil {
 			log.Info(err)
 		}
@@ -445,45 +445,45 @@ func start() error {
 		spinner.Stop()
 
 		if !ready {
-			log.Info("\nFew Meshery pods have not come up yet.\nPlease check the status of the pods by executing “mesheryctl system status” and Meshery-UI endpoint with “mesheryctl system dashboard” before using meshery.")
+			log.Info("\nFew Meshplay pods have not come up yet.\nPlease check the status of the pods by executing “meshplayctl system status” and Meshplay-UI endpoint with “meshplayctl system dashboard” before using meshplay.")
 			return nil
 		}
-		log.Info("Meshery is starting...")
+		log.Info("Meshplay is starting...")
 
 		// switch to default case if the platform specified is not supported
 	default:
-		return fmt.Errorf("the platform %s is not supported currently. The supported platforms are:\ndocker\nkubernetes\nPlease check %s/config.yaml file", currCtx.GetPlatform(), utils.MesheryFolder)
+		return fmt.Errorf("the platform %s is not supported currently. The supported platforms are:\ndocker\nkubernetes\nPlease check %s/config.yaml file", currCtx.GetPlatform(), utils.MeshplayFolder)
 	}
 
-	// execute dashboard command to fetch and navigate to Meshery UI
+	// execute dashboard command to fetch and navigate to Meshplay UI
 	return dashboardCmd.RunE(nil, nil)
 }
 
 func init() {
-	startCmd.PersistentFlags().StringVarP(&utils.PlatformFlag, "platform", "p", "", "platform to deploy Meshery to.")
-	startCmd.Flags().BoolVarP(&skipUpdateFlag, "skip-update", "", false, "(optional) skip checking for new Meshery's container images.")
-	startCmd.Flags().BoolVarP(&utils.ResetFlag, "reset", "", false, "(optional) reset Meshery's configuration file to default settings.")
-	startCmd.Flags().BoolVarP(&skipBrowserFlag, "skip-browser", "", false, "(optional) skip opening of MesheryUI in browser.")
+	startCmd.PersistentFlags().StringVarP(&utils.PlatformFlag, "platform", "p", "", "platform to deploy Meshplay to.")
+	startCmd.Flags().BoolVarP(&skipUpdateFlag, "skip-update", "", false, "(optional) skip checking for new Meshplay's container images.")
+	startCmd.Flags().BoolVarP(&utils.ResetFlag, "reset", "", false, "(optional) reset Meshplay's configuration file to default settings.")
+	startCmd.Flags().BoolVarP(&skipBrowserFlag, "skip-browser", "", false, "(optional) skip opening of MeshplayUI in browser.")
 	startCmd.PersistentFlags().StringVar(&providerFlag, "provider", "", "(optional) Defaults to the provider specified in the current context")
 }
 
-// Apply Meshery helm charts
-func applyHelmCharts(kubeClient *meshkitkube.Client, currCtx *config.Context, mesheryImageVersion string, dryRun bool, act meshkitkube.HelmChartAction, callbackURL, providerURL string) error {
+// Apply Meshplay helm charts
+func applyHelmCharts(kubeClient *meshkitkube.Client, currCtx *config.Context, meshplayImageVersion string, dryRun bool, act meshkitkube.HelmChartAction, callbackURL, providerURL string) error {
 	// get value overrides to install the helm chart
-	overrideValues := utils.SetOverrideValues(currCtx, mesheryImageVersion, callbackURL, providerURL)
+	overrideValues := utils.SetOverrideValues(currCtx, meshplayImageVersion, callbackURL, providerURL)
 
 	// install the helm charts with specified override values
 	var chartVersion string
-	if mesheryImageVersion != "latest" {
-		chartVersion = mesheryImageVersion
+	if meshplayImageVersion != "latest" {
+		chartVersion = meshplayImageVersion
 	}
 	action := "install"
 	if act == meshkitkube.UNINSTALL {
 		action = "uninstall"
 	}
 	errServer := kubeClient.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
-		Namespace:       utils.MesheryNamespace,
-		ReleaseName:     "meshery",
+		Namespace:       utils.MeshplayNamespace,
+		ReleaseName:     "meshplay",
 		CreateNamespace: true,
 		ChartLocation: meshkitkube.HelmChartLocation{
 			Repository: utils.HelmChartURL,
@@ -492,13 +492,13 @@ func applyHelmCharts(kubeClient *meshkitkube.Client, currCtx *config.Context, me
 		},
 		OverrideValues: overrideValues,
 		Action:         act,
-		// the helm chart will be downloaded to ~/.meshery/manifests if it doesn't exist
-		DownloadLocation: path.Join(utils.MesheryFolder, utils.ManifestsFolder),
+		// the helm chart will be downloaded to ~/.meshplay/manifests if it doesn't exist
+		DownloadLocation: path.Join(utils.MeshplayFolder, utils.ManifestsFolder),
 		DryRun:           dryRun,
 	})
 	errOperator := kubeClient.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
-		Namespace:       utils.MesheryNamespace,
-		ReleaseName:     "meshery-operator",
+		Namespace:       utils.MeshplayNamespace,
+		ReleaseName:     "meshplay-operator",
 		CreateNamespace: true,
 		ChartLocation: meshkitkube.HelmChartLocation{
 			Repository: utils.HelmChartURL,
@@ -506,18 +506,18 @@ func applyHelmCharts(kubeClient *meshkitkube.Client, currCtx *config.Context, me
 			Version:    chartVersion,
 		},
 		Action: act,
-		// the helm chart will be downloaded to ~/.meshery/manifests if it doesn't exist
-		DownloadLocation: path.Join(utils.MesheryFolder, utils.ManifestsFolder),
+		// the helm chart will be downloaded to ~/.meshplay/manifests if it doesn't exist
+		DownloadLocation: path.Join(utils.MeshplayFolder, utils.ManifestsFolder),
 		DryRun:           dryRun,
 	})
 	if errServer != nil && errOperator != nil {
-		return fmt.Errorf("could not %s meshery server: %s\ncould not %s meshery-operator: %s", action, errServer.Error(), action, errOperator.Error())
+		return fmt.Errorf("could not %s meshplay server: %s\ncould not %s meshplay-operator: %s", action, errServer.Error(), action, errOperator.Error())
 	}
 	if errServer != nil {
-		return fmt.Errorf("%s success for operator but failed for meshery server: %s", action, errServer.Error())
+		return fmt.Errorf("%s success for operator but failed for meshplay server: %s", action, errServer.Error())
 	}
 	if errOperator != nil {
-		return fmt.Errorf("%s success for meshery server but failed for meshery operator: %s", action, errOperator.Error())
+		return fmt.Errorf("%s success for meshplay server but failed for meshplay operator: %s", action, errOperator.Error())
 	}
 	return nil
 }

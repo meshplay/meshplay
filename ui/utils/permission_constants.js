@@ -266,7 +266,7 @@ export const keys = {
   },
   UNINSTALL_EXTENSION: {
     // not seeded
-    subject: 'Uninstall extension from Meshery',
+    subject: 'Uninstall extension from Meshplay',
     action: 'd25e0950-bcd5-4f31-9d19-26c91d17d89b',
   },
   VIEW_EXTENSIONS: {
@@ -274,7 +274,7 @@ export const keys = {
     action: 'c1330df4-1bbe-4d5d-8828-f4bd9ee989e5',
   },
   VIEW_MESHPLAY_USER_PREFERENCES: {
-    subject: 'View Meshery User Preferences',
+    subject: 'View Meshplay User Preferences',
     action: 'cdec6212-bbbf-4cab-b10d-76d12bee7e56',
   },
   VIEW_SETTINGS: {
@@ -342,11 +342,11 @@ export const keys = {
     action: '5b48eded-15d8-4c51-9ac4-b11097dbdd75',
   },
   INVITE_COLLABORATORS_PUBLIC_DESIGNS: {
-    subject: 'Invite any Meshery Cloud user, or all Meshery users',
+    subject: 'Invite any Meshplay Cloud user, or all Meshplay users',
     action: 'ccc4bc8d-f484-42b3-8a62-2667284605c3',
   },
   INVITE_COLLABORATORS_PRIVATE_DESIGNS: {
-    subject: 'Invite any Meshery Cloud user to on a private design',
+    subject: 'Invite any Meshplay Cloud user to on a private design',
     action: 'e28b851f-9a49-4ecf-a86e-493db1a27540',
   },
   MESSAGE_IN_REAL_TIME: {

@@ -4,7 +4,7 @@ title: K3s
 subtitle: Collaborative and visual infrastructure as design for K3s
 image: /assets/img/integrations/k3s/icons/color/k3s-color.svg
 permalink: extensibility/integrations/k3s
-docURL: https://docs.meshery.io/extensibility/integrations/k3s
+docURL: https://docs.meshplay.io/extensibility/integrations/k3s
 description: 
 integrations-category: Platform
 integrations-subcategory: Kubernetes

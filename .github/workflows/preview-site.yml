@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy-preview:
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code

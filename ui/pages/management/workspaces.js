@@ -10,7 +10,7 @@ const Workspaces = () => {
   return (
     <NoSsr>
       <Head>
-        <title>Workspaces | Meshery</title>
+        <title>Workspaces | Meshplay</title>
       </Head>
       <WorkspacesComponent />
     </NoSsr>

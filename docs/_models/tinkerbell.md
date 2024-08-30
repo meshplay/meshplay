@@ -4,7 +4,7 @@ title: Tinkerbell
 subtitle: Collaborative and visual infrastructure as design for Tinkerbell
 image: /assets/img/integrations/tinkerbell/icons/color/tinkerbell-color.svg
 permalink: extensibility/integrations/tinkerbell
-docURL: https://docs.meshery.io/extensibility/integrations/tinkerbell
+docURL: https://docs.meshplay.io/extensibility/integrations/tinkerbell
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

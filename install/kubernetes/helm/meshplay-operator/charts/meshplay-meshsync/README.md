@@ -1,8 +1,8 @@
-# meshery-meshsync
+# meshplay-meshsync
 
 ![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: stable-latest](https://img.shields.io/badge/AppVersion-stable--latest-informational?style=flat-square)
 
-Meshery MeshSync
+Meshplay MeshSync
 
 ## Maintainers
 
@@ -16,8 +16,8 @@ Meshery MeshSync
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| broker.name | string | `"meshery-broker"` |  |
-| broker.namespace | string | `"meshery"` |  |
-| name | string | `"meshery-meshsync"` |  |
+| broker.name | string | `"meshplay-broker"` |  |
+| broker.namespace | string | `"meshplay"` |  |
+| name | string | `"meshplay-meshsync"` |  |
 | replica | int | `1` |  |
 

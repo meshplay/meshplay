@@ -9,19 +9,19 @@ import (
 	"github.com/layer5io/meshkit/logger"
 )
 
-type MesheryResultsPersister struct {
+type MeshplayResultsPersister struct {
 	DB *database.Handler
 }
 
-// MesheryResultPage - represents a page of meshplay results
-type MesheryResultPage struct {
+// MeshplayResultPage - represents a page of meshplay results
+type MeshplayResultPage struct {
 	Page       uint64           `json:"page"`
 	PageSize   uint64           `json:"page_size"`
 	TotalCount int              `json:"total_count"`
-	Results    []*MesheryResult `json:"results"`
+	Results    []*MeshplayResult `json:"results"`
 }
 
-type localMesheryResultDBRepresentation struct {
+type localMeshplayResultDBRepresentation struct {
 	ID                 uuid.UUID  `json:"meshplay_id,omitempty"`
 	Name               string     `json:"name,omitempty"`
 	Mesh               string     `json:"mesh,omitempty"`
@@ -35,8 +35,8 @@ type localMesheryResultDBRepresentation struct {
 	PerformanceProfileInfo PerformanceProfile `json:"-" gorm:"constraint:OnDelete:SET NULL;foreignKey:PerformanceProfile"`
 }
 
-func (mrp *MesheryResultsPersister) GetResults(page, pageSize uint64, profileID string, log logger.Handler) ([]byte, error) {
-	var res []*localMesheryResultDBRepresentation
+func (mrp *MeshplayResultsPersister) GetResults(page, pageSize uint64, profileID string, log logger.Handler) ([]byte, error) {
+	var res []*localMeshplayResultDBRepresentation
 	var count int64
 	query := mrp.DB.Where("performance_profile = ?", profileID)
 
@@ -46,18 +46,18 @@ func (mrp *MesheryResultsPersister) GetResults(page, pageSize uint64, profileID 
 	}
 	err = Paginate(uint(page), uint(pageSize))(query).Find(&res).Error
 
-	resultPage := &MesheryResultPage{
+	resultPage := &MeshplayResultPage{
 		Page:       page,
 		PageSize:   pageSize,
 		TotalCount: int(count),
-		Results:    convertLocalRepresentationSliceToMesheryResultSlice(res, log),
+		Results:    convertLocalRepresentationSliceToMeshplayResultSlice(res, log),
 	}
 
-	return marshalMesheryResultsPage(resultPage), err
+	return marshalMeshplayResultsPage(resultPage), err
 }
 
-func (mrp *MesheryResultsPersister) GetAllResults(page, pageSize uint64, log logger.Handler) ([]byte, error) {
-	var res []*localMesheryResultDBRepresentation
+func (mrp *MeshplayResultsPersister) GetAllResults(page, pageSize uint64, log logger.Handler) ([]byte, error) {
+	var res []*localMeshplayResultDBRepresentation
 	var count int64
 	query := mrp.DB.Table("meshplay_results")
 
@@ -67,26 +67,26 @@ func (mrp *MesheryResultsPersister) GetAllResults(page, pageSize uint64, log log
 	}
 	err = Paginate(uint(page), uint(pageSize))(query).Find(&res).Error
 
-	resultPage := &MesheryResultPage{
+	resultPage := &MeshplayResultPage{
 		Page:       page,
 		PageSize:   pageSize,
 		TotalCount: int(count),
-		Results:    convertLocalRepresentationSliceToMesheryResultSlice(res, log),
+		Results:    convertLocalRepresentationSliceToMeshplayResultSlice(res, log),
 	}
 
-	return marshalMesheryResultsPage(resultPage), err
+	return marshalMeshplayResultsPage(resultPage), err
 }
 
-func (mrp *MesheryResultsPersister) GetResult(key uuid.UUID, log logger.Handler) (*MesheryResult, error) {
-	var lres localMesheryResultDBRepresentation
+func (mrp *MeshplayResultsPersister) GetResult(key uuid.UUID, log logger.Handler) (*MeshplayResult, error) {
+	var lres localMeshplayResultDBRepresentation
 
 	err := mrp.DB.Table("meshplay_results").Find(&lres).Where("id = ?", key).Error
-	res := convertLocalRepresentationToMesheryResult(&lres, log)
+	res := convertLocalRepresentationToMeshplayResult(&lres, log)
 	return res, err
 }
 
-func (mrp *MesheryResultsPersister) WriteResult(key uuid.UUID, result []byte) error {
-	var data MesheryResult
+func (mrp *MeshplayResultsPersister) WriteResult(key uuid.UUID, result []byte) error {
+	var data MeshplayResult
 	if err := json.Unmarshal(result, &data); err != nil {
 		return err
 	}
@@ -95,32 +95,32 @@ func (mrp *MesheryResultsPersister) WriteResult(key uuid.UUID, result []byte) er
 
 	t := time.Now()
 	data.TestStartTime = &t
-	return mrp.DB.Table("meshplay_results").Save(convertMesheryResultToLocalRepresentation(&data)).Error
+	return mrp.DB.Table("meshplay_results").Save(convertMeshplayResultToLocalRepresentation(&data)).Error
 }
 
-func marshalMesheryResultsPage(mrp *MesheryResultPage) []byte {
+func marshalMeshplayResultsPage(mrp *MeshplayResultPage) []byte {
 	res, _ := json.Marshal(mrp)
 
 	return res
 }
 
-func convertLocalRepresentationSliceToMesheryResultSlice(local []*localMesheryResultDBRepresentation, log logger.Handler) (res []*MesheryResult) {
+func convertLocalRepresentationSliceToMeshplayResultSlice(local []*localMeshplayResultDBRepresentation, log logger.Handler) (res []*MeshplayResult) {
 	for _, val := range local {
-		res = append(res, convertLocalRepresentationToMesheryResult(val, log))
+		res = append(res, convertLocalRepresentationToMeshplayResult(val, log))
 	}
 
 	return
 }
 
-func convertLocalRepresentationToMesheryResult(local *localMesheryResultDBRepresentation, log logger.Handler) *MesheryResult {
+func convertLocalRepresentationToMeshplayResult(local *localMeshplayResultDBRepresentation, log logger.Handler) *MeshplayResult {
 	var jsonmap map[string]interface{}
 	if err := json.Unmarshal(local.Result, &jsonmap); err != nil {
-		err = ErrUnmarshal(err, "MesheryResult")
+		err = ErrUnmarshal(err, "MeshplayResult")
 		log.Error(err)
 		return nil
 	}
 
-	res := &MesheryResult{
+	res := &MeshplayResult{
 		ID:                 local.ID,
 		Name:               local.Name,
 		Mesh:               local.Mesh,
@@ -134,10 +134,10 @@ func convertLocalRepresentationToMesheryResult(local *localMesheryResultDBRepres
 	return res
 }
 
-func convertMesheryResultToLocalRepresentation(mr *MesheryResult) *localMesheryResultDBRepresentation {
+func convertMeshplayResultToLocalRepresentation(mr *MeshplayResult) *localMeshplayResultDBRepresentation {
 	byt, _ := json.Marshal(mr.Result)
 
-	res := &localMesheryResultDBRepresentation{
+	res := &localMeshplayResultDBRepresentation{
 		ID:                 mr.ID,
 		Name:               mr.Name,
 		Mesh:               mr.Mesh,

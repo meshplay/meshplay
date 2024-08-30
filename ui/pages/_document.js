@@ -5,7 +5,7 @@ import { createStyleRegistry } from 'styled-jsx';
 
 const registry = createStyleRegistry();
 const flush = registry.flush();
-class MesheryDocument extends Document {
+class MeshplayDocument extends Document {
   render() {
     return (
       <Html lang="en" dir="ltr">
@@ -74,7 +74,7 @@ class MesheryDocument extends Document {
   }
 }
 
-MesheryDocument.getInitialProps = (ctx) => {
+MeshplayDocument.getInitialProps = (ctx) => {
   // resolution order
   //
   // on the server:
@@ -134,4 +134,4 @@ MesheryDocument.getInitialProps = (ctx) => {
   };
 };
 
-export default MesheryDocument;
+export default MeshplayDocument;

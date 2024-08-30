@@ -1,4 +1,4 @@
-// Copyright 2024 Meshery Authors
+// Copyright 2024 Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,35 +17,35 @@ package components
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
-// represents the mesheryctl components list command
+// represents the meshplayctl components list command
 var listComponentCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List registered components",
-	Long:  "List all components registered in Meshery Server",
+	Long:  "List all components registered in Meshplay Server",
 	Example: `
 // View list of components
-mesheryctl components list
+meshplayctl components list
 
 // View list of components with specified page number (25 components per page)
-mesheryctl components list --page 2
+meshplayctl components list --page 2
 
-// To view the number of components present in Meshery
-mesheryctl components list --count
+// To view the number of components present in Meshplay
+meshplayctl components list --count
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := fmt.Sprintf("%s/api/meshmodels/components?%s", baseUrl, utils.GetPageQueryParameter(cmd, pageNumberFlag))
 		return listComponents(cmd, url, false)
 	},

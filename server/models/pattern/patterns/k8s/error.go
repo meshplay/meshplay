@@ -5,7 +5,7 @@ import (
 	"fmt"
 	meshkitutils "github.com/layer5io/meshkit/utils/kubernetes"
 
-	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/layer5io/meshkit/errors"
 	kubeerror "k8s.io/apimachinery/pkg/api/errors"
 )

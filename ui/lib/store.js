@@ -413,8 +413,8 @@ export const resultsMerge = (arr1, arr2) => {
   const keys = {};
   var arr = [];
   const compareAndAdd = (a) => {
-    if (typeof keys[a.meshery_id] === 'undefined') {
-      keys[a.meshery_id] = true;
+    if (typeof keys[a.meshplay_id] === 'undefined') {
+      keys[a.meshplay_id] = true;
       arr = arr.push(a);
     }
   };

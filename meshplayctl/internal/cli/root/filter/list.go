@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +23,9 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -45,18 +45,18 @@ var listCmd = &cobra.Command{
 	Long:  `Display list of all available filter files.`,
 	Example: `
 // List all WASM filter files present
-mesheryctl filter list	(maximum 25 filters)
+meshplayctl filter list	(maximum 25 filters)
 
 // Search for filter
-mesheryctl filter list Test (maximum 25 filters)
+meshplayctl filter list Test (maximum 25 filters)
 
 // Search for filter with space
-mesheryctl filter list 'Test Filter' (maximum 25 filters)
+meshplayctl filter list 'Test Filter' (maximum 25 filters)
 	`,
 	Args: cobra.MinimumNArgs(0),
 	RunE: func(cmd *cobra.Command, args []string) error {
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -66,7 +66,7 @@ mesheryctl filter list 'Test Filter' (maximum 25 filters)
 			searchString = strings.ReplaceAll(args[0], " ", "%20")
 		}
 
-		response, err := fetchFilters(mctlCfg.GetBaseMesheryURL(), searchString, pageSize, pageNumber-1)
+		response, err := fetchFilters(mctlCfg.GetBaseMeshplayURL(), searchString, pageSize, pageNumber-1)
 		if err != nil {
 			utils.Log.Error(ErrFetchFilter(err))
 			return nil
@@ -82,9 +82,9 @@ mesheryctl filter list 'Test Filter' (maximum 25 filters)
 
 		tokenObj, err := utils.ReadToken(utils.TokenFlag)
 		if err != nil {
-			return errors.New(utils.FilterListError("error reading token\nUse 'mesheryctl filter list --help' to display usage guide\n" + err.Error()))
+			return errors.New(utils.FilterListError("error reading token\nUse 'meshplayctl filter list --help' to display usage guide\n" + err.Error()))
 		}
-		provider := tokenObj["meshery-provider"]
+		provider := tokenObj["meshplay-provider"]
 		var data [][]string
 		var header []string
 		var footer []string

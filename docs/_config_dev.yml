@@ -15,27 +15,27 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Documentation
-email: maintainers@meshery.io
-author: Meshery Authors
+email: maintainers@meshplay.io
+author: Meshplay Authors
 description: > # this means to ignore newlines until "baseurl:"
-  As a self-service engineering platform, Meshery enables collaborative design and operation of cloud native infrastructure.
+  As a self-service engineering platform, Meshplay enables collaborative design and operation of cloud native infrastructure.
 
 # DO NOT CHANGE THE LINE OF THIS FILE without editing .circleci/circle_urls.sh
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing
-url: "https://docs.meshery.io" # the base hostname & protocol for your site
+url: "https://docs.meshplay.io" # the base hostname & protocol for your site
 
 # Social (First three Required)
-repo: "https://github.com/meshery/meshery"
-github_user: "meshery"
-github_repo: "meshery"
-project: https://meshery.io
+repo: "https://github.com/meshplay/meshplay"
+github_user: "meshplay"
+github_repo: "meshplay"
+project: https://meshplay.io
 
 # Optional
-twitter: https://twitter.com/mesheryio
-linkedin: https://www.linkedin.com/company/meshery/
-dockerhub: https://hub.docker.com/r/meshery
+twitter: https://twitter.com/meshplayio
+linkedin: https://www.linkedin.com/company/meshplay/
+dockerhub: https://hub.docker.com/r/meshplay
 
 # Should there be feedback buttons at the bottom of pages?
 feedback: false
@@ -94,10 +94,10 @@ collections:
   releases:
     output: true
     permalink: project/:collection/:path
-  mesheryctlcommands:
+  meshplayctlcommands:
     output: true
-    permalink: reference/mesheryctl/:collection/:path
-    name: mesheryctlcommands
+    permalink: reference/meshplayctl/:collection/:path
+    name: meshplayctlcommands
   models:
     output: true    
   # integrations:

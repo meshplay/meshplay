@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
-import MesheryOperatorIcon from '../icons/MesheryOperatorIcon.js';
-import fetchMesheryOperatorStatus from '../../graphql/queries/OperatorStatusQuery';
+import MeshplayOperatorIcon from '../icons/MeshplayOperatorIcon.js';
+import fetchMeshplayOperatorStatus from '../../graphql/queries/OperatorStatusQuery';
 import ServiceCard from '../ServiceCard';
 import { CircularProgress, Grid } from '@material-ui/core';
-import MesheryOperatorDataPanel from '../DataPanels/MesheryOperator';
+import MeshplayOperatorDataPanel from '../DataPanels/MeshplayOperator';
 import { useEffect, useState } from 'react';
 import {
   getOperatorStatusFromQueryResult,
-  isMesheryOperatorConnected,
-} from '../helpers/mesheryOperator.js';
+  isMeshplayOperatorConnected,
+} from '../helpers/meshplayOperator.js';
 
 // Connection Wizard
 // TODO: bind to contextID prop, leaving due to no use in current UI
-const MesheryOperatorScreen = ({ setStepStatus }) => {
+const MeshplayOperatorScreen = ({ setStepStatus }) => {
   const [operatorInformation, setOperatorInformation] = useState({
     operatorInstalled: false,
     NATSInstalled: false,
@@ -24,14 +24,14 @@ const MesheryOperatorScreen = ({ setStepStatus }) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const mesheryOperatorinfo = {
-    name: 'Meshery Operator',
-    logoComponent: MesheryOperatorIcon,
+  const meshplayOperatorinfo = {
+    name: 'Meshplay Operator',
+    logoComponent: MeshplayOperatorIcon,
     configComp: <div />,
     operatorInformation,
   };
 
-  const showDataPanel = () => isMesheryOperatorConnected(operatorInformation);
+  const showDataPanel = () => isMeshplayOperatorConnected(operatorInformation);
 
   useEffect(() => {
     setStepStatus((prev) => ({ ...prev, operator: isConnected }));
@@ -39,7 +39,7 @@ const MesheryOperatorScreen = ({ setStepStatus }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchMesheryOperatorStatus().subscribe({
+    fetchMeshplayOperatorStatus().subscribe({
       next: (res) => {
         setIsLoading(false);
         setOperatorState(res);
@@ -49,7 +49,7 @@ const MesheryOperatorScreen = ({ setStepStatus }) => {
   }, []);
 
   useEffect(() => {
-    setIsConnected(isMesheryOperatorConnected(operatorInformation));
+    setIsConnected(isMeshplayOperatorConnected(operatorInformation));
   }, [operatorInformation]);
 
   const setOperatorState = (res) => {
@@ -70,7 +70,7 @@ const MesheryOperatorScreen = ({ setStepStatus }) => {
         style={{ paddingLeft: '1rem' }}
       >
         <ServiceCard
-          serviceInfo={mesheryOperatorinfo}
+          serviceInfo={meshplayOperatorinfo}
           isConnected={isConnected}
           style={{ paddingRight: '1rem' }}
         />
@@ -79,11 +79,11 @@ const MesheryOperatorScreen = ({ setStepStatus }) => {
         {isLoading ? (
           <CircularProgress />
         ) : (
-          showDataPanel() && <MesheryOperatorDataPanel operatorInformation={operatorInformation} />
+          showDataPanel() && <MeshplayOperatorDataPanel operatorInformation={operatorInformation} />
         )}
       </Grid>
     </Grid>
   );
 };
 
-export default MesheryOperatorScreen;
+export default MeshplayOperatorScreen;

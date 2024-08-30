@@ -4,7 +4,7 @@ title: Kubevault Catalog
 subtitle: Collaborative and visual infrastructure as design for Kubevault Catalog
 image: /assets/img/integrations/kubevault-catalog/icons/color/kubevault-catalog-color.svg
 permalink: extensibility/integrations/kubevault-catalog
-docURL: https://docs.meshery.io/extensibility/integrations/kubevault-catalog
+docURL: https://docs.meshplay.io/extensibility/integrations/kubevault-catalog
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Uncategorized

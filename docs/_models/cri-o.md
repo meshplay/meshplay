@@ -4,7 +4,7 @@ title: CRI-O
 subtitle: Collaborative and visual infrastructure as design for CRI-O
 image: /assets/img/integrations/cri-o/icons/color/cri-o-color.svg
 permalink: extensibility/integrations/cri-o
-docURL: https://docs.meshery.io/extensibility/integrations/cri-o
+docURL: https://docs.meshplay.io/extensibility/integrations/cri-o
 description: 
 integrations-category: Runtime
 integrations-subcategory: Container Runtime

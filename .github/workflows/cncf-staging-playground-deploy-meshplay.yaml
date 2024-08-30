@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
 jobs:
     cncf-staging-playground-rollout:
-        name: Update Meshery on CNCF staging playground
-        if: github.repository == 'meshery/meshery'
+        name: Update Meshplay on CNCF staging playground
+        if: github.repository == 'meshplay/meshplay'
         runs-on: ubuntu-latest 
         steps:
-        - name: Upgrade Meshery Helm Release
+        - name: Upgrade Meshplay Helm Release
           uses: appleboy/ssh-action@v1.0.3
           with:
               host: ${{ secrets.METAL_SERVER3 }}
               username: root
               key: ${{ secrets.METAL_SSH_KEY }}
               script: |
-                mesheryctl system channel set edge
-                PROVIDER_BASE_URLS="https://staging-meshery.layer5.io" mesheryctl system update
+                meshplayctl system channel set edge
+                PROVIDER_BASE_URLS="https://staging-meshplay.layer5.io" meshplayctl system update

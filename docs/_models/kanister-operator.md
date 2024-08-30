@@ -4,7 +4,7 @@ title: Kanister Operator
 subtitle: Collaborative and visual infrastructure as design for Kanister Operator
 image: /assets/img/integrations/kanister-operator/icons/color/kanister-operator-color.svg
 permalink: extensibility/integrations/kanister-operator
-docURL: https://docs.meshery.io/extensibility/integrations/kanister-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/kanister-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Provisioning

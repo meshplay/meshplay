@@ -4,7 +4,7 @@ title: EDP Install
 subtitle: Collaborative and visual infrastructure as design for EDP Install
 image: /assets/img/integrations/edp-install/icons/color/edp-install-color.svg
 permalink: extensibility/integrations/edp-install
-docURL: https://docs.meshery.io/extensibility/integrations/edp-install
+docURL: https://docs.meshplay.io/extensibility/integrations/edp-install
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

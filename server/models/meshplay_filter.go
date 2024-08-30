@@ -4,17 +4,17 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/internal/sql"
+	"github.com/khulnasoft/meshplay/server/internal/sql"
 	"gopkg.in/yaml.v2"
 )
 
-// MesheryFilter represents the filters that needs to be saved
-type MesheryFilter struct {
+// MeshplayFilter represents the filters that needs to be saved
+type MeshplayFilter struct {
 	ID *uuid.UUID `json:"id,omitempty"`
 
 	Name       string `json:"name,omitempty"`
 	FilterFile []byte `json:"filter_file"`
-	// Meshery doesn't have the user id fields
+	// Meshplay doesn't have the user id fields
 	// but the remote provider is allowed to provide one
 	UserID *string `json:"user_id"`
 
@@ -26,12 +26,12 @@ type MesheryFilter struct {
 	CreatedAt      *time.Time `json:"created_at,omitempty"`
 }
 
-type MesheryFilterPayload struct {
+type MeshplayFilterPayload struct {
 	ID *uuid.UUID `json:"id,omitempty"`
 
 	Name       string `json:"name,omitempty"`
 	FilterFile []byte `json:"filter_file"`
-	// Meshery doesn't have the user id fields
+	// Meshplay doesn't have the user id fields
 	// but the remote provider is allowed to provide one
 	UserID *string `json:"user_id"`
 
@@ -44,26 +44,26 @@ type MesheryFilterPayload struct {
 	CreatedAt      *time.Time `json:"created_at,omitempty"`
 }
 
-// MesheryCatalogFilterRequestBody refers to the type of request body that PublishCatalogFilter would receive
-type MesheryCatalogFilterRequestBody struct {
+// MeshplayCatalogFilterRequestBody refers to the type of request body that PublishCatalogFilter would receive
+type MeshplayCatalogFilterRequestBody struct {
 	ID          uuid.UUID `json:"id,omitempty"`
 	CatalogData sql.Map   `json:"catalog_data,omitempty"`
 }
 
-// MesheryCatalogFilterRequestBody refers to the type of request body
-// that CloneMesheryFilterHandler would receive
-type MesheryCloneFilterRequestBody struct {
+// MeshplayCatalogFilterRequestBody refers to the type of request body
+// that CloneMeshplayFilterHandler would receive
+type MeshplayCloneFilterRequestBody struct {
 	Name string `json:"name,omitempty"`
 }
 
-// MesheryFilterRequestBody refers to the type of request body that
-// SaveMesheryFilter would receive
-type MesheryFilterRequestBody struct {
+// MeshplayFilterRequestBody refers to the type of request body that
+// SaveMeshplayFilter would receive
+type MeshplayFilterRequestBody struct {
 	URL        string                `json:"url,omitempty"`
 	Path       string                `json:"path,omitempty"`
 	Save       bool                  `json:"save,omitempty"`
 	Config     string                `json:"config,omitempty"`
-	FilterData *MesheryFilterPayload `json:"filter_data,omitempty"`
+	FilterData *MeshplayFilterPayload `json:"filter_data,omitempty"`
 }
 
 // GetFilterName takes in a stringified filterfile and extracts the name from it

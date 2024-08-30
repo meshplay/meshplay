@@ -22,4 +22,4 @@ For the best experience, you should compare between two or more tests of similar
 
 Latency and throughput are the two most significantly examined signals.
 
-Meshery will use different algorithms to calculate results depending upon which load generator was used to run the test.
+Meshplay will use different algorithms to calculate results depending upon which load generator was used to run the test.

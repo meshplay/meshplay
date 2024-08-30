@@ -1,6 +1,6 @@
 {
   "errors_export": {
-    "component_name": "meshery-nginx-sm",
+    "component_name": "meshplay-nginx-sm",
     "component_type": "adapter",
     "errors": {
       "1000": {
@@ -127,7 +127,7 @@
         "long_description": "Kubernetes client is nil",
         "short_description": "kubernetes client not initialized",
         "probable_cause": "kubernetes client not initialized",
-        "suggested_remediation": "Reconnect the adaptor to Meshery server"
+        "suggested_remediation": "Reconnect the adaptor to Meshplay server"
       },
       "1014": {
         "name": "ErrApplyHelmChartCode",
@@ -142,19 +142,19 @@
         "name": "ErrParseOAMComponentCode",
         "code": "1015",
         "severity": "Alert",
-        "long_description": "Error occurred while parsing application component in the OAM request made by Meshery Server",
+        "long_description": "Error occurred while parsing application component in the OAM request made by Meshplay Server",
         "short_description": "error parsing the component",
         "probable_cause": "Could not unmarshall configuration component received via ProcessOAM gRPC call into a valid Component struct",
-        "suggested_remediation": "Check if Meshery Server is creating valid component for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshery Server. Also, check if Meshery Server and adapters are referring to same component struct provided in MeshKit."
+        "suggested_remediation": "Check if Meshplay Server is creating valid component for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshplay Server. Also, check if Meshplay Server and adapters are referring to same component struct provided in MeshKit."
       },
       "1016": {
         "name": "ErrParseOAMConfigCode",
         "code": "1016",
         "severity": "Alert",
-        "long_description": "Error occurred while parsing configuration in the request made by Meshery Server",
+        "long_description": "Error occurred while parsing configuration in the request made by Meshplay Server",
         "short_description": "error parsing the configuration",
         "probable_cause": "Could not unmarshall OAM config received via ProcessOAM gRPC call into a valid Config struct",
-        "suggested_remediation": "Check if Meshery Server is creating valid config for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshery Server. Also, confirm that Meshery Server and Adapters are referring to same config struct provided in MeshKit"
+        "suggested_remediation": "Check if Meshplay Server is creating valid config for ProcessOAM gRPC call. This error should never happen and can be reported as a bug in Meshplay Server. Also, confirm that Meshplay Server and Adapters are referring to same config struct provided in MeshKit"
       },
       "1017": {
         "name": "ErrProcessOAMCode",
@@ -190,7 +190,7 @@
         "long_description": "",
         "short_description": "Error occurred while applying namespace ",
         "probable_cause": "Trying to access a namespace which is not available",
-        "suggested_remediation": "Verify presence of namespace. Confirm Meshery ServiceAccount permissions"
+        "suggested_remediation": "Verify presence of namespace. Confirm Meshplay ServiceAccount permissions"
       }
     }
   }

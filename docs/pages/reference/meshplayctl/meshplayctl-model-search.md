@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-model-search
-permalink: reference/mesheryctl/model/search
-redirect_from: reference/mesheryctl/model/search/
+title: meshplayctl-model-search
+permalink: reference/meshplayctl/model/search
+redirect_from: reference/meshplayctl/model/search/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: model
 subcommand: search
 ---
 
-# mesheryctl model search
+# meshplayctl model search
 
 search models
 
@@ -19,7 +19,7 @@ search models
 search a models by search string
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model search [flags]
+meshplayctl model search [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl model search [flags]
 View current provider
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model search [query-text]
+meshplayctl model search [query-text]
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl model search [query-text]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -55,4 +55,4 @@ mesheryctl model search [query-text]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

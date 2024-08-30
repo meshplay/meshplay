@@ -7,10 +7,10 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/machines"
-	mhelpers "github.com/layer5io/meshplay/server/machines/helpers"
-	"github.com/layer5io/meshplay/server/machines/kubernetes"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/machines"
+	mhelpers "github.com/khulnasoft/meshplay/server/machines/helpers"
+	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/events"
 )
 
@@ -43,7 +43,7 @@ func (h *Handler) GetAllContexts(w http.ResponseWriter, req *http.Request, _ *mo
 		http.Error(w, "failed to get contexts", http.StatusInternalServerError)
 		return
 	}
-	var meshplayK8sContextPage models.MesheryK8sContextPage
+	var meshplayK8sContextPage models.MeshplayK8sContextPage
 	err = json.Unmarshal(vals, &meshplayK8sContextPage)
 	if err != nil {
 		obj := "k8s context"
@@ -104,7 +104,7 @@ func (h *Handler) DeleteContext(w http.ResponseWriter, req *http.Request, _ *mod
 
 	machineCtx := &kubernetes.MachineCtx{
 		K8sContext:         k8scontext,
-		MesheryCtrlsHelper: h.MesheryCtrlsHelper,
+		MeshplayCtrlsHelper: h.MeshplayCtrlsHelper,
 		K8sCompRegHelper:   h.K8sCompRegHelper,
 		OperatorTracker:    h.config.OperatorTracker,
 		K8scontextChannel:  h.config.K8scontextChannel,

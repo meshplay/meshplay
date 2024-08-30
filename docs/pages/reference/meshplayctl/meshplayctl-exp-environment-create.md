@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-environment-create
-permalink: reference/mesheryctl/exp/environment/create
-redirect_from: reference/mesheryctl/exp/environment/create/
+title: meshplayctl-exp-environment-create
+permalink: reference/meshplayctl/exp/environment/create
+redirect_from: reference/meshplayctl/exp/environment/create/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: environment
 ---
 
-# mesheryctl exp environment create
+# meshplayctl exp environment create
 
 Create a new environments
 
@@ -19,7 +19,7 @@ Create a new environments
 Create a new environments by providing the name and description of the environment
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment create [flags]
+meshplayctl exp environment create [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp environment create [flags]
 Create a new environment
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment create --orgID [orgID] --name [name] --description [description] 
+meshplayctl exp environment create --orgID [orgID] --name [name] --description [description] 
 
 </div>
 </pre> 
@@ -58,7 +58,7 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -66,4 +66,4 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

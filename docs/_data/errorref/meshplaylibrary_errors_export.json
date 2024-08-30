@@ -1,6 +1,6 @@
 {
     "errors_export": {
-        "component_name": "meshery-adapter-library",
+        "component_name": "meshplay-adapter-library",
         "component_type": "library",
         "errors": {
             "1000": {

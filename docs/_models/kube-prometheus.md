@@ -4,7 +4,7 @@ title: Kube Prometheus
 subtitle: Collaborative and visual infrastructure as design for Kube Prometheus
 image: /assets/img/integrations/kube-prometheus/icons/color/kube-prometheus-color.svg
 permalink: extensibility/integrations/kube-prometheus
-docURL: https://docs.meshery.io/extensibility/integrations/kube-prometheus
+docURL: https://docs.meshplay.io/extensibility/integrations/kube-prometheus
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

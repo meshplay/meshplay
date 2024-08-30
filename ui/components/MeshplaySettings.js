@@ -180,7 +180,7 @@ const settingsRouter = (router) => {
 };
 
 //TODO: Tabs are hardcoded everywhere
-class MesherySettings extends React.Component {
+class MeshplaySettings extends React.Component {
   constructor(props) {
     super(props);
     const { k8sconfig, meshAdapters, grafana, prometheus, router } = props;
@@ -335,7 +335,7 @@ class MesherySettings extends React.Component {
                 textColor="primary"
                 centered
               >
-                <CustomTooltip title="Connect Meshery Adapters" placement="top" value={ADAPTERS}>
+                <CustomTooltip title="Connect Meshplay Adapters" placement="top" value={ADAPTERS}>
                   <Tab
                     className={classes.tab}
                     icon={<FontAwesomeIcon icon={faMendeley} style={iconMedium} />}
@@ -497,8 +497,8 @@ const mapDispatchToProps = (dispatch) => ({
   updateProgress: bindActionCreators(updateProgress, dispatch),
 });
 
-MesherySettings.propTypes = { classes: PropTypes.object };
+MeshplaySettings.propTypes = { classes: PropTypes.object };
 
 export default withStyles(styles, { withTheme: true })(
-  connect(mapStateToProps, mapDispatchToProps)(withRouter(withNotify(MesherySettings))),
+  connect(mapStateToProps, mapDispatchToProps)(withRouter(withNotify(MeshplaySettings))),
 );

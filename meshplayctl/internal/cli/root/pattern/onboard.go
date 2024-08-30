@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -25,11 +25,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/patterns"
-	"github.com/meshery/schemas/models/v1beta1/pattern"
+	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -41,8 +41,8 @@ var (
 )
 
 var linkDocpatternOnboard = map[string]string{
-	"link":    "![pattern-onboard-usage](/assets/img/mesheryctl/pattern-onboard.png)",
-	"caption": "Usage of mesheryctl pattern onboard",
+	"link":    "![pattern-onboard-usage](/assets/img/meshplayctl/pattern-onboard.png)",
+	"caption": "Usage of meshplayctl pattern onboard",
 }
 
 var onboardCmd = &cobra.Command{
@@ -51,8 +51,8 @@ var onboardCmd = &cobra.Command{
 	Long:  `Command will trigger deploy of pattern`,
 	Example: `
 // Onboard pattern by providing file path
-mesheryctl pattern onboard -f [filepath] -s [source type]
-mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
+meshplayctl pattern onboard -f [filepath] -s [source type]
+meshplayctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 	`,
 	Annotations: linkDocpatternOnboard,
 	Args: func(_ *cobra.Command, args []string) error {
@@ -69,14 +69,14 @@ mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 		var req *http.Request
 		var err error
 		var patternFile *pattern.PatternFile
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		deployURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern/deploy"
-		patternURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern"
+		deployURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern/deploy"
+		patternURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern"
 
 		// pattern name has been passed
 		if len(args) > 0 {
@@ -138,7 +138,7 @@ mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 		}
 
 		patternFileByt, _ := yaml.Marshal(patternFile)
-		payload := models.MesheryPatternFileDeployPayload{
+		payload := models.MeshplayPatternFileDeployPayload{
 			PatternFile: string(patternFileByt),
 		}
 
@@ -175,7 +175,7 @@ mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 	},
 }
 
-func multiplepatternsConfirmation(profiles []models.MesheryPattern) int {
+func multiplepatternsConfirmation(profiles []models.MeshplayPattern) int {
 	reader := bufio.NewReader(os.Stdin)
 
 	patternFileByt, _ := yaml.Marshal(patternFile)
@@ -209,12 +209,12 @@ func multiplepatternsConfirmation(profiles []models.MesheryPattern) int {
 }
 
 func getSourceTypes() error {
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		utils.Log.Error(err)
 		return nil
 	}
-	validTypesURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern/types"
+	validTypesURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern/types"
 	req, err := utils.NewRequest("GET", validTypesURL, nil)
 	if err != nil {
 		utils.Log.Error(err)

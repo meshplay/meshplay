@@ -4,7 +4,7 @@ title: Istio Rate Limit Operator
 subtitle: The easiest way to get production-grade Istio service mesh up and running
 image: /assets/img/integrations/istio-ratelimit-operator/icons/color/istio-ratelimit-operator-color.svg
 permalink: extensibility/integrations/istio-ratelimit-operator
-docURL: https://docs.meshery.io/extensibility/adapters/istio
+docURL: https://docs.meshplay.io/extensibility/adapters/istio
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

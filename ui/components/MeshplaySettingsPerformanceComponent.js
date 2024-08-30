@@ -50,7 +50,7 @@ const styles = (theme) => ({
   },
 });
 
-class MesherySettingsPerformanceComponent extends React.Component {
+class MeshplaySettingsPerformanceComponent extends React.Component {
   constructor(props) {
     super(props);
     const { qps, c, t, gen } = props;
@@ -321,7 +321,7 @@ class MesherySettingsPerformanceComponent extends React.Component {
   }
 }
 
-MesherySettingsPerformanceComponent.propTypes = {
+MeshplaySettingsPerformanceComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -341,5 +341,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(withNotify(MesherySettingsPerformanceComponent)),
+  connect(mapStateToProps, mapDispatchToProps)(withNotify(MeshplaySettingsPerformanceComponent)),
 );

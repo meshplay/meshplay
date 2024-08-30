@@ -7,12 +7,12 @@ on:
       - 'v*'
     paths-ignore:
       - 'docs/**'
-      - 'mesheryctl/**'
+      - 'meshplayctl/**'
 
 jobs:
   notify-meshmap-build:
     name: Notify Meshmap Build
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-22.04
     steps:
     - name: trigger plugins for edge
@@ -20,7 +20,7 @@ jobs:
       uses: layer5io/trigger-remote-provider-action@master
       with:
         name: "Build and Publish"
-        repo: layer5labs/meshery-extensions
+        repo: layer5labs/meshplay-extensions
         token: ${{ secrets.GH_ACCESS_TOKEN }}
         version: master
     - name: set env
@@ -32,6 +32,6 @@ jobs:
       uses: layer5io/trigger-remote-provider-action@master
       with:
         name: "Build and Publish"
-        repo: layer5labs/meshery-extensions
+        repo: layer5labs/meshplay-extensions
         token: ${{ secrets.GH_ACCESS_TOKEN }}
         version: ${{ steps.vars.outputs.tag }}

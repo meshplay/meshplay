@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
@@ -18,7 +18,7 @@ var b *bytes.Buffer
 func SetupContextEnv(t *testing.T) {
 	path, err := os.Getwd()
 	if err != nil {
-		t.Error("unable to locate meshery directory")
+		t.Error("unable to locate meshplay directory")
 	}
 	viper.Reset()
 	viper.SetConfigFile(path + "/../../../../pkg/utils/TestConfig.yaml")
@@ -28,7 +28,7 @@ func SetupContextEnv(t *testing.T) {
 		t.Errorf("unable to read configuration from %v, %v", viper.ConfigFileUsed(), err.Error())
 	}
 
-	mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		t.Error("error processing config", err)
 	}
@@ -159,7 +159,7 @@ func TestSetCmd(t *testing.T) {
 
 // 			path, err := os.Getwd()
 // 			if err != nil {
-// 				t.Error("unable to locate meshery directory")
+// 				t.Error("unable to locate meshplay directory")
 // 			}
 // 			filepath := path + "/testdata/channel/switch.output.golden"
 // 			content, err := os.ReadFile(filepath)

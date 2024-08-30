@@ -4,7 +4,7 @@ title: Posthog
 subtitle: Collaborative and visual infrastructure as design for Posthog
 image: /assets/img/integrations/posthog/icons/color/posthog-color.svg
 permalink: extensibility/integrations/posthog
-docURL: https://docs.meshery.io/extensibility/integrations/posthog
+docURL: https://docs.meshplay.io/extensibility/integrations/posthog
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database

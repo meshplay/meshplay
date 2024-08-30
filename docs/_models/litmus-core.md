@@ -4,7 +4,7 @@ title: Litmus Chaos
 subtitle: Collaborative and visual infrastructure as design for Litmus Chaos
 image: /assets/img/integrations/litmus-core/icons/color/litmus-core-color.svg
 permalink: extensibility/integrations/litmus-core
-docURL: https://docs.meshery.io/extensibility/integrations/litmus-core
+docURL: https://docs.meshplay.io/extensibility/integrations/litmus-core
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Chaos Engineering

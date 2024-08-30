@@ -3,16 +3,16 @@ layout: default
 title: Designs
 permalink: concepts/logical/designs
 type: concepts
-abstract: "Meshery Designs are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured."
+abstract: "Meshplay Designs are descriptive, declarative characterizations of how your Kubernetes infrastructure should be configured."
 language: en
 list: include
 redirect_from:
 - concepts/designs
 ---
 
-Like a Google Doc, Designs are your primary tool for collaborative authorship of your infrastructure and services. A Design describes all the resources and their properties that you want for a single deployment based on Meshery’s declarative syntax (see [Meshery Schemas repo](https://github.com/meshery/schemas)). By default, Designs are stored in your user account, but can be manually exported, programmatically snapshotted, or automatically synchronized to any OCI-compatible registry (e.g. Docker Hub, AWS ECR, and so on), or Git-based repositories (coming in v0.8). You can share designs and collaborate in real-time on their creation. Designs can be imported, exported, versioned, forked, merged, snapshotted, published, shared, embedded, templatized, and more.
+Like a Google Doc, Designs are your primary tool for collaborative authorship of your infrastructure and services. A Design describes all the resources and their properties that you want for a single deployment based on Meshplay’s declarative syntax (see [Meshplay Schemas repo](https://github.com/meshplay/schemas)). By default, Designs are stored in your user account, but can be manually exported, programmatically snapshotted, or automatically synchronized to any OCI-compatible registry (e.g. Docker Hub, AWS ECR, and so on), or Git-based repositories (coming in v0.8). You can share designs and collaborate in real-time on their creation. Designs can be imported, exported, versioned, forked, merged, snapshotted, published, shared, embedded, templatized, and more.
 
-As the deployable unit in Meshery, a Design consists of [Components]({{site.baseurl}}/concepts/logical/components) and [Relationships]({{site.baseurl}}/concepts/logical/relationships). Designs are how you can describe your desired infrastructure state.
+As the deployable unit in Meshplay, a Design consists of [Components]({{site.baseurl}}/concepts/logical/components) and [Relationships]({{site.baseurl}}/concepts/logical/relationships). Designs are how you can describe your desired infrastructure state.
 
 ### Constraints on Designs
 
@@ -28,12 +28,12 @@ As the deployable unit in Meshery, a Design consists of [Components]({{site.base
 - Designs can be exported as JSON files or OCI images.
 - [Designs can be listed in Artifact Hub](https://artifacthub.io/packages/search?kind=24&sort=relevance&page=1) repos.
 - Designs can be imported:
-  - as Kubernetes Manifests, Docker Compose, Helm Charts, or Meshery Designs.
+  - as Kubernetes Manifests, Docker Compose, Helm Charts, or Meshplay Designs.
   - from individual YAML files, remote HTTP location, local filesystem, or OCI images.
 - Designs can be exported or embedded.
-  - Designs can be embedded in web pages either as a bundle of HTML or as a React component using the [meshery-design-embed](https://www.npmjs.com/package/@layer5/meshery-design-embed) NPM package.
-- Designs can be [snapshotted](https://docs.meshery.io/extensions/snapshot). Snapshots are immutable. Snapshots can be compared for differences between Design versions.
-- Designs can be published or unpublished. Published Designs are available to all users of any Meshery instance through the [Catalog]({{site.baseurl}}/concepts/catalog). Unpublished Designs can still be available to other users if that Design is made public.
+  - Designs can be embedded in web pages either as a bundle of HTML or as a React component using the [meshplay-design-embed](https://www.npmjs.com/package/@layer5/meshplay-design-embed) NPM package.
+- Designs can be [snapshotted](https://docs.meshplay.io/extensions/snapshot). Snapshots are immutable. Snapshots can be compared for differences between Design versions.
+- Designs can be published or unpublished. Published Designs are available to all users of any Meshplay instance through the [Catalog]({{site.baseurl}}/concepts/catalog). Unpublished Designs can still be available to other users if that Design is made public.
 - Designs are versioned. Each time a Design is saved, a new version is created.
   <!-- - You can revert to any previous version of a Design. -->
 - Designs can be deployed. Deploying a Design involves incorporating one or more components into your Design, configuring their relationships, and deploying them to one or more Environments. By default, any user of a Workspace can deploy a Design.
@@ -55,23 +55,23 @@ As the deployable unit in Meshery, a Design consists of [Components]({{site.base
 
 When creating a new design by default it's visibility level will be set to **public**. Remove providers have the option of offering additional visibility levels like **private** and **published**.
 
-## Meshery Designs and Models Explained
+## Meshplay Designs and Models Explained
 
-Designs are the deployable unit in Meshery. [Models]({{site.baseurl}}/concepts/logical/models) are the unit of packaging for Components. Components are described in Designs. Models are not directly deployed. Designs and their Components are.
+Designs are the deployable unit in Meshplay. [Models]({{site.baseurl}}/concepts/logical/models) are the unit of packaging for Components. Components are described in Designs. Models are not directly deployed. Designs and their Components are.
 
-### Meshery Models
+### Meshplay Models
 
-Meshery Models represent the fundamental building blocks of your infrastructure. Think of them as blueprints or templates that define the structure, components, and configurations of your deployments. These models encapsulate everything from network configurations to service definitions, making them essential for consistent and scalable deployments across environments.
+Meshplay Models represent the fundamental building blocks of your infrastructure. Think of them as blueprints or templates that define the structure, components, and configurations of your deployments. These models encapsulate everything from network configurations to service definitions, making them essential for consistent and scalable deployments across environments.
 
-### Meshery Designs
+### Meshplay Designs
 
-On the other hand, Meshery Designs are the practical implementations based on Meshery Models. They represent declarations of your infrastructure deployments, customized according to specific use cases, environments, and requirements. Meshery Designs allow you to create, manage, and deploy complex architectures seamlessly, leveraging the power and flexibility of Meshery Models as their foundation.
+On the other hand, Meshplay Designs are the practical implementations based on Meshplay Models. They represent declarations of your infrastructure deployments, customized according to specific use cases, environments, and requirements. Meshplay Designs allow you to create, manage, and deploy complex architectures seamlessly, leveraging the power and flexibility of Meshplay Models as their foundation.
 
-Designs are the blueprints for your deployments, while Meshery Models are the internal components that provide the building blocks and knowledge to fulfill those blueprints.
+Designs are the blueprints for your deployments, while Meshplay Models are the internal components that provide the building blocks and knowledge to fulfill those blueprints.
 
 ### Using Designs
 
-See the following tutorials on how to use Meshery Designs for collaboratively managing infrastructure.
+See the following tutorials on how to use Meshplay Designs for collaboratively managing infrastructure.
 
   <details>
   <summary>
@@ -93,4 +93,4 @@ See the following tutorials on how to use Meshery Designs for collaboratively ma
   </ul>
 </details>
 
-Try the [Meshery Playground](/installation/playground) for a hands-on experience with Meshery Designs.
+Try the [Meshplay Playground](/installation/playground) for a hands-on experience with Meshplay Designs.

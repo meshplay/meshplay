@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,35 +22,35 @@ import (
 )
 
 const (
-	ErrImportPatternCode          = "mesheryctl-1001"
-	ErrInValidSourceCode          = "mesheryctl-1002"
-	ErrOnboardPatternCode         = "mesheryctl-1003"
-	ErrPatternFoundCode           = "mesheryctl-1004"
-	ErrOffboardPatternCode        = "mesheryctl-1005"
-	ErrPatternFlagCode            = "mesheryctl-1006"
-	ErrPatternManifestCode        = "mesheryctl-1007"
-	ErrPatternSourceTypeCode      = "mesheryctl-1121"
-	ErrPatternsNotFoundCode       = "mesheryctl-1037"
-	ErrInvalidPatternFileCode     = "mesheryctl-1038"
-	ErrPatternInvalidNameOrIDCode = "mesheryctl-1039"
-	ErrCopyDataCode               = "mesheryctl-1122"
-	ErrCreateFileCode             = "mesheryctl-1123"
-	ErrRetrieveHomeDirCode        = "mesheryctl-1124"
-	ErrReadFromBodyCode           = "mesheryctl-1125"
-	ErrMarkFlagRequireCode        = "mesheryctl-1126"
+	ErrImportPatternCode          = "meshplayctl-1001"
+	ErrInValidSourceCode          = "meshplayctl-1002"
+	ErrOnboardPatternCode         = "meshplayctl-1003"
+	ErrPatternFoundCode           = "meshplayctl-1004"
+	ErrOffboardPatternCode        = "meshplayctl-1005"
+	ErrPatternFlagCode            = "meshplayctl-1006"
+	ErrPatternManifestCode        = "meshplayctl-1007"
+	ErrPatternSourceTypeCode      = "meshplayctl-1121"
+	ErrPatternsNotFoundCode       = "meshplayctl-1037"
+	ErrInvalidPatternFileCode     = "meshplayctl-1038"
+	ErrPatternInvalidNameOrIDCode = "meshplayctl-1039"
+	ErrCopyDataCode               = "meshplayctl-1122"
+	ErrCreateFileCode             = "meshplayctl-1123"
+	ErrRetrieveHomeDirCode        = "meshplayctl-1124"
+	ErrReadFromBodyCode           = "meshplayctl-1125"
+	ErrMarkFlagRequireCode        = "meshplayctl-1126"
 )
 
 const (
-	errPatternMsg = `Usage: mesheryctl pattern import -f [file/url] -s [source-type]
-Example: mesheryctl pattern import -f ./pattern.yml -s "Kubernetes Manifest"`
+	errPatternMsg = `Usage: meshplayctl pattern import -f [file/url] -s [source-type]
+Example: meshplayctl pattern import -f ./pattern.yml -s "Kubernetes Manifest"`
 
-	errOnboardMsg = `Usage: mesheryctl pattern onboard -f [filepath] -s [source type]
-Example: mesheryctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
+	errOnboardMsg = `Usage: meshplayctl pattern onboard -f [filepath] -s [source type]
+Example: meshplayctl pattern onboard -f ./pattern.yml -s "Kubernetes Manifest"
 Description: Onboard pattern`
 )
 
 func ErrPatternNotFound() error {
-	return errors.New(ErrPatternsNotFoundCode, errors.Fatal, []string{"Pattern Not Found"}, []string{"No Pattern found with the given name or ID"}, []string{"Pattern with the given name or ID is not present"}, []string{"Please check if the given pattern name or ID is present via 'mesheryctl pattern list'"})
+	return errors.New(ErrPatternsNotFoundCode, errors.Fatal, []string{"Pattern Not Found"}, []string{"No Pattern found with the given name or ID"}, []string{"Pattern with the given name or ID is not present"}, []string{"Please check if the given pattern name or ID is present via 'meshplayctl pattern list'"})
 }
 
 func ErrInvalidPatternFile(err error) error {
@@ -64,7 +64,7 @@ func ErrPatternInvalidNameOrID(err error) error {
 		[]string{"Unable to fetch Pattern"},
 		[]string{err.Error()},
 		[]string{"Invalid pattern name or ID"},
-		[]string{"Run `mesheryctl pattern view -a` to view all available patterns."})
+		[]string{"Run `meshplayctl pattern view -a` to view all available patterns."})
 }
 
 func ErrImportPattern(err error) error {
@@ -112,7 +112,7 @@ func ErrPatternFound() error {
 		[]string{"pattern not found"},
 		[]string{"No pattern found with a given name"},
 		[]string{"pattern name not provided"},
-		[]string{"Provide an pattern name. Use `mesheryctl pattern list`to display list of patternlications"},
+		[]string{"Provide an pattern name. Use `meshplayctl pattern list`to display list of patternlications"},
 	)
 }
 

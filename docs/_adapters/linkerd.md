@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Meshery Adapter for Linkerd
-name: Meshery Adapter for Linkerd
+title: Meshplay Adapter for Linkerd
+name: Meshplay Adapter for Linkerd
 component: Linkerd
 earliest_version: v2.10.2
 port: 10001/gRPC
 project_status: stable
-lab: linkerd-meshery-adapter
-github_link: https://github.com/meshery/meshery-linkerd
+lab: linkerd-meshplay-adapter
+github_link: https://github.com/meshplay/meshplay-linkerd
 image: /assets/img/service-meshes/linkerd.svg
 white_image: /assets/img/service-meshes/linkerd-white.svg
 permalink: extensibility/adapters/linkerd
@@ -15,14 +15,14 @@ redirect_from: service-meshes/adapters/linkerd
 language: en
 ---
 
-{% assign sorted_tests_group = site.compatibility | group_by: "meshery-component" %}
+{% assign sorted_tests_group = site.compatibility | group_by: "meshplay-component" %}
 {% for group in sorted_tests_group %}
-      {% if group.name == "meshery-linkerd" %}
-        {% assign items = group.items | sort: "meshery-component-version" | reverse %}
+      {% if group.name == "meshplay-linkerd" %}
+        {% assign items = group.items | sort: "meshplay-component-version" | reverse %}
         {% for item in items %}
-          {% if item.meshery-component-version != "edge" %}
+          {% if item.meshplay-component-version != "edge" %}
             {% if item.overall-status == "passing" %}
-              {% assign adapter_version_dynamic = item.meshery-component-version %}
+              {% assign adapter_version_dynamic = item.meshplay-component-version %}
               {% break %}
             {% elsif item.overall-status == "failing" %}
               {% continue %}
@@ -50,7 +50,7 @@ The {{page.name}} can install **{{page.earliest_version}}** of {{page.component}
 
 Note: Linkerd's control plane will be deployed to the `linkerd` namespace. Linkerd does not support deployments of its control plane into namespaces under a different name.
 
-##### Choose the Meshery Adapter for {{ page.component }}
+##### Choose the Meshplay Adapter for {{ page.component }}
 
 <a href="{{ site.baseurl }}/assets/img/adapters/linkerd/linkerd-adapter.png">
   <img style="width:500px;" src="{{ site.baseurl }}/assets/img/adapters/linkerd/linkerd-adapter.png" />
@@ -64,7 +64,7 @@ Note: Linkerd's control plane will be deployed to the `linkerd` namespace. Linke
 
 ### Sample Applications
 
-The {{ page.name }} includes the ability to deploy a variety of sample applications. Use Meshery to deploy any of these sample applications:
+The {{ page.name }} includes the ability to deploy a variety of sample applications. Use Meshplay to deploy any of these sample applications:
 
 - [Emojivoto]({{site.baseurl}}/guides/sample-apps#emojivoto)
 
@@ -86,4 +86,4 @@ Identify overhead involved in running {{page.component}}, various {{page.compone
 1. Prometheus integration
 1. Grafana integration
 
-The [Meshery Adapter for Linkerd]({{ page.github_link }}) will connect to Linkerd's Prometheus and Grafana instances running in the control plane.
+The [Meshplay Adapter for Linkerd]({{ page.github_link }}) will connect to Linkerd's Prometheus and Grafana instances running in the control plane.

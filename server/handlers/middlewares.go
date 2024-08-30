@@ -9,10 +9,10 @@ import (
 	"net/url"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/machines"
-	mhelpers "github.com/layer5io/meshplay/server/machines/helpers"
-	"github.com/layer5io/meshplay/server/machines/kubernetes"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/machines"
+	mhelpers "github.com/khulnasoft/meshplay/server/machines/helpers"
+	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshsync/pkg/model"
 	"github.com/spf13/viper"
@@ -42,19 +42,19 @@ func (h *Handler) ProviderMiddleware(next http.Handler) http.Handler {
 		}
 		ctx := context.WithValue(req.Context(), models.ProviderCtxKey, provider) // nolint
 
-		// Incase Meshery is configured for deployments scenario: Istio, Azure Kubernetes Service etc
+		// Incase Meshplay is configured for deployments scenario: Istio, Azure Kubernetes Service etc
 		// then we can expect a MESHPLAY_SERVER_CALLBACK_URL in env var
 		callbackURL := viper.GetString("MESHPLAY_SERVER_CALLBACK_URL")
 		if callbackURL == "" {
 			// if MESHPLAY_SERVER_CALLBACK_URL is not set then we can assume standard CALLBACK_URL
 			callbackURL = "http://" + req.Host + "/api/user/token" // Hard coding the path because this is what meshplay expects
 		}
-		ctx = context.WithValue(ctx, models.MesheryServerCallbackURL, callbackURL)
+		ctx = context.WithValue(ctx, models.MeshplayServerCallbackURL, callbackURL)
 		_url, err := url.Parse(callbackURL)
 		if err != nil {
 			h.log.Error(ErrParsingCallBackUrl(err))
 		} else {
-			ctx = context.WithValue(ctx, models.MesheryServerURL, fmt.Sprintf("%s://%s", _url.Scheme, _url.Host))
+			ctx = context.WithValue(ctx, models.MeshplayServerURL, fmt.Sprintf("%s://%s", _url.Scheme, _url.Host))
 		}
 		req1 := req.WithContext(ctx)
 		next.ServeHTTP(w, req1)
@@ -249,7 +249,7 @@ func KubernetesMiddleware(ctx context.Context, h *Handler, provider models.Provi
 	for _, k8sContext := range k8sContextsFromKubeConfig {
 		machineCtx := &kubernetes.MachineCtx{
 			K8sContext:         *k8sContext,
-			MesheryCtrlsHelper: h.MesheryCtrlsHelper,
+			MeshplayCtrlsHelper: h.MeshplayCtrlsHelper,
 			K8sCompRegHelper:   h.K8sCompRegHelper,
 			OperatorTracker:    h.config.OperatorTracker,
 			K8scontextChannel:  h.config.K8scontextChannel,
@@ -307,7 +307,7 @@ func K8sFSMMiddleware(ctx context.Context, h *Handler, provider models.Provider,
 	for _, k8sContext := range connectedK8sContexts {
 		machineCtx := &kubernetes.MachineCtx{
 			K8sContext:         *k8sContext,
-			MesheryCtrlsHelper: h.MesheryCtrlsHelper,
+			MeshplayCtrlsHelper: h.MeshplayCtrlsHelper,
 			K8sCompRegHelper:   h.K8sCompRegHelper,
 			OperatorTracker:    h.config.OperatorTracker,
 			K8scontextChannel:  h.config.K8scontextChannel,
@@ -345,7 +345,7 @@ func K8sFSMMiddleware(ctx context.Context, h *Handler, provider models.Provider,
 			h.log.Error(err)
 			continue
 		}
-		mdh := kubernesMachineCtx.MesheryCtrlsHelper.GetMeshSyncDataHandlersForEachContext()
+		mdh := kubernesMachineCtx.MeshplayCtrlsHelper.GetMeshSyncDataHandlersForEachContext()
 		if mdh != nil {
 			dataHandlers = append(dataHandlers, &dataHandlerToClusterID{
 				mdh:       *mdh,

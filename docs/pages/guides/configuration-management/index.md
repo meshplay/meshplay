@@ -5,10 +5,10 @@ permalink: guides/configuration-management/
 category: configuration
 language: en
 list: exclude
-abstract: Guides for understanding Meshery's ability to configure infrastructure and applications
+abstract: Guides for understanding Meshplay's ability to configure infrastructure and applications
 ---
 
-Guides for understanding Meshery's ability to configure infrastructure and applications.
+Guides for understanding Meshplay's ability to configure infrastructure and applications.
 
 {% assign sorted_pages = site.pages | sort: "name" %}
 

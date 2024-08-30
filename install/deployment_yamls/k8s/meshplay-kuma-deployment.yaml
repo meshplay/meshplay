@@ -6,25 +6,25 @@ metadata:
     kompose.version: 1.32.0 ()
   creationTimestamp: null
   labels:
-    io.kompose.service: meshery-kuma
-  name: meshery-kuma
+    io.kompose.service: meshplay-kuma
+  name: meshplay-kuma
 spec:
   selector:
     matchLabels:
-      io.kompose.service: meshery-kuma
+      io.kompose.service: meshplay-kuma
   replicas: 1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: meshery-kuma
+        io.kompose.service: meshplay-kuma
     spec:
-      serviceAccount: meshery-server
+      serviceAccount: meshplay-server
       containers:
-      - image: layer5/meshery-kuma:stable-latest
+      - image: layer5/meshplay-kuma:stable-latest
         imagePullPolicy: Always
-        name: meshery-kuma
+        name: meshplay-kuma
         ports:
         - containerPort: 10007
         resources: {}

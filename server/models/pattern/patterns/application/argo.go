@@ -3,10 +3,10 @@ package application
 // import (
 // 	"os"
 
-// 	"github.com/layer5io/meshplay/server/helpers"
-// 	"github.com/layer5io/meshplay/server/models"
-// 	"github.com/layer5io/meshplay/server/models/pattern/patterns/application/argo/v1alpha1"
-// 	patternUtils "github.com/layer5io/meshplay/server/models/pattern/utils"
+// 	"github.com/khulnasoft/meshplay/server/helpers"
+// 	"github.com/khulnasoft/meshplay/server/models"
+// 	"github.com/khulnasoft/meshplay/server/models/pattern/patterns/application/argo/v1alpha1"
+// 	patternUtils "github.com/khulnasoft/meshplay/server/models/pattern/utils"
 // 	"github.com/layer5io/meshkit/logger"
 // 	"github.com/layer5io/meshkit/utils"
 // 	meshkube "github.com/layer5io/meshkit/utils/kubernetes"

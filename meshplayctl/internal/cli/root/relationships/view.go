@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,10 +23,10 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/components"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/meshery/schemas/models/v1alpha3/relationship"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/components"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -38,10 +38,10 @@ var ViewRelationshipsCmd = &cobra.Command{
 	Long:  "view a relationship queried by the model name",
 	Example: `
 // View relationships of a model
-mesheryctl exp relationship view [model-name]
+meshplayctl exp relationship view [model-name]
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp relationships view [model-name]\nRun 'mesheryctl exp relationships view --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp relationships view [model-name]\nRun 'meshplayctl exp relationships view --help' to see detailed help message"
 		if len(args) == 0 {
 			return utils.ErrInvalidArgument(errors.New("missing required argument: [model-name]. " + errMsg))
 		} else if len(args) > 1 {
@@ -50,12 +50,12 @@ mesheryctl exp relationship view [model-name]
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		model := args[0]
 
 		url := fmt.Sprintf("%s/api/meshmodels/models/%s/relationships?pagesize=all", baseUrl, model)

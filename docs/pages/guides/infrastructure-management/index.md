@@ -5,10 +5,10 @@ permalink: guides/infrastructure-management/
 language: en
 category: infrastructure
 list: exclude
-abstract: Guides for understanding Meshery's ability to manage infrastructure.
+abstract: Guides for understanding Meshplay's ability to manage infrastructure.
 ---
 
-Guides for understanding Meshery's ability to manage infrastructure.
+Guides for understanding Meshplay's ability to manage infrastructure.
 
 {% assign sorted_pages = site.pages | sort: "name" %}
 

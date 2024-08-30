@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import FiltersCard from './FiltersCard';
 import { FILE_OPS } from '../../utils/Enum';
 import PublishIcon from '@material-ui/icons/Publish';
-import useStyles from '../MesheryPatterns/Grid.styles';
+import useStyles from '../MeshplayPatterns/Grid.styles';
 import { RJSFModalWrapper } from '../Modal';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
@@ -229,7 +229,7 @@ function FiltersGrid({
               handleSubmit={handlePublish}
               handleClose={handlePublishModalClose}
               submitBtnText="Submit for Approval"
-              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshery.io/concepts/catalog)"
+              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
             />
           </SistentModal>
         </UsesSistent>

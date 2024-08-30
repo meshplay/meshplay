@@ -36,7 +36,7 @@ const ServiceMeshScreen = ({ meshAdapters, meshAdaptersts, updateProgress }) => 
       return (
         <img
           style={{ height: '4rem', width: '4rem' }}
-          src={isActive ? image : '/static/img/meshery-logo/meshery-white.png'}
+          src={isActive ? image : '/static/img/meshplay-logo/meshplay-white.png'}
         />
       );
     };
@@ -49,8 +49,8 @@ const ServiceMeshScreen = ({ meshAdapters, meshAdaptersts, updateProgress }) => 
   }));
 
   const scrollItems = serviceMeshComponents.map((smesh) => ({
-    activeIcon: '/static/img/meshery-logo.png',
-    inactiveIcon: '/static/img/meshery-logo/meshery-white.png',
+    activeIcon: '/static/img/meshplay-logo.png',
+    inactiveIcon: '/static/img/meshplay-logo/meshplay-white.png',
   }));
 
   const itemsToBeRendered = serviceMeshComponents.map((comp) => {

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
-import { mesheryExtensionRoute } from '../pages/_app';
+import { meshplayExtensionRoute } from '../pages/_app';
 import { Colors } from '@/themes/app';
 
 const styles = makeStyles((theme) => ({
@@ -141,7 +141,7 @@ export function MeshMapEarlyAccessCard({
     if (buttonText === signUpText) {
       window.open('https://layer5.io/meshmap', '_blank');
     } else {
-      push(mesheryExtensionRoute);
+      push(meshplayExtensionRoute);
     }
     e.stopPropagation();
   };
@@ -183,7 +183,7 @@ export function MeshMapEarlyAccessCard({
       <Typography className={classes.caption} variant="subtitle1">
         <i>
           Friends don&apos;t let friends GitOps alone. Visually design and collaborate in real-time
-          with other Meshery users.
+          with other Meshplay users.
         </i>
       </Typography>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

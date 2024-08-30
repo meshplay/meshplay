@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-const MesheryOperatorIcon = ({ isActive }) => {
+const MeshplayOperatorIcon = ({ isActive }) => {
   return (
     <SvgIcon
       style={{ width: '3rem', height: 'auto' }}
@@ -68,4 +68,4 @@ const MesheryOperatorIcon = ({ isActive }) => {
   );
 };
 
-export default MesheryOperatorIcon;
+export default MeshplayOperatorIcon;

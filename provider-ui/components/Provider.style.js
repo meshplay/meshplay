@@ -10,7 +10,7 @@ export const CustomDiv = styled('div')(({ theme }) => ({
   marginTop : theme.spacing(3)
 }))
 
-export const MesheryLogo = styled('img')(({ theme }) => ({
+export const MeshplayLogo = styled('img')(({ theme }) => ({
   width : theme.spacing(50),
   maxWidth : '100%',
   height : 'auto'

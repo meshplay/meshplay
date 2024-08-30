@@ -1,20 +1,20 @@
 ---
 layout: page
-title: Setting up Meshery Development Environment on Windows
-permalink: project/contributing/meshery-windows
-abstract: How to set up Meshery Development Environment on Windows
+title: Setting up Meshplay Development Environment on Windows
+permalink: project/contributing/meshplay-windows
+abstract: How to set up Meshplay Development Environment on Windows
 language: en
 type: project
 category: contributing
 list: include
 --- 
 
-Meshery can be run on the Windows platform in three different modes.
+Meshplay can be run on the Windows platform in three different modes.
 1. Windows native mode
 2. Under WSL or WSL2
-3. Using Hyper-V to install a Linux VM to run Meshery.
+3. Using Hyper-V to install a Linux VM to run Meshplay.
 
-Running Meshery on WSL(2) or Hyper-V is not much different from running Meshery on a native Linux platform. The same instructions can be followed as already documented.
+Running Meshplay on WSL(2) or Hyper-V is not much different from running Meshplay on a native Linux platform. The same instructions can be followed as already documented.
 
 Essentially, all three platforms require the same prerequisites but the Linux platforms (as there are more than one of them) come with some of the prerequisites that Windows does not.
 
@@ -35,7 +35,7 @@ Here is a link to setting up WSL2: [https://learn.microsoft.com/en-us/windows/ws
 
 ## On Windows Native Mode
 
-Installing Meshery on native Windows may be a little more involved than installing Meshery on a Linux platform. That is because Linux installations usually come with a lot of the prerequisites preinstalled. Moreover, one is given a hint on the Linux platform on what to do next including the command, especially on Ubuntu.
+Installing Meshplay on native Windows may be a little more involved than installing Meshplay on a Linux platform. That is because Linux installations usually come with a lot of the prerequisites preinstalled. Moreover, one is given a hint on the Linux platform on what to do next including the command, especially on Ubuntu.
 
 On Windows, make, gcc and some of the other prerequisites do not come pre-installed, These will need to be installed manually. Also, after installing any of the items, it may be necessary to set its path. This can be done in the control panel by searching for setting the system environment variables.
 
@@ -136,7 +136,7 @@ Docker Toolbox uses Linux-specific kernel features, and can’t run natively on 
 ### 2. <b>[Install a new distro](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-your-linux-distribution-of-choice)</b>
 In this tutorial, [Ubuntu 18.04](https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab) will be the distro used. Feel free to use any distro of your choice.
 
-<strong>Note:</strong> If you choose to run Meshery without installing a distro, skip [step 2](#2-install-a-new-distro).
+<strong>Note:</strong> If you choose to run Meshplay without installing a distro, skip [step 2](#2-install-a-new-distro).
 
 ### 3. <b>Enable Docker</b>
 
@@ -170,7 +170,7 @@ Git Bash is a terminal emulator which provides git command line experience. This
 
 ### Get the code
 
-- Fork and then clone the [Meshery repository](https://github.com/layer5io/meshery)
+- Fork and then clone the [Meshplay repository](https://github.com/khulnasoft/meshplay)
   ```bash
-  $ git clone https://github.com/YOUR-USERNAME/meshery
+  $ git clone https://github.com/YOUR-USERNAME/meshplay
   ```

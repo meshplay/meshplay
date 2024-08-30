@@ -3,11 +3,11 @@ import { updateProgress } from '../../lib/store';
 import { useNotification } from '../../utils/hooks/useNotification';
 import { errorHandlerGenerator, successHandlerGenerator } from '../ConnectionWizard/helpers/common';
 import { pingKubernetes } from '../ConnectionWizard/helpers/kubernetesHelpers';
-import { pingMesheryOperator } from '../ConnectionWizard/helpers/mesheryOperator';
+import { pingMeshplayOperator } from '../ConnectionWizard/helpers/meshplayOperator';
 import { EVENT_TYPES } from '../../lib/event-types';
 import MeshsyncStatusQuery from '../graphql/queries/MeshsyncStatusQuery';
 import { useEffect, useState } from 'react';
-import fetchMesheryOperatorStatus from '../graphql/queries/OperatorStatusQuery';
+import fetchMeshplayOperatorStatus from '../graphql/queries/OperatorStatusQuery';
 import NatsStatusQuery from '../graphql/queries/NatsStatusQuery';
 import { CONTROLLERS, CONTROLLER_STATES } from '../../utils/Enum';
 import _ from 'lodash';
@@ -55,7 +55,7 @@ const handleInfoGenerator = (notify) => (message) => {
   });
 };
 
-export function useMesheryOperator() {
+export function useMeshplayOperator() {
   const { notify } = useNotification();
   const dispatch = useDispatch();
   const handleError = handleErrorGenerator(dispatch, notify);
@@ -63,10 +63,10 @@ export function useMesheryOperator() {
 
   const ping = ({ connectionID }) => {
     dispatch(updateProgress({ showProgress: true }));
-    pingMesheryOperator(
+    pingMeshplayOperator(
       connectionID,
-      () => handleSuccess(`Meshery Operator  pinged`),
-      (err) => handleError(`Meshery Operator not reachable`, err),
+      () => handleSuccess(`Meshplay Operator  pinged`),
+      (err) => handleError(`Meshplay Operator not reachable`, err),
     );
   };
 
@@ -98,7 +98,7 @@ export function useMeshsSyncController() {
           res.controller.name === 'MeshSync' &&
           !res.controller.status.includes('Unknown')
         ) {
-          handleError('MeshSync is not publishing to Meshery Broker');
+          handleError('MeshSync is not publishing to Meshplay Broker');
         } else {
           handleError('MeshSync could not be reached');
         }
@@ -132,11 +132,11 @@ export const useGetOperatorInfoQuery = ({ connectionID }) => {
   useEffect(() => {
     setIsLoading(true);
     dispatch(updateProgress({ showProgress: true }));
-    handleInfo('Fetching Meshery Operator status');
+    handleInfo('Fetching Meshplay Operator status');
     // react-realy fetchQuery function returns a "Observable". To start a request subscribe needs to be called.
     // The data is stored into the react-relay store, the data is retrieved by subscribing to the relay store.
     // This subscription only subscribes to the fetching of the query and not to any subsequent changes to data in the relay store.
-    const tempSubscription = fetchMesheryOperatorStatus({ connectionID: connectionID }).subscribe({
+    const tempSubscription = fetchMeshplayOperatorStatus({ connectionID: connectionID }).subscribe({
       next: () => {
         setIsLoading(false);
 
@@ -147,13 +147,13 @@ export const useGetOperatorInfoQuery = ({ connectionID }) => {
         //   ...operatorInfo,
         //   meshSyncStatus: operatorInfo.MeshSync ? operatorInfo.MeshSync.status : '',
         //   meshSyncVersion: operatorInfo.MeshSync ? operatorInfo.MeshSync.version : '',
-        //   NATSVersion: operatorInfo.MesheryBroker ? operatorInfo.MesheryBroker.version : '',
-        //   natsStatus: operatorInfo.MesheryBroker ? operatorInfo.MesheryBroker.status : '',
+        //   NATSVersion: operatorInfo.MeshplayBroker ? operatorInfo.MeshplayBroker.version : '',
+        //   natsStatus: operatorInfo.MeshplayBroker ? operatorInfo.MeshplayBroker.status : '',
         // });
       },
       error: () => {
         setIsLoading(false);
-        handleError('Meshery Operator status could not be retrieved');
+        handleError('Meshplay Operator status could not be retrieved');
       },
     });
     return () => {
@@ -182,7 +182,7 @@ export const useNatsController = () => {
         dispatch(updateProgress({ showProgress: false }));
 
         if (
-          res.controller.name === 'MesheryBroker' &&
+          res.controller.name === 'MeshplayBroker' &&
           res.controller.status.includes('Connected')
         ) {
           let runningEndpoint = res.controller.status.substring('Connected'.length);
@@ -191,8 +191,8 @@ export const useNatsController = () => {
           );
         } else {
           handleError(
-            'Meshery Broker could not be reached',
-            'Meshery Server is not connected to Meshery Broker',
+            'Meshplay Broker could not be reached',
+            'Meshplay Server is not connected to Meshplay Broker',
           );
         }
 

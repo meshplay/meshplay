@@ -1,4 +1,4 @@
-import { CustomTextTooltip } from '@/components/MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '@/components/MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { Grid, TableCell, TableSortLabel, Typography } from '@material-ui/core';
 
 export const SortableTableCell = ({ index, columnData, columnMeta, onSort, icon, tooltip }) => {

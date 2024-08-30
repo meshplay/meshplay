@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-token-delete
-permalink: reference/mesheryctl/system/token/delete
-redirect_from: reference/mesheryctl/system/token/delete/
+title: meshplayctl-system-token-delete
+permalink: reference/meshplayctl/system/token/delete
+redirect_from: reference/meshplayctl/system/token/delete/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: system
 subcommand: token
 ---
 
-# mesheryctl system token delete
+# meshplayctl system token delete
 
 Delete a token from your meshconfig
 
@@ -19,7 +19,7 @@ Delete a token from your meshconfig
 Delete the token with provided token name from your meshconfig tokens.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token delete [flags]
+meshplayctl system token delete [flags]
 
 </div>
 </pre> 
@@ -28,7 +28,7 @@ mesheryctl system token delete [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token delete [token-name]
+meshplayctl system token delete [token-name]
 
 </div>
 </pre> 
@@ -46,7 +46,7 @@ mesheryctl system token delete [token-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -56,4 +56,4 @@ mesheryctl system token delete [token-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

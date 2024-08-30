@@ -4,7 +4,7 @@ title: k6
 subtitle: Collaborative and visual infrastructure as design for k6
 image: /assets/img/integrations/k6-operator/icons/color/k6-operator-color.svg
 permalink: extensibility/integrations/k6-operator
-docURL: https://docs.meshery.io/extensibility/integrations/k6-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/k6-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

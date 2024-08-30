@@ -4,7 +4,7 @@ title: Kured
 subtitle: Collaborative and visual infrastructure as design for Kured
 image: /assets/img/integrations/kured/icons/color/kured-color.svg
 permalink: extensibility/integrations/kured
-docURL: https://docs.meshery.io/extensibility/integrations/kured
+docURL: https://docs.meshplay.io/extensibility/integrations/kured
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MesheryIcon = ({
+const MeshplayIcon = ({
   width,
   height,
   fill,
@@ -48,4 +48,4 @@ const MesheryIcon = ({
   </svg>
 );
 
-export default MesheryIcon;
+export default MeshplayIcon;

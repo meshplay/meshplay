@@ -1,4 +1,4 @@
-// # Copyright Meshery Authors
+// # Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	mutils "github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/store"
-	comp "github.com/meshery/schemas/models/v1beta1/component"
+	comp "github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/sirupsen/logrus"
 
 	"github.com/spf13/cobra"
@@ -36,7 +36,7 @@ var (
 	errorLogFile             *os.File
 	sheetGID                 int64
 	totalAggregateComponents int
-	logDirPath               = filepath.Join(mutils.GetHome(), ".meshery", "logs", "registry")
+	logDirPath               = filepath.Join(mutils.GetHome(), ".meshplay", "logs", "registry")
 )
 
 var updateCmd = &cobra.Command{
@@ -44,11 +44,11 @@ var updateCmd = &cobra.Command{
 	Short: "Update the registry with latest data.",
 	Long:  "Updates the component metadata (SVGs, shapes, styles and other) by referring from a Google Spreadsheet.",
 	Example: `
-// Update models from Meshery Integration Spreadsheet
-mesheryctl registry update --spreadsheet-id [id] --spreadsheet-cred [base64 encoded spreadsheet credential] -i [path to the directory containing models].
+// Update models from Meshplay Integration Spreadsheet
+meshplayctl registry update --spreadsheet-id [id] --spreadsheet-cred [base64 encoded spreadsheet credential] -i [path to the directory containing models].
 
-// Updating models in the meshery/meshery repo
-mesheryctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw --spreadsheet-cred $CRED
+// Updating models in the meshplay/meshplay repo
+meshplayctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw --spreadsheet-cred $CRED
 	`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 

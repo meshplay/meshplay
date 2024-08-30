@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-components-list
-permalink: reference/mesheryctl/exp/components/list
-redirect_from: reference/mesheryctl/exp/components/list/
+title: meshplayctl-exp-components-list
+permalink: reference/meshplayctl/exp/components/list
+redirect_from: reference/meshplayctl/exp/components/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: exp
 subcommand: components
 ---
 
-# mesheryctl exp components list
+# meshplayctl exp components list
 
 List registered components
 
 ## Synopsis
 
-List all components registered in Meshery Server
+List all components registered in Meshplay Server
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components list [flags]
+meshplayctl exp components list [flags]
 
 </div>
 </pre> 
@@ -35,7 +35,7 @@ mesheryctl exp components list [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components list
+meshplayctl exp components list
 
 </div>
 </pre> 
@@ -43,7 +43,7 @@ mesheryctl exp components list
 View list of components with specified page number (25 components per page)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components list --page 2
+meshplayctl exp components list --page 2
 
 </div>
 </pre> 
@@ -51,7 +51,7 @@ mesheryctl exp components list --page 2
 View Total number of components
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components list --count
+meshplayctl exp components list --count
 
 </div>
 </pre> 
@@ -71,7 +71,7 @@ mesheryctl exp components list --count
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -79,4 +79,4 @@ mesheryctl exp components list --count
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

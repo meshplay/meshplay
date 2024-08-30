@@ -8,7 +8,7 @@ import (
 
 	"github.com/gofrs/uuid"
 	gofrs "github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	mutils "github.com/layer5io/meshkit/utils"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1alpha3/relationship"
@@ -186,7 +186,7 @@ func FailedEventCompute(hostname string, meshplayInstanceID gofrs.UUID, provider
 		errorEvent := errorEventBuilder.Build()
 		errorEventBuilder.WithMetadata(map[string]interface{}{
 			"LongDescription":      fmt.Sprintf("One or more entities failed to register. The import process for registrant, %s, encountered the following issue: %s.", hostname, failedMsg),
-			"SuggestedRemediation": fmt.Sprintf("Open Meshery Error Reference with error code %s", "https://docs.meshplay.io/reference/error-codes"),
+			"SuggestedRemediation": fmt.Sprintf("Open Meshplay Error Reference with error code %s", "https://docs.meshplay.io/reference/error-codes"),
 			"DownloadLink":         filePath,
 			"ViewLink":             filePath,
 		})

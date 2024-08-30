@@ -4,7 +4,7 @@ title: K8GB
 subtitle: Collaborative and visual infrastructure as design for K8GB
 image: /assets/img/integrations/k8gb/icons/color/k8gb-color.svg
 permalink: extensibility/integrations/k8gb
-docURL: https://docs.meshery.io/extensibility/integrations/k8gb
+docURL: https://docs.meshplay.io/extensibility/integrations/k8gb
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Coordination & Service Discovery

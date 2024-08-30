@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-environment
-permalink: reference/mesheryctl/exp/environment
-redirect_from: reference/mesheryctl/exp/environment/
+title: meshplayctl-exp-environment
+permalink: reference/meshplayctl/exp/environment
+redirect_from: reference/meshplayctl/exp/environment/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: environment
 ---
 
-# mesheryctl exp environment
+# meshplayctl exp environment
 
 View list of environments and detail of environments
 
@@ -19,7 +19,7 @@ View list of environments and detail of environments
 View list of environments and detailed information of a specific environments
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment [flags]
+meshplayctl exp environment [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp environment [flags]
 To view a list environments
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment list --orgID [orgId]
+meshplayctl exp environment list --orgID [orgId]
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl exp environment list --orgID [orgId]
 To create a environment
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp environment create --orgID [orgId] --name [name] --description [description]
+meshplayctl exp environment create --orgID [orgId] --name [name] --description [description]
 
 </div>
 </pre> 
@@ -63,7 +63,7 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -71,4 +71,4 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -10,11 +10,11 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/machines"
-	"github.com/layer5io/meshplay/server/machines/helpers"
-	"github.com/layer5io/meshplay/server/machines/kubernetes"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/machines/helpers"
+	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/models/events"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 )
@@ -389,7 +389,7 @@ func (h *Handler) UpdateConnectionStatus(w http.ResponseWriter, req *http.Reques
 
 			machineCtx := &kubernetes.MachineCtx{
 				K8sContext:         k8scontext,
-				MesheryCtrlsHelper: h.MesheryCtrlsHelper,
+				MeshplayCtrlsHelper: h.MeshplayCtrlsHelper,
 				K8sCompRegHelper:   h.K8sCompRegHelper,
 				OperatorTracker:    h.config.OperatorTracker,
 				K8scontextChannel:  h.config.K8scontextChannel,

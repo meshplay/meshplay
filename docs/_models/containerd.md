@@ -4,7 +4,7 @@ title: Containerd
 subtitle: Collaborative and visual infrastructure as design for Containerd
 image: /assets/img/integrations/containerd/icons/color/containerd-color.svg
 permalink: extensibility/integrations/containerd
-docURL: https://docs.meshery.io/extensibility/integrations/containerd
+docURL: https://docs.meshplay.io/extensibility/integrations/containerd
 description: 
 integrations-category: Runtime
 integrations-subcategory: Container Runtime

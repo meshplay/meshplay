@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models/environments"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
@@ -35,7 +35,7 @@ var createEnvironmentCmd = &cobra.Command{
 	Long:  `Create a new environments by providing the name and description of the environment`,
 	Example: `
 // Create a new environment
-mesheryctl exp environment create --orgID [orgID] --name [name] --description [description] 
+meshplayctl exp environment create --orgID [orgID] --name [name] --description [description] 
 // Documentation for environment can be found at:
 https://docs.layer5.io/cloud/spaces/environments/
 `,
@@ -56,12 +56,12 @@ https://docs.layer5.io/cloud/spaces/environments/
 
 	RunE: func(cmd *cobra.Command, args []string) error {
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return err
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := fmt.Sprintf("%s/api/environments", baseUrl)
 
 		if name == "" || description == "" {

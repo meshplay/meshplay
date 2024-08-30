@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@ package environments
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models/environments"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 
 	"github.com/fatih/color"
 	"github.com/manifoldco/promptui"
@@ -46,9 +46,9 @@ var EnvironmentCmd = &cobra.Command{
 	Long:  "View list of environments and detailed information of a specific environments",
 	Example: `
 // To view a list environments
-mesheryctl exp environment list --orgID [orgId]
+meshplayctl exp environment list --orgID [orgId]
 // To create a environment
-mesheryctl exp environment create --orgID [orgId] --name [name] --description [description]
+meshplayctl exp environment create --orgID [orgId] --name [name] --description [description]
 // Documentation for environment can be found at:
 https://docs.layer5.io/cloud/spaces/environments/
 	`,
@@ -63,9 +63,9 @@ https://docs.layer5.io/cloud/spaces/environments/
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return utils.ErrInvalidArgument(errors.New(utils.EnvironmentSubError(fmt.Sprintf("'%s' is an invalid command. Use 'mesheryctl exp environment --help' to display usage guide.'\n", args[0]), "environment")))
+			return utils.ErrInvalidArgument(errors.New(utils.EnvironmentSubError(fmt.Sprintf("'%s' is an invalid command. Use 'meshplayctl exp environment --help' to display usage guide.'\n", args[0]), "environment")))
 		}
-		_, err := config.GetMesheryCtl(viper.GetViper())
+		_, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}

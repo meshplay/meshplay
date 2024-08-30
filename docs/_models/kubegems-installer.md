@@ -4,7 +4,7 @@ title: Kubegems Installer
 subtitle: Collaborative and visual infrastructure as design for Kubegems Installer
 image: /assets/img/integrations/kubegems-installer/icons/color/kubegems-installer-color.svg
 permalink: extensibility/integrations/kubegems-installer
-docURL: https://docs.meshery.io/extensibility/integrations/kubegems-installer
+docURL: https://docs.meshplay.io/extensibility/integrations/kubegems-installer
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

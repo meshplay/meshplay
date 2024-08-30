@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	smp "github.com/layer5io/service-mesh-performance/spec"
 	"github.com/manifoldco/promptui"
 	log "github.com/sirupsen/logrus"
@@ -40,14 +40,14 @@ var (
 var (
 	adapterURL string
 	err        error
-	mctlCfg    *config.MesheryCtlConfig
+	mctlCfg    *config.MeshplayCtlConfig
 	namespace  string
 	watch      bool
 	AdapterCmd = &cobra.Command{
 		Use:   "adapter",
 		Short: "Cloud Native Lifecycle Management",
 		Long: `Provisioning, configuration, and on-going operational management of cloud and cloud native infrastructure.
-	Find more information at: https://docs.meshery.io/reference/mesheryctl#command-reference`,
+	Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 
 			// if `mesh` command is ran without any subcommands, show Help and exit
@@ -55,8 +55,8 @@ var (
 				return cmd.Help()
 			}
 
-			// get the meshery config
-			mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+			// get the meshplay config
+			mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 			if err != nil {
 				utils.Log.Error(err)
 				return nil
@@ -98,12 +98,12 @@ func init() {
 	AdapterCmd.AddCommand(availableSubcommands...)
 	AdapterCmd.PersistentFlags().StringVarP(
 		&utils.TokenFlag, "token", "t", "",
-		"Path to token for authenticating to Meshery API",
+		"Path to token for authenticating to Meshplay API",
 	)
 }
 
-func validateAdapter(mctlCfg *config.MesheryCtlConfig, meshName string) error {
-	// get details about the current meshery session
+func validateAdapter(mctlCfg *config.MeshplayCtlConfig, meshName string) error {
+	// get details about the current meshplay session
 	prefs, err := utils.GetSessionData(mctlCfg)
 	if err != nil {
 		return ErrGettingSessionData(err)
@@ -121,7 +121,7 @@ func validateAdapter(mctlCfg *config.MesheryCtlConfig, meshName string) error {
 	return ErrNoAdapters
 }
 
-func validateMesh(mctlCfg *config.MesheryCtlConfig, meshName string) (string, error) {
+func validateMesh(mctlCfg *config.MeshplayCtlConfig, meshName string) (string, error) {
 	// if a mesh name is provided, verify it is valid
 	if meshName != "" {
 		if _, ok := smp.ServiceMesh_Type_value[meshName]; ok {
@@ -133,7 +133,7 @@ func validateMesh(mctlCfg *config.MesheryCtlConfig, meshName string) (string, er
 		return "", ErrValidMeshName(meshName)
 	}
 
-	// get details about the current meshery session
+	// get details about the current meshplay session
 	prefs, err := utils.GetSessionData(mctlCfg)
 	if err != nil {
 		return "", ErrGettingSessionData(err)
@@ -164,8 +164,8 @@ func validateMesh(mctlCfg *config.MesheryCtlConfig, meshName string) (string, er
 	return meshNames[i], nil
 }
 
-func sendOperationRequest(mctlCfg *config.MesheryCtlConfig, query string, delete bool, spec string) (string, error) {
-	path := mctlCfg.GetBaseMesheryURL() + "/api/system/adapter/operation"
+func sendOperationRequest(mctlCfg *config.MeshplayCtlConfig, query string, delete bool, spec string) (string, error) {
+	path := mctlCfg.GetBaseMeshplayURL() + "/api/system/adapter/operation"
 	method := "POST"
 	data := url.Values{}
 	data.Set("adapter", adapterURL)
@@ -188,7 +188,7 @@ func sendOperationRequest(mctlCfg *config.MesheryCtlConfig, query string, delete
 		}
 	case "istio-vet":
 		{
-			if adapterURL == "meshery-istio:10000" {
+			if adapterURL == "meshplay-istio:10000" {
 				data.Set("query", "istio-vet")
 				break
 			}
@@ -228,8 +228,8 @@ func sendOperationRequest(mctlCfg *config.MesheryCtlConfig, query string, delete
 	return string(body), nil
 }
 
-func waitForDeployResponse(mctlCfg *config.MesheryCtlConfig, query string) (string, error) {
-	path := mctlCfg.GetBaseMesheryURL() + "/api/events?client=cli_deploy"
+func waitForDeployResponse(mctlCfg *config.MeshplayCtlConfig, query string) (string, error) {
+	path := mctlCfg.GetBaseMeshplayURL() + "/api/events?client=cli_deploy"
 	method := "GET"
 	client := &http.Client{}
 	req, err := utils.NewRequest(method, path, nil)
@@ -276,8 +276,8 @@ func waitForDeployResponse(mctlCfg *config.MesheryCtlConfig, query string) (stri
 	return "", nil
 }
 
-func waitForValidateResponse(mctlCfg *config.MesheryCtlConfig, query string) (string, error) {
-	path := mctlCfg.GetBaseMesheryURL() + "/api/events?client=cli_validate"
+func waitForValidateResponse(mctlCfg *config.MeshplayCtlConfig, query string) (string, error) {
+	path := mctlCfg.GetBaseMeshplayURL() + "/api/events?client=cli_validate"
 	method := "GET"
 	client := &http.Client{}
 	req, err := utils.NewRequest(method, path, nil)

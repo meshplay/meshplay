@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/machines"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
@@ -104,7 +104,7 @@ func Initial() machines.State {
 
 type MachineCtx struct {
 	K8sContext         models.K8sContext
-	MesheryCtrlsHelper *models.MesheryControllersHelper
+	MeshplayCtrlsHelper *models.MeshplayControllersHelper
 	K8sCompRegHelper   *models.ComponentsRegistrationHelper
 	EventBroadcaster   *models.Broadcast
 	clientset          *kubernetes.Client

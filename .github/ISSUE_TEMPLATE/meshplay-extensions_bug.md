@@ -1,6 +1,6 @@
 ---
-name: ⌨️ 🐛 Meshery Extensions Bug Report
-about: Report a bug in Meshery Extensions
+name: ⌨️ 🐛 Meshplay Extensions Bug Report
+about: Report a bug in Meshplay Extensions
 title: '[Extensions]'
 labels: kind/bug, component/extensions
 assignees: ''
@@ -19,15 +19,15 @@ assignees: ''
 ### Environment
 
 - Host OS: Mac Linux Windows
-- Meshery Server Version: stable-v
-- Meshery Client Version: stable-v
+- Meshplay Server Version: stable-v
+- Meshplay Client Version: stable-v
 - Platform: Docker Kubernetes
 
 ---
 
-### Contributor [Guides](https://docs.meshery.io/project/contributing) and [Handbook](https://layer5.io/community/handbook)
-- 📚 [Meshery Build and Release Strategy](https://docs.meshery.io/project/contributing/build-and-release)
-- 🎨 UI Design For Meshery Extensions [Figma](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshery-UI) in Figma [(open invite)](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9)
-- 📚 [Meshery Extensibility Providers](https://docs.meshery.io/extensibility/providers)
-- ⌨️ [Meshery API Docs](https://docs.meshery.io/extensibility/api)
-- 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshery.io) and [Community Slack](https://slack.meshery.io)
+### Contributor [Guides](https://docs.meshplay.io/project/contributing) and [Handbook](https://layer5.io/community/handbook)
+- 📚 [Meshplay Build and Release Strategy](https://docs.meshplay.io/project/contributing/build-and-release)
+- 🎨 UI Design For Meshplay Extensions [Figma](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI) in Figma [(open invite)](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9)
+- 📚 [Meshplay Extensibility Providers](https://docs.meshplay.io/extensibility/providers)
+- ⌨️ [Meshplay API Docs](https://docs.meshplay.io/extensibility/api)
+- 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshplay.io) and [Community Slack](https://slack.meshplay.io)

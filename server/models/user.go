@@ -13,7 +13,7 @@ var (
 	GlobalTokenForAnonymousResults = "dev_token"
 )
 
-// User - represents a user in Meshery
+// User - represents a user in Meshplay
 type User struct {
 	ID        string `json:"id,omitempty"`
 	UserID    string `json:"user_id,omitempty"`

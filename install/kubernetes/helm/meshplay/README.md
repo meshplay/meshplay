@@ -1,14 +1,14 @@
-# meshery
+# meshplay
 
 ![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Meshery chart for deploying Meshery
+Meshplay chart for deploying Meshplay
 
 ## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Meshery Authors | <maintainers@meshery.io> |  |
+| Meshplay Authors | <maintainers@meshplay.io> |  |
 
 ## Values
 
@@ -16,14 +16,14 @@ Meshery chart for deploying Meshery
 |-------------------------------------------------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | affinity                                        | object | `{}`                                                                                                                                                                                                  |  |
 | annotations                                     | object | `{}`                                                                                                                                                                                                  |  |
-| env.ADAPTER_URLS                                | string | `"meshery-istio:10000 meshery-linkerd:10001 meshery-consul:10002 meshery-kuma:10007 meshery-nginx-sm:10010 meshery-nsm:10004 meshery-app-mesh:10005 meshery-traefik-mesh:10006 meshery-cilium:10012"` | Optionally, pre-configure Meshery Server with the set of Meshery Adapters used in the deployment. |
-| env.EVENT                                       | string | `"mesheryLocal"`                                                                                                                                                                                      |  |
-| env.PROVIDER                                    | string | `"Local"`                                                                                                                                                                                             | Use this security-related setting to enforce selection of one and only one Provider. In this way, your Meshery deployment will only trust and only allow users to authenticate using the Provider you have configured in this setting. See the [Remote Provider documentation](https://docs.meshery.io/extensibility/providers) for a description of what a Provider is.  |
-| env.MESHPLAY_SERVER_CALLBACK_URL                 | string | `""`                                                                                                                                                                                                  | Configure an OAuth callback URL for Meshery Server to use when signing into a Remote Provider and your Meshery Server instance is not directly reachable by that Remote Provider. See the [Remote Provider documentation](https://docs.meshery.io/extensibility/providers#configurable-oauth-callback-url) for more details. |
-| env.PROVIDER_BASE_URLS                          | string | `"https://meshery.layer5.io"`                                                                                                                                                                         | Configure your Remote Provider of choice. See the [Remote Provider documentation](https://docs.meshery.io/extensibility/providers) for a description of what a Provider is. |
+| env.ADAPTER_URLS                                | string | `"meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-kuma:10007 meshplay-nginx-sm:10010 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-traefik-mesh:10006 meshplay-cilium:10012"` | Optionally, pre-configure Meshplay Server with the set of Meshplay Adapters used in the deployment. |
+| env.EVENT                                       | string | `"meshplayLocal"`                                                                                                                                                                                      |  |
+| env.PROVIDER                                    | string | `"Local"`                                                                                                                                                                                             | Use this security-related setting to enforce selection of one and only one Provider. In this way, your Meshplay deployment will only trust and only allow users to authenticate using the Provider you have configured in this setting. See the [Remote Provider documentation](https://docs.meshplay.io/extensibility/providers) for a description of what a Provider is.  |
+| env.MESHPLAY_SERVER_CALLBACK_URL                 | string | `""`                                                                                                                                                                                                  | Configure an OAuth callback URL for Meshplay Server to use when signing into a Remote Provider and your Meshplay Server instance is not directly reachable by that Remote Provider. See the [Remote Provider documentation](https://docs.meshplay.io/extensibility/providers#configurable-oauth-callback-url) for more details. |
+| env.PROVIDER_BASE_URLS                          | string | `"https://meshplay.layer5.io"`                                                                                                                                                                         | Configure your Remote Provider of choice. See the [Remote Provider documentation](https://docs.meshplay.io/extensibility/providers) for a description of what a Provider is. |
 | fullnameOverride                                | string | `""`                                                                                                                                                                                                  |  |
 | image.pullPolicy                                | string | `"Always"`                                                                                                                                                                                            |  |
-| image.repository                                | string | `"layer5/meshery"`                                                                                                                                                                                    |  |
+| image.repository                                | string | `"layer5/meshplay"`                                                                                                                                                                                    |  |
 | image.tag                                       | string | `"stable-latest"`                                                                                                                                                                                     |  |
 | imagePullSecrets                                | list | `[]`                                                                                                                                                                                                  |  |
 | ingress.annotations                             | object | `{}`                                                                                                                                                                                                  |  |
@@ -31,44 +31,44 @@ Meshery chart for deploying Meshery
 | ingress.hosts[0].host                           | string | `"chart-example.local"`                                                                                                                                                                               |  |
 | ingress.hosts[0].paths                          | list | `[]`                                                                                                                                                                                                  |  |
 | ingress.tls                                     | list | `[]`                                                                                                                                                                                                  |  |
-| meshery-app-mesh.enabled                        | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-app-mesh.fullnameOverride               | string | `"meshery-app-mesh"`                                                                                                                                                                                  |  |
-| meshery-app-mesh.serviceAccountNameOverride     | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-cilium.enabled                          | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-cilium.fullnameOverride                 | string | `"meshery-cilium"`                                                                                                                                                                                    |  |
-| meshery-consul.enabled                          | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-consul.fullnameOverride                 | string | `"meshery-consul"`                                                                                                                                                                                    |  |
-| meshery-consul.serviceAccountNameOverride       | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-istio.enabled                           | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-istio.fullnameOverride                  | string | `"meshery-istio"`                                                                                                                                                                                     |  |
-| meshery-istio.serviceAccountNameOverride        | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-kuma.enabled                            | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-kuma.fullnameOverride                   | string | `"meshery-kuma"`                                                                                                                                                                                      |  |
-| meshery-kuma.serviceAccountNameOverride         | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-linkerd.enabled                         | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-linkerd.fullnameOverride                | string | `"meshery-linkerd"`                                                                                                                                                                                   |  |
-| meshery-linkerd.serviceAccountNameOverride      | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-nginx-sm.enabled                        | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-nginx-sm.fullnameOverride               | string | `"meshery-nginx-sm"`                                                                                                                                                                                  |  |
-| meshery-nginx-sm.serviceAccountNameOverride     | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-nsm.enabled                             | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-nsm.fullnameOverride                    | string | `"meshery-nsm"`                                                                                                                                                                                       |  |
-| meshery-nsm.serviceAccountNameOverride          | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-nighthawk.enabled                       | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-nighthawk.fullnameOverride              | string | `"meshery-nighthawk"`                                                                                                                                                                                 |  |
-| meshery-nighthawk.serviceAccountNameOverride    | string | `"meshery-nighthawk"`                                                                                                                                                                                    |  |
-| meshery-operator.enabled                        | bool | `true`                                                                                                                                                                                                | Enable to deploy this Meshery Operator upon initial deploymeent. Meshery Operator can be deployed post-installation using Meshery UI. |
-| meshery-operator.fullnameOverride               | string | `"meshery-operator"`                                                                                                                                                                                  |  |
-| meshery-osm.enabled                             | bool | `false`                                                                                                                                                                                               | OSM is an archived project. |
-| meshery-osm.fullnameOverride                    | string | `"meshery-osm"`                                                                                                                                                                                       |  |
-| meshery-osm.serviceAccountNameOverride          | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| meshery-traefik-mesh.enabled                    | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshery Adapter upon initial deployment. Meshery Adapters can be deployed post-installation using either Meshery CLI or UI. |
-| meshery-traefik-mesh.fullnameOverride           | string | `"meshery-traefik-mesh"`                                                                                                                                                                              |  |
-| meshery-traefik-mesh.serviceAccountNameOverride | string | `"meshery-server"`                                                                                                                                                                                    |  |
-| mesherygateway.enabled                          | bool | `false`                                                                                                                                                                                               |  |
-| mesherygateway.selector.istio                   | string | `"ingressgateway"`                                                                                                                                                                                    |  |
-| metadata.name                                   | string | `"meshery"`                                                                                                                                                                                           |  |
-| metadata.namespace                              | string | `"meshery"`                                                                                                                                                                                           |  |
+| meshplay-app-mesh.enabled                        | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-app-mesh.fullnameOverride               | string | `"meshplay-app-mesh"`                                                                                                                                                                                  |  |
+| meshplay-app-mesh.serviceAccountNameOverride     | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-cilium.enabled                          | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-cilium.fullnameOverride                 | string | `"meshplay-cilium"`                                                                                                                                                                                    |  |
+| meshplay-consul.enabled                          | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-consul.fullnameOverride                 | string | `"meshplay-consul"`                                                                                                                                                                                    |  |
+| meshplay-consul.serviceAccountNameOverride       | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-istio.enabled                           | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-istio.fullnameOverride                  | string | `"meshplay-istio"`                                                                                                                                                                                     |  |
+| meshplay-istio.serviceAccountNameOverride        | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-kuma.enabled                            | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-kuma.fullnameOverride                   | string | `"meshplay-kuma"`                                                                                                                                                                                      |  |
+| meshplay-kuma.serviceAccountNameOverride         | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-linkerd.enabled                         | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-linkerd.fullnameOverride                | string | `"meshplay-linkerd"`                                                                                                                                                                                   |  |
+| meshplay-linkerd.serviceAccountNameOverride      | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-nginx-sm.enabled                        | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-nginx-sm.fullnameOverride               | string | `"meshplay-nginx-sm"`                                                                                                                                                                                  |  |
+| meshplay-nginx-sm.serviceAccountNameOverride     | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-nsm.enabled                             | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-nsm.fullnameOverride                    | string | `"meshplay-nsm"`                                                                                                                                                                                       |  |
+| meshplay-nsm.serviceAccountNameOverride          | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-nighthawk.enabled                       | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-nighthawk.fullnameOverride              | string | `"meshplay-nighthawk"`                                                                                                                                                                                 |  |
+| meshplay-nighthawk.serviceAccountNameOverride    | string | `"meshplay-nighthawk"`                                                                                                                                                                                    |  |
+| meshplay-operator.enabled                        | bool | `true`                                                                                                                                                                                                | Enable to deploy this Meshplay Operator upon initial deploymeent. Meshplay Operator can be deployed post-installation using Meshplay UI. |
+| meshplay-operator.fullnameOverride               | string | `"meshplay-operator"`                                                                                                                                                                                  |  |
+| meshplay-osm.enabled                             | bool | `false`                                                                                                                                                                                               | OSM is an archived project. |
+| meshplay-osm.fullnameOverride                    | string | `"meshplay-osm"`                                                                                                                                                                                       |  |
+| meshplay-osm.serviceAccountNameOverride          | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplay-traefik-mesh.enabled                    | bool | `false`                                                                                                                                                                                               | Enable to deploy this Meshplay Adapter upon initial deployment. Meshplay Adapters can be deployed post-installation using either Meshplay CLI or UI. |
+| meshplay-traefik-mesh.fullnameOverride           | string | `"meshplay-traefik-mesh"`                                                                                                                                                                              |  |
+| meshplay-traefik-mesh.serviceAccountNameOverride | string | `"meshplay-server"`                                                                                                                                                                                    |  |
+| meshplaygateway.enabled                          | bool | `false`                                                                                                                                                                                               |  |
+| meshplaygateway.selector.istio                   | string | `"ingressgateway"`                                                                                                                                                                                    |  |
+| metadata.name                                   | string | `"meshplay"`                                                                                                                                                                                           |  |
+| metadata.namespace                              | string | `"meshplay"`                                                                                                                                                                                           |  |
 | nameOverride                                    | string | `""`                                                                                                                                                                                                  |  |
 | nodeSelector                                    | object | `{}`                                                                                                                                                                                                  |  |
 | podSecurityContext                              | object | `{}`                                                                                                                                                                                                  |  |
@@ -83,14 +83,14 @@ Meshery chart for deploying Meshery
 | service.port                                    | int | `9081`                                                                                                                                                                                                |  |
 | service.target_port                             | int | `8080`                                                                                                                                                                                                |  |
 | service.type                                    | string | `"LoadBalancer"`                                                                                                                                                                                      |  |
-| serviceAccount.name                             | string | `"meshery-server"`                                                                                                                                                                                    |  |
+| serviceAccount.name                             | string | `"meshplay-server"`                                                                                                                                                                                    |  |
 | testCase.enabled                                | bool | `false`                                                                                                                                                                                               |  |
 | tolerations                                     | list | `[]`                                                                                                                                                                                                  |  |
 
 ## Setup Repo Info
 
 ```console
-helm repo add meshery meshery https://meshery.io/charts/
+helm repo add meshplay meshplay https://meshplay.io/charts/
 helm repo update
 ```
 
@@ -98,32 +98,32 @@ _See [helm repo](https://helm.sh/docs/helm/helm_repo/) for command documentation
 
 ## Installing the Chart
 
-To install the chart with the release name `meshery`:
+To install the chart with the release name `meshplay`:
 
 ```console
-kubectl create namespace meshery
-helm install meshery meshery/meshery
+kubectl create namespace meshplay
+helm install meshplay meshplay/meshplay
 ```
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `meshery` deployment:
+To uninstall/delete the `meshplay` deployment:
 
 ```console
-helm delete meshery
+helm delete meshplay
 ```
 
 ## Installing the Chart with a custom namespace
 
 ```console
-kubectl create namespace meshery
-helm install meshery meshery/meshery --namespace meshery
+kubectl create namespace meshplay
+helm install meshplay meshplay/meshplay --namespace meshplay
 ```
 
-## Installing the Chart with a custom Meshery Adapters
+## Installing the Chart with a custom Meshplay Adapters
 
-Eg: For [Meshery Adapter for Istio](https://github.com/meshery/meshery-istio)
+Eg: For [Meshplay Adapter for Istio](https://github.com/meshplay/meshplay-istio)
 ```console
-kubectl create namespace meshery
-helm install meshery meshery/meshery --set meshery-istio.enabled=true
+kubectl create namespace meshplay
+helm install meshplay meshplay/meshplay --set meshplay-istio.enabled=true
 ```

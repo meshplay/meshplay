@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ import (
 	"io"
 
 	"github.com/ghodss/yaml"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -33,8 +33,8 @@ var (
 )
 
 var linkDocPatternView = map[string]string{
-	"link":    "![pattern-view-usage](/assets/img/mesheryctl/patternView.png)",
-	"caption": "Usage of mesheryctl pattern view",
+	"link":    "![pattern-view-usage](/assets/img/meshplayctl/patternView.png)",
+	"caption": "Usage of meshplayctl pattern view",
 }
 
 var viewCmd = &cobra.Command{
@@ -44,11 +44,11 @@ var viewCmd = &cobra.Command{
 	Args:  cobra.MaximumNArgs(1),
 	Example: `
 // view a pattern
-mesheryctl pattern view [pattern-name | ID]
+meshplayctl pattern view [pattern-name | ID]
 	`,
 	Annotations: linkDocPatternView,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -60,13 +60,13 @@ mesheryctl pattern view [pattern-name | ID]
 			if viewAllFlag {
 				return errors.New("-a cannot be used when [pattern-name|pattern-id] is specified")
 			}
-			pattern, isID, err = utils.ValidId(mctlCfg.GetBaseMesheryURL(), args[0], "pattern")
+			pattern, isID, err = utils.ValidId(mctlCfg.GetBaseMeshplayURL(), args[0], "pattern")
 			if err != nil {
 				utils.Log.Error(ErrPatternInvalidNameOrID(err))
 				return nil
 			}
 		}
-		url := mctlCfg.GetBaseMesheryURL()
+		url := mctlCfg.GetBaseMeshplayURL()
 		if len(pattern) == 0 {
 			if viewAllFlag {
 				url += "/api/pattern?pagesize=10000"

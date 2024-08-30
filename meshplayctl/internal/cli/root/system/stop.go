@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	apiextension "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -34,31 +34,31 @@ import (
 	"github.com/spf13/viper"
 	controllerConfig "sigs.k8s.io/controller-runtime/pkg/client/config"
 
-	"github.com/layer5io/meshery-operator/api/v1alpha1"
+	"github.com/khulnasoft/meshplay-operator/api/v1alpha1"
 )
 
 var (
-	// forceDelete used to clean-up meshery resources forcefully
+	// forceDelete used to clean-up meshplay resources forcefully
 	forceDelete bool
 )
 
 // stopCmd represents the stop command
 var stopCmd = &cobra.Command{
 	Use:   "stop",
-	Short: "Stop Meshery",
-	Long:  `Stop all Meshery containers / remove all Meshery resources.`,
+	Short: "Stop Meshplay",
+	Long:  `Stop all Meshplay containers / remove all Meshplay resources.`,
 	Example: `
-// Stop Meshery
-mesheryctl system stop
+// Stop Meshplay
+meshplayctl system stop
 
-// Reset Meshery's configuration file to default settings.
-mesheryctl system stop --reset
+// Reset Meshplay's configuration file to default settings.
+meshplayctl system stop --reset
 
-// (optional) keep the Meshery namespace during uninstallation
-mesheryctl system stop --keep-namespace
+// (optional) keep the Meshplay namespace during uninstallation
+meshplayctl system stop --keep-namespace
 
-// Stop Meshery forcefully (use it when system stop doesn't work)
-mesheryctl system stop --force
+// Stop Meshplay forcefully (use it when system stop doesn't work)
+meshplayctl system stop --force
 	`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		//Check prerequisite
@@ -78,7 +78,7 @@ mesheryctl system stop --force
 			return errors.New(utils.SystemLifeCycleError(fmt.Sprintf("this command takes no arguments. See '%s --help' for more information.\n", cmd.CommandPath()), "stop"))
 		}
 		if err := stop(); err != nil {
-			return errors.Wrap(err, utils.SystemError("failed to stop Meshery"))
+			return errors.Wrap(err, utils.SystemError("failed to stop Meshplay"))
 		}
 		return nil
 	},
@@ -88,7 +88,7 @@ var userResponse bool
 
 func stop() error {
 	// Get viper instance used for context
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		return errors.Wrap(err, "error processing config")
 	}
@@ -104,26 +104,26 @@ func stop() error {
 		return err
 	}
 
-	ok, err := utils.AreMesheryComponentsRunning(currCtx.GetPlatform())
+	ok, err := utils.AreMeshplayComponentsRunning(currCtx.GetPlatform())
 	if err != nil {
 		return err
 	}
 	// if --force passed possibly no deployments running but other stale resource present
 	if !ok && !forceDelete {
-		log.Info("Meshery resources are not running. Nothing to stop.")
+		log.Info("Meshplay resources are not running. Nothing to stop.")
 		return nil
 	}
 
 	switch currCtx.GetPlatform() {
 	case "docker":
 		// if the platform is docker, then stop all the running containers
-		if _, err := os.Stat(utils.MesheryFolder); os.IsNotExist(err) {
-			if err := os.Mkdir(utils.MesheryFolder, 0777); err != nil {
-				return ErrCreateDir(err, utils.MesheryFolder)
+		if _, err := os.Stat(utils.MeshplayFolder); os.IsNotExist(err) {
+			if err := os.Mkdir(utils.MeshplayFolder, 0777); err != nil {
+				return ErrCreateDir(err, utils.MeshplayFolder)
 			}
 		}
 
-		log.Info("Stopping Meshery resources...")
+		log.Info("Stopping Meshplay resources...")
 
 		// Stop all Docker containers
 		stop := exec.Command("docker-compose", "-f", utils.DockerComposeFile, "stop")
@@ -131,7 +131,7 @@ func stop() error {
 		stop.Stderr = os.Stderr
 
 		if err := stop.Run(); err != nil {
-			return errors.Wrap(err, utils.SystemError("failed to stop meshery - could not stop some containers."))
+			return errors.Wrap(err, utils.SystemError("failed to stop meshplay - could not stop some containers."))
 		}
 
 		// Remove all Docker containers
@@ -139,9 +139,9 @@ func stop() error {
 		stop.Stderr = os.Stderr
 
 		if err := stop.Run(); err != nil {
-			return ErrStopMeshery(err)
+			return ErrStopMeshplay(err)
 		}
-		log.Info("Meshery resources is stopped.")
+		log.Info("Meshplay resources is stopped.")
 	case "kubernetes":
 		client, err := meshkitkube.New([]byte(""))
 		if err != nil {
@@ -153,7 +153,7 @@ func stop() error {
 			userResponse = true
 		} else {
 			// ask user for confirmation
-			userResponse = utils.AskForConfirmation("Meshery deployments will be deleted from your cluster. Are you sure you want to continue")
+			userResponse = utils.AskForConfirmation("Meshplay deployments will be deleted from your cluster. Are you sure you want to continue")
 		}
 
 		if !userResponse {
@@ -161,7 +161,7 @@ func stop() error {
 			return nil
 		}
 
-		log.Info("Stopping Meshery resources...")
+		log.Info("Stopping Meshplay resources...")
 
 		// Delete the CR instances for brokers and meshsyncs
 		// this needs to be executed before deleting the helm release, or the CR instances cannot be found for some reason
@@ -176,7 +176,7 @@ func stop() error {
 		} else {
 			// DryRun helm release uninstallation with helm pkg
 			// if err = client.ApplyHelmChart(meshkitkube.ApplyHelmChartConfig{
-			// 	Namespace: utils.MesheryNamespace,
+			// 	Namespace: utils.MeshplayNamespace,
 			// 	ChartLocation: meshkitkube.HelmChartLocation{
 			// 		Repository: utils.HelmChartURL,
 			// 		Chart:      utils.HelmChartName,
@@ -186,14 +186,14 @@ func stop() error {
 			// }); err != nil {
 			// 	// Dry run failed, in such case; fallback to force cleanup
 			// 	if err = utils.ForceCleanupCluster(); err != nil {
-			// 		return errors.Wrap(err, "cannot stop Meshery")
+			// 		return errors.Wrap(err, "cannot stop Meshplay")
 			// 	}
 			// }
 
-			// Dry run passed; now delete meshery components with the helm pkg
+			// Dry run passed; now delete meshplay components with the helm pkg
 			err := applyHelmCharts(client, currCtx, currCtx.GetVersion(), false, meshkitkube.UNINSTALL, "", "")
 			if err != nil {
-				return errors.Wrap(err, "cannot stop Meshery")
+				return errors.Wrap(err, "cannot stop Meshplay")
 			}
 		}
 
@@ -203,25 +203,25 @@ func stop() error {
 		}
 
 		if !utils.KeepNamespace {
-			log.Info("Deleting Meshery Namespace...")
-			if err = deleteNs(utils.MesheryNamespace, client.KubeClient); err != nil {
+			log.Info("Deleting Meshplay Namespace...")
+			if err = deleteNs(utils.MeshplayNamespace, client.KubeClient); err != nil {
 				return err
 			}
 			// Wait for the namespace to be deleted
-			deleted, err := utils.CheckMesheryNsDelete()
+			deleted, err := utils.CheckMeshplayNsDelete()
 			if err != nil || !deleted {
-				log.Info("Meshery is taking too long to stop.\nPlease check the status of the pods by executing “mesheryctl system status”.")
+				log.Info("Meshplay is taking too long to stop.\nPlease check the status of the pods by executing “meshplayctl system status”.")
 			} else {
-				log.Info("Meshery resources are stopped.")
+				log.Info("Meshplay resources are stopped.")
 			}
 		} else {
-			log.Info("Meshery resources are stopped.")
+			log.Info("Meshplay resources are stopped.")
 		}
 	}
 
-	// Reset Meshery config file to default settings
+	// Reset Meshplay config file to default settings
 	if utils.ResetFlag {
-		err := resetMesheryConfig()
+		err := resetMeshplayConfig()
 		if err != nil {
 			return ErrResetMeshconfig(err)
 		}
@@ -233,13 +233,13 @@ func stop() error {
 func invokeDeleteCRs(client *meshkitkube.Client) error {
 	const (
 		brokerResourceName   = "brokers"
-		brokerInstanceName   = "meshery-broker"
+		brokerInstanceName   = "meshplay-broker"
 		meshsyncResourceName = "meshsyncs"
-		meshsyncInstanceName = "meshery-meshsync"
+		meshsyncInstanceName = "meshplay-meshsync"
 	)
 
 	if err := deleteCR(brokerResourceName, brokerInstanceName, client); err != nil {
-		err = ErrStopMeshery(errors.Wrap(err, "cannot delete CR "+brokerInstanceName))
+		err = ErrStopMeshplay(errors.Wrap(err, "cannot delete CR "+brokerInstanceName))
 		if !forceDelete {
 			return err
 		}
@@ -248,7 +248,7 @@ func invokeDeleteCRs(client *meshkitkube.Client) error {
 	}
 
 	if err := deleteCR(meshsyncResourceName, meshsyncInstanceName, client); err != nil {
-		err = ErrStopMeshery(errors.Wrap(err, "cannot delete CR "+meshsyncInstanceName))
+		err = ErrStopMeshplay(errors.Wrap(err, "cannot delete CR "+meshsyncInstanceName))
 		if !forceDelete {
 			return err
 		}
@@ -265,20 +265,20 @@ func deleteCR(resourceName, instanceName string, client *meshkitkube.Client) err
 		Group:    v1alpha1.GroupVersion.Group,
 		Version:  v1alpha1.GroupVersion.Version,
 		Resource: resourceName,
-	}).Namespace(utils.MesheryNamespace).Delete(context.TODO(), instanceName, metav1.DeleteOptions{})
+	}).Namespace(utils.MeshplayNamespace).Delete(context.TODO(), instanceName, metav1.DeleteOptions{})
 }
 
 // invokeDeleteCRs is a wrapper of deleteCRD to delete CRDs (brokers and meshsyncs)
 func invokeDeleteCRDs() error {
 	const (
-		brokerCRDName   = "brokers.meshery.layer5.io"
-		meshsyncCRDName = "meshsyncs.meshery.layer5.io"
+		brokerCRDName   = "brokers.meshplay.layer5.io"
+		meshsyncCRDName = "meshsyncs.meshplay.layer5.io"
 	)
 
 	cfg := controllerConfig.GetConfigOrDie()
 	client, err := apiextension.NewForConfig(cfg)
 	if err != nil {
-		err = ErrStopMeshery(errors.Wrap(err, "cannot invoke delete CRDs"))
+		err = ErrStopMeshplay(errors.Wrap(err, "cannot invoke delete CRDs"))
 		if !forceDelete {
 			return err
 		}
@@ -287,7 +287,7 @@ func invokeDeleteCRDs() error {
 	}
 
 	if err = deleteCRD(brokerCRDName, client); err != nil {
-		err = ErrStopMeshery(errors.Wrap(err, "cannot delete CRD "+brokerCRDName))
+		err = ErrStopMeshplay(errors.Wrap(err, "cannot delete CRD "+brokerCRDName))
 		if !forceDelete {
 			return err
 		}
@@ -296,7 +296,7 @@ func invokeDeleteCRDs() error {
 	}
 
 	if err = deleteCRD(meshsyncCRDName, client); err != nil {
-		err = ErrStopMeshery(errors.Wrap(err, "cannot delete CRD "+meshsyncCRDName))
+		err = ErrStopMeshplay(errors.Wrap(err, "cannot delete CRD "+meshsyncCRDName))
 		if !forceDelete {
 			return err
 		}
@@ -317,7 +317,7 @@ func deleteNs(ns string, client *kubernetes.Clientset) error {
 }
 
 func init() {
-	stopCmd.Flags().BoolVarP(&utils.ResetFlag, "reset", "", false, "(optional) reset Meshery's configuration file to default settings.")
-	stopCmd.Flags().BoolVar(&utils.KeepNamespace, "keep-namespace", false, "(optional) keep the Meshery namespace during uninstallation")
-	stopCmd.Flags().BoolVar(&forceDelete, "force", false, "(optional) uninstall Meshery resources forcefully")
+	stopCmd.Flags().BoolVarP(&utils.ResetFlag, "reset", "", false, "(optional) reset Meshplay's configuration file to default settings.")
+	stopCmd.Flags().BoolVar(&utils.KeepNamespace, "keep-namespace", false, "(optional) keep the Meshplay namespace during uninstallation")
+	stopCmd.Flags().BoolVar(&forceDelete, "force", false, "(optional) uninstall Meshplay resources forcefully")
 }

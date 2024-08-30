@@ -4,7 +4,7 @@ title: EDP Component Operator
 subtitle: Collaborative and visual infrastructure as design for EDP Component Operator
 image: /assets/img/integrations/edp-component-operator/icons/color/edp-component-operator-color.svg
 permalink: extensibility/integrations/edp-component-operator
-docURL: https://docs.meshery.io/extensibility/integrations/edp-component-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/edp-component-operator
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

@@ -1,4 +1,4 @@
-import MesherySettings from '../components/MesherySettings';
+import MeshplaySettings from '../components/MeshplaySettings';
 import { NoSsr, withStyles } from '@material-ui/core';
 import { updatepagepath, updatepagetitle } from '../lib/store';
 import { connect } from 'react-redux';
@@ -18,9 +18,9 @@ function Settings(props) {
   return (
     <NoSsr>
       <Head>
-        <title>Settings | Meshery</title>
+        <title>Settings | Meshplay</title>
       </Head>
-      <MesherySettings />
+      <MeshplaySettings />
     </NoSsr>
   );
 }

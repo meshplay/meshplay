@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-app-mesh
-description: Meshery Adapter for App Mesh chart.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-app-mesh
+description: Meshplay Adapter for App Mesh chart.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/layer5io/meshery-app-mesh
+  - https://github.com/khulnasoft/meshplay-app-mesh
 
 deprecated: false
 

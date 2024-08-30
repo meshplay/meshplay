@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-linkerd
-description: Meshery Adapter for Linkerd
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-linkerd
+description: Meshplay Adapter for Linkerd
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/layer5io/meshery-linkerd
+  - https://github.com/khulnasoft/meshplay-linkerd
 
 deprecated: false
 # A chart can be either an 'application' or a 'library' chart.

@@ -19,7 +19,7 @@ export const pingKubernetes = (successHandler, errorHandler, connectionId) => {
 /**
  * Figures out if kubernetes connection is established or not
  *
- * @param {true|false} isClusterConfigured - data received from meshery server
+ * @param {true|false} isClusterConfigured - data received from meshplay server
  * as to whether or not the server config is found
  * @param {true|false} kubernetesPingStatus - found after pinging the kubernetes
  * server endpoint

@@ -43,8 +43,8 @@ const styles = makeStyles((theme) => ({
     padding: '0rem 0.5rem',
     content:
       theme.palette.type === 'dark'
-        ? "url('/static/img/meshery-logo-text.svg')"
-        : "url('/static/img/meshery-logo-light-text.svg')",
+        ? "url('/static/img/meshplay-logo-text.svg')"
+        : "url('/static/img/meshplay-logo-light-text.svg')",
   },
   insideImgWrapperLogo: {
     padding: '0rem 0.5rem',
@@ -65,7 +65,7 @@ export default function PlaygroundMeshDeploy(props) {
   const classes = styles();
 
   const handlePage = (e) => {
-    window.open('https://meshery.io/#getting-started', '_blank');
+    window.open('https://meshplay.io/#getting-started', '_blank');
     e.stopPropagation();
   };
 
@@ -89,12 +89,12 @@ export default function PlaygroundMeshDeploy(props) {
               className={classes.insideImgWrapperLogo}
               width="20%"
               height="20%"
-              src="/static/img/meshery-logo.png"
+              src="/static/img/meshplay-logo.png"
             />
             <img className={classes.insideImgWrapper} width="50%" height="50%" />
           </div>
           <Typography gutterBottom>
-            Meshery Playground gives you hands-on experience with designing cloud native systems -
+            Meshplay Playground gives you hands-on experience with designing cloud native systems -
             from your browser - using every CNCF project. Choose a{' '}
             <a href="https://layer5.io/learn/learning-paths" style={{ color: '#00b39f' }}>
               Learning Path
@@ -103,9 +103,9 @@ export default function PlaygroundMeshDeploy(props) {
             to install a single thing.
           </Typography>
           <Typography gutterBottom>
-            To ensure that Meshery Playground remains a clean sandbox for all to use, many of
-            Meshery&apos;s features are disabled. For full access to all of Meshery&apos;s features,
-            deploy your own instance of Meshery.
+            To ensure that Meshplay Playground remains a clean sandbox for all to use, many of
+            Meshplay&apos;s features are disabled. For full access to all of Meshplay&apos;s features,
+            deploy your own instance of Meshplay.
           </Typography>
         </DialogContent>
         <DialogActions style={{ display: 'flex', justifyContent: 'center' }}>
@@ -116,7 +116,7 @@ export default function PlaygroundMeshDeploy(props) {
             color="primary"
             onClick={(e) => handlePage(e)}
           >
-            Install Meshery
+            Install Meshplay
           </Button>
         </DialogActions>
       </Dialog>

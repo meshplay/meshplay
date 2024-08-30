@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Contributing to Meshery UI - Sistent
+title: Contributing to Meshplay UI - Sistent
 permalink: project/contributing/contributing-ui-sistent
-abstract: How to contribute to the Meshery's web-based UI using sistent design system.
+abstract: How to contribute to the Meshplay's web-based UI using sistent design system.
 language: en
 display-title: false
 type: project
@@ -11,14 +11,14 @@ list: include
 ---
 
 <div class="prereqs"><p><strong style="font-size: 20px;">Prerequisite Reading</strong></p>
-  <ol><li><a ahref="contributing-ui">Contributing to Meshery UI</a></li></ol>
+  <ol><li><a ahref="contributing-ui">Contributing to Meshplay UI</a></li></ol>
 </div>
 
-## <a name="contributing-ui-sistent">Contributing to Meshery UI - Sistent</a>
+## <a name="contributing-ui-sistent">Contributing to Meshplay UI - Sistent</a>
 
 `Sistent` is the Layer5 Design System - an open source design system that offers building blocks to create consistent, accessible, and user-friendly interfaces. It's aimed at developers who want to design applications aligned with the same brand and ensure a uniform user experience across different products.
 
-Sistent leverages Material UI libraries and provides a custom theme on top of it for a consistent look and feel. It includes components, icons, and design tokens that developers can readily integrate into their applications. By using Sistent, developers can save time and effort while maintaining a high-quality user experience throughout Meshery.
+Sistent leverages Material UI libraries and provides a custom theme on top of it for a consistent look and feel. It includes components, icons, and design tokens that developers can readily integrate into their applications. By using Sistent, developers can save time and effort while maintaining a high-quality user experience throughout Meshplay.
 
 **Example**
 - This `Modal` is a Sistent Standard Modal used in validation of design.
@@ -27,7 +27,7 @@ Sistent leverages Material UI libraries and provides a custom theme on top of it
 <img style= "width: 600px;" src="{{ site.baseurl }}/assets/img/sistent/sistent-modal.png" />
 </a>
 
-### How to use Sistent in Meshery UI
+### How to use Sistent in Meshplay UI
 
 **Table of Contents**
 
@@ -62,7 +62,7 @@ export default MyComponent;
 ```
 
 - **Wrap the Sistent component with `UsesSistent` wrapper**.<br/>
-This `UsesSistent` wrapper ensures that the correct theme is applied to the Sistent component based on the current theme of the Meshery UI.
+This `UsesSistent` wrapper ensures that the correct theme is applied to the Sistent component based on the current theme of the Meshplay UI.
 Here how you can do it:
 
 ```javascript

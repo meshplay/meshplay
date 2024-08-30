@@ -4,18 +4,18 @@ local:
   token-location: auth.json
   platform: kubernetes
   components:
-  - meshery-istio
+  - meshplay-istio
   channel: stable
   version: latest
-  provider: Meshery
+  provider: Meshplay
 local2:
   endpoint: http://localhost:32242
   token: default2
   token-location: auth.json
   platform: docker
   components:
-  - meshery-istio
+  - meshplay-istio
   channel: stable
   version: latest
-  provider: Meshery
+  provider: Meshplay
 

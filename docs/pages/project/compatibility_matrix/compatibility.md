@@ -131,7 +131,7 @@ background-color: #8dbdd8;
 
 </style>
 
-{% assign sorted_tests_group = site.compatibility | group_by: "meshery-component" %}
+{% assign sorted_tests_group = site.compatibility | group_by: "meshplay-component" %}
 {% assign k8s_tests_group = site.compatibility | group_by: "k8s-version" | sort: "name" | reverse %}
 {% assign service_meshes = site.adapters  %}
 
@@ -140,14 +140,14 @@ background-color: #8dbdd8;
 
 # Compatibility Matrix
 
-Meshery Server and Meshery Adapters are tested daily for their compatibility with the infrastructure they manage and the platforms Meshery deploys on (Kubernetes and Docker). End-to-end test results are automatically posted to the following compatibility matrix.
+Meshplay Server and Meshplay Adapters are tested daily for their compatibility with the infrastructure they manage and the platforms Meshplay deploys on (Kubernetes and Docker). End-to-end test results are automatically posted to the following compatibility matrix.
 
 
 {%include compatibility/compatibilityMatrix.md k8s_tests_group=k8s_tests_group %}
 
 ## Integration Tests
 
-As a key aspect of Meshery, its integrations with other systems are routinely tested. Unit and integration tests before and after every pull request (before code is to be merged into the project and after code is merged into the project). End-to-end tests are run nightly and automatically posted to the following test matrix.
+As a key aspect of Meshplay, its integrations with other systems are routinely tested. Unit and integration tests before and after every pull request (before code is to be merged into the project and after code is merged into the project). End-to-end tests are run nightly and automatically posted to the following test matrix.
 
 <div class="checkbox">
     <div>
@@ -163,9 +163,9 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
 <table id = "test-table" class="tablesorter" style="text-align: center;">
   <thead>
     <th style="text-align: center;" >Status <span class="sort-by">  </span></th>
-        <th style="text-align: center;" ><span class="sort-by"> Meshery Component  </span> </th>
-        <th style="text-align: center;" ><span class="sort-by"> Meshery Component Version </span> </th>
-        <th style="text-align: center;" ><span class="sort-by"> Meshery Server Version </span> </th>
+        <th style="text-align: center;" ><span class="sort-by"> Meshplay Component  </span> </th>
+        <th style="text-align: center;" ><span class="sort-by"> Meshplay Component Version </span> </th>
+        <th style="text-align: center;" ><span class="sort-by"> Meshplay Server Version </span> </th>
         <th style="text-align: center;" > <span class="sort-by"> Infrastructure </span> </th>
         <th style="text-align: center;" ><span class="sort-by"> Infrastructure Version </span></th>
   </thead>
@@ -173,7 +173,7 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
     {% for group in sorted_tests_group %}
       {% assign items = group.items | sort: "timestamp" | reverse %}
       {% for item in items limit: 1 %}
-        {% if item.meshery-component-version == "edge" %}
+        {% if item.meshplay-component-version == "edge" %}
           {% if item.overall-status == "passing" %}
             {% assign overall-status = "background-color: #56B257; color: white;" %}
             {% assign result-state = "/assets/img/passing.svg" %}
@@ -186,23 +186,23 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
           {% else %}
             {% assign overall-status = "" %}
           {% endif %}
-          <tr style="visibility: hidden; display: none; background: white" class="test-details edge edge_visible" onclick="toggle_visibility('{{item.meshery-component}}');">
+          <tr style="visibility: hidden; display: none; background: white" class="test-details edge edge_visible" onclick="toggle_visibility('{{item.meshplay-component}}');">
             <td style="{{ overall-status }}">{{ item.timestamp }}</td>
-            <td style="white-space:nowrap;"><a href="{{ site.repo }}-{{ item.service-mesh }}">{{ item.meshery-component }}</a></td>
-            {% if item.meshery-component-version == "edge" %}
-              <td><a href="{{ site.repo }}-{{ item.service-mesh }}/releases">{{ item.meshery-component-version }}</a></td>
+            <td style="white-space:nowrap;"><a href="{{ site.repo }}-{{ item.service-mesh }}">{{ item.meshplay-component }}</a></td>
+            {% if item.meshplay-component-version == "edge" %}
+              <td><a href="{{ site.repo }}-{{ item.service-mesh }}/releases">{{ item.meshplay-component-version }}</a></td>
             {% else %}
-              <td><a href="{{ site.repo }}-{{ item.service-mesh }}/releases/tag/{{ item.meshery-component-version }}">{{ item.meshery-component-version }}</a></td>
+              <td><a href="{{ site.repo }}-{{ item.service-mesh }}/releases/tag/{{ item.meshplay-component-version }}">{{ item.meshplay-component-version }}</a></td>
             {% endif %}
-            {% if item.meshery-server-version == "edge" %}
-              <td><a href="{{ site.repo }}/releases{{ item.meshery-server-version }}">{{ item.meshery-server-version }}</a></td>
+            {% if item.meshplay-server-version == "edge" %}
+              <td><a href="{{ site.repo }}/releases{{ item.meshplay-server-version }}">{{ item.meshplay-server-version }}</a></td>
             {% else %}
-              <td><a href="{{ site.repo }}/releases/tag/{{ item.meshery-server-version }}">{{ item.meshery-server-version }}</a></td>
+              <td><a href="{{ site.repo }}/releases/tag/{{ item.meshplay-server-version }}">{{ item.meshplay-server-version }}</a></td>
             {% endif %}
             <td style="white-space: nowrap;"><img style="height: 2rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/{{item.service-mesh | downcase }}.svg" />&nbsp;<a href="{{ site.baseurl }}/service-meshes/adapters/{{ item.service-mesh }}">{{ item.service-mesh }}</a></td>
             <td>{{ item.service-mesh-version }}</td>
           </tr>
-          <tr class="hidden-details" id="{{item.meshery-component}}" style="visibility:hidden; display:none;">
+          <tr class="hidden-details" id="{{item.meshplay-component}}" style="visibility:hidden; display:none;">
             <td colspan="2" class="details">
               <i>Platform:</i>
               <li><img style="height: 1rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/kubernetes-icon-color.svg" />  {{item.k8s-distro}}  {{item.k8s-version}}</li>
@@ -216,13 +216,13 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
               </table>
             </td>
             <td>
-              <a href = "{{site.baseurl}}/installation/compatibility-matrix/{{item.meshery-component}}-past-results">To see past results click here </a>
+              <a href = "{{site.baseurl}}/installation/compatibility-matrix/{{item.meshplay-component}}-past-results">To see past results click here </a>
             </td>
           </tr>
 
         <!-- if the latest test is stable as we require edge test to show too and since sorted through timestamp second element will always be an edge tests. -->
 
-        {% elsif items[1].meshery-component-version == "edge" %}
+        {% elsif items[1].meshplay-component-version == "edge" %}
           {% if items[1].overall-status == "passing" %}
             {% assign overall-status = "background-color: #56B257; color: white;" %}
             {% assign result-state = "/assets/img/passing.svg" %}
@@ -235,23 +235,23 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
           {% else %}
             {% assign overall-status = "" %}
           {% endif %}
-          <tr style="visibility: hidden; display: none; background:white" class="test-details edge edge_visible" onclick="toggle_visibility('{{items[1].meshery-component}}');">
+          <tr style="visibility: hidden; display: none; background:white" class="test-details edge edge_visible" onclick="toggle_visibility('{{items[1].meshplay-component}}');">
             <td style="{{ overall-status }}">{{ items[1].timestamp }}</td>
-            <td style="white-space:nowrap;"><a href="{{ site.repo }}-{{ items[1].service-mesh }}">{{ items[1].meshery-component }}</a></td>
-            {% if items[1].meshery-component-version == "edge" %}
-              <td><a href="{{ site.repo }}-{{ items[1].service-mesh }}/releases">{{ items[1].meshery-component-version }}</a></td>
+            <td style="white-space:nowrap;"><a href="{{ site.repo }}-{{ items[1].service-mesh }}">{{ items[1].meshplay-component }}</a></td>
+            {% if items[1].meshplay-component-version == "edge" %}
+              <td><a href="{{ site.repo }}-{{ items[1].service-mesh }}/releases">{{ items[1].meshplay-component-version }}</a></td>
             {% else %}
-              <td><a href="{{ site.repo }}-{{ items[1].service-mesh }}/releases/tag/{{ items[1].meshery-component-version }}">{{ items[1].meshery-component-version }}</a></td>
+              <td><a href="{{ site.repo }}-{{ items[1].service-mesh }}/releases/tag/{{ items[1].meshplay-component-version }}">{{ items[1].meshplay-component-version }}</a></td>
             {% endif %}
-            {% if items[1].meshery-server-version == "edge" %}
-              <td><a href="{{ site.repo }}/releases{{ items[1].meshery-server-version }}">{{ items[1].meshery-server-version }}</a></td>
+            {% if items[1].meshplay-server-version == "edge" %}
+              <td><a href="{{ site.repo }}/releases{{ items[1].meshplay-server-version }}">{{ items[1].meshplay-server-version }}</a></td>
             {% else %}
-              <td><a href="{{ site.repo }}/releases/tag/{{ items[1].meshery-server-version }}">{{ items[1].meshery-server-version }}</a></td>
+              <td><a href="{{ site.repo }}/releases/tag/{{ items[1].meshplay-server-version }}">{{ items[1].meshplay-server-version }}</a></td>
             {% endif %}
             <td style="white-space:nowrap;"><img style="height: 2rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/{{items[1].service-mesh | downcase }}.svg" />&nbsp;<a href="{{ site.baseurl }}/service-meshes/adapters/{{ items[1].service-mesh }}">{{ items[1].service-mesh }}</a></td>
             <td>{{ items[1].service-mesh-version }}</td>
           </tr>
-          <tr class="hidden-details" id="{{items[1].meshery-component}}" style="visibility:hidden; display:none;">
+          <tr class="hidden-details" id="{{items[1].meshplay-component}}" style="visibility:hidden; display:none;">
             <td colspan="2" class="details">
               <i>Platform:</i>
               <li><img style="height: 1rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/kubernetes-icon-color.svg" />  {{items[1].k8s-distro}}  {{items[1].k8s-version}}</li>
@@ -265,7 +265,7 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
               </table>
             </td>
             <td>
-              <a href = "{{site.baseurl}}/installation/compatibility-matrix/{{item.meshery-component}}-past-results">To see past results click here </a>
+              <a href = "{{site.baseurl}}/installation/compatibility-matrix/{{item.meshplay-component}}-past-results">To see past results click here </a>
             </td>
           </tr>
         {% endif %}
@@ -275,9 +275,9 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
     <!-- display tests from the stable channel -->
 
     {% for group in sorted_tests_group %}
-      {% assign items = group.items | sort: "meshery-component-version" | reverse %}
+      {% assign items = group.items | sort: "meshplay-component-version" | reverse %}
       {% for item in items limit: 1 %}
-        {% if item.meshery-component-version != "edge" %}
+        {% if item.meshplay-component-version != "edge" %}
           {% if item.overall-status == "passing" %}
             {% assign overall-status = "background-color: #56B257; color: white;" %}
             {% assign result-state = "/assets/img/passing.svg" %}
@@ -290,15 +290,15 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
           {% else %}
             {% assign overall-status = "" %}
           {% endif %}
-          <tr style="visibility: hidden; display: none; background:white" class="test-details stable stable_visible" onclick="toggle_visibility('{{item.meshery-component}}-stable');">
+          <tr style="visibility: hidden; display: none; background:white" class="test-details stable stable_visible" onclick="toggle_visibility('{{item.meshplay-component}}-stable');">
             <td style="{{ overall-status }}">{{ item.timestamp }}</td>
-            <td style = "white-space:nowrap;"><a href="{{ site.repo }}-{{ item.service-mesh }}">{{ item.meshery-component }}</a></td>
-            <td><a href="{{ site.repo }}-{{ item.service-mesh }}/releases/tag/{{ item.meshery-component-version }}">{{ item.meshery-component-version }}</a></td>
-            <td><a href="{{ site.repo }}/releases/tag/{{ item.meshery-server-version }}">{{ item.meshery-server-version }}</a></td>
+            <td style = "white-space:nowrap;"><a href="{{ site.repo }}-{{ item.service-mesh }}">{{ item.meshplay-component }}</a></td>
+            <td><a href="{{ site.repo }}-{{ item.service-mesh }}/releases/tag/{{ item.meshplay-component-version }}">{{ item.meshplay-component-version }}</a></td>
+            <td><a href="{{ site.repo }}/releases/tag/{{ item.meshplay-server-version }}">{{ item.meshplay-server-version }}</a></td>
             <td style="white-space:nowrap;"><img style="height: 2rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/{{item.service-mesh | downcase }}.svg" />&nbsp;<a href="{{ site.baseurl }}/service-meshes/adapters/{{ item.service-mesh }}">{{ item.service-mesh }}</a></td>
             <td>{{ item.service-mesh-version }}</td>
           </tr>
-          <tr class="hidden-details" id="{{item.meshery-component}}-stable" style="visibility:hidden; display:none;">
+          <tr class="hidden-details" id="{{item.meshplay-component}}-stable" style="visibility:hidden; display:none;">
             <td colspan="2" class="details">
               <i>Platform:</i>
               <li><img style="height: 1rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/kubernetes-icon-color.svg" />  {{item.k8s-distro}}  {{item.k8s-version}}</li>
@@ -312,7 +312,7 @@ As a key aspect of Meshery, its integrations with other systems are routinely te
               </table>
             </td>
             <td>
-              <a href = "{{site.baseurl}}/installation/compatibility-matrix/{{item.meshery-component}}-past-results">To see past results click here </a>
+              <a href = "{{site.baseurl}}/installation/compatibility-matrix/{{item.meshplay-component}}-past-results">To see past results click here </a>
             </td>
           </tr>
         {% endif %}

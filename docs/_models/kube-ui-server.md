@@ -4,7 +4,7 @@ title: Kubernetes UI Server
 subtitle: Collaborative and visual infrastructure as design for Kubernetes UI Server
 image: /assets/img/integrations/kube-ui-server/icons/color/kube-ui-server-color.svg
 permalink: extensibility/integrations/kube-ui-server
-docURL: https://docs.meshery.io/extensibility/integrations/kube-ui-server
+docURL: https://docs.meshplay.io/extensibility/integrations/kube-ui-server
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

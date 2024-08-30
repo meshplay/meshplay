@@ -13,8 +13,8 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/internal/sql"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/internal/sql"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	"github.com/layer5io/meshkit/utils/kubernetes"
@@ -32,7 +32,7 @@ type K8sContext struct {
 	Server             string     `json:"server,omitempty" yaml:"server,omitempty"`
 	Owner              *uuid.UUID `json:"owner,omitempty" gorm:"-" yaml:"owner,omitempty"`
 	CreatedBy          *uuid.UUID `json:"created_by,omitempty" gorm:"-" yaml:"created_by,omitempty"`
-	MesheryInstanceID  *uuid.UUID `json:"meshplay_instance_id,omitempty" yaml:"meshplay_instance_id,omitempty"`
+	MeshplayInstanceID  *uuid.UUID `json:"meshplay_instance_id,omitempty" yaml:"meshplay_instance_id,omitempty"`
 	KubernetesServerID *uuid.UUID `json:"kubernetes_server_id,omitempty" yaml:"kubernetes_server_id,omitempty"`
 	DeploymentType     string     `json:"deployment_type,omitempty" yaml:"deployment_type,omitempty" default:"out_cluster"`
 	Version            string     `json:"version,omitempty" yaml:"version,omitempty"`
@@ -250,7 +250,7 @@ func NewK8sContextFromInClusterConfig(contextName string, instanceID *uuid.UUID,
 	)
 	host, port := os.Getenv("KUBERNETES_SERVICE_HOST"), os.Getenv("KUBERNETES_SERVICE_PORT")
 	if len(host) == 0 || len(port) == 0 {
-		return nil, ErrMesheryNotInCluster
+		return nil, ErrMeshplayNotInCluster
 	}
 
 	token, err := os.ReadFile(tokenFile)
@@ -305,7 +305,7 @@ func NewK8sContext(
 		Cluster:           cluster,
 		Auth:              user,
 		Server:            server,
-		MesheryInstanceID: instanceID,
+		MeshplayInstanceID: instanceID,
 	}
 
 	ID, err := K8sContextGenerateID(ctx)
@@ -328,7 +328,7 @@ func K8sContextGenerateID(kc K8sContext) (string, error) {
 	data := map[string]interface{}{
 		"cluster": kc.Cluster,
 		"auth":    kc.Auth,
-		"meshplay": kc.MesheryInstanceID.String(),
+		"meshplay": kc.MeshplayInstanceID.String(),
 		"name":    kc.Name,
 	}
 
@@ -580,7 +580,7 @@ func RedactCredentialsForContext(ctx *K8sContext) (redactedContext K8sContext) {
 	redactedContext.Server = ""
 	redactedContext.ConnectionID = ""
 	redactedContext.KubernetesServerID = nil
-	redactedContext.MesheryInstanceID = nil
+	redactedContext.MeshplayInstanceID = nil
 	return
 }
 

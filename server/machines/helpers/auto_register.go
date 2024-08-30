@@ -9,9 +9,9 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	helpers "github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/machines"
-	"github.com/layer5io/meshplay/server/models"
+	helpers "github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/encoding"
 	"github.com/layer5io/meshkit/logger"

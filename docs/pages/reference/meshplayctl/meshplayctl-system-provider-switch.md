@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-provider-switch
-permalink: reference/mesheryctl/system/provider/switch
-redirect_from: reference/mesheryctl/system/provider/switch/
+title: meshplayctl-system-provider-switch
+permalink: reference/meshplayctl/system/provider/switch
+redirect_from: reference/meshplayctl/system/provider/switch/
 type: reference
 display-title: "false"
 language: en
@@ -10,26 +10,26 @@ command: system
 subcommand: provider
 ---
 
-# mesheryctl system provider switch
+# meshplayctl system provider switch
 
 switch provider and redeploy
 
 ## Synopsis
 
-Switch provider of context in focus and redeploy Meshery. Run `mesheryctl system provider list` to see the available providers.
+Switch provider of context in focus and redeploy Meshplay. Run `meshplayctl system provider list` to see the available providers.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system provider switch [provider] [flags]
+meshplayctl system provider switch [provider] [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Switch provider and redeploy Meshery
+Switch provider and redeploy Meshplay
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system provider switch [provider]
+meshplayctl system provider switch [provider]
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl system provider switch [provider]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -57,4 +57,4 @@ mesheryctl system provider switch [provider]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

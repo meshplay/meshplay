@@ -11,10 +11,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/models"
 	meshkitutils "github.com/layer5io/meshkit/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -22,7 +22,7 @@ import (
 
 var importModelCmd = &cobra.Command{
 	Use:   "import",
-	Short: "import models from mesheryctl command",
+	Short: "import models from meshplayctl command",
 	Long:  "import model by specifying the directory, file. Use 'import model [filepath]' or 'import model  [directory]'.",
 	Example: `
 	import model  /path/to/[file.yaml|file.json]
@@ -30,11 +30,11 @@ var importModelCmd = &cobra.Command{
 	`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		// Check prerequisites
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return err
 		}
-		err = utils.IsServerRunning(mctlCfg.GetBaseMesheryURL())
+		err = utils.IsServerRunning(mctlCfg.GetBaseMeshplayURL())
 		if err != nil {
 			return err
 		}
@@ -49,7 +49,7 @@ var importModelCmd = &cobra.Command{
 		return nil
 	},
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl model import [ file | filePath ]\nRun 'mesheryctl model import --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl model import [ file | filePath ]\nRun 'meshplayctl model import --help' to see detailed help message"
 		if len(args) == 0 {
 			return fmt.Errorf("[ file | filepath ] isn't specified\n\n%v", errMsg)
 		} else if len(args) > 1 {
@@ -163,12 +163,12 @@ func compressDirectory(dirpath string) ([]byte, error) {
 }
 
 func sendToAPI(data []byte, name string, dataType string) error {
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		return err
 	}
 
-	baseURL := mctlCfg.GetBaseMesheryURL()
+	baseURL := mctlCfg.GetBaseMeshplayURL()
 	url := baseURL + "/api/meshmodels/register"
 	var b bytes.Buffer
 	writer := multipart.NewWriter(&b)

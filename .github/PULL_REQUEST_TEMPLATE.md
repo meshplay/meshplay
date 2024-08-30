@@ -4,12 +4,12 @@ This PR fixes #
 
 
 
-**[Signed commits](https://github.com/meshery/meshery/blob/master/CONTRIBUTING.md#signing-off-on-commits-developer-certificate-of-origin)**
+**[Signed commits](https://github.com/meshplay/meshplay/blob/master/CONTRIBUTING.md#signing-off-on-commits-developer-certificate-of-origin)**
 - [ ] Yes, I signed my commits.
  
 
 <!--
-Thank you for contributing to Meshery! 
+Thank you for contributing to Meshplay! 
 
 Contributing Conventions:
 

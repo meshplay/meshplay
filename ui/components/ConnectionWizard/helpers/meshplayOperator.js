@@ -1,17 +1,17 @@
 import { CONTROLLER_STATES } from '../../../utils/Enum';
-import fetchMesheryOperatorStatus from '../../graphql/queries/OperatorStatusQuery';
+import fetchMeshplayOperatorStatus from '../../graphql/queries/OperatorStatusQuery';
 
-export const isMesheryOperatorConnected = ({ operatorInstalled }) => operatorInstalled;
+export const isMeshplayOperatorConnected = ({ operatorInstalled }) => operatorInstalled;
 
 /**
- * Pings meshery operator
- * @param {() => Function} fetchMesheryOperatorStatus - function with which
+ * Pings meshplay operator
+ * @param {() => Function} fetchMeshplayOperatorStatus - function with which
  * we can query using graphql
  * @param  {(res) => void} successHandler
  * @param  {(err) => void} errorHandler
  */
-export const pingMesheryOperator = (id, successcb, errorcb) => {
-  const subscription = fetchMesheryOperatorStatus({
+export const pingMeshplayOperator = (id, successcb, errorcb) => {
+  const subscription = fetchMeshplayOperatorStatus({
     connectionID: id,
   }).subscribe({
     next: (data) => {

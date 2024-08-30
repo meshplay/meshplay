@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-provider-view
-permalink: reference/mesheryctl/system/provider/view
-redirect_from: reference/mesheryctl/system/provider/view/
+title: meshplayctl-system-provider-view
+permalink: reference/meshplayctl/system/provider/view
+redirect_from: reference/meshplayctl/system/provider/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: system
 subcommand: provider
 ---
 
-# mesheryctl system provider view
+# meshplayctl system provider view
 
 view provider
 
@@ -19,7 +19,7 @@ view provider
 View provider of context in focus
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system provider view [flags]
+meshplayctl system provider view [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl system provider view [flags]
 View current provider
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system provider view
+meshplayctl system provider view
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl system provider view
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -58,4 +58,4 @@ mesheryctl system provider view
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

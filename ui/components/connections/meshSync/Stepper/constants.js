@@ -38,8 +38,8 @@ export const registerConnectionContent = {
 
 export const ConnectionStepperTips = [
   'GitOps is more fun with friends. Invite one today.',
-  'Meshery works with multiple Kubernetes clusters. Connect each of yours by uploading your kubeconfig and letting Meshery do the rest.',
-  'Import your Docker Compose, Helm Chart, and Kubernetes mainfests. Let Meshery visualize and deploy them.',
+  'Meshplay works with multiple Kubernetes clusters. Connect each of yours by uploading your kubeconfig and letting Meshplay do the rest.',
+  'Import your Docker Compose, Helm Chart, and Kubernetes mainfests. Let Meshplay visualize and deploy them.',
 ];
 
 export const SelectConnectionTypeContent = {

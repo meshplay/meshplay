@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-check
-permalink: reference/mesheryctl/system/check
-redirect_from: reference/mesheryctl/system/check/
+title: meshplayctl-system-check
+permalink: reference/meshplayctl/system/check
+redirect_from: reference/meshplayctl/system/check/
 type: reference
 display-title: "false"
 language: en
@@ -10,26 +10,26 @@ command: system
 subcommand: check
 ---
 
-# mesheryctl system check
+# meshplayctl system check
 
-Meshery environment check
+Meshplay environment check
 
 ## Synopsis
 
-Verify environment pre/post-deployment of Meshery.
+Verify environment pre/post-deployment of Meshplay.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check [flags]
+meshplayctl system check [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Run system checks for both pre and post mesh deployment scenarios on Meshery
+Run system checks for both pre and post mesh deployment scenarios on Meshplay
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check
+meshplayctl system check
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl system check
 Run Pre-mesh deployment checks (Docker and Kubernetes)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check --preflight
+meshplayctl system check --preflight
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl system check --preflight
 Run checks on specific mesh adapter
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check --adapter meshery-istio:10000
+meshplayctl system check --adapter meshplay-istio:10000
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl system check --adapter meshery-istio:10000
 or
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check --adapter meshery-istio
+meshplayctl system check --adapter meshplay-istio
 
 </div>
 </pre> 
@@ -61,15 +61,15 @@ mesheryctl system check --adapter meshery-istio
 Run checks for all the mesh adapters
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check --adapters
+meshplayctl system check --adapters
 
 </div>
 </pre> 
 
-Verify the health of Meshery Operator's deployment with MeshSync and Broker
+Verify the health of Meshplay Operator's deployment with MeshSync and Broker
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system check --operator
+meshplayctl system check --operator
 
 </div>
 </pre> 
@@ -78,13 +78,13 @@ mesheryctl system check --operator
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --adapter string   Check status of specified meshery adapter
-      --adapters         Check status of meshery adapters
-      --components       Check status of Meshery components
+      --adapter string   Check status of specified meshplay adapter
+      --adapters         Check status of meshplay adapters
+      --components       Check status of Meshplay components
   -h, --help             help for check
-      --operator         Verify the health of Meshery Operator's deployment with MeshSync and Broker
-      --pre              Verify environment readiness to deploy Meshery
-      --preflight        Verify environment readiness to deploy Meshery
+      --operator         Verify the health of Meshplay Operator's deployment with MeshSync and Broker
+      --pre              Verify environment readiness to deploy Meshplay
+      --preflight        Verify environment readiness to deploy Meshplay
 
 </div>
 </pre>
@@ -93,7 +93,7 @@ mesheryctl system check --operator
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -103,9 +103,9 @@ mesheryctl system check --operator
 
 ## Screenshots
 
-Usage of mesheryctl system check
-![check-usage](/assets/img/mesheryctl/check.png)
+Usage of meshplayctl system check
+![check-usage](/assets/img/meshplayctl/check.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

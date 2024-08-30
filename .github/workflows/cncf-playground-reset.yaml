@@ -7,7 +7,7 @@ on:
 jobs:
   reset:
     name: reset
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-latest
     steps:
     - name: Cluster cleanup by running the cleanup script inside VM
@@ -17,12 +17,12 @@ jobs:
           username: root
           key: ${{ secrets.METAL_SSH_KEY }}
           script: |
-            cd meshery/install/playground; ./playground-cleanup.sh
+            cd meshplay/install/playground; ./playground-cleanup.sh
 
 # reboot:
 #   name: Reboot Metal servers
 #   needs: reset 
-#   if: github.repository == 'meshery/meshery'
+#   if: github.repository == 'meshplay/meshplay'
 #   runs-on: ubuntu-latest 
 #   steps:
 #       - name: Download and install Equinix Metal CLI

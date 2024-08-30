@@ -40,8 +40,8 @@ func TestGetLocation(t *testing.T) {
 		token.SetLocation(test)
 		got := token.GetLocation()
 		want, err := os.UserHomeDir()
-		MesheryFolder := ".meshery"
-		path := filepath.Join(want, MesheryFolder, test)
+		MeshplayFolder := ".meshplay"
+		path := filepath.Join(want, MeshplayFolder, test)
 		want = path
 		if err != nil {
 			t.Errorf("Fail")
@@ -143,8 +143,8 @@ func TestGetEndpoint(t *testing.T) {
 }
 func TestGetCurrentContextName(t *testing.T) {
 	for _, test := range tests {
-		mesheryctlconfig := MesheryCtlConfig{nil, test, nil}
-		got := mesheryctlconfig.GetCurrentContextName()
+		meshplayctlconfig := MeshplayCtlConfig{nil, test, nil}
+		got := meshplayctlconfig.GetCurrentContextName()
 		want := test
 
 		if got != want {
@@ -154,12 +154,12 @@ func TestGetCurrentContextName(t *testing.T) {
 }
 func TestSetContext(t *testing.T) {
 	for _, test := range tests {
-		mesheryctlconfig := MesheryCtlConfig{nil, test, nil}
+		meshplayctlconfig := MeshplayCtlConfig{nil, test, nil}
 		err := UpdateContextInConfig(nil, test)
 		if err != nil {
 			fmt.Print("Fail") //Internal:need to be fixed
 		}
-		got := mesheryctlconfig.GetCurrentContextName()
+		got := meshplayctlconfig.GetCurrentContextName()
 		want := test
 
 		if got != want {
@@ -308,7 +308,7 @@ func TestSetOperatorStatus(t *testing.T) {
 // 	// Read and write to the test config file
 // 	utils.SetupCustomContextEnv(t, testConfigPath)
 
-// 	mctlCfg, _ := GetMesheryCtl(viper.GetViper())
+// 	mctlCfg, _ := GetMeshplayCtl(viper.GetViper())
 
 // 	tests := []struct {
 // 		name    string
@@ -389,7 +389,7 @@ func TestSetOperatorStatus(t *testing.T) {
 
 // 	utils.SetupCustomContextEnv(t, testConfigPath)
 
-// 	mctlCfg, _ := GetMesheryCtl(viper.GetViper())
+// 	mctlCfg, _ := GetMeshplayCtl(viper.GetViper())
 
 // 	tests := []struct {
 // 		name            string

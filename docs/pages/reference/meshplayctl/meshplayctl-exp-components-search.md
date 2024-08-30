@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-components-search
-permalink: reference/mesheryctl/exp/components/search
-redirect_from: reference/mesheryctl/exp/components/search/
+title: meshplayctl-exp-components-search
+permalink: reference/meshplayctl/exp/components/search
+redirect_from: reference/meshplayctl/exp/components/search/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: exp
 subcommand: components
 ---
 
-# mesheryctl exp components search
+# meshplayctl exp components search
 
 search registered components
 
 ## Synopsis
 
-search components registered in Meshery Server
+search components registered in Meshplay Server
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components search [flags]
+meshplayctl exp components search [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp components search [flags]
 Search for components using a query
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components search [query-text]
+meshplayctl exp components search [query-text]
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl exp components search [query-text]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -55,4 +55,4 @@ mesheryctl exp components search [query-text]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

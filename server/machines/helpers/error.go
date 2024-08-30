@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/errors"
 )
 

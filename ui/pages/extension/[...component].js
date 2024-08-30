@@ -146,7 +146,7 @@ class RemoteExtension extends React.Component {
     return (
       <NoSsr>
         <Head>
-          <title>{`${componentTitle} | Meshery` || ''}</title>
+          <title>{`${componentTitle} | Meshplay` || ''}</title>
         </Head>
         {this.props.capabilitiesRegistry !== null && extensionType ? (
           <NoSsr>

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 )
 
 func TestSystemCmdIntegration(t *testing.T) {
@@ -37,7 +37,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		// Docker platform testing
 		//start
 		{
-			Name:            "Start Meshery with Docker platform",
+			Name:            "Start Meshplay with Docker platform",
 			Action:          "start",
 			Args:            []string{"start", "-p", "docker", "-y"},
 			ExpectError:     false,
@@ -45,7 +45,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//update
 		{
-			Name:            "Update Meshery",
+			Name:            "Update Meshplay",
 			Action:          "update",
 			Args:            []string{"update"},
 			ExpectError:     false,
@@ -53,7 +53,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//restart
 		{
-			Name:            "Restart Meshery",
+			Name:            "Restart Meshplay",
 			Action:          "restart",
 			Args:            []string{"restart"},
 			ExpectError:     false,
@@ -61,7 +61,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//status
 		{
-			Name:            "Printing Meshery status with Docker platform",
+			Name:            "Printing Meshplay status with Docker platform",
 			Action:          "status",
 			Args:            []string{"status"},
 			ExpectError:     false,
@@ -69,7 +69,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//stop
 		{
-			Name:            "Stop Meshery with Docker platform",
+			Name:            "Stop Meshplay with Docker platform",
 			Action:          "stop",
 			Args:            []string{"stop", "-y"},
 			ExpectError:     false,
@@ -79,7 +79,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		// Kubernetes platform testing
 		//start
 		{
-			Name:            "Start Meshery with Kubernetes platform",
+			Name:            "Start Meshplay with Kubernetes platform",
 			Action:          "start",
 			Args:            []string{"start", "-p", "kubernetes", "-y"},
 			ExpectError:     false,
@@ -87,7 +87,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//update
 		{
-			Name:            "Update Meshery",
+			Name:            "Update Meshplay",
 			Action:          "update",
 			Args:            []string{"update"},
 			ExpectError:     false,
@@ -95,7 +95,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//restart
 		{
-			Name:            "Restart Meshery",
+			Name:            "Restart Meshplay",
 			Action:          "restart",
 			Args:            []string{"restart"},
 			ExpectError:     false,
@@ -103,7 +103,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//status
 		{
-			Name:            "Printing Meshery status with Kubernetes platform",
+			Name:            "Printing Meshplay status with Kubernetes platform",
 			Action:          "status",
 			Args:            []string{"status"},
 			ExpectError:     false,
@@ -111,7 +111,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//logs
 		{
-			Name:            "Printing Meshery logs with Kubernetes platform",
+			Name:            "Printing Meshplay logs with Kubernetes platform",
 			Action:          "logs",
 			Args:            []string{"logs"},
 			ExpectError:     false,
@@ -119,7 +119,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 		},
 		//stop
 		{
-			Name:            "Stop Meshery with Kubernetes platform",
+			Name:            "Stop Meshplay with Kubernetes platform",
 			Action:          "stop",
 			Args:            []string{"stop", "-y"},
 			ExpectError:     false,
@@ -139,7 +139,7 @@ func TestSystemCmdIntegration(t *testing.T) {
 				t.Error("Error in executing command", err)
 			}
 
-			t.Logf("Meshery %sed", tt.Action)
+			t.Logf("Meshplay %sed", tt.Action)
 			// Sleeping for required timeout
 			t.Logf("Sleeping for %v minutes...", tt.TimeoutRequired)
 			time.Sleep(time.Duration(tt.TimeoutRequired) * time.Minute)

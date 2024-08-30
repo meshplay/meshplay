@@ -19,7 +19,7 @@ import (
 	"github.com/grafana-tools/sdk"
 )
 
-// GrafanaClient represents a client to Grafana in Meshery
+// GrafanaClient represents a client to Grafana in Meshplay
 type GrafanaClient struct {
 	httpClient *http.Client
 	log        *logger.Handler
@@ -148,7 +148,7 @@ func (g *GrafanaClient) GetGrafanaBoards(ctx context.Context, BaseURL, APIKey, d
 	return boards, nil
 }
 
-// ProcessBoard accepts raw Grafana board and returns a processed GrafanaBoard to be used in Meshery
+// ProcessBoard accepts raw Grafana board and returns a processed GrafanaBoard to be used in Meshplay
 func (g *GrafanaClient) ProcessBoard(ctx context.Context, c *sdk.Client, board *sdk.Board, link *sdk.FoundBoard) (*GrafanaBoard, error) {
 	var orgID uint
 	if !g.promMode {

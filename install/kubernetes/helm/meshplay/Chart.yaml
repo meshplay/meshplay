@@ -1,21 +1,21 @@
 apiVersion: v2
-name: meshery
-description: Meshery chart for deploying Meshery and Meshery's adapters.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay
+description: Meshplay chart for deploying Meshplay and Meshplay's adapters.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 kubeVersion:
 keywords:
-  - meshery
-  - meshery-istio
-  - meshery-linkerd
-  - meshery-consul
-  - meshery-kuma
-  - meshery-nsm
-  - meshery-traefik-mesh
-  - meshery-nginx-sm
-  - meshery-app-mesh
-  - meshery-nighthawk
+  - meshplay
+  - meshplay-istio
+  - meshplay-linkerd
+  - meshplay-consul
+  - meshplay-kuma
+  - meshplay-nsm
+  - meshplay-traefik-mesh
+  - meshplay-nginx-sm
+  - meshplay-app-mesh
+  - meshplay-nighthawk
 source:
-  - https://github.com/layer5io/meshery
+  - https://github.com/khulnasoft/meshplay
 
 engine: gotpl
 
@@ -39,38 +39,38 @@ version: 0.7.0
 # appVersion: v0.6.0
 
 dependencies:
-  - name: meshery-istio
+  - name: meshplay-istio
     version: 0.7.0
-    condition: meshery-istio.enabled
-  - name: meshery-linkerd
+    condition: meshplay-istio.enabled
+  - name: meshplay-linkerd
     version: 0.7.0
-    condition: meshery-linkerd.enabled
-  - name: meshery-consul
+    condition: meshplay-linkerd.enabled
+  - name: meshplay-consul
     version: 0.7.0
-    condition: meshery-consul.enabled
-  - name: meshery-kuma
+    condition: meshplay-consul.enabled
+  - name: meshplay-kuma
     version: 0.7.0
-    condition: meshery-kuma.enabled
-  - name: meshery-nsm
+    condition: meshplay-kuma.enabled
+  - name: meshplay-nsm
     version: 0.7.0
-    condition: meshery-nsm.enabled
-  - name: meshery-traefik-mesh
+    condition: meshplay-nsm.enabled
+  - name: meshplay-traefik-mesh
     version: 0.7.0
-    condition: meshery-traefik-mesh.enabled
-  - name: meshery-nginx-sm
+    condition: meshplay-traefik-mesh.enabled
+  - name: meshplay-nginx-sm
     version: 0.7.0
-    condition: meshery-nginx-sm.enabled
-  - name: meshery-app-mesh
+    condition: meshplay-nginx-sm.enabled
+  - name: meshplay-app-mesh
     version: 0.7.0
-    condition: meshery-app-mesh.enabled
-  - name: meshery-cilium
+    condition: meshplay-app-mesh.enabled
+  - name: meshplay-cilium
     version: 0.7.0
-    condition: meshery-cilium.enabled
-  - name: meshery-nighthawk
+    condition: meshplay-cilium.enabled
+  - name: meshplay-nighthawk
     version: 0.7.0
-    condition: meshery-nighthawk.enabled
+    condition: meshplay-nighthawk.enabled
 
 maintainers:
-  - name: Meshery Authors
-    email: maintainers@meshery.io
+  - name: Meshplay Authors
+    email: maintainers@meshplay.io
 

@@ -6,8 +6,8 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 )

@@ -4,7 +4,7 @@ title: cert-manager
 subtitle: Collaborative and visual infrastructure as design for cert-manager
 image: /assets/img/integrations/cert-manager/icons/color/cert-manager-color.svg
 permalink: extensibility/integrations/cert-manager
-docURL: https://docs.meshery.io/extensibility/integrations/cert-manager
+docURL: https://docs.meshplay.io/extensibility/integrations/cert-manager
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Key Management Service

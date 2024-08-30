@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants"
-	c "github.com/layer5io/meshery/mesheryctl/pkg/constants"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/constants"
+	c "github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/models"
 	meshkitutils "github.com/layer5io/meshkit/utils"
 	meshkitkube "github.com/layer5io/meshkit/utils/kubernetes"
 	log "github.com/sirupsen/logrus"
@@ -77,14 +77,14 @@ type HealthChecker struct {
 
 	// Things that being used while running these checks
 	context *config.Context
-	mctlCfg *config.MesheryCtlConfig
+	mctlCfg *config.MeshplayCtlConfig
 }
 
 func NewHealthChecker(options *HealthCheckOptions) (*HealthChecker, error) {
 	hc := &HealthChecker{
 		Options: options,
 	}
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		utils.Log.Error(err)
 		return nil, nil
@@ -112,32 +112,32 @@ func NewHealthChecker(options *HealthCheckOptions) (*HealthChecker, error) {
 }
 
 var linkDocCheck = map[string]string{
-	"link":    "![check-usage](/assets/img/mesheryctl/check.png)",
-	"caption": "Usage of mesheryctl system check",
+	"link":    "![check-usage](/assets/img/meshplayctl/check.png)",
+	"caption": "Usage of meshplayctl system check",
 }
 
 var checkCmd = &cobra.Command{
 	Use:   "check",
-	Short: "Meshery environment check",
-	Long:  `Verify environment pre/post-deployment of Meshery.`,
+	Short: "Meshplay environment check",
+	Long:  `Verify environment pre/post-deployment of Meshplay.`,
 	Args:  cobra.MaximumNArgs(1),
 	Example: `
-// Run system checks for both pre and post mesh deployment scenarios on Meshery
-mesheryctl system check
+// Run system checks for both pre and post mesh deployment scenarios on Meshplay
+meshplayctl system check
 
 // Run Pre-mesh deployment checks (Docker and Kubernetes)
-mesheryctl system check --preflight
+meshplayctl system check --preflight
 
 // Run checks on specific mesh adapter
-mesheryctl system check --adapter meshery-istio:10000
+meshplayctl system check --adapter meshplay-istio:10000
 // or
-mesheryctl system check --adapter meshery-istio
+meshplayctl system check --adapter meshplay-istio
 
 // Run checks for all the mesh adapters
-mesheryctl system check --adapters
+meshplayctl system check --adapters
 
-// Verify the health of Meshery Operator's deployment with MeshSync and Broker
-mesheryctl system check --operator
+// Verify the health of Meshplay Operator's deployment with MeshSync and Broker
+meshplayctl system check --operator
 	`,
 	Annotations: linkDocCheck,
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -161,9 +161,9 @@ mesheryctl system check --operator
 			}
 			// Print End
 			if failure == 0 {
-				log.Info("\n--------------\n--------------\n✓✓ Meshery prerequisites met")
+				log.Info("\n--------------\n--------------\n✓✓ Meshplay prerequisites met")
 			} else {
-				log.Info("\n--------------\n--------------\n!! Meshery prerequisites not met")
+				log.Info("\n--------------\n--------------\n!! Meshplay prerequisites not met")
 			}
 			return nil
 		} else if componentsFlag { // if --components has been passed we run checks related to components
@@ -196,25 +196,25 @@ mesheryctl system check --operator
 
 // Run triggers all the healthchecks according to the requirements defined from struct HealthChecks
 func (hc *HealthChecker) Run() error {
-	// Run meshery docker checks
+	// Run meshplay docker checks
 	if hc.Options.RunDockerChecks {
 		if err := hc.runDockerHealthChecks(); err != nil {
 			return err
 		}
 	}
-	// Run meshery kubernetes checks
+	// Run meshplay kubernetes checks
 	if hc.Options.RunKubernetesChecks {
 		if err := hc.runKubernetesHealthChecks(); err != nil {
 			return err
 		}
 	}
-	// Run meshery component version checks
+	// Run meshplay component version checks
 	if hc.Options.RunVersionChecks {
-		if err := hc.runMesheryVersionHealthChecks(); err != nil {
+		if err := hc.runMeshplayVersionHealthChecks(); err != nil {
 			return err
 		}
 	}
-	// Run meshery component health checks
+	// Run meshplay component health checks
 	if hc.Options.RunComponentChecks {
 		if err := hc.runComponentsHealthChecks(); err != nil {
 			return err
@@ -262,14 +262,14 @@ func (hc *HealthChecker) runDockerHealthChecks() error {
 	err := exec.Command("docker", "ps").Run()
 	if err != nil {
 		if endpointParts[1] != "//localhost" {
-			return errors.Wrapf(err, "Meshery is not running locally, please ensure that the appropriate Docker context is selected for Meshery endpoint: %s. To list all configured contexts use `docker context ls`", hc.context.GetEndpoint())
+			return errors.Wrapf(err, "Meshplay is not running locally, please ensure that the appropriate Docker context is selected for Meshplay endpoint: %s. To list all configured contexts use `docker context ls`", hc.context.GetEndpoint())
 		}
 		if hc.Options.IsPreRunE { // if this is PreRunExec we trigger self installation
 			log.Warn("!! Docker is not running")
 			//If preRunExecution and the current platform is docker then we trigger docker installation
 			//No auto installation of docker for windows
 			if runtime.GOOS == "windows" {
-				return errors.Wrapf(err, "Please start Docker. Run `mesheryctl system %s` once Docker is started ", hc.Options.Subcommand)
+				return errors.Wrapf(err, "Please start Docker. Run `meshplayctl system %s` once Docker is started ", hc.Options.Subcommand)
 			}
 			err = utils.Startdockerdaemon(hc.Options.Subcommand)
 			if err != nil {
@@ -297,11 +297,11 @@ func (hc *HealthChecker) runDockerHealthChecks() error {
 			log.Warn("!! docker-compose is not available")
 			//No auto installation of Docker-compose for windows
 			if runtime.GOOS == "windows" {
-				return errors.Wrapf(err, "please install docker-compose. Run `mesheryctl system %s` after docker-compose is installed ", hc.Options.Subcommand)
+				return errors.Wrapf(err, "please install docker-compose. Run `meshplayctl system %s` after docker-compose is installed ", hc.Options.Subcommand)
 			}
 			err = utils.InstallprereqDocker()
 			if err != nil {
-				return errors.Wrapf(err, "failed to install prerequisites. Run `mesheryctl system %s` after docker-compose is installed ", hc.Options.Subcommand)
+				return errors.Wrapf(err, "failed to install prerequisites. Run `meshplayctl system %s` after docker-compose is installed ", hc.Options.Subcommand)
 			}
 		} else if hc.Options.PrintLogs { // warn incase of printing logs
 			log.Warn("!! docker-compose is not available")
@@ -339,7 +339,7 @@ func (hc *HealthChecker) runKubernetesAPIHealthCheck() error {
 			return nil
 		}
 		// else we're supposed to grab the error
-		errMsg := fmt.Errorf("%s. Your %s context is configured to run Meshery on Kubernetes using the %s token",
+		errMsg := fmt.Errorf("%s. Your %s context is configured to run Meshplay on Kubernetes using the %s token",
 			err.Error(), hc.mctlCfg.CurrentContext, hc.context.Token)
 		return ErrK8sConfig(errMsg)
 	}
@@ -437,15 +437,15 @@ func (hc *HealthChecker) runKubernetesHealthChecks() error {
 	return err
 }
 
-// runMesheryVersionHealthChecks runs checks regarding meshery version and mesheryctl version
-func (hc *HealthChecker) runMesheryVersionHealthChecks() error {
+// runMeshplayVersionHealthChecks runs checks regarding meshplay version and meshplayctl version
+func (hc *HealthChecker) runMeshplayVersionHealthChecks() error {
 	skipServerLogs := false
 
 	if hc.Options.PrintLogs {
-		log.Info("\nMeshery Version \n--------------")
+		log.Info("\nMeshplay Version \n--------------")
 	}
 
-	url := hc.mctlCfg.GetBaseMesheryURL()
+	url := hc.mctlCfg.GetBaseMeshplayURL()
 	var serverVersion *config.Version
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/api/system/version", url), nil)
 	if err != nil {
@@ -457,7 +457,7 @@ func (hc *HealthChecker) runMesheryVersionHealthChecks() error {
 	// failed to fetch response for server version
 	if err != nil || resp.StatusCode != 200 {
 		if hc.Options.PrintLogs { // log if we're supposed to
-			log.Info("!! failed to check Meshery Server version. try starting Meshery with `mesheryctl system start`")
+			log.Info("!! failed to check Meshplay Server version. try starting Meshplay with `meshplayctl system start`")
 			skipServerLogs = true
 		} else {
 			return err
@@ -484,21 +484,21 @@ func (hc *HealthChecker) runMesheryVersionHealthChecks() error {
 		}
 		if hc.Options.PrintLogs { // log if we're supposed to
 			if !*isOutdated {
-				log.Infof("✓ Meshery Server is up-to-date (stable-%s)", serverVersion.GetBuild())
+				log.Infof("✓ Meshplay Server is up-to-date (stable-%s)", serverVersion.GetBuild())
 			} else {
-				log.Info("!! Meshery Server is not up-to-date")
+				log.Info("!! Meshplay Server is not up-to-date")
 			}
 		} else { // else we grab the error
 			if !*isOutdated {
-				return errors.New("!! Meshery Server is not up-to-date")
+				return errors.New("!! Meshplay Server is not up-to-date")
 			}
 		}
 	}
 
-	latestVersions, err := meshkitutils.GetLatestReleaseTagsSorted(c.GetMesheryGitHubOrg(), c.GetMesheryGitHubRepo())
+	latestVersions, err := meshkitutils.GetLatestReleaseTagsSorted(c.GetMeshplayGitHubOrg(), c.GetMeshplayGitHubRepo())
 	if err != nil {
 		if hc.Options.PrintLogs { // log if we're supposed to
-			log.Info("!! failed to fetch latest release tag of mesheryctl")
+			log.Info("!! failed to fetch latest release tag of meshplayctl")
 			// skip further for client as we failed to check latest tag on github
 			return nil
 		}
@@ -508,7 +508,7 @@ func (hc *HealthChecker) runMesheryVersionHealthChecks() error {
 		return fmt.Errorf("no versions found")
 	}
 	latest := latestVersions[len(latestVersions)-1]
-	version := constants.GetMesheryctlVersion()
+	version := constants.GetMeshplayctlVersion()
 	if hc.Options.PrintLogs { // log if we're supposed to
 		if latest == version {
 			log.Infof("✓ CLI is up-to-date (stable-%s)", version)
@@ -524,35 +524,35 @@ func (hc *HealthChecker) runMesheryVersionHealthChecks() error {
 	return nil
 }
 
-// runComponentsHealthChecks runs health checks for Adapters, Operator, and all deployments in meshery ecosystem
+// runComponentsHealthChecks runs health checks for Adapters, Operator, and all deployments in meshplay ecosystem
 func (hc *HealthChecker) runComponentsHealthChecks() error {
 	if hc.Options.PrintLogs {
-		log.Info("\nMeshery Components \n--------------")
+		log.Info("\nMeshplay Components \n--------------")
 	}
 	return hc.runAdapterHealthChecks("")
 }
 
 // runOperatorHealthChecks executes health-checks for Operators
 func (hc *HealthChecker) runOperatorHealthChecks() error {
-	url := hc.mctlCfg.GetBaseMesheryURL()
+	url := hc.mctlCfg.GetBaseMeshplayURL()
 	client := &http.Client{}
 	_, err := utils.GetSessionData(hc.mctlCfg)
 	if err != nil {
-		return fmt.Errorf("!! Authentication token not found. Please supply a valid user token. Login with `mesheryctl system login`")
+		return fmt.Errorf("!! Authentication token not found. Please supply a valid user token. Login with `meshplayctl system login`")
 	}
 	if hc.Options.PrintLogs {
-		log.Info("\nMeshery Operators \n--------------")
+		log.Info("\nMeshplay Operators \n--------------")
 	}
 
 	req, err := utils.NewRequest("GET", fmt.Sprintf("%s/api/system/kubernetes/contexts", url), nil)
 	if err != nil {
-		return errors.New("Authentication token not found. Please supply a valid user token. Login with `mesheryctl system login`")
+		return errors.New("Authentication token not found. Please supply a valid user token. Login with `meshplayctl system login`")
 	}
-	var pages *models.MesheryK8sContextPage
+	var pages *models.MeshplayK8sContextPage
 	var contexts []*models.K8sContext
 	resp, err := client.Do(req)
 	if err != nil || resp.StatusCode != 200 {
-		return errors.Errorf("\nFailed to connect to Meshery server : %v", err)
+		return errors.Errorf("\nFailed to connect to Meshplay server : %v", err)
 	}
 	defer resp.Body.Close()
 	data, err := io.ReadAll(resp.Body)
@@ -567,7 +567,7 @@ func (hc *HealthChecker) runOperatorHealthChecks() error {
 	}
 
 	if len(contexts) == 0 {
-		return errors.New("!! Meshery is not connected to any contexts ")
+		return errors.New("!! Meshplay is not connected to any contexts ")
 	}
 
 	var clientMesh *meshkitkube.Client
@@ -576,8 +576,8 @@ func (hc *HealthChecker) runOperatorHealthChecks() error {
 		return err
 	}
 
-	// List the pods in the `meshery` Namespace
-	podList, err := utils.GetPodList(clientMesh, utils.MesheryNamespace)
+	// List the pods in the `meshplay` Namespace
+	podList, err := utils.GetPodList(clientMesh, utils.MeshplayNamespace)
 	if err != nil {
 		return err
 	}
@@ -591,29 +591,29 @@ func (hc *HealthChecker) runOperatorHealthChecks() error {
 	for _, pod := range podList.Items {
 		name := utils.GetCleanPodName(pod.GetName())
 
-		if name == "meshery-operator" {
+		if name == "meshplay-operator" {
 			operatorCheck = true
 		}
 
-		if name == "meshery-broker" {
+		if name == "meshplay-broker" {
 			brokerCheck = true
 		}
 
-		if name == "meshery-meshsync" {
+		if name == "meshplay-meshsync" {
 			meshsyncCheck = true
 		}
 	}
 
 	if !operatorCheck {
-		return errors.New("!! Meshery Operator is not running")
+		return errors.New("!! Meshplay Operator is not running")
 	} else {
-		log.Info("✓ Meshery Operator is running")
+		log.Info("✓ Meshplay Operator is running")
 	}
 
 	if !brokerCheck {
-		log.Info("!! Meshery Broker is not running")
+		log.Info("!! Meshplay Broker is not running")
 	} else {
-		log.Info("✓ Meshery Broker is running")
+		log.Info("✓ Meshplay Broker is running")
 	}
 
 	if !meshsyncCheck {
@@ -628,12 +628,12 @@ func (hc *HealthChecker) runOperatorHealthChecks() error {
 // runAdapterHealthChecks executes health-checks for Adapters
 // If no adapter is specified all the adapters are checked
 func (hc *HealthChecker) runAdapterHealthChecks(adapterName string) error {
-	url := hc.mctlCfg.GetBaseMesheryURL()
+	url := hc.mctlCfg.GetBaseMeshplayURL()
 	client := &http.Client{}
 	var adapters []*models.Adapter
 	prefs, err := utils.GetSessionData(hc.mctlCfg)
 	if err != nil {
-		return fmt.Errorf("!! Authentication token not found. Please supply a valid user token. Login with `mesheryctl system login`")
+		return fmt.Errorf("!! Authentication token not found. Please supply a valid user token. Login with `meshplayctl system login`")
 	}
 	for _, adapter := range prefs.MeshAdapters {
 		if adapterName != "" {
@@ -659,10 +659,10 @@ func (hc *HealthChecker) runAdapterHealthChecks(adapterName string) error {
 		resp, err := client.Do(req)
 		if err != nil {
 			if hc.Options.PrintLogs { // incase we're printing logs
-				log.Infof("!! failed to connect to Meshery Adapter for %s ", name)
+				log.Infof("!! failed to connect to Meshplay Adapter for %s ", name)
 				skipAdapter = true
 			} else { // or we're supposed to grab the errors
-				return fmt.Errorf("!! failed to connect to Meshery Adapter for%s adapter: %s", name, err)
+				return fmt.Errorf("!! failed to connect to Meshplay Adapter for%s adapter: %s", name, err)
 			}
 			continue
 		}
@@ -671,9 +671,9 @@ func (hc *HealthChecker) runAdapterHealthChecks(adapterName string) error {
 			defer resp.Body.Close()
 			if resp.StatusCode != 200 {
 				if hc.Options.PrintLogs { // incase we're printing logs
-					log.Infof("!! Meshery Adapter for %s is running but not reachable", name)
+					log.Infof("!! Meshplay Adapter for %s is running but not reachable", name)
 				} else { // or we're supposed to grab the errors
-					return fmt.Errorf("!! Meshery Adapter for %s is running, but not reachable", name)
+					return fmt.Errorf("!! Meshplay Adapter for %s is running, but not reachable", name)
 				}
 			} else { // if status == 200 we check if we are supposed to print logs
 				if hc.Options.PrintLogs { // incase we're printing logs
@@ -685,13 +685,13 @@ func (hc *HealthChecker) runAdapterHealthChecks(adapterName string) error {
 	return nil
 }
 
-// mesheryReadinessHealthCheck is waiting for Meshery to start, returns (ready, error)
-func mesheryReadinessHealthCheck() (bool, error) {
+// meshplayReadinessHealthCheck is waiting for Meshplay to start, returns (ready, error)
+func meshplayReadinessHealthCheck() (bool, error) {
 	kubeClient, err := meshkitkube.New([]byte(""))
 	if err != nil {
 		return false, err
 	}
-	if err := utils.WaitForPodRunning(kubeClient, "meshery", utils.MesheryNamespace, 300); err != nil {
+	if err := utils.WaitForPodRunning(kubeClient, "meshplay", utils.MeshplayNamespace, 300); err != nil {
 		return false, err
 	}
 
@@ -699,10 +699,10 @@ func mesheryReadinessHealthCheck() (bool, error) {
 }
 
 func init() {
-	checkCmd.Flags().BoolVarP(&preflight, "preflight", "", false, "Verify environment readiness to deploy Meshery")
-	checkCmd.Flags().BoolVarP(&pre, "pre", "", false, "Verify environment readiness to deploy Meshery")
-	checkCmd.Flags().BoolVarP(&componentsFlag, "components", "", false, "Check status of Meshery components")
-	checkCmd.Flags().BoolVarP(&adaptersFlag, "adapters", "", false, "Check status of meshery adapters")
-	checkCmd.Flags().StringVarP(&adapter, "adapter", "", "", "Check status of specified meshery adapter")
-	checkCmd.Flags().BoolVarP(&operatorsFlag, "operator", "", false, "Verify the health of Meshery Operator's deployment with MeshSync and Broker")
+	checkCmd.Flags().BoolVarP(&preflight, "preflight", "", false, "Verify environment readiness to deploy Meshplay")
+	checkCmd.Flags().BoolVarP(&pre, "pre", "", false, "Verify environment readiness to deploy Meshplay")
+	checkCmd.Flags().BoolVarP(&componentsFlag, "components", "", false, "Check status of Meshplay components")
+	checkCmd.Flags().BoolVarP(&adaptersFlag, "adapters", "", false, "Check status of meshplay adapters")
+	checkCmd.Flags().StringVarP(&adapter, "adapter", "", "", "Check status of specified meshplay adapter")
+	checkCmd.Flags().BoolVarP(&operatorsFlag, "operator", "", false, "Verify the health of Meshplay Operator's deployment with MeshSync and Broker")
 }

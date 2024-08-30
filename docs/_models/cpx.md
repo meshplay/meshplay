@@ -4,7 +4,7 @@ title: Citrix Service Mesh
 subtitle: The easiest way to get a production-grade Kubernetes cluster up and running
 image: /assets/img/integrations/cpx/icons/color/cpx-color.svg
 permalink: extensibility/integrations/cpx
-docURL: https://docs.meshery.io/extensibility/adapters/cpx
+docURL: https://docs.meshplay.io/extensibility/adapters/cpx
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh

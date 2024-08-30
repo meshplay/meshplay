@@ -15,7 +15,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -203,7 +203,7 @@ type ComplexityRoot struct {
 		DeploymentType     func(childComplexity int) int
 		ID                 func(childComplexity int) int
 		KubernetesServerID func(childComplexity int) int
-		MesheryInstanceID  func(childComplexity int) int
+		MeshplayInstanceID  func(childComplexity int) int
 		Name               func(childComplexity int) int
 		Owner              func(childComplexity int) int
 		Server             func(childComplexity int) int
@@ -249,17 +249,17 @@ type ComplexityRoot struct {
 		Type         func(childComplexity int) int
 	}
 
-	MesheryControllersStatusListItem struct {
+	MeshplayControllersStatusListItem struct {
 		ConnectionID func(childComplexity int) int
 		Controller   func(childComplexity int) int
 		Status       func(childComplexity int) int
 		Version      func(childComplexity int) int
 	}
 
-	MesheryResult struct {
+	MeshplayResult struct {
 		CreatedAt          func(childComplexity int) int
 		Mesh               func(childComplexity int) int
-		MesheryID          func(childComplexity int) int
+		MeshplayID          func(childComplexity int) int
 		Name               func(childComplexity int) int
 		PerformanceProfile func(childComplexity int) int
 		RunnerResults      func(childComplexity int) int
@@ -383,7 +383,7 @@ type ComplexityRoot struct {
 		SubscribeK8sContext               func(childComplexity int, selector model.PageFilter) int
 		SubscribeMeshModelSummary         func(childComplexity int, selector model.MeshModelSummarySelector) int
 		SubscribeMeshSyncEvents           func(childComplexity int, connectionIDs []string, eventTypes []model.MeshSyncEventType) int
-		SubscribeMesheryControllersStatus func(childComplexity int, connectionIDs []string) int
+		SubscribeMeshplayControllersStatus func(childComplexity int, connectionIDs []string) int
 		SubscribePerfProfiles             func(childComplexity int, selector model.PageFilter) int
 		SubscribePerfResults              func(childComplexity int, selector model.PageFilter, profileID string) int
 	}
@@ -403,12 +403,12 @@ type QueryResolver interface {
 	GetAvailableAddons(ctx context.Context, filter *model.ServiceMeshFilter) ([]*model.AddonList, error)
 	GetControlPlanes(ctx context.Context, filter *model.ServiceMeshFilter) ([]*model.ControlPlane, error)
 	GetDataPlanes(ctx context.Context, filter *model.ServiceMeshFilter) ([]*model.DataPlane, error)
-	GetOperatorStatus(ctx context.Context, connectionID string) (*model.MesheryControllersStatusListItem, error)
+	GetOperatorStatus(ctx context.Context, connectionID string) (*model.MeshplayControllersStatusListItem, error)
 	ResyncCluster(ctx context.Context, selector *model.ReSyncActions, k8scontextID string) (model.Status, error)
 	GetMeshsyncStatus(ctx context.Context, connectionID string) (*model.OperatorControllerStatus, error)
 	GetNatsStatus(ctx context.Context, connectionID string) (*model.OperatorControllerStatus, error)
 	GetAvailableNamespaces(ctx context.Context, k8sClusterIDs []string) ([]*model.NameSpace, error)
-	GetPerfResult(ctx context.Context, id string) (*model.MesheryResult, error)
+	GetPerfResult(ctx context.Context, id string) (*model.MeshplayResult, error)
 	FetchResults(ctx context.Context, selector model.PageFilter, profileID string) (*model.PerfPageResult, error)
 	GetPerformanceProfiles(ctx context.Context, selector model.PageFilter) (*model.PerfPageProfiles, error)
 	FetchAllResults(ctx context.Context, selector model.PageFilter) (*model.PerfPageResult, error)
@@ -422,7 +422,7 @@ type QueryResolver interface {
 type SubscriptionResolver interface {
 	SubscribePerfProfiles(ctx context.Context, selector model.PageFilter) (<-chan *model.PerfPageProfiles, error)
 	SubscribePerfResults(ctx context.Context, selector model.PageFilter, profileID string) (<-chan *model.PerfPageResult, error)
-	SubscribeMesheryControllersStatus(ctx context.Context, connectionIDs []string) (<-chan []*model.MesheryControllersStatusListItem, error)
+	SubscribeMeshplayControllersStatus(ctx context.Context, connectionIDs []string) (<-chan []*model.MeshplayControllersStatusListItem, error)
 	SubscribeMeshSyncEvents(ctx context.Context, connectionIDs []string, eventTypes []model.MeshSyncEventType) (<-chan *model.MeshSyncEvent, error)
 	SubscribeConfiguration(ctx context.Context, patternSelector model.PageFilter, filterSelector model.PageFilter) (<-chan *model.ConfigurationPage, error)
 	SubscribeClusterResources(ctx context.Context, k8scontextIDs []string, namespace string) (<-chan *model.ClusterResources, error)
@@ -1158,11 +1158,11 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		return e.complexity.K8sContext.KubernetesServerID(childComplexity), true
 
 	case "K8sContext.meshplay_instance_id":
-		if e.complexity.K8sContext.MesheryInstanceID == nil {
+		if e.complexity.K8sContext.MeshplayInstanceID == nil {
 			break
 		}
 
-		return e.complexity.K8sContext.MesheryInstanceID(childComplexity), true
+		return e.complexity.K8sContext.MeshplayInstanceID(childComplexity), true
 
 	case "K8sContext.name":
 		if e.complexity.K8sContext.Name == nil {
@@ -1318,117 +1318,117 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MeshSyncEvent.Type(childComplexity), true
 
-	case "MesheryControllersStatusListItem.connectionID":
-		if e.complexity.MesheryControllersStatusListItem.ConnectionID == nil {
+	case "MeshplayControllersStatusListItem.connectionID":
+		if e.complexity.MeshplayControllersStatusListItem.ConnectionID == nil {
 			break
 		}
 
-		return e.complexity.MesheryControllersStatusListItem.ConnectionID(childComplexity), true
+		return e.complexity.MeshplayControllersStatusListItem.ConnectionID(childComplexity), true
 
-	case "MesheryControllersStatusListItem.controller":
-		if e.complexity.MesheryControllersStatusListItem.Controller == nil {
+	case "MeshplayControllersStatusListItem.controller":
+		if e.complexity.MeshplayControllersStatusListItem.Controller == nil {
 			break
 		}
 
-		return e.complexity.MesheryControllersStatusListItem.Controller(childComplexity), true
+		return e.complexity.MeshplayControllersStatusListItem.Controller(childComplexity), true
 
-	case "MesheryControllersStatusListItem.status":
-		if e.complexity.MesheryControllersStatusListItem.Status == nil {
+	case "MeshplayControllersStatusListItem.status":
+		if e.complexity.MeshplayControllersStatusListItem.Status == nil {
 			break
 		}
 
-		return e.complexity.MesheryControllersStatusListItem.Status(childComplexity), true
+		return e.complexity.MeshplayControllersStatusListItem.Status(childComplexity), true
 
-	case "MesheryControllersStatusListItem.version":
-		if e.complexity.MesheryControllersStatusListItem.Version == nil {
+	case "MeshplayControllersStatusListItem.version":
+		if e.complexity.MeshplayControllersStatusListItem.Version == nil {
 			break
 		}
 
-		return e.complexity.MesheryControllersStatusListItem.Version(childComplexity), true
+		return e.complexity.MeshplayControllersStatusListItem.Version(childComplexity), true
 
-	case "MesheryResult.created_at":
-		if e.complexity.MesheryResult.CreatedAt == nil {
+	case "MeshplayResult.created_at":
+		if e.complexity.MeshplayResult.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.CreatedAt(childComplexity), true
+		return e.complexity.MeshplayResult.CreatedAt(childComplexity), true
 
-	case "MesheryResult.mesh":
-		if e.complexity.MesheryResult.Mesh == nil {
+	case "MeshplayResult.mesh":
+		if e.complexity.MeshplayResult.Mesh == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.Mesh(childComplexity), true
+		return e.complexity.MeshplayResult.Mesh(childComplexity), true
 
-	case "MesheryResult.meshplay_id":
-		if e.complexity.MesheryResult.MesheryID == nil {
+	case "MeshplayResult.meshplay_id":
+		if e.complexity.MeshplayResult.MeshplayID == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.MesheryID(childComplexity), true
+		return e.complexity.MeshplayResult.MeshplayID(childComplexity), true
 
-	case "MesheryResult.name":
-		if e.complexity.MesheryResult.Name == nil {
+	case "MeshplayResult.name":
+		if e.complexity.MeshplayResult.Name == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.Name(childComplexity), true
+		return e.complexity.MeshplayResult.Name(childComplexity), true
 
-	case "MesheryResult.performance_profile":
-		if e.complexity.MesheryResult.PerformanceProfile == nil {
+	case "MeshplayResult.performance_profile":
+		if e.complexity.MeshplayResult.PerformanceProfile == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.PerformanceProfile(childComplexity), true
+		return e.complexity.MeshplayResult.PerformanceProfile(childComplexity), true
 
-	case "MesheryResult.runner_results":
-		if e.complexity.MesheryResult.RunnerResults == nil {
+	case "MeshplayResult.runner_results":
+		if e.complexity.MeshplayResult.RunnerResults == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.RunnerResults(childComplexity), true
+		return e.complexity.MeshplayResult.RunnerResults(childComplexity), true
 
-	case "MesheryResult.server_board_config":
-		if e.complexity.MesheryResult.ServerBoardConfig == nil {
+	case "MeshplayResult.server_board_config":
+		if e.complexity.MeshplayResult.ServerBoardConfig == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.ServerBoardConfig(childComplexity), true
+		return e.complexity.MeshplayResult.ServerBoardConfig(childComplexity), true
 
-	case "MesheryResult.server_metrics":
-		if e.complexity.MesheryResult.ServerMetrics == nil {
+	case "MeshplayResult.server_metrics":
+		if e.complexity.MeshplayResult.ServerMetrics == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.ServerMetrics(childComplexity), true
+		return e.complexity.MeshplayResult.ServerMetrics(childComplexity), true
 
-	case "MesheryResult.test_id":
-		if e.complexity.MesheryResult.TestID == nil {
+	case "MeshplayResult.test_id":
+		if e.complexity.MeshplayResult.TestID == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.TestID(childComplexity), true
+		return e.complexity.MeshplayResult.TestID(childComplexity), true
 
-	case "MesheryResult.test_start_time":
-		if e.complexity.MesheryResult.TestStartTime == nil {
+	case "MeshplayResult.test_start_time":
+		if e.complexity.MeshplayResult.TestStartTime == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.TestStartTime(childComplexity), true
+		return e.complexity.MeshplayResult.TestStartTime(childComplexity), true
 
-	case "MesheryResult.updated_at":
-		if e.complexity.MesheryResult.UpdatedAt == nil {
+	case "MeshplayResult.updated_at":
+		if e.complexity.MeshplayResult.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.UpdatedAt(childComplexity), true
+		return e.complexity.MeshplayResult.UpdatedAt(childComplexity), true
 
-	case "MesheryResult.user_id":
-		if e.complexity.MesheryResult.UserID == nil {
+	case "MeshplayResult.user_id":
+		if e.complexity.MeshplayResult.UserID == nil {
 			break
 		}
 
-		return e.complexity.MesheryResult.UserID(childComplexity), true
+		return e.complexity.MeshplayResult.UserID(childComplexity), true
 
 	case "Mutation.changeAdapterStatus":
 		if e.complexity.Mutation.ChangeAdapterStatus == nil {
@@ -2101,17 +2101,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Subscription.SubscribeMeshSyncEvents(childComplexity, args["connectionIDs"].([]string), args["eventTypes"].([]model.MeshSyncEventType)), true
 
-	case "Subscription.subscribeMesheryControllersStatus":
-		if e.complexity.Subscription.SubscribeMesheryControllersStatus == nil {
+	case "Subscription.subscribeMeshplayControllersStatus":
+		if e.complexity.Subscription.SubscribeMeshplayControllersStatus == nil {
 			break
 		}
 
-		args, err := ec.field_Subscription_subscribeMesheryControllersStatus_args(context.TODO(), rawArgs)
+		args, err := ec.field_Subscription_subscribeMeshplayControllersStatus_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Subscription.SubscribeMesheryControllersStatus(childComplexity, args["connectionIDs"].([]string)), true
+		return e.complexity.Subscription.SubscribeMeshplayControllersStatus(childComplexity, args["connectionIDs"].([]string)), true
 
 	case "Subscription.subscribePerfProfiles":
 		if e.complexity.Subscription.SubscribePerfProfiles == nil {
@@ -2301,7 +2301,7 @@ directive @KubernetesMiddleware on FIELD_DEFINITION
 
 # Service Mesh Types
 enum MeshType {
-  # All meshes that Meshery supports
+  # All meshes that Meshplay supports
   ALL_MESH
 
   # Invalid Mesh
@@ -2347,13 +2347,13 @@ enum MeshType {
   CILIUM_SERVICE_MESH
 }
 
-enum MesheryController {
+enum MeshplayController {
     BROKER
     OPERATOR
     MESHSYNC
   }
 
-enum MesheryControllerStatus {
+enum MeshplayControllerStatus {
     DEPLOYED
     NOTDEPLOYED
     DEPLOYING
@@ -2364,10 +2364,10 @@ enum MesheryControllerStatus {
     CONNECTED
   }
 
-type MesheryControllersStatusListItem {
+type MeshplayControllersStatusListItem {
     connectionID: String!
-    controller: MesheryController! 
-    status: MesheryControllerStatus!
+    controller: MeshplayController! 
+    status: MeshplayControllerStatus!
     version: String!
   }
 
@@ -2556,15 +2556,15 @@ enum MeshSyncEventType {
 
 # ============== OPERATOR =============================
 
-# Input for status change of Meshery Operator
+# Input for status change of Meshplay Operator
 input OperatorStatusInput {
-  # Desired status for Meshery Operator
+  # Desired status for Meshplay Operator
   targetStatus: Status!
   
   contextID: String!
 }
 
-# Controllers of Meshery Operator
+# Controllers of Meshplay Operator
 type OperatorControllerStatus {
   # Controller Name
   name: String!
@@ -2731,7 +2731,7 @@ type PerfPageResult {
   page_size: Int!
   total_count: Int!
 
-  results: [MesheryResult]
+  results: [MeshplayResult]
 }
 
 type PerfPageProfiles {
@@ -2763,7 +2763,7 @@ type PerfProfile {
   metadata: Map
 }
 
-type MesheryResult {
+type MeshplayResult {
   meshplay_id: String
   name: String
   mesh: String
@@ -2860,10 +2860,10 @@ type Query {
     filter: ServiceMeshFilter
   ): [DataPlane!]!
 
-  # Query status of Meshery Operator in your cluster
+  # Query status of Meshplay Operator in your cluster
   getOperatorStatus(
         connectionID: String!
-  ): MesheryControllersStatusListItem @KubernetesMiddleware
+  ): MeshplayControllersStatusListItem @KubernetesMiddleware
 
   # Query to resync the cluster discovery
   resyncCluster(
@@ -2888,7 +2888,7 @@ type Query {
   ): [NameSpace!]!
 
   # Query for performance result
-  getPerfResult(id: ID!): MesheryResult
+  getPerfResult(id: ID!): MeshplayResult
 
   # Query for fetching all results for profile ID
   fetchResults(selector: PageFilter!, profileID: String!): PerfPageResult!
@@ -2923,9 +2923,9 @@ type Query {
 
 #
 
-# Input for status change of Meshery Operator
+# Input for status change of Meshplay Operator
 input AdapterStatusInput {
-  # Desired status for Meshery Operator
+  # Desired status for Meshplay Operator
   targetStatus: Status!
   
   # The port on which adapter will be deployed
@@ -2951,11 +2951,11 @@ type Subscription {
   subscribePerfResults(selector: PageFilter!, profileID: String!): PerfPageResult!
 
   # Listen to changes in the status of meshplay controllers
-  subscribeMesheryControllersStatus(
+  subscribeMeshplayControllersStatus(
     connectionIDs: [String!]
-  ): [MesheryControllersStatusListItem!]! @KubernetesMiddleware
+  ): [MeshplayControllersStatusListItem!]! @KubernetesMiddleware
 
-  # Listen to the events that MeshSync is sending through Meshery Broker.
+  # Listen to the events that MeshSync is sending through Meshplay Broker.
   # Note: It does not listen to the changes in meshplay database, but to meshsync events
   subscribeMeshSyncEvents(
     connectionIDs: [String!]
@@ -3443,7 +3443,7 @@ func (ec *executionContext) field_Subscription_subscribeMeshSyncEvents_args(ctx 
 	return args, nil
 }
 
-func (ec *executionContext) field_Subscription_subscribeMesheryControllersStatus_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Subscription_subscribeMeshplayControllersStatus_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 []string
@@ -8057,7 +8057,7 @@ func (ec *executionContext) _K8sContext_meshplay_instance_id(ctx context.Context
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.MesheryInstanceID, nil
+		return obj.MeshplayInstanceID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9113,8 +9113,8 @@ func (ec *executionContext) fieldContext_MeshSyncEvent_connectionID(ctx context.
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryControllersStatusListItem_connectionID(ctx context.Context, field graphql.CollectedField, obj *model.MesheryControllersStatusListItem) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryControllersStatusListItem_connectionID(ctx, field)
+func (ec *executionContext) _MeshplayControllersStatusListItem_connectionID(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayControllersStatusListItem) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayControllersStatusListItem_connectionID(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9144,9 +9144,9 @@ func (ec *executionContext) _MesheryControllersStatusListItem_connectionID(ctx c
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryControllersStatusListItem_connectionID(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayControllersStatusListItem_connectionID(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryControllersStatusListItem",
+		Object:     "MeshplayControllersStatusListItem",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9157,8 +9157,8 @@ func (ec *executionContext) fieldContext_MesheryControllersStatusListItem_connec
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryControllersStatusListItem_controller(ctx context.Context, field graphql.CollectedField, obj *model.MesheryControllersStatusListItem) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryControllersStatusListItem_controller(ctx, field)
+func (ec *executionContext) _MeshplayControllersStatusListItem_controller(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayControllersStatusListItem) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayControllersStatusListItem_controller(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9183,26 +9183,26 @@ func (ec *executionContext) _MesheryControllersStatusListItem_controller(ctx con
 		}
 		return graphql.Null
 	}
-	res := resTmp.(model.MesheryController)
+	res := resTmp.(model.MeshplayController)
 	fc.Result = res
-	return ec.marshalNMesheryController2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryController(ctx, field.Selections, res)
+	return ec.marshalNMeshplayController2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayController(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryControllersStatusListItem_controller(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayControllersStatusListItem_controller(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryControllersStatusListItem",
+		Object:     "MeshplayControllersStatusListItem",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type MesheryController does not have child fields")
+			return nil, errors.New("field of type MeshplayController does not have child fields")
 		},
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryControllersStatusListItem_status(ctx context.Context, field graphql.CollectedField, obj *model.MesheryControllersStatusListItem) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryControllersStatusListItem_status(ctx, field)
+func (ec *executionContext) _MeshplayControllersStatusListItem_status(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayControllersStatusListItem) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayControllersStatusListItem_status(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9227,26 +9227,26 @@ func (ec *executionContext) _MesheryControllersStatusListItem_status(ctx context
 		}
 		return graphql.Null
 	}
-	res := resTmp.(model.MesheryControllerStatus)
+	res := resTmp.(model.MeshplayControllerStatus)
 	fc.Result = res
-	return ec.marshalNMesheryControllerStatus2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllerStatus(ctx, field.Selections, res)
+	return ec.marshalNMeshplayControllerStatus2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllerStatus(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryControllersStatusListItem_status(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayControllersStatusListItem_status(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryControllersStatusListItem",
+		Object:     "MeshplayControllersStatusListItem",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type MesheryControllerStatus does not have child fields")
+			return nil, errors.New("field of type MeshplayControllerStatus does not have child fields")
 		},
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryControllersStatusListItem_version(ctx context.Context, field graphql.CollectedField, obj *model.MesheryControllersStatusListItem) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryControllersStatusListItem_version(ctx, field)
+func (ec *executionContext) _MeshplayControllersStatusListItem_version(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayControllersStatusListItem) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayControllersStatusListItem_version(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9276,9 +9276,9 @@ func (ec *executionContext) _MesheryControllersStatusListItem_version(ctx contex
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryControllersStatusListItem_version(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayControllersStatusListItem_version(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryControllersStatusListItem",
+		Object:     "MeshplayControllersStatusListItem",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9289,8 +9289,8 @@ func (ec *executionContext) fieldContext_MesheryControllersStatusListItem_versio
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_meshplay_id(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_meshplay_id(ctx, field)
+func (ec *executionContext) _MeshplayResult_meshplay_id(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_meshplay_id(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9303,7 +9303,7 @@ func (ec *executionContext) _MesheryResult_meshplay_id(ctx context.Context, fiel
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.MesheryID, nil
+		return obj.MeshplayID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9317,9 +9317,9 @@ func (ec *executionContext) _MesheryResult_meshplay_id(ctx context.Context, fiel
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_meshplay_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_meshplay_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9330,8 +9330,8 @@ func (ec *executionContext) fieldContext_MesheryResult_meshplay_id(ctx context.C
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_name(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_name(ctx, field)
+func (ec *executionContext) _MeshplayResult_name(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_name(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9358,9 +9358,9 @@ func (ec *executionContext) _MesheryResult_name(ctx context.Context, field graph
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_name(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_name(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9371,8 +9371,8 @@ func (ec *executionContext) fieldContext_MesheryResult_name(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_mesh(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_mesh(ctx, field)
+func (ec *executionContext) _MeshplayResult_mesh(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_mesh(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9399,9 +9399,9 @@ func (ec *executionContext) _MesheryResult_mesh(ctx context.Context, field graph
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_mesh(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_mesh(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9412,8 +9412,8 @@ func (ec *executionContext) fieldContext_MesheryResult_mesh(ctx context.Context,
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_performance_profile(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_performance_profile(ctx, field)
+func (ec *executionContext) _MeshplayResult_performance_profile(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_performance_profile(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9440,9 +9440,9 @@ func (ec *executionContext) _MesheryResult_performance_profile(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_performance_profile(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_performance_profile(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9453,8 +9453,8 @@ func (ec *executionContext) fieldContext_MesheryResult_performance_profile(ctx c
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_test_id(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_test_id(ctx, field)
+func (ec *executionContext) _MeshplayResult_test_id(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_test_id(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9481,9 +9481,9 @@ func (ec *executionContext) _MesheryResult_test_id(ctx context.Context, field gr
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_test_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_test_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9494,8 +9494,8 @@ func (ec *executionContext) fieldContext_MesheryResult_test_id(ctx context.Conte
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_runner_results(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_runner_results(ctx, field)
+func (ec *executionContext) _MeshplayResult_runner_results(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_runner_results(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9522,9 +9522,9 @@ func (ec *executionContext) _MesheryResult_runner_results(ctx context.Context, f
 	return ec.marshalOMap2map(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_runner_results(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_runner_results(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9535,8 +9535,8 @@ func (ec *executionContext) fieldContext_MesheryResult_runner_results(ctx contex
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_server_metrics(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_server_metrics(ctx, field)
+func (ec *executionContext) _MeshplayResult_server_metrics(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_server_metrics(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9563,9 +9563,9 @@ func (ec *executionContext) _MesheryResult_server_metrics(ctx context.Context, f
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_server_metrics(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_server_metrics(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9576,8 +9576,8 @@ func (ec *executionContext) fieldContext_MesheryResult_server_metrics(ctx contex
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_server_board_config(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_server_board_config(ctx, field)
+func (ec *executionContext) _MeshplayResult_server_board_config(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_server_board_config(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9604,9 +9604,9 @@ func (ec *executionContext) _MesheryResult_server_board_config(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_server_board_config(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_server_board_config(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9617,8 +9617,8 @@ func (ec *executionContext) fieldContext_MesheryResult_server_board_config(ctx c
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_test_start_time(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_test_start_time(ctx, field)
+func (ec *executionContext) _MeshplayResult_test_start_time(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_test_start_time(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9645,9 +9645,9 @@ func (ec *executionContext) _MesheryResult_test_start_time(ctx context.Context, 
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_test_start_time(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_test_start_time(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9658,8 +9658,8 @@ func (ec *executionContext) fieldContext_MesheryResult_test_start_time(ctx conte
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_user_id(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_user_id(ctx, field)
+func (ec *executionContext) _MeshplayResult_user_id(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_user_id(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9686,9 +9686,9 @@ func (ec *executionContext) _MesheryResult_user_id(ctx context.Context, field gr
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_user_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_user_id(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9699,8 +9699,8 @@ func (ec *executionContext) fieldContext_MesheryResult_user_id(ctx context.Conte
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_updated_at(ctx, field)
+func (ec *executionContext) _MeshplayResult_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_updated_at(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9727,9 +9727,9 @@ func (ec *executionContext) _MesheryResult_updated_at(ctx context.Context, field
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_updated_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_updated_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9740,8 +9740,8 @@ func (ec *executionContext) fieldContext_MesheryResult_updated_at(ctx context.Co
 	return fc, nil
 }
 
-func (ec *executionContext) _MesheryResult_created_at(ctx context.Context, field graphql.CollectedField, obj *model.MesheryResult) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_MesheryResult_created_at(ctx, field)
+func (ec *executionContext) _MeshplayResult_created_at(ctx context.Context, field graphql.CollectedField, obj *model.MeshplayResult) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_MeshplayResult_created_at(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -9768,9 +9768,9 @@ func (ec *executionContext) _MesheryResult_created_at(ctx context.Context, field
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_MesheryResult_created_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_MeshplayResult_created_at(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "MesheryResult",
+		Object:     "MeshplayResult",
 		Field:      field,
 		IsMethod:   false,
 		IsResolver: false,
@@ -9815,7 +9815,7 @@ func (ec *executionContext) _Mutation_changeOperatorStatus(ctx context.Context, 
 		if data, ok := tmp.(model.Status); ok {
 			return data, nil
 		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be github.com/layer5io/meshplay/server/internal/graphql/model.Status`, tmp)
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be github.com/khulnasoft/meshplay/server/internal/graphql/model.Status`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9890,7 +9890,7 @@ func (ec *executionContext) _Mutation_changeAdapterStatus(ctx context.Context, f
 		if data, ok := tmp.(model.Status); ok {
 			return data, nil
 		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be github.com/layer5io/meshplay/server/internal/graphql/model.Status`, tmp)
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be github.com/khulnasoft/meshplay/server/internal/graphql/model.Status`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11380,9 +11380,9 @@ func (ec *executionContext) _PerfPageResult_results(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]*model.MesheryResult)
+	res := resTmp.([]*model.MeshplayResult)
 	fc.Result = res
-	return ec.marshalOMesheryResult2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryResult(ctx, field.Selections, res)
+	return ec.marshalOMeshplayResult2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayResult(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_PerfPageResult_results(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -11394,31 +11394,31 @@ func (ec *executionContext) fieldContext_PerfPageResult_results(ctx context.Cont
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "meshplay_id":
-				return ec.fieldContext_MesheryResult_meshplay_id(ctx, field)
+				return ec.fieldContext_MeshplayResult_meshplay_id(ctx, field)
 			case "name":
-				return ec.fieldContext_MesheryResult_name(ctx, field)
+				return ec.fieldContext_MeshplayResult_name(ctx, field)
 			case "mesh":
-				return ec.fieldContext_MesheryResult_mesh(ctx, field)
+				return ec.fieldContext_MeshplayResult_mesh(ctx, field)
 			case "performance_profile":
-				return ec.fieldContext_MesheryResult_performance_profile(ctx, field)
+				return ec.fieldContext_MeshplayResult_performance_profile(ctx, field)
 			case "test_id":
-				return ec.fieldContext_MesheryResult_test_id(ctx, field)
+				return ec.fieldContext_MeshplayResult_test_id(ctx, field)
 			case "runner_results":
-				return ec.fieldContext_MesheryResult_runner_results(ctx, field)
+				return ec.fieldContext_MeshplayResult_runner_results(ctx, field)
 			case "server_metrics":
-				return ec.fieldContext_MesheryResult_server_metrics(ctx, field)
+				return ec.fieldContext_MeshplayResult_server_metrics(ctx, field)
 			case "server_board_config":
-				return ec.fieldContext_MesheryResult_server_board_config(ctx, field)
+				return ec.fieldContext_MeshplayResult_server_board_config(ctx, field)
 			case "test_start_time":
-				return ec.fieldContext_MesheryResult_test_start_time(ctx, field)
+				return ec.fieldContext_MeshplayResult_test_start_time(ctx, field)
 			case "user_id":
-				return ec.fieldContext_MesheryResult_user_id(ctx, field)
+				return ec.fieldContext_MeshplayResult_user_id(ctx, field)
 			case "updated_at":
-				return ec.fieldContext_MesheryResult_updated_at(ctx, field)
+				return ec.fieldContext_MeshplayResult_updated_at(ctx, field)
 			case "created_at":
-				return ec.fieldContext_MesheryResult_created_at(ctx, field)
+				return ec.fieldContext_MeshplayResult_created_at(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type MesheryResult", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type MeshplayResult", field.Name)
 		},
 	}
 	return fc, nil
@@ -12388,10 +12388,10 @@ func (ec *executionContext) _Query_getOperatorStatus(ctx context.Context, field 
 		if tmp == nil {
 			return nil, nil
 		}
-		if data, ok := tmp.(*model.MesheryControllersStatusListItem); ok {
+		if data, ok := tmp.(*model.MeshplayControllersStatusListItem); ok {
 			return data, nil
 		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *github.com/layer5io/meshplay/server/internal/graphql/model.MesheryControllersStatusListItem`, tmp)
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be *github.com/khulnasoft/meshplay/server/internal/graphql/model.MeshplayControllersStatusListItem`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12400,9 +12400,9 @@ func (ec *executionContext) _Query_getOperatorStatus(ctx context.Context, field 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.MesheryControllersStatusListItem)
+	res := resTmp.(*model.MeshplayControllersStatusListItem)
 	fc.Result = res
-	return ec.marshalOMesheryControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllersStatusListItem(ctx, field.Selections, res)
+	return ec.marshalOMeshplayControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllersStatusListItem(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_getOperatorStatus(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -12414,15 +12414,15 @@ func (ec *executionContext) fieldContext_Query_getOperatorStatus(ctx context.Con
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "connectionID":
-				return ec.fieldContext_MesheryControllersStatusListItem_connectionID(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_connectionID(ctx, field)
 			case "controller":
-				return ec.fieldContext_MesheryControllersStatusListItem_controller(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_controller(ctx, field)
 			case "status":
-				return ec.fieldContext_MesheryControllersStatusListItem_status(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_status(ctx, field)
 			case "version":
-				return ec.fieldContext_MesheryControllersStatusListItem_version(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_version(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type MesheryControllersStatusListItem", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type MeshplayControllersStatusListItem", field.Name)
 		},
 	}
 	defer func() {
@@ -12473,7 +12473,7 @@ func (ec *executionContext) _Query_resyncCluster(ctx context.Context, field grap
 		if data, ok := tmp.(model.Status); ok {
 			return data, nil
 		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be github.com/layer5io/meshplay/server/internal/graphql/model.Status`, tmp)
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be github.com/khulnasoft/meshplay/server/internal/graphql/model.Status`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12730,9 +12730,9 @@ func (ec *executionContext) _Query_getPerfResult(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.MesheryResult)
+	res := resTmp.(*model.MeshplayResult)
 	fc.Result = res
-	return ec.marshalOMesheryResult2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryResult(ctx, field.Selections, res)
+	return ec.marshalOMeshplayResult2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayResult(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_getPerfResult(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -12744,31 +12744,31 @@ func (ec *executionContext) fieldContext_Query_getPerfResult(ctx context.Context
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "meshplay_id":
-				return ec.fieldContext_MesheryResult_meshplay_id(ctx, field)
+				return ec.fieldContext_MeshplayResult_meshplay_id(ctx, field)
 			case "name":
-				return ec.fieldContext_MesheryResult_name(ctx, field)
+				return ec.fieldContext_MeshplayResult_name(ctx, field)
 			case "mesh":
-				return ec.fieldContext_MesheryResult_mesh(ctx, field)
+				return ec.fieldContext_MeshplayResult_mesh(ctx, field)
 			case "performance_profile":
-				return ec.fieldContext_MesheryResult_performance_profile(ctx, field)
+				return ec.fieldContext_MeshplayResult_performance_profile(ctx, field)
 			case "test_id":
-				return ec.fieldContext_MesheryResult_test_id(ctx, field)
+				return ec.fieldContext_MeshplayResult_test_id(ctx, field)
 			case "runner_results":
-				return ec.fieldContext_MesheryResult_runner_results(ctx, field)
+				return ec.fieldContext_MeshplayResult_runner_results(ctx, field)
 			case "server_metrics":
-				return ec.fieldContext_MesheryResult_server_metrics(ctx, field)
+				return ec.fieldContext_MeshplayResult_server_metrics(ctx, field)
 			case "server_board_config":
-				return ec.fieldContext_MesheryResult_server_board_config(ctx, field)
+				return ec.fieldContext_MeshplayResult_server_board_config(ctx, field)
 			case "test_start_time":
-				return ec.fieldContext_MesheryResult_test_start_time(ctx, field)
+				return ec.fieldContext_MeshplayResult_test_start_time(ctx, field)
 			case "user_id":
-				return ec.fieldContext_MesheryResult_user_id(ctx, field)
+				return ec.fieldContext_MeshplayResult_user_id(ctx, field)
 			case "updated_at":
-				return ec.fieldContext_MesheryResult_updated_at(ctx, field)
+				return ec.fieldContext_MeshplayResult_updated_at(ctx, field)
 			case "created_at":
-				return ec.fieldContext_MesheryResult_created_at(ctx, field)
+				return ec.fieldContext_MeshplayResult_created_at(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type MesheryResult", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type MeshplayResult", field.Name)
 		},
 	}
 	defer func() {
@@ -13757,8 +13757,8 @@ func (ec *executionContext) fieldContext_Subscription_subscribePerfResults(ctx c
 	return fc, nil
 }
 
-func (ec *executionContext) _Subscription_subscribeMesheryControllersStatus(ctx context.Context, field graphql.CollectedField) (ret func(ctx context.Context) graphql.Marshaler) {
-	fc, err := ec.fieldContext_Subscription_subscribeMesheryControllersStatus(ctx, field)
+func (ec *executionContext) _Subscription_subscribeMeshplayControllersStatus(ctx context.Context, field graphql.CollectedField) (ret func(ctx context.Context) graphql.Marshaler) {
+	fc, err := ec.fieldContext_Subscription_subscribeMeshplayControllersStatus(ctx, field)
 	if err != nil {
 		return nil
 	}
@@ -13772,7 +13772,7 @@ func (ec *executionContext) _Subscription_subscribeMesheryControllersStatus(ctx 
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		directive0 := func(rctx context.Context) (interface{}, error) {
 			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Subscription().SubscribeMesheryControllersStatus(rctx, fc.Args["connectionIDs"].([]string))
+			return ec.resolvers.Subscription().SubscribeMeshplayControllersStatus(rctx, fc.Args["connectionIDs"].([]string))
 		}
 		directive1 := func(ctx context.Context) (interface{}, error) {
 			if ec.directives.KubernetesMiddleware == nil {
@@ -13788,10 +13788,10 @@ func (ec *executionContext) _Subscription_subscribeMesheryControllersStatus(ctx 
 		if tmp == nil {
 			return nil, nil
 		}
-		if data, ok := tmp.(<-chan []*model.MesheryControllersStatusListItem); ok {
+		if data, ok := tmp.(<-chan []*model.MeshplayControllersStatusListItem); ok {
 			return data, nil
 		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be <-chan []*github.com/layer5io/meshplay/server/internal/graphql/model.MesheryControllersStatusListItem`, tmp)
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be <-chan []*github.com/khulnasoft/meshplay/server/internal/graphql/model.MeshplayControllersStatusListItem`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13805,7 +13805,7 @@ func (ec *executionContext) _Subscription_subscribeMesheryControllersStatus(ctx 
 	}
 	return func(ctx context.Context) graphql.Marshaler {
 		select {
-		case res, ok := <-resTmp.(<-chan []*model.MesheryControllersStatusListItem):
+		case res, ok := <-resTmp.(<-chan []*model.MeshplayControllersStatusListItem):
 			if !ok {
 				return nil
 			}
@@ -13813,7 +13813,7 @@ func (ec *executionContext) _Subscription_subscribeMesheryControllersStatus(ctx 
 				w.Write([]byte{'{'})
 				graphql.MarshalString(field.Alias).MarshalGQL(w)
 				w.Write([]byte{':'})
-				ec.marshalNMesheryControllersStatusListItem2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllersStatusListItemᚄ(ctx, field.Selections, res).MarshalGQL(w)
+				ec.marshalNMeshplayControllersStatusListItem2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllersStatusListItemᚄ(ctx, field.Selections, res).MarshalGQL(w)
 				w.Write([]byte{'}'})
 			})
 		case <-ctx.Done():
@@ -13822,7 +13822,7 @@ func (ec *executionContext) _Subscription_subscribeMesheryControllersStatus(ctx 
 	}
 }
 
-func (ec *executionContext) fieldContext_Subscription_subscribeMesheryControllersStatus(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Subscription_subscribeMeshplayControllersStatus(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Subscription",
 		Field:      field,
@@ -13831,15 +13831,15 @@ func (ec *executionContext) fieldContext_Subscription_subscribeMesheryController
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 			switch field.Name {
 			case "connectionID":
-				return ec.fieldContext_MesheryControllersStatusListItem_connectionID(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_connectionID(ctx, field)
 			case "controller":
-				return ec.fieldContext_MesheryControllersStatusListItem_controller(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_controller(ctx, field)
 			case "status":
-				return ec.fieldContext_MesheryControllersStatusListItem_status(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_status(ctx, field)
 			case "version":
-				return ec.fieldContext_MesheryControllersStatusListItem_version(ctx, field)
+				return ec.fieldContext_MeshplayControllersStatusListItem_version(ctx, field)
 			}
-			return nil, fmt.Errorf("no field named %q was found under type MesheryControllersStatusListItem", field.Name)
+			return nil, fmt.Errorf("no field named %q was found under type MeshplayControllersStatusListItem", field.Name)
 		},
 	}
 	defer func() {
@@ -13849,7 +13849,7 @@ func (ec *executionContext) fieldContext_Subscription_subscribeMesheryController
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Subscription_subscribeMesheryControllersStatus_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Subscription_subscribeMeshplayControllersStatus_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return fc, err
 	}
@@ -13890,7 +13890,7 @@ func (ec *executionContext) _Subscription_subscribeMeshSyncEvents(ctx context.Co
 		if data, ok := tmp.(<-chan *model.MeshSyncEvent); ok {
 			return data, nil
 		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be <-chan *github.com/layer5io/meshplay/server/internal/graphql/model.MeshSyncEvent`, tmp)
+		return nil, fmt.Errorf(`unexpected type %T from directive, should be <-chan *github.com/khulnasoft/meshplay/server/internal/graphql/model.MeshSyncEvent`, tmp)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17972,9 +17972,9 @@ func (ec *executionContext) _MeshSyncEvent(ctx context.Context, sel ast.Selectio
 	return out
 }
 
-var meshplayControllersStatusListItemImplementors = []string{"MesheryControllersStatusListItem"}
+var meshplayControllersStatusListItemImplementors = []string{"MeshplayControllersStatusListItem"}
 
-func (ec *executionContext) _MesheryControllersStatusListItem(ctx context.Context, sel ast.SelectionSet, obj *model.MesheryControllersStatusListItem) graphql.Marshaler {
+func (ec *executionContext) _MeshplayControllersStatusListItem(ctx context.Context, sel ast.SelectionSet, obj *model.MeshplayControllersStatusListItem) graphql.Marshaler {
 	fields := graphql.CollectFields(ec.OperationContext, sel, meshplayControllersStatusListItemImplementors)
 
 	out := graphql.NewFieldSet(fields)
@@ -17982,24 +17982,24 @@ func (ec *executionContext) _MesheryControllersStatusListItem(ctx context.Contex
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("MesheryControllersStatusListItem")
+			out.Values[i] = graphql.MarshalString("MeshplayControllersStatusListItem")
 		case "connectionID":
-			out.Values[i] = ec._MesheryControllersStatusListItem_connectionID(ctx, field, obj)
+			out.Values[i] = ec._MeshplayControllersStatusListItem_connectionID(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
 		case "controller":
-			out.Values[i] = ec._MesheryControllersStatusListItem_controller(ctx, field, obj)
+			out.Values[i] = ec._MeshplayControllersStatusListItem_controller(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
 		case "status":
-			out.Values[i] = ec._MesheryControllersStatusListItem_status(ctx, field, obj)
+			out.Values[i] = ec._MeshplayControllersStatusListItem_status(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
 		case "version":
-			out.Values[i] = ec._MesheryControllersStatusListItem_version(ctx, field, obj)
+			out.Values[i] = ec._MeshplayControllersStatusListItem_version(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
@@ -18026,9 +18026,9 @@ func (ec *executionContext) _MesheryControllersStatusListItem(ctx context.Contex
 	return out
 }
 
-var meshplayResultImplementors = []string{"MesheryResult"}
+var meshplayResultImplementors = []string{"MeshplayResult"}
 
-func (ec *executionContext) _MesheryResult(ctx context.Context, sel ast.SelectionSet, obj *model.MesheryResult) graphql.Marshaler {
+func (ec *executionContext) _MeshplayResult(ctx context.Context, sel ast.SelectionSet, obj *model.MeshplayResult) graphql.Marshaler {
 	fields := graphql.CollectFields(ec.OperationContext, sel, meshplayResultImplementors)
 
 	out := graphql.NewFieldSet(fields)
@@ -18036,31 +18036,31 @@ func (ec *executionContext) _MesheryResult(ctx context.Context, sel ast.Selectio
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("MesheryResult")
+			out.Values[i] = graphql.MarshalString("MeshplayResult")
 		case "meshplay_id":
-			out.Values[i] = ec._MesheryResult_meshplay_id(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_meshplay_id(ctx, field, obj)
 		case "name":
-			out.Values[i] = ec._MesheryResult_name(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_name(ctx, field, obj)
 		case "mesh":
-			out.Values[i] = ec._MesheryResult_mesh(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_mesh(ctx, field, obj)
 		case "performance_profile":
-			out.Values[i] = ec._MesheryResult_performance_profile(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_performance_profile(ctx, field, obj)
 		case "test_id":
-			out.Values[i] = ec._MesheryResult_test_id(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_test_id(ctx, field, obj)
 		case "runner_results":
-			out.Values[i] = ec._MesheryResult_runner_results(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_runner_results(ctx, field, obj)
 		case "server_metrics":
-			out.Values[i] = ec._MesheryResult_server_metrics(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_server_metrics(ctx, field, obj)
 		case "server_board_config":
-			out.Values[i] = ec._MesheryResult_server_board_config(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_server_board_config(ctx, field, obj)
 		case "test_start_time":
-			out.Values[i] = ec._MesheryResult_test_start_time(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_test_start_time(ctx, field, obj)
 		case "user_id":
-			out.Values[i] = ec._MesheryResult_user_id(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_user_id(ctx, field, obj)
 		case "updated_at":
-			out.Values[i] = ec._MesheryResult_updated_at(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_updated_at(ctx, field, obj)
 		case "created_at":
-			out.Values[i] = ec._MesheryResult_created_at(ctx, field, obj)
+			out.Values[i] = ec._MeshplayResult_created_at(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -19094,8 +19094,8 @@ func (ec *executionContext) _Subscription(ctx context.Context, sel ast.Selection
 		return ec._Subscription_subscribePerfProfiles(ctx, fields[0])
 	case "subscribePerfResults":
 		return ec._Subscription_subscribePerfResults(ctx, fields[0])
-	case "subscribeMesheryControllersStatus":
-		return ec._Subscription_subscribeMesheryControllersStatus(ctx, fields[0])
+	case "subscribeMeshplayControllersStatus":
+		return ec._Subscription_subscribeMeshplayControllersStatus(ctx, fields[0])
 	case "subscribeMeshSyncEvents":
 		return ec._Subscription_subscribeMeshSyncEvents(ctx, fields[0])
 	case "subscribeConfiguration":
@@ -20113,27 +20113,27 @@ func (ec *executionContext) marshalNMeshSyncEventType2githubᚗcomᚋlayer5ioᚋ
 	return v
 }
 
-func (ec *executionContext) unmarshalNMesheryController2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryController(ctx context.Context, v interface{}) (model.MesheryController, error) {
-	var res model.MesheryController
+func (ec *executionContext) unmarshalNMeshplayController2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayController(ctx context.Context, v interface{}) (model.MeshplayController, error) {
+	var res model.MeshplayController
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNMesheryController2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryController(ctx context.Context, sel ast.SelectionSet, v model.MesheryController) graphql.Marshaler {
+func (ec *executionContext) marshalNMeshplayController2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayController(ctx context.Context, sel ast.SelectionSet, v model.MeshplayController) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNMesheryControllerStatus2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllerStatus(ctx context.Context, v interface{}) (model.MesheryControllerStatus, error) {
-	var res model.MesheryControllerStatus
+func (ec *executionContext) unmarshalNMeshplayControllerStatus2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllerStatus(ctx context.Context, v interface{}) (model.MeshplayControllerStatus, error) {
+	var res model.MeshplayControllerStatus
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNMesheryControllerStatus2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllerStatus(ctx context.Context, sel ast.SelectionSet, v model.MesheryControllerStatus) graphql.Marshaler {
+func (ec *executionContext) marshalNMeshplayControllerStatus2githubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllerStatus(ctx context.Context, sel ast.SelectionSet, v model.MeshplayControllerStatus) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) marshalNMesheryControllersStatusListItem2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllersStatusListItemᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.MesheryControllersStatusListItem) graphql.Marshaler {
+func (ec *executionContext) marshalNMeshplayControllersStatusListItem2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllersStatusListItemᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.MeshplayControllersStatusListItem) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -20157,7 +20157,7 @@ func (ec *executionContext) marshalNMesheryControllersStatusListItem2ᚕᚖgithu
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNMesheryControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllersStatusListItem(ctx, sel, v[i])
+			ret[i] = ec.marshalNMeshplayControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllersStatusListItem(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -20177,14 +20177,14 @@ func (ec *executionContext) marshalNMesheryControllersStatusListItem2ᚕᚖgithu
 	return ret
 }
 
-func (ec *executionContext) marshalNMesheryControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllersStatusListItem(ctx context.Context, sel ast.SelectionSet, v *model.MesheryControllersStatusListItem) graphql.Marshaler {
+func (ec *executionContext) marshalNMeshplayControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllersStatusListItem(ctx context.Context, sel ast.SelectionSet, v *model.MeshplayControllersStatusListItem) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
 		}
 		return graphql.Null
 	}
-	return ec._MesheryControllersStatusListItem(ctx, sel, v)
+	return ec._MeshplayControllersStatusListItem(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalNNameSpace2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐNameSpaceᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.NameSpace) graphql.Marshaler {
@@ -21200,14 +21200,14 @@ func (ec *executionContext) marshalOMeshType2ᚖgithubᚗcomᚋlayer5ioᚋmeshpl
 	return v
 }
 
-func (ec *executionContext) marshalOMesheryControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryControllersStatusListItem(ctx context.Context, sel ast.SelectionSet, v *model.MesheryControllersStatusListItem) graphql.Marshaler {
+func (ec *executionContext) marshalOMeshplayControllersStatusListItem2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayControllersStatusListItem(ctx context.Context, sel ast.SelectionSet, v *model.MeshplayControllersStatusListItem) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._MesheryControllersStatusListItem(ctx, sel, v)
+	return ec._MeshplayControllersStatusListItem(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOMesheryResult2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryResult(ctx context.Context, sel ast.SelectionSet, v []*model.MesheryResult) graphql.Marshaler {
+func (ec *executionContext) marshalOMeshplayResult2ᚕᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayResult(ctx context.Context, sel ast.SelectionSet, v []*model.MeshplayResult) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -21234,7 +21234,7 @@ func (ec *executionContext) marshalOMesheryResult2ᚕᚖgithubᚗcomᚋlayer5io�
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalOMesheryResult2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryResult(ctx, sel, v[i])
+			ret[i] = ec.marshalOMeshplayResult2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayResult(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -21248,11 +21248,11 @@ func (ec *executionContext) marshalOMesheryResult2ᚕᚖgithubᚗcomᚋlayer5io�
 	return ret
 }
 
-func (ec *executionContext) marshalOMesheryResult2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMesheryResult(ctx context.Context, sel ast.SelectionSet, v *model.MesheryResult) graphql.Marshaler {
+func (ec *executionContext) marshalOMeshplayResult2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐMeshplayResult(ctx context.Context, sel ast.SelectionSet, v *model.MeshplayResult) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._MesheryResult(ctx, sel, v)
+	return ec._MeshplayResult(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalONullString2ᚖgithubᚗcomᚋlayer5ioᚋmeshplayᚋserverᚋinternalᚋgraphqlᚋmodelᚐNullString(ctx context.Context, sel ast.SelectionSet, v *model.NullString) graphql.Marshaler {

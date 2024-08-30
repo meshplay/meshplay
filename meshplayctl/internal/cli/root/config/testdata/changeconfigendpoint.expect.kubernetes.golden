@@ -2,7 +2,7 @@ contexts:
   gke:
     channel: stable
     components:
-    - meshery-istio
+    - meshplay-istio
     endpoint: http://localhost:9081
     platform: gke
     token: default
@@ -10,7 +10,7 @@ contexts:
   local:
     channel: stable
     components:
-    - meshery-istio
+    - meshplay-istio
     endpoint: http://localhost:9081
     platform: docker
     token: default
@@ -20,7 +20,7 @@ contexts:
     token: default
     platform: kubernetes
     components:
-    - meshery-istio
+    - meshplay-istio
     channel: stable
     version: v0.6.9
 current-context: local

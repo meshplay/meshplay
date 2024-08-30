@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-connections-list
-permalink: reference/mesheryctl/exp/connections/list
-redirect_from: reference/mesheryctl/exp/connections/list/
+title: meshplayctl-exp-connections-list
+permalink: reference/meshplayctl/exp/connections/list
+redirect_from: reference/meshplayctl/exp/connections/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: connections
 ---
 
-# mesheryctl exp connections list
+# meshplayctl exp connections list
 
 List all the connections
 
@@ -19,7 +19,7 @@ List all the connections
 List all the connections
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections list [flags]
+meshplayctl exp connections list [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp connections list [flags]
 List all the connections
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections list
+meshplayctl exp connections list
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl exp connections list
 List all the connections with page number
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections list --page 2
+meshplayctl exp connections list --page 2
 
 </div>
 </pre> 
@@ -57,7 +57,7 @@ mesheryctl exp connections list --page 2
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -65,4 +65,4 @@ mesheryctl exp connections list --page 2
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

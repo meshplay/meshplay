@@ -113,20 +113,20 @@ const styles = (theme) => ({
 });
 
 const generateMsgForMesh = (name) => {
-  return `I deployed ${name} service mesh with one-click using @mesheryio!\nManage your infrastructure with Meshery`;
+  return `I deployed ${name} service mesh with one-click using @meshplayio!\nManage your infrastructure with Meshplay`;
 };
 
 const generateMsgForSampleApp = (name) => {
-  return `I deployed ${name} with one-click using @mesheryio!\nManage your infrastructure with Meshery`;
+  return `I deployed ${name} with one-click using @meshplayio!\nManage your infrastructure with Meshplay`;
 };
 
 const generateMsgForAppsPatt = (name) => {
-  return `I deployed ${name} [design | application] in a single-click using @mesheryio!\nFind design patterns like mine in the Meshery Catalog - https://meshery.io/catalog`;
+  return `I deployed ${name} [design | application] in a single-click using @meshplayio!\nFind design patterns like mine in the Meshplay Catalog - https://meshplay.io/catalog`;
 };
 
 const getDefaultMessage = (message) => {
   const msg = `" ${message} "
-    Manage your infrastructure with Meshery
+    Manage your infrastructure with Meshplay
   `;
   return msg;
 };
@@ -141,7 +141,7 @@ const formatTimestamp = (utcTimestamp) => {
   return moment(utcTimestamp).fromNow();
 };
 
-function MesherySnackbarWrapper(props) {
+function MeshplaySnackbarWrapper(props) {
   const {
     classes,
     className,
@@ -159,7 +159,7 @@ function MesherySnackbarWrapper(props) {
   } = props;
   const variant = eventType.type;
   const Icon = variantIcon[variant];
-  const ERROR_DOC_LINK = 'https://docs.meshery.io/reference/error-codes';
+  const ERROR_DOC_LINK = 'https://docs.meshplay.io/reference/error-codes';
   const [expanded, setExpanded] = useState(false);
   const [cardHover, setCardHover] = useState(false);
   const [socialExpand, setSocialExpand] = useState(false);
@@ -304,7 +304,7 @@ function MesherySnackbarWrapper(props) {
                     ERROR CODE
                   </Typography>
                   <a
-                    href={`${ERROR_DOC_LINK}#meshery-${componentType}-for-meshery-${componentName.toLowerCase()}`}
+                    href={`${ERROR_DOC_LINK}#meshplay-${componentType}-for-meshplay-${componentName.toLowerCase()}`}
                     target="_blank"
                     rel="referrer noreferrer"
                   >
@@ -324,7 +324,7 @@ function MesherySnackbarWrapper(props) {
                   <Paper className={classes.paper}>
                     <TwitterShareButton
                       className={classes.shareIcon}
-                      url={'https://meshery.io'}
+                      url={'https://meshplay.io'}
                       title={socialMessage}
                       hashtags={['opensource']}
                     >
@@ -332,14 +332,14 @@ function MesherySnackbarWrapper(props) {
                     </TwitterShareButton>
                     <LinkedinShareButton
                       className={classes.shareIcon}
-                      url={'https://meshery.io'}
+                      url={'https://meshplay.io'}
                       summary={socialMessage}
                     >
                       <LinkedinIcon size={32} />
                     </LinkedinShareButton>
                     <FacebookShareButton
                       className={classes.shareIcon}
-                      url={'https://meshery.io'}
+                      url={'https://meshplay.io'}
                       quote={socialMessage}
                       hashtag={'#opensource'}
                     >
@@ -356,7 +356,7 @@ function MesherySnackbarWrapper(props) {
   );
 }
 
-MesherySnackbarWrapper.propTypes = {
+MeshplaySnackbarWrapper.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   message: PropTypes.node,
@@ -366,4 +366,4 @@ MesherySnackbarWrapper.propTypes = {
   expand: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(MesherySnackbarWrapper);
+export default withStyles(styles)(MeshplaySnackbarWrapper);

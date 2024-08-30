@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-filter-view
-permalink: reference/mesheryctl/filter/view
-redirect_from: reference/mesheryctl/filter/view/
+title: meshplayctl-filter-view
+permalink: reference/meshplayctl/filter/view
+redirect_from: reference/meshplayctl/filter/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: filter
 subcommand: view
 ---
 
-# mesheryctl filter view
+# meshplayctl filter view
 
 View filter(s)
 
@@ -19,7 +19,7 @@ View filter(s)
 Displays the contents of a specific filter based on name or id
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter view [flags]
+meshplayctl filter view [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ View the specified WASM filter
 A unique prefix of the name or ID can also be provided. If the prefix is not unique, the first match will be returned.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter view "[filter-name | ID]"
+meshplayctl filter view "[filter-name | ID]"
 
 </div>
 </pre> 
@@ -38,7 +38,7 @@ mesheryctl filter view "[filter-name | ID]"
 View all filter files
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter view --all
+meshplayctl filter view --all
 
 </div>
 </pre> 
@@ -46,7 +46,7 @@ mesheryctl filter view --all
 //View multi-word named filter files. Multi-word filter names should be enclosed in quotes
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter view "filter name"
+meshplayctl filter view "filter name"
 
 </div>
 </pre> 
@@ -73,7 +73,7 @@ mesheryctl filter view "filter name"
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -82,4 +82,4 @@ mesheryctl filter view "filter name"
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

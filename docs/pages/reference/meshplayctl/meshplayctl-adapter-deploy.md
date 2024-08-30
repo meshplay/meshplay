@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-adapter-deploy
-permalink: reference/mesheryctl/adapter/deploy
-redirect_from: reference/mesheryctl/adapter/deploy/
+title: meshplayctl-adapter-deploy
+permalink: reference/meshplayctl/adapter/deploy
+redirect_from: reference/meshplayctl/adapter/deploy/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: adapter
 subcommand: deploy
 ---
 
-# mesheryctl adapter deploy
+# meshplayctl adapter deploy
 
 Deploy infrastructure to the Kubernetes cluster
 
@@ -19,7 +19,7 @@ Deploy infrastructure to the Kubernetes cluster
 Deploy infrastructure to the connected Kubernetes cluster
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter deploy [flags]
+meshplayctl adapter deploy [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl adapter deploy [flags]
 Deploy a infrastructure from an interactive on the default namespace
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter deploy
+meshplayctl adapter deploy
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl adapter deploy
 Deploy infrastructure
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter deploy linkerd
+meshplayctl adapter deploy linkerd
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl adapter deploy linkerd
 Deploy Linkerd mesh on a specific namespace
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter deploy linkerd --namespace linkerd-ns
+meshplayctl adapter deploy linkerd --namespace linkerd-ns
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl adapter deploy linkerd --namespace linkerd-ns
 Deploy Linkerd mesh and wait for it to be deployed
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter deploy linkerd --watch
+meshplayctl adapter deploy linkerd --watch
 
 </div>
 </pre> 
@@ -71,7 +71,7 @@ mesheryctl adapter deploy linkerd --watch
 <div class='codeblock'>
   -h, --help               help for deploy
   -n, --namespace string   Kubernetes namespace to be used for deploying the validation tests and sample workload (default "default")
-  -t, --token string       Path to token for authenticating to Meshery API
+  -t, --token string       Path to token for authenticating to Meshplay API
   -w, --watch              Watch for events and verify operation (in beta testing)
 
 </div>
@@ -81,7 +81,7 @@ mesheryctl adapter deploy linkerd --watch
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -89,9 +89,9 @@ mesheryctl adapter deploy linkerd --watch
 
 ## Screenshots
 
-Usage of mesheryctl adapter deploy
-![mesh-deploy-usage](/assets/img/mesheryctl/deploy-mesh.png)
+Usage of meshplayctl adapter deploy
+![mesh-deploy-usage](/assets/img/meshplayctl/deploy-mesh.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -4,27 +4,27 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
 	"gorm.io/gorm"
 )
 
-// MesheryK8sContextPersister is the persister for persisting
+// MeshplayK8sContextPersister is the persister for persisting
 // applications on the database
-type MesheryK8sContextPersister struct {
+type MeshplayK8sContextPersister struct {
 	DB *database.Handler
 }
 
-// MesheryK8sContextPage represents a page of contexts
-type MesheryK8sContextPage struct {
+// MeshplayK8sContextPage represents a page of contexts
+type MeshplayK8sContextPage struct {
 	Page       uint64        `json:"page"`
 	PageSize   uint64        `json:"page_size"`
 	TotalCount int           `json:"total_count"`
 	Contexts   []*K8sContext `json:"contexts"`
 }
 
-// GetMesheryK8sContexts returns all of the contexts
-func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContexts(search, order string, page, pageSize uint64) ([]byte, error) {
+// GetMeshplayK8sContexts returns all of the contexts
+func (mkcp *MeshplayK8sContextPersister) GetMeshplayK8sContexts(search, order string, page, pageSize uint64) ([]byte, error) {
 	order = SanitizeOrderInput(order, []string{"created_at", "updated_at", "name"})
 
 	if order == "" {
@@ -45,7 +45,7 @@ func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContexts(search, order stri
 
 	Paginate(uint(page), uint(pageSize))(query).Find(&contexts)
 
-	meshplayK8sContextPage := MesheryK8sContextPage{
+	meshplayK8sContextPage := MeshplayK8sContextPage{
 		Page:       page,
 		PageSize:   pageSize,
 		TotalCount: int(count),
@@ -56,15 +56,15 @@ func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContexts(search, order stri
 	return resp, nil
 }
 
-// DeleteMesheryK8sContext takes in an application id and delete it if it already exists
-func (mkcp *MesheryK8sContextPersister) DeleteMesheryK8sContext(id string) (K8sContext, error) {
+// DeleteMeshplayK8sContext takes in an application id and delete it if it already exists
+func (mkcp *MeshplayK8sContextPersister) DeleteMeshplayK8sContext(id string) (K8sContext, error) {
 	context := K8sContext{ID: id}
 	mkcp.DB.Delete(&context)
 
 	return context, nil
 }
 
-func (mkcp *MesheryK8sContextPersister) SaveMesheryK8sContext(mkc K8sContext) (connections.Connection, error) {
+func (mkcp *MeshplayK8sContextPersister) SaveMeshplayK8sContext(mkc K8sContext) (connections.Connection, error) {
 	conn := connections.Connection{}
 	if mkc.ID == "" {
 		id, err := K8sContextGenerateID(mkc)
@@ -90,14 +90,14 @@ func (mkcp *MesheryK8sContextPersister) SaveMesheryK8sContext(mkc K8sContext) (c
 	return conn, err
 }
 
-func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContext(id string) (K8sContext, error) {
+func (mkcp *MeshplayK8sContextPersister) GetMeshplayK8sContext(id string) (K8sContext, error) {
 	var meshplayK8sContext K8sContext
 
 	err := mkcp.DB.First(&meshplayK8sContext, "id = ?", id).Error
 	return meshplayK8sContext, err
 }
 
-// func (mkcp *MesheryK8sContextPersister) SetMesheryK8sCurrentContext(id string) error {
+// func (mkcp *MeshplayK8sContextPersister) SetMeshplayK8sCurrentContext(id string) error {
 // 	// Perform the operation in a transaction
 // 	return mkcp.DB.Transaction(func(tx *gorm.DB) error {
 // 		var meshplayK8sContext K8sContext
@@ -121,7 +121,7 @@ func (mkcp *MesheryK8sContextPersister) GetMesheryK8sContext(id string) (K8sCont
 // 	})
 // }
 
-// func (mkcp *MesheryK8sContextPersister) GetMesheryK8sCurrentContext() (K8sContext, error) {
+// func (mkcp *MeshplayK8sContextPersister) GetMeshplayK8sCurrentContext() (K8sContext, error) {
 // 	var meshplayK8sContext K8sContext
 
 // 	err := mkcp.DB.First(&meshplayK8sContext, "is_current_context = true").Error

@@ -46,7 +46,7 @@ const UserPref = (props) => {
       ) : (
         <NoSsr>
           <Head>
-            <title>Preferences | Meshery</title>
+            <title>Preferences | Meshplay</title>
           </Head>
           <Paper className={props.classes.paper}>
             {/* {should meshmap specific user preferences be placed along with general preferences or from the remote provider} */}

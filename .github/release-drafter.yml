@@ -1,14 +1,14 @@
-name-template: 'Meshery v$NEXT_PATCH_VERSION'
+name-template: 'Meshplay v$NEXT_PATCH_VERSION'
 tag-template: 'v$NEXT_PATCH_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
       - 'kind/feature'
       - 'kind/enhancement'
-  - title: '⌨️ Meshery CLI'
+  - title: '⌨️ Meshplay CLI'
     labels:
-      - 'component/mesheryctl'
-  - title: '🖥 Meshery UI'
+      - 'component/meshplayctl'
+  - title: '🖥 Meshplay UI'
     labels:
       - 'component/ui'
   - title: '🔋 Patterns, Filters, Applications'
@@ -51,9 +51,9 @@ autolabeler:
     branch:
       - '/ui/'
       - '/provider-ui/'
-  - label: 'component/mesheryctl'
+  - label: 'component/meshplayctl'
     branch:
-      - '/mesheryctl/'
+      - '/meshplayctl/'
   - label: 'area/lifecycle'
     branch:
       - '/install/'

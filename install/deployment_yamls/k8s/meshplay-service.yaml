@@ -6,15 +6,15 @@ metadata:
     kompose.version: 1.32.0 ()
   creationTimestamp: null
   labels:
-    io.kompose.service: meshery
-  name: meshery
+    io.kompose.service: meshplay
+  name: meshplay
 spec:
   ports:
   - name: "http"
     port: 9081
     targetPort: 8080
   selector:
-    io.kompose.service: meshery
+    io.kompose.service: meshplay
   type: LoadBalancer
 
 

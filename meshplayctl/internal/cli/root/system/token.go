@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/manifoldco/promptui"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
@@ -35,7 +35,7 @@ var (
 
 var tokenCmd = &cobra.Command{
 	Use:   "token",
-	Short: "Manage Meshery user tokens",
+	Short: "Manage Meshplay user tokens",
 	Long: `
 	Manipulate user tokens and their context assignments in your meshconfig`,
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -66,9 +66,9 @@ var createTokenCmd = &cobra.Command{
 	Short: "Create a token in your meshconfig",
 	Long:  "Create the token with provided token name (optionally token path) to your meshconfig tokens.",
 	Example: `
-mesheryctl system token create [token-name] -f [token-path]
-mesheryctl system token create [token-name] (default path is auth.json)
-mesheryctl system token create [token-name] -f [token-path] --set
+meshplayctl system token create [token-name] -f [token-path]
+meshplayctl system token create [token-name] (default path is auth.json)
+meshplayctl system token create [token-name] -f [token-path] --set
 	`,
 	Args: checkTokenName(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -102,7 +102,7 @@ var deleteTokenCmd = &cobra.Command{
 	Short: "Delete a token from your meshconfig",
 	Long:  "Delete the token with provided token name from your meshconfig tokens.",
 	Example: `
-mesheryctl system token delete [token-name]
+meshplayctl system token delete [token-name]
 	`,
 	Args: checkTokenName(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -120,7 +120,7 @@ var setTokenCmd = &cobra.Command{
 	Short: "Set token for context",
 	Long:  "Set token for current context or context specified with --context flag.",
 	Example: `
-mesheryctl system token set [token-name] 
+meshplayctl system token set [token-name] 
 	`,
 	Args: cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -142,7 +142,7 @@ var listTokenCmd = &cobra.Command{
 	Short: "List tokens",
 	Long:  "List all the tokens in your meshconfig",
 	Example: `
-mesheryctl system token list
+meshplayctl system token list
 	`,
 	Args: cobra.ExactArgs(0),
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -157,7 +157,7 @@ mesheryctl system token list
 			return nil
 		}
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -172,10 +172,10 @@ mesheryctl system token list
 var viewTokenCmd = &cobra.Command{
 	Use:   "view",
 	Short: "View token",
-	Long:  "View a specific token in meshery config",
+	Long:  "View a specific token in meshplay config",
 	Example: `
-mesheryctl system token view [token-name]
-mesheryctl system token view (show token of current context)
+meshplayctl system token view [token-name]
+meshplayctl system token view (show token of current context)
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if _, err := os.Stat(utils.DefaultConfigPath); os.IsNotExist(err) {
@@ -189,7 +189,7 @@ mesheryctl system token view (show token of current context)
 			return nil
 		}
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil

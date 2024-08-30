@@ -18,13 +18,13 @@ describe('User Preferences', () => {
     });
 
     context('Extensions', () => {
-      it('activates Meshery Catalog Content', () => {
+      it('activates Meshplay Catalog Content', () => {
         cy.intercept('POST', '/api/user/prefs').as('postUserStatsToActivateExtensions');
         cy.get('[data-cy="CatalogContentPreference"]').click();
         cy.wait('@postUserStatsToActivateExtensions');
       });
 
-      it('deactivates Meshery Catalog Content', () => {
+      it('deactivates Meshplay Catalog Content', () => {
         cy.intercept('POST', '/api/user/prefs').as('postUserStatsForExtensions');
         cy.get('[data-cy="CatalogContentPreference"]').click();
         cy.wait('@postUserStatsForExtensions');

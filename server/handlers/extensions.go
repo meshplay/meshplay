@@ -8,8 +8,8 @@ import (
 	"plugin"
 	"sync"
 
-	"github.com/layer5io/meshplay/server/extensions"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/extensions"
+	"github.com/khulnasoft/meshplay/server/models"
 )
 
 var (

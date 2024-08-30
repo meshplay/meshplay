@@ -1,8 +1,8 @@
 package models
 
-// MesheryPatternDeleteRequestBody refers to the type of request body
-// that DeleteMultiMesheryPatternsHandler would receive
-type MesheryPatternDeleteRequestBody struct {
+// MeshplayPatternDeleteRequestBody refers to the type of request body
+// that DeleteMultiMeshplayPatternsHandler would receive
+type MeshplayPatternDeleteRequestBody struct {
 	Patterns []deletePatternModel `json:"patterns,omitempty"`
 }
 

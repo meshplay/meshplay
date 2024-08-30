@@ -4,7 +4,7 @@ title: Terraform
 subtitle: Collaborative and visual infrastructure as design for Terraform
 image: /assets/img/integrations/terraform/icons/color/terraform-color.svg
 permalink: extensibility/integrations/terraform
-docURL: https://docs.meshery.io/extensibility/integrations/terraform
+docURL: https://docs.meshplay.io/extensibility/integrations/terraform
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

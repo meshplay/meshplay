@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/events"
 )
 

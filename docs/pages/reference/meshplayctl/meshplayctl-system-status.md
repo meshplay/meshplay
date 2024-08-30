@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-status
-permalink: reference/mesheryctl/system/status
-redirect_from: reference/mesheryctl/system/status/
+title: meshplayctl-system-status
+permalink: reference/meshplayctl/system/status
+redirect_from: reference/meshplayctl/system/status/
 type: reference
 display-title: "false"
 language: en
@@ -10,26 +10,26 @@ command: system
 subcommand: status
 ---
 
-# mesheryctl system status
+# meshplayctl system status
 
-Check Meshery status
+Check Meshplay status
 
 ## Synopsis
 
-Check status of Meshery and Meshery components.
+Check status of Meshplay and Meshplay components.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system status [flags]
+meshplayctl system status [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Check status of Meshery, Meshery adapters, Meshery Operator and its controllers.
+Check status of Meshplay, Meshplay adapters, Meshplay Operator and its controllers.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system status
+meshplayctl system status
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl system status
 (optional) Extra data in status table
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system status --verbose
+meshplayctl system status --verbose
 
 </div>
 </pre> 
@@ -56,7 +56,7 @@ mesheryctl system status --verbose
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -y, --yes              (optional) assume yes for user interactive prompts.
 
@@ -65,9 +65,9 @@ mesheryctl system status --verbose
 
 ## Screenshots
 
-Usage of mesheryctl system status
-![status-usage](/assets/img/mesheryctl/status.png)
+Usage of meshplayctl system status
+![status-usage](/assets/img/meshplayctl/status.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

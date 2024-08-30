@@ -12,7 +12,7 @@ category: meshmap
 
 # <img style="height: 4rem; width: 4rem;" src="{{site.baseurl}}/assets/img/meshmap-icon-color.svg" /> MeshMap Snapshot
 
-Walks in application and takes a shot of your infrastructure using Meshery Extension MeshMap
+Walks in application and takes a shot of your infrastructure using Meshplay Extension MeshMap
 
 MeshMap Snapshot is a screenshot service provided via MeshMap for your designs. Visualize changes to your code-base with each pull request made. The SnapShot GitHub Action is configurable from within your Cloud account.
 
@@ -28,9 +28,9 @@ MeshMap Snapshot is a screenshot service provided via MeshMap for your designs. 
 
 Connect MeshMap to your GitHub repo and see changes pull request-to-pull request. Get snapshots of your infrastructure directly in your PRs.
 <ul>
-<li>Step 1: Log in to your Meshery Dashboard.</li>
+<li>Step 1: Log in to your Meshplay Dashboard.</li>
 <li>Step 2: Navigate to Extensions and Enable GitHub Action: MeshMap Snapshot.</li>
-<li>Step 3: You will be directed to Meshery Cloud.</li>
+<li>Step 3: You will be directed to Meshplay Cloud.</li>
 <li>Step 4: Click on the "Let's Go" button in the onboarding modal.</li>
 <li>Step 5: Now, select the second option, 'GitOps your infrastructure with MeshMap Snapshot'.</li>
 <li>Step 6: Once that's complete, follow the guided instructions.</li>
@@ -38,7 +38,7 @@ Connect MeshMap to your GitHub repo and see changes pull request-to-pull request
 
 ## Configurating the SnapShot Service
 
-The Snapshot service does not need access to your Meshery deployment. It is a standalone service.
+The Snapshot service does not need access to your Meshplay deployment. It is a standalone service.
 
 ### When Infrastructure is located in the file-system
 
@@ -69,7 +69,7 @@ jobs:
         uses: layer5labs/MeshMap-Snapshot@v0.0.4
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} # github's personal access token example: "ghp_...."
-          providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshery Cloud Authentication token, signin to meshery-cloud to get one, example: ey.....
+          providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshplay Cloud Authentication token, signin to meshplay-cloud to get one, example: ey.....
           prNumber: ${{ env.PULL_NO }} # auto-filled from the above step
           application_type: "Kubernetes Manifest" # your application type, could be any of three: "Kubernetes Manifest", "Docker Compose", "Helm Chart"
           filePath: "action/__tests__/manifest-test" # relative file-path from the root directory in the github-runner env, you might require to checkout the repository as described in step 2
@@ -104,10 +104,10 @@ jobs:
         uses: layer5labs/MeshMap-Snapshot@v0.0.4
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} # github's personal access token example: "ghp_...."
-          providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshery Cloud Authentication token, signin to meshery-cloud to get one, example: ey.....
+          providerToken: ${{ secrets.PROVIDER_TOKEN }} # Meshplay Cloud Authentication token, signin to meshplay-cloud to get one, example: ey.....
           prNumber: ${{ env.PULL_NO }} # auto-filled from the above step
           application_type: "Helm Chart" # your application type, could be any of three: "Kubernetes Manifest", "Docker Compose", "Helm Chart"
-          application_url: "https://github.com/meshery/meshery.io/raw/master/charts/meshery-v0.6.88.tgz"
+          application_url: "https://github.com/meshplay/meshplay.io/raw/master/charts/meshplay-v0.6.88.tgz"
 ```
 
 #### FileSystem Approach Notes
@@ -128,7 +128,7 @@ githubToken:
   description: "Github PAT token"
   required: true
 providerToken:
-  description: "Meshery Authentication Provider Token"
+  description: "Meshplay Authentication Provider Token"
   required: true
 cypressRecordKey:
   description: "cypress record key"
@@ -212,7 +212,7 @@ After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/
         ...
 ```
 
-## Upgrade/Migrate Guide - For Meshery
+## Upgrade/Migrate Guide - For Meshplay
 
 1. Given changes done in `action.yml` in MeshMap Snapshot, updating the workflows is required.
 2. Given changes done other than in `action.yml` in MeshMap Snapshot, the update in the `.github/worflows` is not a hard requirement, but doesnt hurt.

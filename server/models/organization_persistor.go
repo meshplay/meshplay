@@ -8,13 +8,13 @@ import (
 	"github.com/layer5io/meshkit/database"
 )
 
-// MesheryApplicationPersister is the persister for persisting
+// MeshplayApplicationPersister is the persister for persisting
 // applications on the database
 type OrganizationPersister struct {
 	DB *database.Handler
 }
 
-// GetMesheryApplications returns all of the applications
+// GetMeshplayApplications returns all of the applications
 func (op *OrganizationPersister) GetOrganizations(search, order string, page, pageSize uint64, updatedAfter string) ([]byte, error) {
 	order = SanitizeOrderInput(order, []string{"created_at", "updated_at", "name"})
 

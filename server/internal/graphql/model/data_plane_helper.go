@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/encoding"
 
 	meshsyncmodel "github.com/layer5io/meshsync/pkg/model"

@@ -2,7 +2,7 @@
 layout: blank
 title: Latest Release
 permalink: project/releases/latest
-abstract: Return only the latest release of Meshery version information
+abstract: Return only the latest release of Meshplay version information
 # redirect_from: project/releases/latest/
 language: en
 type: project

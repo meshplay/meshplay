@@ -3,12 +3,12 @@ layout: default
 title: "Extensibility: Authorization"
 permalink: extensibility/authorization
 type: Extensibility
-abstract: "Meshery architecture is extensible. Meshery provides several extension points for working with different cloud native projects via authorization, adapters, load generators and providers."
+abstract: "Meshplay architecture is extensible. Meshplay provides several extension points for working with different cloud native projects via authorization, adapters, load generators and providers."
 language: en
 list: include
 ---
 
-Meshery features an extensible authorization system that offers the ability to deliver fine-grained access control across it's web-based user interface, [Meshery UI]({{site.baseurl}}/concepts/architecture).
+Meshplay features an extensible authorization system that offers the ability to deliver fine-grained access control across it's web-based user interface, [Meshplay UI]({{site.baseurl}}/concepts/architecture).
 
 ## Authorization Keys
 
@@ -18,7 +18,7 @@ The extensible authorization system consistes of a large set of keys. Each key u
 
 ## Authorization Framework
 
-Meshery utilizes CASL (JS-based permission framework) to evaluate any given user's set of session keys against the built-in keyhooks populated through each invidual Meshery UI page. This allows for granular control over the UI, empowering you to tailor your Meshery experience to your organization's needs by limiting access to specific features and functionalities based on the user's assigned keys.
+Meshplay utilizes CASL (JS-based permission framework) to evaluate any given user's set of session keys against the built-in keyhooks populated through each invidual Meshplay UI page. This allows for granular control over the UI, empowering you to tailor your Meshplay experience to your organization's needs by limiting access to specific features and functionalities based on the user's assigned keys.
 
 <a href="/assets/img/permission-in-UI.png">
   <img style="width:min(100%,800px)" src="/assets/img/permission-in-UI.png" />
@@ -42,12 +42,12 @@ An example of how CASL evaluate permission in UI.
 <div class="alert alert-dark" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-It's important to understand not all pages uses CASL authorization, means even if you are not assigned with any role within organization you might access preferences page and Meshery UI dashboard.
+It's important to understand not all pages uses CASL authorization, means even if you are not assigned with any role within organization you might access preferences page and Meshplay UI dashboard.
 </div>
 
 ## Authorization using Local Provider
 
-Meshery's built-in identity provider, "Local" Provider, operates with a large set of predefined keys interspersed throughout Meshery UI and persisted in [Meshery Database](/concepts/architecture/database). These keys are used to evaluate the permissions of a given user and render the UI accordingly. The keys are grouped into three categories: `action`, `subject`, and `object`.
+Meshplay's built-in identity provider, "Local" Provider, operates with a large set of predefined keys interspersed throughout Meshplay UI and persisted in [Meshplay Database](/concepts/architecture/database). These keys are used to evaluate the permissions of a given user and render the UI accordingly. The keys are grouped into three categories: `action`, `subject`, and `object`.
 
 {% include discuss.html %}
 

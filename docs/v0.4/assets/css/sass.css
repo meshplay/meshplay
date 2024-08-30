@@ -27,7 +27,7 @@ pre.codeblock-pre { display: inline-flex; justify-content: left; text-align: lef
 
 div.prereqs { background-color: #3C494F; color: #ddd; margin: 20px; padding: 15px; border-radius: 0.3rem; }
 
-a.meshery-light { color: #00b39f; }
+a.meshplay-light { color: #00b39f; }
 
-table.mesherycomponents th { background-color: #3C494F; color: white; }
-table.mesherycomponents td.childcomponent { color: white; background-color: #477E96; }
+table.meshplaycomponents th { background-color: #3C494F; color: white; }
+table.meshplaycomponents td.childcomponent { color: white; background-color: #477E96; }

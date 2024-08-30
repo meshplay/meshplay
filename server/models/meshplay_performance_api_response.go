@@ -65,7 +65,7 @@ type PerformanceResultsAPIResponse struct {
 
 // PerformanceResult represents the result of a performance test
 type PerformanceResult struct {
-	MesheryID          *uuid.UUID    `json:"meshplay_id,omitempty"`
+	MeshplayID          *uuid.UUID    `json:"meshplay_id,omitempty"`
 	Name               string        `json:"name,omitempty"`
 	Mesh               string        `json:"mesh,omitempty"`
 	PerformanceProfile *uuid.UUID    `json:"performance_profile,omitempty"`

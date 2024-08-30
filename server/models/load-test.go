@@ -99,11 +99,11 @@ const (
 type LoadTestResponse struct {
 	Status  LoadTestStatus `json:"status,omitempty"`
 	Message string         `json:"message,omitempty"`
-	Result  *MesheryResult `json:"result,omitempty"`
+	Result  *MeshplayResult `json:"result,omitempty"`
 }
 
-// MesheryResult - represents the results from Meshery test run to be shipped
-type MesheryResult struct {
+// MeshplayResult - represents the results from Meshplay test run to be shipped
+type MeshplayResult struct {
 	ID                 uuid.UUID              `json:"meshplay_id,omitempty"`
 	Name               string                 `json:"name,omitempty"`
 	Mesh               string                 `json:"mesh,omitempty"`
@@ -123,7 +123,7 @@ type MesheryResult struct {
 }
 
 // ConvertToSpec - converts meshplay result to SMP
-func (m *MesheryResult) ConvertToSpec(log logger.Handler) (*PerformanceSpec, error) {
+func (m *MeshplayResult) ConvertToSpec(log logger.Handler) (*PerformanceSpec, error) {
 	b := &PerformanceSpec{
 		Latencies: &LatenciesMs{},
 	}

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import useStyles from '../MesheryPatterns/Cards.styles';
+import useStyles from '../MeshplayPatterns/Cards.styles';
 import RJSFModal from '../Modal';
 import { Button } from '@material-ui/core';
 import { capitalize } from 'lodash';

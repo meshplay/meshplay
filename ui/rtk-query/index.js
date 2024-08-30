@@ -15,7 +15,7 @@ const createApi = buildCreateApi(
   }),
 );
 export const api = createApi({
-  reducerPath: 'mesheryApi',
+  reducerPath: 'meshplayApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/api/' }),
   endpoints: () => ({}),
 });

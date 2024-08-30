@@ -1,12 +1,12 @@
 apiVersion: v2
-name: meshery-operator
-description: Meshery Operator chart.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-operator
+description: Meshplay Operator chart.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source:
-  - https://github.com/layer5io/meshery-operator
+  - https://github.com/khulnasoft/meshplay-operator
 keywords:
-  - meshery-broker
-  - meshery-meshsync
+  - meshplay-broker
+  - meshplay-meshsync
 deprecated: false
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -29,12 +29,12 @@ version: 0.6.0
 # appVersion: 0.6.0
 
 dependencies:
-  - name: meshery-broker
+  - name: meshplay-broker
     version: 0.5.0
-    condition: meshery-broker.enabled
-  - name: meshery-meshsync
+    condition: meshplay-broker.enabled
+  - name: meshplay-meshsync
     version: 0.5.0
-    condition: meshery-meshsync.enabled
+    condition: meshplay-meshsync.enabled
 
 maintainers:
   - name: Layer5 Authors

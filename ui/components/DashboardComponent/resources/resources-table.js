@@ -199,7 +199,7 @@ const ResourcesTable = (props) => {
             className={StyleClass.toolWrapper}
             style={{ marginBottom: '5px', marginTop: '1rem' }}
           >
-            <div className={classes.createButton}>{/* <MesherySettingsEnvButtons /> */}</div>
+            <div className={classes.createButton}>{/* <MeshplaySettingsEnvButtons /> */}</div>
             <UsesSistent>
               <div
                 className={classes.searchAndView}

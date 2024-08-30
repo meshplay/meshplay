@@ -1,13 +1,13 @@
-FROM golang:1.21.8 as meshery-server
+FROM golang:1.21.8 as meshplay-server
 ARG GIT_VERSION
 
 RUN adduser --disabled-login appuser
-WORKDIR /github.com/meshery/meshery
+WORKDIR /github.com/meshplay/meshplay
 COPY go.sum go.mod ./
 COPY server/ server/
-COPY mesheryctl/ mesheryctl/
+COPY meshplayctl/ meshplayctl/
 RUN go mod download
-RUN cd server && cd cmd && GOPROXY=https://proxy.golang.org go build -ldflags="-w -s -X main.version=$GIT_VERSION" -tags draft -a -o /meshery .
+RUN cd server && cd cmd && GOPROXY=https://proxy.golang.org go build -ldflags="-w -s -X main.version=$GIT_VERSION" -tags draft -a -o /meshplay .
 
 # This image will be reuse for both UI & UI Provider
 FROM node:18.13.0-alpine3.17 as base-node
@@ -57,8 +57,8 @@ FROM alpine:3.15.3 as base-alpine
 FROM base-alpine as wrk2
 RUN apk update \
     && apk --no-cache --update add alpine-sdk zlib-dev openssl-dev wget git
-RUN git config --global user.email "meshery@layer5.io"
-RUN git config --global user.name "meshery"
+RUN git config --global user.email "meshplay@layer5.io"
+RUN git config --global user.name "meshplay"
 RUN git clone --depth=1 https://github.com/layer5io/wrk2 && cd wrk2 && make
 
 FROM base-alpine as seed_content
@@ -93,15 +93,15 @@ RUN mkdir -p /seed_content/applications && cd /seed_content/applications \
 #FROM ubuntu as nighthawk
 #RUN apt-get -y update && apt-get -y install git && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
 #RUN apt-get -y update && apt-get -y  install build-essential libssl-dev git zlib1g-dev
-#RUN git config --global user.email "meshery@layer5.io"
-#RUN git config --global user.name "meshery"
+#RUN git config --global user.email "meshplay@layer5.io"
+#RUN git config --global user.name "meshplay"
 #RUN git clone https://github.com/layer5io/nighthawk-go
 #RUN cd nighthawk-go/apinighthawk/bin && chmod +x ./nighthawk_client
 
 FROM base-alpine
 ENV GLIBC_REPO=https://github.com/sgerrand/alpine-pkg-glibc
 ENV GLIBC_VERSION=2.34-r0
-# To solve: ./meshery: /usr/glibc-compat/lib/libc.so.6: version `GLIBC_2.34' not found (required by ./meshery)
+# To solve: ./meshplay: /usr/glibc-compat/lib/libc.so.6: version `GLIBC_2.34' not found (required by ./meshplay)
 RUN set -ex && \
     apk --update add libstdc++ curl ca-certificates && \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION}; \
@@ -120,21 +120,21 @@ RUN update-ca-certificates
 COPY ./server/cmd/server-config.env /app/server/cmd/server-config.env
 COPY ./server/meshmodel /app/server/meshmodel
 COPY ./server/permissions /app/server/permissions/
-COPY --from=meshery-server /meshery /app/server/cmd/
-COPY --from=meshery-server /etc/passwd /etc/passwd
-COPY --from=meshery-server /github.com/meshery/meshery/server/helpers/swagger.yaml /app/server/helpers/swagger.yaml
+COPY --from=meshplay-server /meshplay /app/server/cmd/
+COPY --from=meshplay-server /etc/passwd /etc/passwd
+COPY --from=meshplay-server /github.com/meshplay/meshplay/server/helpers/swagger.yaml /app/server/helpers/swagger.yaml
 COPY --from=ui-builder /app/out /app/ui/out
 COPY --from=ui-builder /app/public /app/ui/public
 COPY --from=ui-provider-builder /app/out /app/provider-ui/out
 COPY --from=wrk2 /wrk2 /app/server/cmd/wrk2
 COPY --from=wrk2 /wrk2/wrk /usr/local/bin
-COPY --from=seed_content /seed_content /home/appuser/.meshery/seed_content
+COPY --from=seed_content /seed_content /home/appuser/.meshplay/seed_content
 COPY --from=layer5/getnighthawk:v1.0.1 /usr/local/bin/nighthawk_service /app/server/cmd/
 COPY --from=layer5/getnighthawk:v1.0.1 /usr/local/bin/nighthawk_output_transform /app/server/cmd/
 
 RUN addgroup docker
 RUN mkdir -p /var/run; chown -R appuser:docker /var/run/
-RUN mkdir -p /home/appuser/.meshery/config; chown -R appuser /home/appuser/; chown -R appuser /app/ui/public
+RUN mkdir -p /home/appuser/.meshplay/config; chown -R appuser /home/appuser/; chown -R appuser /app/ui/public
 USER appuser
 WORKDIR /app/server/cmd
-CMD ./meshery
+CMD ./meshplay

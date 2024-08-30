@@ -24,7 +24,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect, Provider, useSelector } from 'react-redux';
 import Header from '../components/Header';
-import MesheryProgressBar from '../components/MesheryProgressBar';
+import MeshplayProgressBar from '../components/MeshplayProgressBar';
 import Navigator from '../components/Navigator';
 import getPageContext from '../components/PageContext';
 import { MESHPLAY_CONTROLLER_SUBSCRIPTION } from '../components/subscription/helpers';
@@ -45,10 +45,10 @@ import subscribeK8sContext from '../components/graphql/subscriptions/K8sContextS
 import { bindActionCreators } from 'redux';
 import { darkTheme } from '../themes/app';
 import './styles/AnimatedFilter.css';
-import './styles/AnimatedMeshery.css';
+import './styles/AnimatedMeshplay.css';
 import './styles/AnimatedMeshPattern.css';
 import './styles/AnimatedMeshSync.css';
-import PlaygroundMeshDeploy from './extension/AccessMesheryModal';
+import PlaygroundMeshDeploy from './extension/AccessMeshplayModal';
 import Router from 'next/router';
 import subscribeMeshSyncEvents from '../components/graphql/subscriptions/MeshSyncEventsSubscription';
 import { isTelemetryComponent, TelemetryComps } from '../utils/nameMapper';
@@ -92,16 +92,16 @@ async function fetchContexts(number = 10, search = '') {
   );
 }
 
-export const mesheryExtensionRoute = '/extension/meshmap';
-function isMesheryUiRestrictedAndThePageIsNotPlayground(capabilitiesRegistry) {
+export const meshplayExtensionRoute = '/extension/meshmap';
+function isMeshplayUiRestrictedAndThePageIsNotPlayground(capabilitiesRegistry) {
   return (
-    !window.location.pathname.startsWith(mesheryExtensionRoute) &&
-    capabilitiesRegistry?.restrictedAccess?.isMesheryUiRestricted
+    !window.location.pathname.startsWith(meshplayExtensionRoute) &&
+    capabilitiesRegistry?.restrictedAccess?.isMeshplayUiRestricted
   );
 }
 
 export function isExtensionOpen() {
-  return window.location.pathname.startsWith(mesheryExtensionRoute);
+  return window.location.pathname.startsWith(meshplayExtensionRoute);
 }
 
 const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
@@ -118,7 +118,7 @@ const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
   return (
     <footer
       className={
-        capabilitiesRegistry?.restrictedAccess?.isMesheryUiRestricted
+        capabilitiesRegistry?.restrictedAccess?.isMeshplayUiRestricted
           ? classes.playgFooter
           : theme.palette.type === 'dark'
           ? classes.footerDark
@@ -131,11 +131,11 @@ const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
         color="textSecondary"
         component="p"
         style={
-          capabilitiesRegistry?.restrictedAccess?.isMesheryUiRestricted ? { color: '#000' } : {}
+          capabilitiesRegistry?.restrictedAccess?.isMeshplayUiRestricted ? { color: '#000' } : {}
         }
       >
         <span onClick={handleL5CommunityClick} className={classes.footerText}>
-          {capabilitiesRegistry?.restrictedAccess?.isMesheryUiRestricted ? (
+          {capabilitiesRegistry?.restrictedAccess?.isMeshplayUiRestricted ? (
             'ACCESS LIMITED IN MESHPLAY PLAYGROUND. DEPLOY MESHPLAY TO ACCESS ALL FEATURES.'
           ) : (
             <>
@@ -157,7 +157,7 @@ const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
   );
 };
 
-class MesheryApp extends App {
+class MeshplayApp extends App {
   constructor() {
     super();
     this.pageContext = getPageContext();
@@ -171,7 +171,7 @@ class MesheryApp extends App {
       k8sContexts: [],
       activeK8sContexts: [],
       operatorSubscription: null,
-      mesheryControllerSubscription: null,
+      meshplayControllerSubscription: null,
       disposeK8sContextSubscription: null,
       theme: 'light',
       isOpen: false,
@@ -354,13 +354,13 @@ class MesheryApp extends App {
   componentDidUpdate(prevProps) {
     const { k8sConfig, capabilitiesRegistry } = this.props;
 
-    // in case the meshery-ui is restricted, the user will be redirected to signup/extension page
-    if (isMesheryUiRestrictedAndThePageIsNotPlayground(capabilitiesRegistry)) {
-      Router.push(mesheryExtensionRoute);
+    // in case the meshplay-ui is restricted, the user will be redirected to signup/extension page
+    if (isMeshplayUiRestrictedAndThePageIsNotPlayground(capabilitiesRegistry)) {
+      Router.push(meshplayExtensionRoute);
     }
 
     if (!_.isEqual(prevProps.k8sConfig, k8sConfig)) {
-      const { mesheryControllerSubscription } = this.state;
+      const { meshplayControllerSubscription } = this.state;
       console.log(
         'k8sconfig changed, re-initialising subscriptions',
         k8sConfig,
@@ -368,8 +368,8 @@ class MesheryApp extends App {
       );
       const ids = getK8sConfigIdsFromK8sConfig(k8sConfig);
 
-      if (mesheryControllerSubscription) {
-        mesheryControllerSubscription.updateSubscription(
+      if (meshplayControllerSubscription) {
+        meshplayControllerSubscription.updateSubscription(
           getConnectionIDsFromContextIds(ids, k8sConfig),
         );
       }
@@ -381,7 +381,7 @@ class MesheryApp extends App {
   }
 
   initSubscriptions = (contexts) => {
-    const mesheryControllerSubscription = new GQLSubscription({
+    const meshplayControllerSubscription = new GQLSubscription({
       type: MESHPLAY_CONTROLLER_SUBSCRIPTION,
       connectionIDs: getConnectionIDsFromContextIds(contexts, this.props.k8sConfig),
       callbackFunction: (data) => {
@@ -392,7 +392,7 @@ class MesheryApp extends App {
       },
     });
 
-    this.setState({ mesheryControllerSubscription });
+    this.setState({ meshplayControllerSubscription });
   };
 
   handleDrawerToggle = () => {
@@ -776,7 +776,7 @@ class MesheryApp extends App {
                       maxSnack={10}
                     >
                       <NotificationCenterProvider>
-                        <MesheryProgressBar />
+                        <MeshplayProgressBar />
                         {!this.state.isFullScreenMode && (
                           <Header
                             onDrawerToggle={this.handleDrawerToggle}
@@ -834,7 +834,7 @@ class MesheryApp extends App {
   }
 }
 
-MesheryApp.propTypes = { classes: PropTypes.object.isRequired };
+MeshplayApp.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapStateToProps = (state) => ({
   isDrawerCollapsed: state.get('isDrawerCollapsed'),
@@ -852,21 +852,21 @@ const mapDispatchToProps = (dispatch) => ({
   setConnectionMetadata: bindActionCreators(setConnectionMetadata, dispatch),
 });
 
-const MesheryWithRedux = withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(MesheryApp),
+const MeshplayWithRedux = withStyles(styles)(
+  connect(mapStateToProps, mapDispatchToProps)(MeshplayApp),
 );
 
-const MesheryAppWrapper = (props) => {
+const MeshplayAppWrapper = (props) => {
   return (
     <Provider store={store} context={RTKContext}>
       <Provider store={props.store} context={LegacyStoreContext}>
         <Provider store={props.store}>
           <Head>
-            <link rel="shortcut icon" href="/static/img/meshery-logo/meshery-logo.svg" />
-            <title>Meshery</title>
+            <link rel="shortcut icon" href="/static/img/meshplay-logo/meshplay-logo.svg" />
+            <title>Meshplay</title>
           </Head>
           <MuiPickersUtilsProvider utils={MomentUtils}>
-            <MesheryWithRedux {...props} />
+            <MeshplayWithRedux {...props} />
           </MuiPickersUtilsProvider>
         </Provider>
       </Provider>
@@ -877,10 +877,10 @@ const MesheryAppWrapper = (props) => {
 // export default withStyles(styles)(withRedux(makeStore, {
 //   serializeState : state => state.toJS(),
 //   deserializeState : state => fromJS(state)
-// })(MesheryAppWrapper));
+// })(MeshplayAppWrapper));
 export default withStyles(styles)(
   withRedux(makeStore, {
     serializeState: (state) => state.toJS(),
     deserializeState: (state) => fromJS(state),
-  })(MesheryAppWrapper),
+  })(MeshplayAppWrapper),
 );

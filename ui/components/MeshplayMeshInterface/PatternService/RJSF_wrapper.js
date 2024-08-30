@@ -2,8 +2,8 @@ import React from 'react';
 import HandleError from '../../ErrorHandling';
 import { buildUiSchema } from '../helpers';
 import { getRefinedJsonSchema } from './helper';
-// import MesheryArrayFieldTemplate from "./RJSFCustomComponents/ArrayFieldTemlate";
-// import MesheryCustomObjFieldTemplate from "./RJSFCustomComponents/ObjectFieldTemplate";
+// import MeshplayArrayFieldTemplate from "./RJSFCustomComponents/ArrayFieldTemlate";
+// import MeshplayCustomObjFieldTemplate from "./RJSFCustomComponents/ObjectFieldTemplate";
 import _ from 'lodash';
 import RJSFForm from './RJSF';
 

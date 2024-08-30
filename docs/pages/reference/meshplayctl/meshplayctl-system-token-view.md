@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-token-view
-permalink: reference/mesheryctl/system/token/view
-redirect_from: reference/mesheryctl/system/token/view/
+title: meshplayctl-system-token-view
+permalink: reference/meshplayctl/system/token/view
+redirect_from: reference/meshplayctl/system/token/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: system
 subcommand: token
 ---
 
-# mesheryctl system token view
+# meshplayctl system token view
 
 View token
 
 ## Synopsis
 
-View a specific token in meshery config
+View a specific token in meshplay config
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token view [flags]
+meshplayctl system token view [flags]
 
 </div>
 </pre> 
@@ -28,14 +28,14 @@ mesheryctl system token view [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token view [token-name]
+meshplayctl system token view [token-name]
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token view (show token of current context)
+meshplayctl system token view (show token of current context)
 
 </div>
 </pre> 
@@ -54,7 +54,7 @@ mesheryctl system token view (show token of current context)
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -64,4 +64,4 @@ mesheryctl system token view (show token of current context)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

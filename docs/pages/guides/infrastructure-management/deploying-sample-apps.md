@@ -8,14 +8,14 @@ type: guides
 language: en
 ---
 
-Meshery includes a few sample applications to help you explore cloud native infrastructure. Each is a collection of microservices for experimental purposes of learning about running workloads in Kubernetes clusters both on and off of a service mesh. When deploying a sample app onto your service mesh, your sample application needs will need to be externaally exposed from the cluster, if you would like to access it externally. There are a myriad of ways to do this, specific to the service mesh you are using.
+Meshplay includes a few sample applications to help you explore cloud native infrastructure. Each is a collection of microservices for experimental purposes of learning about running workloads in Kubernetes clusters both on and off of a service mesh. When deploying a sample app onto your service mesh, your sample application needs will need to be externaally exposed from the cluster, if you would like to access it externally. There are a myriad of ways to do this, specific to the service mesh you are using.
 
 A popular way of exposing your cluster is by using [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), an API object that defines rules which allow external access to services in a cluster. 
 
 - [Set up Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource)
 - [Set up Ingress on Minikube](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
 
-## Deploy a sample app on Meshery
+## Deploy a sample app on Meshplay
 
 1. Go to the management page of any service mesh and install any of its stable versions.
 <a href="{{ site.baseurl }}/assets/img/adapters/consul/consul-install.png"><img alt="Consul-install" style="width:500px;height:auto;display:flex;padding-top:10px;" src="{{ site.baseurl }}/assets/img/adapters/consul/consul-install.png" /></a>
@@ -35,7 +35,7 @@ Originally built by Istio, BookInfo is a sample application which on deployment 
    - **reviews**: The reviews microservice contains book reviews. It also calls the ratings microservice.
    - **ratings**: The ratings microservice contains book ranking information that accompanies a book review.
 
-Once BookInfo is deployed, you can use Meshery to apply custom configurations to control traffic, inject latency, perform context-based routing, and so on. 
+Once BookInfo is deployed, you can use Meshplay to apply custom configurations to control traffic, inject latency, perform context-based routing, and so on. 
 
 <a href="{{ site.baseurl }}/assets/img/adapters/sample-apps/bookinfo.png"><img alt="BookInfo sample app" style="width:500px;height:auto;" src="{{ site.baseurl }}/assets/img/adapters/sample-apps/bookinfo.png" /></a>
 

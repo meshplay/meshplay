@@ -1,9 +1,9 @@
-{% for cmd in site.data.mesheryctlcommands.cmds %}
+{% for cmd in site.data.meshplayctlcommands.cmds %}
 
 Category: {{cmd.name}}
 Name: {{cmd.description}}
 
-<p>{{ cmd }}</p>: {{ site.data.mesheryctlcommands.cmds }}
+<p>{{ cmd }}</p>: {{ site.data.meshplayctlcommands.cmds }}
 
 
 
@@ -22,7 +22,7 @@ Name: {{cmd.description}}
 
 <pre class="codeblock-pre">
   <div class="codeblock">
-    {% for cmd in site.data.mesheryctlcommands.cmds %}
+    {% for cmd in site.data.meshplayctlcommands.cmds %}
       {{ cmd.name.flags[0].name }} # {{ cmd.flag.description }}
   {% endfor %}
   </div>

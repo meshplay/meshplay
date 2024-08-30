@@ -1,4 +1,4 @@
-# Steps to build your own WASM binaries and use it in Meshery-UI or Meshery-Extensions
+# Steps to build your own WASM binaries and use it in Meshplay-UI or Meshplay-Extensions
 
 --- 
 

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-perf-apply
-permalink: reference/mesheryctl/perf/apply
-redirect_from: reference/mesheryctl/perf/apply/
+title: meshplayctl-perf-apply
+permalink: reference/meshplayctl/perf/apply
+redirect_from: reference/meshplayctl/perf/apply/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: perf
 subcommand: apply
 ---
 
-# mesheryctl perf apply
+# meshplayctl perf apply
 
 Run a Performance test
 
@@ -19,7 +19,7 @@ Run a Performance test
 Run Performance test using existing profiles or using flags
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply [profile-name] [flags]
+meshplayctl perf apply [profile-name] [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl perf apply [profile-name] [flags]
 Execute a Performance test with the specified performance profile
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile [flags]
+meshplayctl perf apply meshplay-profile [flags]
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl perf apply meshery-profile [flags]
 Execute a Performance test with creating a new performance profile
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com"
+meshplayctl perf apply meshplay-profile-new --url "https://google.com"
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl perf apply meshery-profile-new --url "https://google.com"
 Execute a Performance test creating a new performance profile and pass certificate to be used 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com" --cert-path path/to/cert.pem
+meshplayctl perf apply meshplay-profile-new --url "https://google.com" --cert-path path/to/cert.pem
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl perf apply meshery-profile-new --url "https://google.com" --cert-path
 Execute a performance profile without using the certificate present in the profile
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile --url "https://google.com" --disable-cert
+meshplayctl perf apply meshplay-profile --url "https://google.com" --disable-cert
 
 </div>
 </pre> 
@@ -62,7 +62,7 @@ Run Performance test using SMP compatible test configuration
 If the profile already exists, the test will be run overriding the values with the ones provided in the configuration file
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile -f path/to/perf-config.yaml
+meshplayctl perf apply meshplay-profile -f path/to/perf-config.yaml
 
 </div>
 </pre> 
@@ -70,7 +70,7 @@ mesheryctl perf apply meshery-profile -f path/to/perf-config.yaml
 Run performance test using SMP compatible test configuration and override values with flags
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile -f path/to/perf-config.yaml [flags]
+meshplayctl perf apply meshplay-profile -f path/to/perf-config.yaml [flags]
 
 </div>
 </pre> 
@@ -78,7 +78,7 @@ mesheryctl perf apply meshery-profile -f path/to/perf-config.yaml [flags]
 Choice of load generator - fortio, wrk2 or nighthawk (default: fortio)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile --load-generator wrk2
+meshplayctl perf apply meshplay-profile --load-generator wrk2
 
 </div>
 </pre> 
@@ -86,7 +86,7 @@ mesheryctl perf apply meshery-profile --load-generator wrk2
 Execute a Performance test with specified queries per second
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile --url https://192.168.1.15/productpage --qps 30
+meshplayctl perf apply meshplay-profile --url https://192.168.1.15/productpage --qps 30
 
 </div>
 </pre> 
@@ -94,7 +94,7 @@ mesheryctl perf apply meshery-profile --url https://192.168.1.15/productpage --q
 Execute a Performance test with specified infrastructure
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile --url https://192.168.1.15/productpage --mesh istio
+meshplayctl perf apply meshplay-profile --url https://192.168.1.15/productpage --mesh istio
 
 </div>
 </pre> 
@@ -106,35 +106,35 @@ Options for fortio - https://github.com/fortio/fortio/blob/v1.57.0/fhttp/httprun
 Options for wrk2 - https://github.com/layer5io/gowrk2/blob/v0.6.1/api/gowrk2.go#L47-L53
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com" --options [filepath|json-string]
+meshplayctl perf apply meshplay-profile-new --url "https://google.com" --options [filepath|json-string]
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com" --options path/to/options.json
+meshplayctl perf apply meshplay-profile-new --url "https://google.com" --options path/to/options.json
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com" --load-generator nighthawk --options '{"requests_per_second": 10, "max_pending_requests": 5}'
+meshplayctl perf apply meshplay-profile-new --url "https://google.com" --load-generator nighthawk --options '{"requests_per_second": 10, "max_pending_requests": 5}'
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com" --load-generator fortio --options '{"MethodOverride": "POST"}'
+meshplayctl perf apply meshplay-profile-new --url "https://google.com" --load-generator fortio --options '{"MethodOverride": "POST"}'
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply meshery-profile-new --url "https://google.com" --load-generator wrk2 --options '{"DurationInSeconds": 15, "Thread": 3}'
+meshplayctl perf apply meshplay-profile-new --url "https://google.com" --load-generator wrk2 --options '{"DurationInSeconds": 15, "Thread": 3}'
 
 </div>
 </pre> 
@@ -164,9 +164,9 @@ mesheryctl perf apply meshery-profile-new --url "https://google.com" --load-gene
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string          path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string          path to config file (default "/home/runner/.meshplay/config.yaml")
   -o, --output-format string   (optional) format to display in [json|yaml]
-  -t, --token string           (required) Path to meshery auth config
+  -t, --token string           (required) Path to meshplay auth config
   -v, --verbose                verbose output
   -y, --yes                    (optional) assume yes for user interactive prompts.
 
@@ -175,9 +175,9 @@ mesheryctl perf apply meshery-profile-new --url "https://google.com" --load-gene
 
 ## Screenshots
 
-Usage of mesheryctl perf apply
-![perf-apply-usage](/assets/img/mesheryctl/perf-apply.png)
+Usage of meshplayctl perf apply
+![perf-apply-usage](/assets/img/meshplayctl/perf-apply.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

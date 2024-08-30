@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-traefik-mesh
-description: Meshery Adapter for Traefik Mesh chart.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-traefik-mesh
+description: Meshplay Adapter for Traefik Mesh chart.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/layer5io/meshery-traefik-mesh
+  - https://github.com/khulnasoft/meshplay-traefik-mesh
 
 deprecated: false
 
@@ -29,5 +29,5 @@ appVersion: stable-latest
 maintainers:
   - name: aisuko
     email: urakiny@gmail.com
-  - name: Meshery Authors
-    email: maintainers@meshery.io
+  - name: Meshplay Authors
+    email: maintainers@meshplay.io

@@ -4,7 +4,7 @@ title: Fabedge
 subtitle: Collaborative and visual infrastructure as design for Fabedge
 image: /assets/img/integrations/fabedge/icons/color/fabedge-color.svg
 permalink: extensibility/integrations/fabedge
-docURL: https://docs.meshery.io/extensibility/integrations/fabedge
+docURL: https://docs.meshplay.io/extensibility/integrations/fabedge
 description: 
 integrations-category: Runtime
 integrations-subcategory: Cloud Native Network

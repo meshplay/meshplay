@@ -57,7 +57,7 @@ class GrafanaDisplaySelection extends Component {
       <NoSsr>
         <MUIDataTable
           key={`gds_${new Date().getTime()}`}
-          title="Meshery Results"
+          title="Meshplay Results"
           data={selectedValsForDisplay}
           columns={columns}
           options={options}

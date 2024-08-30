@@ -6,7 +6,7 @@ const authFile = 'playwright/.auth/user.json';
 /**
  * This function is called only once before any tests are run.
  * It performs the authentication steps.
- * It logs in to Meshery and saves the cookies and browser context to a file.
+ * It logs in to Meshplay and saves the cookies and browser context to a file.
  * The cookies are used in the subsequent tests to authenticate the user.
  * @param {import("@playwright/test").TestModifier} param0
  */
@@ -15,7 +15,7 @@ setup('authenticate', async ({ page }) => {
 
   await page.goto(ENV.PROVIDER_SELECTION_URL);
   await page.getByLabel('Select Provider').click();
-  await page.getByRole('menuitem', { name: 'Meshery' }).click();
+  await page.getByRole('menuitem', { name: 'Meshplay' }).click();
   await page.getByLabel('E-Mail').fill(ENV.REMOTE_PROVIDER_USER.email);
   await page.getByLabel('Password').fill(ENV.REMOTE_PROVIDER_USER.password);
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();

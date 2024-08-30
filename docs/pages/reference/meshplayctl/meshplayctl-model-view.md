@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-model-view
-permalink: reference/mesheryctl/model/view
-redirect_from: reference/mesheryctl/model/view/
+title: meshplayctl-model-view
+permalink: reference/meshplayctl/model/view
+redirect_from: reference/meshplayctl/model/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: model
 subcommand: view
 ---
 
-# mesheryctl model view
+# meshplayctl model view
 
 view model
 
@@ -19,7 +19,7 @@ view model
 view a model queried by its name
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model view [flags]
+meshplayctl model view [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl model view [flags]
 View current provider
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model view [model-name]
+meshplayctl model view [model-name]
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl model view [model-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -56,4 +56,4 @@ mesheryctl model view [model-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

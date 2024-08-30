@@ -1,20 +1,20 @@
-{{- if .Values.mesherygateway.enabled -}}
+{{- if .Values.meshplaygateway.enabled -}}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: meshery
+  name: meshplay
 spec:
   hosts:
   - "*"
   gateways:
-  - meshery-gateway
+  - meshplay-gateway
   http:
   - match:
     - uri:
         prefix: /
     route:
     - destination:
-        host: meshery
+        host: meshplay
         port:
           number: 9081
 {{- end }}

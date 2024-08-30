@@ -12,9 +12,9 @@ category: meshmap
 
 # Publishing a Design
 
-Publishing a design lets you make your content visible to any anonymous visitor of meshery.io/catalog and any Meshery Cloud user. Anyone with the link can view the design.
+Publishing a design lets you make your content visible to any anonymous visitor of meshplay.io/catalog and any Meshplay Cloud user. Anyone with the link can view the design.
 
-You can publish design into Meshery's Catalog using Extensions. Let's discuss the process below.
+You can publish design into Meshplay's Catalog using Extensions. Let's discuss the process below.
 
 **Step 1: Access the Extensions UI**
 
@@ -39,18 +39,18 @@ To select actions, hover over your design in the table and choose <b>publish</b>
 
 **Step 4: Confirm additional information about your design**
 
-Catalog curation involves a process of review by Meshery Maintainers. In order to facilitate this review process, add details about your design. Indentify the most appropriate design type by selecting from the predefined list, and also, identify technologies included in your design by checkmarking one or more of them. Click "Publish" in order to send your design for review by Meshery Maintainers. You will receive an email confirming your submission.
+Catalog curation involves a process of review by Meshplay Maintainers. In order to facilitate this review process, add details about your design. Indentify the most appropriate design type by selecting from the predefined list, and also, identify technologies included in your design by checkmarking one or more of them. Click "Publish" in order to send your design for review by Meshplay Maintainers. You will receive an email confirming your submission.
 
 <a href="{{ site.baseurl }}/assets/img/meshmap/publish-modal.png"><img style="border-radius: 0.5%;" alt="Import-Application" style="width:800px;height:auto;" src="{{ site.baseurl }}/assets/img/meshmap/publish-modal.png" /></a>
 
 **Step 5: Congratulations on publishing your first design**
 
-You are all set. Your request to publish this design is sent to Meshery Maintainers. Create more designs!
+You are all set. Your request to publish this design is sent to Meshplay Maintainers. Create more designs!
 
 ### Tutorial: How to publish a design
 
 <div style="max-width: 800px">
   <div class="iframe-container">
-    <iframe src="https://www.youtube.com/embed/UCKS4eSB7AY" title="How to Publish Designs using Meshery Extension" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/UCKS4eSB7AY" title="How to Publish Designs using Meshplay Extension" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>

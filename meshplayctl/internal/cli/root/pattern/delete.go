@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +23,9 @@ import (
 	"os"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -39,11 +39,11 @@ var deleteCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(0),
 	Example: `
 // delete a pattern file
-mesheryctl pattern delete [file | URL]
+meshplayctl pattern delete [file | URL]
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var req *http.Request
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -52,7 +52,7 @@ mesheryctl pattern delete [file | URL]
 		pattern := ""
 		isID := false
 		if len(args) > 0 {
-			pattern, isID, err = utils.ValidId(mctlCfg.GetBaseMesheryURL(), args[0], "pattern")
+			pattern, isID, err = utils.ValidId(mctlCfg.GetBaseMeshplayURL(), args[0], "pattern")
 			if err != nil {
 				utils.Log.Error(ErrPatternInvalidNameOrID(err))
 				return nil
@@ -61,7 +61,7 @@ mesheryctl pattern delete [file | URL]
 
 		// Delete the pattern using the id
 		if isID {
-			err := utils.DeleteConfiguration(mctlCfg.GetBaseMesheryURL(), pattern, "pattern")
+			err := utils.DeleteConfiguration(mctlCfg.GetBaseMeshplayURL(), pattern, "pattern")
 			if err != nil {
 				utils.Log.Error(err)
 				return errors.Wrap(err, utils.PatternError(fmt.Sprintf("failed to delete pattern %s", args[0])))
@@ -69,8 +69,8 @@ mesheryctl pattern delete [file | URL]
 			utils.Log.Info("Pattern ", args[0], " deleted successfully")
 			return nil
 		}
-		deployURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern/deploy"
-		patternURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern"
+		deployURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern/deploy"
+		patternURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern"
 
 		var patternFileByt []byte
 		// If file path not a valid URL, treat it like a local file path
@@ -122,7 +122,7 @@ mesheryctl pattern delete [file | URL]
 				return nil
 			}
 			utils.Log.Debug("remote hosted pattern request success")
-			var response []*models.MesheryPattern
+			var response []*models.MeshplayPattern
 			defer resp.Body.Close()
 
 			body, err := io.ReadAll(resp.Body)

@@ -6,12 +6,12 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/docker/meshery-extension/vm/proxy"
+	"github.com/docker/meshplay-extension/vm/proxy"
 	"github.com/sirupsen/logrus"
 )
 
 var (
-	MesheryServerHost = "http://host.docker.internal:9081"
+	MeshplayServerHost = "http://host.docker.internal:9081"
 	Port              = "7877"
 )
 

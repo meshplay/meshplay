@@ -1,4 +1,4 @@
-name: Meshery Build and Releaser (stable)
+name: Meshplay Build and Releaser (stable)
 on:
   push:
     tags:
@@ -8,7 +8,7 @@ jobs:
 
   update-rest-api-docs:
     name: Update REST API Documentation
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
 
   update-graphql-docs:
     name: Update GraphQL API Documentation
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-22.04
     steps:
       - name: Check out code
@@ -89,7 +89,7 @@ jobs:
 
   build:
     name: Docker build and push
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     env:
       RELEASE_CHANNEL: "stable"
     runs-on: ubuntu-22.04
@@ -127,8 +127,8 @@ jobs:
       #     DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       #     DOCKERHUB_REPOSITORY: ${{ secrets.IMAGE_NAME }}
   ctlrelease:
-    name: Mesheryctl build & release
-    if: github.repository == 'meshery/meshery' && startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, 'patch') && !contains(github.ref, 'alpha') && !contains(github.ref, 'beta') && !contains(github.ref, 'rc')
+    name: Meshplayctl build & release
+    if: github.repository == 'meshplay/meshplay' && startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, 'patch') && !contains(github.ref, 'alpha') && !contains(github.ref, 'beta') && !contains(github.ref, 'rc')
     runs-on: macos-latest
     steps:
       - name: Check out code
@@ -150,8 +150,8 @@ jobs:
       - name: bump homebrew-core formula
         uses: mislav/bump-homebrew-formula-action@v3
         with:
-          formula-name: mesheryctl
-          download-url: https://github.com/meshery/meshery.git
+          formula-name: meshplayctl
+          download-url: https://github.com/meshplay/meshplay.git
         env:
           COMMITTER_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
   call-dde-release-workflow:
@@ -159,43 +159,43 @@ jobs:
       - build
       - ctlrelease
     name: Build and Release Docker Extension
-    uses: meshery/meshery/.github/workflows/build-and-release-dde.yml@master
+    uses: meshplay/meshplay/.github/workflows/build-and-release-dde.yml@master
     secrets: inherit
   call-helm-chart-releaser:
     needs:
       - build
     name: Release Helm Charts
-    uses: meshery/meshery/.github/workflows/helm-chart-releaser.yml@master
+    uses: meshplay/meshplay/.github/workflows/helm-chart-releaser.yml@master
     secrets: inherit
   # call-aks-playground-deploy-workflow:
   #   needs: build
-  #   name: Deploy Meshery Playground
-  #   uses: meshery/meshery/.github/workflows/deploy-meshery-playground.yml@master
+  #   name: Deploy Meshplay Playground
+  #   uses: meshplay/meshplay/.github/workflows/deploy-meshplay-playground.yml@master
   #   secrets: inherit
-  email-meshery-release-notes-workflow:
+  email-meshplay-release-notes-workflow:
     needs:
       - build
       - ctlrelease
       - call-helm-chart-releaser
       - call-dde-release-workflow
-    name: Email Meshery Release Notes
-    uses: layer5labs/meshery-extensions-packages/.github/workflows/notify-email.yml@master
+    name: Email Meshplay Release Notes
+    uses: layer5labs/meshplay-extensions-packages/.github/workflows/notify-email.yml@master
     secrets:
       token: ${{ secrets.GH_ACCESS_TOKEN }}
       MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
       MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
     with:
       release-tag: ${{github.ref_name}}
-      to: developers@meshery.io
+      to: developers@meshplay.io
   call-cncf-playground-rollout:
     needs:
       - build
     name: Deploy CNCF Playground
-    uses: meshery/meshery/.github/workflows/cncf-playground-deploy-meshery.yaml@master
+    uses: meshplay/meshplay/.github/workflows/cncf-playground-deploy-meshplay.yaml@master
     secrets: inherit
 
   email-on-failure:
-    needs: [update-rest-api-docs, update-graphql-docs, build, ctlrelease, call-dde-release-workflow, call-helm-chart-releaser, email-meshery-release-notes-workflow, call-cncf-playground-rollout]
+    needs: [update-rest-api-docs, update-graphql-docs, build, ctlrelease, call-dde-release-workflow, call-helm-chart-releaser, email-meshplay-release-notes-workflow, call-cncf-playground-rollout]
     if: ${{ failure() }}
     runs-on: ubuntu-latest
     steps:

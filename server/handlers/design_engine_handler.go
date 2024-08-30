@@ -11,16 +11,16 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/meshes"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/pattern/core"
-	"github.com/layer5io/meshplay/server/models/pattern/patterns"
+	"github.com/khulnasoft/meshplay/server/meshes"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/models/pattern/patterns"
 	"github.com/spf13/viper"
 
-	"github.com/layer5io/meshplay/server/models/pattern/patterns/k8s"
-	patternutils "github.com/layer5io/meshplay/server/models/pattern/utils"
+	"github.com/khulnasoft/meshplay/server/models/pattern/patterns/k8s"
+	patternutils "github.com/khulnasoft/meshplay/server/models/pattern/utils"
 
-	"github.com/layer5io/meshplay/server/models/pattern/stages"
+	"github.com/khulnasoft/meshplay/server/models/pattern/stages"
 	"github.com/layer5io/meshkit/logger"
 	events "github.com/layer5io/meshkit/models/events"
 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
@@ -56,7 +56,7 @@ func (h *Handler) PatternFileHandler(
 ) {
 	userID := uuid.FromStringOrNil(user.ID)
 	token, _ := r.Context().Value(models.TokenCtxKey).(string)
-	var payload models.MesheryPatternFileDeployPayload
+	var payload models.MeshplayPatternFileDeployPayload
 	var patternFileByte []byte
 
 	// Read the PatternFile
@@ -108,7 +108,7 @@ func (h *Handler) PatternFileHandler(
 	if isDesignInAlpha2Format {
 		eventBuilder := events.NewEvent().ActedUpon(patternID).FromSystem(*h.SystemID).FromUser(userID).WithCategory("pattern").WithAction("convert")
 
-		_, patternFileStr, err := h.convertV1alpha2ToV1beta1(&models.MesheryPattern{
+		_, patternFileStr, err := h.convertV1alpha2ToV1beta1(&models.MeshplayPattern{
 			ID:          &patternID,
 			PatternFile: payload.PatternFile,
 		}, eventBuilder)
@@ -183,7 +183,7 @@ func (h *Handler) PatternFileHandler(
 		"summary": response,
 	}
 
-	serverURL, _ := r.Context().Value(models.MesheryServerURL).(string)
+	serverURL, _ := r.Context().Value(models.MeshplayServerURL).(string)
 
 	if action == "deploy" {
 		viewLink := fmt.Sprintf("%s/extension/meshmap?mode=visualize&design=%s", serverURL, patternID)
@@ -217,7 +217,7 @@ func _processPattern(opts *core.ProcessPatternOptions) (map[string]interface{}, 
 	// Get the kubehandler from the context
 	k8scontexts, ok := opts.Context.Value(models.KubeClustersKey).([]models.K8sContext)
 	if !ok || len(k8scontexts) == 0 {
-		return nil, ErrInvalidKubeHandler(fmt.Errorf("Meshery server failed to interact with the Kubernetes cluster due to the cluster not being available."), opts.Pattern.Name)
+		return nil, ErrInvalidKubeHandler(fmt.Errorf("Meshplay server failed to interact with the Kubernetes cluster due to the cluster not being available."), opts.Pattern.Name)
 	}
 
 	var ctxToconfig = make(map[string]string)
@@ -306,10 +306,10 @@ type serviceInfoProvider struct {
 	opIsDelete bool
 }
 
-func (sip *serviceInfoProvider) GetMesheryPatternResource(name, namespace, typ, oamType string) (*uuid.UUID, error) {
+func (sip *serviceInfoProvider) GetMeshplayPatternResource(name, namespace, typ, oamType string) (*uuid.UUID, error) {
 	const page = "0"
 	const pageSize = "1"
-	res, err := sip.provider.GetMesheryPatternResources(sip.token, pageSize, page, "", "", name, namespace, typ, oamType)
+	res, err := sip.provider.GetMeshplayPatternResources(sip.token, pageSize, page, "", "", name, namespace, typ, oamType)
 	if err != nil {
 		return nil, err
 	}
@@ -497,7 +497,7 @@ func (sap *serviceActionProvider) Provision(ccp stages.CompConfigPair) ([]patter
 	msgs := []patterns.DeploymentMessagePerContext{}
 	for _, host := range ccp.Hosts {
 		// Hack until adapters fix the concurrent client
-		// creation issue: https://github.com/layer5io/meshplay-adapter-library/issues/32
+		// creation issue: https://github.com/khulnasoft/meshplay-adapter-library/issues/32
 		time.Sleep(50 * time.Microsecond)
 		sap.log.Debug("Execute operations on: ", host.Kind)
 
@@ -595,7 +595,7 @@ func (sap *serviceActionProvider) Provision(ccp stages.CompConfigPair) ([]patter
 // 			return nil
 // 		}
 
-// 		_, err := sap.provider.SaveMesheryPatternResource(
+// 		_, err := sap.provider.SaveMeshplayPatternResource(
 // 			sap.token,
 // 			&models.PatternResource{
 // 				ID:        svc.ID,
@@ -609,7 +609,7 @@ func (sap *serviceActionProvider) Provision(ccp stages.CompConfigPair) ([]patter
 // 		return err
 // 	}
 
-// 	return sap.provider.DeleteMesheryPatternResource(
+// 	return sap.provider.DeleteMeshplayPatternResource(
 // 		sap.token,
 // 		svc.ID.String(),
 // 	)

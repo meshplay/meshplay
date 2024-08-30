@@ -38,7 +38,7 @@ import {
   updateProgress,
 } from '../../lib/store';
 import dataFetch from '../../lib/data-fetch';
-import MesheryChart from '../MesheryChart';
+import MeshplayChart from '../MeshplayChart';
 import LoadTestTimerDialog from '../load-test-timer-dialog';
 import GrafanaCustomCharts from '../telemetry/grafana/GrafanaCustomCharts';
 import { durationOptions } from '../../lib/prePopulatedOptions';
@@ -51,7 +51,7 @@ import { generateTestName, generateUUID } from './helper';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
 import DefaultError from '@/components/General/error-404/index';
-import { CustomTextTooltip } from '../MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '../MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import { useGetUserPrefWithContextQuery } from '@/rtk-query/user';
 import { useSavePerformanceProfileMutation } from '@/rtk-query/performance-profile';
 import { useGetMeshQuery } from '@/rtk-query/mesh';
@@ -190,7 +190,7 @@ const infoCRTCertificates = <>Only .crt files are supported.</>;
 
 const infoloadGenerators = (
   <>
-    Which load generators does Meshery support?
+    Which load generators does Meshplay support?
     <ul>
       <li>
         fortio - Fortio load testing library, command line tool, advanced echo server and web UI in
@@ -207,7 +207,7 @@ const infoloadGenerators = (
     <Link
       style={{ textDecoration: 'underline' }}
       color="inherit"
-      href="https://docs.meshery.io/functionality/performance-management"
+      href="https://docs.meshplay.io/functionality/performance-management"
     >
       {' '}
       Performance Management
@@ -216,7 +216,7 @@ const infoloadGenerators = (
 );
 
 let eventStream = null;
-const MesheryPerformanceComponent = (props) => {
+const MeshplayPerformanceComponent = (props) => {
   const {
     testName = '',
     meshName = '',
@@ -1012,7 +1012,7 @@ const MesheryPerformanceComponent = (props) => {
                           <TextField
                             id="headers"
                             name="headers"
-                            label='Request Headers e.g. {"host":"bookinfo.meshery.io"}'
+                            label='Request Headers e.g. {"host":"bookinfo.meshplay.io"}'
                             fullWidth
                             value={headersState}
                             multiline
@@ -1051,7 +1051,7 @@ const MesheryPerformanceComponent = (props) => {
                           <TextField
                             id="cookies"
                             name="cookies"
-                            label='Request Body e.g. {"method":"post","url":"http://bookinfo.meshery.io/test"}'
+                            label='Request Body e.g. {"method":"post","url":"http://bookinfo.meshplay.io/test"}'
                             fullWidth
                             value={reqBodyState}
                             multiline
@@ -1267,13 +1267,13 @@ const MesheryPerformanceComponent = (props) => {
                     aria-label="download"
                     color="inherit"
                     // onClick={() => self.props.closeSnackbar(key) }
-                    href={`/api/perf/profile/result/${encodeURIComponent(result.meshery_id)}`}
+                    href={`/api/perf/profile/result/${encodeURIComponent(result.meshplay_id)}`}
                   >
                     <GetAppIcon style={iconMedium} />
                   </IconButton>
                 </Typography>
                 <div className={classes.chartContent} style={chartStyle}>
-                  <MesheryChart
+                  <MeshplayChart
                     rawdata={[result && result.runner_results ? result : {}]}
                     data={[result && result.runner_results ? result.runner_results : {}]}
                   />
@@ -1295,7 +1295,7 @@ const MesheryPerformanceComponent = (props) => {
     </NoSsr>
   );
 };
-MesheryPerformanceComponent.propTypes = {
+MeshplayPerformanceComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -1326,5 +1326,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(withNotify(MesheryPerformanceComponent)),
+  connect(mapStateToProps, mapDispatchToProps)(withNotify(MeshplayPerformanceComponent)),
 );

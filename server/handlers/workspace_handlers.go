@@ -8,7 +8,7 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/meshplay/schemas/models/v1beta1"
 )
 
@@ -214,8 +214,8 @@ func (h *Handler) GetEnvironmentsOfWorkspaceHandler(w http.ResponseWriter, req *
 	fmt.Fprint(w, string(resp))
 }
 
-// swagger:route GET /api/workspaces/{id}/designs WorkspacesAPI idGetWorkspaceMesheryDesigns
-// Handles GET for all Meshery Designs in a Workspace
+// swagger:route GET /api/workspaces/{id}/designs WorkspacesAPI idGetWorkspaceMeshplayDesigns
+// Handles GET for all Meshplay Designs in a Workspace
 //
 // ```?order={field}``` orders on the passed field
 //
@@ -281,7 +281,7 @@ func (h *Handler) RemoveEnvironmentFromWorkspaceHandler(w http.ResponseWriter, r
 	fmt.Fprint(w, string(resp))
 }
 
-// swagger:route POST /api/workspaces/{id}/designs/{designID} WorkspacesAPI idAddMesheryDesignToWorkspace
+// swagger:route POST /api/workspaces/{id}/designs/{designID} WorkspacesAPI idAddMeshplayDesignToWorkspace
 // Handle POST request for adding a meshplay design to a workspace
 //
 // Adds a meshplay design to a workspace
@@ -300,7 +300,7 @@ func (h *Handler) AddDesignToWorkspaceHandler(w http.ResponseWriter, req *http.R
 	fmt.Fprint(w, string(resp))
 }
 
-// swagger:route DELETE /api/workspaces/{id}/designs/{designID} WorkspacesAPI idRemoveMesheryDesignFromWorkspace
+// swagger:route DELETE /api/workspaces/{id}/designs/{designID} WorkspacesAPI idRemoveMeshplayDesignFromWorkspace
 // Handle DELETE request for removing a meshplay design from a workspace
 //
 // Removes a meshplay design from a workspace

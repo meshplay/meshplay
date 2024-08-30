@@ -4,10 +4,10 @@ contexts:
         token: default
         platform: kubernetes
         components:
-            - meshery-istio
+            - meshplay-istio
         channel: stable
         version: latest
-        provider: Meshery
+        provider: Meshplay
 current-context: local
 tokens:
     - location: auth.json

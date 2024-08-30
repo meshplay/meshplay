@@ -4,7 +4,7 @@ title: OpenEBS
 subtitle: Collaborative and visual infrastructure as design for OpenEBS
 image: /assets/img/integrations/openebs/icons/color/openebs-color.svg
 permalink: extensibility/integrations/openebs
-docURL: https://docs.meshery.io/extensibility/integrations/openebs
+docURL: https://docs.meshplay.io/extensibility/integrations/openebs
 description: 
 integrations-category: Cloud Native Storage
 integrations-subcategory: Cloud Native Storage

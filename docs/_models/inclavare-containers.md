@@ -4,7 +4,7 @@ title: Inclavare Containers
 subtitle: Collaborative and visual infrastructure as design for Inclavare Containers
 image: /assets/img/integrations/inclavare-containers/icons/color/inclavare-containers-color.svg
 permalink: extensibility/integrations/inclavare-containers
-docURL: https://docs.meshery.io/extensibility/integrations/inclavare containers
+docURL: https://docs.meshplay.io/extensibility/integrations/inclavare containers
 description: 
 integrations-category: Runtime
 integrations-subcategory: Container Runtime

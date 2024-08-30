@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Meshery Documentation
+title: Meshplay Documentation
 permalink: /
 display-title: "false"
 display-toc: "false"
@@ -12,9 +12,9 @@ list: exclude
 
 <div style="display:grid; justify-items:center">
   <div style="align-self:center; margin-bottom:0px; margin-top:0px;padding-top:0px; padding-bottom:0px;width:clamp(170px, 50%, 800px);">
-    {% include svg/meshery-logo.html %}
+    {% include svg/meshplay-logo.html %}
   </div>
-  <h3 style="font-size:1.6rem">As a self-service engineering platform, Meshery enables collaborative design and operation of cloud and cloud native infrastructure.</h3>
+  <h3 style="font-size:1.6rem">As a self-service engineering platform, Meshplay enables collaborative design and operation of cloud and cloud native infrastructure.</h3>
 </div>
 <div class="flex flex-col--2 container">
   <!-- OVERVIEW -->
@@ -116,13 +116,13 @@ list: exclude
     <details>
       <summary>
         <p style="display:inline">
-          <a href="{{ site.baseurl }}/guides/mesheryctl/" class="text-black">Using the CLI</a>
+          <a href="{{ site.baseurl }}/guides/meshplayctl/" class="text-black">Using the CLI</a>
         </p>
       </summary>
       <ul class="section-title">
-        {% assign sorted_mesheryctl = site.pages | where: "type","guides" %}
-        {% for item in sorted_mesheryctl %}
-        {% if item.type=="guides" and item.category=="mesheryctl" and item.language=="en" -%}
+        {% assign sorted_meshplayctl = site.pages | where: "type","guides" %}
+        {% for item in sorted_meshplayctl %}
+        {% if item.type=="guides" and item.category=="meshplayctl" and item.language=="en" -%}
           <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
           {% if item.abstract != " " %}
             - {{ item.abstract }}
@@ -135,7 +135,7 @@ list: exclude
     <details>
       <summary>
         <p style="display:inline">
-          <a href="{{ site.baseurl }}/guides/tutorials/" class="text-black">🧑‍🔬 Hands-on Labs using Meshery Playground</a>
+          <a href="{{ site.baseurl }}/guides/tutorials/" class="text-black">🧑‍🔬 Hands-on Labs using Meshplay Playground</a>
         </p>
       </summary>
       <ul class="section-title">
@@ -230,7 +230,7 @@ list: exclude
     <!-- EVERYTHING ELSE
     <ul>
       {% for item in sorted_pages %}
-      {% if item.type=="guides" and item.category!="mesheryctl" and item.category!="infrastructure" and item.category!="troubleshooting" and item.category!="performance" and item.category!="configuration" and item.category!="tutorials" and item.language=="en" -%}
+      {% if item.type=="guides" and item.category!="meshplayctl" and item.category!="infrastructure" and item.category!="troubleshooting" and item.category!="performance" and item.category!="configuration" and item.category!="tutorials" and item.language=="en" -%}
         <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
         </li>
         {% endif %}
@@ -379,4 +379,4 @@ list: exclude
 
 </div>
 
-<p width="100%">Follow on <a href="https://twitter.com/mesheryio">Twitter</a> or subscribe to our <a href="https://meshery.io/subscribe">newsletter</a> for the latest updates. Get support on our <a href="http://discuss.meshery.io">forum</a>. Join our <a href="https://slack.meshery.io">Slack</a> to interact directly with other users and contributors.</p>
+<p width="100%">Follow on <a href="https://twitter.com/meshplayio">Twitter</a> or subscribe to our <a href="https://meshplay.io/subscribe">newsletter</a> for the latest updates. Get support on our <a href="http://discuss.meshplay.io">forum</a>. Join our <a href="https://slack.meshplay.io">Slack</a> to interact directly with other users and contributors.</p>

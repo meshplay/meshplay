@@ -118,7 +118,7 @@ info:
     license:
         name: Apache-2.0
         url: http://www.apache.org/licenses/LICENSE-2.0.txt
-    title: Meshery API.
+    title: Meshplay API.
     version: 0.4.27
 paths:
     /api/application:
@@ -135,7 +135,7 @@ paths:
                 ```?page={page-number}``` Default page number is 0
 
                 ```?pagesize={pagesize}``` Default pagesize is 10
-            operationId: idGetMesheryApplications
+            operationId: idGetMeshplayApplications
             responses:
                 "200":
                     $ref: '#/responses/meshplayApplicationsResponseWrapper'
@@ -145,7 +145,7 @@ paths:
     /api/application/{id}:
         delete:
             description: 'Deletes a meshplay application file with ID: id'
-            operationId: idDeleteMesheryApplicationFile
+            operationId: idDeleteMeshplayApplicationFile
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -157,7 +157,7 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Delete for a Meshery Application File
+            summary: Handle Delete for a Meshplay Application File
             tags:
                 - ApplicationsAPI
     /api/application/{sourcetype}:
@@ -204,17 +204,17 @@ paths:
                   type: file
                   x-go-name: FormFile
             responses: {}
-            summary: Handle GET request for Meshery Application with of source content
+            summary: Handle GET request for Meshplay Application with of source content
             tags:
                 - ApplicationsAPI
     /api/application/types:
         get:
             description: Get application file types
-            operationId: typeGetMesheryApplication
+            operationId: typeGetMeshplayApplication
             responses:
                 "200":
                     $ref: '#/responses/meshplayApplicationTypesResponseWrapper'
-            summary: Handle GET request for Meshery Application types
+            summary: Handle GET request for Meshplay Application types
             tags:
                 - ApplicationsAPI
     /api/content/design/share:
@@ -350,7 +350,7 @@ paths:
     /api/events:
         get:
             description: |-
-                Listens for events across all of Meshery's components like adapters and server, streaming them to the UI via Server Side Events
+                Listens for events across all of Meshplay's components like adapters and server, streaming them to the UI via Server Side Events
                 This API call never terminates and establishes a persistent keep-alive connection over which `EventsResponse`s are pushed.
             operationId: idGetEventStreamer
             responses:
@@ -433,18 +433,18 @@ paths:
             tags:
                 - FiltersAPI
         post:
-            description: Used to save/update a Meshery Filter
+            description: Used to save/update a Meshplay Filter
             operationId: idPostFilterFile
             responses:
                 "200":
                     $ref: '#/responses/meshplayFilterResponseWrapper'
-            summary: Handle POST requests for Meshery Filters
+            summary: Handle POST requests for Meshplay Filters
             tags:
                 - FiltersAPI
     /api/filter/{id}:
         delete:
             description: 'Deletes a meshplay filter with ID: id'
-            operationId: idDeleteMesheryFilter
+            operationId: idDeleteMeshplayFilter
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -456,12 +456,12 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Delete for a Meshery Filter
+            summary: Handle Delete for a Meshplay Filter
             tags:
                 - FiltersAPI
         get:
-            description: Fetches the Meshery Filter with the given id
-            operationId: idGetMesheryFilter
+            description: Fetches the Meshplay Filter with the given id
+            operationId: idGetMeshplayFilter
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -473,7 +473,7 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/meshplayFilterResponseWrapper'
-            summary: Handle GET request for a Meshery Filter
+            summary: Handle GET request for a Meshplay Filter
             tags:
                 - FiltersAPI
     /api/filter/catalog:
@@ -488,7 +488,7 @@ paths:
                 ```?pagesize={pagesize}``` Default pagesize is 10.
 
                 ```?search={filtername}``` If search is non empty then a greedy search is performed
-            operationId: idGetCatalogMesheryFiltersHandler
+            operationId: idGetCatalogMeshplayFiltersHandler
             responses:
                 "200":
                     $ref: '#/responses/meshplayFiltersResponseWrapper'
@@ -497,32 +497,32 @@ paths:
                 - FiltersAPI
     /api/filter/catalog/publish:
         post:
-            description: Publishes filter to Meshery Catalog by setting visibility to published and setting catalog data
+            description: Publishes filter to Meshplay Catalog by setting visibility to published and setting catalog data
             operationId: idPublishCatalogFilterHandler
             responses:
                 "202":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Publish for a Meshery Filter
+            summary: Handle Publish for a Meshplay Filter
             tags:
                 - FiltersAPI
     /api/filter/catalog/unpublish:
         delete:
-            description: Unpublishes filter from Meshery Catalog by setting visibility to private and removing catalog data from website
+            description: Unpublishes filter from Meshplay Catalog by setting visibility to private and removing catalog data from website
             operationId: idUnPublishCatalogFilterHandler
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle UnPublish for a Meshery Filter
+            summary: Handle UnPublish for a Meshplay Filter
             tags:
                 - FiltersAPI
     /api/filter/clone/{id}:
         post:
             description: 'Creates a local copy of a published filter with id: id'
-            operationId: idCloneMesheryFilter
+            operationId: idCloneMeshplayFilter
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Clone for a Meshery Filter
+            summary: Handle Clone for a Meshplay Filter
             tags:
                 - FiltersAPI
     /api/filter/deploy:
@@ -546,7 +546,7 @@ paths:
                 - FilterAPI
     /api/filter/file/{id}:
         get:
-            description: Returns the Meshery Filter file saved by the current user with the given id
+            description: Returns the Meshplay Filter file saved by the current user with the given id
             operationId: idGetFilterFile
             responses:
                 "200":
@@ -718,7 +718,7 @@ paths:
                 - MeshmodelValidate
     /api/meshmodel/generate:
         post:
-            description: Generates Meshery Components for the given payload
+            description: Generates Meshplay Components for the given payload
             operationId: idPostMeshModelComponentGenerate
             responses:
                 "200":
@@ -1270,8 +1270,8 @@ paths:
                 - PatternsAPI
     /api/pattern/{id}:
         delete:
-            description: DeleteMultiMesheryPatternsHandler deletes patterns with the given ids
-            operationId: idDeleteMesheryPattern
+            description: DeleteMultiMeshplayPatternsHandler deletes patterns with the given ids
+            operationId: idDeleteMeshplayPattern
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -1283,12 +1283,12 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Delete for multiple Meshery Patterns
+            summary: Handle Delete for multiple Meshplay Patterns
             tags:
                 - PatternsAPI
         get:
             description: Fetches the pattern with the given id
-            operationId: idGetMesheryPattern
+            operationId: idGetMeshplayPattern
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -1300,7 +1300,7 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/meshplayPatternResponseWrapper'
-            summary: Handle GET for a Meshery Pattern
+            summary: Handle GET for a Meshplay Pattern
             tags:
                 - PatternsAPI
     /api/pattern/{sourcetype}:
@@ -1315,11 +1315,11 @@ paths:
                 - PatternsAPI
         put:
             description: Updates the pattern with the given payload
-            operationId: idUpdateMesheryPattern
+            operationId: idUpdateMeshplayPattern
             responses:
                 "200":
                     $ref: '#/responses/meshplayPatternResponseWrapper'
-            summary: Handle PUT request for Meshery Pattern with the given payload
+            summary: Handle PUT request for Meshplay Pattern with the given payload
             tags:
                 - PatternsAPI
     /api/pattern/catalog:
@@ -1334,7 +1334,7 @@ paths:
                 ```?pagesize={pagesize}``` Default pagesize is 10.
 
                 ```?search={patternname}``` If search is non empty then a greedy search is performed
-            operationId: idGetCatalogMesheryPatternsHandler
+            operationId: idGetCatalogMeshplayPatternsHandler
             responses:
                 "200":
                     $ref: '#/responses/meshplayPatternsResponseWrapper'
@@ -1343,32 +1343,32 @@ paths:
                 - PatternsAPI
     /api/pattern/catalog/publish:
         post:
-            description: Publishes pattern to Meshery Catalog by setting visibility to published and setting catalog data
+            description: Publishes pattern to Meshplay Catalog by setting visibility to published and setting catalog data
             operationId: idPublishCatalogPatternHandler
             responses:
                 "202":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Publish for a Meshery Pattern
+            summary: Handle Publish for a Meshplay Pattern
             tags:
                 - PatternsAPI
     /api/pattern/catalog/unpublish:
         delete:
-            description: Unpublishes pattern from Meshery Catalog by setting visibility to private and removing catalog data from website
+            description: Unpublishes pattern from Meshplay Catalog by setting visibility to private and removing catalog data from website
             operationId: idUnPublishCatalogPatternHandler
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Publish for a Meshery Pattern
+            summary: Handle Publish for a Meshplay Pattern
             tags:
                 - PatternsAPI
     /api/pattern/clone/{id}:
         post:
             description: 'Creates a local copy of a published pattern with id: id'
-            operationId: idCloneMesheryPattern
+            operationId: idCloneMeshplayPattern
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Clone for a Meshery Pattern
+            summary: Handle Clone for a Meshplay Pattern
             tags:
                 - PatternsAPI
     /api/pattern/deploy:
@@ -1398,7 +1398,7 @@ paths:
     /api/pattern/download/{id}:
         get:
             description: Fetches the pattern with the given id
-            operationId: idGetMesheryPattern
+            operationId: idGetMeshplayPattern
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -1410,7 +1410,7 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/meshplayPatternResponseWrapper'
-            summary: Handle GET for a Meshery Pattern
+            summary: Handle GET for a Meshplay Pattern
             tags:
                 - PatternsAPI
     /api/pattern/download/{id}/{sourcetype}:
@@ -1420,23 +1420,23 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/meshplayPatternSourceContentResponseWrapper'
-            summary: Handle GET request for Meshery Patterns with of source content
+            summary: Handle GET request for Meshplay Patterns with of source content
             tags:
                 - PatternsAPI
     /api/pattern/types:
         get:
             description: Get pattern file types
-            operationId: typeGetMesheryPatternTypesHandler
+            operationId: typeGetMeshplayPatternTypesHandler
             responses:
                 "200":
                     $ref: '#/responses/meshplayApplicationTypesResponseWrapper'
-            summary: Handle GET request for Meshery Pattern types
+            summary: Handle GET request for Meshplay Pattern types
             tags:
                 - PatternsAPI
     /api/patterns:
         delete:
-            description: DeleteMultiMesheryPatternsHandler deletes patterns with the given ids
-            operationId: idDeleteMesheryPattern
+            description: DeleteMultiMeshplayPatternsHandler deletes patterns with the given ids
+            operationId: idDeleteMeshplayPattern
             parameters:
                 - description: id for a specific
                   format: uuid
@@ -1448,7 +1448,7 @@ paths:
             responses:
                 "200":
                     $ref: '#/responses/noContentWrapper'
-            summary: Handle Delete for multiple Meshery Patterns
+            summary: Handle Delete for multiple Meshplay Patterns
             tags:
                 - PatternsAPI
     /api/perf/profile:
@@ -1749,7 +1749,7 @@ paths:
                 - SystemAPI
     /api/system/kubernetes/register:
         post:
-            description: Used to register Kubernetes components to Meshery from a kubeconfig file
+            description: Used to register Kubernetes components to Meshplay from a kubeconfig file
             operationId: idPostK8SRegistration
             responses:
                 "202":
@@ -1843,7 +1843,7 @@ paths:
                 - SystemAPI
     /api/system/version:
         get:
-            description: Returns the running Meshery version
+            description: Returns the running Meshplay version
             operationId: idGetSystemVersion
             responses:
                 "200":
@@ -2424,17 +2424,17 @@ paths:
                 ```?search={name}``` If search is non empty then a greedy search is performed
 
                 ```?filter={{"assigned": true/false, "deleted_at": true/false}}``` defaults to assigned: false, deleted_at: false
-            operationId: idGetWorkspaceMesheryDesigns
+            operationId: idGetWorkspaceMeshplayDesigns
             responses:
                 "200":
                     $ref: '#/responses/meshplayPatternsResponseWrapper'
-            summary: Handles GET for all Meshery Designs in a Workspace
+            summary: Handles GET for all Meshplay Designs in a Workspace
             tags:
                 - WorkspacesAPI
     /api/workspaces/{id}/designs/{designID}:
         delete:
             description: Removes a meshplay design from a workspace
-            operationId: idRemoveMesheryDesignFromWorkspace
+            operationId: idRemoveMeshplayDesignFromWorkspace
             responses:
                 "201":
                     $ref: '#/responses/workspaceDesignsMappingResponseWrapper'
@@ -2443,7 +2443,7 @@ paths:
                 - WorkspacesAPI
         post:
             description: Adds a meshplay design to a workspace
-            operationId: idAddMesheryDesignToWorkspace
+            operationId: idAddMeshplayDesignToWorkspace
             responses:
                 "201":
                     $ref: '#/responses/workspaceDesignsMappingResponseWrapper'
@@ -2697,9 +2697,9 @@ responses:
             items: {}
             type: array
     meshplayApplicationResponseWrapper:
-        description: Fetches a single Meshery Application
+        description: Fetches a single Meshplay Application
     meshplayApplicationTypesResponseWrapper:
-        description: Returns Meshery application types
+        description: Returns Meshplay application types
         schema:
             items: {}
             type: array
@@ -2727,7 +2727,7 @@ responses:
     meshplayPatternsResponseWrapper:
         description: Returns all meshplay patterns
     meshplayVersionRespWrapper:
-        description: Returns Meshery version
+        description: Returns Meshplay version
     meshmodelCategoriesResponseWrapper:
         description: Returns meshmodel categories
     meshmodelComponentsDuplicateResponseWrapper:

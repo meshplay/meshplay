@@ -22,21 +22,21 @@
 <link rel="icon" type="image/png" href="/v0.5/assets/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/v0.5/assets/favicons/android-192x192.png"sizes="192x192">
 
-<title>GraphQL API Reference | Meshery</title>
+<title>GraphQL API Reference | Meshplay</title>
 <meta property="og:title" content="GraphQL API Reference" />
-<meta property="og:description" content="Meshery is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
+<meta property="og:description" content="Meshplay is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:4000" />
 <meta property="og:site_name" content="http://localhost:4000" />
 
 <meta itemprop="name" content="GraphQL API Reference">
-<meta itemprop="description" content="Meshery is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
+<meta itemprop="description" content="Meshplay is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
 ">
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GraphQL API Reference"/>
-<meta name="twitter:description" content="Meshery is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
+<meta name="twitter:description" content="Meshplay is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
 "/>
 
 <link rel="stylesheet" href="/v0.5/assets/css/main.css">
@@ -79,7 +79,7 @@
       <ul class="navbar-nav mt-2 mt-lg-0">
         <!-- 
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="https://github.com/meshery/meshery" target="_blank"><span>GitHub</span></a>
+        <a class="nav-link" href="https://github.com/meshplay/meshplay" target="_blank"><span>GitHub</span></a>
       </li>  -->
 
         <!-- Internal links -->
@@ -95,7 +95,7 @@
             <li class="nav-item mr-4 mb-2 mb-lg-0">
               <a
                 class="nav-link"
-                href="https://meshery.io"
+                href="https://meshplay.io"
                 ><span>Site</span></a
               >
             </li>
@@ -111,7 +111,7 @@
             <li class="nav-item mr-4 mb-2 mb-lg-0">
               <a
                 class="nav-link"
-                href="https://github.com/meshery/meshery"
+                href="https://github.com/meshplay/meshplay"
                 ><span>GitHub</span></a
               >
             </li>
@@ -141,26 +141,26 @@
     <!--Search Bar
     <div class="navbar-nav d-none d-lg-block"><input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off"></div>-->
 
-    <!-- meshery-custom-begin
+    <!-- meshplay-custom-begin
 
 	<div class="navbar-nav d-none d-lg-block">
-          <a class="gh-source" data-gh-source="github" href="https://github.com/meshery/meshery" title="Go to repository" data-md-state="done">
+          <a class="gh-source" data-gh-source="github" href="https://github.com/meshplay/meshplay" title="Go to repository" data-md-state="done">
           <div class="gh-source__repository">
             <i class="fab fa fa-github fa-2x" style='padding-right:20px; float:left; margin-top:5px'></i>
-            meshery/meshery
+            meshplay/meshplay
           <ul class="gh-source__facts"><li class="gh-source__fact" id='stars'></li><li id="forks" class="gh-source__fact"></li></ul></div></a>
         </div>
       </div>
 
-meshery-custom-end -->
+meshplay-custom-end -->
   </nav>
 </header>
 
-<!-- meshery-custom-begin
+<!-- meshplay-custom-begin
 
 <script>
 $(document).ready(function() {
-  var url = "https://api.github.com/search/repositories?q=meshery/meshery";
+  var url = "https://api.github.com/search/repositories?q=meshplay/meshplay";
   fetch(url, { 
       headers: {"Accept":"application/vnd.github.preview"}
   }).then(function(e) {
@@ -175,7 +175,7 @@ $(document).ready(function() {
 });
 </script>
 
-meshery-custom-end -->
+meshplay-custom-end -->
 
     <div class="container-fluid td-outer">
       <div class="td-main">
@@ -416,7 +416,7 @@ meshery-custom-end -->
                 
               
                 <li class="td-sidebar-nav__section-title">
-                  <a href="/v0.5/guides/meshery-metrics" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Integrating Prometheus and Grafana</a>
+                  <a href="/v0.5/guides/meshplay-metrics" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Integrating Prometheus and Grafana</a>
                 </li>
                 
               
@@ -426,17 +426,17 @@ meshery-custom-end -->
                 
               
                 <li class="td-sidebar-nav__section-title">
-                  <a href="/v0.5/guides/upgrade" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Upgrading Meshery</a>
+                  <a href="/v0.5/guides/upgrade" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Upgrading Meshplay</a>
                 </li>
                 
               
                 <li class="td-sidebar-nav__section-title">
-                  <a href="/v0.5/guides/mesheryctl" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Using mesheryctl ↆ</a>
+                  <a href="/v0.5/guides/meshplayctl" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Using meshplayctl ↆ</a>
                 </li>
                 
               
                 <li class="td-sidebar-nav__section-title">
-                  <a href="/v0.5/guides/multiple-adapters" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Using Multiple Meshery Adapters</a>
+                  <a href="/v0.5/guides/multiple-adapters" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Using Multiple Meshplay Adapters</a>
                 </li>
                 
               
@@ -498,7 +498,7 @@ meshery-custom-end -->
               <ul class="td-sidebar-nav__section pr-md-3">
                 
                 <li class="td-sidebar-nav__section-title">
-                  <a href="/v0.5/reference/mesheryctl" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Meshery CLI</a>
+                  <a href="/v0.5/reference/meshplayctl" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Meshplay CLI</a>
                 </li>
                 
               
@@ -534,8 +534,8 @@ meshery-custom-end -->
           <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
               <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
                   <strong>Tools</strong>
-<a href="https://github.com/meshery/meshery/issues/new?assignees=&labels=area%2Fdocs%2C+framework%2Fjekyll&template=documentation.md&title=%5BDocs%5D" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i> Create doc issue</a>
-<a href="https://github.com/meshery/meshery/blob/master/docs/pages/reference/graphql-api-reference.md" rel="noopener" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/meshplay/meshplay/issues/new?assignees=&labels=area%2Fdocs%2C+framework%2Fjekyll&template=documentation.md&title=%5BDocs%5D" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i> Create doc issue</a>
+<a href="https://github.com/meshplay/meshplay/blob/master/docs/pages/reference/graphql-api-reference.md" rel="noopener" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
 <strong>Contents</strong>
 
 
@@ -555,7 +555,7 @@ meshery-custom-end -->
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	      <ol class="breadcrumb spb-1">
                 <li class="breadcrumb-item active" aria-current="page">
-      <!-- meshery-custom-begin -->
+      <!-- meshplay-custom-begin -->
         <div id="breadcrumbs">
 
 <a href="/v0.5/">home</a>
@@ -573,7 +573,7 @@ meshery-custom-end -->
 <!-- <a href="http://idratherbewriting.com" class="noCrossRef productSubtitle"> Home </a> > <a class="noCrossRef productSubtitle" href="http://localhost:4000">Learn API Doc</a> > graphql-api-reference -->
 
 	      <!-- <a href="/v0.5/reference/graphql-apis">GraphQL API Reference</a> -->
-		  <!-- meshery-custom-end -->
+		  <!-- meshplay-custom-end -->
                 </li>
 	      </ol>
            </nav>
@@ -587,7 +587,7 @@ meshery-custom-end -->
   Please do not edit this file directly, check compile_docs task on docs/Rakefile.
 --->
 
-<p>Self-generated API documentation for Meshery’s GraphQL API. The API can be explored interactively using the <a href="./extensibility">GraphQL Playground</a>. Documentation is generated from Meshery’s GraphQL schema. Each table below documents a GraphQL type.</p>
+<p>Self-generated API documentation for Meshplay’s GraphQL API. The API can be explored interactively using the <a href="./extensibility">GraphQL Playground</a>. Documentation is generated from Meshplay’s GraphQL schema. Each table below documents a GraphQL type.</p>
 
 <p>WARNING:
 Fields that are deprecated are marked with <strong>{warning-solid}</strong>.</p>
@@ -915,7 +915,7 @@ Fields that are deprecated are marked with <strong>{warning-solid}</strong>.</p>
 
 <h3 id="querygetoperatorstatus"><code class="language-plaintext highlighter-rouge">Query.getOperatorStatus</code></h3>
 
-<p>Query status of Meshery Operator in your cluster.</p>
+<p>Query status of Meshplay Operator in your cluster.</p>
 
 <h6 id="returns-operatorstatus"><strong>Returns</strong> <a href="#operatorstatus"><code class="language-plaintext highlighter-rouge">OperatorStatus</code></a>.</h6>
 
@@ -942,7 +942,7 @@ Fields that are deprecated are marked with <strong>{warning-solid}</strong>.</p>
 
 <p>Query for performance result.</p>
 
-<h6 id="returns-mesheryresult"><strong>Returns</strong> <a href="#mesheryresult"><code class="language-plaintext highlighter-rouge">MesheryResult</code></a>.</h6>
+<h6 id="returns-meshplayresult"><strong>Returns</strong> <a href="#meshplayresult"><code class="language-plaintext highlighter-rouge">MeshplayResult</code></a>.</h6>
 
 <h4 id="arguments-13"><strong>Arguments</strong></h4>
 
@@ -1154,7 +1154,7 @@ Fields that are deprecated are marked with <strong>{warning-solid}</strong>.</p>
     <tr>
       <td><a id="mutationchangeoperatorstatustargetstatus"></a><code class="language-plaintext highlighter-rouge">targetStatus</code></td>
       <td><a href="#status"><code class="language-plaintext highlighter-rouge">Status!</code></a></td>
-      <td>Desired status for Meshery Operator.</td>
+      <td>Desired status for Meshplay Operator.</td>
     </tr>
   </tbody>
 </table>
@@ -1267,7 +1267,7 @@ Fields that are deprecated are marked with <strong>{warning-solid}</strong>.</p>
 
 <h3 id="subscriptionlistentooperatorstate"><code class="language-plaintext highlighter-rouge">Subscription.listenToOperatorState</code></h3>
 
-<p>Listen to changes in status of Meshery Operator in your cluster.</p>
+<p>Listen to changes in status of Meshplay Operator in your cluster.</p>
 
 <h6 id="returns-operatorstatusperk8scontext"><strong>Returns</strong> <a href="#operatorstatusperk8scontext"><code class="language-plaintext highlighter-rouge">OperatorStatusPerK8sContext</code></a>.</h6>
 
@@ -1353,7 +1353,7 @@ Fields that are deprecated are marked with <strong>{warning-solid}</strong>.</p>
 
 <h2 id="object-types">Object types</h2>
 
-<p>Object types represent the resources that the Meshery GraphQL API can return.
+<p>Object types represent the resources that the Meshplay GraphQL API can return.
 They contain <em>fields</em>. Each field has its own type, which will either be one of the
 basic GraphQL <a href="https://graphql.org/learn/schema/#scalar-types">scalar types</a>
 (e.g.: <code class="language-plaintext highlighter-rouge">String</code> or <code class="language-plaintext highlighter-rouge">Boolean</code>) or other object types. Fields may have arguments.
@@ -1681,7 +1681,7 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
   </tbody>
 </table>
 
-<h3 id="mesheryresult"><code class="language-plaintext highlighter-rouge">MesheryResult</code></h3>
+<h3 id="meshplayresult"><code class="language-plaintext highlighter-rouge">MeshplayResult</code></h3>
 
 <h4 id="fields-9"><strong>Fields</strong></h4>
 
@@ -1695,62 +1695,62 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
   </thead>
   <tbody>
     <tr>
-      <td><a id="mesheryresultcreated_at"></a><code class="language-plaintext highlighter-rouge">created_at</code></td>
+      <td><a id="meshplayresultcreated_at"></a><code class="language-plaintext highlighter-rouge">created_at</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultmesh"></a><code class="language-plaintext highlighter-rouge">mesh</code></td>
+      <td><a id="meshplayresultmesh"></a><code class="language-plaintext highlighter-rouge">mesh</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultmeshery_id"></a><code class="language-plaintext highlighter-rouge">meshery_id</code></td>
+      <td><a id="meshplayresultmeshplay_id"></a><code class="language-plaintext highlighter-rouge">meshplay_id</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultname"></a><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td><a id="meshplayresultname"></a><code class="language-plaintext highlighter-rouge">name</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultperformance_profile"></a><code class="language-plaintext highlighter-rouge">performance_profile</code></td>
+      <td><a id="meshplayresultperformance_profile"></a><code class="language-plaintext highlighter-rouge">performance_profile</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultrunner_results"></a><code class="language-plaintext highlighter-rouge">runner_results</code></td>
+      <td><a id="meshplayresultrunner_results"></a><code class="language-plaintext highlighter-rouge">runner_results</code></td>
       <td><a href="#map"><code class="language-plaintext highlighter-rouge">Map</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultserver_board_config"></a><code class="language-plaintext highlighter-rouge">server_board_config</code></td>
+      <td><a id="meshplayresultserver_board_config"></a><code class="language-plaintext highlighter-rouge">server_board_config</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultserver_metrics"></a><code class="language-plaintext highlighter-rouge">server_metrics</code></td>
+      <td><a id="meshplayresultserver_metrics"></a><code class="language-plaintext highlighter-rouge">server_metrics</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresulttest_id"></a><code class="language-plaintext highlighter-rouge">test_id</code></td>
+      <td><a id="meshplayresulttest_id"></a><code class="language-plaintext highlighter-rouge">test_id</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresulttest_start_time"></a><code class="language-plaintext highlighter-rouge">test_start_time</code></td>
+      <td><a id="meshplayresulttest_start_time"></a><code class="language-plaintext highlighter-rouge">test_start_time</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultupdated_at"></a><code class="language-plaintext highlighter-rouge">updated_at</code></td>
+      <td><a id="meshplayresultupdated_at"></a><code class="language-plaintext highlighter-rouge">updated_at</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
     <tr>
-      <td><a id="mesheryresultuser_id"></a><code class="language-plaintext highlighter-rouge">user_id</code></td>
+      <td><a id="meshplayresultuser_id"></a><code class="language-plaintext highlighter-rouge">user_id</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String</code></a></td>
       <td> </td>
     </tr>
@@ -1828,7 +1828,7 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
 
 <h3 id="operatorcontrollerstatus"><code class="language-plaintext highlighter-rouge">OperatorControllerStatus</code></h3>
 
-<p>Controllers of Meshery Operator.</p>
+<p>Controllers of Meshplay Operator.</p>
 
 <h4 id="fields-12"><strong>Fields</strong></h4>
 
@@ -1897,7 +1897,7 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
 
 <h3 id="operatorstatus"><code class="language-plaintext highlighter-rouge">OperatorStatus</code></h3>
 
-<p>Status of Meshery Operator and its controllers.</p>
+<p>Status of Meshplay Operator and its controllers.</p>
 
 <h4 id="fields-14"><strong>Fields</strong></h4>
 
@@ -1918,22 +1918,22 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
     <tr>
       <td><a id="operatorstatuscontrollers"></a><code class="language-plaintext highlighter-rouge">controllers</code></td>
       <td><a href="#operatorcontrollerstatus"><code class="language-plaintext highlighter-rouge">[OperatorControllerStatus!]!</code></a></td>
-      <td>Details about various Controllers of Meshery Operator.</td>
+      <td>Details about various Controllers of Meshplay Operator.</td>
     </tr>
     <tr>
       <td><a id="operatorstatuserror"></a><code class="language-plaintext highlighter-rouge">error</code></td>
       <td><a href="#error"><code class="language-plaintext highlighter-rouge">Error</code></a></td>
-      <td>Error Logs encountered by Meshery Operator.</td>
+      <td>Error Logs encountered by Meshplay Operator.</td>
     </tr>
     <tr>
       <td><a id="operatorstatusstatus"></a><code class="language-plaintext highlighter-rouge">status</code></td>
       <td><a href="#status"><code class="language-plaintext highlighter-rouge">Status!</code></a></td>
-      <td>Status of Meshery Operator.</td>
+      <td>Status of Meshplay Operator.</td>
     </tr>
     <tr>
       <td><a id="operatorstatusversion"></a><code class="language-plaintext highlighter-rouge">version</code></td>
       <td><a href="#string"><code class="language-plaintext highlighter-rouge">String!</code></a></td>
-      <td>Verion of Meshery Operator.</td>
+      <td>Verion of Meshplay Operator.</td>
     </tr>
   </tbody>
 </table>
@@ -2158,7 +2158,7 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
     </tr>
     <tr>
       <td><a id="perfpageresultresults"></a><code class="language-plaintext highlighter-rouge">results</code></td>
-      <td><a href="#mesheryresult"><code class="language-plaintext highlighter-rouge">[MesheryResult]</code></a></td>
+      <td><a href="#meshplayresult"><code class="language-plaintext highlighter-rouge">[MeshplayResult]</code></a></td>
       <td> </td>
     </tr>
     <tr>
@@ -2293,7 +2293,7 @@ on <code class="language-plaintext highlighter-rouge">graphql.org</code>.</p>
   <tbody>
     <tr>
       <td><a id="meshtypeall_mesh"></a><code class="language-plaintext highlighter-rouge">ALL_MESH</code></td>
-      <td>All meshes that Meshery supports.</td>
+      <td>All meshes that Meshplay supports.</td>
     </tr>
     <tr>
       <td><a id="meshtypeapp_mesh"></a><code class="language-plaintext highlighter-rouge">APP_MESH</code></td>
@@ -2581,7 +2581,7 @@ see the associated mutation type above.</p>
       <footer class="footer bg-dark py-3 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
-<!-- meshery-custom-begin"
+<!-- meshplay-custom-begin"
       <div class="col-6 col-sm-4 text-xs-center order-sm-2">
 
 <ul class="list-inline mb-0">
@@ -2595,18 +2595,18 @@ see the associated mutation type above.</p>
 <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
 <ul class="list-inline mb-0">
   <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="" aria-label="GitHub" data-original-title="GitHub">
-    <a class="text-white" target="_blank" href="https://github.com/meshery/meshery">
+    <a class="text-white" target="_blank" href="https://github.com/meshplay/meshplay">
       <i class="fab fa-github"></i>
     </a>
   </li>
 </ul>
-meshery-custom-end -->
+meshplay-custom-end -->
 
 <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-  <div class="text-white">&copy; 2022 The Meshery Authors</div>
+  <div class="text-white">&copy; 2022 The Meshplay Authors</div>
   
 
-  <!-- meshery-custom-begin -->
+  <!-- meshplay-custom-begin -->
 
   <p class="mt-2">
 
@@ -2675,7 +2675,7 @@ meshery-custom-end -->
     </div>
   </div>
     </p>
-  <!-- meshery-custom-end -->
+  <!-- meshplay-custom-end -->
       </div>
     </div>
   </div>

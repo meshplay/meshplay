@@ -13,7 +13,7 @@ list: exclude
 
 # Compatibility Matrix
 
-Meshery Server and Meshery Adapters are tested daily for their compatibility with the infrastructure they manage and the platforms Meshery deploys on (Kubernetes and Docker). Integration test results are automatically posted to the following compatibility matrix.
+Meshplay Server and Meshplay Adapters are tested daily for their compatibility with the infrastructure they manage and the platforms Meshplay deploys on (Kubernetes and Docker). Integration test results are automatically posted to the following compatibility matrix.
 
 <style>
 .nav-link.active{
@@ -98,5 +98,5 @@ Meshery Server and Meshery Adapters are tested daily for their compatibility wit
         <br> <a style="font-size:20px" href="/v0.6/v0.6{{ site.baseurl }}/installation/windows">Install Instruction</a></div> -->
 
 <div style="z-index:0">
-  {% include alert.html type="info" title="<span style='margin:0;'>Overview of the Integration Tests</span>" content="For a complete overview of the latest integration tests and their status please visit Meshery <a href='/installation/compatibility-matrix#integration-tests'>Integration Tests</a>" %}
+  {% include alert.html type="info" title="<span style='margin:0;'>Overview of the Integration Tests</span>" content="For a complete overview of the latest integration tests and their status please visit Meshplay <a href='/installation/compatibility-matrix#integration-tests'>Integration Tests</a>" %}
 </div>

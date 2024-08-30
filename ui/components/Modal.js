@@ -9,12 +9,12 @@ import {
   CircularProgress,
 } from '@material-ui/core';
 import { Dialog, DialogActions, makeStyles } from '@material-ui/core';
-import { CustomTextTooltip } from './MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from './MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import CloseIcon from '@material-ui/icons/Close';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import RJSFWrapper from './MesheryMeshInterface/PatternService/RJSF_wrapper';
+import RJSFWrapper from './MeshplayMeshInterface/PatternService/RJSF_wrapper';
 import { ArrowDropDown } from '@material-ui/icons';
-import { getSchema } from './MesheryMeshInterface/PatternService/helper';
+import { getSchema } from './MeshplayMeshInterface/PatternService/helper';
 import { Snackbar } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { ModalBody, ModalFooter, PrimaryActionButtons } from '@layer5/sistent';
@@ -138,7 +138,7 @@ const SchemaVersion = ({ schema_array, type, schemaChangeHandler }) => {
  * @param {Object} props.uiSchema - The UI schema for the form fields.
  */
 
-// Meshery extensions also uses this modal
+// Meshplay extensions also uses this modal
 function Modal(props) {
   const {
     open,

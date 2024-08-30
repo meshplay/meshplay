@@ -3,15 +3,15 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/address-pool: my-ip-space
-  name: meshery
+  name: meshplay
   labels:
-    app: meshery
+    app: meshplay
 spec:
   ports:
     - name: "8080"
       port: 8080
       targetPort: 8080
   selector:
-    app: meshery
+    app: meshplay
 status:
   loadBalancer: {}

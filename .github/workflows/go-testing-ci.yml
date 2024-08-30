@@ -24,7 +24,7 @@ jobs:
         go: [1.21]
         os: [ubuntu-22.04]
     name: golangci-lint
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-go@v5
@@ -53,7 +53,7 @@ jobs:
       - name: Run coverage
         run: go test --short ./... -race -coverprofile=coverage.txt -covermode=atomic
       - name: Upload coverage to Codecov
-        if: github.repository == 'meshery/meshery'
+        if: github.repository == 'meshplay/meshplay'
         uses: codecov/codecov-action@v4.3.0
         with:
           files: ./coverage.txt
@@ -84,26 +84,26 @@ jobs:
           cluster_name: "kind-cluster"
       - name: Run coverage
         run: |
-          cd mesheryctl;
+          cd meshplayctl;
           make; 
-          ./mesheryctl system start -p docker;
-          ./mesheryctl system update -y;
-          ./mesheryctl system status -y;
-          ./mesheryctl system restart -y;
-          ./mesheryctl system check --preflight;  
-          ./mesheryctl system stop -y;
-          echo "Running Mesheryctl with Docker completed."
+          ./meshplayctl system start -p docker;
+          ./meshplayctl system update -y;
+          ./meshplayctl system status -y;
+          ./meshplayctl system restart -y;
+          ./meshplayctl system check --preflight;  
+          ./meshplayctl system stop -y;
+          echo "Running Meshplayctl with Docker completed."
         
-          ./mesheryctl system start -p kubernetes;
-          ./mesheryctl system update -y;
-          ./mesheryctl system status -y;
-          ./mesheryctl system restart -y;
-          ./mesheryctl system check --preflight;
-          ./mesheryctl system stop -y;
-          echo "Running Mesheryctl with Kubernetes completed."
+          ./meshplayctl system start -p kubernetes;
+          ./meshplayctl system update -y;
+          ./meshplayctl system status -y;
+          ./meshplayctl system restart -y;
+          ./meshplayctl system check --preflight;
+          ./meshplayctl system stop -y;
+          echo "Running Meshplayctl with Kubernetes completed."
           
       - name: Upload coverage to Codecov
-        if: github.repository == 'meshery/meshery'
+        if: github.repository == 'meshplay/meshplay'
         uses: codecov/codecov-action@v3
         with:
           files: ./coverage.txt

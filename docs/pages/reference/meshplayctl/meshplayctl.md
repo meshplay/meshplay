@@ -1,26 +1,26 @@
 ---
 layout: default
-title: mesheryctl
-permalink: reference/mesheryctl/main
-redirect_from: reference/mesheryctl/main/
+title: meshplayctl
+permalink: reference/meshplayctl/main
+redirect_from: reference/meshplayctl/main/
 type: reference
 display-title: "false"
 language: en
-command: mesheryctl
+command: meshplayctl
 subcommand: nil
 ---
 
-# mesheryctl
+# meshplayctl
 
-Meshery Command Line tool
+Meshplay Command Line tool
 
 ## Synopsis
 
-As a self-service engineering platform, Meshery enables collaborative design and operation of cloud native infrastructure.
+As a self-service engineering platform, Meshplay enables collaborative design and operation of cloud native infrastructure.
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl [flags]
+meshplayctl [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ mesheryctl [flags]
 Base command:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl
+meshplayctl
 
 </div>
 </pre> 
@@ -38,14 +38,14 @@ mesheryctl
 Display help about command/subcommand:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl --help
+meshplayctl --help
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system start --help
+meshplayctl system start --help
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl system start --help
 For viewing verbose output:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl -v [or] --verbose
+meshplayctl -v [or] --verbose
 
 </div>
 </pre> 
@@ -62,8 +62,8 @@ mesheryctl -v [or] --verbose
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
-  -h, --help            help for mesheryctl
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
+  -h, --help            help for meshplayctl
   -v, --verbose         verbose output
 
 </div>
@@ -71,4 +71,4 @@ mesheryctl -v [or] --verbose
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

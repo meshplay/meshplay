@@ -15,7 +15,7 @@ function Index(props) {
   return (
     <NoSsr>
       <Head>
-        <title>Dashboard | Meshery</title>
+        <title>Dashboard | Meshplay</title>
       </Head>
       <DashboardComponent />
     </NoSsr>

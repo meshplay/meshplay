@@ -3,9 +3,9 @@ services:
   NodeGroupInventoryWallet:
     name: NodeGroupInventoryWallet
     type: NodeGroupInventoryWallet
-    apiVersion: core.meshery.io/v1alpha1
+    apiVersion: core.meshplay.io/v1alpha1
     version: 0.7.1
-    model: meshery-core
+    model: meshplay-core
     dependsOn:
     - datadog-agent
     traits:
@@ -18,17 +18,17 @@ services:
             metadata: null
             name: Orchestration & Management
           components: []
-          displayName: Meshery Core
+          displayName: Meshplay Core
           hostID: 00000000-0000-0000-0000-000000000000
           id: 5400b823-94ee-543c-8877-4ca3e299fcc4
           metadata:
             isAnnotation: false
             published: true
             subCategory: App Definition and Development
-            svgColor: ui/public/static/img/meshmodels/meshery-core/color/meshery-core-color.svg
+            svgColor: ui/public/static/img/meshmodels/meshplay-core/color/meshplay-core-color.svg
             svgComplete: ""
-            svgWhite: ui/public/static/img/meshmodels/meshery-core/color/meshery-core-color.svg
-          name: meshery-core
+            svgWhite: ui/public/static/img/meshmodels/meshplay-core/color/meshplay-core-color.svg
+          name: meshplay-core
           relationships: []
           status: registered
           version: 0.7.1
@@ -55,9 +55,9 @@ services:
             z-index: 4
           styles: '{"height":"30px","width":"30px", "background-image":"none","border-width":1,"border-style":"dashed","background-opacity":0.1}'
           subCategory: ""
-          svgColor: ui/public/static/img/meshmodels/meshery-core/color/anchornode-color.svg
+          svgColor: ui/public/static/img/meshmodels/meshplay-core/color/anchornode-color.svg
           svgComplete: ""
-          svgWhite: ui/public/static/img/meshmodels/meshery-core/white/anchornode-white.svg
+          svgWhite: ui/public/static/img/meshmodels/meshplay-core/white/anchornode-white.svg
         parent: 92ca2d36-aed9-48d5-80b3-8b54249a212f
         position:
           posX: 56.022612875071225
@@ -116,7 +116,7 @@ services:
           isCustomResource: false
           isModelAnnotation: "FALSE"
           isNamespaced: true
-          logoURL: Created by Meshery Authors
+          logoURL: Created by Meshplay Authors
           model: kubernetes
           modelDisplayName: Kubernetes
           primaryColor: '#326CE5'

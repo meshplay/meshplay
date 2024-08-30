@@ -4,7 +4,7 @@ title: Hybridnet
 subtitle: Collaborative and visual infrastructure as design for Hybridnet
 image: /assets/img/integrations/hybridnet/icons/color/hybridnet-color.svg
 permalink: extensibility/integrations/hybridnet
-docURL: https://docs.meshery.io/extensibility/integrations/hybridnet
+docURL: https://docs.meshplay.io/extensibility/integrations/hybridnet
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Uncategorized

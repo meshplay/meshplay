@@ -4,7 +4,7 @@ title: KEDA HTTP Scaler
 subtitle: Collaborative and visual infrastructure as design for KEDA HTTP Scaler
 image: /assets/img/integrations/keda-http-scaler/icons/color/keda-http-scaler-color.svg
 permalink: extensibility/integrations/keda-http-scaler
-docURL: https://docs.meshery.io/extensibility/integrations/keda-http-scaler
+docURL: https://docs.meshplay.io/extensibility/integrations/keda-http-scaler
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Scheduling & Orchestration

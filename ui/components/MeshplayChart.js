@@ -75,7 +75,7 @@ function NonRecursiveConstructDisplayCells(data) {
   });
 }
 
-function MesheryChart(props) {
+function MeshplayChart(props) {
   const classes = useStyles();
   const chartRef = useRef(null);
   const chart = useRef(null);
@@ -87,7 +87,7 @@ function MesheryChart(props) {
   const [socialMessage, setSocialMessage] = useState('');
 
   const getSocialMessageForPerformanceTest = (rps, percentile) => {
-    return `I achieved ${rps.trim()} RPS running my service at a P99.9 of ${percentile} ms using @mesheryio with @smp_spec! Find out how fast your service is with`;
+    return `I achieved ${rps.trim()} RPS running my service at a P99.9 of ${percentile} ms using @meshplayio with @smp_spec! Find out how fast your service is with`;
   };
 
   const handleSocialExpandClick = (e, chartData) => {
@@ -359,7 +359,7 @@ function MesheryChart(props) {
               <Paper className={classes.paper}>
                 <TwitterShareButton
                   className={classes.socialIcon}
-                  url={'https://meshery.io'}
+                  url={'https://meshplay.io'}
                   title={socialMessage}
                   hashtags={['opensource']}
                 >
@@ -367,14 +367,14 @@ function MesheryChart(props) {
                 </TwitterShareButton>
                 <LinkedinShareButton
                   className={classes.socialIcon}
-                  url={'https://meshery.io'}
+                  url={'https://meshplay.io'}
                   summary={socialMessage}
                 >
                   <LinkedinIcon size={32} />
                 </LinkedinShareButton>
                 <FacebookShareButton
                   className={classes.socialIcon}
-                  url={'https://meshery.io'}
+                  url={'https://meshplay.io'}
                   quote={socialMessage}
                   hashtag={'#opensource'}
                 >
@@ -430,4 +430,4 @@ function MesheryChart(props) {
   );
 }
 
-export default MesheryChart;
+export default MeshplayChart;

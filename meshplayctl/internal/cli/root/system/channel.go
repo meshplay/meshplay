@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 
 	log "github.com/sirupsen/logrus"
@@ -27,7 +27,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-var mctlCfg *config.MesheryCtlConfig
+var mctlCfg *config.MeshplayCtlConfig
 var err error
 
 var showForAllContext bool
@@ -48,13 +48,13 @@ var viewCmd = &cobra.Command{
 	Long:  `View release channel and version of context in focus`,
 	Example: `
 // View current release channel
-mesheryctl system channel view
+meshplayctl system channel view
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 0 {
 			return errors.New(utils.SystemChannelSubError("this command takes no arguments.\n", "view"))
 		}
-		mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -96,10 +96,10 @@ var setCmd = &cobra.Command{
 	Long:  `Set release channel and version of context in focus`,
 	Example: `
 // Subscribe to release channel or version
-mesheryctl system channel set [stable|stable-version|edge|edge-version]
+meshplayctl system channel set [stable|stable-version|edge|edge-version]
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = `Please provide either 'stable' or 'edge' release channel. Usage: mesheryctl system channel set [stable|stable-version|edge|edge-version]`
+		const errMsg = `Please provide either 'stable' or 'edge' release channel. Usage: meshplayctl system channel set [stable|stable-version|edge|edge-version]`
 		if len(args) == 0 {
 			return fmt.Errorf("release channel not specified\n\n%v", errMsg)
 		} else if len(args) > 1 {
@@ -109,7 +109,7 @@ mesheryctl system channel set [stable|stable-version|edge|edge-version]
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 
-		mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -179,10 +179,10 @@ var switchCmd = &cobra.Command{
 	Long:  `Switch release channel and version of context in focus`,
 	Example: `
 // Switch between release channels
-mesheryctl system channel switch [stable|stable-version|edge|edge-version]
+meshplayctl system channel switch [stable|stable-version|edge|edge-version]
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = `Please provide either 'stable' or 'edge' release channel. Usage: mesheryctl system channel switch [stable|stable-version|edge|edge-version]`
+		const errMsg = `Please provide either 'stable' or 'edge' release channel. Usage: meshplayctl system channel switch [stable|stable-version|edge|edge-version]`
 		if len(args) == 0 {
 			return fmt.Errorf("release channel not specified\n\n%v", errMsg)
 		} else if len(args) > 1 {
@@ -207,7 +207,7 @@ mesheryctl system channel switch [stable|stable-version|edge|edge-version]
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userResponse := false
 
-		mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 		}
@@ -221,7 +221,7 @@ mesheryctl system channel switch [stable|stable-version|edge|edge-version]
 			userResponse = true
 		} else {
 			// ask user for confirmation
-			userResponse = utils.AskForConfirmation("The Meshery deployment in context '" + focusedContext + "' will be replaced with a new Meshery deployment and channel subscription. Are you sure you want to continue")
+			userResponse = utils.AskForConfirmation("The Meshplay deployment in context '" + focusedContext + "' will be replaced with a new Meshplay deployment and channel subscription. Are you sure you want to continue")
 		}
 
 		if !userResponse {
@@ -250,22 +250,22 @@ var channelCmd = &cobra.Command{
 	Long:  `Subscribe to a release channel. Choose between either 'stable' or 'edge' channels.`,
 	Example: `
 // Subscribe to release channel or version
-mesheryctl system channel
+meshplayctl system channel
 
 // To set the channel
-mesheryctl system channel set [stable|stable-version|edge|edge-version]
+meshplayctl system channel set [stable|stable-version|edge|edge-version]
 
 // To pin/set the channel to a specific version
-mesheryctl system channel set stable-v0.6.0
+meshplayctl system channel set stable-v0.6.0
 
 // To view release channel and version
-mesheryctl system channel view
+meshplayctl system channel view
 
 // To switch release channel and version
-mesheryctl system channel switch [stable|stable-version|edge|edge-version]
+meshplayctl system channel switch [stable|stable-version|edge|edge-version]
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err = config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err = config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -278,7 +278,7 @@ mesheryctl system channel switch [stable|stable-version|edge|edge-version]
 
 		// If an invalid subcommand is provided, return error
 		if !utils.IsValidSubcommand(availableSubcommands, args[0]) {
-			return errors.New(utils.SystemChannelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [set/switch/view]. Use 'mesheryctl system channel --help' to display usage guide.\n", args[0]), "channel"))
+			return errors.New(utils.SystemChannelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [set/switch/view]. Use 'meshplayctl system channel --help' to display usage guide.\n", args[0]), "channel"))
 		}
 
 		return nil

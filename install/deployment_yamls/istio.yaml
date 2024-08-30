@@ -1,9 +1,9 @@
-# Sample VS and GW for deployment of Meshery on Istio
+# Sample VS and GW for deployment of Meshplay on Istio
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: meshery-gateway
-  namespace: meshery
+  name: meshplay-gateway
+  namespace: meshplay
 spec:
   selector:
     istio: ingressgateway # use istio default controller
@@ -18,20 +18,20 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: meshery
-  namespace: meshery
+  name: meshplay
+  namespace: meshplay
 spec:
   hosts:
   - "*"
   gateways:
-  - meshery-gateway
+  - meshplay-gateway
   http:
   - match:
     - uri:
         prefix: /
     route:
     - destination:
-        host: meshery
+        host: meshplay
         port:
           number: 9081
 ---

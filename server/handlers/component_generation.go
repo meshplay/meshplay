@@ -6,9 +6,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/generators/artifacthub"
 
 	meshkitmodels "github.com/layer5io/meshkit/generators/models"
@@ -34,7 +34,7 @@ type componentGenerationResponseDataItem struct {
 // swagger:route POST /api/meshmodel/generate MeshmodelComponentGenerate idPostMeshModelComponentGenerate
 // Handle POST request for component generation
 //
-// Generates Meshery Components for the given payload
+// Generates Meshplay Components for the given payload
 // responses:
 // 	200:
 

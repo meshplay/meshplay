@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 

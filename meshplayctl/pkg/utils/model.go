@@ -12,11 +12,11 @@ import (
 	"github.com/layer5io/meshkit/models/meshmodel/entity"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/csv"
-	"github.com/meshery/schemas/models/v1alpha1/capability"
-	"github.com/meshery/schemas/models/v1beta1"
-	"github.com/meshery/schemas/models/v1beta1/category"
-	"github.com/meshery/schemas/models/v1beta1/connection"
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1alpha1/capability"
+	"github.com/meshplay/schemas/models/v1beta1"
+	"github.com/meshplay/schemas/models/v1beta1/category"
+	"github.com/meshplay/schemas/models/v1beta1/connection"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 )
 
 var (
@@ -175,7 +175,7 @@ type ModelCSVHelper struct {
 func NewModelCSVHelper(sheetURL, spreadsheetName string, spreadsheetID int64) (*ModelCSVHelper, error) {
 	sheetURL = sheetURL + "/pub?output=csv" + "&gid=" + strconv.FormatInt(spreadsheetID, 10)
 	Log.Info("Downloading CSV from: ", sheetURL)
-	dirPath := filepath.Join(utils.GetHome(), ".meshery", "content")
+	dirPath := filepath.Join(utils.GetHome(), ".meshplay", "content")
 	err := os.MkdirAll(dirPath, 0755)
 	if err != nil {
 		return nil, utils.ErrCreateDir(err, dirPath)
@@ -335,8 +335,8 @@ func createNewRegistrant(registrantName string) connection.Connection {
 		registrantName = "Artifact Hub"
 	case "github":
 		registrantName = "Github"
-	case "meshery":
-		registrantName = "meshery"
+	case "meshplay":
+		registrantName = "meshplay"
 	case "kubernetes":
 		registrantName = "Kubernetes"
 	}

@@ -44,8 +44,8 @@ import { setK8sContexts, updateProgress, actionTypes } from '../lib/store';
 import { ctxUrl, getK8sClusterIdsFromCtxId } from '../utils/multi-ctx';
 import fetchAvailableAddons from './graphql/queries/AddonsStatusQuery';
 import fetchAvailableNamespaces from './graphql/queries/NamespaceQuery';
-import MesheryMetrics from './MesheryMetrics';
-import MesheryResultDialog from './MesheryResultDialog';
+import MeshplayMetrics from './MeshplayMetrics';
+import MeshplayResultDialog from './MeshplayResultDialog';
 import ReactSelectWrapper from './ReactSelectWrapper';
 import ConfirmationMsg from './ConfirmationModal';
 import { iconMedium } from '../css/icons.styles';
@@ -163,7 +163,7 @@ const styles = (theme) => ({
   },
 });
 
-class MesheryAdapterPlayComponent extends React.Component {
+class MeshplayAdapterPlayComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -651,7 +651,7 @@ class MesheryAdapterPlayComponent extends React.Component {
    * generateMenu generates the management menus for the adapater management plane
    * @param {*} cat
    * @param {boolean} isDelete if set to true, a delete menu will be generated
-   * @param {{key: string, value: string, category?: number}[]} selectedAdapterOps is the array of the meshery adapaters
+   * @param {{key: string, value: string, category?: number}[]} selectedAdapterOps is the array of the meshplay adapaters
    *
    * @returns {JSX.Element}
    */
@@ -801,8 +801,8 @@ class MesheryAdapterPlayComponent extends React.Component {
     ];
 
     const smi_options = {
-      sort: !(user && user.user_id === 'meshery'),
-      search: !(user && user.user_id === 'meshery'),
+      sort: !(user && user.user_id === 'meshplay'),
+      search: !(user && user.user_id === 'meshplay'),
       filterType: 'textField',
       expandableRows: true,
       selectableRows: 'none',
@@ -1255,7 +1255,7 @@ class MesheryAdapterPlayComponent extends React.Component {
    */
   renderGrafanaCustomCharts(boardConfigs, grafanaURL, grafanaAPIKey) {
     return (
-      <MesheryMetrics
+      <MeshplayMetrics
         boardConfigs={boardConfigs}
         grafanaAPIKey={grafanaAPIKey}
         grafanaURL={grafanaURL}
@@ -1304,7 +1304,7 @@ class MesheryAdapterPlayComponent extends React.Component {
     return (
       <NoSsr>
         {selectedRowData && selectedRowData !== null && Object.keys(selectedRowData).length > 0 && (
-          <MesheryResultDialog rowData={selectedRowData} close={self.resetSelectedRowData()} />
+          <MeshplayResultDialog rowData={selectedRowData} close={self.resetSelectedRowData()} />
         )}
         <React.Fragment>
           <div className={classes.smWrapper}>
@@ -1394,7 +1394,7 @@ class MesheryAdapterPlayComponent extends React.Component {
   }
 }
 
-MesheryAdapterPlayComponent.propTypes = {
+MeshplayAdapterPlayComponent.propTypes = {
   classes: PropTypes.object.isRequired,
   adapter: PropTypes.object.isRequired,
 };
@@ -1414,5 +1414,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(withRouter(withNotify(MesheryAdapterPlayComponent))),
+  connect(mapStateToProps, mapDispatchToProps)(withRouter(withNotify(MeshplayAdapterPlayComponent))),
 );

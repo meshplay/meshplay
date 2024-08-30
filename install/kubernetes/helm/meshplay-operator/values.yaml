@@ -1,13 +1,13 @@
-# Default values for meshery-operator.
+# Default values for meshplay-operator.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
-mesheryOperator:
+meshplayOperator:
   name: manager
   image:
-    repository: layer5/meshery-operator:stable-latest
+    repository: layer5/meshplay-operator:stable-latest
     pullPolicy: Always
   args:
     - --metrics-addr=127.0.0.1:8080
@@ -36,14 +36,14 @@ probe:
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: "meshery-operator"
+fullnameOverride: "meshplay-operator"
 
 serviceAccount:
   # Specifies whether a service account should be created
   create: create
   # The name of the service account to use.
   # If not set and create is false, a name is generated using the fullname template
-  name: meshery-operator
+  name: meshplay-operator
 
 podSecurityContext:
   {}
@@ -108,17 +108,17 @@ affinity: {}
 testCase:
   enabled: false
 
-# By default, the adapters need to have the same cluster role as the meshery to have permissions for performing necessary operations
+# By default, the adapters need to have the same cluster role as the meshplay to have permissions for performing necessary operations
 
 # If need to use a different service accounts for the adapters, modify the serviceAccountNameOverride for the corresponding adapters here,
 # or set the serviceAccountNameOverride to empty while setting the serviceAccount information in the sub-chart accordingly
 
-meshery-broker:
+meshplay-broker:
   enabled: true
-  fullnameOverride: meshery-broker
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-broker
+  serviceAccountNameOverride: meshplay-server
 
-meshery-meshsync:
+meshplay-meshsync:
   enabled: true
-  fullnameOverride: meshery-meshsync
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-meshsync
+  serviceAccountNameOverride: meshplay-server

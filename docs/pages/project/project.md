@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Meshery Overview
+title: Meshplay Overview
 permalink: project/overview
 # redirect_from: project/overview/
 language: en
@@ -9,20 +9,20 @@ type: project
 category: project
 list: exclude
 published: true
-abstract: Meshery is the self-service engineering platform, enabling collaborative design and operation of cloud and cloud native infrastructure.
+abstract: Meshplay is the self-service engineering platform, enabling collaborative design and operation of cloud and cloud native infrastructure.
 ---
 
-## Meshery is for all cloud and cloud native infrastructure
+## Meshplay is for all cloud and cloud native infrastructure
 
-Meshery is an **extensible engineering platform** for the collaborative design and operation of cloud and cloud native infrastructure and applications.
+Meshplay is an **extensible engineering platform** for the collaborative design and operation of cloud and cloud native infrastructure and applications.
 
 Kubernetes-centric. Kubernetes not required.
 
-Infrastructure diversity is a reality for any enterprise. Whether you're running a single Kubernetes cluster or multiple Kubernetes clusters, on one cloud or multiple clouds, you'll find that Meshery supports your infrastructure diversity (or lack thereof).
+Infrastructure diversity is a reality for any enterprise. Whether you're running a single Kubernetes cluster or multiple Kubernetes clusters, on one cloud or multiple clouds, you'll find that Meshplay supports your infrastructure diversity (or lack thereof).
 
-## Meshery's Functionality
+## Meshplay's Functionality
 
-Meshery supports all Kubernetes-based infrastructure including many cloud services of AWS and GCP platforms. Meshery features can be categorized by:
+Meshplay supports all Kubernetes-based infrastructure including many cloud services of AWS and GCP platforms. Meshplay features can be categorized by:
 
 ### Lifecycle Management (Day 0, Day 1)
 
@@ -51,20 +51,20 @@ Meshery supports all Kubernetes-based infrastructure including many cloud servic
 - Manage multiple cloud and cloud native environments concurrently
 - Connect to multiple clusters independently
 
-### Design patterns and Meshery Catalog
+### Design patterns and Meshplay Catalog
 
-Through [Models]({{site.baseurl}}/concepts/logical/models), Meshery describes infrastructure under management, enabling you to define cloud native designs and patterns and then to export those designs and share within the <a href="https://meshery.io/catalog" target="_self_">Meshery Catalog</a>.
+Through [Models]({{site.baseurl}}/concepts/logical/models), Meshplay describes infrastructure under management, enabling you to define cloud native designs and patterns and then to export those designs and share within the <a href="https://meshplay.io/catalog" target="_self_">Meshplay Catalog</a>.
 
-## Meshery is for engineering teams
+## Meshplay is for engineering teams
 
-Whether you are a Platform Engineer, Site Reliability Engineer, DevOps Engineer, Developer, or Operator, Meshery provides a platform for you to collaborate on the design and operation of your cloud native infrastructure.
+Whether you are a Platform Engineer, Site Reliability Engineer, DevOps Engineer, Developer, or Operator, Meshplay provides a platform for you to collaborate on the design and operation of your cloud native infrastructure.
 
-Whether making a Day 0 adoption choice, a Day 1 configuration and provisioning, or maintaining a Day 2 deployment, Meshery has useful capabilities in either circumstance. Targeted audience for Meshery project would be any technology operators that leverage Cloud and cloud native infrastructure.
+Whether making a Day 0 adoption choice, a Day 1 configuration and provisioning, or maintaining a Day 2 deployment, Meshplay has useful capabilities in either circumstance. Targeted audience for Meshplay project would be any technology operators that leverage Cloud and cloud native infrastructure.
 
 <!-- 
-### Meshery is for performance management
+### Meshplay is for performance management
 
-Meshery helps users weigh the value of their cloud native deployments against the overhead incurred in running different deployment scenarios and different configruations. Meshery provides statistical analysis of the request latency and throughput seen across various permutations of your workload, infrastructure and infrastructure configuration. In addition to request latency and throughput, Meshery also tracks memory and CPU overhead in of the nodes in your cluster. Establish a performance benchmark and track performance against this baseline as your environment changes over time. 
+Meshplay helps users weigh the value of their cloud native deployments against the overhead incurred in running different deployment scenarios and different configruations. Meshplay provides statistical analysis of the request latency and throughput seen across various permutations of your workload, infrastructure and infrastructure configuration. In addition to request latency and throughput, Meshplay also tracks memory and CPU overhead in of the nodes in your cluster. Establish a performance benchmark and track performance against this baseline as your environment changes over time. 
 -->
 
 <!-- ### Supported Integrations
@@ -89,7 +89,7 @@ Meshery helps users weigh the value of their cloud native deployments against th
 {% endif -%}
 {% endfor %}
 
-##### **Alpha** - Meshery adapters for which we are seeking community-contributed support.
+##### **Alpha** - Meshplay adapters for which we are seeking community-contributed support.
 
 | Adapter | Status |
 | :----------- | -----: |
@@ -100,7 +100,7 @@ Meshery helps users weigh the value of their cloud native deployments against th
 {% endfor %}
  -->
 
-<!-- ## Meshery as a project and its community
+<!-- ## Meshplay as a project and its community
 
 {% assign sorted_pages = site.pages | sort: "type" | reverse %}
 

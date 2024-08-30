@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -23,10 +23,10 @@ var viewModelCmd = &cobra.Command{
 	Long:  "view a model queried by its name",
 	Example: `
 // View current provider
-mesheryctl model view [model-name]
+meshplayctl model view [model-name]
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl model view [model-name]\nRun 'mesheryctl model view --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl model view [model-name]\nRun 'meshplayctl model view --help' to see detailed help message"
 		if len(args) == 0 {
 			return fmt.Errorf("model name isn't specified\n\n%v", errMsg)
 		} else if len(args) > 1 {
@@ -35,13 +35,13 @@ mesheryctl model view [model-name]
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		modelDefinition := args[0]
 
 		url := fmt.Sprintf("%s/api/meshmodels/models/%s?pagesize=all", baseUrl, modelDefinition)

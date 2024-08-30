@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/layer5io/meshkit/logger"
 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/models/registration"

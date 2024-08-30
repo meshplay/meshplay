@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@ package root
 import "github.com/layer5io/meshkit/errors"
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrProcessingConfigCode        = "mesheryctl-1010"
-	ErrCreatingConfigFileCode      = "mesheryctl-1011"
-	ErrAddingTokenToConfigCode     = "mesheryctl-1012"
-	ErrAddingContextToConfigCode   = "mesheryctl-1013"
-	ErrUnmarshallingConfigFileCode = "mesheryctl-1014"
-	ErrGettingRequestContextCode   = "mesheryctl-1015"
-	ErrUnmarshallingAPIDataCode    = "mesheryctl-1016"
-	ErrConnectingToServerCode      = "mesheryctl-1017"
+	ErrProcessingConfigCode        = "meshplayctl-1010"
+	ErrCreatingConfigFileCode      = "meshplayctl-1011"
+	ErrAddingTokenToConfigCode     = "meshplayctl-1012"
+	ErrAddingContextToConfigCode   = "meshplayctl-1013"
+	ErrUnmarshallingConfigFileCode = "meshplayctl-1014"
+	ErrGettingRequestContextCode   = "meshplayctl-1015"
+	ErrUnmarshallingAPIDataCode    = "meshplayctl-1016"
+	ErrConnectingToServerCode      = "meshplayctl-1017"
 )
 
 var (
@@ -45,7 +45,7 @@ func ErrProcessingConfig(err error) error {
 }
 
 func ErrConnectingToServer(err error) error {
-	return errors.New(ErrConnectingToServerCode, errors.Fatal, []string{"Unable to communicate with Meshery server"}, []string{"Unable to communicate with Meshery server", err.Error(), "See https://docs.meshery.io for help getting started with Meshery"}, []string{}, []string{"See https://docs.meshery.io for help getting started with Meshery"})
+	return errors.New(ErrConnectingToServerCode, errors.Fatal, []string{"Unable to communicate with Meshplay server"}, []string{"Unable to communicate with Meshplay server", err.Error(), "See https://docs.meshplay.io for help getting started with Meshplay"}, []string{}, []string{"See https://docs.meshplay.io for help getting started with Meshplay"})
 }
 
 func ErrGettingRequestContext(err error) error {

@@ -3,8 +3,8 @@ package model
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -17,24 +17,24 @@ var listModelCmd = &cobra.Command{
 	Long:  "list name of all registered models",
 	Example: `
 // View list of models
-mesheryctl model list
+meshplayctl model list
 
 // View list of models with specified page number (25 models per page)
-mesheryctl model list --page 2
+meshplayctl model list --page 2
 
-// View number of available models in Meshery
-mesheryctl model list --count
+// View number of available models in Meshplay
+meshplayctl model list --count
     `,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 0 {
 			return errors.New(utils.SystemModelSubError("this command takes no arguments\n", "list"))
 		}
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			log.Fatalln(err, "error processing config")
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := fmt.Sprintf("%s/api/meshmodels/models?%s", baseUrl, utils.GetPageQueryParameter(cmd, pageNumberFlag))
 
 		return listModel(cmd, url, false)

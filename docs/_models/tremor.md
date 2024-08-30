@@ -4,7 +4,7 @@ title: Tremor
 subtitle: Collaborative and visual infrastructure as design for Tremor
 image: /assets/img/integrations/tremor/icons/color/tremor-color.svg
 permalink: extensibility/integrations/tremor
-docURL: https://docs.meshery.io/extensibility/integrations/tremor
+docURL: https://docs.meshplay.io/extensibility/integrations/tremor
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

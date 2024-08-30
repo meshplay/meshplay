@@ -1,7 +1,7 @@
 name: E2E Report on Pull Request Comment
 on:
   workflow_run:
-    workflows: ['Meshery UI and Server']
+    workflows: ['Meshplay UI and Server']
     types: [completed]
   
 permissions:

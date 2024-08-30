@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - name: Run ESLint Meshery-UI
+    - name: Run ESLint Meshplay-UI
       run: cd ui && npm i eslint && npx eslint .
     - name: Run ESLint Provider-UI
       run: cd provider-ui && npm i eslint && npx eslint .

@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -38,8 +38,8 @@ func TestRootCmdIntegration(t *testing.T) {
 
 	// update all locations
 	fixturesDirPath := filepath.Join(currDir, "fixtures")
-	utils.MesheryFolder = filepath.Join(fixturesDirPath, ".meshery")
-	utils.DefaultConfigPath = filepath.Join(utils.MesheryFolder, "config.yaml")
+	utils.MeshplayFolder = filepath.Join(fixturesDirPath, ".meshplay")
+	utils.DefaultConfigPath = filepath.Join(utils.MeshplayFolder, "config.yaml")
 	testConfigPath := filepath.Join(fixturesDirPath, "testConfig.yaml")
 
 	tests := []RootCmdTestInput{
@@ -97,7 +97,7 @@ func TestRootCmdIntegration(t *testing.T) {
 		})
 	}
 
-	if err := os.RemoveAll(utils.MesheryFolder); err != nil {
+	if err := os.RemoveAll(utils.MeshplayFolder); err != nil {
 		t.Fatal("Couldn't remove files generated while testing")
 	}
 }

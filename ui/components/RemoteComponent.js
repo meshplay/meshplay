@@ -18,7 +18,7 @@ const RemoteComponent = ({ url, loaderType }) => {
       return '';
     } else {
       return (
-        <LoadingScreen animatedIcon="AnimatedMeshery" message="Establishing Remote Connection" />
+        <LoadingScreen animatedIcon="AnimatedMeshplay" message="Establishing Remote Connection" />
       );
     }
   }

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Meshery Adapter for Network Service Mesh
-name: Meshery Adapter for Network Service Mesh
+title: Meshplay Adapter for Network Service Mesh
+name: Meshplay Adapter for Network Service Mesh
 component: Network Service Mesh
 earliest_version: v0.2.1
 port: 10004/gRPC
 project_status: stable
-lab: nsm-meshery-adapter
-github_link: https://github.com/meshery/meshery-nsm
+lab: nsm-meshplay-adapter
+github_link: https://github.com/meshplay/meshplay-nsm
 image: /assets/img/service-meshes/nsm.svg
 white_image: /assets/img/service-meshes/nsm.svg
 permalink: extensibility/adapters/nsm
@@ -15,14 +15,14 @@ redirect_from: service-meshes/adapters/nsm
 language: en
 ---
 
-{% assign sorted_tests_group = site.compatibility | group_by: "meshery-component" %}
+{% assign sorted_tests_group = site.compatibility | group_by: "meshplay-component" %}
 {% for group in sorted_tests_group %}
-{% if group.name == "meshery-nsm" %}
-{% assign items = group.items | sort: "meshery-component-version" | reverse %}
+{% if group.name == "meshplay-nsm" %}
+{% assign items = group.items | sort: "meshplay-component-version" | reverse %}
 {% for item in items %}
-{% if item.meshery-component-version != "edge" %}
+{% if item.meshplay-component-version != "edge" %}
 {% if item.overall-status == "passing" %}
-{% assign adapter_version_dynamic = item.meshery-component-version %}
+{% assign adapter_version_dynamic = item.meshplay-component-version %}
 {% break %}
 {% elsif item.overall-status == "failing" %}
 {% continue %}
@@ -42,7 +42,7 @@ The {{page.name}} can install **{{page.earliest_version}}** of {{page.component}
 
 ### Install {{ page.component }}
 
-##### Choose the Meshery Adapter for {{ page.component }}
+##### Choose the Meshplay Adapter for {{ page.component }}
 
 <a href="{{ site.baseurl }}/assets/img/adapters/nsm/nsm-adapter.png">
   <img style="width:500px; background: white" src="{{ site.baseurl }}/assets/img/adapters/nsm/nsm-adapter.png" />
@@ -56,7 +56,7 @@ Click on (+) and choose the {{page.earliest_version}} of the {{page.component}}.
 
 ## Sample Applications
 
-The ({{ page.name }}) includes a handful of sample applications. These applications represent different network services orchestrated by {{page.component}}. Use Meshery to deploy any of these sample applications:
+The ({{ page.name }}) includes a handful of sample applications. These applications represent different network services orchestrated by {{page.component}}. Use Meshplay to deploy any of these sample applications:
 
 ### 1. Hello NSM Application
 
@@ -64,7 +64,7 @@ Watch this presentation to see the Hello NSM Application in-action:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4xKixsDTtdM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-See on YouTube: [Adopting Network Service Mesh with Meshery](https://www.youtube.com/watch?v=4xKixsDTtdM&list=PL3A-A6hPO2IOpTbdH89qR-4AE0ON13Zie)
+See on YouTube: [Adopting Network Service Mesh with Meshplay](https://www.youtube.com/watch?v=4xKixsDTtdM&list=PL3A-A6hPO2IOpTbdH89qR-4AE0ON13Zie)
 
 #### 2. VPP-ICMP Application
 
@@ -162,6 +162,6 @@ Verification
 
 ### Suggested Topics
 
-- Examine [Meshery's architecture]({{ site.baseurl }}/architecture) and how adapters fit in as a component.
-- Learn more about [Meshery Adapters]({{ site.baseurl }}/architecture/adapters).
+- Examine [Meshplay's architecture]({{ site.baseurl }}/architecture) and how adapters fit in as a component.
+- Learn more about [Meshplay Adapters]({{ site.baseurl }}/architecture/adapters).
 

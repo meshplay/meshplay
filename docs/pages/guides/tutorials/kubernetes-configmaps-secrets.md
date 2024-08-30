@@ -1,6 +1,6 @@
 ---
 layout: tutorials
-title: Understanding Kubernetes ConfigMaps and Secrets with Meshery
+title: Understanding Kubernetes ConfigMaps and Secrets with Meshplay
 abstract: Learn how to work with ConfigMaps and Secrets in Kubernetes
 permalink: guides/tutorials/kubernetes-configmaps-secrets
 redirect_from: guides/tutorials/kubernetes-configmaps-secrets/
@@ -11,19 +11,19 @@ category: tutorials
 language: en
 list: include
 published: true
-abstract: "In this tutorial, we will explore how to effectively use Kubernetes ConfigMaps and Secrets for managing configuration data and sensitive information. Leveraging Meshery Playground, an interactive live cluster environment, we'll perform hands-on labs to understand the practical aspects of working with ConfigMaps and Secrets in Kubernetes."
+abstract: "In this tutorial, we will explore how to effectively use Kubernetes ConfigMaps and Secrets for managing configuration data and sensitive information. Leveraging Meshplay Playground, an interactive live cluster environment, we'll perform hands-on labs to understand the practical aspects of working with ConfigMaps and Secrets in Kubernetes."
 ---
 
 ## Introduction
 
-In this tutorial, we will work with Kubernetes ConfigMaps and Secrets. _ConfigMaps_ are used to manage configuration data, while _Secrets_ are used for sensitive information such as passwords. Using Meshery Playground, an interactive live cluster environment, we'll perform hands-on exercises to gain practical knowledge into working with these Kubernetes objects.
+In this tutorial, we will work with Kubernetes ConfigMaps and Secrets. _ConfigMaps_ are used to manage configuration data, while _Secrets_ are used for sensitive information such as passwords. Using Meshplay Playground, an interactive live cluster environment, we'll perform hands-on exercises to gain practical knowledge into working with these Kubernetes objects.
 
-> **_NOTE:_** If this your fist time working with Meshery Playground start with the [Kubernetes Pods with Meshery](./kubernetes-pods.md).
+> **_NOTE:_** If this your fist time working with Meshplay Playground start with the [Kubernetes Pods with Meshplay](./kubernetes-pods.md).
 
 ## Prerequisites
 
 - Basic understanding of containerization and Kubernetes concepts.
-- Access to the _Meshery Playground_. If you don't have an account, sign up at [Meshery Playground](https://play.meshery.io/).
+- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.io/).
 
 ## Lab Scenario
 
@@ -37,9 +37,9 @@ Learn how to create and manage _Kubernetes ConfigMaps and Secrets_ within the co
 
 ## Steps
 
-### Access Meshery Playground
+### Access Meshplay Playground
 
-- Log in to the [Meshery Playground](http://playground.meshery.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
+- Log in to the [Meshplay Playground](http://playground.meshplay.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
 - Click **MeshMap** in the navigation menu to navigate to _MeshMap_.
 
 > **_NOTE:_** MeshMap is still in beta.
@@ -158,4 +158,4 @@ To delete the resources, use the **Undeploy** option from the _Design_ view.
 
 
 ## Conclusion
-Congratulations! You've successfully completed a tutorial on Kubernetes ConfigMaps and Secrets using the Meshery Playground. This hands-on experience should have equipped you with practical knowledge on managing configuration data and sensitive information in Kubernetes. Continue exploring more such scenarios in the Meshery Playground to enhance your skills.
+Congratulations! You've successfully completed a tutorial on Kubernetes ConfigMaps and Secrets using the Meshplay Playground. This hands-on experience should have equipped you with practical knowledge on managing configuration data and sensitive information in Kubernetes. Continue exploring more such scenarios in the Meshplay Playground to enhance your skills.

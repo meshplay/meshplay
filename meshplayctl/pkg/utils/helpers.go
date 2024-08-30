@@ -21,9 +21,9 @@ import (
 	"github.com/briandowns/spinner"
 	"github.com/eiannone/keyboard"
 	"github.com/fatih/color"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/constants"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/encoding"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/olekukonko/tablewriter"
@@ -37,82 +37,82 @@ import (
 )
 
 const (
-	// Meshery Docker Deployment URLs
+	// Meshplay Docker Deployment URLs
 	dockerComposeWebURL         = "https://api.github.com/repos/docker/compose/releases/latest"
 	defaultDockerComposeVersion = "1.24.1/docker-compose"
 	dockerComposeBinaryURL      = "https://github.com/docker/compose/releases/download/"
 	dockerComposeBinary         = "/usr/local/bin/docker-compose"
 
-	// Meshery Kubernetes Deployment URLs
-	baseConfigURL = "https://raw.githubusercontent.com/layer5io/meshery-operator/master/config/"
+	// Meshplay Kubernetes Deployment URLs
+	baseConfigURL = "https://raw.githubusercontent.com/layer5io/meshplay-operator/master/config/"
 	OperatorURL   = baseConfigURL + "manifests/default.yaml"
-	BrokerURL     = baseConfigURL + "samples/meshery_v1alpha1_broker.yaml"
-	MeshsyncURL   = baseConfigURL + "samples/meshery_v1alpha1_meshsync.yaml"
+	BrokerURL     = baseConfigURL + "samples/meshplay_v1alpha1_broker.yaml"
+	MeshsyncURL   = baseConfigURL + "samples/meshplay_v1alpha1_meshsync.yaml"
 
 	// Documentation URLs
-	docsBaseURL                    = "https://docs.meshery.io/"
-	rootUsageURL                   = docsBaseURL + "reference/mesheryctl"
-	perfUsageURL                   = docsBaseURL + "reference/mesheryctl/perf"
-	systemUsageURL                 = docsBaseURL + "reference/mesheryctl/system"
-	systemStopURL                  = docsBaseURL + "reference/mesheryctl/system/stop"
-	systemUpdateURL                = docsBaseURL + "reference/mesheryctl/system/update"
-	systemResetURL                 = docsBaseURL + "reference/mesheryctl/system/reset"
-	systemStatusURL                = docsBaseURL + "reference/mesheryctl/system/status"
-	systemRestartURL               = docsBaseURL + "reference/mesheryctl/system/restart"
-	meshUsageURL                   = docsBaseURL + "reference/mesheryctl/mesh"
-	expUsageURL                    = docsBaseURL + "reference/mesheryctl/exp"
-	filterUsageURL                 = docsBaseURL + "reference/mesheryctl/filter"
-	filterImportURL                = docsBaseURL + "reference/mesheryctl/filter/import"
-	filterDeleteURL                = docsBaseURL + "reference/mesheryctl/filter/delete"
-	filterListURL                  = docsBaseURL + "reference/mesheryctl/filter/list"
-	filterViewURL                  = docsBaseURL + "reference/mesheryctl/filter/view"
-	patternUsageURL                = docsBaseURL + "reference/mesheryctl/pattern"
-	patternViewURL                 = docsBaseURL + "reference/mesheryctl/pattern/view"
-	patternExportURL               = docsBaseURL + "reference/mesheryctl/pattern/export"
-	contextDeleteURL               = docsBaseURL + "reference/mesheryctl/system/context/delete"
-	contextViewURL                 = docsBaseURL + "reference/mesheryctl/system/context/view"
-	contextCreateURL               = docsBaseURL + "reference/mesheryctl/system/context/create"
-	contextUsageURL                = docsBaseURL + "reference/mesheryctl/system/context"
-	channelUsageURL                = docsBaseURL + "reference/mesheryctl/system/channel"
-	channelSetURL                  = docsBaseURL + "reference/mesheryctl/system/channel/set"
-	channelSwitchURL               = docsBaseURL + "reference/mesheryctl/system/channel/switch"
-	channelViewURL                 = docsBaseURL + "reference/mesheryctl/system/channel/view"
-	providerUsageURL               = docsBaseURL + "reference/mesheryctl/system/provider"
-	providerViewURL                = docsBaseURL + "reference/mesheryctl/system/provider/view"
-	providerListURL                = docsBaseURL + "reference/mesheryctl/system/provider/list"
-	providerSetURL                 = docsBaseURL + "reference/mesheryctl/system/provider/set"
-	providerResetURL               = docsBaseURL + "reference/mesheryctl/system/provider/reset"
-	providerSwitchURL              = docsBaseURL + "reference/mesheryctl/system/provider/switch"
-	tokenUsageURL                  = docsBaseURL + "reference/mesheryctl/system/token"
-	modelUsageURL                  = docsBaseURL + "reference/mesheryctl/system/model"
-	modelListURL                   = docsBaseURL + "reference/mesheryctl/system/model/list"
-	modelImportURl                 = docsBaseURL + "reference/mesheryctl/system/model/import"
-	modelViewURL                   = docsBaseURL + "reference/mesheryctl/system/model/view"
-	registryUsageURL               = docsBaseURL + "reference/mesheryctl/system/registry"
-	relationshipUsageURL           = docsBaseURL + "reference/mesheryctl/relationships"
-	cmdRelationshipGenerateDocsURL = docsBaseURL + "reference/mesheryctl/relationships/generate"
-	relationshipViewURL            = docsBaseURL + "reference/mesheryctl/relationships/view"
-	workspaceUsageURL              = docsBaseURL + "reference/mesheryctl/exp/workspace"
-	workspaceCreateURL             = docsBaseURL + "reference/mesheryctl/exp/workspace/create"
-	workspaceListURL               = docsBaseURL + "reference/mesheryctl/exp/workspace/list"
-	environmentUsageURL            = docsBaseURL + "reference/mesheryctl/exp/environment"
-	environmentCreateURL           = docsBaseURL + "reference/mesheryctl/exp/environment/create"
-	environmentDeleteURL           = docsBaseURL + "reference/mesheryctl/exp/environment/delete"
-	environmentListURL             = docsBaseURL + "reference/mesheryctl/exp/environment/list"
-	environmentViewURL             = docsBaseURL + "reference/mesheryctl/exp/environment/view"
-	componentUsageURL              = docsBaseURL + "reference/mesheryctl/exp/components"
-	componentListURL               = docsBaseURL + "reference/mesheryctl/exp/components/list"
-	componentSearchURL             = docsBaseURL + "reference/mesheryctl/exp/components/search"
-	componentViewURL               = docsBaseURL + "reference/mesheryctl/exp/components/view"
-	connectionUsageURL             = docsBaseURL + "reference/mesheryctl/exp/connections"
-	connectionDeleteURL            = docsBaseURL + "reference/mesheryctl/exp/connections/delete"
-	connectionListURL              = docsBaseURL + "reference/mesheryctl/exp/connections/list"
-	expRelationshipUsageURL        = docsBaseURL + "reference/mesheryctl/exp/relationship"
-	expRelationshipGenerateURL     = docsBaseURL + "reference/mesheryctl/exp/relationship/generate"
-	expRelationshipViewURL         = docsBaseURL + "reference/mesheryctl/exp/relationship/view"
-	expRelationshipListURL         = docsBaseURL + "reference/mesheryctl/exp/relationship/list"
+	docsBaseURL                    = "https://docs.meshplay.io/"
+	rootUsageURL                   = docsBaseURL + "reference/meshplayctl"
+	perfUsageURL                   = docsBaseURL + "reference/meshplayctl/perf"
+	systemUsageURL                 = docsBaseURL + "reference/meshplayctl/system"
+	systemStopURL                  = docsBaseURL + "reference/meshplayctl/system/stop"
+	systemUpdateURL                = docsBaseURL + "reference/meshplayctl/system/update"
+	systemResetURL                 = docsBaseURL + "reference/meshplayctl/system/reset"
+	systemStatusURL                = docsBaseURL + "reference/meshplayctl/system/status"
+	systemRestartURL               = docsBaseURL + "reference/meshplayctl/system/restart"
+	meshUsageURL                   = docsBaseURL + "reference/meshplayctl/mesh"
+	expUsageURL                    = docsBaseURL + "reference/meshplayctl/exp"
+	filterUsageURL                 = docsBaseURL + "reference/meshplayctl/filter"
+	filterImportURL                = docsBaseURL + "reference/meshplayctl/filter/import"
+	filterDeleteURL                = docsBaseURL + "reference/meshplayctl/filter/delete"
+	filterListURL                  = docsBaseURL + "reference/meshplayctl/filter/list"
+	filterViewURL                  = docsBaseURL + "reference/meshplayctl/filter/view"
+	patternUsageURL                = docsBaseURL + "reference/meshplayctl/pattern"
+	patternViewURL                 = docsBaseURL + "reference/meshplayctl/pattern/view"
+	patternExportURL               = docsBaseURL + "reference/meshplayctl/pattern/export"
+	contextDeleteURL               = docsBaseURL + "reference/meshplayctl/system/context/delete"
+	contextViewURL                 = docsBaseURL + "reference/meshplayctl/system/context/view"
+	contextCreateURL               = docsBaseURL + "reference/meshplayctl/system/context/create"
+	contextUsageURL                = docsBaseURL + "reference/meshplayctl/system/context"
+	channelUsageURL                = docsBaseURL + "reference/meshplayctl/system/channel"
+	channelSetURL                  = docsBaseURL + "reference/meshplayctl/system/channel/set"
+	channelSwitchURL               = docsBaseURL + "reference/meshplayctl/system/channel/switch"
+	channelViewURL                 = docsBaseURL + "reference/meshplayctl/system/channel/view"
+	providerUsageURL               = docsBaseURL + "reference/meshplayctl/system/provider"
+	providerViewURL                = docsBaseURL + "reference/meshplayctl/system/provider/view"
+	providerListURL                = docsBaseURL + "reference/meshplayctl/system/provider/list"
+	providerSetURL                 = docsBaseURL + "reference/meshplayctl/system/provider/set"
+	providerResetURL               = docsBaseURL + "reference/meshplayctl/system/provider/reset"
+	providerSwitchURL              = docsBaseURL + "reference/meshplayctl/system/provider/switch"
+	tokenUsageURL                  = docsBaseURL + "reference/meshplayctl/system/token"
+	modelUsageURL                  = docsBaseURL + "reference/meshplayctl/system/model"
+	modelListURL                   = docsBaseURL + "reference/meshplayctl/system/model/list"
+	modelImportURl                 = docsBaseURL + "reference/meshplayctl/system/model/import"
+	modelViewURL                   = docsBaseURL + "reference/meshplayctl/system/model/view"
+	registryUsageURL               = docsBaseURL + "reference/meshplayctl/system/registry"
+	relationshipUsageURL           = docsBaseURL + "reference/meshplayctl/relationships"
+	cmdRelationshipGenerateDocsURL = docsBaseURL + "reference/meshplayctl/relationships/generate"
+	relationshipViewURL            = docsBaseURL + "reference/meshplayctl/relationships/view"
+	workspaceUsageURL              = docsBaseURL + "reference/meshplayctl/exp/workspace"
+	workspaceCreateURL             = docsBaseURL + "reference/meshplayctl/exp/workspace/create"
+	workspaceListURL               = docsBaseURL + "reference/meshplayctl/exp/workspace/list"
+	environmentUsageURL            = docsBaseURL + "reference/meshplayctl/exp/environment"
+	environmentCreateURL           = docsBaseURL + "reference/meshplayctl/exp/environment/create"
+	environmentDeleteURL           = docsBaseURL + "reference/meshplayctl/exp/environment/delete"
+	environmentListURL             = docsBaseURL + "reference/meshplayctl/exp/environment/list"
+	environmentViewURL             = docsBaseURL + "reference/meshplayctl/exp/environment/view"
+	componentUsageURL              = docsBaseURL + "reference/meshplayctl/exp/components"
+	componentListURL               = docsBaseURL + "reference/meshplayctl/exp/components/list"
+	componentSearchURL             = docsBaseURL + "reference/meshplayctl/exp/components/search"
+	componentViewURL               = docsBaseURL + "reference/meshplayctl/exp/components/view"
+	connectionUsageURL             = docsBaseURL + "reference/meshplayctl/exp/connections"
+	connectionDeleteURL            = docsBaseURL + "reference/meshplayctl/exp/connections/delete"
+	connectionListURL              = docsBaseURL + "reference/meshplayctl/exp/connections/list"
+	expRelationshipUsageURL        = docsBaseURL + "reference/meshplayctl/exp/relationship"
+	expRelationshipGenerateURL     = docsBaseURL + "reference/meshplayctl/exp/relationship/generate"
+	expRelationshipViewURL         = docsBaseURL + "reference/meshplayctl/exp/relationship/view"
+	expRelationshipListURL         = docsBaseURL + "reference/meshplayctl/exp/relationship/list"
 
-	// Meshery Server Location
+	// Meshplay Server Location
 	EndpointProtocol = "http"
 )
 
@@ -185,9 +185,9 @@ const (
 )
 
 const (
-	HelmChartURL          = "https://meshery.io/charts/"
-	HelmChartName         = "meshery"
-	HelmChartOperatorName = "meshery-operator"
+	HelmChartURL          = "https://meshplay.io/charts/"
+	HelmChartName         = "meshplay"
+	HelmChartOperatorName = "meshplay-operator"
 )
 
 var (
@@ -195,41 +195,41 @@ var (
 	ResetFlag bool
 	// SkipResetFlag indicates if fetching the updated manifest files is required
 	SkipResetFlag bool
-	// MesheryDefaultHost is the default host on which Meshery is exposed
-	MesheryDefaultHost = "localhost"
-	// MesheryDefaultPort is the default port on which Meshery is exposed
-	MesheryDefaultPort = 9081
-	// MesheryEndpoint is the default URL in which Meshery is exposed
-	MesheryEndpoint = fmt.Sprintf("http://%s:%v", MesheryDefaultHost, MesheryDefaultPort)
-	// MesheryFolder is the default relative location of the meshery config
+	// MeshplayDefaultHost is the default host on which Meshplay is exposed
+	MeshplayDefaultHost = "localhost"
+	// MeshplayDefaultPort is the default port on which Meshplay is exposed
+	MeshplayDefaultPort = 9081
+	// MeshplayEndpoint is the default URL in which Meshplay is exposed
+	MeshplayEndpoint = fmt.Sprintf("http://%s:%v", MeshplayDefaultHost, MeshplayDefaultPort)
+	// MeshplayFolder is the default relative location of the meshplay config
 	// related configuration files.
-	MesheryFolder = ".meshery"
-	// DockerComposeFile is the default location within the MesheryFolder
+	MeshplayFolder = ".meshplay"
+	// DockerComposeFile is the default location within the MeshplayFolder
 	// where the docker compose file is located.
-	DockerComposeFile = "meshery.yaml"
+	DockerComposeFile = "meshplay.yaml"
 	// AuthConfigFile is the location of the auth file for performing perf testing
 	AuthConfigFile = "auth.json"
-	// DefaultConfigPath is the detail path to mesheryctl config
+	// DefaultConfigPath is the detail path to meshplayctl config
 	DefaultConfigPath = "config.yaml"
-	// MesheryNamespace is the namespace to which Meshery is deployed in the Kubernetes cluster
-	MesheryNamespace = "meshery"
-	// MesheryDeployment is the name of a Kubernetes manifest file required to setup Meshery
-	// check https://github.com/meshery/meshery/tree/master/install/deployment_yamls/k8s
-	MesheryDeployment = "meshery-deployment.yaml"
-	// MesheryService is the name of a Kubernetes manifest file required to setup Meshery
-	// check https://github.com/meshery/meshery/tree/master/install/deployment_yamls/k8s
-	MesheryService = "meshery-service.yaml"
-	//MesheryOperator is the file for default Meshery operator
-	//check https://github.com/layer5io/meshery-operator/blob/master/config/manifests/default.yaml
-	MesheryOperator = "default.yaml"
-	//MesheryOperatorBroker is the file for the Meshery broker
-	//check https://github.com/layer5io/meshery-operator/blob/master/config/samples/meshery_v1alpha1_broker.yaml
-	MesheryOperatorBroker = "meshery_v1alpha1_broker.yaml"
-	//MesheryOperatorMeshsync is the file for the Meshery Meshsync Operator
-	//check https://github.com/layer5io/meshery-operator/blob/master/config/samples/meshery_v1alpha1_meshsync.yaml
-	MesheryOperatorMeshsync = "meshery_v1alpha1_meshsync.yaml"
-	// ServiceAccount is the name of a Kubernetes manifest file required to setup Meshery
-	// check https://github.com/meshery/meshery/tree/master/install/deployment_yamls/k8s
+	// MeshplayNamespace is the namespace to which Meshplay is deployed in the Kubernetes cluster
+	MeshplayNamespace = "meshplay"
+	// MeshplayDeployment is the name of a Kubernetes manifest file required to setup Meshplay
+	// check https://github.com/meshplay/meshplay/tree/master/install/deployment_yamls/k8s
+	MeshplayDeployment = "meshplay-deployment.yaml"
+	// MeshplayService is the name of a Kubernetes manifest file required to setup Meshplay
+	// check https://github.com/meshplay/meshplay/tree/master/install/deployment_yamls/k8s
+	MeshplayService = "meshplay-service.yaml"
+	//MeshplayOperator is the file for default Meshplay operator
+	//check https://github.com/khulnasoft/meshplay-operator/blob/master/config/manifests/default.yaml
+	MeshplayOperator = "default.yaml"
+	//MeshplayOperatorBroker is the file for the Meshplay broker
+	//check https://github.com/khulnasoft/meshplay-operator/blob/master/config/samples/meshplay_v1alpha1_broker.yaml
+	MeshplayOperatorBroker = "meshplay_v1alpha1_broker.yaml"
+	//MeshplayOperatorMeshsync is the file for the Meshplay Meshsync Operator
+	//check https://github.com/khulnasoft/meshplay-operator/blob/master/config/samples/meshplay_v1alpha1_meshsync.yaml
+	MeshplayOperatorMeshsync = "meshplay_v1alpha1_meshsync.yaml"
+	// ServiceAccount is the name of a Kubernetes manifest file required to setup Meshplay
+	// check https://github.com/meshplay/meshplay/tree/master/install/deployment_yamls/k8s
 	ServiceAccount = "service-account.yaml"
 	// To upload with param name
 	ParamName = "k8sfile"
@@ -246,7 +246,7 @@ var (
 	// Paths to kubeconfig files
 	ConfigPath string
 	KubeConfig string
-	// KeepNamespace indicates if the namespace should be kept when Meshery is uninstalled
+	// KeepNamespace indicates if the namespace should be kept when Meshplay is uninstalled
 	KeepNamespace bool
 	// TokenFlag sets token location passed by user with --token
 	TokenFlag = "Not Set"
@@ -260,7 +260,7 @@ var (
 
 var CfgFile string
 
-// TODO: add "meshery-perf" as a component
+// TODO: add "meshplay-perf" as a component
 
 // ListOfComponents returns the list of components available
 var ListOfComponents = []string{}
@@ -273,69 +273,69 @@ var TemplateContext = config.Context{
 	Components: ListOfComponents,
 	Channel:    "stable",
 	Version:    "latest",
-	Provider:   "Meshery",
+	Provider:   "Meshplay",
 }
 
 var Services = map[string]Service{
-	"meshery": {
-		Image:  "layer5/meshery:stable-latest",
+	"meshplay": {
+		Image:  "layer5/meshplay:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Environment: []string{
-			"PROVIDER_BASE_URLS=https://meshery.layer5.io",
-			"ADAPTER_URLS=meshery-istio:10000 meshery-linkerd:10001 meshery-consul:10002 meshery-nsm:10004 meshery-app-mesh:10005 meshery-kuma:10007 meshery-osm:10009 meshery-traefik-mesh:10006 meshery-nginx-sm:10010 meshery-cilium:10012",
-			"EVENT=mesheryLocal",
+			"PROVIDER_BASE_URLS=https://meshplay.layer5.io",
+			"ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-osm:10009 meshplay-traefik-mesh:10006 meshplay-nginx-sm:10010 meshplay-cilium:10012",
+			"EVENT=meshplayLocal",
 			"PORT=9081",
 		},
 		Volumes: []string{"$HOME/.kube:/home/appuser/.kube:ro", "$HOME/.minikube:$HOME/.minikube:ro"},
 		Ports:   []string{"9081:9081"},
 	},
-	"meshery-istio": {
-		Image:  "layer5/meshery-istio:stable-latest",
+	"meshplay-istio": {
+		Image:  "layer5/meshplay-istio:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10000:10000"},
 	},
-	"meshery-linkerd": {
-		Image:  "layer5/meshery-linkerd:stable-latest",
+	"meshplay-linkerd": {
+		Image:  "layer5/meshplay-linkerd:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10001:10001"},
 	},
-	"meshery-consul": {
-		Image:  "layer5/meshery-consul:stable-latest",
+	"meshplay-consul": {
+		Image:  "layer5/meshplay-consul:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10002:10002"},
 	},
-	"meshery-nsm": {
-		Image:  "layer5/meshery-nsm:stable-latest",
+	"meshplay-nsm": {
+		Image:  "layer5/meshplay-nsm:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10004:10004"},
 	},
-	"meshery-app-mesh": {
-		Image:  "layer5/meshery-app-mesh:stable-latest",
+	"meshplay-app-mesh": {
+		Image:  "layer5/meshplay-app-mesh:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10005:10005"},
 	},
-	"meshery-traefik-mesh": {
-		Image:  "layer5/meshery-traefik-mesh:stable-latest",
+	"meshplay-traefik-mesh": {
+		Image:  "layer5/meshplay-traefik-mesh:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10006:10006"},
 	},
-	"meshery-kuma": {
-		Image:  "layer5/meshery-kuma:stable-latest",
+	"meshplay-kuma": {
+		Image:  "layer5/meshplay-kuma:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10007:10007"},
 	},
-	"meshery-osm": {
-		Image:  "layer5/meshery-osm:stable-latest",
+	"meshplay-osm": {
+		Image:  "layer5/meshplay-osm:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10009:10009"},
 	},
-	"meshery-nginx-sm": {
-		Image:  "layer5/meshery-nginx-sm:stable-latest",
+	"meshplay-nginx-sm": {
+		Image:  "layer5/meshplay-nginx-sm:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10010:10010"},
 	},
-	"meshery-cilium": {
-		Image:  "layer5/meshery-cilium:stable-latest",
+	"meshplay-cilium": {
+		Image:  "layer5/meshplay-cilium:stable-latest",
 		Labels: []string{"com.centurylinklabs.watchtower.enable=true"},
 		Ports:  []string{"10012:10012"},
 	},
@@ -366,7 +366,7 @@ func BackupConfigFile(cfgFile string) {
 }
 
 const tokenName = "token"
-const providerName = "meshery-provider"
+const providerName = "meshplay-provider"
 
 var seededRand = rand.New(
 	rand.NewSource(time.Now().UnixNano()))
@@ -410,14 +410,14 @@ func SetFileLocation() error {
 	if err != nil {
 		return errors.Wrap(err, "failed to get users home directory")
 	}
-	MesheryFolder = filepath.Join(home, MesheryFolder)
-	DockerComposeFile = filepath.Join(MesheryFolder, DockerComposeFile)
-	AuthConfigFile = filepath.Join(MesheryFolder, AuthConfigFile)
-	DefaultConfigPath = filepath.Join(MesheryFolder, DefaultConfigPath)
+	MeshplayFolder = filepath.Join(home, MeshplayFolder)
+	DockerComposeFile = filepath.Join(MeshplayFolder, DockerComposeFile)
+	AuthConfigFile = filepath.Join(MeshplayFolder, AuthConfigFile)
+	DefaultConfigPath = filepath.Join(MeshplayFolder, DefaultConfigPath)
 	return nil
 }
 
-// NavigateToBroswer naviagtes to the endpoint displaying Meshery UI in the broswer.
+// NavigateToBroswer naviagtes to the endpoint displaying Meshplay UI in the broswer.
 func NavigateToBrowser(endpoint string) error {
 	err := browser.OpenURL(endpoint)
 	return err
@@ -490,15 +490,15 @@ func ContentTypeIsHTML(resp *http.Response) bool {
 	return false
 }
 
-// UpdateMesheryContainers runs the update command for meshery client
-func UpdateMesheryContainers() error {
-	log.Info("Updating Meshery now...")
+// UpdateMeshplayContainers runs the update command for meshplay client
+func UpdateMeshplayContainers() error {
+	log.Info("Updating Meshplay now...")
 
 	start := exec.Command("docker-compose", "-f", DockerComposeFile, "pull")
 	start.Stdout = os.Stdout
 	start.Stderr = os.Stderr
 	if err := start.Run(); err != nil {
-		return errors.Wrap(err, SystemError("failed to start meshery"))
+		return errors.Wrap(err, SystemError("failed to start meshplay"))
 	}
 	return nil
 }
@@ -525,7 +525,7 @@ func AskForConfirmation(s string) bool {
 	}
 }
 
-// CreateConfigFile creates config file in Meshery Folder
+// CreateConfigFile creates config file in Meshplay Folder
 func CreateConfigFile() error {
 	if _, err := os.Stat(DefaultConfigPath); os.IsNotExist(err) {
 		_, err := os.Create(DefaultConfigPath)
@@ -536,7 +536,7 @@ func CreateConfigFile() error {
 	return nil
 }
 
-// ValidateURL validates url provided for meshery backend to mesheryctl context
+// ValidateURL validates url provided for meshplay backend to meshplayctl context
 func ValidateURL(URL string) error {
 	ParsedURL, err := url.ParseRequestURI(URL)
 	if err != nil {
@@ -628,9 +628,9 @@ func StringInSlice(str string, slice []string) bool {
 	return false
 }
 
-// GetID returns a array of IDs from meshery server endpoint /api/{configurations}
-func GetID(mesheryServerUrl, configuration string) ([]string, error) {
-	url := mesheryServerUrl + "/api/" + configuration + "?page_size=10000"
+// GetID returns a array of IDs from meshplay server endpoint /api/{configurations}
+func GetID(meshplayServerUrl, configuration string) ([]string, error) {
+	url := meshplayServerUrl + "/api/" + configuration + "?page_size=10000"
 	configType := configuration + "s"
 	var idList []string
 	req, err := NewRequest("GET", url, nil)
@@ -664,9 +664,9 @@ func GetID(mesheryServerUrl, configuration string) ([]string, error) {
 	return idList, nil
 }
 
-// GetName returns a of name:id from meshery server endpoint /api/{configurations}
-func GetName(mesheryServerUrl, configuration string) (map[string]string, error) {
-	url := mesheryServerUrl + "/api/" + configuration + "?page_size=10000"
+// GetName returns a of name:id from meshplay server endpoint /api/{configurations}
+func GetName(meshplayServerUrl, configuration string) (map[string]string, error) {
+	url := meshplayServerUrl + "/api/" + configuration + "?page_size=10000"
 	configType := configuration + "s"
 	nameIdMap := make(map[string]string)
 	req, err := NewRequest("GET", url, nil)
@@ -700,9 +700,9 @@ func GetName(mesheryServerUrl, configuration string) (map[string]string, error) 
 	return nameIdMap, nil
 }
 
-// Delete configuration from meshery server endpoint /api/{configurations}/{id}
-func DeleteConfiguration(mesheryServerUrl, id, configuration string) error {
-	url := mesheryServerUrl + "/api/" + configuration + "/" + id
+// Delete configuration from meshplay server endpoint /api/{configurations}/{id}
+func DeleteConfiguration(meshplayServerUrl, id, configuration string) error {
+	url := meshplayServerUrl + "/api/" + configuration + "/" + id
 	req, err := NewRequest("DELETE", url, nil)
 	if err != nil {
 		return err
@@ -716,9 +716,9 @@ func DeleteConfiguration(mesheryServerUrl, id, configuration string) error {
 }
 
 // ValidId - Check if args is a valid ID or a valid ID prefix and returns the full ID
-func ValidId(mesheryServerUrl, args string, configuration string) (string, bool, error) {
+func ValidId(meshplayServerUrl, args string, configuration string) (string, bool, error) {
 	isID := false
-	configID, err := GetID(mesheryServerUrl, configuration)
+	configID, err := GetID(meshplayServerUrl, configuration)
 	if err == nil {
 		for _, id := range configID {
 			if strings.HasPrefix(id, args) {
@@ -736,9 +736,9 @@ func ValidId(mesheryServerUrl, args string, configuration string) (string, bool,
 }
 
 // ValidId - Check if args is a valid name or a valid name prefix and returns the full name and ID
-func ValidName(mesheryServerUrl, args string, configuration string) (string, string, bool, error) {
+func ValidName(meshplayServerUrl, args string, configuration string) (string, string, bool, error) {
 	isName := false
-	nameIdMap, err := GetName(mesheryServerUrl, configuration)
+	nameIdMap, err := GetName(meshplayServerUrl, configuration)
 
 	if err != nil {
 		return "", "", false, err
@@ -782,8 +782,8 @@ func AskForInput(prompt string, allowed []string) string {
 // ParseURLGithub checks URL and returns raw repo, path, error
 func ParseURLGithub(URL string) (string, string, error) {
 	// GitHub URL:
-	// - https://github.com/meshery/meshery/blob/master/.goreleaser.yml
-	// - https://raw.githubusercontent.com/layer5io/meshery/master/.goreleaser.yml
+	// - https://github.com/meshplay/meshplay/blob/master/.goreleaser.yml
+	// - https://raw.githubusercontent.com/layer5io/meshplay/master/.goreleaser.yml
 	parsedURL, err := url.Parse(URL)
 	if err != nil {
 		return "", "", ErrParsingUrl(fmt.Errorf("failed to retrieve file from URL: %s", URL))
@@ -839,9 +839,9 @@ func CreateDefaultSpinner(suffix string, finalMsg string) *spinner.Spinner {
 	return s
 }
 
-// Get Meshery Session Data/Details (Adapters)
-func GetSessionData(mctlCfg *config.MesheryCtlConfig) (*models.Preference, error) {
-	path := mctlCfg.GetBaseMesheryURL() + "/api/system/sync"
+// Get Meshplay Session Data/Details (Adapters)
+func GetSessionData(mctlCfg *config.MeshplayCtlConfig) (*models.Preference, error) {
+	path := mctlCfg.GetBaseMeshplayURL() + "/api/system/sync"
 	method := "GET"
 	client := &http.Client{}
 	req, err := NewRequest(method, path, nil)
@@ -863,7 +863,7 @@ func GetSessionData(mctlCfg *config.MesheryCtlConfig) (*models.Preference, error
 	prefs := &models.Preference{}
 	err = encoding.Unmarshal(body, prefs)
 	if err != nil {
-		return nil, errors.New("Failed to process JSON data. Please sign into Meshery")
+		return nil, errors.New("Failed to process JSON data. Please sign into Meshplay")
 	}
 
 	return prefs, nil
@@ -1104,35 +1104,35 @@ func ConvertMapInterfaceMapString(v interface{}) interface{} {
 }
 
 // SetOverrideValues returns the value overrides based on current context to install/upgrade helm chart
-func SetOverrideValues(ctx *config.Context, mesheryImageVersion, callbackURL, providerURL string) map[string]interface{} {
+func SetOverrideValues(ctx *config.Context, meshplayImageVersion, callbackURL, providerURL string) map[string]interface{} {
 	// first initialize all the components' "enabled" field to false
-	// this matches to the components listed in install/kubernetes/helm/meshery/values.yaml
+	// this matches to the components listed in install/kubernetes/helm/meshplay/values.yaml
 	valueOverrides := map[string]interface{}{
-		"meshery-istio": map[string]interface{}{
+		"meshplay-istio": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-cilium": map[string]interface{}{
+		"meshplay-cilium": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-linkerd": map[string]interface{}{
+		"meshplay-linkerd": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-consul": map[string]interface{}{
+		"meshplay-consul": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-kuma": map[string]interface{}{
+		"meshplay-kuma": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-nsm": map[string]interface{}{
+		"meshplay-nsm": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-nginx-sm": map[string]interface{}{
+		"meshplay-nginx-sm": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-traefik-mesh": map[string]interface{}{
+		"meshplay-traefik-mesh": map[string]interface{}{
 			"enabled": false,
 		},
-		"meshery-app-mesh": map[string]interface{}{
+		"meshplay-app-mesh": map[string]interface{}{
 			"enabled": false,
 		},
 	}
@@ -1146,9 +1146,9 @@ func SetOverrideValues(ctx *config.Context, mesheryImageVersion, callbackURL, pr
 		}
 	}
 
-	// set the meshery image version
+	// set the meshplay image version
 	valueOverrides["image"] = map[string]interface{}{
-		"tag": ctx.GetChannel() + "-" + mesheryImageVersion,
+		"tag": ctx.GetChannel() + "-" + meshplayImageVersion,
 	}
 
 	// set the provider

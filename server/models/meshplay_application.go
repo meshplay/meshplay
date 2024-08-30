@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	isql "github.com/layer5io/meshplay/server/internal/sql"
+	isql "github.com/khulnasoft/meshplay/server/internal/sql"
 )
 
 type ApplicationType string
@@ -31,13 +31,13 @@ func GetApplicationTypes() (r []DesignTypeResponse) {
 	return
 }
 
-// MesheryApplication represents the applications that needs to be saved
-type MesheryApplication struct {
+// MeshplayApplication represents the applications that needs to be saved
+type MeshplayApplication struct {
 	ID *uuid.UUID `json:"id,omitempty"`
 
 	Name            string `json:"name,omitempty"`
 	ApplicationFile string `json:"application_file"`
-	// Meshery doesn't have the user id fields
+	// Meshplay doesn't have the user id fields
 	// but the remote provider is allowed to provide one
 	UserID        *string        `json:"user_id" gorm:"-"`
 	Location      isql.Map       `json:"location"`

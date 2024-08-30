@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern-export
-permalink: reference/mesheryctl/pattern/export
-redirect_from: reference/mesheryctl/pattern/export/
+title: meshplayctl-pattern-export
+permalink: reference/meshplayctl/pattern/export
+redirect_from: reference/meshplayctl/pattern/export/
 type: reference
 display-title: "false"
 language: en
@@ -10,20 +10,20 @@ command: pattern
 subcommand: export
 ---
 
-# mesheryctl pattern export
+# meshplayctl pattern export
 
-Export a design from Meshery
+Export a design from Meshplay
 
 ## Synopsis
 
-The 'export' command allows you to export a specific design from your Meshery server.
+The 'export' command allows you to export a specific design from your Meshplay server.
 You can specify the design by its name or ID and optionally define the type of design.
 The command also supports specifying an output directory where the exported design will be saved.
 By default, the exported design will be saved in the current directory. The different types of design
 type allowed are oci, original, and current. The default design type is current.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern export [pattern-name | ID] [flags]
+meshplayctl pattern export [pattern-name | ID] [flags]
 
 </div>
 </pre> 
@@ -39,7 +39,7 @@ mesheryctl pattern export [pattern-name | ID] [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-	mesheryctl pattern export [pattern-name | ID]
+	meshplayctl pattern export [pattern-name | ID]
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl pattern export [pattern-name | ID] [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-	mesheryctl pattern export [pattern-name | ID] --type [design-type]
+	meshplayctl pattern export [pattern-name | ID] --type [design-type]
 
 </div>
 </pre> 
@@ -67,7 +67,7 @@ mesheryctl pattern export [pattern-name | ID] [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-	mesheryctl pattern export [pattern-name | ID] --output ./designs
+	meshplayctl pattern export [pattern-name | ID] --output ./designs
 
 </div>
 </pre> 
@@ -81,7 +81,7 @@ mesheryctl pattern export [pattern-name | ID] [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-	mesheryctl pattern export [pattern-name | ID] --type [design-type] --output ./exports
+	meshplayctl pattern export [pattern-name | ID] --type [design-type] --output ./exports
 
 </div>
 </pre> 
@@ -101,7 +101,7 @@ mesheryctl pattern export [pattern-name | ID] [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -110,4 +110,4 @@ mesheryctl pattern export [pattern-name | ID] [flags]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

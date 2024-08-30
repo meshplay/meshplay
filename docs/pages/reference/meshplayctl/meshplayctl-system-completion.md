@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-completion
-permalink: reference/mesheryctl/system/completion
-redirect_from: reference/mesheryctl/system/completion/
+title: meshplayctl-system-completion
+permalink: reference/meshplayctl/system/completion
+redirect_from: reference/meshplayctl/system/completion/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: system
 subcommand: completion
 ---
 
-# mesheryctl system completion
+# meshplayctl system completion
 
 Output shell completion code
 
@@ -20,7 +20,7 @@ Output shell completion code
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system completion [bash|zsh|fish]
+meshplayctl system completion [bash|zsh|fish]
 
 </div>
 </pre> 
@@ -36,7 +36,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  source /dev/stdin <<< "$(mesheryctl system completion bash)"
+  source /dev/stdin <<< "$(meshplayctl system completion bash)"
 
 </div>
 </pre> 
@@ -50,7 +50,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  source <(mesheryctl system completion bash)
+  source <(meshplayctl system completion bash)
 
 </div>
 </pre> 
@@ -71,7 +71,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  mesheryctl system completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
+  meshplayctl system completion bash > $(brew --prefix)/etc/bash_completion.d/meshplayctl
 
 </div>
 </pre> 
@@ -92,7 +92,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  mesheryctl system completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
+  meshplayctl system completion bash > $(brew --prefix)/etc/bash_completion.d/meshplayctl
 
 </div>
 </pre> 
@@ -134,7 +134,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  source <(mesheryctl system completion zsh)
+  source <(meshplayctl system completion zsh)
 
 </div>
 </pre> 
@@ -148,7 +148,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  mesheryctl system completion zsh > "${fpath[1]}/_mesheryctl"
+  meshplayctl system completion zsh > "${fpath[1]}/_meshplayctl"
 
 </div>
 </pre> 
@@ -162,7 +162,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  mesheryctl system completion fish | source
+  meshplayctl system completion fish | source
 
 </div>
 </pre> 
@@ -176,7 +176,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-  mesheryctl system completion fish > ~/.config/fish/completions/mesheryctl.fish
+  meshplayctl system completion fish > ~/.config/fish/completions/meshplayctl.fish
 
 </div>
 </pre> 
@@ -194,7 +194,7 @@ mesheryctl system completion [bash|zsh|fish]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -204,4 +204,4 @@ mesheryctl system completion [bash|zsh|fish]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/) 
+Go back to [command reference index](/reference/meshplayctl/) 

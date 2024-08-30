@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-adapter
-permalink: reference/mesheryctl/adapter
-redirect_from: reference/mesheryctl/adapter/
+title: meshplayctl-adapter
+permalink: reference/meshplayctl/adapter
+redirect_from: reference/meshplayctl/adapter/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: adapter
 subcommand: nil
 ---
 
-# mesheryctl adapter
+# meshplayctl adapter
 
 Cloud Native Lifecycle Management
 
@@ -23,7 +23,7 @@ Provisioning, configuration, and on-going operational management of cloud and cl
 <pre class='codeblock-pre'>
 <div class='codeblock'>
   -h, --help           help for adapter
-  -t, --token string   Path to token for authenticating to Meshery API
+  -t, --token string   Path to token for authenticating to Meshplay API
 
 </div>
 </pre>
@@ -32,7 +32,7 @@ Provisioning, configuration, and on-going operational management of cloud and cl
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -40,4 +40,4 @@ Provisioning, configuration, and on-going operational management of cloud and cl
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

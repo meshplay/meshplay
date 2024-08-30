@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Meshery Operator, MeshSync, Broker Troubleshooting Guide
-permalink: guides/troubleshooting/meshery-operator-meshsync
+title: Meshplay Operator, MeshSync, Broker Troubleshooting Guide
+permalink: guides/troubleshooting/meshplay-operator-meshsync
 language: en
-abstract: This documentation provides comprehensive guidance on troubleshooting in Meshery Operator, MeshSync and Broker, ensuring you can address common issues efficiently.
+abstract: This documentation provides comprehensive guidance on troubleshooting in Meshplay Operator, MeshSync and Broker, ensuring you can address common issues efficiently.
 type: guides
 category: troubleshooting
 ---
 
-{% include alert.html type="dark" title="Meshery Error Code Reference" content="Have specific error with an error code? See the <a href='/reference/error-codes'>Meshery Error Code Reference</a> for probable cause and suggested remediations." %}
+{% include alert.html type="dark" title="Meshplay Error Code Reference" content="Have specific error with an error code? See the <a href='/reference/error-codes'>Meshplay Error Code Reference</a> for probable cause and suggested remediations." %}
 
-There are common issues Meshery users may face while operating the [Meshery Operator]({{site.baseurl}}/concepts/architecture/operator) and its custom controllers, [MeshSync]({{site.baseurl}}/concepts/architecture/meshsync) and [Broker]({{site.baseurl}}/concepts/architecture/broker), that can be resolved by performing specific actions. This documentation aims to empower users by providing a set of troubleshooting tools and actions.
+There are common issues Meshplay users may face while operating the [Meshplay Operator]({{site.baseurl}}/concepts/architecture/operator) and its custom controllers, [MeshSync]({{site.baseurl}}/concepts/architecture/meshsync) and [Broker]({{site.baseurl}}/concepts/architecture/broker), that can be resolved by performing specific actions. This documentation aims to empower users by providing a set of troubleshooting tools and actions.
 
-## Understanding the Status of Meshery Operator, MeshSync, and Meshery Broker
+## Understanding the Status of Meshplay Operator, MeshSync, and Meshplay Broker
 
-The following table describes the various states of MeshSync and Meshery Broker and their implications.
+The following table describes the various states of MeshSync and Meshplay Broker and their implications.
 
 **MeshSync:**
 
@@ -24,71 +24,71 @@ The following table describes the various states of MeshSync and Meshery Broker 
 - **CONNECTED:** Deployed and connected to Broker.
 - **UNDEPLOYED:** Custom Resource not present.
 
-**Meshery Broker:**
+**Meshplay Broker:**
 
-- **DEPLOYED:** External IP not exposed OR External IP exposed but Meshery Server is not connected as a client to Broker hence data is not being published.
+- **DEPLOYED:** External IP not exposed OR External IP exposed but Meshplay Server is not connected as a client to Broker hence data is not being published.
 
 - **UNDEPLOYED:** Custom Resource not deployed.
-- **CONNECTED:** Deployed, sending data to Meshery Server.
+- **CONNECTED:** Deployed, sending data to Meshplay Server.
 
-## Meshery Operator Deployment Scenarios
+## Meshplay Operator Deployment Scenarios
 
-Because Meshery is versatile in its deployment models, there are a number of scenarios in which you may need to troubleshoot the health of the operator. The following sections describe the various scenarios and the steps you can take to troubleshoot them.
+Because Meshplay is versatile in its deployment models, there are a number of scenarios in which you may need to troubleshoot the health of the operator. The following sections describe the various scenarios and the steps you can take to troubleshoot them.
 
 ### In-Cluster Deployment
 
-<!-- Meshery Operator, MeshSync, and Broker are deployed in the same cluster as Meshery Server. This is the default deployment scenario when using `mesheryctl system start` or `make run-local`. -->
+<!-- Meshplay Operator, MeshSync, and Broker are deployed in the same cluster as Meshplay Server. This is the default deployment scenario when using `meshplayctl system start` or `make run-local`. -->
 
-Whether using [`mesheryctl system start`]({{site.baseurl}}/installation), [`helm install`]({{site.baseurl}}/installation/kubernetes/helm) or `make run-local`, Meshery Server will automatically connect to any available Kubernetes clusters found in your kubeconfig (under `$HOME/.kube/config`). Once connected, operator, broker(NATS) and meshsync will automatically get deployed in the same clusters.
+Whether using [`meshplayctl system start`]({{site.baseurl}}/installation), [`helm install`]({{site.baseurl}}/installation/kubernetes/helm) or `make run-local`, Meshplay Server will automatically connect to any available Kubernetes clusters found in your kubeconfig (under `$HOME/.kube/config`). Once connected, operator, broker(NATS) and meshsync will automatically get deployed in the same clusters.
 
-If everything is fine, by viewing the connection in Meshery UI, MeshSync should be in **CONNECTED:** state. Otherwise, check the Operator's pod logs:
+If everything is fine, by viewing the connection in Meshplay UI, MeshSync should be in **CONNECTED:** state. Otherwise, check the Operator's pod logs:
 
-`kubectl logs <meshery-operator-pod> -n meshery`
+`kubectl logs <meshplay-operator-pod> -n meshplay`
 
 ### Out-of-Cluster Deployment
 
-1. Meshery Server is deployed on any Docker host (- Meshery Server is deployed on a Docker host, and Meshery Operator is deployed on a Kubernetes cluster).
+1. Meshplay Server is deployed on any Docker host (- Meshplay Server is deployed on a Docker host, and Meshplay Operator is deployed on a Kubernetes cluster).
    _or_
-2. Meshery is managing multiple clusters, some of which are not the cluster unto which Meshery Server is deployed.
+2. Meshplay is managing multiple clusters, some of which are not the cluster unto which Meshplay Server is deployed.
 
 ## Fault Scenarios
 
-Common failure situations that Meshery users might face are described below.
+Common failure situations that Meshplay users might face are described below.
 
-1. No deployment of Meshery Operator, MeshSync, and Broker.
-   1. Probable cause: Meshery Server cannot connect to Kubernetes cluster; cluster unreachable or kubeconfig without proper permissions needed to deploy Meshery Operator; Kubernetes config initialization issues.
-1. Meshery Operator with MeshSync and Broker deployed, but Meshery Server is not receiving data from MeshSync or data the [Meshery Database]({{site.baseurl}}/concepts/architecture/database) is stale.
-   1. Probable cause: Meshery Server lost subscription to Meshery Broker; Broker server not exposed to external IP; MeshSync not connected to Broker; MeshSync not running; Meshery Database is stale.
-   2. The SQL database in Meshery serves as a cache for cluster state. A single button allows users to dump/reset the Meshery Database.
-1. Orphaned MeshSync and Broker controllers - Meshery Operator is not present, but MeshSync and Broker controllers are running.
+1. No deployment of Meshplay Operator, MeshSync, and Broker.
+   1. Probable cause: Meshplay Server cannot connect to Kubernetes cluster; cluster unreachable or kubeconfig without proper permissions needed to deploy Meshplay Operator; Kubernetes config initialization issues.
+1. Meshplay Operator with MeshSync and Broker deployed, but Meshplay Server is not receiving data from MeshSync or data the [Meshplay Database]({{site.baseurl}}/concepts/architecture/database) is stale.
+   1. Probable cause: Meshplay Server lost subscription to Meshplay Broker; Broker server not exposed to external IP; MeshSync not connected to Broker; MeshSync not running; Meshplay Database is stale.
+   2. The SQL database in Meshplay serves as a cache for cluster state. A single button allows users to dump/reset the Meshplay Database.
+1. Orphaned MeshSync and Broker controllers - Meshplay Operator is not present, but MeshSync and Broker controllers are running.
 
-## Operating Meshery without Meshery Operator
+## Operating Meshplay without Meshplay Operator
 
-Meshery Operator, MeshSync, and Broker are crucial components in a Meshery deployment. Meshery can function without them, but some functions of Meshery will be disable / unusable. Whether Meshery Operator is initially deployed via `mesheryctl` command or via Meshery Server, you can monitor the health of the Meshery Operator deployment using either the CLI or UI clients.
+Meshplay Operator, MeshSync, and Broker are crucial components in a Meshplay deployment. Meshplay can function without them, but some functions of Meshplay will be disable / unusable. Whether Meshplay Operator is initially deployed via `meshplayctl` command or via Meshplay Server, you can monitor the health of the Meshplay Operator deployment using either the CLI or UI clients.
 
-## Verifying the Status of Meshery Operator, MeshSync, and Meshery Broker
+## Verifying the Status of Meshplay Operator, MeshSync, and Meshplay Broker
 
-## Troubleshooting using Meshery CLI
+## Troubleshooting using Meshplay CLI
 
-The following commands are available to troubleshoot Meshery Operator, MeshSync, and Broker.
+The following commands are available to troubleshoot Meshplay Operator, MeshSync, and Broker.
 
-**Meshery Server and Adapters**
+**Meshplay Server and Adapters**
 
-- `mesheryctl system status` - Displays the status of Meshery Server and Meshery Adapters.
+- `meshplayctl system status` - Displays the status of Meshplay Server and Meshplay Adapters.
 
-**Meshery Operator, MeshSync, and Broker**
+**Meshplay Operator, MeshSync, and Broker**
 
-- `mesheryctl system check` - Displays the status of Meshery Operator, MeshSync, and Broker.
+- `meshplayctl system check` - Displays the status of Meshplay Operator, MeshSync, and Broker.
 
-## Troubleshooting using Meshery UI
+## Troubleshooting using Meshplay UI
 
 Based on discussed scenarios, the UI exposes tools to perform the following actions:
 
 - (Re)deploy Operator, MeshSync, Broker.
 - Uninstall and Install MeshSync, Broker, Operator.
 - Reset Database.
-- Ad hoc Connectivity Test for Operator, Meshery Broker, MeshSync.
-- Reconnect Meshery Server to Meshery Broker.
+- Ad hoc Connectivity Test for Operator, Meshplay Broker, MeshSync.
+- Reconnect Meshplay Server to Meshplay Broker.
 - Ad hoc Connectivity Test for Kubernetes context.
 - Rediscover kubeconfig, delete, (re)upload kubeconfig.
 
@@ -107,7 +107,7 @@ Future Enhancements for Troubleshooting:
 
 </div>
 
-This documentation provides comprehensive guidance on troubleshooting in Meshery, ensuring users can address common issues efficiently.
+This documentation provides comprehensive guidance on troubleshooting in Meshplay, ensuring users can address common issues efficiently.
 
-{% include related-discussions.html tag="meshery" %}
+{% include related-discussions.html tag="meshplay" %}
 

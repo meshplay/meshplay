@@ -12,7 +12,7 @@ export default function fetchPerformanceResults(variables) {
         page_size
         total_count
         results {
-          meshery_id
+          meshplay_id
           name
           mesh
           performance_profile

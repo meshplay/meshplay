@@ -4,7 +4,7 @@ title: Kyverno
 subtitle: Collaborative and visual infrastructure as design for Kyverno
 image: /assets/img/integrations/kyverno/icons/color/kyverno-color.svg
 permalink: extensibility/integrations/kyverno
-docURL: https://docs.meshery.io/extensibility/integrations/kyverno
+docURL: https://docs.meshplay.io/extensibility/integrations/kyverno
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Container Security
@@ -55,10 +55,10 @@ components:
   whiteIcon: assets/img/integrations/kyverno/components/update-request/icons/white/update-request-white.svg
   description: 
 featureList: [
-  "Use Meshery&ldquos GitHub Actions to test policies and validate resources without need for the Kyverno CLI.",
-  "Use Meshery with Kyverno to inspect image metadata and 
+  "Use Meshplay&ldquos GitHub Actions to test policies and validate resources without need for the Kyverno CLI.",
+  "Use Meshplay with Kyverno to inspect image metadata and 
 match resources using label selectors and wildcards.",
-  "Report Kyverno policy violations alongside your existing Meshery policy reports.
+  "Report Kyverno policy violations alongside your existing Meshplay policy reports.
 "
 ]
 howItWorks: "Block non-conformant resources"

@@ -10,7 +10,7 @@
 			"schemaVersion": "capability.meshplay.io/v1alpha1",
 			"version": "0.7.0",
 			"displayName": "Performance Test",
-			"description": "Initiate a performance test. Meshery will execute the load generation, collect metrics, and present the results.",
+			"description": "Initiate a performance test. Meshplay will execute the load generation, collect metrics, and present the results.",
 			"kind": "action",
 			"type": "operator",
 			"subType": "perf-test",

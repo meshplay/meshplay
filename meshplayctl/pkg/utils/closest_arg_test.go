@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -51,8 +51,8 @@ func TestClosestArgs(t *testing.T) {
 	})
 
 	t.Run("Test levenshtein", func(t *testing.T) {
-		str1 := []rune("meshery")
-		str2 := []rune("mesheryctl")
+		str1 := []rune("meshplay")
+		str2 := []rune("meshplayctl")
 
 		distance := levenshtein(str1, str2)
 		if distance != 3 {
@@ -61,11 +61,11 @@ func TestClosestArgs(t *testing.T) {
 	})
 
 	t.Run("Test FindClosestArg", func(t *testing.T) {
-		argPassed := "meshery"
-		validArgs := []string{"meshery", "mesheryctl", "meshery1", "meshery2"}
+		argPassed := "meshplay"
+		validArgs := []string{"meshplay", "meshplayctl", "meshplay1", "meshplay2"}
 		closestArg := FindClosestArg(argPassed, validArgs)
-		if closestArg != "meshery" {
-			t.Errorf("Expected meshery, got %s", closestArg)
+		if closestArg != "meshplay" {
+			t.Errorf("Expected meshplay, got %s", closestArg)
 		}
 	})
 }

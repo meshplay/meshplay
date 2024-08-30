@@ -4,7 +4,7 @@ title: Kubeflow
 subtitle: Collaborative and visual infrastructure as design for Kubeflow
 image: /assets/img/integrations/kubeflow/icons/color/kubeflow-color.svg
 permalink: extensibility/integrations/kubeflow
-docURL: https://docs.meshery.io/extensibility/integrations/kubeflow
+docURL: https://docs.meshplay.io/extensibility/integrations/kubeflow
 description: 
 integrations-category: Machine Learning
 integrations-subcategory: Machine Learning

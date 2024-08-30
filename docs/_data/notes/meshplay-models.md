@@ -1,21 +1,21 @@
-# Meshery Models
+# Meshplay Models
 
-## A unit of packaging for Meshery’s logical object representation
+## A unit of packaging for Meshplay’s logical object representation
 
 # Prologue and Challenge
 
-As a cloud-native management plane, Meshery should be able to:
+As a cloud-native management plane, Meshplay should be able to:
 
 - Empower its users with a wide range of tools that provide support for the majority of the systems in the cloud and cloud native ecosystems.
 - Abstract away the system specific requirements and help the users focus on getting things done.
 
-Meshery currently has an object model that is internal to Meshery that can capture all these use cases and serve as a way for consistently creating well-defined boundaries around entities that Meshery manages.
+Meshplay currently has an object model that is internal to Meshplay that can capture all these use cases and serve as a way for consistently creating well-defined boundaries around entities that Meshplay manages.
 
 ## Guiding Principles
 
 Adhere to the following design principles:
 
-1. **Establish a set of constructs that will be used across Meshery**
+1. **Establish a set of constructs that will be used across Meshplay**
 2. **Make sure the boundaries are clearly defined with vigil eye to extensibility**
 
    Clearly define what the responsibilities of a construct are and are not.
@@ -32,7 +32,7 @@ Adhere to the following design principles:
 
 ## Design Goals
 
-The goal is to have a model for Meshery that:
+The goal is to have a model for Meshplay that:
 
 1. Sets a foundation for the project to build and expand on (are versioned).
 2. Facilitates a consistent way of communicating between multiple components.
@@ -40,7 +40,7 @@ The goal is to have a model for Meshery that:
 
 #### Open Questions:
 
-1. Where’s the database? - Meshery Cloud / Git
+1. Where’s the database? - Meshplay Cloud / Git
 2. Where is the pattern engine doc?
 
 # Model Constructs
@@ -52,7 +52,7 @@ Each model package can be imported and exported from the system as OCI-compatibl
 ### Model Schema
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: ModelDefinition
 metadata:
   name:
@@ -81,7 +81,7 @@ spec:
 Every construct will be represented in three forms (two static and one dynamic).
 
 1. **Schema** (static) - the skeletal structure representing a logical view of the size, shape, characteristics of a construct.
-   1. _Example: meshery/schemas_
+   1. _Example: meshplay/schemas_
 2. **Definition** (static) - An implementation of the Schema containing specific configuration for the construct at-hand. 2. _Example: Kubernetes Pod_
 3. **Declaration** (static) - A defined construct; A specific deof the Definition. 3. _Example: NGINX container as a Kubernetes Pod_
 4. **Instance** (dynamic) - A realized construct (deployed/discovered); An instantiation of the Declaration. 4. _Example: NGINX-as234z2 pod running in cluster_
@@ -110,7 +110,7 @@ Any user should be able to easily create his own `ComponentDefinition` and publi
 ### Component Schema
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: ComponentDefinition
 format: "CUE",
 metadata:
@@ -150,13 +150,13 @@ Upon instantiating the `ComponentDefintion` with the necessary parameters, some 
 
 _How will we leverage the power of cue while defining schemas?_
 
-## Meshery’s Core Components
+## Meshplay’s Core Components
 
-Currently Meshery has only 1 core component: Application. Below is the ComponentDefinition for it.
+Currently Meshplay has only 1 core component: Application. Below is the ComponentDefinition for it.
 
 ## Design
 
-A `Design` consists of `Components` and `Patterns`. `Design` is the deployable unit in Meshery. `Designs` are how the users can describe the desired infrastructure.
+A `Design` consists of `Components` and `Patterns`. `Design` is the deployable unit in Meshplay. `Designs` are how the users can describe the desired infrastructure.
 
 There **cannot** be two components with the same name
 
@@ -210,7 +210,7 @@ These pairs have `hierarchical inventory relationship`, the policy backing this 
 
    The jsonpath of the component property (`mutated`), to which patch will be applied is captured in the attribute `mutatedRef.`
 
-   The schema of the `patch` action is defined at [patch schema.](https://github.com/meshery/schemas/blob/849c40f5766be18d36a7e250334d43e085b103a0/schemas/meshmodel/schemas/selectors.json#L40)
+   The schema of the `patch` action is defined at [patch schema.](https://github.com/meshplay/schemas/blob/849c40f5766be18d36a7e250334d43e085b103a0/schemas/meshmodel/schemas/selectors.json#L40)
 
    NOTE: The `mutatorRef` sequence must correspond precisely to the `mutatedRef` sequence. For instance, if `mutatorRef` is defined as `[[config, url], [config, name]]`, and `mutatedRef `as `[[configPatch, value], [name]]` then during the patch action, the value at the path [config, url] is patched to mutated component at `[configPatch, value]`, and values at the path` [config, name]` is patched at `[name]`.
 
@@ -287,7 +287,7 @@ Scope: package / model level.
 ### Relationship Schema
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: RelationshipDefinition
 metadata:
 	name: Network Edge Relationship
@@ -374,7 +374,7 @@ Using the Kubernetes Service as a specific example for which the following Relat
 
 ```
 name:
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: Relationship
 metadata:
 	Description: Network edge relationship
@@ -425,7 +425,7 @@ Use cases for Edges in Designer:
 This Relationship identifies a component as being **parent-capable**. In other words, this Relationship identifies the matching component as being a compound node.
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: RelationshipDefinition
 Metadata:
 	name: Namespaced Kubernetes Component
@@ -444,7 +444,7 @@ Metadata:
 This Relationship identifies a component as being **child-capable**. In other words, this Relationship identifies the matching component as being a compound node.
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: RelationshipDefinition
 Metadata:
 	name: MeshMap Compound Node
@@ -463,7 +463,7 @@ Metadata:
 AttributeDefinition Schema
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: AttributeDefinition
 metadata:
 	componentType: compound-node
@@ -485,7 +485,7 @@ nonself:
 ### Policy Schema
 
 ```
-apiVersion: core.meshery.io/v1alpha1
+apiVersion: core.meshplay.io/v1alpha1
 kind: PolicyDefinition
 metadata:
 	type: match

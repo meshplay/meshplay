@@ -4,7 +4,7 @@ title: AWS ElasticSearch Service
 subtitle: Collaborative and visual infrastructure as design for AWS ElasticSearch Service
 image: /assets/img/integrations/aws-elasticsearchservice-controller/icons/color/aws-elasticsearchservice-controller-color.svg
 permalink: extensibility/integrations/aws-elasticsearchservice-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-elasticsearchservice-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-elasticsearchservice-controller
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Logging

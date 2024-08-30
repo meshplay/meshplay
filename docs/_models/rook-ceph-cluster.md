@@ -4,7 +4,7 @@ title: Rook Ceph Cluster
 subtitle: Collaborative and visual infrastructure as design for Rook Ceph Cluster
 image: /assets/img/integrations/rook-ceph-cluster/icons/color/rook-ceph-cluster-color.svg
 permalink: extensibility/integrations/rook-ceph-cluster
-docURL: https://docs.meshery.io/extensibility/integrations/rook-ceph-cluster
+docURL: https://docs.meshplay.io/extensibility/integrations/rook-ceph-cluster
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Database

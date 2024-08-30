@@ -3,14 +3,14 @@ layout: page
 title: Contributing to Model Components
 permalink: project/contributing/contributing-components
 redirect_from: project/contributing/contributing-components/
-abstract: How to contribute to Meshery Model Components
+abstract: How to contribute to Meshplay Model Components
 language: en
 type: project
 category: contributing
 list: include
 ---
 
-In Meshery, a [Components](/concepts/logical/components) is a fundamental building block used to represent and define the infrastructure under management. Each component provides granular and specific support for your infrastructure and applications. Once registered with Meshery Server (in the [Registry](/concepts/logical/registry)), components are available for inclusion in [Designs](/concepts/logical/designs) that you create. Components can be created and published by anyone, allowing you to share you custom extensions with the community.
+In Meshplay, a [Components](/concepts/logical/components) is a fundamental building block used to represent and define the infrastructure under management. Each component provides granular and specific support for your infrastructure and applications. Once registered with Meshplay Server (in the [Registry](/concepts/logical/registry)), components are available for inclusion in [Designs](/concepts/logical/designs) that you create. Components can be created and published by anyone, allowing you to share you custom extensions with the community.
 
 ## Overview of Steps to Create Components
 
@@ -52,11 +52,11 @@ Some UI schema elements have an options property that allows for further configu
 `ui:field`: The name of a custom field
 `classNames`: The class names to put on the component
 
-Meshery UI uses the `react-jsonschema-form` library to render forms. See the [RJSF documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) for more information.
+Meshplay UI uses the `react-jsonschema-form` library to render forms. See the [RJSF documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) for more information.
 
 #### Customize Component Visual Representation
 
-Meshery contributors who want to customize the visual representation of a Meshery component can do so by modifying the component's metadata. This metadata includes fields for specifying the component's:
+Meshplay contributors who want to customize the visual representation of a Meshplay component can do so by modifying the component's metadata. This metadata includes fields for specifying the component's:
 
 * **SVG**: The SVG file used to represent the component visually.
 * **Primary Color**: The primary color used for the component in hex format.
@@ -75,7 +75,7 @@ Meshery contributors who want to customize the visual representation of a Mesher
    "isCustomResource": false,
    "isModelAnnotation": "FALSE",
    "isNamespaced": false,
-   "logoURL": "Created by Meshery Authors",
+   "logoURL": "Created by Meshplay Authors",
    "model": "kubernetes",
    "modelDisplayName": "Kubernetes",
    "primaryColor": "#326CE5",
@@ -110,7 +110,7 @@ Create a relationship definition as a JSON file, placing this new definition fil
 - `version`: The version of the component definition (e.g., `v1.0.0`).
 - `description`: A characterization of the component, its purpose and behavior.
 
-{% include alert.html title="Use Existing Components as Examples" type="info" content="Browse the <a href='https://github.com/meshery/meshery/tree/master/server/meshmodel'>existing components in the Meshery repository</a> to find examples of how to existing component, using them as a template." %}
+{% include alert.html title="Use Existing Components as Examples" type="info" content="Browse the <a href='https://github.com/meshplay/meshplay/tree/master/server/meshmodel'>existing components in the Meshplay repository</a> to find examples of how to existing component, using them as a template." %}
 
 ## Postwork
 
@@ -125,10 +125,10 @@ Create a relationship definition as a JSON file, placing this new definition fil
 
 <a class="anchorjs-link" id="component-contribution"></a>
 
-#### 5. Contribute your component to the Meshery project
+#### 5. Contribute your component to the Meshplay project
 
-Submit a pull request to the Meshery repository with your new component definition, so that all users can benefit from the component(s) you have defined.
+Submit a pull request to the Meshplay repository with your new component definition, so that all users can benefit from the component(s) you have defined.
 
 Keeping your component definition in a separate file allows for easier management and review of the component(s) you have defined.
 
-{% include alert.html title="Keeping your custom Components private" type="info" content="Alternatively, if you would like to keep the component definition private, you can bundle your component(s) in a custom model, import the custom model into your Meshery deployment. Your private component definition(s) will be registered in your Meshery Server's <a href='/concepts/logical/registry'>registry</a> and available for use within your Meshery deployment." %}
+{% include alert.html title="Keeping your custom Components private" type="info" content="Alternatively, if you would like to keep the component definition private, you can bundle your component(s) in a custom model, import the custom model into your Meshplay deployment. Your private component definition(s) will be registered in your Meshplay Server's <a href='/concepts/logical/registry'>registry</a> and available for use within your Meshplay deployment." %}

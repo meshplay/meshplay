@@ -1,11 +1,11 @@
 {
-  "icon": "meshery-logo-light.svg",
+  "icon": "meshplay-logo-light.svg",
   "vm": {
     "composefile": "docker-compose.yaml"
   },
   "ui": {
     "dashboard-tab": {
-      "title": "Meshery",
+      "title": "Meshplay",
       "src": "/index.html",
       "root": "/ui"
     }
@@ -15,17 +15,17 @@
       {
         "darwin": [
           {
-            "path": "/mesheryctl/darwin/mesheryctl"
+            "path": "/meshplayctl/darwin/meshplayctl"
           }
         ],
         "windows": [
           {
-            "path": "/mesheryctl/windows/mesheryctl.exe"
+            "path": "/meshplayctl/windows/meshplayctl.exe"
           }
         ],
         "linux": [
           {
-            "path": "/mesheryctl/linux/mesheryctl"
+            "path": "/meshplayctl/linux/meshplayctl"
           }
         ]
       }

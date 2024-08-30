@@ -4,7 +4,7 @@ title: Piraeus Datastore
 subtitle: Collaborative and visual infrastructure as design for Piraeus Datastore
 image: /assets/img/integrations/piraeus-datastore/icons/color/piraeus-datastore-color.svg
 permalink: extensibility/integrations/piraeus-datastore
-docURL: https://docs.meshery.io/extensibility/integrations/piraeus datastore
+docURL: https://docs.meshplay.io/extensibility/integrations/piraeus datastore
 description: 
 integrations-category: Cloud Native Storage
 integrations-subcategory: Database

@@ -1,5 +1,5 @@
 /**
- * Finds the host on which Meshery is running, it could be
+ * Finds the host on which Meshplay is running, it could be
  * localhost:{port} or an IP adress or a webadress
  * @returns {string} application host
  */
@@ -8,7 +8,7 @@ function getHost() {
 }
 
 /**
- * The protocol used by the Meshery Application.
+ * The protocol used by the Meshplay Application.
  * It could be , "http:" or "https:"
  * @returns {string}
  */
@@ -18,7 +18,7 @@ export function getProtocol() {
 
 /**
  *
- * @returns {string} base url on which Meshery is runnning,
+ * @returns {string} base url on which Meshplay is runnning,
  * @example http://localhost:9081
  */
 export function getWebAdress() {

@@ -1,6 +1,6 @@
-import subscribeMesheryControllersStatus from '../graphql/subscriptions/MesheryControllersStatusSubscription';
-import { isMesheryControllerStateSubscriptionDataUpdated } from './comparatorFns';
-import { mergeMesheryController } from './mergeFns';
+import subscribeMeshplayControllersStatus from '../graphql/subscriptions/MeshplayControllersStatusSubscription';
+import { isMeshplayControllerStateSubscriptionDataUpdated } from './comparatorFns';
+import { mergeMeshplayController } from './mergeFns';
 
 // export const MESHSYNC_EVENT_SUBSCRIPTION = 'MESHSYNC_EVENT_SUBSCRIPTION';
 // export const OPERATOR_EVENT_SUBSCRIPTION = 'OPERATOR_EVENT_SUBSCRIPTION';
@@ -14,10 +14,10 @@ export const fnMapping = {
   //   mergeFn : mergeMeshSyncSubscription
   // },
   MESHPLAY_CONTROLLER_SUBSCRIPTION: {
-    eventName: 'subscribeMesheryControllersStatus',
-    subscriptionFn: subscribeMesheryControllersStatus,
-    mergeFn: mergeMesheryController,
-    comparatorFn: isMesheryControllerStateSubscriptionDataUpdated,
+    eventName: 'subscribeMeshplayControllersStatus',
+    subscriptionFn: subscribeMeshplayControllersStatus,
+    mergeFn: mergeMeshplayController,
+    comparatorFn: isMeshplayControllerStateSubscriptionDataUpdated,
   },
   // OPERATOR_EVENT_SUBSCRIPTION: {
   //   eventName: 'operator',

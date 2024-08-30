@@ -24,9 +24,9 @@ import { toggleCatalogContent, updateProgress } from '../lib/store';
 import PromptComponent from './PromptComponent';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import FullscreenExitIcon from '@material-ui/icons/FullscreenExit';
-import { FILE_OPS, MesheryFiltersCatalog, VISIBILITY } from '../utils/Enum';
+import { FILE_OPS, MeshplayFiltersCatalog, VISIBILITY } from '../utils/Enum';
 import ViewSwitch from './ViewSwitch';
-import FiltersGrid from './MesheryFilters/FiltersGrid';
+import FiltersGrid from './MeshplayFilters/FiltersGrid';
 import { trueRandom } from '../lib/trueRandom';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import PublicIcon from '@material-ui/icons/Public';
@@ -244,7 +244,7 @@ function resetSelectedFilter() {
   return { show: false, filter: null };
 }
 
-function MesheryFilters({
+function MeshplayFilters({
   updateProgress,
   user,
   classes,
@@ -395,7 +395,7 @@ function MesheryFilters({
     if (capabilitiesData) {
       const capabilitiesRegistry = capabilitiesData;
       const filtersCatalogCapability = capabilitiesRegistry?.capabilities.filter(
-        (val) => val.feature === MesheryFiltersCatalog,
+        (val) => val.feature === MeshplayFiltersCatalog,
       );
       if (filtersCatalogCapability?.length > 0) setCanPublishFilter(true);
     }
@@ -446,7 +446,7 @@ function MesheryFilters({
           title: `Unpublish Catalog item?`,
           subtitle: `Are you sure that you want to unpublish "${filter?.name}"?`,
           options: ['Yes', 'No'],
-          showInfoIcon: `Unpublishing a catolog item removes the item from the public-facing catalog (a public website accessible to anonymous visitors at meshery.io/catalog). The catalog item's visibility will change to either public (or private with a subscription). The ability to for other users to continue to access, edit, clone and collaborate on your content depends upon the assigned visibility level (public or private). Prior collaborators (users with whom you have shared your catalog item) will retain access. However, you can always republish it whenever you want.  Remember: unpublished catalog items can still be available to other users if that item is set to public visibility. For detailed information, please refer to the documentation https://docs.meshery.io/concepts/designs.`,
+          showInfoIcon: `Unpublishing a catolog item removes the item from the public-facing catalog (a public website accessible to anonymous visitors at meshplay.io/catalog). The catalog item's visibility will change to either public (or private with a subscription). The ability to for other users to continue to access, edit, clone and collaborate on your content depends upon the assigned visibility level (public or private). Prior collaborators (users with whom you have shared your catalog item) will retain access. However, you can always republish it whenever you want.  Remember: unpublished catalog items can still be available to other users if that item is set to public visibility. For detailed information, please refer to the documentation https://docs.meshplay.io/concepts/designs.`,
         });
         if (response === 'Yes') {
           updateProgress({ showProgress: true });
@@ -556,13 +556,13 @@ function MesheryFilters({
         updateProgress({ showProgress: false });
         if (user.role_names.includes('admin')) {
           notify({
-            message: `${publishModal.filter?.name} filter published to Meshery Catalog`,
+            message: `${publishModal.filter?.name} filter published to Meshplay Catalog`,
             event_type: EVENT_TYPES.SUCCESS,
           });
         } else {
           notify({
             message:
-              'filters queued for publishing into Meshery Catalog. Maintainers notified for review',
+              'filters queued for publishing into Meshplay Catalog. Maintainers notified for review',
             event_type: EVENT_TYPES.SUCCESS,
           });
         }
@@ -747,7 +747,7 @@ function MesheryFilters({
       let uint8 = new Uint8Array(event.target.result);
       handleSubmit({
         data: Array.from(uint8),
-        name: file?.name || 'meshery_' + Math.floor(trueRandom() * 100),
+        name: file?.name || 'meshplay_' + Math.floor(trueRandom() * 100),
         type: FILE_OPS.FILE_UPLOAD,
         metadata: metadata,
       });
@@ -978,7 +978,7 @@ function MesheryFilters({
   const options = {
     filter: false,
     viewColumns: false,
-    sort: !(user && user.user_id === 'meshery'),
+    sort: !(user && user.user_id === 'meshplay'),
     search: false,
     filterType: 'textField',
     responsive: 'standard',
@@ -1390,7 +1390,7 @@ const PublishModal = React.memo((props) => {
           uiSchema={publishCatalogItemUiSchema}
           submitBtnText="Submit for Approval"
           handleSubmit={handleSubmit}
-          helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshery.io/concepts/catalog)"
+          helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
           handleClose={handleClose}
         />
       </SistentModal>
@@ -1412,4 +1412,4 @@ const mapStateToProps = (state) => {
 };
 
 // @ts-ignore
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(MesheryFilters));
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(MeshplayFilters));

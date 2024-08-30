@@ -1,6 +1,6 @@
 {{- if .Values.ingress.enabled -}}
     {{- $pathType := .Values.ingress.pathType | default "ImplementationSpecific" -}}
-{{- $fullName := include "meshery-operator.fullname" . -}}
+{{- $fullName := include "meshplay-operator.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: networking.k8s.io/v1
@@ -12,7 +12,7 @@ metadata:
   name: {{ $fullName }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "meshery-operator.labels" . | nindent 4 }}
+    {{- include "meshplay-operator.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

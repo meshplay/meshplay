@@ -11,9 +11,9 @@ import (
 	"github.com/gofrs/uuid"
 	guid "github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/meshes"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/pattern/utils"
+	"github.com/khulnasoft/meshplay/server/meshes"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/pattern/utils"
 	"github.com/layer5io/meshkit/models/events"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 	"github.com/meshplay/schemas/models/v1beta1"
@@ -24,11 +24,11 @@ import (
 // swagger:route GET /api/filter/file/{id} FiltersAPI idGetFilterFile
 // Handle GET request for filter file with given id
 //
-// Returns the Meshery Filter file saved by the current user with the given id
+// Returns the Meshplay Filter file saved by the current user with the given id
 // responses:
 //
 //	200: meshplayFilterResponseWrapper
-func (h *Handler) GetMesheryFilterFileHandler(
+func (h *Handler) GetMeshplayFilterFileHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
 	_ *models.Preference,
@@ -37,7 +37,7 @@ func (h *Handler) GetMesheryFilterFileHandler(
 ) {
 	filterID := mux.Vars(r)["id"]
 
-	resp, err := provider.GetMesheryFilterFile(r, filterID)
+	resp, err := provider.GetMeshplayFilterFile(r, filterID)
 	if err != nil {
 		h.log.Error(ErrGetFilter(err))
 		http.Error(rw, ErrGetFilter(err).Error(), http.StatusNotFound)
@@ -63,7 +63,7 @@ func (h *Handler) FilterFileRequestHandler(
 	provider models.Provider,
 ) {
 	if r.Method == http.MethodGet {
-		h.GetMesheryFiltersHandler(rw, r, prefObj, user, provider)
+		h.GetMeshplayFiltersHandler(rw, r, prefObj, user, provider)
 		return
 	}
 
@@ -74,9 +74,9 @@ func (h *Handler) FilterFileRequestHandler(
 }
 
 // swagger:route POST /api/filter FiltersAPI idPostFilterFile
-// Handle POST requests for Meshery Filters
+// Handle POST requests for Meshplay Filters
 //
-// Used to save/update a Meshery Filter
+// Used to save/update a Meshplay Filter
 // responses:
 //
 //	200: meshplayFilterResponseWrapper
@@ -100,7 +100,7 @@ func (h *Handler) handleFilterPOST(
 		OperationId:   guid.NewString(),
 		EventType:     meshes.EventType_INFO,
 	}
-	var parsedBody *models.MesheryFilterRequestBody
+	var parsedBody *models.MeshplayFilterRequestBody
 
 	actedUpon := &userID
 	if err := json.NewDecoder(r.Body).Decode(&parsedBody); err != nil {
@@ -165,7 +165,7 @@ func (h *Handler) handleFilterPOST(
 			}
 		}
 
-		meshplayFilter := models.MesheryFilter{
+		meshplayFilter := models.MeshplayFilter{
 			FilterFile:     parsedBody.FilterData.FilterFile,
 			Name:           parsedBody.FilterData.Name,
 			ID:             parsedBody.FilterData.ID,
@@ -177,7 +177,7 @@ func (h *Handler) handleFilterPOST(
 		}
 
 		if parsedBody.Save {
-			resp, err := provider.SaveMesheryFilter(token, &meshplayFilter)
+			resp, err := provider.SaveMeshplayFilter(token, &meshplayFilter)
 			if err != nil {
 				errFilterSave := ErrSaveFilter(err)
 				h.log.Error(errFilterSave)
@@ -201,7 +201,7 @@ func (h *Handler) handleFilterPOST(
 			return
 		}
 
-		byt, err := json.Marshal([]models.MesheryFilter{meshplayFilter})
+		byt, err := json.Marshal([]models.MeshplayFilter{meshplayFilter})
 		if err != nil {
 			h.log.Error(ErrEncodeFilter(err))
 			http.Error(rw, ErrEncodeFilter(err).Error(), http.StatusInternalServerError)
@@ -247,7 +247,7 @@ func (h *Handler) handleFilterPOST(
 // responses:
 //
 //	200: meshplayFiltersResponseWrapper
-func (h *Handler) GetMesheryFiltersHandler(
+func (h *Handler) GetMeshplayFiltersHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
 	_ *models.Preference,
@@ -271,7 +271,7 @@ func (h *Handler) GetMesheryFiltersHandler(
 		}
 	}
 
-	resp, err := provider.GetMesheryFilters(tokenString, q.Get("page"), q.Get("pagesize"), q.Get("search"), q.Get("order"), filter.Visibility)
+	resp, err := provider.GetMeshplayFilters(tokenString, q.Get("page"), q.Get("pagesize"), q.Get("search"), q.Get("order"), filter.Visibility)
 	if err != nil {
 		h.log.Error(ErrFetchFilter(err))
 		http.Error(rw, ErrFetchFilter(err).Error(), http.StatusInternalServerError)
@@ -282,7 +282,7 @@ func (h *Handler) GetMesheryFiltersHandler(
 	fmt.Fprint(rw, string(resp))
 }
 
-// swagger:route GET /api/filter/catalog FiltersAPI idGetCatalogMesheryFiltersHandler
+// swagger:route GET /api/filter/catalog FiltersAPI idGetCatalogMeshplayFiltersHandler
 // Handle GET request for catalog filters
 //
 // # Filters can be further filtered through query parameter
@@ -297,7 +297,7 @@ func (h *Handler) GetMesheryFiltersHandler(
 // responses:
 //
 //	200: meshplayFiltersResponseWrapper
-func (h *Handler) GetCatalogMesheryFiltersHandler(
+func (h *Handler) GetCatalogMeshplayFiltersHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
 	_ *models.Preference,
@@ -307,7 +307,7 @@ func (h *Handler) GetCatalogMesheryFiltersHandler(
 	q := r.URL.Query()
 	tokenString := r.Context().Value(models.TokenCtxKey).(string)
 
-	resp, err := provider.GetCatalogMesheryFilters(tokenString, q.Get("page"), q.Get("pagesize"), q.Get("search"), q.Get("order"))
+	resp, err := provider.GetCatalogMeshplayFilters(tokenString, q.Get("page"), q.Get("pagesize"), q.Get("search"), q.Get("order"))
 	if err != nil {
 		h.log.Error(ErrFetchFilter(err))
 		http.Error(rw, ErrFetchFilter(err).Error(), http.StatusInternalServerError)
@@ -318,16 +318,16 @@ func (h *Handler) GetCatalogMesheryFiltersHandler(
 	fmt.Fprint(rw, string(resp))
 }
 
-// swagger:route DELETE /api/filter/{id} FiltersAPI idDeleteMesheryFilter
-// Handle Delete for a Meshery Filter
+// swagger:route DELETE /api/filter/{id} FiltersAPI idDeleteMeshplayFilter
+// Handle Delete for a Meshplay Filter
 //
 // Deletes a meshplay filter with ID: id
 // responses:
 //
 //	200: noContentWrapper
 //
-// DeleteMesheryFilterHandler deletes a filter with the given id
-func (h *Handler) DeleteMesheryFilterHandler(
+// DeleteMeshplayFilterHandler deletes a filter with the given id
+func (h *Handler) DeleteMeshplayFilterHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
 	_ *models.Preference,
@@ -336,7 +336,7 @@ func (h *Handler) DeleteMesheryFilterHandler(
 ) {
 	filterID := mux.Vars(r)["id"]
 
-	resp, err := provider.DeleteMesheryFilter(r, filterID)
+	resp, err := provider.DeleteMeshplayFilter(r, filterID)
 	if err != nil {
 		h.log.Error(ErrDeleteFilter(err))
 		http.Error(rw, ErrDeleteFilter(err).Error(), http.StatusInternalServerError)
@@ -348,16 +348,16 @@ func (h *Handler) DeleteMesheryFilterHandler(
 	fmt.Fprint(rw, string(resp))
 }
 
-// swagger:route POST /api/filter/clone/{id} FiltersAPI idCloneMesheryFilter
-// Handle Clone for a Meshery Filter
+// swagger:route POST /api/filter/clone/{id} FiltersAPI idCloneMeshplayFilter
+// Handle Clone for a Meshplay Filter
 //
 // Creates a local copy of a published filter with id: id
 // responses:
 //
 //	200: noContentWrapper
 //
-// CloneMesheryFilterHandler clones a filter with the given id
-func (h *Handler) CloneMesheryFilterHandler(
+// CloneMeshplayFilterHandler clones a filter with the given id
+func (h *Handler) CloneMeshplayFilterHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
 	_ *models.Preference,
@@ -365,14 +365,14 @@ func (h *Handler) CloneMesheryFilterHandler(
 	provider models.Provider,
 ) {
 	filterID := mux.Vars(r)["id"]
-	var parsedBody *models.MesheryCloneFilterRequestBody
+	var parsedBody *models.MeshplayCloneFilterRequestBody
 	if err := json.NewDecoder(r.Body).Decode(&parsedBody); err != nil || filterID == "" {
 		h.log.Error(ErrRequestBody(err))
 		http.Error(rw, ErrRequestBody(err).Error(), http.StatusBadRequest)
 		return
 	}
 
-	resp, err := provider.CloneMesheryFilter(r, filterID, parsedBody)
+	resp, err := provider.CloneMeshplayFilter(r, filterID, parsedBody)
 	if err != nil {
 		h.log.Error(ErrCloneFilter(err))
 		http.Error(rw, ErrCloneFilter(err).Error(), http.StatusInternalServerError)
@@ -385,9 +385,9 @@ func (h *Handler) CloneMesheryFilterHandler(
 }
 
 // swagger:route POST /api/filter/catalog/publish FiltersAPI idPublishCatalogFilterHandler
-// Handle Publish for a Meshery Filter
+// Handle Publish for a Meshplay Filter
 //
-// Publishes filter to Meshery Catalog by setting visibility to published and setting catalog data
+// Publishes filter to Meshplay Catalog by setting visibility to published and setting catalog data
 // responses:
 //
 //	202: noContentWrapper
@@ -412,7 +412,7 @@ func (h *Handler) PublishCatalogFilterHandler(
 		WithAction("publish").
 		ActedUpon(userID)
 
-	var parsedBody *models.MesheryCatalogFilterRequestBody
+	var parsedBody *models.MeshplayCatalogFilterRequestBody
 	if err := json.NewDecoder(r.Body).Decode(&parsedBody); err != nil {
 		h.log.Error(ErrRequestBody(err))
 		e := eventBuilder.WithSeverity(events.Error).
@@ -463,9 +463,9 @@ func (h *Handler) PublishCatalogFilterHandler(
 }
 
 // swagger:route DELETE /api/filter/catalog/unpublish FiltersAPI idUnPublishCatalogFilterHandler
-// Handle UnPublish for a Meshery Filter
+// Handle UnPublish for a Meshplay Filter
 //
-// Unpublishes filter from Meshery Catalog by setting visibility to private and removing catalog data from website
+// Unpublishes filter from Meshplay Catalog by setting visibility to private and removing catalog data from website
 // responses:
 //
 //	200: noContentWrapper
@@ -490,7 +490,7 @@ func (h *Handler) UnPublishCatalogFilterHandler(
 		WithAction("unpublish_request").
 		ActedUpon(userID)
 
-	var parsedBody *models.MesheryCatalogFilterRequestBody
+	var parsedBody *models.MeshplayCatalogFilterRequestBody
 	if err := json.NewDecoder(r.Body).Decode(&parsedBody); err != nil {
 		h.log.Error(ErrRequestBody(err))
 		e := eventBuilder.WithSeverity(events.Error).
@@ -538,15 +538,15 @@ func (h *Handler) UnPublishCatalogFilterHandler(
 	fmt.Fprint(rw, string(resp))
 }
 
-// swagger:route GET /api/filter/{id} FiltersAPI idGetMesheryFilter
-// Handle GET request for a Meshery Filter
+// swagger:route GET /api/filter/{id} FiltersAPI idGetMeshplayFilter
+// Handle GET request for a Meshplay Filter
 //
-// Fetches the Meshery Filter with the given id
+// Fetches the Meshplay Filter with the given id
 // responses:
 // 	200: meshplayFilterResponseWrapper
 
-// GetMesheryFilterHandler fetched the filter with the given id
-func (h *Handler) GetMesheryFilterHandler(
+// GetMeshplayFilterHandler fetched the filter with the given id
+func (h *Handler) GetMeshplayFilterHandler(
 	rw http.ResponseWriter,
 	r *http.Request,
 	_ *models.Preference,
@@ -555,7 +555,7 @@ func (h *Handler) GetMesheryFilterHandler(
 ) {
 	filterID := mux.Vars(r)["id"]
 
-	resp, err := provider.GetMesheryFilter(r, filterID)
+	resp, err := provider.GetMeshplayFilter(r, filterID)
 	if err != nil {
 		h.log.Error(ErrGetFilter(err))
 		http.Error(rw, ErrGetFilter(err).Error(), http.StatusNotFound)
@@ -567,15 +567,15 @@ func (h *Handler) GetMesheryFilterHandler(
 }
 
 func (h *Handler) formatFilterOutput(rw http.ResponseWriter, content []byte, _ string, res *meshes.EventsResponse, eventBuilder *events.EventBuilder) {
-	contentMesheryFilterSlice := make([]models.MesheryFilter, 0)
+	contentMeshplayFilterSlice := make([]models.MeshplayFilter, 0)
 	names := []string{}
-	if err := json.Unmarshal(content, &contentMesheryFilterSlice); err != nil {
+	if err := json.Unmarshal(content, &contentMeshplayFilterSlice); err != nil {
 		http.Error(rw, ErrDecodeFilter(err).Error(), http.StatusInternalServerError)
 
 		return
 	}
 
-	result := []models.MesheryFilter{}
+	result := []models.MeshplayFilter{}
 
 	data, err := json.Marshal(&result)
 	if err != nil {
@@ -587,7 +587,7 @@ func (h *Handler) formatFilterOutput(rw http.ResponseWriter, content []byte, _ s
 
 	rw.Header().Set("Content-Type", "application/json")
 	fmt.Fprint(rw, string(data))
-	for _, filter := range contentMesheryFilterSlice {
+	for _, filter := range contentMeshplayFilterSlice {
 		names = append(names, filter.Name)
 		if filter.ID != nil {
 			eventBuilder.ActedUpon(*filter.ID)

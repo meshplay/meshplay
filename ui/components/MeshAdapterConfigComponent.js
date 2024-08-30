@@ -300,7 +300,7 @@ const MeshAdapterConfigComponent = (props) => {
       return;
     }
 
-    const adapterLabel = selectedAvailableAdapter.label.replace(/^meshery-/, '').toUpperCase();
+    const adapterLabel = selectedAvailableAdapter.label.replace(/^meshplay-/, '').toUpperCase();
     setAdapterStates((prevState) => ({
       ...prevState,
       [adapterLabel]: STATUS.DEPLOYING,
@@ -376,7 +376,7 @@ const MeshAdapterConfigComponent = (props) => {
     const adapterLabel = (
       availableAdapters.find((adapter) => adapter.value === targetPort)?.label || ''
     )
-      .replace(/^meshery-/, '')
+      .replace(/^meshplay-/, '')
       .toUpperCase();
 
     setAdapterStates((prevState) => ({
@@ -425,7 +425,7 @@ const MeshAdapterConfigComponent = (props) => {
       showAdapters = (
         <div className={classes.alignRight}>
           {meshAdapters.map((adapter) => {
-            let image = '/static/img/meshery-logo.png';
+            let image = '/static/img/meshplay-logo.png';
             // let logoIcon = <img src={image} className={classes.icon} />;
             if (adapter.name) {
               image = '/static/img/' + adapter.name.toLowerCase() + '.svg';
@@ -435,7 +435,7 @@ const MeshAdapterConfigComponent = (props) => {
             return (
               <Tooltip
                 key={adapter.uniqueID}
-                title={`Meshery Adapter for
+                title={`Meshplay Adapter for
                         ${adapter.name
                           .toLowerCase()
                           .split(' ')

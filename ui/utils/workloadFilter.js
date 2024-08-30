@@ -11,7 +11,7 @@ export function groupWorkloadByVersion(meshfilteredWorkloads) {
     const version =
       wtSet.workload?.oam_definition?.spec?.metadata?.meshVersion ||
       wtSet.workload.oam_definition?.spec?.metadata?.version ||
-      'Meshery';
+      'Meshplay';
     if (version) {
       let versionedFilteredMesh = versionedFilteredWorkloads[version] || [];
       versionedFilteredMesh.push(wtSet);

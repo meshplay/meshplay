@@ -1,4 +1,4 @@
-// Package handlers Meshery API.
+// Package handlers Meshplay API.
 //
 // the purpose of this application is to provide an application
 // that is using plain go code to define an API
@@ -34,9 +34,9 @@ import (
 	"bytes"
 
 	"github.com/go-openapi/strfmt"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/connections"
-	"github.com/layer5io/meshplay/server/models/environments"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 	"github.com/layer5io/meshkit/models/events"
 	SMP "github.com/layer5io/service-mesh-performance/spec"
 	v1 "k8s.io/api/core/v1"
@@ -87,14 +87,14 @@ type meshplayPatternsResponseWrapper struct {
 // swagger:response meshplayPatternResponseWrapper
 type meshplayPatternResponseWrapper struct {
 	// in: body
-	Body models.MesheryPattern
+	Body models.MeshplayPattern
 }
 
 // swagger:response noContentWrapper
 type noContentWrapper struct {
 }
 
-// swagger:parameters idGetMesheryPattern idDeleteMesheryPattern idGetSinglePerformanceProfile idDeletePerformanceProfile idGETProfileResults idDeleteSchedules idGetSingleSchedule idDeleteMesheryApplicationFile idGetMesheryApplication idDeleteMesheryFilter idGetMesheryFilter
+// swagger:parameters idGetMeshplayPattern idDeleteMeshplayPattern idGetSinglePerformanceProfile idDeletePerformanceProfile idGETProfileResults idDeleteSchedules idGetSingleSchedule idDeleteMeshplayApplicationFile idGetMeshplayApplication idDeleteMeshplayFilter idGetMeshplayFilter
 type IDParameterWrapper struct {
 	// id for a specific
 	// in: path
@@ -329,7 +329,7 @@ type providerPropertiesRespWrapper struct {
 	Body models.ProviderProperties
 }
 
-// Returns Meshery version
+// Returns Meshplay version
 // swagger:response meshplayVersionRespWrapper
 type meshplayVersionRespWrapper struct {
 	// in: body
@@ -340,7 +340,7 @@ type meshplayVersionRespWrapper struct {
 // swagger:response applicationFilesResponseWrapper
 type applicationFilesResponseWrapper struct {
 	// in: body
-	Body *models.MesheryApplication
+	Body *models.MeshplayApplication
 }
 
 // Parameters for uploading a yaml file
@@ -352,11 +352,11 @@ type applicationFileParamsWrapper struct {
 	FormFile *bytes.Buffer `json:"Upload Yaml/Yml File"`
 }
 
-// Fetches a single Meshery Application
+// Fetches a single Meshplay Application
 // swagger:response meshplayApplicationResponseWrapper
 type meshplayApplicationResponseWrapper struct {
 	// in: body
-	Body models.MesheryApplication
+	Body models.MeshplayApplication
 }
 
 // Returns all meshplay applications
@@ -394,7 +394,7 @@ type adapterOpsParamsWrapper struct {
 // swagger:response meshplayFilterResponseWrapper
 type meshplayFilterResponseWrapper struct {
 	// in: body
-	Body models.MesheryFilter
+	Body models.MeshplayFilter
 }
 
 // Returns all meshplay filters
@@ -408,7 +408,7 @@ type meshplayFiltersResponseWrapper struct {
 // swagger:response FilterFilesResponseWrapper
 type filterFilesResponseWrapper struct {
 	// in: body
-	Body *models.MesheryFilter
+	Body *models.MeshplayFilter
 }
 
 // Returns meshmodel models
@@ -485,7 +485,7 @@ type systemDatabaseResponseWrapper struct {
 // swagger:response systemK8sContextsResponseWrapper
 type systemK8sContextsResponseWrapper struct {
 	// in: body
-	Body *models.MesheryK8sContextPage
+	Body *models.MeshplayK8sContextPage
 }
 
 // Returns SMI results
@@ -495,7 +495,7 @@ type smiResultsResponseWrapper struct {
 	Body *models.SmiResultPage
 }
 
-// Returns Meshery application types
+// Returns Meshplay application types
 // swagger:response meshplayApplicationTypesResponseWrapper
 type meshplayApplicationTypesResponseWrapper struct {
 	// in: body
@@ -609,5 +609,5 @@ type meshsyncResourcesKindsResponseWrapper struct {
 // Payload for meshplay pattern file deploy handler idPostDeployPattern idDeleteDeployPattern
 type meshplayPatternFileDeployPayloadWrapper struct {
 	// in: body
-	Body *models.MesheryPatternFileDeployPayload
+	Body *models.MeshplayPatternFileDeployPayload
 }

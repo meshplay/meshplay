@@ -40,7 +40,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 // Add links to docs
-const MesherySettingsEnvButtons = () => {
+const MeshplaySettingsEnvButtons = () => {
   let k8sfileElementVal = '';
   let formData = new FormData();
   const ref = useRef(null);
@@ -162,7 +162,7 @@ const MesherySettingsEnvButtons = () => {
       ),
       options: ['IMPORT', 'CANCEL'],
       showInfoIcon:
-        'If your config has not been autodetected, you can manually upload your kubeconfig file (or any number of kubeconfig files). By default, Meshery will attempt to connect to and deploy Meshery Operator to each reachable context contained in the imported kubeconfig files. [See Managing Kubernetes Clusters for more information](https://docs.meshery.io/installation/kubernetes).',
+        'If your config has not been autodetected, you can manually upload your kubeconfig file (or any number of kubeconfig files). By default, Meshplay will attempt to connect to and deploy Meshplay Operator to each reachable context contained in the imported kubeconfig files. [See Managing Kubernetes Clusters for more information](https://docs.meshplay.io/installation/kubernetes).',
     });
 
     if (response === 'IMPORT') {
@@ -309,4 +309,4 @@ const K8sConnectionItems = ({ status, contexts, ping }) => {
     </Grid>
   );
 };
-export default MesherySettingsEnvButtons;
+export default MeshplaySettingsEnvButtons;

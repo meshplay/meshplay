@@ -4,7 +4,7 @@ title: Trickster
 subtitle: Collaborative and visual infrastructure as design for Trickster
 image: /assets/img/integrations/trickster/icons/color/trickster-color.svg
 permalink: extensibility/integrations/trickster
-docURL: https://docs.meshery.io/extensibility/integrations/trickster
+docURL: https://docs.meshplay.io/extensibility/integrations/trickster
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

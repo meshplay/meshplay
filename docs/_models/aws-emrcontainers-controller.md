@@ -4,7 +4,7 @@ title: AWS EMR Containers
 subtitle: Collaborative and visual infrastructure as design for AWS EMR Containers
 image: /assets/img/integrations/aws-emrcontainers-controller/icons/color/aws-emrcontainers-controller-color.svg
 permalink: extensibility/integrations/aws-emrcontainers-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-emrcontainers-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-emrcontainers-controller
 description: 
 integrations-category: Analytics
 integrations-subcategory: Analytics

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-config-minikube
-permalink: reference/mesheryctl/system/config/minikube
-redirect_from: reference/mesheryctl/system/config/minikube/
+title: meshplayctl-system-config-minikube
+permalink: reference/meshplayctl/system/config/minikube
+redirect_from: reference/meshplayctl/system/config/minikube/
 type: reference
 display-title: "false"
 language: en
@@ -10,34 +10,34 @@ command: system
 subcommand: config
 ---
 
-# mesheryctl system config minikube
+# meshplayctl system config minikube
 
-Configure Meshery to use minikube cluster
+Configure Meshplay to use minikube cluster
 
 ## Synopsis
 
-Configure Meshery to connect to minikube cluster
+Configure Meshplay to connect to minikube cluster
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system config minikube [flags]
+meshplayctl system config minikube [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Configure Meshery to connect to minikube cluster using auth token
+Configure Meshplay to connect to minikube cluster using auth token
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system config minikube --token auth.json
+meshplayctl system config minikube --token auth.json
 
 </div>
 </pre> 
 
-Configure Meshery to connect to minikube cluster (if session is logged in using login subcommand)
+Configure Meshplay to connect to minikube cluster (if session is logged in using login subcommand)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system config minikube
+meshplayctl system config minikube
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl system config minikube
 <pre class='codeblock-pre'>
 <div class='codeblock'>
   -h, --help           help for minikube
-  -t, --token string   Path to token for authenticating to Meshery API
+  -t, --token string   Path to token for authenticating to Meshplay API
 
 </div>
 </pre>
@@ -56,7 +56,7 @@ mesheryctl system config minikube
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -66,4 +66,4 @@ mesheryctl system config minikube
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Exploring Kubernetes Pods with Meshery
+title: Exploring Kubernetes Pods with Meshplay
 abstract: Learn Kubernetes Pods
 permalink: guides/tutorials/kubernetes-pods
 model: kubernetes
@@ -9,19 +9,19 @@ type: guides
 category: tutorials
 language: en
 list: include
-abstract: "Explore Kubernetes Pods using Meshery in an interactive live cluster environment, through a series of hands-on excercises."
+abstract: "Explore Kubernetes Pods using Meshplay in an interactive live cluster environment, through a series of hands-on excercises."
 ---
 
 ### Introduction
 
-In this tutorial, we'll learn the fundamentals of Pods, the smallest deployable units in the Kubernetes ecosystem. Using Meshery Playground, an interactive live cluster environment, we'll perform hands-on labs to gain practical experience in deploying, managing, and understanding some of the concepts related to Pods.
+In this tutorial, we'll learn the fundamentals of Pods, the smallest deployable units in the Kubernetes ecosystem. Using Meshplay Playground, an interactive live cluster environment, we'll perform hands-on labs to gain practical experience in deploying, managing, and understanding some of the concepts related to Pods.
 
 > **_NOTE:_** This tutorial demonstrates stand alone pods, i.e. pods not managed through deployments.
 
 ### Prerequisites
 
 - Basic understanding of containerization and Kubernetes concepts.
-- Access to the _Meshery Playground_. If you don't have an account, sign up at [Meshery Playground](https://play.meshery.io/).
+- Access to the _Meshplay Playground_. If you don't have an account, sign up at [Meshplay Playground](https://play.meshplay.io/).
 
 ### Lab Scenario
 
@@ -33,9 +33,9 @@ Learn how to create, manage, and explore _Kubernetes Pods and Services_ within t
 
 ### Steps
 
-#### Access Meshery Playground
+#### Access Meshplay Playground
 
-- Log in to the [Meshery Playground](https://meshery.layer5.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
+- Log in to the [Meshplay Playground](https://meshplay.layer5.io/) using your credentials. On successful login, you should be at the dashboard. Press the **X** on the _Where do you want to start?_ popup to close it (if required).
 - Click **Explore** in the Cloud Native Playground tile to navigate to _MeshMap_.
 
 > **_NOTE:_** MeshMap is still in beta.
@@ -112,7 +112,7 @@ The details tab shows the following:
 
 #### Connecting to the Pods / containers
 
-Meshery Playground provides terminal capabilities to connect to the container(s) and stream logs. The following steps demonstrate this.
+Meshplay Playground provides terminal capabilities to connect to the container(s) and stream logs. The following steps demonstrate this.
 
 1.  Select the **Pod** (or container). If you have multiple containers in a pod, select a container.
 2.  Select the **Actions** tab to the right.
@@ -125,7 +125,7 @@ Meshery Playground provides terminal capabilities to connect to the container(s)
 
 #### Exposing a Pod with a Service
 
-> **_NOTE:_** As of this writing, Meshery Playground supports only NodePort at the moment.
+> **_NOTE:_** As of this writing, Meshplay Playground supports only NodePort at the moment.
 
 1.  Go back to the _Design_ view.
 2.  From **Components** search for _service_ and the drag the service component to the design canvas.
@@ -163,5 +163,5 @@ To recreate, use the **Deploy** option.
 
 ### Conclusion
 
-Congratulations! You've successfully completed the lab on exploring Kubernetes Pods using Meshery Playground. This hands-on experience should have provided valuable insights into the deployment, management, and interaction with Pods in a Kubernetes environment. Continue exploring more scenarios in the Meshery Playground to enhance your skills.
+Congratulations! You've successfully completed the lab on exploring Kubernetes Pods using Meshplay Playground. This hands-on experience should have provided valuable insights into the deployment, management, and interaction with Pods in a Kubernetes environment. Continue exploring more scenarios in the Meshplay Playground to enhance your skills.
 

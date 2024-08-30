@@ -1,18 +1,18 @@
 ---
 layout: default
-title: Using Metrics in Meshery
-abstract: How to connect and use Prometheus and Grafana metrics in Meshery
-permalink: guides/performance-management/meshery-metrics
+title: Using Metrics in Meshplay
+abstract: How to connect and use Prometheus and Grafana metrics in Meshplay
+permalink: guides/performance-management/meshplay-metrics
 language: en
 type: guides
 category: performance
 ---
 
-## Connect and use metrics in Meshery
+## Connect and use metrics in Meshplay
 
-Meshery provides performance reports, including performance test results, node resource metrics etc. so that operators may easily understand the overhead of their service mesh's control plane and data plane in context of the overhead incurred on nodes running within the cluster. In order to generate performance test reports of service meshes and their workloads, Meshery uses Grafana and/or Prometheus as visualization and metrics systems, respectively. This guide outlines the requirements necessary for Meshery to connect to these systems. The steps may vary depending upon the service mesh and its configuration.
+Meshplay provides performance reports, including performance test results, node resource metrics etc. so that operators may easily understand the overhead of their service mesh's control plane and data plane in context of the overhead incurred on nodes running within the cluster. In order to generate performance test reports of service meshes and their workloads, Meshplay uses Grafana and/or Prometheus as visualization and metrics systems, respectively. This guide outlines the requirements necessary for Meshplay to connect to these systems. The steps may vary depending upon the service mesh and its configuration.
 
-In order to pull in these environment metrics, you can also manually configure Meshery to connect with your existing Grafana and/or Prometheus instances through the Meshery dashboard. Once they have been loaded and are displayed on the screen, you may also perform an _ad-hoc_ test to check Meshery's connection status.
+In order to pull in these environment metrics, you can also manually configure Meshplay to connect with your existing Grafana and/or Prometheus instances through the Meshplay dashboard. Once they have been loaded and are displayed on the screen, you may also perform an _ad-hoc_ test to check Meshplay's connection status.
 
 <main>
   
@@ -31,20 +31,20 @@ In order to pull in these environment metrics, you can also manually configure M
   <section class="tabbed" id="content1">
     <p>User needs to set the Prometheus URL and API key to create and query boards.</p>
     <img src="{{ site.baseurl }}/assets/img/architecture/PrometheusCharts.svg" 
-      alt="Prometheus Metrics in Meshery" />
+      alt="Prometheus Metrics in Meshplay" />
 
   </section>
     
   <section class="tabbed" id="content2">
     <p>User needs to set the Grafana URL and API key to create and query boards.</p>
     <img src="{{ site.baseurl }}/assets/img/architecture/GrafanaBoards.svg"
-      alt="Grafana Charts in Meshery" />
+      alt="Grafana Charts in Meshplay" />
 
   </section>
     
   <section id="content3">
     <p>
-      Static Boards capture the standard performance metrics included in every Meshery performance test irrespective of which load generator is used. A set calculations are made using statistical analysis of the metrics gathered in the static boards. Static Boards Queries Prometheus SDK directly.
+      Static Boards capture the standard performance metrics included in every Meshplay performance test irrespective of which load generator is used. A set calculations are made using statistical analysis of the metrics gathered in the static boards. Static Boards Queries Prometheus SDK directly.
     </p>
   </section>
     
@@ -59,7 +59,7 @@ In order to pull in these environment metrics, you can also manually configure M
 
 <!-- ## Tutorial Guide
 
-Connect Meshery to your Grafana and Prometheus instances to enable enhanced service mesh performance management. Deploy a service mesh and any available sample application
+Connect Meshplay to your Grafana and Prometheus instances to enable enhanced service mesh performance management. Deploy a service mesh and any available sample application
 
 Retreive the IP address of your Minikube cluster by executing:
 
@@ -71,15 +71,15 @@ Retreive the IP address of your Minikube cluster by executing:
  </pre>
 
 * Set up Grafana and/or Prometheus:
-1. [Connect Meshery to metric systems](#connect-meshery-to-metric-systems)
-2. [Connect Meshery to metric systems using Minikube](#Connect-Meshery-to-metric-systems-using-Minikube)
+1. [Connect Meshplay to metric systems](#connect-meshplay-to-metric-systems)
+2. [Connect Meshplay to metric systems using Minikube](#Connect-Meshplay-to-metric-systems-using-Minikube)
 
-* Expose the service metric ports - The service ports of Grafana and Prometheus need to be exposed in order for Meshery to connect to and interact with these visualizations and metrics systems.
+* Expose the service metric ports - The service ports of Grafana and Prometheus need to be exposed in order for Meshplay to connect to and interact with these visualizations and metrics systems.
 * Access the port assigned to the metric service
 * [Run Performance tests](#run-performance-tests)
 
 
-### **Connect Meshery to metric systems**
+### **Connect Meshplay to metric systems**
 
 #### 1. Using kubectl, edit the Grafana and Prometheus services in the *Istio-system* namespace:
 
@@ -148,33 +148,33 @@ The Grafana endpoint will be *http://$MINIKUBE_IP:NODE_PORT*
  </div></div>
  </pre>
 
-<a href="{{ site.baseurl }}/assets/img/meshery-metrics/grafana-server-settings.png">
-  <img style="width:500px;" src="{{ site.baseurl }}/assets/img/meshery-metrics/grafana-server-settings.png" />
+<a href="{{ site.baseurl }}/assets/img/meshplay-metrics/grafana-server-settings.png">
+  <img style="width:500px;" src="{{ site.baseurl }}/assets/img/meshplay-metrics/grafana-server-settings.png" />
 </a>
 
 ### **Expose Prometheus service**
 
-Meshery allows you to expose Prometheus as a service with a single click. You can do this:
-- [Through the Meshery UI](#meshery-ui)
+Meshplay allows you to expose Prometheus as a service with a single click. You can do this:
+- [Through the Meshplay UI](#meshplay-ui)
 - Alternatively, you can also attempt [Manual Integration](#manual-steps)
 
-#### **Meshery UI**
+#### **Meshplay UI**
 
-Meshery auto-discovers all Prometheus instances available on your local system and will offer you a list of options to choose from. You can select the Prometheus Server that you wish to employ.
+Meshplay auto-discovers all Prometheus instances available on your local system and will offer you a list of options to choose from. You can select the Prometheus Server that you wish to employ.
 
 
-<a href="{{ site.baseurl }}/assets/img/meshery-metrics/prometheus-settings.png">
-  <img style="width:500px;" src="{{ site.baseurl }}/assets/img/meshery-metrics/prometheus-settings.png" />
+<a href="{{ site.baseurl }}/assets/img/meshplay-metrics/prometheus-settings.png">
+  <img style="width:500px;" src="{{ site.baseurl }}/assets/img/meshplay-metrics/prometheus-settings.png" />
 </a>
 
-Meshery also provides you the option of simply pasting in your Prometheus queries:
+Meshplay also provides you the option of simply pasting in your Prometheus queries:
 
-- Navigate to the management page for Istio on the Meshery UI
+- Navigate to the management page for Istio on the Meshplay UI
 - Click on <i class="fas fa-caret-right fa-lg"></i>, located under **Apply Custom Configuration**
 - Paste in your Prometherus query. Click on <i class="fas fa-caret-right fa-lg"></i>
 
-<a href="{{ site.baseurl }}/assets/img/meshery-metrics/prometheus-query.png">
-  <img style="width:500px;" src="{{ site.baseurl }}/assets/img/meshery-metrics/prometheus-query.png" />
+<a href="{{ site.baseurl }}/assets/img/meshplay-metrics/prometheus-query.png">
+  <img style="width:500px;" src="{{ site.baseurl }}/assets/img/meshplay-metrics/prometheus-query.png" />
 </a>
 
 #### **Manual Steps**
@@ -217,13 +217,13 @@ The `productpage` endpoint will be http://$MINIKUBE_IP:NODE_PORT
 
 #### **Run Performance Tests**
 
-After successfully setting up a connection between your metric service and Meshery, you may proceed to run performance tests by navigating to the Performance Test tab on Meshery:
+After successfully setting up a connection between your metric service and Meshplay, you may proceed to run performance tests by navigating to the Performance Test tab on Meshplay:
 
-<a href="{{ site.baseurl }}/assets/img/performance-management/performance-meshery.png"><img style="width:450px;padding-top:5px;" src="{{ site.baseurl }}/assets/img/performance-management/performance-meshery.png" /></a>
+<a href="{{ site.baseurl }}/assets/img/performance-management/performance-meshplay.png"><img style="width:450px;padding-top:5px;" src="{{ site.baseurl }}/assets/img/performance-management/performance-meshplay.png" /></a>
 
 **Run Test Results**
 
-<a href="{{ site.baseurl }}/assets/img/performance-management/meshery-and-grafana.png"><img style="width:450px;padding-top:5px;" src="{{ site.baseurl }}/assets/img/performance-management/meshery-and-grafana.png" /></a> -->
+<a href="{{ site.baseurl }}/assets/img/performance-management/meshplay-and-grafana.png"><img style="width:450px;padding-top:5px;" src="{{ site.baseurl }}/assets/img/performance-management/meshplay-and-grafana.png" /></a> -->
 
 ##### Suggested Reading
 

@@ -43,7 +43,7 @@ export class DesignsPage {
     const page = this.page;
     await page.getByRole('tab', { name: 'Designs' }).click();
     await page.getByRole('button', { name: 'Import Design' }).click();
-    await page.getByLabel('Meshery Design').click();
+    await page.getByLabel('Meshplay Design').click();
     await page.locator('li').filter({ hasText: type }).click();
     await page.getByLabel('URL *').fill(uri);
     await page.getByLabel('Design file name').fill(name);

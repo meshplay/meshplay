@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"sync"
 
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
 	"github.com/layer5io/meshkit/models/patterns"
 )
 
@@ -33,7 +33,7 @@ func NewContentModifier(token string,
 // TODO: Similar mechanisms for filters and applications
 // AddMetadataForPatterns takes in response bytes, and add metadata to it based on some checks
 func (mc *ContentModifier) AddMetadataForPatterns(ctx context.Context, contentBytes *[]byte) error {
-	var patternsPage models.MesheryPatternPage
+	var patternsPage models.MeshplayPatternPage
 	err := json.Unmarshal(*contentBytes, &patternsPage)
 	if err != nil {
 		return err
@@ -52,7 +52,7 @@ func (mc *ContentModifier) AddMetadataForPatterns(ctx context.Context, contentBy
 	var wg sync.WaitGroup
 	for i, pattern := range patterns {
 		wg.Add(1)
-		go func(pattern *models.MesheryPattern, i int, p *[]map[string]interface{}, token string, provider models.Provider, prefObj *models.Preference, uid string) {
+		go func(pattern *models.MeshplayPattern, i int, p *[]map[string]interface{}, token string, provider models.Provider, prefObj *models.Preference, uid string) {
 			defer wg.Done()
 			patterncontent := pattern.PatternFile
 			temp, err := json.Marshal(pattern)

@@ -4,7 +4,7 @@ title: AWS CloudWatch Logs
 subtitle: Collaborative and visual infrastructure as design for AWS CloudWatch Logs
 image: /assets/img/integrations/aws-cloudwatchlogs-controller/icons/color/aws-cloudwatchlogs-controller-color.svg
 permalink: extensibility/integrations/aws-cloudwatchlogs-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-cloudwatchlogs-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-cloudwatchlogs-controller
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Management Governance

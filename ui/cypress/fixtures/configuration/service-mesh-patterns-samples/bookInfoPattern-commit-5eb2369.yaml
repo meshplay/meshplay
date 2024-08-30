@@ -1,4 +1,4 @@
-name: MesheryGeneratedPatternFile
+name: MeshplayGeneratedPatternFile
 services:
   bookinfo-vs:
     type: VirtualService.Istio
@@ -7,7 +7,7 @@ services:
       gateways:
         - sample-app-gateway
       hosts:
-        - bookinfo.meshery.io
+        - bookinfo.meshplay.io
       http:
         - fault:
             delay:

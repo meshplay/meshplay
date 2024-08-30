@@ -11,10 +11,10 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
 
 	"github.com/layer5io/meshkit/models/events"
 	_models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"

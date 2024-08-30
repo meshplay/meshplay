@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-components-search
-permalink: reference/mesheryctl/components/search
-redirect_from: reference/mesheryctl/components/search/
+title: meshplayctl-components-search
+permalink: reference/meshplayctl/components/search
+redirect_from: reference/meshplayctl/components/search/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: components
 subcommand: search
 ---
 
-# mesheryctl components search
+# meshplayctl components search
 
 search registered components
 
 ## Synopsis
 
-search components registered in Meshery Server based on kind
+search components registered in Meshplay Server based on kind
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components search [flags]
+meshplayctl components search [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl components search [flags]
 Search for components using a query
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components search [query-text]
+meshplayctl components search [query-text]
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl components search [query-text]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -55,4 +55,4 @@ mesheryctl components search [query-text]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

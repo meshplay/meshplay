@@ -4,7 +4,7 @@ title: Kubedl
 subtitle: Collaborative and visual infrastructure as design for Kubedl
 image: /assets/img/integrations/kubedl/icons/color/kubedl-color.svg
 permalink: extensibility/integrations/kubedl
-docURL: https://docs.meshery.io/extensibility/integrations/kubedl
+docURL: https://docs.meshplay.io/extensibility/integrations/kubedl
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

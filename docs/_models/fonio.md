@@ -4,7 +4,7 @@ title: Fonio
 subtitle: Collaborative and visual infrastructure as design for Fonio
 image: /assets/img/integrations/fonio/icons/color/fonio-color.svg
 permalink: extensibility/integrations/fonio
-docURL: https://docs.meshery.io/extensibility/integrations/fonio
+docURL: https://docs.meshplay.io/extensibility/integrations/fonio
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Meshery Adapter for Consul
-name: Meshery Adapter for Consul
+title: Meshplay Adapter for Consul
+name: Meshplay Adapter for Consul
 component: Consul
 earliest_version: v1.8.4
 port: 10002/gRPC
 project_status: stable
-lab: consul-meshery-adapter
-github_link: https://github.com/meshery/meshery-consul
+lab: consul-meshplay-adapter
+github_link: https://github.com/meshplay/meshplay-consul
 image: /assets/img/service-meshes/consul.svg
 white_image: /assets/img/service-meshes/consul-white.svg
 language: en
@@ -15,14 +15,14 @@ permalink: extensibility/adapters/consul
 redirect_from: service-meshes/adapters/consul
 ---
 
-{% assign sorted_tests_group = site.compatibility | group_by: "meshery-component" %}
+{% assign sorted_tests_group = site.compatibility | group_by: "meshplay-component" %}
 {% for group in sorted_tests_group %}
-      {% if group.name == "meshery-consul" %}
-        {% assign items = group.items | sort: "meshery-component-version" | reverse %}
+      {% if group.name == "meshplay-consul" %}
+        {% assign items = group.items | sort: "meshplay-component-version" | reverse %}
         {% for item in items %}
-          {% if item.meshery-component-version != "edge" %}
+          {% if item.meshplay-component-version != "edge" %}
             {% if item.overall-status == "passing" %}
-              {% assign adapter_version_dynamic = item.meshery-component-version %}
+              {% assign adapter_version_dynamic = item.meshplay-component-version %}
               {% break %}
             {% elsif item.overall-status == "failing" %}
               {% continue %}
@@ -42,7 +42,7 @@ The {{page.name}} can install **{{page.earliest_version}}** of the {{page.compon
 
 ### Install {{ page.component }}
 
-##### Choose the Meshery Adapter for {{page.component}}
+##### Choose the Meshplay Adapter for {{page.component}}
 
 <a href="{{ site.baseurl }}/assets/img/adapters/consul/consul-adapter.png">
   <img style="width:500px;" src="{{ site.baseurl }}/assets/img/adapters/consul/consul-adapter.png" />
@@ -54,7 +54,7 @@ The {{page.name}} can install **{{page.earliest_version}}** of the {{page.compon
   <img style="width:500px;" src="{{ site.baseurl }}/assets/img/adapters/consul/consul-install.png" />
 </a>
 
-A number of [sample applications](#sample-applications) for {{page.component}} can also be installed using Meshery.
+A number of [sample applications](#sample-applications) for {{page.component}} can also be installed using Meshplay.
 
 ### Features
 
@@ -67,7 +67,7 @@ A number of [sample applications](#sample-applications) for {{page.component}} c
 
 ### Sample Applications
 
-Meshery supports the deployment of a variety of sample applications on {{ page.name }}. Use Meshery to deploy any of these sample applications.
+Meshplay supports the deployment of a variety of sample applications on {{ page.name }}. Use Meshplay to deploy any of these sample applications.
 
 - [httpbin]({{site.baseurl}}/guides/sample-apps#httpbin)
   - Httpbin is a simple HTTP request and response service.
@@ -82,7 +82,7 @@ Meshery supports the deployment of a variety of sample applications on {{ page.n
 
 #### Prometheus and Grafana integration
 
-The {{ page.name }} will connect to {{ page.name }}'s Prometheus and Grafana instances running in the control plane (typically found in a separate namespace) or other instances to which Meshery has network reachability.
+The {{ page.name }} will connect to {{ page.name }}'s Prometheus and Grafana instances running in the control plane (typically found in a separate namespace) or other instances to which Meshplay has network reachability.
 
 ### Architecture
 
@@ -90,5 +90,5 @@ The {{ page.name }} will connect to {{ page.name }}'s Prometheus and Grafana ins
 
 ### Suggested Topics
 
-- Examine [Meshery's architecture]({{ site.baseurl }}/architecture) and how adapters fit in as a component.
-- Learn more about [Meshery Adapters]({{ site.baseurl }}/architecture/adapters).
+- Examine [Meshplay's architecture]({{ site.baseurl }}/architecture) and how adapters fit in as a component.
+- Learn more about [Meshplay Adapters]({{ site.baseurl }}/architecture/adapters).

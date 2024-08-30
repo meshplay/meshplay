@@ -6,8 +6,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/layer5io/meshplay/server/handlers"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/controllers"
@@ -224,43 +224,43 @@ func (k *K8sConnectionTracker) Log(l logger.Handler) {
 	l.Info(strings.TrimSuffix(e, ", "))
 }
 
-func GetInternalController(controller models.MesheryController) MesheryController {
+func GetInternalController(controller models.MeshplayController) MeshplayController {
 	switch controller {
-	case models.MesheryBroker:
-		return MesheryControllerBroker
-	case models.MesheryOperator:
-		return MesheryControllerOperator
+	case models.MeshplayBroker:
+		return MeshplayControllerBroker
+	case models.MeshplayOperator:
+		return MeshplayControllerOperator
 	case models.Meshsync:
-		return MesheryControllerMeshsync
+		return MeshplayControllerMeshsync
 	}
 	return ""
 }
 
-func GetInternalControllerStatus(status controllers.MesheryControllerStatus) MesheryControllerStatus {
+func GetInternalControllerStatus(status controllers.MeshplayControllerStatus) MeshplayControllerStatus {
 	switch status {
 	case controllers.Deployed:
-		return MesheryControllerStatusDeployed
+		return MeshplayControllerStatusDeployed
 
 	case controllers.NotDeployed:
-		return MesheryControllerStatusNotdeployed
+		return MeshplayControllerStatusNotdeployed
 
 	case controllers.Deploying:
-		return MesheryControllerStatusDeploying
+		return MeshplayControllerStatusDeploying
 
 	case controllers.Unknown:
-		return MesheryControllerStatusUnkown
+		return MeshplayControllerStatusUnkown
 
 	case controllers.Undeployed:
-		return MesheryControllerStatusUndeployed
+		return MeshplayControllerStatusUndeployed
 
 	case controllers.Enabled:
-		return MesheryControllerStatusEnabled
+		return MeshplayControllerStatusEnabled
 
 	case controllers.Running:
-		return MesheryControllerStatusRunning
+		return MeshplayControllerStatusRunning
 
 	case controllers.Connected:
-		return MesheryControllerStatusConnected
+		return MeshplayControllerStatusConnected
 	}
 	return ""
 }
@@ -274,15 +274,15 @@ func CheckIfBrokerEventExistsInArray(event broker.EventType, events []broker.Eve
 	return false
 }
 
-func GetMesheryBrokerEventTypesFromArray(events []MeshSyncEventType) []broker.EventType {
+func GetMeshplayBrokerEventTypesFromArray(events []MeshSyncEventType) []broker.EventType {
 	var brokerEvents []broker.EventType
 	for _, event := range events {
-		brokerEvents = append(brokerEvents, GetMesheryBrokerEventTypes(event))
+		brokerEvents = append(brokerEvents, GetMeshplayBrokerEventTypes(event))
 	}
 	return brokerEvents
 }
 
-func GetMesheryBrokerEventTypes(event MeshSyncEventType) broker.EventType {
+func GetMeshplayBrokerEventTypes(event MeshSyncEventType) broker.EventType {
 	switch event {
 	case MeshSyncEventTypeAdded:
 		return broker.Add

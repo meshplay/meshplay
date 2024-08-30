@@ -11,11 +11,11 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/handlers"
-	"github.com/layer5io/meshplay/server/internal/graphql/generated"
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/machines/kubernetes"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/generated"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/utils"
 )
@@ -63,7 +63,7 @@ func (r *queryResolver) GetDataPlanes(ctx context.Context, filter *model.Service
 }
 
 // GetOperatorStatus is the resolver for the getOperatorStatus field.
-func (r *queryResolver) GetOperatorStatus(ctx context.Context, connectionID string) (*model.MesheryControllersStatusListItem, error) {
+func (r *queryResolver) GetOperatorStatus(ctx context.Context, connectionID string) (*model.MeshplayControllersStatusListItem, error) {
 	provider := ctx.Value(models.ProviderCtxKey).(models.Provider)
 	return r.getOperatorStatus(ctx, provider, connectionID)
 }
@@ -93,7 +93,7 @@ func (r *queryResolver) GetAvailableNamespaces(ctx context.Context, k8sClusterID
 }
 
 // GetPerfResult is the resolver for the getPerfResult field.
-func (r *queryResolver) GetPerfResult(ctx context.Context, id string) (*model.MesheryResult, error) {
+func (r *queryResolver) GetPerfResult(ctx context.Context, id string) (*model.MeshplayResult, error) {
 	provider := ctx.Value(models.ProviderCtxKey).(models.Provider)
 	return r.getPerfResult(ctx, provider, id)
 	// panic(fmt.Errorf("not implemented"))
@@ -164,18 +164,18 @@ func (r *subscriptionResolver) SubscribePerfResults(ctx context.Context, selecto
 	return r.subscribePerfResults(ctx, provider, selector, profileID)
 }
 
-// SubscribeMesheryControllersStatus is the resolver for the subscribeMesheryControllersStatus field.
-func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Context, connectionIDs []string) (<-chan []*model.MesheryControllersStatusListItem, error) {
-	resChan := make(chan []*model.MesheryControllersStatusListItem)
+// SubscribeMeshplayControllersStatus is the resolver for the subscribeMeshplayControllersStatus field.
+func (r *subscriptionResolver) SubscribeMeshplayControllersStatus(ctx context.Context, connectionIDs []string) (<-chan []*model.MeshplayControllersStatusListItem, error) {
+	resChan := make(chan []*model.MeshplayControllersStatusListItem)
 	handler, ok := ctx.Value(models.HandlerKey).(*handlers.Handler)
 
 	if !ok {
-		er := model.ErrMesheryControllersStatusSubscription(fmt.Errorf("controller handlers are not configured for any of the contexts"))
+		er := model.ErrMeshplayControllersStatusSubscription(fmt.Errorf("controller handlers are not configured for any of the contexts"))
 		r.Log.Error(er)
 		return nil, er
 	}
 
-	statusMapPerConnection := make(map[string]map[models.MesheryController]models.MesheryControllerStatusAndVersion)
+	statusMapPerConnection := make(map[string]map[models.MeshplayController]models.MeshplayControllerStatusAndVersion)
 	// initialize the map
 
 	for _, connectionID := range connectionIDs {
@@ -183,21 +183,21 @@ func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Con
 		if ok && inst != nil {
 			machinectx, err := utils.Cast[*kubernetes.MachineCtx](inst.Context)
 			if err != nil {
-				r.Log.Error(model.ErrMesheryControllersStatusSubscription(err))
+				r.Log.Error(model.ErrMeshplayControllersStatusSubscription(err))
 				continue
 			}
-			ctrlHandlers := machinectx.MesheryCtrlsHelper.GetControllerHandlersForEachContext()
+			ctrlHandlers := machinectx.MeshplayCtrlsHelper.GetControllerHandlersForEachContext()
 			for controller, handler := range ctrlHandlers {
 				if _, ok := statusMapPerConnection[connectionID]; !ok {
-					statusMapPerConnection[connectionID] = make(map[models.MesheryController]models.MesheryControllerStatusAndVersion)
+					statusMapPerConnection[connectionID] = make(map[models.MeshplayController]models.MeshplayControllerStatusAndVersion)
 				}
 				version, err := handler.GetVersion()
 				if err != nil {
-					er := model.ErrMesheryControllersStatusSubscription(err)
+					er := model.ErrMeshplayControllersStatusSubscription(err)
 					r.Log.Error(er)
 				}
 
-				statusMapPerConnection[connectionID][controller] = models.MesheryControllerStatusAndVersion{
+				statusMapPerConnection[connectionID][controller] = models.MeshplayControllerStatusAndVersion{
 					Status:  handler.GetStatus(),
 					Version: version,
 				}
@@ -206,11 +206,11 @@ func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Con
 		}
 	}
 	go func() {
-		ctrlsStatusList := make([]*model.MesheryControllersStatusListItem, 0)
+		ctrlsStatusList := make([]*model.MeshplayControllersStatusListItem, 0)
 		// first send the initial status of the controllers
 		for connectionID, controllerMap := range statusMapPerConnection {
 			for controller, statusAndVersion := range controllerMap {
-				ctrlsStatusList = append(ctrlsStatusList, &model.MesheryControllersStatusListItem{
+				ctrlsStatusList = append(ctrlsStatusList, &model.MeshplayControllersStatusListItem{
 					ConnectionID: connectionID,
 					Controller:   model.GetInternalController(controller),
 					Status:       model.GetInternalControllerStatus(statusAndVersion.Status),
@@ -219,7 +219,7 @@ func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Con
 			}
 		}
 		resChan <- ctrlsStatusList
-		ctrlsStatusList = make([]*model.MesheryControllersStatusListItem, 0)
+		ctrlsStatusList = make([]*model.MeshplayControllersStatusListItem, 0)
 		// do this every 5 seconds
 		for {
 			for _, connectionID := range connectionIDs {
@@ -227,21 +227,21 @@ func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Con
 				if ok && inst != nil {
 					machinectx, err := utils.Cast[*kubernetes.MachineCtx](inst.Context)
 					if err != nil {
-						r.Log.Error(model.ErrMesheryControllersStatusSubscription(err))
+						r.Log.Error(model.ErrMeshplayControllersStatusSubscription(err))
 						continue
 					}
-					ctrlHandlers := machinectx.MesheryCtrlsHelper.GetControllerHandlersForEachContext()
+					ctrlHandlers := machinectx.MeshplayCtrlsHelper.GetControllerHandlersForEachContext()
 					for controller, handler := range ctrlHandlers {
 						newStatus := handler.GetStatus()
 
 						version, err := handler.GetVersion()
 						if err != nil {
-							er := model.ErrMesheryControllersStatusSubscription(err)
+							er := model.ErrMeshplayControllersStatusSubscription(err)
 							r.Log.Error(er)
 						}
 						// if the status has changed, send that to the subscription
 						if newStatus != statusMapPerConnection[connectionID][controller].Status {
-							ctrlsStatusList = append(ctrlsStatusList, &model.MesheryControllersStatusListItem{
+							ctrlsStatusList = append(ctrlsStatusList, &model.MeshplayControllersStatusListItem{
 								ConnectionID: connectionID,
 								Controller:   model.GetInternalController(controller),
 								Status:       model.GetInternalControllerStatus(newStatus),
@@ -251,12 +251,12 @@ func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Con
 						}
 						// update the status list with newStatus
 						if _, ok := statusMapPerConnection[connectionID][controller]; ok {
-							statusMapPerConnection[connectionID][controller] = models.MesheryControllerStatusAndVersion{
+							statusMapPerConnection[connectionID][controller] = models.MeshplayControllerStatusAndVersion{
 								Status:  newStatus,
 								Version: version,
 							}
 						}
-						ctrlsStatusList = make([]*model.MesheryControllersStatusListItem, 0)
+						ctrlsStatusList = make([]*model.MeshplayControllersStatusListItem, 0)
 					}
 				}
 			}
@@ -271,7 +271,7 @@ func (r *subscriptionResolver) SubscribeMesheryControllersStatus(ctx context.Con
 func (r *subscriptionResolver) SubscribeMeshSyncEvents(ctx context.Context, connectionIDs []string, eventTypes []model.MeshSyncEventType) (<-chan *model.MeshSyncEvent, error) {
 	resChan := make(chan *model.MeshSyncEvent)
 	isSubscriptionFlushed := false
-	brokerEventTypes := model.GetMesheryBrokerEventTypesFromArray(eventTypes)
+	brokerEventTypes := model.GetMeshplayBrokerEventTypesFromArray(eventTypes)
 
 	handler, ok := ctx.Value(models.HandlerKey).(*handlers.Handler)
 	if !ok {
@@ -285,11 +285,11 @@ func (r *subscriptionResolver) SubscribeMeshSyncEvents(ctx context.Context, conn
 		if ok && inst != nil {
 			machinectx, err := utils.Cast[*kubernetes.MachineCtx](inst.Context)
 			if err != nil {
-				r.Log.Error(model.ErrMesheryControllersStatusSubscription(err))
+				r.Log.Error(model.ErrMeshplayControllersStatusSubscription(err))
 				continue
 			}
 
-			dataHandler := machinectx.MesheryCtrlsHelper.GetMeshSyncDataHandlersForEachContext()
+			dataHandler := machinectx.MeshplayCtrlsHelper.GetMeshSyncDataHandlersForEachContext()
 			if dataHandler == nil {
 				r.Log.Info("skipping meshsync events subscription for connection Id: %s", connectionID)
 				r.Log.Info("connection to broker and datahandler is not yet initialised")

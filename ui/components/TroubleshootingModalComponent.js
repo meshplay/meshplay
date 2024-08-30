@@ -238,21 +238,21 @@ const TroubleshootingModal = (props) => {
             </AccordionSummary>
             <AccordionDetails className={classes.accDetailsContainer}>
               <Typography className={classes.accDetailHead}>
-                <strong>Meshery Database</strong>
+                <strong>Meshplay Database</strong>
               </Typography>
               <ul>
                 <Typography>
                   <li className={classes.troubleshootListitem}>
                     Verify MeshSync data is being received. Run{' '}
-                    <code>kubectl get svc -n meshery</code>. Docker Desktop: VPNkit commonly fails
-                    to assign an IP address to Meshery Broker (MeshSync). Verify that the Meshery
+                    <code>kubectl get svc -n meshplay</code>. Docker Desktop: VPNkit commonly fails
+                    to assign an IP address to Meshplay Broker (MeshSync). Verify that the Meshplay
                     Broker service has external IP address assigned.
                   </li>
                   <li className={classes.troubleshootListitem}>
                     Confirm that your machine&apos;s firewall isn&apos;t getting in the way.
                   </li>
                   <li className={classes.troubleshootListitem}>
-                    Dump Meshery Database. Run <code>rm -rf ~/.meshery/config</code>.
+                    Dump Meshplay Database. Run <code>rm -rf ~/.meshplay/config</code>.
                   </li>
                 </Typography>
               </ul>
@@ -284,21 +284,21 @@ const TroubleshootingModal = (props) => {
                 <Typography>
                   <li className={classes.troubleshootListitem}>
                     <b>Building</b>: Ensure that <code>go.mod</code> in the{' '}
-                    <code>meshery/meshery</code> repository is identical to the <code>go.mod</code>{' '}
-                    in the <code>layer5labs/meshery-extensions</code> repository are identical.
+                    <code>meshplay/meshplay</code> repository is identical to the <code>go.mod</code>{' '}
+                    in the <code>layer5labs/meshplay-extensions</code> repository are identical.
                   </li>
                   <li className={classes.troubleshootListitem}>
-                    <b>Loading</b>: Confirm that the <code>plugin</code> version offered by Meshery
+                    <b>Loading</b>: Confirm that the <code>plugin</code> version offered by Meshplay
                     Cloud (at{' '}
                     <a
                       className={classes.troubleshootHelpLink}
-                      href="https://meshery.layer5.io/capabilities"
+                      href="https://meshplay.layer5.io/capabilities"
                     >
-                      https://meshery.layer5.io/capabilities
+                      https://meshplay.layer5.io/capabilities
                     </a>
                     ), from which MeshMap files are retreived, matches the <code>plugin</code>{' '}
-                    version that Meshery Server is using as the filesystem reference in{' '}
-                    <code>~/.meshery/provider/Meshery/vx.x.x/</code>.
+                    version that Meshplay Server is using as the filesystem reference in{' '}
+                    <code>~/.meshplay/provider/Meshplay/vx.x.x/</code>.
                   </li>
                 </Typography>
               </ul>
@@ -332,7 +332,7 @@ const TroubleshootingModal = (props) => {
                     {' '}
                     <a
                       className={classes.troubleshootHelpLink}
-                      href="http://discuss.meshery.io/t/what-are-some-troubleshooting-tips-for-meshmap"
+                      href="http://discuss.meshplay.io/t/what-are-some-troubleshooting-tips-for-meshmap"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -357,7 +357,7 @@ const TroubleshootingModal = (props) => {
               or{' '}
               <a
                 className={classes.contactHelpLink}
-                href="http://discuss.meshery.io"
+                href="http://discuss.meshplay.io"
                 target="_blank"
                 rel="noreferrer"
               >

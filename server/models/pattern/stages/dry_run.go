@@ -1,6 +1,6 @@
 package stages
 
-// import "github.com/layer5io/meshplay/server/models/pattern/patterns"
+// import "github.com/khulnasoft/meshplay/server/models/pattern/patterns"
 
 const DryRunResponseKey = "dryRunResponse"
 

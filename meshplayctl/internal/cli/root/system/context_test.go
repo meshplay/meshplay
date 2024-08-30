@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -18,7 +18,7 @@ func TestViewContextCmd(t *testing.T) {
 		t.Fatal("Not able to get current working directory")
 	}
 	currDir := filepath.Dir(filename)
-	utils.SetupCustomContextEnv(t, currDir+"/fixtures/.meshery/TestContext.yaml")
+	utils.SetupCustomContextEnv(t, currDir+"/fixtures/.meshplay/TestContext.yaml")
 
 	tests := []utils.CmdTestInput{
 		{
@@ -81,7 +81,7 @@ func TestListContextCmd(t *testing.T) {
 		t.Fatal("Not able to get current working directory")
 	}
 	currDir := filepath.Dir(filename)
-	utils.SetupCustomContextEnv(t, currDir+"/fixtures/.meshery/TestContext.yaml")
+	utils.SetupCustomContextEnv(t, currDir+"/fixtures/.meshplay/TestContext.yaml")
 	tests := []utils.CmdTestInput{
 		{
 			Name:             "list all contexts",
@@ -158,7 +158,7 @@ func TestDeleteContextCmd(t *testing.T) {
 			}
 			path, err := os.Getwd()
 			if err != nil {
-				t.Error("unable to locate meshery directory")
+				t.Error("unable to locate meshplay directory")
 			}
 			filepath := path + "/testdata/context/ExpectedDelete.yaml"
 
@@ -181,7 +181,7 @@ func TestDeleteContextCmd(t *testing.T) {
 			}
 
 			//Repopulating Expected yaml
-			if err := utils.Populate(path+"/fixtures/.meshery/TestContext.yaml", filepath); err != nil {
+			if err := utils.Populate(path+"/fixtures/.meshplay/TestContext.yaml", filepath); err != nil {
 				t.Error(err, "Could not complete test. Unable to configure delete test file")
 			}
 		})
@@ -227,7 +227,7 @@ func TestAddContextCmd(t *testing.T) {
 			assert.Equal(t, expectedResponse, actualResponse)
 			path, err := os.Getwd()
 			if err != nil {
-				t.Error("unable to locate meshery directory")
+				t.Error("unable to locate meshplay directory")
 			}
 			filepath := path + "/testdata/context/ExpectedAdd.yaml"
 
@@ -244,7 +244,7 @@ func TestAddContextCmd(t *testing.T) {
 			assert.Equal(t, addExpected, actualResponse)
 
 			//Repopulating Expected yaml
-			if err := utils.Populate(path+"/fixtures/.meshery/TestContext.yaml", filepath); err != nil {
+			if err := utils.Populate(path+"/fixtures/.meshplay/TestContext.yaml", filepath); err != nil {
 				t.Error(err, "Could not complete test. Unable to configure delete test file")
 			}
 		})
@@ -292,7 +292,7 @@ func TestSwitchContextCmd(t *testing.T) {
 
 			path, err := os.Getwd()
 			if err != nil {
-				t.Error("unable to locate meshery directory")
+				t.Error("unable to locate meshplay directory")
 			}
 			filepath := path + "/testdata/context/ExpectedSwitch.yaml"
 			content, err := os.ReadFile(filepath)
@@ -307,7 +307,7 @@ func TestSwitchContextCmd(t *testing.T) {
 			switchExpected := golden.Load()
 			assert.Equal(t, switchExpected, actualResponse)
 
-			if err := utils.Populate(path+"/fixtures/.meshery/TestContext.yaml", filepath); err != nil {
+			if err := utils.Populate(path+"/fixtures/.meshplay/TestContext.yaml", filepath); err != nil {
 				t.Error(err, "Could not complete test. Unable to configure delete test file")
 			}
 		})

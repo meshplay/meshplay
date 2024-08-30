@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,50 +22,50 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 const (
-	ErrHealthCheckFailedCode             = "mesheryctl-1060"
-	ErrDownloadFileCode                  = "mesheryctl-1061"
-	ErrStopMesheryCode                   = "mesheryctl-1062"
-	ErrResetMeshconfigCode               = "mesheryctl-1063"
-	ErrApplyManifestCode                 = "mesheryctl-1064"
-	ErrApplyOperatorManifestCode         = "mesheryctl-1065"
-	ErrCreateDirCode                     = "mesheryctl-1066"
-	ErrUnsupportedPlatformCode           = "mesheryctl-1067"
-	ErrRetrievingCurrentContextCode      = "mesheryctl-1068"
-	ErrSettingDefaultContextToConfigCode = "mesheryctl-1069"
-	ErrSettingTemporaryContextCode       = "mesheryctl-1070"
-	ErrCreateManifestsFolderCode         = "mesheryctl-1071"
-	ErrRestartMesheryCode                = "mesheryctl-1072"
-	ErrK8sQueryCode                      = "mesheryctl-1073"
-	ErrK8sConfigCode                     = "mesheryctl-1074"
-	ErrInitPortForwardCode               = "mesheryctl-1075"
-	ErrRunPortForwardCode                = "mesheryctl-1076"
-	ErrFailedGetEphemeralPortCode        = "mesheryctl-1077"
-	ErrUnmarshalDockerComposeCode        = "mesheryctl-1078"
-	ErrCreatingDockerClientCode          = "mesheryctl-1079"
-	ErrWriteConfigCode                   = "mesheryctl-1080"
-	ErrContextContentCode                = "mesheryctl-1081"
-	ErrSwitchChannelResponseCode         = "mesheryctl-1082"
-	ErrGetCurrentContextCode             = "mesheryctl-1083"
-	ErrSetCurrentContextCode             = "mesheryctl-1084"
-	ErrTokenContextCode                  = "mesheryctl-1085"
-	ErrProviderInfoCode                  = "mesheryctl-1086"
-	ErrValidProviderCode                 = "mesheryctl-1087"
-	ErrUnmarshallConfigCode              = "mesheryctl-1088"
-	ErrUploadFileParamsCode              = "mesheryctl-1089"
+	ErrHealthCheckFailedCode             = "meshplayctl-1060"
+	ErrDownloadFileCode                  = "meshplayctl-1061"
+	ErrStopMeshplayCode                   = "meshplayctl-1062"
+	ErrResetMeshconfigCode               = "meshplayctl-1063"
+	ErrApplyManifestCode                 = "meshplayctl-1064"
+	ErrApplyOperatorManifestCode         = "meshplayctl-1065"
+	ErrCreateDirCode                     = "meshplayctl-1066"
+	ErrUnsupportedPlatformCode           = "meshplayctl-1067"
+	ErrRetrievingCurrentContextCode      = "meshplayctl-1068"
+	ErrSettingDefaultContextToConfigCode = "meshplayctl-1069"
+	ErrSettingTemporaryContextCode       = "meshplayctl-1070"
+	ErrCreateManifestsFolderCode         = "meshplayctl-1071"
+	ErrRestartMeshplayCode                = "meshplayctl-1072"
+	ErrK8sQueryCode                      = "meshplayctl-1073"
+	ErrK8sConfigCode                     = "meshplayctl-1074"
+	ErrInitPortForwardCode               = "meshplayctl-1075"
+	ErrRunPortForwardCode                = "meshplayctl-1076"
+	ErrFailedGetEphemeralPortCode        = "meshplayctl-1077"
+	ErrUnmarshalDockerComposeCode        = "meshplayctl-1078"
+	ErrCreatingDockerClientCode          = "meshplayctl-1079"
+	ErrWriteConfigCode                   = "meshplayctl-1080"
+	ErrContextContentCode                = "meshplayctl-1081"
+	ErrSwitchChannelResponseCode         = "meshplayctl-1082"
+	ErrGetCurrentContextCode             = "meshplayctl-1083"
+	ErrSetCurrentContextCode             = "meshplayctl-1084"
+	ErrTokenContextCode                  = "meshplayctl-1085"
+	ErrProviderInfoCode                  = "meshplayctl-1086"
+	ErrValidProviderCode                 = "meshplayctl-1087"
+	ErrUnmarshallConfigCode              = "meshplayctl-1088"
+	ErrUploadFileParamsCode              = "meshplayctl-1089"
 )
 
 var (
 	cmdType     string
-	contextdocs string = "See https://docs.meshery.io/reference/mesheryctl/system/context for usage details."
-	contextDir  string = "see that you have a correct context in your  meshconfig at `$HOME/.meshery/config.yaml`."
+	contextdocs string = "See https://docs.meshplay.io/reference/meshplayctl/system/context for usage details."
+	contextDir  string = "see that you have a correct context in your  meshconfig at `$HOME/.meshplay/config.yaml`."
 )
 
-// A Format reference that returns Mesheryctl's URL docs for system command and sub commands
+// A Format reference that returns Meshplayctl's URL docs for system command and sub commands
 func FormatErrorReference() string {
-	baseURL := "https://docs.meshery.io/reference/mesheryctl/system"
+	baseURL := "https://docs.meshplay.io/reference/meshplayctl/system"
 	switch cmdType {
 	case "channel":
 		return fmt.Sprintf("\nSee %s for usage details\n", baseURL+"/channel")
@@ -106,16 +106,16 @@ func ErrHealthCheckFailed(err error) error {
 		errors.Alert,
 		[]string{"Health checks failed"},
 		[]string{"Failed to initialize healthchecker" + err.Error()},
-		[]string{"Health checks execution failed in starting Meshery server successfully"},
-		[]string{"Ensure Mesheryctl is running and has the right configurations."})
+		[]string{"Health checks execution failed in starting Meshplay server successfully"},
+		[]string{"Ensure Meshplayctl is running and has the right configurations."})
 }
 
 func ErrDownloadFile(err error, obj string) error {
 	return errors.New(ErrDownloadFileCode, errors.Alert, []string{"Error downloading file ", obj}, []string{err.Error()}, []string{"Failed to download docker-compose or manifest file due to system/config/network issues"}, []string{"Make sure docker-compose or manifest file is downloaded successfully"})
 }
 
-func ErrStopMeshery(err error) error {
-	return errors.New(ErrStopMesheryCode, errors.Alert, []string{"Error stopping Meshery"}, []string{err.Error()}, []string{"Meshery server is not stopped, some of the docker containers are still running"}, []string{"Verify all docker containers of Meshery server are stopped"})
+func ErrStopMeshplay(err error) error {
+	return errors.New(ErrStopMeshplayCode, errors.Alert, []string{"Error stopping Meshplay"}, []string{err.Error()}, []string{"Meshplay server is not stopped, some of the docker containers are still running"}, []string{"Verify all docker containers of Meshplay server are stopped"})
 }
 
 func ErrResetMeshconfig(err error) error {
@@ -124,8 +124,8 @@ func ErrResetMeshconfig(err error) error {
 		errors.Alert,
 		[]string{"Error resetting meshconfig to default settings"},
 		[]string{err.Error()},
-		[]string{"Meshery server config file is not reset to default settings"},
-		[]string{"Verify Meshery server config file is reset to default settings by executing `mesheryctl system context view`" + FormatErrorReference()})
+		[]string{"Meshplay server config file is not reset to default settings"},
+		[]string{"Verify Meshplay server config file is reset to default settings by executing `meshplayctl system context view`" + FormatErrorReference()})
 }
 
 func ErrApplyManifest(err error, deleteStatus, updateStatus bool) error {
@@ -144,10 +144,10 @@ func ErrUnmarshalDockerCompose(err error, obj string) error {
 	return errors.New(
 		ErrUnmarshalDockerComposeCode,
 		errors.Alert,
-		[]string{"Error processing JSON response from Meshery Server", obj},
+		[]string{"Error processing JSON response from Meshplay Server", obj},
 		[]string{err.Error()},
 		[]string{"Either the JSON response is invalid or the Response is distorted"},
-		[]string{"Ensure Meshery Server is running and you have a strong newtwork connection"})
+		[]string{"Ensure Meshplay Server is running and you have a strong newtwork connection"})
 }
 
 func ErrUnsupportedPlatform(platform string, config string) error {
@@ -156,8 +156,8 @@ func ErrUnsupportedPlatform(platform string, config string) error {
 		errors.Alert,
 		[]string{"Unsupported platform"},
 		[]string{"The provided platform is not supprted"},
-		[]string{"The platform ", platform, " is not supported for the deployment of Meshery. "},
-		[]string{"Supported platforms are:\n\n- docker\n- kubernetes\n\n Verify this setting in your meshconfig at ", config, " or verify by executing `mesheryctl system context view`"})
+		[]string{"The platform ", platform, " is not supported for the deployment of Meshplay. "},
+		[]string{"Supported platforms are:\n\n- docker\n- kubernetes\n\n Verify this setting in your meshconfig at ", config, " or verify by executing `meshplayctl system context view`"})
 }
 
 func ErrRetrievingCurrentContext(err error) error {
@@ -171,7 +171,7 @@ func ErrRetrievingCurrentContext(err error) error {
 }
 
 func ErrSettingDefaultContextToConfig(err error) error {
-	return errors.New(ErrSettingDefaultContextToConfigCode, errors.Alert, []string{"Error setting default context to config"}, []string{err.Error()}, []string{"Mesheryctl config file may not exist or is invalid"}, []string{"Make sure the Mesheryctl config file exists"})
+	return errors.New(ErrSettingDefaultContextToConfigCode, errors.Alert, []string{"Error setting default context to config"}, []string{err.Error()}, []string{"Meshplayctl config file may not exist or is invalid"}, []string{"Make sure the Meshplayctl config file exists"})
 }
 
 func ErrSettingTemporaryContext(err error) error {
@@ -179,19 +179,19 @@ func ErrSettingTemporaryContext(err error) error {
 }
 
 func ErrCreateManifestsFolder(err error) error {
-	return errors.New(ErrCreateManifestsFolderCode, errors.Alert, []string{"Error creating manifest folder"}, []string{err.Error()}, []string{"system error in creating manifest folder"}, []string{"Make sure manifest folder (.meshery/manifests) is created properly"})
+	return errors.New(ErrCreateManifestsFolderCode, errors.Alert, []string{"Error creating manifest folder"}, []string{err.Error()}, []string{"system error in creating manifest folder"}, []string{"Make sure manifest folder (.meshplay/manifests) is created properly"})
 }
 
-func ErrRestartMeshery(err error) error {
-	return errors.New(ErrRestartMesheryCode, errors.Alert, []string{"Error restarting Meshery"}, []string{err.Error()}, []string{"Meshery is not running"}, []string{"Restart Meshery instance"})
+func ErrRestartMeshplay(err error) error {
+	return errors.New(ErrRestartMeshplayCode, errors.Alert, []string{"Error restarting Meshplay"}, []string{err.Error()}, []string{"Meshplay is not running"}, []string{"Restart Meshplay instance"})
 }
 
 func ErrK8sConfig(err error) error {
-	return errors.New(ErrK8sConfigCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the cluster is running", " See https://docs.meshery.io/installation/quick-start for additional instructions."}, []string{"Kubernetes cluster isn't running or inaccessible"}, []string{"Verify kubernetes and Meshery connectivity or Verify kubeconfig certificates."})
+	return errors.New(ErrK8sConfigCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the cluster is running", " See https://docs.meshplay.io/installation/quick-start for additional instructions."}, []string{"Kubernetes cluster isn't running or inaccessible"}, []string{"Verify kubernetes and Meshplay connectivity or Verify kubeconfig certificates."})
 }
 
 func ErrK8SQuery(err error) error {
-	return errors.New(ErrK8sQueryCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the token is valid", " See https://docs.meshery.io/installation/quick-start for additional instructions"}, []string{"Kubernetes cluster is unavailable and that the token is invalid"}, []string{"Please confirm that your cluster is available and that the token is valid. See https://docs.meshery.io/installation/quick-start for additional instructions"})
+	return errors.New(ErrK8sQueryCode, errors.Alert, []string{"The Kubernetes cluster is not accessible."}, []string{err.Error(), "\nThe Kubernetes cluster is not accessible", " Please confirm that the token is valid", " See https://docs.meshplay.io/installation/quick-start for additional instructions"}, []string{"Kubernetes cluster is unavailable and that the token is invalid"}, []string{"Please confirm that your cluster is available and that the token is valid. See https://docs.meshplay.io/installation/quick-start for additional instructions"})
 }
 
 func ErrInitPortForward(err error) error {
@@ -209,10 +209,10 @@ func ErrRunPortForward(err error) error {
 		ErrRunPortForwardCode,
 		errors.Fatal,
 		[]string{"Failed to run port-forward"},
-		[]string{err.Error(), "Error running port-forward for Meshery"},
-		[]string{"Meshery pod is not in running phase", "mesheryctl can't connect to kubernetes with client-go"},
-		[]string{"Make sure Meshery pod exists and is in running state",
-			"Check if mesheryctl is connected to kubernetes with `mesheryctl system check`"},
+		[]string{err.Error(), "Error running port-forward for Meshplay"},
+		[]string{"Meshplay pod is not in running phase", "meshplayctl can't connect to kubernetes with client-go"},
+		[]string{"Make sure Meshplay pod exists and is in running state",
+			"Check if meshplayctl is connected to kubernetes with `meshplayctl system check`"},
 	)
 }
 
@@ -223,7 +223,7 @@ func ErrFailedGetEphemeralPort(err error) error {
 		[]string{"Failed to get a free port"},
 		[]string{err.Error(), "Failed to start port-forwarding"},
 		[]string{"Unable to provide a free port to connect to a kuberentes cluster"},
-		[]string{"Ensure your Meshery Server is running,", "Ensure mesheryctl is connected to kubernetes cluster with `mesheryctl system check`"},
+		[]string{"Ensure your Meshplay Server is running,", "Ensure meshplayctl is connected to kubernetes cluster with `meshplayctl system check`"},
 	)
 }
 
@@ -303,8 +303,8 @@ func ErrProviderInfo(err error) error {
 		errors.Fatal,
 		[]string{"Unable to verify provider"},
 		[]string{err.Error()},
-		[]string{"Unable to verify provider  as Meshery server was unreachable"},
-		[]string{"Start Meshery to verify provider. Run `mesheryctl system provider set [provider] --force` to force set the provider" + FormatErrorReference()})
+		[]string{"Unable to verify provider  as Meshplay server was unreachable"},
+		[]string{"Start Meshplay to verify provider. Run `meshplayctl system provider set [provider] --force` to force set the provider" + FormatErrorReference()})
 }
 
 func ErrValidProvider() error {

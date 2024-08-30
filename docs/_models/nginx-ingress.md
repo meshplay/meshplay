@@ -4,7 +4,7 @@ title: NGINX Ingress Controller
 subtitle: Collaborative and visual infrastructure as design for NGINX Ingress Controller
 image: /assets/img/integrations/nginx-ingress/icons/color/nginx-ingress-color.svg
 permalink: extensibility/integrations/nginx-ingress
-docURL: https://docs.meshery.io/extensibility/integrations/nginx-ingress
+docURL: https://docs.meshplay.io/extensibility/integrations/nginx-ingress
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Proxy

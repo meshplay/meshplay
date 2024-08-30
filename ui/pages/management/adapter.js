@@ -4,16 +4,16 @@ import { withRouter } from 'next/router';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MesheryPlayComponent from '../../components/MesheryPlayComponent';
+import MeshplayPlayComponent from '../../components/MeshplayPlayComponent';
 import { updatepagepath } from '../../lib/store';
 
 const Manage = () => {
   return (
     <NoSsr>
       <Head>
-        <title>Management | Meshery </title>
+        <title>Management | Meshplay </title>
       </Head>
-      <MesheryPlayComponent />
+      <MeshplayPlayComponent />
     </NoSsr>
   );
 };

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import Stepper from './Stepper.js';
 import KubernetesScreen from './Screens/KubernetesScreen';
-import MesheryOperatorScreen from './Screens/MesheryOperatorScreen';
+import MeshplayOperatorScreen from './Screens/MeshplayOperatorScreen';
 import ServiceMeshScreen from './Screens/ServiceMeshScreen';
 import MetricsScreen from './Screens/MetricsScreen';
 import CompletionScreen from './Screens/CompletionScreen';
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['Kubernetes', 'Meshery Operator', 'Meshery Adapters', 'Metrics'];
+  return ['Kubernetes', 'Meshplay Operator', 'Meshplay Adapters', 'Metrics'];
 }
 
 const ConfigurationWizard = () => {
@@ -70,7 +70,7 @@ const ConfigurationWizard = () => {
       case 0:
         return <KubernetesScreen setStepStatus={setStepStatus} />;
       case 1:
-        return <MesheryOperatorScreen setStepStatus={setStepStatus} />;
+        return <MeshplayOperatorScreen setStepStatus={setStepStatus} />;
       case 2:
         return <ServiceMeshScreen />;
       case 3:

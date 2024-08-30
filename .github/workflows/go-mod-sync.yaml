@@ -1,4 +1,4 @@
-name: Meshery extensions go.mod sync
+name: Meshplay extensions go.mod sync
 on:
   workflow_dispatch:
   push:
@@ -8,42 +8,42 @@ on:
       - "go.mod"
 jobs:
   sync:
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     name: sync
     runs-on: ubuntu-22.04
     steps:
-    - name: check out code for meshery
+    - name: check out code for meshplay
       uses: actions/checkout@master
       with:
-        repository: meshery/meshery
+        repository: meshplay/meshplay
         token: ${{ secrets.RELEASEDRAFTER_PAT }}
-        path: meshery
-    - name: Check out code for meshery-extensions
+        path: meshplay
+    - name: Check out code for meshplay-extensions
       uses: actions/checkout@master
       with:
-        repository: layer5labs/meshery-extensions
+        repository: layer5labs/meshplay-extensions
         token: ${{ secrets.RELEASEDRAFTER_PAT }}
-        path: meshery-extensions
+        path: meshplay-extensions
     - name: Setup Go
       uses: actions/setup-go@master
       with:
         go-version: "1.21"
     - name: Go mod sync utility
-      run: cd meshery-extensions;make graphql-sync;
+      run: cd meshplay-extensions;make graphql-sync;
 
     - name: Pull changes from remote
-      working-directory: ./meshery-extensions
+      working-directory: ./meshplay-extensions
       run: git pull origin master
 
     - name: Commit
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        repository: meshery-extensions
+        repository: meshplay-extensions
         commit_user_name: l5io
         commit_user_email: ci@layer5.io
         commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         commit_options: '--signoff'
-        commit_message: 'Upgrading go.mod in response to meshery/meshery'
+        commit_message: 'Upgrading go.mod in response to meshplay/meshplay'
         branch: master
   notify-via-email:
     runs-on: ubuntu-latest
@@ -60,9 +60,9 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Go Mod Sync Failed - ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           to: support@layer5.io
-          from: Meshery extensions go.mod sync workflow
+          from: Meshplay extensions go.mod sync workflow
           body: |
-            The workflow (https://github.com/meshery/meshery/actions/workflows/go-mod-sync.yml) encountered error(s). This mainly occurs when the go.mod file in the meshery-extensions repository is not in sync with the go.mod file in the meshery/meshery repository. The workflow attempts to update the go.mod file in the meshery-extensions repository to ensure it matches the go.mod file in the meshery/meshery repository.
+            The workflow (https://github.com/meshplay/meshplay/actions/workflows/go-mod-sync.yml) encountered error(s). This mainly occurs when the go.mod file in the meshplay-extensions repository is not in sync with the go.mod file in the meshplay/meshplay repository. The workflow attempts to update the go.mod file in the meshplay-extensions repository to ensure it matches the go.mod file in the meshplay/meshplay repository.
 
             The workflow failed. Here are the details:
 
@@ -74,4 +74,4 @@ jobs:
             Steps and their outcomes:
             ${{ toJson(job.steps) }}
 
-            Refer to the GitHub Actions log for more details: https://github.com/meshery/meshery/actions/runs/${{ github.run_id }}
+            Refer to the GitHub Actions log for more details: https://github.com/meshplay/meshplay/actions/runs/${{ github.run_id }}

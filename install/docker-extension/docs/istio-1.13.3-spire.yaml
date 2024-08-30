@@ -52,8 +52,8 @@ services:
         position:
           posX: 330
           posY: 450
-  Meshery:
-    name: Meshery
+  Meshplay:
+    name: Meshplay
     type: Application
     namespace: kube-system
     dependsOn:
@@ -61,14 +61,14 @@ services:
     settings:
       advanced:
         create_service: true
-      name: Meshery
+      name: Meshplay
       namespace: kube-system
       replicas: 0
     traits:
       meshmap:
         edges: []
         id: d1e9217a-7999-4495-90f3-17b020b8796e
-        label: Meshery
+        label: Meshplay
         parent: a6297b89-3d53-44d0-95bd-bb3f9ad202a8
         position:
           posX: 490
@@ -99,7 +99,7 @@ services:
       gateways:
       - bookinfo
       hosts:
-      - bookinfo.meshery.io
+      - bookinfo.meshplay.io
       name: Virtual Service
       namespace: default
     traits:
@@ -868,7 +868,7 @@ services:
       namespace: productpage-v1
       outboundTrafficPolicy:
         egressProxy:
-          host: bookinfo.meshery.io
+          host: bookinfo.meshplay.io
           subset: v1
         mode: ALLOW_ANY
     traits:

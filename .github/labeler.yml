@@ -19,10 +19,10 @@ area/models:
 - changed-files:
   - any-glob-to-any-file:
     - "server/meshmodel/**/*"
-component/mesheryctl:
+component/meshplayctl:
 - changed-files:
   - any-glob-to-any-file:
-    - "mesheryctl/**/*"
+    - "meshplayctl/**/*"
 component/extensions:
 - changed-files:
   - any-glob-to-any-file:

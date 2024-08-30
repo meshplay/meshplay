@@ -1,4 +1,4 @@
-## Install Meshery in Rancher Kubernetes cluster
+## Install Meshplay in Rancher Kubernetes cluster
 
 Once Docker is installed, the next step will be to install a Kubernetes cluster.
 Under "Settings" in the Docker Desktop application, enable *Kubernetes*.

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-relationship-search
-permalink: reference/mesheryctl/exp/relationship/search
-redirect_from: reference/mesheryctl/exp/relationship/search/
+title: meshplayctl-exp-relationship-search
+permalink: reference/meshplayctl/exp/relationship/search
+redirect_from: reference/meshplayctl/exp/relationship/search/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: relationship
 ---
 
-# mesheryctl exp relationship search
+# meshplayctl exp relationship search
 
 Searches registered relationships
 
@@ -19,7 +19,7 @@ Searches registered relationships
 Searches and finds the realtionship used by different models based on the query-text.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationship search [flags]
+meshplayctl exp relationship search [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp relationship search [flags]
 Search for relationship using a query
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationship search --[flag] [query-text]
+meshplayctl exp relationship search --[flag] [query-text]
 
 </div>
 </pre> 
@@ -51,7 +51,7 @@ mesheryctl exp relationship search --[flag] [query-text]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -59,4 +59,4 @@ mesheryctl exp relationship search --[flag] [query-text]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

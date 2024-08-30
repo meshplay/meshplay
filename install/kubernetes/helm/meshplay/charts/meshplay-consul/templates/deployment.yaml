@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "meshery-consul.fullname" . }}
+  name: {{ include "meshplay-consul.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "meshery-consul.labels" . | nindent 4 }}
+    {{- include "meshplay-consul.labels" . | nindent 4 }}
   annotations:
     {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "meshery-consul.selectorLabels" . | nindent 6 }}
+      {{- include "meshplay-consul.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "meshery-consul.selectorLabels" . | nindent 8 }}
+        {{- include "meshplay-consul.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "meshery-consul.serviceAccountName" . }}
+      serviceAccountName: {{ include "meshplay-consul.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          # TODO: Need to confirm the meshery-consul image version
+          # TODO: Need to confirm the meshplay-consul image version
           image: "{{ .Values.image.repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

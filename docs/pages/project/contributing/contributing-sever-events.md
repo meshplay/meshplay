@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contributing to Meshery Server Events
+title: Contributing to Meshplay Server Events
 abstract: Guide is to help backend contributors send server events using Golang.
 permalink: project/contributing/contributing-server-events
 type: project
@@ -9,7 +9,7 @@ language: en
 list: include
 ---
 
-Meshery incorporates an internal events publication mechanism that provides users with real-time updates on the processes occurring within the Meshery server when interacting with its endpoints. It ensures that users are kept in the loop regarding the ongoing activities within the API, and guides users towards future steps to resolve issues. This guide will provide step-by-step instructions on sending events from the server, including when to trigger events and what information to include.
+Meshplay incorporates an internal events publication mechanism that provides users with real-time updates on the processes occurring within the Meshplay server when interacting with its endpoints. It ensures that users are kept in the loop regarding the ongoing activities within the API, and guides users towards future steps to resolve issues. This guide will provide step-by-step instructions on sending events from the server, including when to trigger events and what information to include.
 
 
 First, let's take a look at how the event object is constructed,
@@ -30,13 +30,13 @@ First, let's take a look at how the event object is constructed,
  </pre>
 &nbsp;&nbsp;
 
-*Note: `events` is a package [github.com/meshery/meshkit/models/events](https://github.com/meshery/meshkit) from MeshKit containing source code of event related functionality*
+*Note: `events` is a package [github.com/meshplay/meshkit/models/events](https://github.com/meshplay/meshkit) from MeshKit containing source code of event related functionality*
 
-The event mechanism utilizes [builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) to construct event objects, `events.NewEvent()` creates an instance of [EventBuilder](https://github.com/meshery/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/build.go#L9) type, which functions as a builder class for constructing [Event](https://github.com/meshery/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L37) objects. 
+The event mechanism utilizes [builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) to construct event objects, `events.NewEvent()` creates an instance of [EventBuilder](https://github.com/meshplay/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/build.go#L9) type, which functions as a builder class for constructing [Event](https://github.com/meshplay/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L37) objects. 
 
 - `ActedUpon(UUID)` : it takes [UUID](https://pkg.go.dev/github.com/gofrs/uuid#UUID) of the resource being provisioned on the server, and the events are associated with that resource.
 - `FromUser()` : it takes [UUID](https://pkg.go.dev/github.com/gofrs/uuid#UUID) of the user initiating the HTTP request to the server. This enables the server to publish events intended for that specific user in response.
-- `FromSystem(UUID)` : it takes [UUID](https://pkg.go.dev/github.com/gofrs/uuid#UUID) of the running meshery instance (Handler instance contains it [`h.SystemID`](https://github.com/meshery/meshery/blob/c73d3687da3eb3b2aaaabbd27e91f99906fc5838/server/handlers/handler_instance.go#L29)).
+- `FromSystem(UUID)` : it takes [UUID](https://pkg.go.dev/github.com/gofrs/uuid#UUID) of the running meshplay instance (Handler instance contains it [`h.SystemID`](https://github.com/meshplay/meshplay/blob/c73d3687da3eb3b2aaaabbd27e91f99906fc5838/server/handlers/handler_instance.go#L29)).
 - `WithCategory` : The string argument to specify under which category this event falls, For example, when a user is provisioning a Kubernetes connection, the specified category for the event is "connection.
 - `WithAction` : The string argument to specify the type of action the server is performing, for instance, when registering a Kubernetes connection, the action would be "register".
 
@@ -44,15 +44,15 @@ The event mechanism utilizes [builder pattern](https://en.wikipedia.org/wiki/Bui
       example categories: **"signup_request", "github_artifacts"**.
       example actions: **"remove_from_organization", "add_to_organization"**.
 
-- `WithSeverity`: it takes [EventSeverity](https://github.com/meshery/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L75) (underlying type is string), to specify severity of the event to bring user's attention to the event accordingly.
+- `WithSeverity`: it takes [EventSeverity](https://github.com/meshplay/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L75) (underlying type is string), to specify severity of the event to bring user's attention to the event accordingly.
 
 *Note: In certain conditions you must add some fields with specific  keys:*
 - If the severity is "Error", include a field in Metadata using the key `err` with the corresponding error value.
-- When you want to add a link to meshery docs, include a field in Metadata using the key `doc` with the corresponding link value.
+- When you want to add a link to meshplay docs, include a field in Metadata using the key `doc` with the corresponding link value.
 
 - `WithDescription` : The string argument provides a detailed, descriptive message that depicts the specific operation or action being executed on the server.
 - `WithMetadata`: it takes a Map `map[string]interface{}` data structure containing any supplementary information that the developer/contributor deems essential for the user to be informed about.
-- `Build` : returns the [Event](https://github.com/meshery/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L37) instance constructed upon the previously described functions and prepares it for publication through the [Broadcast](https://github.com/meshery/meshery/blob/1b5d78ed34648e0a91df8c2273026b930f748fbc/server/models/event_broadcast.go#L14), which is responsible for disseminating events.
+- `Build` : returns the [Event](https://github.com/meshplay/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L37) instance constructed upon the previously described functions and prepares it for publication through the [Broadcast](https://github.com/meshplay/meshplay/blob/1b5d78ed34648e0a91df8c2273026b930f748fbc/server/models/event_broadcast.go#L14), which is responsible for disseminating events.
 
 
 
@@ -104,20 +104,20 @@ func (h *Handler) KubernetesPingHandler(w http.ResponseWriter, req *http.Request
 &nbsp;&nbsp;
 
 
-In the given code block, the "resource" refers to the connection on which the server is performing the "ping" action. The "ActedUpon" field is supplied with the "connectionID" value obtained from the query parameter. `provider.GetK8sContext` returns the [K8sContext](https://github.com/meshery/meshery/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/models/k8s_context.go#L26) object which serves as a representation of a Kubernetes context within the Meshery. if `provider.GetK8sContext` returns an error, the event is constructed with severity [Error](https://github.com/meshery/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L18), description and enriched with metadata fields to provide the user with a complete context about the event.
+In the given code block, the "resource" refers to the connection on which the server is performing the "ping" action. The "ActedUpon" field is supplied with the "connectionID" value obtained from the query parameter. `provider.GetK8sContext` returns the [K8sContext](https://github.com/meshplay/meshplay/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/models/k8s_context.go#L26) object which serves as a representation of a Kubernetes context within the Meshplay. if `provider.GetK8sContext` returns an error, the event is constructed with severity [Error](https://github.com/meshplay/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L18), description and enriched with metadata fields to provide the user with a complete context about the event.
 
-If `provider.GetK8sContext` succeeds, an event with a [Success](https://github.com/meshery/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L21) severity level is constructed. The event includes a success message and metadata containing the context name and the address of the Kubernetes API server, obtained from the operation. This information aims to provide users with relevant details about the successful operation.
+If `provider.GetK8sContext` succeeds, an event with a [Success](https://github.com/meshplay/meshkit/blob/ea3c60907a1cd1902902a4113206579992772083/models/events/events.go#L21) severity level is constructed. The event includes a success message and metadata containing the context name and the address of the Kubernetes API server, obtained from the operation. This information aims to provide users with relevant details about the successful operation.
 
-after constructing the Event object using the Build function, event is stored into database for records and subsequently published in a new goroutine through [EventBroadcaster](https://github.com/meshery/meshery/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/models/handlers.go#L241) member variable of [HandlerConfig](https://github.com/meshery/meshery/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/models/handlers.go#L206), which is part of [Handler](https://github.com/meshery/meshery/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/handlers/handler_instance.go#L18) instance.
+after constructing the Event object using the Build function, event is stored into database for records and subsequently published in a new goroutine through [EventBroadcaster](https://github.com/meshplay/meshplay/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/models/handlers.go#L241) member variable of [HandlerConfig](https://github.com/meshplay/meshplay/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/models/handlers.go#L206), which is part of [Handler](https://github.com/meshplay/meshplay/blob/995ab671a12013088f874430cfa2c0f025b073d2/server/handlers/handler_instance.go#L18) instance.
 
-To gain a deeper understanding and examine events more closely, you can explore the source code files [k8config_handler.go](https://github.com/meshery/meshery/blob/master/server/handlers/k8sconfig_handler.go) and [design_engine_handler.go](https://github.com/meshery/meshery/blob/master/server/handlers/design_engine_handler.go) within the Meshery project's codebase.
+To gain a deeper understanding and examine events more closely, you can explore the source code files [k8config_handler.go](https://github.com/meshplay/meshplay/blob/master/server/handlers/k8sconfig_handler.go) and [design_engine_handler.go](https://github.com/meshplay/meshplay/blob/master/server/handlers/design_engine_handler.go) within the Meshplay project's codebase.
 
 
-## Sending Events to Meshery Server
+## Sending Events to Meshplay Server
 
-Meshery has two primary clients: Mesheryctl and Meshery UI. Both clients will produce multiple events throughout their lifecycle. Meshery Server is designed to accept these client-generated events and broadcast them using the [Broadcaster](https://github.com/meshery/meshery/blob/1b5d78ed34648e0a91df8c2273026b930f748fbc/server/models/event_broadcast.go#L14).
+Meshplay has two primary clients: Meshplayctl and Meshplay UI. Both clients will produce multiple events throughout their lifecycle. Meshplay Server is designed to accept these client-generated events and broadcast them using the [Broadcaster](https://github.com/meshplay/meshplay/blob/1b5d78ed34648e0a91df8c2273026b930f748fbc/server/models/event_broadcast.go#L14).
 
-Clients can send HTTP POST requests to [`api/events`](https://docs.meshery.io/reference/rest-apis#api-events) with the event encapsulated in a JSON request body. Upon receiving an event, the server processes, validates, and broadcasts it using the Broadcaster. This ensures that all relevant events generated by Mesheryctl and Meshery UI are effectively communicated and managed by the Meshery Server.
+Clients can send HTTP POST requests to [`api/events`](https://docs.meshplay.io/reference/rest-apis#api-events) with the event encapsulated in a JSON request body. Upon receiving an event, the server processes, validates, and broadcasts it using the Broadcaster. This ensures that all relevant events generated by Meshplayctl and Meshplay UI are effectively communicated and managed by the Meshplay Server.
 
 ### Example 
 
@@ -133,7 +133,7 @@ async function sendClientEvent(clientId, eventPayload) {
     };
 
     try {
-        // Send event to Meshery Server
+        // Send event to Meshplay Server
         const response = await fetch('http://localhost:9081/api/events', {
             method: 'POST',
             headers: {

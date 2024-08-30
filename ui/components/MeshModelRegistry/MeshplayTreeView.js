@@ -11,7 +11,7 @@ import { useWindowDimensions } from '../../utils/dimension';
 import StyledTreeItem from './StyledTreeItem';
 import { useRouter } from 'next/router';
 import { getFilteredDataForDetailsComponent, groupRelationshipsByKind } from './helper';
-import { CustomTextTooltip } from '../MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '../MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import _ from 'lodash';
 import CollapseAllIcon from '@/assets/icons/CollapseAll';
@@ -287,7 +287,7 @@ const RelationshipTree = ({
   );
 };
 
-const MesheryTreeViewItem = ({
+const MeshplayTreeViewItem = ({
   modelDef,
   registrantID,
   setShowDetailsData,
@@ -369,7 +369,7 @@ const MesheryTreeViewItem = ({
   );
 };
 
-const MesheryTreeViewModel = ({
+const MeshplayTreeViewModel = ({
   data,
   handleToggle,
   handleSelect,
@@ -393,7 +393,7 @@ const MesheryTreeViewModel = ({
       selected={selected}
     >
       {data.map((modelDef, index) => (
-        <MesheryTreeViewItem
+        <MeshplayTreeViewItem
           key={index}
           modelDef={modelDef}
           handleToggle={handleToggle}
@@ -410,7 +410,7 @@ const MesheryTreeViewModel = ({
   );
 };
 
-const MesheryTreeViewRegistrants = ({
+const MeshplayTreeViewRegistrants = ({
   data,
   setShow,
   handleToggle,
@@ -457,7 +457,7 @@ const MesheryTreeViewRegistrants = ({
               labelText={`Models (${registrant?.models?.length})`}
             >
               {registrant?.models.map((modelDef, index) => (
-                <MesheryTreeViewItem
+                <MeshplayTreeViewItem
                   key={index}
                   modelDef={modelDef}
                   handleToggle={handleToggle}
@@ -512,11 +512,11 @@ const useRegistryRouter = () => {
   };
 };
 
-const MesheryTreeViewWrapper = styled('div')(() => ({
+const MeshplayTreeViewWrapper = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
 }));
-const MesheryTreeView = ({
+const MeshplayTreeView = ({
   data,
   view,
   setSearchText,
@@ -734,7 +734,7 @@ const MesheryTreeView = ({
                   interactive={true}
                   title={`View all duplicate entries of ${_.toLower(
                     view,
-                  )}. Entries with identical name and version attributes are considered duplicates. [Learn More](https://docs.meshery.io/concepts/logical/models#models)`}
+                  )}. Entries with identical name and version attributes are considered duplicates. [Learn More](https://docs.meshplay.io/concepts/logical/models#models)`}
                 >
                   <IconButton color="primary">
                     <InfoOutlinedIcon height={20} width={20} />
@@ -789,10 +789,10 @@ const MesheryTreeView = ({
   );
 
   return (
-    <MesheryTreeViewWrapper style={{ width: '100%', height: '100%' }}>
+    <MeshplayTreeViewWrapper style={{ width: '100%', height: '100%' }}>
       {view === MODELS &&
         renderTree(
-          <MesheryTreeViewModel
+          <MeshplayTreeViewModel
             data={data}
             handleToggle={handleToggle}
             handleSelect={handleSelect}
@@ -807,7 +807,7 @@ const MesheryTreeView = ({
         )}
       {view === REGISTRANTS &&
         renderTree(
-          <MesheryTreeViewRegistrants
+          <MeshplayTreeViewRegistrants
             data={data}
             handleToggle={handleToggle}
             handleSelect={handleSelect}
@@ -848,8 +848,8 @@ const MesheryTreeView = ({
           />,
           RELATIONSHIPS,
         )}
-    </MesheryTreeViewWrapper>
+    </MeshplayTreeViewWrapper>
   );
 };
 
-export default MesheryTreeView;
+export default MeshplayTreeView;

@@ -1,4 +1,4 @@
-// Package models - Error codes for Meshery models
+// Package models - Error codes for Meshplay models
 package models
 
 import (
@@ -82,8 +82,8 @@ const (
 	ErrGettingSeededComponentsCode        = "meshplay-server-1287"
 	ErrDownloadingSeededComponentsCode    = "meshplay-server-1288"
 	ErrContextIDCode                      = "meshplay-server-1289"
-	ErrMesheryInstanceIDCode              = "meshplay-server-1290"
-	ErrMesheryNotInClusterCode            = "meshplay-server-1291"
+	ErrMeshplayInstanceIDCode              = "meshplay-server-1290"
+	ErrMeshplayNotInClusterCode            = "meshplay-server-1291"
 	ErrBrokerNotFoundCode                 = "meshplay-server-1292"
 	ErrCreateOperatorDeploymentConfigCode = "meshplay-server-1293"
 	ErrRequestMeshsyncStoreCode           = "meshplay-server-1294"
@@ -161,8 +161,8 @@ var (
 	ErrField                   = errors.New(ErrFieldCode, errors.Alert, []string{"Error: name field is blank"}, []string{}, []string{}, []string{})
 	ErrIndexOutOfRange         = errors.New(ErrIndexOutOfRangeCode, errors.Alert, []string{"Error: index out of range"}, []string{}, []string{}, []string{})
 	ErrContextID               = errors.New(ErrContextIDCode, errors.Alert, []string{"Error: Context ID is empty"}, []string{}, []string{}, []string{})
-	ErrMesheryInstanceID       = errors.New(ErrMesheryInstanceIDCode, errors.Alert, []string{"Error: Meshery Instance ID is empty or is invalid"}, []string{}, []string{}, []string{})
-	ErrMesheryNotInCluster     = errors.New(ErrMesheryNotInClusterCode, errors.Alert, []string{"Error: Meshery is not running inside a cluster"}, []string{}, []string{}, []string{})
+	ErrMeshplayInstanceID       = errors.New(ErrMeshplayInstanceIDCode, errors.Alert, []string{"Error: Meshplay Instance ID is empty or is invalid"}, []string{}, []string{}, []string{})
+	ErrMeshplayNotInCluster     = errors.New(ErrMeshplayNotInClusterCode, errors.Alert, []string{"Error: Meshplay is not running inside a cluster"}, []string{}, []string{}, []string{})
 	ErrContextAlreadyPersisted = errors.New(ErrContextAlreadyPersistedCode, errors.Alert, []string{"kubernetes context already persisted with provider"}, []string{"kubernetes context already persisted with provider"}, []string{}, []string{})
 	ErrTokenRetry              = errors.New(ErrTokenRetryCode, errors.Alert, []string{"Error occurred, retrying after refresh to fetch token"}, []string{}, []string{}, []string{})
 	ErrOperationNotAvaibale    = errors.New(ErrOperationNotAvaibaleCode, errors.Alert, []string{"Operation not available"}, []string{}, []string{}, []string{})
@@ -186,7 +186,7 @@ func ErrBrokerSubscription(err error) error {
 	return errors.New(ErrBrokerSubscriptionCode, errors.Alert, []string{"Could not subscribe to the broker subject"}, []string{"", err.Error()}, []string{""}, []string{"Make sure meshplay broker is healthy"})
 }
 func ErrLogout(err error) error {
-	return errors.New(ErrLogoutCode, errors.Alert, []string{"Unable to perform logout"}, []string{err.Error()}, []string{"Session might already been revoked", "Remote provider is not able to complete the request"}, []string{"Close the tabs and open Meshery UI again. Optionally, try using a private/incognito browser window."})
+	return errors.New(ErrLogoutCode, errors.Alert, []string{"Unable to perform logout"}, []string{err.Error()}, []string{"Session might already been revoked", "Remote provider is not able to complete the request"}, []string{"Close the tabs and open Meshplay UI again. Optionally, try using a private/incognito browser window."})
 }
 func ErrRequestMeshsyncStore(err error) error {
 	return errors.New(ErrRequestMeshsyncStoreCode, errors.Alert, []string{"Meshsync store request could not be issued"}, []string{"", err.Error()}, []string{""}, []string{"Make sure meshplay broker is healthy"})
@@ -204,7 +204,7 @@ func ErrCreateResourceEntry(err error) error {
 }
 
 func ErrBrokerNotFound(err error) error {
-	return errors.New(ErrBrokerNotFoundCode, errors.Alert, []string{"Meshery broker not found"}, []string{"Unable to find meshplay broker in the cluster", err.Error()}, []string{"Invalid Grafana Endpoint or API-Key"}, []string{"Update your Grafana URL and API-Key from the settings page in the UI"})
+	return errors.New(ErrBrokerNotFoundCode, errors.Alert, []string{"Meshplay broker not found"}, []string{"Unable to find meshplay broker in the cluster", err.Error()}, []string{"Invalid Grafana Endpoint or API-Key"}, []string{"Update your Grafana URL and API-Key from the settings page in the UI"})
 }
 
 func ErrGrafanaClient(err error) error {
@@ -265,7 +265,7 @@ func ErrPost(err error, obj string, statusCode int) error {
 }
 
 func ErrDelete(err error, obj string, statusCode int) error {
-	return errors.New(ErrDeleteCode, errors.Alert, []string{"Unable to de-register Meshery Server from Remote Provider", obj}, []string{"Status Code: " + fmt.Sprint(statusCode) + " ", err.Error()}, []string{"Network connectivity to Remote Provider may not be available. Session might have expired; token could be invalid."}, []string{"Verify that the Remote Provider is available. Ensure that you have an active session / valid token."})
+	return errors.New(ErrDeleteCode, errors.Alert, []string{"Unable to de-register Meshplay Server from Remote Provider", obj}, []string{"Status Code: " + fmt.Sprint(statusCode) + " ", err.Error()}, []string{"Network connectivity to Remote Provider may not be available. Session might have expired; token could be invalid."}, []string{"Verify that the Remote Provider is available. Ensure that you have an active session / valid token."})
 }
 
 func ErrDecodeBase64(err error, obj string) error {
@@ -307,7 +307,7 @@ func ErrGrafanaOrg(err error) error {
 }
 
 func ErrGrafanaBoards(err error) error {
-	return errors.New(ErrGrafanaBoardsCode, errors.Alert, []string{"Unable to get Grafana Boards"}, []string{err.Error()}, []string{"Grafana endpoint might not be reachable from Meshery", "Grafana endpoint is incorrect"}, []string{"Check if your Grafana endpoint is correct", "Connect to Grafana from the settings page in the UI"})
+	return errors.New(ErrGrafanaBoardsCode, errors.Alert, []string{"Unable to get Grafana Boards"}, []string{err.Error()}, []string{"Grafana endpoint might not be reachable from Meshplay", "Grafana endpoint is incorrect"}, []string{"Check if your Grafana endpoint is correct", "Connect to Grafana from the settings page in the UI"})
 }
 
 func ErrGrafanaDashboard(err error, UID string) error {
@@ -441,7 +441,7 @@ func ErrSessionCopy(err error) error {
 }
 
 func ErrGettingSeededComponents(err error, content string) error {
-	return errors.New(ErrGettingSeededComponentsCode, errors.Alert, []string{"Error while getting ", content, " from sample content"}, []string{err.Error()}, []string{"Sample content does not exist.\nContent file format not supported.\nUser doesn't have permission to read sample content.\nContent file corrupt."}, []string{"Try restarting Meshery.\nTry fetching content again."})
+	return errors.New(ErrGettingSeededComponentsCode, errors.Alert, []string{"Error while getting ", content, " from sample content"}, []string{err.Error()}, []string{"Sample content does not exist.\nContent file format not supported.\nUser doesn't have permission to read sample content.\nContent file corrupt."}, []string{"Try restarting Meshplay.\nTry fetching content again."})
 }
 
 func ErrSavingSeededComponents(err error, content string) error {
@@ -464,7 +464,7 @@ func ErrUnreachableRemoteProvider(err error) error {
 	return errors.New(ErrUnreachableRemoteProviderCode, errors.Alert, []string{"Could not reach remote provider"}, []string{"", err.Error()}, []string{"Remote provider server may be down or not accepting requests."}, []string{"Make sure remote provider server is healthy and accepting requests."})
 }
 func ErrPersistEvent(err error) error {
-	return errors.New(ErrPersistEventCode, errors.Alert, []string{"Could not persist event"}, []string{err.Error()}, []string{"Database could be down or not reachable", "Meshery Database handler is not accessible to perform operations"}, []string{"Restart Meshery Server or Perform Hard Reset"})
+	return errors.New(ErrPersistEventCode, errors.Alert, []string{"Could not persist event"}, []string{err.Error()}, []string{"Database could be down or not reachable", "Meshplay Database handler is not accessible to perform operations"}, []string{"Restart Meshplay Server or Perform Hard Reset"})
 }
 
 func ErrInvalidEventData() error {
@@ -472,11 +472,11 @@ func ErrInvalidEventData() error {
 }
 
 func ErrUnreachableKubeAPI(err error, server string) error {
-	return errors.New(ErrUnreachableKubeAPICode, errors.Alert, []string{fmt.Sprintf("Error communicating with KubeAPI at %s.", server)}, []string{err.Error()}, []string{"The Kubernetes API server is not reachable.", "Credentials are invalid."}, []string{"Verify network connectivity and Kubernetes API responsiveness between Meshery Server and your cluster.", "Ensure client credential is not expired and is properly formed.", "Remove the cluster credential and enable 'insecure-skip-tls-verify'."})
+	return errors.New(ErrUnreachableKubeAPICode, errors.Alert, []string{fmt.Sprintf("Error communicating with KubeAPI at %s.", server)}, []string{err.Error()}, []string{"The Kubernetes API server is not reachable.", "Credentials are invalid."}, []string{"Verify network connectivity and Kubernetes API responsiveness between Meshplay Server and your cluster.", "Ensure client credential is not expired and is properly formed.", "Remove the cluster credential and enable 'insecure-skip-tls-verify'."})
 }
 
 func ErrFlushMeshSyncData(err error, contextName, server string) error {
-	return errors.New(ErrFlushMeshSyncDataCode, errors.Alert, []string{"Unable to flush MeshSync data for context %s at %s "}, []string{err.Error()}, []string{"Meshery Database handler is not accessible to perform operations"}, []string{"Restart Meshery Server or Perform Hard Reset"})
+	return errors.New(ErrFlushMeshSyncDataCode, errors.Alert, []string{"Unable to flush MeshSync data for context %s at %s "}, []string{err.Error()}, []string{"Meshplay Database handler is not accessible to perform operations"}, []string{"Restart Meshplay Server or Perform Hard Reset"})
 }
 
 func ErrUpdateConnectionStatus(err error, statusCode int) error {
@@ -495,14 +495,14 @@ func ErrPersistConnection(err error) error {
 	return errors.New(ErrPersistConnectionCode, errors.Alert, []string{"unable to persist connection details"}, []string{err.Error()}, []string{"The connection object is not valid"}, []string{"Ensure all the required fields are provided"})
 }
 func ErrSaveConnection(err error) error {
-	return errors.New(ErrSaveConnectionCode, errors.Alert, []string{"Unable to save Meshery connection"}, []string{err.Error()}, []string{}, []string{})
+	return errors.New(ErrSaveConnectionCode, errors.Alert, []string{"Unable to save Meshplay connection"}, []string{err.Error()}, []string{}, []string{})
 }
 func ErrGrafanaScan(err error) error {
-	return errors.New(ErrGrafanaScanCode, errors.Alert, []string{"Unable to connect to grafana"}, []string{err.Error()}, []string{"Grafana endpoint might not be reachable from Meshery", "Grafana endpoint is incorrect"}, []string{"Check if your Grafana Endpoint is correct", "Connect to Grafana from the settings page in the UI"})
+	return errors.New(ErrGrafanaScanCode, errors.Alert, []string{"Unable to connect to grafana"}, []string{err.Error()}, []string{"Grafana endpoint might not be reachable from Meshplay", "Grafana endpoint is incorrect"}, []string{"Check if your Grafana Endpoint is correct", "Connect to Grafana from the settings page in the UI"})
 }
 
 func ErrPrometheusScan(err error) error {
-	return errors.New(ErrPrometheusScanCode, errors.Alert, []string{"Unable to connect to prometheus"}, []string{err.Error()}, []string{"Prometheus endpoint might not be reachable from Meshery", "Prometheus endpoint is incorrect"}, []string{"Check if your Prometheus endpoint are correct", "Connect to Prometheus from the settings page in the UI"})
+	return errors.New(ErrPrometheusScanCode, errors.Alert, []string{"Unable to connect to prometheus"}, []string{err.Error()}, []string{"Prometheus endpoint might not be reachable from Meshplay", "Prometheus endpoint is incorrect"}, []string{"Check if your Prometheus endpoint are correct", "Connect to Prometheus from the settings page in the UI"})
 }
 
 func ErrDBCreate(err error) error {
@@ -572,8 +572,8 @@ func ErrSeedingComponents(err error) error {
 		errors.Alert,
 		[]string{"Failed to register the given models into meshplay's registry"},
 		[]string{err.Error()},
-		[]string{"Given models may not be in accordance with Meshery's schema", "Internal(OS level) error while reading files"},
-		[]string{"Make sure the models being seeded are valid in accordance with Meshery's schema", "If it is an internal error, please try again after some time"},
+		[]string{"Given models may not be in accordance with Meshplay's schema", "Internal(OS level) error while reading files"},
+		[]string{"Make sure the models being seeded are valid in accordance with Meshplay's schema", "If it is an internal error, please try again after some time"},
 	)
 }
 
@@ -583,7 +583,7 @@ func ErrImportFailure(hostname string, failedMsg string) error {
 		errors.Alert,
 		[]string{fmt.Sprintf("Errors while registering entities for registrant: %s", hostname)},
 		[]string{failedMsg},
-		[]string{"Entity definition might not be in accordance with schema", "Entity version might not be supported by Meshery"},
+		[]string{"Entity definition might not be in accordance with schema", "Entity version might not be supported by Meshplay"},
 		[]string{"See the registration logs (found at $HOME/.meshplay/logs/registry/registry-logs.log) to find out which Entity failed to be imported with more specific error information."},
 	)
 }

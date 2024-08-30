@@ -150,7 +150,7 @@ function getFormattedLink(url) {
 
 export const LinkFormatters = {
   DOC: {
-    base_url: 'https://docs.meshery.io',
+    base_url: 'https://docs.meshplay.io',
     formatter: (link) => <Link title="Doc" href={link} />,
   },
   DEFAULT: {

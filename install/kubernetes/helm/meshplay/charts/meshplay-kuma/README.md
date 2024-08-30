@@ -1,8 +1,8 @@
-# meshery-kuma
+# meshplay-kuma
 
 ![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: stable-latest](https://img.shields.io/badge/AppVersion-stable--latest-informational?style=flat-square)
 
-Meshery Adapter for Kuma.
+Meshplay Adapter for Kuma.
 
 ## Maintainers
 
@@ -21,7 +21,7 @@ Meshery Adapter for Kuma.
 | env | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"layer5/meshery-kuma:stable-latest"` |  |
+| image.repository | string | `"layer5/meshplay-kuma:stable-latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |

@@ -1,7 +1,7 @@
 {
-    "Meshery": {
+    "Meshplay": {
         "provider_type": "remote",
-        "provider_name": "Meshery",
+        "provider_name": "Meshplay",
         "provider_description": [
             "Tiered multi-tenancy identity services with extensible RBAC",
             "Save environment configurations and user preferences",
@@ -9,7 +9,7 @@
             "Multi-player collaboration with STUN and TURN services",
             "Free use"
         ],
-        "provider_url": "https://meshery.layer5.io"
+        "provider_url": "https://meshplay.layer5.io"
     },
     "None": {
         "provider_type": "local",

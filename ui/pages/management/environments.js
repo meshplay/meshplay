@@ -10,7 +10,7 @@ const Environments = () => {
   return (
     <NoSsr>
       <Head>
-        <title>Environments | Meshery</title>
+        <title>Environments | Meshplay</title>
       </Head>
       <EnvironmentComponent />
     </NoSsr>

@@ -4,7 +4,7 @@ title: Solr Operator
 subtitle: Collaborative and visual infrastructure as design for Solr Operator
 image: /assets/img/integrations/solr-operator/icons/color/solr-operator-color.svg
 permalink: extensibility/integrations/solr-operator
-docURL: https://docs.meshery.io/extensibility/integrations/solr-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/solr-operator
 description: 
 integrations-category: Analytics
 integrations-subcategory: Query

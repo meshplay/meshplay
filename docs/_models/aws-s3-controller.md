@@ -4,7 +4,7 @@ title: AWS Simple Storage Service (S3)
 subtitle: Collaborative and visual infrastructure as design for AWS Simple Storage Service (S3)
 image: /assets/img/integrations/aws-s3-controller/icons/color/aws-s3-controller-color.svg
 permalink: extensibility/integrations/aws-s3-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-s3-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-s3-controller
 description: 
 integrations-category: Cloud Native Storage
 integrations-subcategory: Storage

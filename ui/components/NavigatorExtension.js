@@ -8,11 +8,11 @@ import {
 import { bindActionCreators } from 'redux';
 import { updateLoadTestData, setK8sContexts } from '../lib/store';
 import GrafanaCustomCharts from './telemetry/grafana/GrafanaCustomCharts';
-import MesheryPerformanceComponent from './MesheryPerformance';
+import MeshplayPerformanceComponent from './MeshplayPerformance';
 import dataFetch from '../lib/data-fetch';
-import PatternServiceForm from './MesheryMeshInterface/PatternServiceForm';
-import PatternServiceFormCore from './MesheryMeshInterface/PatternServiceFormCore';
-import RJSFWrapper from './MesheryMeshInterface/PatternService/RJSF_wrapper';
+import PatternServiceForm from './MeshplayMeshInterface/PatternServiceForm';
+import PatternServiceFormCore from './MeshplayMeshInterface/PatternServiceFormCore';
+import RJSFWrapper from './MeshplayMeshInterface/PatternService/RJSF_wrapper';
 import { createRelayEnvironment, subscriptionClient } from '../lib/relayEnvironment';
 import LoadingScreen from './LoadingComponents/LoadingComponent';
 import usePreventUserFromLeavingPage from '../utils/hooks/usePreventUserFromLeavingPage';
@@ -52,7 +52,7 @@ function NavigatorExtension({
   const [loading, err, RemoteComponent] = useRemoteComponent(url);
   console.log(err);
   if (loading) {
-    return <LoadingScreen animatedIcon="AnimatedMeshery" message="Loading Meshery Extension" />;
+    return <LoadingScreen animatedIcon="AnimatedMeshplay" message="Loading Meshplay Extension" />;
   }
 
   if (err != null) {
@@ -91,7 +91,7 @@ function NavigatorExtension({
         PatternServiceFormCore,
         grafana,
         prometheus,
-        MesheryPerformanceComponent,
+        MeshplayPerformanceComponent,
         dataFetch,
         createRelayEnvironment,
         subscriptionClient,

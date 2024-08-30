@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package system
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 
 	log "github.com/sirupsen/logrus"
@@ -28,36 +28,36 @@ import (
 )
 
 var linkDocReset = map[string]string{
-	"link":    "![reset-usage](/assets/img/mesheryctl/reset.png)",
-	"caption": "Usage of mesheryctl system reset",
+	"link":    "![reset-usage](/assets/img/meshplayctl/reset.png)",
+	"caption": "Usage of meshplayctl system reset",
 }
 
 // resetCmd represents the reset command
 var resetCmd = &cobra.Command{
 	Use:   "reset",
-	Short: "Reset Meshery's configuration",
-	Long:  `Reset Meshery to it's default configuration.`,
+	Short: "Reset Meshplay's configuration",
+	Long:  `Reset Meshplay to it's default configuration.`,
 	Example: `
-// Resets meshery.yaml file with a copy from Meshery repo
-mesheryctl system reset
+// Resets meshplay.yaml file with a copy from Meshplay repo
+meshplayctl system reset
 	`,
 	Annotations: linkDocReset,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 0 {
 			return errors.New(utils.SystemLifeCycleError(fmt.Sprintf("this command takes no arguments. See '%s --help' for more information.\n", cmd.CommandPath()), "reset"))
 		}
-		return resetMesheryConfig()
+		return resetMeshplayConfig()
 	},
 }
 
-// resets meshery config, skips conirmation if skipConfirmation is true
-func resetMesheryConfig() error {
+// resets meshplay config, skips conirmation if skipConfirmation is true
+func resetMeshplayConfig() error {
 	userResponse := false
 	if utils.SilentFlag {
 		userResponse = true
 	} else {
 		// ask user for confirmation
-		userResponse = utils.AskForConfirmation("Meshery config file will be reset to system defaults. Are you sure you want to continue")
+		userResponse = utils.AskForConfirmation("Meshplay config file will be reset to system defaults. Are you sure you want to continue")
 	}
 	if !userResponse {
 		log.Info("Reset aborted.")
@@ -65,7 +65,7 @@ func resetMesheryConfig() error {
 	}
 
 	// Get viper instance used for context
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		utils.Log.Error(err)
 		return nil
@@ -84,7 +84,7 @@ func resetMesheryConfig() error {
 		return ErrRetrievingCurrentContext(err)
 	}
 
-	log.Info("Meshery resetting...\n")
+	log.Info("Meshplay resetting...\n")
 	log.Printf("Current Context: %s", mctlCfg.GetCurrentContextName())
 	log.Printf("Channel: %s", currCtx.GetChannel())
 	log.Printf("Version: %s", currCtx.GetVersion())
@@ -101,8 +101,8 @@ func resetMesheryConfig() error {
 	return fetchManifests(mctlCfg)
 }
 
-// Fetches manifests for meshery components based on the current context
-func fetchManifests(mctlCfg *config.MesheryCtlConfig) error {
+// Fetches manifests for meshplay components based on the current context
+func fetchManifests(mctlCfg *config.MeshplayCtlConfig) error {
 	currCtx, err := mctlCfg.GetCurrentContext()
 	if err != nil {
 		return ErrRetrievingCurrentContext(err)
@@ -123,7 +123,7 @@ func fetchManifests(mctlCfg *config.MesheryCtlConfig) error {
 			return ErrCreateManifestsFolder(err)
 		}
 
-		log.Printf("...fetching Meshery Operator manifests for Kubernetes...")
+		log.Printf("...fetching Meshplay Operator manifests for Kubernetes...")
 		err = utils.DownloadOperatorManifest()
 
 		if err != nil {
@@ -134,7 +134,7 @@ func fetchManifests(mctlCfg *config.MesheryCtlConfig) error {
 
 	case "kubernetes":
 
-		log.Printf("Fetching Meshery Server and Meshery Operator manifests for  %s context...", mctlCfg.GetCurrentContextName())
+		log.Printf("Fetching Meshplay Server and Meshplay Operator manifests for  %s context...", mctlCfg.GetCurrentContextName())
 		// fetch the manifest files corresponding to the version specified
 		_, err := utils.FetchManifests(currCtx)
 
@@ -145,7 +145,7 @@ func fetchManifests(mctlCfg *config.MesheryCtlConfig) error {
 		log.Info("...meshconfig has been reset to default settings.")
 
 	default:
-		return fmt.Errorf("the platform %s is not supported currently. The supported platforms are:\ndocker\nkubernetes\nPlease check %s/config.yaml file", currCtx.Platform, utils.MesheryFolder)
+		return fmt.Errorf("the platform %s is not supported currently. The supported platforms are:\ndocker\nkubernetes\nPlease check %s/config.yaml file", currCtx.Platform, utils.MeshplayFolder)
 	}
 
 	return nil

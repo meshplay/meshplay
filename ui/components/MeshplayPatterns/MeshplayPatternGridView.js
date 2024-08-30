@@ -1,7 +1,7 @@
 import { Grid, Paper, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import React, { useState } from 'react';
-import MesheryPatternCard from './MesheryPatternCard';
+import MeshplayPatternCard from './MeshplayPatternCard';
 import DesignConfigurator from '../configuratorComponents/MeshModel';
 import { FILE_OPS } from '../../utils/Enum';
 import { EVENT_TYPES } from '../../lib/event-types';
@@ -42,7 +42,7 @@ function PatternCardGridItem({
 
   return (
     <Grid item {...gridProps}>
-      <MesheryPatternCard
+      <MeshplayPatternCard
         id={pattern.id}
         user={user}
         canPublishPattern={canPublishPattern}
@@ -92,7 +92,7 @@ function PatternCardGridItem({
 }
 
 /**
- * MesheryPatternGrid is the react component for rendering grid
+ * MeshplayPatternGrid is the react component for rendering grid
  * @param {{
  *  patterns:Array<{
  *  id:string,
@@ -122,7 +122,7 @@ function PatternCardGridItem({
  * }} props props
  */
 
-function MesheryPatternGrid({
+function MeshplayPatternGrid({
   patterns = [],
   handlePublish,
   handleUnpublishModal,
@@ -294,7 +294,7 @@ function MesheryPatternGrid({
               uiSchema={publishSchema.uiSchema}
               submitBtnText="Submit for Approval"
               handleSubmit={handlePublish}
-              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshery.io/concepts/catalog)"
+              helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
               handleClose={handlePublishModalClose}
             />
           </SistentModal>
@@ -314,4 +314,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // @ts-ignore
-export default connect(mapDispatchToProps)(MesheryPatternGrid);
+export default connect(mapDispatchToProps)(MeshplayPatternGrid);

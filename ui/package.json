@@ -1,5 +1,5 @@
 {
-    "name": "meshery-ui",
+    "name": "meshplay-ui",
     "version": "1.0.0",
     "description": "collaborative management plane",
     "main": "index.js",
@@ -24,8 +24,8 @@
         "clean": "rm -rf .next,out"
     },
     "keywords": [],
-    "author": "Meshery Authors",
-    "repository": "https://github.com/meshery/meshery",
+    "author": "Meshplay Authors",
+    "repository": "https://github.com/meshplay/meshplay",
     "license": "Apache-2.0",
     "dependencies": {
         "@casl/ability": "^6.5.0",

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-context
-permalink: reference/mesheryctl/system/context
-redirect_from: reference/mesheryctl/system/context/
+title: meshplayctl-system-context
+permalink: reference/meshplayctl/system/context
+redirect_from: reference/meshplayctl/system/context/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: system
 subcommand: context
 ---
 
-# mesheryctl system context
+# meshplayctl system context
 
-Configure your Meshery deployment(s)
+Configure your Meshplay deployment(s)
 
 ## Synopsis
 
-Configure and switch between different named Meshery server and component versions and deployments.
+Configure and switch between different named Meshplay server and component versions and deployments.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context [command] [flags]
+meshplayctl system context [command] [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl system context [command] [flags]
 Base command
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context
+meshplayctl system context
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl system context
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
   -y, --yes             (optional) assume yes for user interactive prompts.
 
@@ -57,4 +57,4 @@ mesheryctl system context
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

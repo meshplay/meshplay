@@ -4,7 +4,7 @@ title: Nirmata AWS Adapter
 subtitle: Collaborative and visual infrastructure as design for Nirmata AWS Adapter
 image: /assets/img/integrations/nirmata-aws-adapter/icons/color/nirmata-aws-adapter-color.svg
 permalink: extensibility/integrations/nirmata-aws-adapter
-docURL: https://docs.meshery.io/extensibility/integrations/nirmata-aws-adapter
+docURL: https://docs.meshplay.io/extensibility/integrations/nirmata-aws-adapter
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance
@@ -19,7 +19,7 @@ featureList: [
   "Integrates with Venafi Trust Protection Platform",
   "Enhances security for Kubernetes clusters"
 ]
-howItWorks: "Manages certificates within Meshery"
+howItWorks: "Manages certificates within Meshplay"
 howItWorksDetails: "Streamlined certificate management and improved security in Kubernetes"
 language: en
 list: include

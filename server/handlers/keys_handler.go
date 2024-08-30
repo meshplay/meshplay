@@ -5,7 +5,7 @@ import (
 	"github.com/gorilla/mux"
 	"net/http"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 )
 
 // swagger:route GET /api/identity/orgs/{orgID}/users/keys UserKeysAPI idGetAllUsersKeysHandler;

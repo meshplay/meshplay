@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Head from 'next/head';
 import { getPath } from '../../../lib/path';
-import MesheryPatterns from '../../../components/MesheryPatterns';
+import MeshplayPatterns from '../../../components/MeshplayPatterns';
 
 const styles = {
   paper: {
@@ -23,9 +23,9 @@ function Patterns({ updatepagepath }) {
   return (
     <NoSsr>
       <Head>
-        <title>Designs | Meshery</title>
+        <title>Designs | Meshplay</title>
       </Head>
-      <MesheryPatterns />
+      <MeshplayPatterns />
     </NoSsr>
   );
 }

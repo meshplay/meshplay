@@ -8,15 +8,15 @@ type: guides
 category: tutorials
 language: en
 list: include
-abstract: "In this tutorial, we will explore how to use Meshery Playground, an interactive live cluster environment, to perform hands-on labs for managing Kubernetes CronJobs."
+abstract: "In this tutorial, we will explore how to use Meshplay Playground, an interactive live cluster environment, to perform hands-on labs for managing Kubernetes CronJobs."
 ---
 
 Introduction:
-In this tutorial, we will explore Kubernetes CronJobs, a resource that allows you to run jobs periodically at specified intervals. We will use Meshery Playground, an interactive live cluster environment, to perform hands-on labs for working with CronJobs in Kubernetes.
+In this tutorial, we will explore Kubernetes CronJobs, a resource that allows you to run jobs periodically at specified intervals. We will use Meshplay Playground, an interactive live cluster environment, to perform hands-on labs for working with CronJobs in Kubernetes.
 
 Prerequisites:
 - Basic understanding of Kubernetes concepts.
-- Meshery Playground access. If you don't have an account, you can sign up at [Meshery Playground](https://meshery.layer5.io/play).
+- Meshplay Playground access. If you don't have an account, you can sign up at [Meshplay Playground](https://meshplay.layer5.io/play).
 
 Lab Scenario: Scheduled Backups using CronJobs
 
@@ -25,9 +25,9 @@ Learn how to use Kubernetes CronJobs to schedule and automate periodic backups o
 
 ### Steps:
 
-#### 1. **Accessing Meshery Playground:**
-   - Log in to the [Meshery Playground](https://meshery.layer5.io/play) using your credentials.
-   - Once logged in, navigate to the Meshery Playground dashboard.
+#### 1. **Accessing Meshplay Playground:**
+   - Log in to the [Meshplay Playground](https://meshplay.layer5.io/play) using your credentials.
+   - Once logged in, navigate to the Meshplay Playground dashboard.
 
 #### 2. **Deploying an Application:**
    - Deploy a simple application that needs periodic backups. You can use a web application or any other application of your choice.
@@ -35,26 +35,26 @@ Learn how to use Kubernetes CronJobs to schedule and automate periodic backups o
 
 # Deploying a web application
 
-To deploy a web application on Meshery, follow these steps:
+To deploy a web application on Meshplay, follow these steps:
 
 
-1. Navigate to the Configuration menu in Meshery.
+1. Navigate to the Configuration menu in Meshplay.
 2. Select "Designs" from the menu.
 3. Click on the "Import Design" button.
-[![Configuration menu]({{site.baseurl}}/assets/img/meshery-design/configuration-menu-design-import.png)]({{site.baseurl}}/assets/img/meshery-design/configuration-menu-design-import.png)
+[![Configuration menu]({{site.baseurl}}/assets/img/meshplay-design/configuration-menu-design-import.png)]({{site.baseurl}}/assets/img/meshplay-design/configuration-menu-design-import.png)
 4. Fill in the required details for your application or design, including the Design File Name, Design Type, and choose your preferred upload method:
    - For File Upload, click "Browse" to locate and select the design file.
    - For URL Import, paste the link to the design.
 5. Click the "Import" button to initiate the upload process.
-[![Click import button]({{site.baseurl}}/assets/img/meshery-design/click-import.png)]({{site.baseurl}}/assets/img/meshery-design/click-import.png)
-6. Upon successful import, a pop-up message will confirm the completion, and it will also indicate that your design has been automatically saved in Meshery.
-[![Design is auto-saved]({{site.baseurl}}/assets/img/meshery-design/design-auto-save.png)]({{site.baseurl}}/assets/img/meshery-design/design-auto-save.png)
+[![Click import button]({{site.baseurl}}/assets/img/meshplay-design/click-import.png)]({{site.baseurl}}/assets/img/meshplay-design/click-import.png)
+6. Upon successful import, a pop-up message will confirm the completion, and it will also indicate that your design has been automatically saved in Meshplay.
+[![Design is auto-saved]({{site.baseurl}}/assets/img/meshplay-design/design-auto-save.png)]({{site.baseurl}}/assets/img/meshplay-design/design-auto-save.png)
 7. Locate your design and click the deploy button to initiate the deployment process.
-[![Located App]({{site.baseurl}}/assets/img/meshery-design/app-deploy.png)]({{site.baseurl}}/assets/img/meshery-design/app-deploy.png)
+[![Located App]({{site.baseurl}}/assets/img/meshplay-design/app-deploy.png)]({{site.baseurl}}/assets/img/meshplay-design/app-deploy.png)
 8. Once the popup window opens, wait for the dry run to complete, and then click the deploy button.
-[![Dry Run]({{site.baseurl}}/assets/img/meshery-design/click-deploy.png)]({{site.baseurl}}/assets/img/meshery-design/click-deploy.png)
+[![Dry Run]({{site.baseurl}}/assets/img/meshplay-design/click-deploy.png)]({{site.baseurl}}/assets/img/meshplay-design/click-deploy.png)
 9. Upon successful deployment, a confirmation pop-up will appear, indicating that your app has been successfully deployed.
-[![Deployment Success]({{site.baseurl}}/assets/img/meshery-design/deploy-success.png)]({{site.baseurl}}/assets/img/meshery-design/deploy-success.png)
+[![Deployment Success]({{site.baseurl}}/assets/img/meshplay-design/deploy-success.png)]({{site.baseurl}}/assets/img/meshplay-design/deploy-success.png)
 
 <!-- 
 
@@ -139,7 +139,7 @@ Show user how to use Designs and components in MeshMap Designer.
 
 -->
 
-Use Meshery Playground to visualize the changes and observe the impact on the scheduled backups.
+Use Meshplay Playground to visualize the changes and observe the impact on the scheduled backups.
 
 #### 6. **Clean-Up:**
    - Delete the CronJob and application resources after completing the lab.
@@ -161,7 +161,7 @@ Show user how to use Designs and components in MeshMap Designer.
 
 
 #### 7. **Saving and Sharing**
-  Share your scenario with other Meshery users or the community for collaborative learning.
+  Share your scenario with other Meshplay users or the community for collaborative learning.
 
   
 1. Save Your Scenario:
@@ -189,4 +189,4 @@ Show user how to make Design public and share with other users in MeshMap Design
 -->
 
 ### Conclusion
-Congratulations! You've successfully completed the lab on exploring Kubernetes CronJobs using Meshery Playground. This hands-on experience has provided valuable insights into scheduling and automating tasks in Kubernetes using CronJobs. Explore more scenarios in the Meshery Playground to enhance your skills in cloud-native technologies.
+Congratulations! You've successfully completed the lab on exploring Kubernetes CronJobs using Meshplay Playground. This hands-on experience has provided valuable insights into scheduling and automating tasks in Kubernetes using CronJobs. Explore more scenarios in the Meshplay Playground to enhance your skills in cloud-native technologies.

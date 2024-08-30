@@ -19,7 +19,7 @@ import {
   SelectConnectionTypeContent,
 } from './constants';
 import StepperContent from './StepperContentWrapper';
-import RJSFWrapper from '../../../MesheryMeshInterface/PatternService/RJSF_wrapper';
+import RJSFWrapper from '../../../MeshplayMeshInterface/PatternService/RJSF_wrapper';
 import dataFetch from '../../../../lib/data-fetch';
 import { Box } from '@mui/material';
 import { selectCompSchema } from '../../../RJSFUtils/common';

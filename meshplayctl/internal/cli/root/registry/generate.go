@@ -1,4 +1,4 @@
-// # Copyright Meshery Authors
+// # Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,14 +30,14 @@ import (
 
 	"github.com/layer5io/meshkit/encoding"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/layer5io/meshkit/generators"
 	"github.com/layer5io/meshkit/generators/github"
 	mutils "github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/store"
 	"github.com/layer5io/meshkit/utils/walker"
-	"github.com/meshery/schemas/models/v1beta1/component"
-	v1beta1Model "github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1beta1/component"
+	v1beta1Model "github.com/meshplay/schemas/models/v1beta1/model"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -69,19 +69,19 @@ var (
 var generateCmd = &cobra.Command{
 	Use:   "generate",
 	Short: "Generate Models",
-	Long:  "Prerequisite: Excecute this command from the root of a meshery/meshery repo fork.\n\nGiven a Google Sheet with a list of model names and source locations, generate models and components any Registrant (e.g. GitHub, Artifact Hub) repositories.\n\nGenerated Model files are written to local filesystem under `/server/models/<model-name>`.",
+	Long:  "Prerequisite: Excecute this command from the root of a meshplay/meshplay repo fork.\n\nGiven a Google Sheet with a list of model names and source locations, generate models and components any Registrant (e.g. GitHub, Artifact Hub) repositories.\n\nGenerated Model files are written to local filesystem under `/server/models/<model-name>`.",
 	Example: `
-// Generate Meshery Models from a Google Spreadsheet (i.e. "Meshery Integrations" spreadsheet).
-mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred 
+// Generate Meshplay Models from a Google Spreadsheet (i.e. "Meshplay Integrations" spreadsheet).
+meshplayctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred 
 // Directly generate models from one of the supported registrants by using Registrant Connection Definition and (optional) Registrant Credential Definition
-mesheryctl registry generate --registrant-def [path to connection definition] --registrant-cred [path to credential definition]
-// Generate a specific Model from a Google Spreadsheet (i.e. "Meshery Integrations" spreadsheet).
-mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred --model "[model-name]"
+meshplayctl registry generate --registrant-def [path to connection definition] --registrant-cred [path to credential definition]
+// Generate a specific Model from a Google Spreadsheet (i.e. "Meshplay Integrations" spreadsheet).
+meshplayctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred --model "[model-name]"
 
     `,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
-		// Prerequisite check is needed - https://github.com/meshery/meshery/issues/10369
-		// TODO: Include a prerequisite check to confirm that this command IS being the executED from within a fork of the Meshery repo, and is being executed at the root of that fork.
+		// Prerequisite check is needed - https://github.com/meshplay/meshplay/issues/10369
+		// TODO: Include a prerequisite check to confirm that this command IS being the executED from within a fork of the Meshplay repo, and is being executed at the root of that fork.
 		//
 
 		err := os.MkdirAll(logDirPath, 0755)
@@ -211,7 +211,7 @@ func InvokeGenerationFromSheet(wg *sync.WaitGroup) error {
 				wg.Done()
 				weightedSem.Release(1)
 			}()
-			if mutils.ReplaceSpacesAndConvertToLowercase(model.Registrant) == "meshery" {
+			if mutils.ReplaceSpacesAndConvertToLowercase(model.Registrant) == "meshplay" {
 				err = GenerateDefsForCoreRegistrant(model)
 				if err != nil {
 					utils.LogError.Error(err)
@@ -401,7 +401,7 @@ func assignDefaultsForCompDefs(componentDef *component.ComponentDefinition, mode
 	}
 }
 
-// For registrants eg: meshery, whose components needs to be directly created by referencing meshery/schemas repo.
+// For registrants eg: meshplay, whose components needs to be directly created by referencing meshplay/schemas repo.
 // the sourceURL contains the path of models component definitions
 func GenerateDefsForCoreRegistrant(model utils.ModelCSV) error {
 	totalComps := 0

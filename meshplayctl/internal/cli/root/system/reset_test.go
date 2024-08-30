@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
@@ -23,14 +23,14 @@ func TestResetCmd(t *testing.T) {
 	tests := []utils.CmdTestInput{
 		//Test for platform docker
 		{
-			Name:             "Reset the meshery config file with docker platform",
+			Name:             "Reset the meshplay config file with docker platform",
 			Args:             []string{"reset", "-y", "-c", "local2"},
 			ExpectedResponse: "reset_docker.output.golden",
 		},
 		//(As the unit test workflow is triggered, the version of the k8 keeps changing when downloading manifest files, which affect the unit test workflow )
 		//Test for platform kubernetes
 		// {
-		// 	Name:             "Reset the meshery config file with kubernetes platform",
+		// 	Name:             "Reset the meshplay config file with kubernetes platform",
 		// 	Args:             []string{"reset", "-y", "-c", "local"},
 		// 	ExpectedResponse: "reset_kubernetes.output.golden",
 		// },
@@ -68,16 +68,16 @@ func TestResetCmd(t *testing.T) {
 }
 
 func RemoveFileAndDirectory() {
-	// Removing the meshery.yaml file
+	// Removing the meshplay.yaml file
 	// from the directory
-	removeMesheryYaml := os.Remove("meshery.yaml")
-	if removeMesheryYaml != nil {
-		log.Fatal(removeMesheryYaml)
+	removeMeshplayYaml := os.Remove("meshplay.yaml")
+	if removeMeshplayYaml != nil {
+		log.Fatal(removeMeshplayYaml)
 	}
 
-	// Removing the .meshery directory
-	removeMesheryHiddenDirectory := os.RemoveAll(".meshery")
-	if removeMesheryHiddenDirectory != nil {
-		log.Fatal(removeMesheryHiddenDirectory)
+	// Removing the .meshplay directory
+	removeMeshplayHiddenDirectory := os.RemoveAll(".meshplay")
+	if removeMeshplayHiddenDirectory != nil {
+		log.Fatal(removeMeshplayHiddenDirectory)
 	}
 }

@@ -21,12 +21,12 @@ import OrgSwitcher from './OrgSwitcher';
 import CurrentSessionInfo from './CurrentSession';
 import { UsesSistent } from '@/components/SistentWrapper';
 
-//TODO: Add component for meshery version compatiblity error
-// const MesheryVersionCompatiblity = () => {
+//TODO: Add component for meshplay version compatiblity error
+// const MeshplayVersionCompatiblity = () => {
 //   return (
 //     <div>
 //       <Typography variant="p" component="p" align="center">
-//         <InstallMeshery action={MesheryAction.UPGRADE.KEY} />
+//         <InstallMeshplay action={MeshplayAction.UPGRADE.KEY} />
 //       </Typography>
 //     </div>
 //   );
@@ -60,14 +60,14 @@ const DefaultError = (props) => {
           }}
         >
           <ImageContainer>
-            <Logo src="/static/img/meshery-logo/meshery-logo.svg" alt="Meshery logo" />
+            <Logo src="/static/img/meshplay-logo/meshplay-logo.svg" alt="Meshplay logo" />
             <LogoText
               src={
                 theme.palette.type === 'dark'
-                  ? '/static/img/meshery-logo/meshery-white.svg'
-                  : '/static/img/meshery-logo/meshery-black.svg'
+                  ? '/static/img/meshplay-logo/meshplay-white.svg'
+                  : '/static/img/meshplay-logo/meshplay-black.svg'
               }
-              alt="Meshery logo text"
+              alt="Meshplay logo text"
             />
           </ImageContainer>
           <Typography variant="h4" component="h4" align="center" className="errormsg">

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/models/pattern/core"
-	"github.com/layer5io/meshplay/server/models/pattern/planner"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/models/pattern/planner"
 	"github.com/layer5io/meshkit/logger"
 	models "github.com/layer5io/meshkit/models/meshmodel/core/v1beta1"
 
@@ -137,7 +137,7 @@ func mergeErrors(errs []error) error {
 
 func getAdditionalAnnotations(pattern *pattern.PatternFile) map[string]string {
 	annotations := make(map[string]string, 2)
-	annotations[fmt.Sprintf("%s.name", models.MesheryAnnotationPrefix)] = pattern.Name
-	annotations[fmt.Sprintf("%s.id", models.MesheryAnnotationPrefix)] = pattern.Id.String()
+	annotations[fmt.Sprintf("%s.name", models.MeshplayAnnotationPrefix)] = pattern.Name
+	annotations[fmt.Sprintf("%s.id", models.MeshplayAnnotationPrefix)] = pattern.Id.String()
 	return annotations
 }

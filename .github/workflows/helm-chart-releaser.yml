@@ -34,10 +34,10 @@ jobs:
       with:
         version: 'v3.6.0' # default is latest stable
       id: install
-    - name: validate meshery
-      run: helm lint install/kubernetes/helm/meshery --with-subcharts
-    - name: validate meshery-operator
-      run: helm lint install/kubernetes/helm/meshery-operator --with-subcharts
+    - name: validate meshplay
+      run: helm lint install/kubernetes/helm/meshplay --with-subcharts
+    - name: validate meshplay-operator
+      run: helm lint install/kubernetes/helm/meshplay-operator --with-subcharts
   release-chart:
     runs-on: ubuntu-22.04
     if: ${{ github.event_name != 'pull_request' }} && ${{ github.ref == 'refs/heads/master' }}
@@ -54,7 +54,7 @@ jobs:
       #    token: ${{ secrets.GH_ACCESS_TOKEN }}
       #    charts_dir: install/kubernetes/helm
       #    owner: layer5io
-      #    repository: meshery.io
+      #    repository: meshplay.io
       #    branch: master
       #    target_dir: charts
       #    commit_username: l5io
@@ -67,7 +67,7 @@ jobs:
       #    token: ${{ secrets.GH_ACCESS_TOKEN }}
       #    charts_dir: install/kubernetes/helm
       #    owner: layer5io
-      #    repository: meshery.io
+      #    repository: meshplay.io
       #    branch: master
       #    target_dir: charts
       #    commit_username: l5io
@@ -79,8 +79,8 @@ jobs:
         with:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
           charts_dir: install/kubernetes/helm
-          owner: meshery
-          repository: meshery.io
+          owner: meshplay
+          repository: meshplay.io
           branch: master
           target_dir: charts
           commit_username: l5io
@@ -94,8 +94,8 @@ jobs:
         with:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
           charts_dir: install/kubernetes/helm
-          owner: meshery
-          repository: meshery.io
+          owner: meshplay
+          repository: meshplay.io
           branch: master
           target_dir: charts
           commit_username: l5io

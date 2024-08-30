@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { NoSsr, Grid, Table, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
-import MesheryChartDialog from './MesheryChartDialog';
+import MeshplayChartDialog from './MeshplayChartDialog';
 
 const defaultToolbarSelectStyles = {
   iconButton: {
@@ -16,7 +16,7 @@ const defaultToolbarSelectStyles = {
   row: { borderBottom: 'none' },
 };
 
-class MesheryResultDialog extends React.Component {
+class MeshplayResultDialog extends React.Component {
   state = { dialogOpen: true };
 
   handleDialogClose = () => {
@@ -174,7 +174,7 @@ class MesheryResultDialog extends React.Component {
 
     return (
       <NoSsr>
-        <MesheryChartDialog
+        <MeshplayChartDialog
           title={`Details${rowData ? ` - ${rowData.name}` : ''}`}
           handleClose={this.handleDialogClose}
           open={this.state.dialogOpen}
@@ -205,12 +205,12 @@ class MesheryResultDialog extends React.Component {
   }
 }
 
-MesheryResultDialog.propTypes = {
+MeshplayResultDialog.propTypes = {
   // classes: PropTypes.object.isRequired,
   rowData: PropTypes.object.isRequired,
   close: PropTypes.func.isRequired,
 };
 
-export default withStyles(defaultToolbarSelectStyles, { name: 'MesheryResultDialog' })(
-  MesheryResultDialog,
+export default withStyles(defaultToolbarSelectStyles, { name: 'MeshplayResultDialog' })(
+  MeshplayResultDialog,
 );

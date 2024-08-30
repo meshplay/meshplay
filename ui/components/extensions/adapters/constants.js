@@ -1,5 +1,5 @@
 const adaptersDescription = (adapterName) => {
-  return `Deploy the Meshery Adapter for ${adapterName} in order to enable deeper lifecycle management of ${adapterName}.`;
+  return `Deploy the Meshplay Adapter for ${adapterName} in order to enable deeper lifecycle management of ${adapterName}.`;
 };
 
 /*
@@ -9,7 +9,7 @@ const adaptersDescription = (adapterName) => {
 export const adaptersList = {
   ISTIO: {
     name: 'Istio',
-    label: 'meshery-istio',
+    label: 'meshplay-istio',
     imageSrc: '/static/img/istio.svg',
     description: adaptersDescription('Istio'),
     defaultPort: 10000,
@@ -18,7 +18,7 @@ export const adaptersList = {
   },
   LINKERD: {
     name: 'Linkerd',
-    label: 'meshery-linkerd',
+    label: 'meshplay-linkerd',
     imageSrc: '/static/img/linkerd.svg',
     description: adaptersDescription('Linkerd'),
     defaultPort: 10001,
@@ -27,7 +27,7 @@ export const adaptersList = {
   },
   CONSUL: {
     name: 'Consul',
-    label: 'meshery-consul',
+    label: 'meshplay-consul',
     imageSrc: '/static/img/consul.svg',
     description: adaptersDescription('Consul'),
     defaultPort: 10002,
@@ -36,7 +36,7 @@ export const adaptersList = {
   },
   NETWORK_SERVICE_MESH: {
     name: 'Network Service Mesh',
-    label: 'meshery-nsm',
+    label: 'meshplay-nsm',
     imageSrc: '/static/img/networkservicemesh.svg',
     description: adaptersDescription('Network Service Mesh'),
     defaultPort: 10004,
@@ -45,7 +45,7 @@ export const adaptersList = {
   },
   APP_MESH: {
     name: 'App Mesh',
-    label: 'meshery-app-mesh',
+    label: 'meshplay-app-mesh',
     imageSrc: '/static/img/app_mesh.svg',
     description: adaptersDescription('App Mesh'),
     defaultPort: 10005,
@@ -54,7 +54,7 @@ export const adaptersList = {
   },
   TRAEFIK_MESH: {
     name: 'Traefik Mesh',
-    label: 'meshery-traefik-mesh',
+    label: 'meshplay-traefik-mesh',
     imageSrc: '/static/img/traefik_mesh.svg',
     description: adaptersDescription('Traefik Mesh'),
     defaultPort: 10006,
@@ -63,7 +63,7 @@ export const adaptersList = {
   },
   KUMA: {
     name: 'Kuma',
-    label: 'meshery-kuma',
+    label: 'meshplay-kuma',
     imageSrc: '/static/img/kuma.svg',
     description: adaptersDescription('Kuma'),
     defaultPort: 10007,
@@ -71,11 +71,11 @@ export const adaptersList = {
     url: '',
   },
   // TODO: Need to add icon for this.
-  // "meshery-cpx": {
-  //   name: "Meshery Cpx",
-  // label: "meshery-cpx",
+  // "meshplay-cpx": {
+  //   name: "Meshplay Cpx",
+  // label: "meshplay-cpx",
   //   imageSrc: "/static/img/",
-  //   description: adaptersDescription("Meshery CPX"),
+  //   description: adaptersDescription("Meshplay CPX"),
   //   defaultPort: 10008,
   //   enabled: false,
   //   url: "",
@@ -83,7 +83,7 @@ export const adaptersList = {
 
   NGINX_SERVICE_MESH: {
     name: 'NGINX Service Mesh',
-    label: 'meshery-nginx-sm',
+    label: 'meshplay-nginx-sm',
     imageSrc: '/static/img/nginx.svg',
     description: adaptersDescription('NGINX Service Mesh'),
     defaultPort: 10010,
@@ -92,7 +92,7 @@ export const adaptersList = {
   },
   CILIUM_SERVICE_MESH: {
     name: 'Cilium Service Mesh',
-    label: 'meshery-cilium',
+    label: 'meshplay-cilium',
     imageSrc: '/static/img/cilium_service_mesh.svg',
     description: adaptersDescription('Cilium Service Mesh'),
     defaultPort: 10012,
@@ -101,9 +101,9 @@ export const adaptersList = {
   },
   NIGHTHAWK: {
     name: 'Nighthawk',
-    label: 'meshery-nighthawk',
+    label: 'meshplay-nighthawk',
     imageSrc: '/static/img/nighthawk-logo.svg',
-    description: adaptersDescription('Performance Characterization by Meshery Nighthawk'),
+    description: adaptersDescription('Performance Characterization by Meshplay Nighthawk'),
     defaultPort: 10013,
     enabled: false,
     url: '',

@@ -4,7 +4,7 @@ title: Argo CD Applications
 subtitle: Collaborative and visual infrastructure as design for Argo CD Applications
 image: /assets/img/integrations/argo-cd/icons/color/argo-cd-color.svg
 permalink: extensibility/integrations/argo-cd
-docURL: https://docs.meshery.io/extensibility/integrations/argo-cd
+docURL: https://docs.meshplay.io/extensibility/integrations/argo-cd
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

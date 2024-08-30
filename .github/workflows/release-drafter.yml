@@ -8,7 +8,7 @@ on:
       - '.github/**'
 jobs:
   update_release_draft:
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshplay/meshplay'
     runs-on: ubuntu-22.04
     steps:
       - name: Drafting release
@@ -38,9 +38,9 @@ jobs:
       #     signoff: true
       #     branch: docs/automated-release-notes
       #     base: master
-      #     title: '[Docs] Release Notes for Meshery ${{ steps.release_drafter.outputs.tag_name }}'
+      #     title: '[Docs] Release Notes for Meshplay ${{ steps.release_drafter.outputs.tag_name }}'
       #     body: |
-      #       An auto-generated pull request to document release notes for Meshery ${{ steps.release_drafter.outputs.tag_name }}
+      #       An auto-generated pull request to document release notes for Meshplay ${{ steps.release_drafter.outputs.tag_name }}
       #     labels: |
       #       area/ci
       #       kind/chore

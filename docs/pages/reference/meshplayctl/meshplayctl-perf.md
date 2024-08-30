@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-perf
-permalink: reference/mesheryctl/perf
-redirect_from: reference/mesheryctl/perf/
+title: meshplayctl-perf
+permalink: reference/meshplayctl/perf
+redirect_from: reference/meshplayctl/perf/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: perf
 subcommand: nil
 ---
 
-# mesheryctl perf
+# meshplayctl perf
 
 Performance Management
 
@@ -20,7 +20,7 @@ Performance Management & Benchmarking.
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf [flags]
+meshplayctl perf [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ mesheryctl perf [flags]
 Run performance test:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf apply test-3 --name "a quick stress test" --url http://192.168.1.15/productpage --qps 300 --concurrent-requests 2 --duration 30s
+meshplayctl perf apply test-3 --name "a quick stress test" --url http://192.168.1.15/productpage --qps 300 --concurrent-requests 2 --duration 30s
 
 </div>
 </pre> 
@@ -38,7 +38,7 @@ mesheryctl perf apply test-3 --name "a quick stress test" --url http://192.168.1
 List performance profiles:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf profile sam-test
+meshplayctl perf profile sam-test
 
 </div>
 </pre> 
@@ -46,7 +46,7 @@ mesheryctl perf profile sam-test
 List performance results:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result sam-test
+meshplayctl perf result sam-test
 
 </div>
 </pre> 
@@ -54,14 +54,14 @@ mesheryctl perf result sam-test
 Display Perf profile in JSON or YAML:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result -o json
+meshplayctl perf result -o json
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl perf result -o yaml
+meshplayctl perf result -o yaml
 
 </div>
 </pre> 
@@ -72,7 +72,7 @@ mesheryctl perf result -o yaml
 <div class='codeblock'>
   -h, --help                   help for perf
   -o, --output-format string   (optional) format to display in [json|yaml]
-  -t, --token string           (required) Path to meshery auth config
+  -t, --token string           (required) Path to meshplay auth config
   -y, --yes                    (optional) assume yes for user interactive prompts.
 
 </div>
@@ -82,7 +82,7 @@ mesheryctl perf result -o yaml
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -90,4 +90,4 @@ mesheryctl perf result -o yaml
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

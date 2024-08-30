@@ -15,9 +15,9 @@ package handlers
 // 	"github.com/gofrs/uuid"
 // 	guid "github.com/google/uuid"
 // 	"github.com/gorilla/mux"
-// 	"github.com/layer5io/meshplay/server/meshes"
-// 	"github.com/layer5io/meshplay/server/models"
-// 	pCore "github.com/layer5io/meshplay/server/models/pattern/core"
+// 	"github.com/khulnasoft/meshplay/server/meshes"
+// 	"github.com/khulnasoft/meshplay/server/models"
+// 	pCore "github.com/khulnasoft/meshplay/server/models/pattern/core"
 // 	"github.com/layer5io/meshkit/logger"
 // 	"github.com/layer5io/meshkit/models/events"
 // 	meshmodel "github.com/layer5io/meshkit/models/meshmodel/registry"
@@ -27,13 +27,13 @@ package handlers
 // 	"gopkg.in/yaml.v2"
 // )
 
-// // MesheryApplicationRequestBody refers to the type of request body that
-// // SaveMesheryApplication would receive
-// type MesheryApplicationRequestBody struct {
+// // MeshplayApplicationRequestBody refers to the type of request body that
+// // SaveMeshplayApplication would receive
+// type MeshplayApplicationRequestBody struct {
 // 	URL             string                     `json:"url,omitempty"`
 // 	Path            string                     `json:"path,omitempty"`
 // 	Save            bool                       `json:"save,omitempty"`
-// 	ApplicationData *models.MesheryApplication `json:"application_data,omitempty"`
+// 	ApplicationData *models.MeshplayApplication `json:"application_data,omitempty"`
 // 	CytoscapeJSON   string                     `json:"cytoscape_json,omitempty"`
 // 	Name            string                     `json:"name,omitempty"`
 // }
@@ -81,7 +81,7 @@ package handlers
 // 	provider models.Provider,
 // ) {
 // 	if r.Method == http.MethodGet {
-// 		h.GetMesheryApplicationsHandler(rw, r, prefObj, user, provider)
+// 		h.GetMeshplayApplicationsHandler(rw, r, prefObj, user, provider)
 // 		return
 // 	}
 
@@ -134,7 +134,7 @@ package handlers
 // 		go h.config.EventBroadcaster.Publish(userID, event)
 // 		return
 // 	}
-// 	var parsedBody *MesheryApplicationRequestBody
+// 	var parsedBody *MeshplayApplicationRequestBody
 // 	if err := json.NewDecoder(r.Body).Decode(&parsedBody); err != nil {
 // 		http.Error(rw, ErrRequestBody(err).Error(), http.StatusBadRequest)
 // 		addMeshkitErr(&res, ErrRetrieveData(err))
@@ -168,7 +168,7 @@ package handlers
 // 	}
 
 // 	format := r.URL.Query().Get("output")
-// 	var meshplayApplication *models.MesheryApplication
+// 	var meshplayApplication *models.MeshplayApplication
 // 	// If Content is not empty then assume it's a local upload
 // 	//Note: The Application data will not be present in case of helm charts as we do not support local helm upload.
 // 	if parsedBody.ApplicationData != nil {
@@ -363,7 +363,7 @@ package handlers
 // 			}
 
 // 			url := strings.Split(parsedBody.URL, "/")
-// 			meshplayApplication = &models.MesheryApplication{
+// 			meshplayApplication = &models.MeshplayApplication{
 // 				Name:            strings.TrimSuffix(url[len(url)-1], ".tgz"),
 // 				ApplicationFile: string(response),
 // 				Type: sql.NullString{
@@ -470,7 +470,7 @@ package handlers
 // 	var savedApplicationID *uuid.UUID
 
 // 	if parsedBody.Save {
-// 		resp, err := provider.SaveMesheryApplication(token, meshplayApplication)
+// 		resp, err := provider.SaveMeshplayApplication(token, meshplayApplication)
 // 		if err != nil {
 // 			obj := "save"
 
@@ -496,7 +496,7 @@ package handlers
 // 		go h.config.EventBroadcaster.Publish(userID, event)
 // 		_ = provider.PersistEvent(event)
 
-// 		var meshplayApplicationContent []models.MesheryApplication
+// 		var meshplayApplicationContent []models.MeshplayApplication
 // 		err = json.Unmarshal(resp, &meshplayApplicationContent)
 // 		if err != nil {
 // 			obj := "application"
@@ -531,7 +531,7 @@ package handlers
 // 	}
 
 // 	meshplayApplication.ID = savedApplicationID
-// 	byt, err := json.Marshal([]models.MesheryApplication{*meshplayApplication})
+// 	byt, err := json.Marshal([]models.MeshplayApplication{*meshplayApplication})
 // 	if err != nil {
 // 		obj := "application"
 // 		h.log.Error(models.ErrEncoding(err, obj))
@@ -579,7 +579,7 @@ package handlers
 // 		return
 // 	}
 
-// 	var parsedBody *MesheryApplicationRequestBody
+// 	var parsedBody *MeshplayApplicationRequestBody
 // 	if err := json.NewDecoder(r.Body).Decode(&parsedBody); err != nil {
 // 		http.Error(rw, ErrRetrieveData(err).Error(), http.StatusBadRequest)
 // 		return
@@ -641,7 +641,7 @@ package handlers
 // 			return
 // 		}
 
-// 		meshplayApplication := &models.MesheryApplication{
+// 		meshplayApplication := &models.MeshplayApplication{
 // 			Name:            patternName,
 // 			ApplicationFile: string(pfByt),
 // 			Location: map[string]interface{}{
@@ -658,7 +658,7 @@ package handlers
 // 			meshplayApplication.ID = parsedBody.ApplicationData.ID
 // 		}
 // 		if parsedBody.Save {
-// 			resp, err := provider.SaveMesheryApplication(token, meshplayApplication)
+// 			resp, err := provider.SaveMeshplayApplication(token, meshplayApplication)
 // 			if err != nil {
 // 				errAppSave := ErrSaveApplication(err)
 // 				h.log.Error(errAppSave)
@@ -688,7 +688,7 @@ package handlers
 // 			return
 // 		}
 
-// 		byt, err := json.Marshal([]models.MesheryApplication{*meshplayApplication})
+// 		byt, err := json.Marshal([]models.MeshplayApplication{*meshplayApplication})
 // 		if err != nil {
 // 			h.log.Error(ErrEncodePattern(err))
 // 			http.Error(rw, ErrEncodePattern(err).Error(), http.StatusInternalServerError)
@@ -703,7 +703,7 @@ package handlers
 // 		String: sourcetype,
 // 		Valid:  true,
 // 	}
-// 	resp, err := provider.SaveMesheryApplication(token, meshplayApplication)
+// 	resp, err := provider.SaveMeshplayApplication(token, meshplayApplication)
 // 	if err != nil {
 // 		obj := "save"
 // 		errAppSave := ErrSaveApplication(err)
@@ -732,7 +732,7 @@ package handlers
 
 // }
 
-// // swagger:route GET /api/application ApplicationsAPI idGetMesheryApplications
+// // swagger:route GET /api/application ApplicationsAPI idGetMeshplayApplications
 // // Handle GET request for Application Files
 // //
 // // Fetches the list of all applications saved by the current user
@@ -749,8 +749,8 @@ package handlers
 // // responses:
 // //  200: meshplayApplicationsResponseWrapper
 
-// // GetMesheryApplicationsHandler returns the list of all the applications saved by the current user
-// func (h *Handler) GetMesheryApplicationsHandler(
+// // GetMeshplayApplicationsHandler returns the list of all the applications saved by the current user
+// func (h *Handler) GetMeshplayApplicationsHandler(
 // 	rw http.ResponseWriter,
 // 	r *http.Request,
 // 	_ *models.Preference,
@@ -762,7 +762,7 @@ package handlers
 // 	userID := uuid.FromStringOrNil(user.ID)
 // 	eventBuilder := events.NewEvent().FromUser(userID).FromSystem(*h.SystemID).WithCategory("application").WithAction("fetch").ActedUpon(userID)
 
-// 	resp, err := provider.GetMesheryApplications(tokenString, q.Get("page"), q.Get("pagesize"), q.Get("search"), q.Get("order"), q.Get("updated_after"))
+// 	resp, err := provider.GetMeshplayApplications(tokenString, q.Get("page"), q.Get("pagesize"), q.Get("search"), q.Get("order"), q.Get("updated_after"))
 
 // 	if err != nil {
 // 		errAppFetch := ErrFetchApplication(err)
@@ -780,15 +780,15 @@ package handlers
 // 	fmt.Fprint(rw, string(resp))
 // }
 
-// // swagger:route DELETE /api/application/{id} ApplicationsAPI idDeleteMesheryApplicationFile
-// // Handle Delete for a Meshery Application File
+// // swagger:route DELETE /api/application/{id} ApplicationsAPI idDeleteMeshplayApplicationFile
+// // Handle Delete for a Meshplay Application File
 // //
 // // Deletes a meshplay application file with ID: id
 // // responses:
 // //  200: noContentWrapper
 
-// // DeleteMesheryApplicationHandler deletes a application with the given id
-// func (h *Handler) DeleteMesheryApplicationHandler(
+// // DeleteMeshplayApplicationHandler deletes a application with the given id
+// func (h *Handler) DeleteMeshplayApplicationHandler(
 // 	rw http.ResponseWriter,
 // 	r *http.Request,
 // 	_ *models.Preference,
@@ -798,9 +798,9 @@ package handlers
 // 	applicationID := mux.Vars(r)["id"]
 // 	userID := uuid.FromStringOrNil(user.ID)
 // 	eventBuilder := events.NewEvent().FromUser(userID).FromSystem(*h.SystemID).WithCategory("application").WithAction("delete").ActedUpon(uuid.FromStringOrNil(applicationID))
-// 	resp, err := provider.DeleteMesheryApplication(r, applicationID)
+// 	resp, err := provider.DeleteMeshplayApplication(r, applicationID)
 
-// 	meshplayApplication := models.MesheryApplication{}
+// 	meshplayApplication := models.MeshplayApplication{}
 // 	_ = json.Unmarshal(resp, &meshplayApplication)
 
 // 	if err != nil {
@@ -824,8 +824,8 @@ package handlers
 // 	fmt.Fprint(rw, string(resp))
 // }
 
-// // GetMesheryApplicationHandler fetched the application with the given id
-// func (h *Handler) GetMesheryApplicationHandler(
+// // GetMeshplayApplicationHandler fetched the application with the given id
+// func (h *Handler) GetMeshplayApplicationHandler(
 // 	rw http.ResponseWriter,
 // 	r *http.Request,
 // 	_ *models.Preference,
@@ -833,7 +833,7 @@ package handlers
 // 	provider models.Provider,
 // ) {
 // 	applicationID := mux.Vars(r)["id"]
-// 	resp, err := provider.GetMesheryApplication(r, applicationID)
+// 	resp, err := provider.GetMeshplayApplication(r, applicationID)
 // 	if err != nil {
 // 		obj := "get"
 // 		h.log.Error(ErrApplicationFailure(err, obj))
@@ -845,14 +845,14 @@ package handlers
 // 	fmt.Fprint(rw, string(resp))
 // }
 
-// // swagger:route GET /api/application/types ApplicationsAPI typeGetMesheryApplication
-// // Handle GET request for Meshery Application types
+// // swagger:route GET /api/application/types ApplicationsAPI typeGetMeshplayApplication
+// // Handle GET request for Meshplay Application types
 // //
 // // Get application file types
 // // responses:
 // //
 // //	200: meshplayApplicationTypesResponseWrapper
-// func (h *Handler) GetMesheryApplicationTypesHandler(
+// func (h *Handler) GetMeshplayApplicationTypesHandler(
 // 	rw http.ResponseWriter,
 // 	_ *http.Request,
 // 	_ *models.Preference,
@@ -872,14 +872,14 @@ package handlers
 // }
 
 // // swagger: route GET /api/application/download/{id} ApplicationsAPI idGetApplication
-// // Handle GET request for Meshery Application with the given id
+// // Handle GET request for Meshplay Application with the given id
 // //
 // // Get the application file with the given id
 // // responses:
 // //  200
 
-// // GetMesheryApplicationFile returns the application file with the given id
-// func (h *Handler) GetMesheryApplicationFile(
+// // GetMeshplayApplicationFile returns the application file with the given id
+// func (h *Handler) GetMeshplayApplicationFile(
 // 	rw http.ResponseWriter,
 // 	r *http.Request,
 // 	_ *models.Preference,
@@ -887,7 +887,7 @@ package handlers
 // 	provider models.Provider,
 // ) {
 // 	applicationID := mux.Vars(r)["id"]
-// 	resp, err := provider.GetMesheryApplication(r, applicationID)
+// 	resp, err := provider.GetMeshplayApplication(r, applicationID)
 
 // 	if err != nil {
 // 		obj := "download"
@@ -896,7 +896,7 @@ package handlers
 // 		return
 // 	}
 
-// 	application := &models.MesheryApplication{}
+// 	application := &models.MeshplayApplication{}
 
 // 	err = json.Unmarshal(resp, &application)
 // 	if err != nil {
@@ -914,14 +914,14 @@ package handlers
 // }
 
 // // swagger:route GET /api/application/download/{id}/{sourcetype} ApplicationsAPI typeGetApplication
-// // Handle GET request for Meshery Application with of source content
+// // Handle GET request for Meshplay Application with of source content
 // //
 // // Get the application source-content
 // // responses:
 // //  200
 
-// // GetMesheryApplicationHandler fetched the application with the given id
-// func (h *Handler) GetMesheryApplicationSourceHandler(
+// // GetMeshplayApplicationHandler fetched the application with the given id
+// func (h *Handler) GetMeshplayApplicationSourceHandler(
 // 	rw http.ResponseWriter,
 // 	r *http.Request,
 // 	_ *models.Preference,
@@ -955,17 +955,17 @@ package handlers
 // }
 
 // func (h *Handler) formatApplicationOutput(rw http.ResponseWriter, content []byte, _ string, res *meshes.EventsResponse, eventBuilder *events.EventBuilder) {
-// 	contentMesheryApplicationSlice := make([]models.MesheryApplication, 0)
+// 	contentMeshplayApplicationSlice := make([]models.MeshplayApplication, 0)
 // 	names := []string{}
 
-// 	if err := json.Unmarshal(content, &contentMesheryApplicationSlice); err != nil {
+// 	if err := json.Unmarshal(content, &contentMeshplayApplicationSlice); err != nil {
 // 		obj := "application data into go slice"
 // 		h.log.Error(ErrDecoding(err, obj))
 // 		http.Error(rw, ErrDecoding(err, obj).Error(), http.StatusInternalServerError)
 // 		return
 // 	}
 
-// 	data, err := json.Marshal(&contentMesheryApplicationSlice)
+// 	data, err := json.Marshal(&contentMeshplayApplicationSlice)
 // 	if err != nil {
 // 		obj := "application file"
 // 		h.log.Error(models.ErrMarshal(err, obj))
@@ -974,7 +974,7 @@ package handlers
 // 	}
 // 	rw.Header().Set("Content-Type", "application/json")
 // 	fmt.Fprint(rw, string(data))
-// 	for _, app := range contentMesheryApplicationSlice {
+// 	for _, app := range contentMeshplayApplicationSlice {
 // 		names = append(names, app.Name)
 // 		if app.ID != nil {
 // 			eventBuilder.ActedUpon(*app.ID)
@@ -993,10 +993,10 @@ package handlers
 // 	branch,
 // 	sourceType string,
 // 	reg *meshmodel.RegistryManager,
-// ) ([]models.MesheryApplication, error) {
+// ) ([]models.MeshplayApplication, error) {
 // 	var mu sync.Mutex
 // 	ghWalker := walker.NewGit()
-// 	result := make([]models.MesheryApplication, 0)
+// 	result := make([]models.MeshplayApplication, 0)
 // 	err := ghWalker.
 // 		Owner(owner).
 // 		Repo(repo).
@@ -1023,7 +1023,7 @@ package handlers
 // 					return models.ErrMarshal(err, string(response))
 // 				}
 
-// 				af := models.MesheryApplication{
+// 				af := models.MeshplayApplication{
 // 					Name:            strings.TrimSuffix(f.Name, ext),
 // 					ApplicationFile: string(response),
 // 					Location: map[string]interface{}{
@@ -1052,7 +1052,7 @@ package handlers
 // }
 
 // // Note: Always return meshkit error from this function
-// func genericHTTPApplicationFile(fileURL, sourceType string, reg *meshmodel.RegistryManager, log logger.Handler) ([]models.MesheryApplication, error) {
+// func genericHTTPApplicationFile(fileURL, sourceType string, reg *meshmodel.RegistryManager, log logger.Handler) ([]models.MeshplayApplication, error) {
 // 	resp, err := http.Get(fileURL)
 // 	if err != nil {
 // 		return nil, ErrRemoteApplication(err)
@@ -1088,7 +1088,7 @@ package handlers
 // 	}
 
 // 	url := strings.Split(fileURL, "/")
-// 	af := models.MesheryApplication{
+// 	af := models.MeshplayApplication{
 // 		Name:            url[len(url)-1],
 // 		ApplicationFile: string(response),
 // 		Location: map[string]interface{}{
@@ -1103,5 +1103,5 @@ package handlers
 // 		},
 // 		SourceContent: body,
 // 	}
-// 	return []models.MesheryApplication{af}, nil
+// 	return []models.MeshplayApplication{af}, nil
 // }

@@ -17,7 +17,7 @@ import (
 	promModel "github.com/prometheus/common/model"
 )
 
-// PrometheusClient represents a prometheus client in Meshery
+// PrometheusClient represents a prometheus client in Meshplay
 type PrometheusClient struct {
 	grafanaClient *GrafanaClient
 	logger        *logger.Handler
@@ -46,7 +46,7 @@ func (p *PrometheusClient) Validate(ctx context.Context, promURL, apiKeyOrBasicA
 	return nil
 }
 
-// ImportGrafanaBoard takes raw Grafana board json and returns GrafanaBoard pointer for use in Meshery
+// ImportGrafanaBoard takes raw Grafana board json and returns GrafanaBoard pointer for use in Meshplay
 func (p *PrometheusClient) ImportGrafanaBoard(ctx context.Context, boardData []byte) (*GrafanaBoard, error) {
 	board := &sdk.Board{}
 	if err := json.Unmarshal(boardData, board); err != nil {

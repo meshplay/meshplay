@@ -3,38 +3,38 @@ layout: default
 title: Relationships
 permalink: concepts/logical/relationships
 type: concepts
-abstract: "Meshery Relationships identify and facilitate genealogy between Components."
+abstract: "Meshplay Relationships identify and facilitate genealogy between Components."
 language: en
 list: include
 redirect_from:
   - concepts/relationships
 ---
 
-Meshery Relationships characterize how [components](./components) are connected and interact with each other. Relationships are defined within [models](./models) to aid in structuring the interrelationships between one or more components in a [design](./design) to further in comprehending the overall structure and dependencies within managed systems. 
+Meshplay Relationships characterize how [components](./components) are connected and interact with each other. Relationships are defined within [models](./models) to aid in structuring the interrelationships between one or more components in a [design](./design) to further in comprehending the overall structure and dependencies within managed systems. 
 
-Meshery recognizes that relationships exist in various forms and that the existence of a relationship might be interdependent upon the existence (or absence) of another relationship. To support this complexity, Meshery relationships are highly expressive, characterizing the nature of interaction of interconnected components no matter their genealogy.
+Meshplay recognizes that relationships exist in various forms and that the existence of a relationship might be interdependent upon the existence (or absence) of another relationship. To support this complexity, Meshplay relationships are highly expressive, characterizing the nature of interaction of interconnected components no matter their genealogy.
 
-**Benefits of Using Meshery Relationships**
+**Benefits of Using Meshplay Relationships**
 
 - **Improved Visibility:** Relationships provide a clear visual representation of the connections between components, making it easier to understand the system's architecture.
 - **Enhanced Design:** Relationships help you make informed decisions about component selection and placement, leading to better design choices.
 - **Automated Configuration:** Relationship-driven actions can automate the configuration of components, reducing manual effort and potential errors.
 - **Increased Flexibility:** The use of selectors, actions, and operators provides flexibility in defining and managing relationships.
 
-{% include/alert.html type="dark" title="Contributor Guide to Meshery Relationships" content="If you want to create a new relationship definition or modify existing relationship definitions, see the <a href='https://docs.meshery.io/project/contributing/contributing-relationships'>Contributing to Meshery Relationships</a> guide." %}
+{% include/alert.html type="dark" title="Contributor Guide to Meshplay Relationships" content="If you want to create a new relationship definition or modify existing relationship definitions, see the <a href='https://docs.meshplay.io/project/contributing/contributing-relationships'>Contributing to Meshplay Relationships</a> guide." %}
 
 ## Types of Relationships
 
-Meshery supports different types of relationships to cater to various use cases:
+Meshplay supports different types of relationships to cater to various use cases:
 
 - **Hierarchical Relationships:** These represent parent-child relationships between components, where one component is a dependency of another. arent-child relationships show clear lineage, similar to a family tree (child, parent, grandparent, etc.).
 - **Sibling Relationships:** These represent relationships between components that are not directly dependent on each other but may still interact or influence each other's behavior; they describe components that share a common origin but operate independently (siblings, cousins, etc.).
 - **Edge Relationships:** These represent relationships that are visually depicted as edges connecting components in MeshMap. Edge relationships are used to define how components interact with each other, such as network connections, bindings, or permissions. They are also used to identify interdependencies between components.
  
-Relationships are are categorized into different kinds, types, and subtypes, so that can be expressive of the specific manner in which one or more components relate to one another. Each type of relationship can be interpretted by Meshery UI (or other [extensions](/extensibility/extensions)) and mapped to a specific visual paradigm for the given kind relationship. Let's look at some examples of these visual paradigms; let's explore examples of way in which relationships are represented in Meshery.
+Relationships are are categorized into different kinds, types, and subtypes, so that can be expressive of the specific manner in which one or more components relate to one another. Each type of relationship can be interpretted by Meshplay UI (or other [extensions](/extensibility/extensions)) and mapped to a specific visual paradigm for the given kind relationship. Let's look at some examples of these visual paradigms; let's explore examples of way in which relationships are represented in Meshplay.
 
 
-<!-- Broadly, here is a list of the different types of relationships that Meshery supports:
+<!-- Broadly, here is a list of the different types of relationships that Meshplay supports:
 
 1. Edge
    1. Network
@@ -52,15 +52,15 @@ Relationships are are categorized into different kinds, types, and subtypes, so 
 
 ## The Meaning of Relationships
 
-Meshery supports a variety of relationships between components. These relationships are categorized into two types: Semantic and Non-Semantic. Relationships are categorized by whether they are meaningful in terms of how Meshery manages entities - a Semantic relationship - or are simply annotations to aid in the comprehension of you as the designer of the relationship - a Non-Semantic relationship.
+Meshplay supports a variety of relationships between components. These relationships are categorized into two types: Semantic and Non-Semantic. Relationships are categorized by whether they are meaningful in terms of how Meshplay manages entities - a Semantic relationship - or are simply annotations to aid in the comprehension of you as the designer of the relationship - a Non-Semantic relationship.
 
 ### Semantic Relationships
 
-Semantic relationships are those that are meaningful in the context of the application or infrastructure. For example, a `Service` in Kubernetes is semantically related to a `Deployment` or a `Pod`. These relationships are meaningful and are managed by Meshery.
+Semantic relationships are those that are meaningful in the context of the application or infrastructure. For example, a `Service` in Kubernetes is semantically related to a `Deployment` or a `Pod`. These relationships are meaningful and are managed by Meshplay.
 
 ### Non-Semantic Relationships
 
-Non-semantic relationships are those that are meaningful to you as a user and your mental representation of your infrastructure and applications, but are not meaningful in terms of how Meshery evaluates the design or manages these relationships and their associated components. Non-sematic relationships are ignored by Meshery's lifecycle management engine. For example, a `Rectangle` shape that encloses other components (has a parent relationship with other child components) is not semantically meaningful to the way in which Meshery manages these resources. While the `Rectangle` shape might have a parent-child relationship with any number of Meshery-managed components, such a relationship does not implicate any management that Meshery might perform; they are not managed by Meshery.
+Non-semantic relationships are those that are meaningful to you as a user and your mental representation of your infrastructure and applications, but are not meaningful in terms of how Meshplay evaluates the design or manages these relationships and their associated components. Non-sematic relationships are ignored by Meshplay's lifecycle management engine. For example, a `Rectangle` shape that encloses other components (has a parent relationship with other child components) is not semantically meaningful to the way in which Meshplay manages these resources. While the `Rectangle` shape might have a parent-child relationship with any number of Meshplay-managed components, such a relationship does not implicate any management that Meshplay might perform; they are not managed by Meshplay.
 
 <!-- @iArchitSharma, help, if you would please.
 
@@ -68,7 +68,7 @@ _[TODO: a visual example is needed here]_ -->
 
 #### Identifiying Non-Semantic Relationships
 
-The `isAnnotation` attribute of a Relationship or Component determines whether the given Relationship or Component represents a management concern for Meshery; whether the given Relationship or Component is sematically meaningful, and whose lifecycle is managed by Meshery.
+The `isAnnotation` attribute of a Relationship or Component determines whether the given Relationship or Component represents a management concern for Meshplay; whether the given Relationship or Component is sematically meaningful, and whose lifecycle is managed by Meshplay.
 
 ## Core Concepts of Relationships
 
@@ -93,19 +93,19 @@ This Relationship type configures the networking between one or more components.
 
 <details close><summary>Visual Representation of Edge-Network Relationships</summary>
            <br>
-           <figure><figcaption>1. Edge - Network: Ingress to Service<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=1f79b0c6-2efe-4ee9-b08c-e1bd07a3926b"> (open in playground)</a></figcaption>
+           <figure><figcaption>1. Edge - Network: Ingress to Service<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=1f79b0c6-2efe-4ee9-b08c-e1bd07a3926b"> (open in playground)</a></figcaption>
            <img alt="Edge - Network" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_network_ingress_to_service_relationship.svg"/>
            </figure>
-           <figure><figcaption>2. Edge - Network: Service to Pod<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=90a9b4a0-a296-44b5-b1c5-7b1cb4827a77"> (open in playground)</a></figcaption>
+           <figure><figcaption>2. Edge - Network: Service to Pod<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=90a9b4a0-a296-44b5-b1c5-7b1cb4827a77"> (open in playground)</a></figcaption>
            <img alt="Edge - Network: Ingress to Service" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_network_service_to_pod_relationship.svg"/>
            </figure>
-           <figure><figcaption>3. Edge - Network: Service to Service<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=4e368e07-5039-400e-b637-96b0241af799"> (open in playground)</a></figcaption>
+           <figure><figcaption>3. Edge - Network: Service to Service<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=4e368e07-5039-400e-b637-96b0241af799"> (open in playground)</a></figcaption>
            <img alt="Edge - Network" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_network_service_to_service_relationship.svg"/>
            </figure>
-           <figure><figcaption>4. Edge - Network: Service to Endpoint<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=ab35416d-7cf7-4540-8b2e-7271ffeadde2"> (open in playground)</a></figcaption>
+           <figure><figcaption>4. Edge - Network: Service to Endpoint<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=ab35416d-7cf7-4540-8b2e-7271ffeadde2"> (open in playground)</a></figcaption>
            <img alt="Edge - Network" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_network_service_to_endpoints_relationship.svg"/>
            </figure>
-           <figure><figcaption>5. Edge - Network: Service to Deployment<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=33742281-428d-4340-b42e-6a0fd4ba1d0a"> (open in playground)</a></figcaption>
+           <figure><figcaption>5. Edge - Network: Service to Deployment<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=33742281-428d-4340-b42e-6a0fd4ba1d0a"> (open in playground)</a></figcaption>
            <img alt="Edge - Network" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/network_edge_relationship_service_deployment.svg"/>
            </figure>
    </details>
@@ -118,7 +118,7 @@ This Relationship type configures the networking between one or more components.
 
 <details close><summary>Visual Representation of Edge-Mount Relationship</summary>
            <br>
-           <p>1. Edge - Mount: Pod and Persistent volume via Persistent volume claim<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=43d5fdfe-25f8-4c2c-be9d-30861bbc2a08"> (open in playground)</a> </p>
+           <p>1. Edge - Mount: Pod and Persistent volume via Persistent volume claim<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=43d5fdfe-25f8-4c2c-be9d-30861bbc2a08"> (open in playground)</a> </p>
            <figure>
            <img alt="Edge - Mount" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_mount_relationship_pod_persistent_volume.svg"/>
            </figure>
@@ -133,7 +133,7 @@ This Relationship type configures the networking between one or more components.
 
 <details close><summary>Visual Representation of Edge-Permission Relationship</summary>
            <br>
-           <figure><figcaption>1. Edge - Permission: Cluster Role to Service Account <a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=7dd39d30-7b14-4f9f-a66c-06ba3e5000fa"> (open in playground)</a></figcaption>
+           <figure><figcaption>1. Edge - Permission: Cluster Role to Service Account <a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=7dd39d30-7b14-4f9f-a66c-06ba3e5000fa"> (open in playground)</a></figcaption>
            <img alt="Edge - Permission" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_permission_relationship_cluster_role_service_account.svg"/>
            </figure>
    </details>
@@ -146,7 +146,7 @@ Kubernetes Network Policy for controlling ingress and egress traffic from Pod-to
 
 <details close><summary>Visual Representation of Edge-Firewall Relationship</summary>
            <br>
-           <figure><figcaption>1. Edge - Firewall: Pod to Pod<a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=58fda714-eaa4-490f-b228-b8bcfe3a1e47s"> (open in playground)</a></figcaption>
+           <figure><figcaption>1. Edge - Firewall: Pod to Pod<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=58fda714-eaa4-490f-b228-b8bcfe3a1e47s"> (open in playground)</a></figcaption>
            <img alt="Edge - Firewall" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/edge_firewall_relationship_pod_to_pod.svg">
            </figure>
    </details>
@@ -159,7 +159,7 @@ Kubernetes Network Policy for controlling ingress and egress traffic from Pod-to
 - Example 2) WASMFilter (binary and configuration) --> IstioEnvoyFilter
 
 <details close><summary>Visual Representation of Hierarchical-Inventory Relationship</summary>
-           <figure><br><figcaption>1. Hierarchical - Inventory: Namespace and ConfigMap<a target="_blank" href="https://playground.meshery.io/extension/meshmap?design=21d40e36-8ab7-4f9f-9fed-f6a818510446"> (open in playground)</a></figcaption>
+           <figure><br><figcaption>1. Hierarchical - Inventory: Namespace and ConfigMap<a target="_blank" href="https://playground.meshplay.io/extension/meshmap?design=21d40e36-8ab7-4f9f-9fed-f6a818510446"> (open in playground)</a></figcaption>
            <img alt="Hierarchical Inventory Relationship" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/hierarchical_inventory_relationship.svg"/>
            </figure>
    </details>
@@ -171,14 +171,14 @@ Kubernetes Network Policy for controlling ingress and egress traffic from Pod-to
 - Example 1) Any namespaced Kubernetes component --> Kubernetes Namespace
 
 <details close><summary>Visual Representation of Hierarchical-Parent Relationship</summary>
-           <figure><br><figcaption>1. Hierarchical - Parent: Namespace (Parent) and ConfigMap (child), Role (Child) <a target="_blank" href="https://playground.meshery.io/extension/meshmap?mode=design&design=6370ffcd-13a6-4a65-b426-30f1e63dc381"> (open in playground)</a></figcaption>
+           <figure><br><figcaption>1. Hierarchical - Parent: Namespace (Parent) and ConfigMap (child), Role (Child) <a target="_blank" href="https://playground.meshplay.io/extension/meshmap?mode=design&design=6370ffcd-13a6-4a65-b426-30f1e63dc381"> (open in playground)</a></figcaption>
            <img alt="Hierarchical Parent Relationship" src="{{ site.baseurl }}/assets/img/meshmodel/relationships/hierarchical_parent_relationship.svg"/>
            </figure>
    </details>
 
 ## Selectors in Relationships
 
-In Meshery, a selector is a way to specify which set of components a certain other component should affect or interact with. Selectors provide a flexible and powerful way to manage and orchestrate resources within a under Meshery's management.
+In Meshplay, a selector is a way to specify which set of components a certain other component should affect or interact with. Selectors provide a flexible and powerful way to manage and orchestrate resources within a under Meshplay's management.
 
 Selectors can be applied to various components, enabling a wide range of relationship definitions. Here are some examples:
 
@@ -202,7 +202,7 @@ Selectors can be applied to various components, enabling a wide range of relatio
         <td>Kubernetes Deployment</td>
     </tr>
     <tr>
-        <td>Meshery WASMFilter</td>
+        <td>Meshplay WASMFilter</td>
         <td>Hierarchical</td>
         <td>Inventory</td>
         <td>Istio EnvoyFilter</td>
@@ -264,14 +264,14 @@ The above snippet defines a selector configuration for allowing relationships be
 
 ## Relationship Evaluation
 
-Meshery employs a policy-driven approach to evaluate relationships between components. This evaluation helps in:
+Meshplay employs a policy-driven approach to evaluate relationships between components. This evaluation helps in:
 
 - Determining compatible components for establishing relationships
 - Suggesting potential relationships based on the current design
 - Validating existing relationships and identifying potential conflicts
 - Automating the configuration of components based on established relationships
 
-![Meshery Relationship](/assets/img/concepts/logical/relationship-evaluation-flow.svg)
+![Meshplay Relationship](/assets/img/concepts/logical/relationship-evaluation-flow.svg)
 
 ### How Relationships are formed?
 
@@ -279,7 +279,7 @@ Meshery employs a policy-driven approach to evaluate relationships between compo
 
 2. Relationships are automatically created when a component's configuration is modified in a way that relationship criteria is satisfied.
 
-{% include/alert.html type="info" title="Explore an example relationship" content="To explore an example of this behavior, see the <a href='https://meshery.io/catalog/deployment/example-edge-permission-relationship-7dd39d30-7b14-4f9f-a66c-06ba3e5000fa.html'>Example Edge-Permission Relationship</a> and follow the steps written in its description." %}
+{% include/alert.html type="info" title="Explore an example relationship" content="To explore an example of this behavior, see the <a href='https://meshplay.io/catalog/deployment/example-edge-permission-relationship-7dd39d30-7b14-4f9f-a66c-06ba3e5000fa.html'>Example Edge-Permission Relationship</a> and follow the steps written in its description." %}
 
 When the relationships are created by the user, almost in all cases the config of the involved components are patched. To see the specific of patching refer [Patch Strategies](#patch-strategies).
 
@@ -292,26 +292,26 @@ Designs are evaluated by the [Policy Engine]({{site.baseurl}}/concepts/logical/p
 
 ### Patch Strategies
 
-Patches in Meshery relationships utilize strategies and references (mutatorRef/mutatedRef) for the from and to fields. These convey the property path that will be updated as the relationship is created.
+Patches in Meshplay relationships utilize strategies and references (mutatorRef/mutatedRef) for the from and to fields. These convey the property path that will be updated as the relationship is created.
 
 ### Cavets and Considerations
 
 1. If the user creates a `Hierarchical Inventory` relationship between `Pod`, `Job`, and any other high-level Kubernetes resources like `Deployment`, `StatefulSet`, or `CronJobs`, after the relationship has been established unfortunately, there’s no system to remove the extra pod configuration automatically.
 If the design is not configured with `labels` `selectors` and `replicas` appropriately, there's a possibility of additional resources getting provisioned when deployed. eg: The relationship between a Pod and deployment can result in 2 Pods (1 pod coming as part of deployment resource) and 1 Deployment.  It’s important to be aware of this possibility and manage configurations carefully to avoid unexpected issues during deployment
 
-# Itemizing your Relationship Definitions in your Meshery deployment
+# Itemizing your Relationship Definitions in your Meshplay deployment
 
-In any given Meshery deployment, you can reference and search the full set of registered relationships (in Meshery's internal registry) in using either of Meshery's client interfaces.
+In any given Meshplay deployment, you can reference and search the full set of registered relationships (in Meshplay's internal registry) in using either of Meshplay's client interfaces.
 
-**Meshery UI**
+**Meshplay UI**
 
 - Visit _Setttings_ --> _Registry_
 
-**Meshery CLI**
+**Meshplay CLI**
 
-- Run `mesheryctl relationship list`
+- Run `meshplayctl relationship list`
 
 <!--
 ```
-mesheryctl model import -f [ oci:// | file:// ]`
+meshplayctl model import -f [ oci:// | file:// ]`
 ``` -->

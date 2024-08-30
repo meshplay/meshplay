@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-context-list
-permalink: reference/mesheryctl/system/context/list
-redirect_from: reference/mesheryctl/system/context/list/
+title: meshplayctl-system-context-list
+permalink: reference/meshplayctl/system/context/list
+redirect_from: reference/meshplayctl/system/context/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: system
 subcommand: context
 ---
 
-# mesheryctl system context list
+# meshplayctl system context list
 
 list contexts
 
@@ -19,7 +19,7 @@ list contexts
 List current context and available contexts
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context list [flags]
+meshplayctl system context list [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl system context list [flags]
 List all contexts present
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context list
+meshplayctl system context list
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl system context list
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -57,4 +57,4 @@ mesheryctl system context list
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

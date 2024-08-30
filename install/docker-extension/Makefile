@@ -2,7 +2,7 @@
 # include ../Makefile.core.mk
 # include ../Makefile.show-help.mk
 
-IMAGE?=meshery/docker-extension-meshery:edge-latest
+IMAGE?=meshplay/docker-extension-meshplay:edge-latest
 
 BUILDER=buildx-multi-arch
 STATIC_FLAGS=CGO_ENABLED=0
@@ -55,9 +55,9 @@ ui:
 	cd ui/src; npm run start; cd ../..;
 # Make easier to debug the UI
 link:
-	docker extension dev ui-source meshery/docker-extension-meshery:${GIT_STRIPPED_VERSION} http://localhost:3000
-	docker extension dev debug meshery/docker-extension-meshery:${GIT_STRIPPED_VERSION}
+	docker extension dev ui-source meshplay/docker-extension-meshplay:${GIT_STRIPPED_VERSION} http://localhost:3000
+	docker extension dev debug meshplay/docker-extension-meshplay:${GIT_STRIPPED_VERSION}
 reset:
-	docker extension dev reset meshery/docker-extension-meshery:${GIT_STRIPPED_VERSION}
+	docker extension dev reset meshplay/docker-extension-meshplay:${GIT_STRIPPED_VERSION}
 
 .PHONY: prepare-buildx push-extension extension ui

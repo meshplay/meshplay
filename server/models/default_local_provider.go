@@ -19,7 +19,7 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
@@ -41,15 +41,15 @@ type DefaultLocalProvider struct {
 	*EventsPersister
 	ProviderProperties
 	ProviderBaseURL                 string
-	ResultPersister                 *MesheryResultsPersister
+	ResultPersister                 *MeshplayResultsPersister
 	SmiResultPersister              *SMIResultsPersister
 	TestProfilesPersister           *TestProfilesPersister
 	PerformanceProfilesPersister    *PerformanceProfilePersister
-	MesheryPatternPersister         *MesheryPatternPersister
-	MesheryPatternResourcePersister *PatternResourcePersister
-	MesheryApplicationPersister     *MesheryApplicationPersister
-	MesheryFilterPersister          *MesheryFilterPersister
-	MesheryK8sContextPersister      *MesheryK8sContextPersister
+	MeshplayPatternPersister         *MeshplayPatternPersister
+	MeshplayPatternResourcePersister *PatternResourcePersister
+	MeshplayApplicationPersister     *MeshplayApplicationPersister
+	MeshplayFilterPersister          *MeshplayFilterPersister
+	MeshplayK8sContextPersister      *MeshplayK8sContextPersister
 	OrganizationPersister           *OrganizationPersister
 	KeyPersister                    *KeyPersister
 	ConnectionPersister             *ConnectionPersister
@@ -75,9 +75,9 @@ func (l *DefaultLocalProvider) Initialize() {
 	l.PackageURL = ""
 	l.Extensions = Extensions{}
 	l.Capabilities = Capabilities{
-		{Feature: PersistMesheryPatterns},
-		{Feature: PersistMesheryApplications},
-		{Feature: PersistMesheryFilters},
+		{Feature: PersistMeshplayPatterns},
+		{Feature: PersistMeshplayApplications},
+		{Feature: PersistMeshplayFilters},
 		{Feature: PersistCredentials},
 	}
 }
@@ -124,8 +124,8 @@ func (l *DefaultLocalProvider) InitiateLogin(_ http.ResponseWriter, _ *http.Requ
 func (l *DefaultLocalProvider) fetchUserDetails() *User {
 	return &User{
 		UserID:    "meshplay",
-		FirstName: "Meshery",
-		LastName:  "Meshery",
+		FirstName: "Meshplay",
+		LastName:  "Meshplay",
 		AvatarURL: "",
 	}
 }
@@ -164,7 +164,7 @@ func (l *DefaultLocalProvider) SaveEnvironment(_ *http.Request, environmentPaylo
 		Description:    environmentPayload.Description,
 		Name:           environmentPayload.Name,
 		OrganizationId: orgId,
-		Owner:          "Meshery",
+		Owner:          "Meshplay",
 		UpdatedAt:      time.Now(),
 	}
 	return l.EnvironmentPersister.SaveEnvironment(environment)
@@ -179,7 +179,7 @@ func (l *DefaultLocalProvider) UpdateEnvironment(_ *http.Request, environmentPay
 		Description:    environmentPayload.Description,
 		Name:           environmentPayload.Name,
 		OrganizationId: orgId,
-		Owner:          "Meshery",
+		Owner:          "Meshplay",
 		UpdatedAt:      time.Now(),
 	}
 	return l.EnvironmentPersister.UpdateEnvironmentByID(environment)
@@ -235,7 +235,7 @@ func (l *DefaultLocalProvider) SaveK8sContext(_ string, k8sContext K8sContext) (
 	_metadata := map[string]string{
 		"id":                   k8sContext.ID,
 		"server":               k8sContext.Server,
-		"meshplay_instance_id":  k8sContext.MesheryInstanceID.String(),
+		"meshplay_instance_id":  k8sContext.MeshplayInstanceID.String(),
 		"deployment_type":      k8sContext.DeploymentType,
 		"version":              k8sContext.Version,
 		"name":                 k8sContext.Name,
@@ -267,7 +267,7 @@ func (l *DefaultLocalProvider) SaveK8sContext(_ string, k8sContext K8sContext) (
 	if err != nil {
 		return connections.Connection{}, fmt.Errorf("error in saving k8s context %v", err)
 	}
-	_, _ = l.MesheryK8sContextPersister.SaveMesheryK8sContext(k8sContext)
+	_, _ = l.MeshplayK8sContextPersister.SaveMeshplayK8sContext(k8sContext)
 	return *connectionCreated, nil
 }
 
@@ -289,16 +289,16 @@ func (l *DefaultLocalProvider) GetK8sContexts(_, page, pageSize, search, order s
 		return nil, ErrPageSize(err)
 	}
 
-	return l.MesheryK8sContextPersister.GetMesheryK8sContexts(search, order, pg, pgs)
+	return l.MeshplayK8sContextPersister.GetMeshplayK8sContexts(search, order, pg, pgs)
 }
 
 func (l *DefaultLocalProvider) DeleteK8sContext(_, id string) (K8sContext, error) {
-	return l.MesheryK8sContextPersister.DeleteMesheryK8sContext(id)
+	return l.MeshplayK8sContextPersister.DeleteMeshplayK8sContext(id)
 }
 
 func (l *DefaultLocalProvider) GetK8sContext(_, id string) (K8sContext, error) {
 	idStrWithoutDashes := strings.ReplaceAll(id, "-", "")
-	return l.MesheryK8sContextPersister.GetMesheryK8sContext(idStrWithoutDashes)
+	return l.MeshplayK8sContextPersister.GetMeshplayK8sContext(idStrWithoutDashes)
 }
 
 func (l *DefaultLocalProvider) LoadAllK8sContext(token string) ([]*K8sContext, error) {
@@ -312,7 +312,7 @@ func (l *DefaultLocalProvider) LoadAllK8sContext(token string) ([]*K8sContext, e
 			return results, err
 		}
 
-		var k8scontext MesheryK8sContextPage
+		var k8scontext MeshplayK8sContextPage
 		err = json.Unmarshal(res, &k8scontext)
 		if err != nil {
 			obj := "k8s context"
@@ -331,15 +331,15 @@ func (l *DefaultLocalProvider) LoadAllK8sContext(token string) ([]*K8sContext, e
 }
 
 // func (l *DefaultLocalProvider) SetCurrentContext(token, id string) (K8sContext, error) {
-// 	if err := l.MesheryK8sContextPersister.SetMesheryK8sCurrentContext(id); err != nil {
+// 	if err := l.MeshplayK8sContextPersister.SetMeshplayK8sCurrentContext(id); err != nil {
 // 		return K8sContext{}, err
 // 	}
 
-// 	return l.MesheryK8sContextPersister.GetMesheryK8sContext(id)
+// 	return l.MeshplayK8sContextPersister.GetMeshplayK8sContext(id)
 // }
 
 // func (l *DefaultLocalProvider) GetCurrentContext(token string) (K8sContext, error) {
-// 	return l.MesheryK8sContextPersister.GetMesheryK8sCurrentContext()
+// 	return l.MeshplayK8sContextPersister.GetMeshplayK8sCurrentContext()
 // }
 
 // FetchResults - fetches results from provider backend
@@ -382,7 +382,7 @@ func (l *DefaultLocalProvider) FetchAllResults(_, page, pageSize, _, _, _, _ str
 }
 
 // GetResult - fetches result from provider backend for the given result id
-func (l *DefaultLocalProvider) GetResult(_ string, resultID uuid.UUID) (*MesheryResult, error) {
+func (l *DefaultLocalProvider) GetResult(_ string, resultID uuid.UUID) (*MeshplayResult, error) {
 	// key := uuid.FromStringOrNil(resultID)
 	if resultID == uuid.Nil {
 		return nil, ErrResultID
@@ -391,7 +391,7 @@ func (l *DefaultLocalProvider) GetResult(_ string, resultID uuid.UUID) (*Meshery
 }
 
 // PublishResults - publishes results to the provider backend synchronously
-func (l *DefaultLocalProvider) PublishResults(req *http.Request, result *MesheryResult, profileID string) (string, error) {
+func (l *DefaultLocalProvider) PublishResults(req *http.Request, result *MeshplayResult, profileID string) (string, error) {
 	profileUUID, err := uuid.FromString(profileID)
 	if err != nil {
 		return "", ErrPerfID(err)
@@ -418,7 +418,7 @@ func (l *DefaultLocalProvider) PublishResults(req *http.Request, result *Meshery
 		result.ID = key
 		data, err = json.Marshal(result)
 		if err != nil {
-			return "", ErrMarshal(err, "Meshery Result for Persisting")
+			return "", ErrMarshal(err, "Meshplay Result for Persisting")
 		}
 	}
 	if err := l.ResultPersister.WriteResult(key, data); err != nil {
@@ -452,7 +452,7 @@ func (l *DefaultLocalProvider) PublishSmiResults(result *SmiResult) (string, err
 	result.ID = key
 	data, err := json.Marshal(result)
 	if err != nil {
-		return "", ErrMarshal(err, "Meshery Results for Persisting")
+		return "", ErrMarshal(err, "Meshplay Results for Persisting")
 	}
 
 	if err := l.SmiResultPersister.WriteResult(key, data); err != nil {
@@ -504,10 +504,10 @@ func (l *DefaultLocalProvider) PublishEventToProvider(_ string, _ events.Event) 
 }
 
 // PublishMetrics - publishes metrics to the provider backend asyncronously
-func (l *DefaultLocalProvider) PublishMetrics(_ string, result *MesheryResult) error {
+func (l *DefaultLocalProvider) PublishMetrics(_ string, result *MeshplayResult) error {
 	data, err := json.Marshal(result)
 	if err != nil {
-		return ErrMarshal(err, "Meshery Matrics for shipping")
+		return ErrMarshal(err, "Meshplay Matrics for shipping")
 	}
 
 	l.Log.Debug(fmt.Sprintf("Result: %s, size: %d", data, len(data)))
@@ -610,21 +610,21 @@ func (l *DefaultLocalProvider) SMPTestConfigDelete(_ *http.Request, testUUID str
 	return l.TestProfilesPersister.DeleteTestConfig(uid)
 }
 
-// SaveMesheryPatternSourceContent nothing needs to be done as pattern is saved with source content for local provider
-func (l *DefaultLocalProvider) SaveMesheryPatternSourceContent(_, _ string, _ []byte) error {
+// SaveMeshplayPatternSourceContent nothing needs to be done as pattern is saved with source content for local provider
+func (l *DefaultLocalProvider) SaveMeshplayPatternSourceContent(_, _ string, _ []byte) error {
 	return nil
 }
 
-func (l *DefaultLocalProvider) SaveMesheryPatternResource(_ string, resource *PatternResource) (*PatternResource, error) {
-	return l.MesheryPatternResourcePersister.SavePatternResource(resource)
+func (l *DefaultLocalProvider) SaveMeshplayPatternResource(_ string, resource *PatternResource) (*PatternResource, error) {
+	return l.MeshplayPatternResourcePersister.SavePatternResource(resource)
 }
 
-func (l *DefaultLocalProvider) GetMesheryPatternResource(_, resourceID string) (*PatternResource, error) {
+func (l *DefaultLocalProvider) GetMeshplayPatternResource(_, resourceID string) (*PatternResource, error) {
 	id := uuid.FromStringOrNil(resourceID)
-	return l.MesheryPatternResourcePersister.GetPatternResource(id)
+	return l.MeshplayPatternResourcePersister.GetPatternResource(id)
 }
 
-func (l *DefaultLocalProvider) GetMesheryPatternResources(
+func (l *DefaultLocalProvider) GetMeshplayPatternResources(
 	_,
 	page,
 	pageSize,
@@ -652,23 +652,23 @@ func (l *DefaultLocalProvider) GetMesheryPatternResources(
 		return nil, ErrPageSize(err)
 	}
 
-	return l.MesheryPatternResourcePersister.GetPatternResources(
+	return l.MeshplayPatternResourcePersister.GetPatternResources(
 		search, order, name, namespace, typ, oamType, pg, pgs,
 	)
 }
 
-func (l *DefaultLocalProvider) DeleteMesheryPatternResource(_, resourceID string) error {
+func (l *DefaultLocalProvider) DeleteMeshplayPatternResource(_, resourceID string) error {
 	id := uuid.FromStringOrNil(resourceID)
-	return l.MesheryPatternResourcePersister.DeletePatternResource(id)
+	return l.MeshplayPatternResourcePersister.DeletePatternResource(id)
 }
 
-// SaveMesheryPattern saves given pattern with the provider
-func (l *DefaultLocalProvider) SaveMesheryPattern(_ string, pattern *MesheryPattern) ([]byte, error) {
-	return l.MesheryPatternPersister.SaveMesheryPattern(pattern)
+// SaveMeshplayPattern saves given pattern with the provider
+func (l *DefaultLocalProvider) SaveMeshplayPattern(_ string, pattern *MeshplayPattern) ([]byte, error) {
+	return l.MeshplayPatternPersister.SaveMeshplayPattern(pattern)
 }
 
-// GetMesheryPatterns gives the patterns stored with the provider
-func (l *DefaultLocalProvider) GetMesheryPatterns(_, page, pageSize, search, order, updatedAfter string, visibility []string, _ string) ([]byte, error) {
+// GetMeshplayPatterns gives the patterns stored with the provider
+func (l *DefaultLocalProvider) GetMeshplayPatterns(_, page, pageSize, search, order, updatedAfter string, visibility []string, _ string) ([]byte, error) {
 	if page == "" {
 		page = "0"
 	}
@@ -685,50 +685,50 @@ func (l *DefaultLocalProvider) GetMesheryPatterns(_, page, pageSize, search, ord
 	if err != nil {
 		return nil, ErrPageSize(err)
 	}
-	return l.MesheryPatternPersister.GetMesheryPatterns(search, order, pg, pgs, updatedAfter, visibility)
+	return l.MeshplayPatternPersister.GetMeshplayPatterns(search, order, pg, pgs, updatedAfter, visibility)
 }
 
-// GetCatalogMesheryPatterns gives the catalog patterns stored with the provider
-func (l *DefaultLocalProvider) GetCatalogMesheryPatterns(_, page, pageSize, search, order, _ string) ([]byte, error) {
-	return l.MesheryPatternPersister.GetMesheryCatalogPatterns(page, pageSize, search, order)
+// GetCatalogMeshplayPatterns gives the catalog patterns stored with the provider
+func (l *DefaultLocalProvider) GetCatalogMeshplayPatterns(_, page, pageSize, search, order, _ string) ([]byte, error) {
+	return l.MeshplayPatternPersister.GetMeshplayCatalogPatterns(page, pageSize, search, order)
 }
 
 // PublishCatalogPattern publishes pattern to catalog
 // Not supported by local provider
-func (l *DefaultLocalProvider) PublishCatalogPattern(_ *http.Request, _ *MesheryCatalogPatternRequestBody) ([]byte, error) {
+func (l *DefaultLocalProvider) PublishCatalogPattern(_ *http.Request, _ *MeshplayCatalogPatternRequestBody) ([]byte, error) {
 	return []byte(""), ErrLocalProviderSupport
 }
 
-func (l *DefaultLocalProvider) UnPublishCatalogPattern(_ *http.Request, _ *MesheryCatalogPatternRequestBody) ([]byte, error) {
+func (l *DefaultLocalProvider) UnPublishCatalogPattern(_ *http.Request, _ *MeshplayCatalogPatternRequestBody) ([]byte, error) {
 	return []byte(""), ErrLocalProviderSupport
 }
 
-// GetMesheryPattern gets pattern for the given patternID
-func (l *DefaultLocalProvider) GetMesheryPattern(_ *http.Request, patternID, _ string) ([]byte, error) {
+// GetMeshplayPattern gets pattern for the given patternID
+func (l *DefaultLocalProvider) GetMeshplayPattern(_ *http.Request, patternID, _ string) ([]byte, error) {
 	id := uuid.FromStringOrNil(patternID)
-	return l.MesheryPatternPersister.GetMesheryPattern(id)
+	return l.MeshplayPatternPersister.GetMeshplayPattern(id)
 }
 
-// DeleteMesheryPattern deletes a meshplay pattern with the given id
-func (l *DefaultLocalProvider) DeleteMesheryPattern(_ *http.Request, patternID string) ([]byte, error) {
+// DeleteMeshplayPattern deletes a meshplay pattern with the given id
+func (l *DefaultLocalProvider) DeleteMeshplayPattern(_ *http.Request, patternID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(patternID)
-	return l.MesheryPatternPersister.DeleteMesheryPattern(id)
+	return l.MeshplayPatternPersister.DeleteMeshplayPattern(id)
 }
 
-// DeleteMesheryPattern deletes a meshplay pattern with the given id
-func (l *DefaultLocalProvider) DeleteMesheryPatterns(_ *http.Request, patterns MesheryPatternDeleteRequestBody) ([]byte, error) {
-	return l.MesheryPatternPersister.DeleteMesheryPatterns(patterns)
+// DeleteMeshplayPattern deletes a meshplay pattern with the given id
+func (l *DefaultLocalProvider) DeleteMeshplayPatterns(_ *http.Request, patterns MeshplayPatternDeleteRequestBody) ([]byte, error) {
+	return l.MeshplayPatternPersister.DeleteMeshplayPatterns(patterns)
 }
 
-// CloneMesheryPattern clones a meshplay pattern with the given id
-func (l *DefaultLocalProvider) CloneMesheryPattern(_ *http.Request, patternID string, clonePatternRequest *MesheryClonePatternRequestBody) ([]byte, error) {
-	return l.MesheryPatternPersister.CloneMesheryPattern(patternID, clonePatternRequest)
+// CloneMeshplayPattern clones a meshplay pattern with the given id
+func (l *DefaultLocalProvider) CloneMeshplayPattern(_ *http.Request, patternID string, clonePatternRequest *MeshplayClonePatternRequestBody) ([]byte, error) {
+	return l.MeshplayPatternPersister.CloneMeshplayPattern(patternID, clonePatternRequest)
 }
 
 // GetDesignSourceContent returns design source-content from provider
 func (l *DefaultLocalProvider) GetDesignSourceContent(_, designID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(designID)
-	return l.MesheryPatternPersister.GetMesheryPatternSource(id)
+	return l.MeshplayPatternPersister.GetMeshplayPatternSource(id)
 }
 
 // RemotePatternFile takes in the
@@ -765,7 +765,7 @@ func (l *DefaultLocalProvider) RemotePatternFile(_ *http.Request, resourceURL, p
 		}
 
 		if save {
-			return l.MesheryPatternPersister.SaveMesheryPatterns(pfs)
+			return l.MeshplayPatternPersister.SaveMeshplayPatterns(pfs)
 		}
 
 		return json.Marshal(pfs)
@@ -777,19 +777,19 @@ func (l *DefaultLocalProvider) RemotePatternFile(_ *http.Request, resourceURL, p
 		return nil, err
 	}
 	if save {
-		return l.MesheryPatternPersister.SaveMesheryPatterns(pfs)
+		return l.MeshplayPatternPersister.SaveMeshplayPatterns(pfs)
 	}
 
 	return json.Marshal(pfs)
 }
 
-// SaveMesheryFilter saves given filter with the provider
-func (l *DefaultLocalProvider) SaveMesheryFilter(_ string, filter *MesheryFilter) ([]byte, error) {
-	return l.MesheryFilterPersister.SaveMesheryFilter(filter)
+// SaveMeshplayFilter saves given filter with the provider
+func (l *DefaultLocalProvider) SaveMeshplayFilter(_ string, filter *MeshplayFilter) ([]byte, error) {
+	return l.MeshplayFilterPersister.SaveMeshplayFilter(filter)
 }
 
-// GetMesheryFilters gives the filters stored with the provider
-func (l *DefaultLocalProvider) GetMesheryFilters(_, page, pageSize, search, order string, visibility []string) ([]byte, error) {
+// GetMeshplayFilters gives the filters stored with the provider
+func (l *DefaultLocalProvider) GetMeshplayFilters(_, page, pageSize, search, order string, visibility []string) ([]byte, error) {
 	if page == "" {
 		page = "0"
 	}
@@ -807,45 +807,45 @@ func (l *DefaultLocalProvider) GetMesheryFilters(_, page, pageSize, search, orde
 		return nil, ErrPageSize(err)
 	}
 
-	return l.MesheryFilterPersister.GetMesheryFilters(search, order, pg, pgs, visibility)
+	return l.MeshplayFilterPersister.GetMeshplayFilters(search, order, pg, pgs, visibility)
 }
 
-// GetCatalogMesheryFilters gives the catalog filters stored with the provider
-func (l *DefaultLocalProvider) GetCatalogMesheryFilters(_ string, page, pageSize, search, order string) ([]byte, error) {
-	return l.MesheryFilterPersister.GetMesheryCatalogFilters(page, pageSize, search, order)
+// GetCatalogMeshplayFilters gives the catalog filters stored with the provider
+func (l *DefaultLocalProvider) GetCatalogMeshplayFilters(_ string, page, pageSize, search, order string) ([]byte, error) {
+	return l.MeshplayFilterPersister.GetMeshplayCatalogFilters(page, pageSize, search, order)
 }
 
 // PublishCatalogFilter publishes filter to catalog
 // Not supported by local provider
-func (l *DefaultLocalProvider) PublishCatalogFilter(_ *http.Request, _ *MesheryCatalogFilterRequestBody) ([]byte, error) {
+func (l *DefaultLocalProvider) PublishCatalogFilter(_ *http.Request, _ *MeshplayCatalogFilterRequestBody) ([]byte, error) {
 	return []byte(""), nil
 }
 
-func (l *DefaultLocalProvider) UnPublishCatalogFilter(_ *http.Request, _ *MesheryCatalogFilterRequestBody) ([]byte, error) {
+func (l *DefaultLocalProvider) UnPublishCatalogFilter(_ *http.Request, _ *MeshplayCatalogFilterRequestBody) ([]byte, error) {
 	return []byte(""), ErrLocalProviderSupport
 }
 
-// GetMesheryFilterFile gets filter for the given filterID without the metadata
-func (l *DefaultLocalProvider) GetMesheryFilterFile(_ *http.Request, filterID string) ([]byte, error) {
+// GetMeshplayFilterFile gets filter for the given filterID without the metadata
+func (l *DefaultLocalProvider) GetMeshplayFilterFile(_ *http.Request, filterID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(filterID)
-	return l.MesheryFilterPersister.GetMesheryFilterFile(id)
+	return l.MeshplayFilterPersister.GetMeshplayFilterFile(id)
 }
 
-// GetMesheryFilter gets filter for the given filterID
-func (l *DefaultLocalProvider) GetMesheryFilter(_ *http.Request, filterID string) ([]byte, error) {
+// GetMeshplayFilter gets filter for the given filterID
+func (l *DefaultLocalProvider) GetMeshplayFilter(_ *http.Request, filterID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(filterID)
-	return l.MesheryFilterPersister.GetMesheryFilter(id)
+	return l.MeshplayFilterPersister.GetMeshplayFilter(id)
 }
 
-// DeleteMesheryFilter deletes a meshplay filter with the given id
-func (l *DefaultLocalProvider) DeleteMesheryFilter(_ *http.Request, filterID string) ([]byte, error) {
+// DeleteMeshplayFilter deletes a meshplay filter with the given id
+func (l *DefaultLocalProvider) DeleteMeshplayFilter(_ *http.Request, filterID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(filterID)
-	return l.MesheryFilterPersister.DeleteMesheryFilter(id)
+	return l.MeshplayFilterPersister.DeleteMeshplayFilter(id)
 }
 
-// CloneMesheryFilter clones a meshplay filter with the given id
-func (l *DefaultLocalProvider) CloneMesheryFilter(_ *http.Request, filterID string, cloneFilterRequest *MesheryCloneFilterRequestBody) ([]byte, error) {
-	return l.MesheryFilterPersister.CloneMesheryFilter(filterID, cloneFilterRequest)
+// CloneMeshplayFilter clones a meshplay filter with the given id
+func (l *DefaultLocalProvider) CloneMeshplayFilter(_ *http.Request, filterID string, cloneFilterRequest *MeshplayCloneFilterRequestBody) ([]byte, error) {
+	return l.MeshplayFilterPersister.CloneMeshplayFilter(filterID, cloneFilterRequest)
 }
 
 // RemoteFilterFile takes in the
@@ -881,7 +881,7 @@ func (l *DefaultLocalProvider) RemoteFilterFile(_ *http.Request, resourceURL, pa
 		}
 
 		if save {
-			return l.MesheryFilterPersister.SaveMesheryFilters(ffs)
+			return l.MeshplayFilterPersister.SaveMeshplayFilters(ffs)
 		}
 
 		return json.Marshal(ffs)
@@ -893,15 +893,15 @@ func (l *DefaultLocalProvider) RemoteFilterFile(_ *http.Request, resourceURL, pa
 		return nil, err
 	}
 	if save {
-		return l.MesheryFilterPersister.SaveMesheryFilters(ffs)
+		return l.MeshplayFilterPersister.SaveMeshplayFilters(ffs)
 	}
 
 	return json.Marshal(ffs)
 }
 
-// SaveMesheryApplication saves given application with the provider
-func (l *DefaultLocalProvider) SaveMesheryApplication(_ string, application *MesheryApplication) ([]byte, error) {
-	return l.MesheryApplicationPersister.SaveMesheryApplication(application)
+// SaveMeshplayApplication saves given application with the provider
+func (l *DefaultLocalProvider) SaveMeshplayApplication(_ string, application *MeshplayApplication) ([]byte, error) {
+	return l.MeshplayApplicationPersister.SaveMeshplayApplication(application)
 }
 
 // SaveApplicationSourceContent nothing needs to be done as application is saved with source content for local provider
@@ -912,11 +912,11 @@ func (l *DefaultLocalProvider) SaveApplicationSourceContent(_, _ string, _ []byt
 // GetApplicationSourceContent returns application source-content from provider
 func (l *DefaultLocalProvider) GetApplicationSourceContent(_ *http.Request, applicationID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(applicationID)
-	return l.MesheryApplicationPersister.GetMesheryApplicationSource(id)
+	return l.MeshplayApplicationPersister.GetMeshplayApplicationSource(id)
 }
 
-// GetMesheryApplications gives the applications stored with the provider
-func (l *DefaultLocalProvider) GetMesheryApplications(_, page, pageSize, search, order string, updatedAfter string) ([]byte, error) {
+// GetMeshplayApplications gives the applications stored with the provider
+func (l *DefaultLocalProvider) GetMeshplayApplications(_, page, pageSize, search, order string, updatedAfter string) ([]byte, error) {
 	if page == "" {
 		page = "0"
 	}
@@ -934,19 +934,19 @@ func (l *DefaultLocalProvider) GetMesheryApplications(_, page, pageSize, search,
 		return nil, ErrPageSize(err)
 	}
 
-	return l.MesheryApplicationPersister.GetMesheryApplications(search, order, pg, pgs, updatedAfter)
+	return l.MeshplayApplicationPersister.GetMeshplayApplications(search, order, pg, pgs, updatedAfter)
 }
 
-// GetMesheryApplication gets application for the given applicationID
-func (l *DefaultLocalProvider) GetMesheryApplication(_ *http.Request, applicationID string) ([]byte, error) {
+// GetMeshplayApplication gets application for the given applicationID
+func (l *DefaultLocalProvider) GetMeshplayApplication(_ *http.Request, applicationID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(applicationID)
-	return l.MesheryApplicationPersister.GetMesheryApplication(id)
+	return l.MeshplayApplicationPersister.GetMeshplayApplication(id)
 }
 
-// DeleteMesheryApplication deletes a meshplay application with the given id
-func (l *DefaultLocalProvider) DeleteMesheryApplication(_ *http.Request, applicationID string) ([]byte, error) {
+// DeleteMeshplayApplication deletes a meshplay application with the given id
+func (l *DefaultLocalProvider) DeleteMeshplayApplication(_ *http.Request, applicationID string) ([]byte, error) {
 	id := uuid.FromStringOrNil(applicationID)
-	return l.MesheryApplicationPersister.DeleteMesheryApplication(id)
+	return l.MeshplayApplicationPersister.DeleteMeshplayApplication(id)
 }
 
 func (l *DefaultLocalProvider) ShareDesign(_ *http.Request) (int, error) {
@@ -1145,7 +1145,7 @@ func (l *DefaultLocalProvider) DeleteConnection(_ *http.Request, connectionID uu
 	return l.ConnectionPersister.DeleteConnection(&connection)
 }
 
-func (l *DefaultLocalProvider) DeleteMesheryConnection() error {
+func (l *DefaultLocalProvider) DeleteMeshplayConnection() error {
 	meshplayConnectionID := uuid.FromStringOrNil(viper.GetString("INSTANCE_ID"))
 	_, err := l.DeleteConnection(nil, meshplayConnectionID)
 	return err
@@ -1183,7 +1183,7 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 					for i, name := range names {
 						id, _ := uuid.NewV4()
 
-						var pattern = &MesheryPattern{
+						var pattern = &MeshplayPattern{
 							PatternFile: content[i],
 							Name:        name,
 							ID:          &id,
@@ -1197,7 +1197,7 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 							},
 						}
 						log.Debug("seeding "+comp+": ", name)
-						_, err := l.MesheryPatternPersister.SaveMesheryPattern(pattern)
+						_, err := l.MeshplayPatternPersister.SaveMeshplayPattern(pattern)
 						if err != nil {
 							log.Error(ErrGettingSeededComponents(err, comp+"s"))
 						}
@@ -1206,7 +1206,7 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 				case "Filter":
 					for i, name := range names {
 						id, _ := uuid.NewV4()
-						var filter = &MesheryFilter{
+						var filter = &MeshplayFilter{
 							FilterFile: []byte(content[i]),
 							Name:       name,
 							ID:         &id,
@@ -1220,7 +1220,7 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 							},
 						}
 						log.Debug("seeding "+comp+": ", name)
-						_, err := l.MesheryFilterPersister.SaveMesheryFilter(filter)
+						_, err := l.MeshplayFilterPersister.SaveMeshplayFilter(filter)
 						if err != nil {
 							log.Error(ErrGettingSeededComponents(err, comp+"s"))
 						}
@@ -1249,7 +1249,7 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 								patternfile = content
 							}
 						}
-						var app = &MesheryApplication{
+						var app = &MeshplayApplication{
 							ApplicationFile: patternfile,
 							Type: sql.NullString{
 								String: string(K8sManifest),
@@ -1260,7 +1260,7 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 							ID:            &id,
 						}
 						log.Debug("seeding "+comp+": ", name)
-						_, err := l.MesheryApplicationPersister.SaveMesheryApplication(app)
+						_, err := l.MeshplayApplicationPersister.SaveMeshplayApplication(app)
 						if err != nil {
 							log.Error(ErrGettingSeededComponents(err, comp+"s"))
 						}
@@ -1292,16 +1292,16 @@ func (l *DefaultLocalProvider) SeedContent(log logger.Handler) {
 	}()
 }
 func (l *DefaultLocalProvider) Cleanup() error {
-	if err := l.MesheryK8sContextPersister.DB.Migrator().DropTable(&K8sContext{}); err != nil {
+	if err := l.MeshplayK8sContextPersister.DB.Migrator().DropTable(&K8sContext{}); err != nil {
 		return err
 	}
-	if err := l.MesheryK8sContextPersister.DB.Migrator().DropTable(&connections.Connection{}); err != nil {
+	if err := l.MeshplayK8sContextPersister.DB.Migrator().DropTable(&connections.Connection{}); err != nil {
 		return err
 	}
-	if err := l.MesheryK8sContextPersister.DB.Migrator().DropTable(&MesheryPattern{}); err != nil {
+	if err := l.MeshplayK8sContextPersister.DB.Migrator().DropTable(&MeshplayPattern{}); err != nil {
 		return err
 	}
-	if err := l.MesheryK8sContextPersister.DB.Migrator().DropTable(&MesheryApplication{}); err != nil {
+	if err := l.MeshplayK8sContextPersister.DB.Migrator().DropTable(&MeshplayApplication{}); err != nil {
 		return err
 	}
 
@@ -1309,7 +1309,7 @@ func (l *DefaultLocalProvider) Cleanup() error {
 		return err
 	}
 
-	return l.MesheryK8sContextPersister.DB.Migrator().DropTable(&MesheryFilter{})
+	return l.MeshplayK8sContextPersister.DB.Migrator().DropTable(&MeshplayFilter{})
 }
 
 func (l *DefaultLocalProvider) SaveUserCredential(token string, credential *Credential) (*Credential, error) {
@@ -1450,7 +1450,7 @@ func (l *DefaultLocalProvider) SaveWorkspace(_ *http.Request, workspacePayload *
 		Description:    workspacePayload.Description,
 		Name:           workspacePayload.Name,
 		OrganizationId: orgId,
-		Owner:          "Meshery",
+		Owner:          "Meshplay",
 		UpdatedAt:      time.Now(),
 	}
 	return l.WorkspacePersister.SaveWorkspace(workspace)
@@ -1465,7 +1465,7 @@ func (l *DefaultLocalProvider) UpdateWorkspace(_ *http.Request, workspacePayload
 		Description:    workspacePayload.Description,
 		Name:           workspacePayload.Name,
 		OrganizationId: orgId,
-		Owner:          "Meshery",
+		Owner:          "Meshplay",
 		UpdatedAt:      time.Now(),
 	}
 	return l.WorkspacePersister.UpdateWorkspaceByID(workspace)
@@ -1527,10 +1527,10 @@ func githubRepoPatternScan(
 	repo,
 	path,
 	branch string,
-) ([]MesheryPattern, error) {
+) ([]MeshplayPattern, error) {
 	var mu sync.Mutex
 	ghWalker := walker.NewGit()
-	result := make([]MesheryPattern, 0)
+	result := make([]MeshplayPattern, 0)
 	err := ghWalker.Owner(owner).
 		Repo(repo).
 		Branch(branch).
@@ -1543,7 +1543,7 @@ func githubRepoPatternScan(
 					return err
 				}
 
-				pf := MesheryPattern{
+				pf := MeshplayPattern{
 					Name:        name,
 					PatternFile: f.Content,
 					Location: map[string]interface{}{
@@ -1569,10 +1569,10 @@ func githubRepoFilterScan(
 	repo,
 	path,
 	branch string,
-) ([]MesheryFilter, error) {
+) ([]MeshplayFilter, error) {
 	var mu sync.Mutex
 	ghWalker := walker.NewGit()
-	result := make([]MesheryFilter, 0)
+	result := make([]MeshplayFilter, 0)
 
 	err := ghWalker.
 		Owner(owner).
@@ -1587,7 +1587,7 @@ func githubRepoFilterScan(
 					return err
 				}
 
-				ff := MesheryFilter{
+				ff := MeshplayFilter{
 					Name:       name,
 					FilterFile: []byte(f.Content),
 					Location: map[string]interface{}{
@@ -1610,7 +1610,7 @@ func githubRepoFilterScan(
 	return result, err
 }
 
-func genericHTTPPatternFile(fileURL string, log logger.Handler) ([]MesheryPattern, error) {
+func genericHTTPPatternFile(fileURL string, log logger.Handler) ([]MeshplayPattern, error) {
 	resp, err := http.Get(fileURL)
 	if err != nil {
 		return nil, err
@@ -1633,7 +1633,7 @@ func genericHTTPPatternFile(fileURL string, log logger.Handler) ([]MesheryPatter
 		return nil, utils.ErrDecodeYaml(err)
 	}
 
-	pf := MesheryPattern{
+	pf := MeshplayPattern{
 		Name:        patternFile.Name,
 		PatternFile: string(body),
 		Location: map[string]interface{}{
@@ -1644,10 +1644,10 @@ func genericHTTPPatternFile(fileURL string, log logger.Handler) ([]MesheryPatter
 		},
 	}
 
-	return []MesheryPattern{pf}, nil
+	return []MeshplayPattern{pf}, nil
 }
 
-func genericHTTPFilterFile(fileURL string, log logger.Handler) ([]MesheryFilter, error) {
+func genericHTTPFilterFile(fileURL string, log logger.Handler) ([]MeshplayFilter, error) {
 	resp, err := http.Get(fileURL)
 	if err != nil {
 		return nil, err
@@ -1669,7 +1669,7 @@ func genericHTTPFilterFile(fileURL string, log logger.Handler) ([]MesheryFilter,
 		return nil, err
 	}
 
-	ff := MesheryFilter{
+	ff := MeshplayFilter{
 		Name:       name,
 		FilterFile: []byte(result),
 		Location: map[string]interface{}{
@@ -1680,7 +1680,7 @@ func genericHTTPFilterFile(fileURL string, log logger.Handler) ([]MesheryFilter,
 		},
 	}
 
-	return []MesheryFilter{ff}, nil
+	return []MeshplayFilter{ff}, nil
 }
 
 // getSeededComponents reads the directory recursively looking for seed content

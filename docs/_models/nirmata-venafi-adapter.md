@@ -4,7 +4,7 @@ title: Nirmata Venafi Adapter
 subtitle: Collaborative and visual infrastructure as design for Nirmata Venafi Adapter
 image: /assets/img/integrations/nirmata-venafi-adapter/icons/color/nirmata-venafi-adapter-color.svg
 permalink: extensibility/integrations/nirmata-venafi-adapter
-docURL: https://docs.meshery.io/extensibility/integrations/nirmata-venafi-adapter
+docURL: https://docs.meshplay.io/extensibility/integrations/nirmata-venafi-adapter
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance
@@ -19,7 +19,7 @@ featureList: [
   "Integrates with Venafi Trust Protection Platform",
   "Enhances security for Kubernetes clusters"
 ]
-howItWorks: "Manages certificates within Meshery"
+howItWorks: "Manages certificates within Meshplay"
 howItWorksDetails: "Streamlined certificate management and improved security in Kubernetes"
 language: en
 list: include

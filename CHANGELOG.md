@@ -1,1 +1,1 @@
-See https://docs.meshery.io/project/releases
+See https://docs.meshplay.io/project/releases

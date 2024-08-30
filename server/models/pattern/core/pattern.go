@@ -7,7 +7,7 @@ import (
 	"io"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/models/pattern/utils"
+	"github.com/khulnasoft/meshplay/server/models/pattern/utils"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/encoding"
 	registry "github.com/layer5io/meshkit/models/meshmodel/registry"
@@ -238,7 +238,7 @@ func NewPatternFileFromCytoscapeJSJSON(name string, byt []byte) (pattern.Pattern
 	}
 
 	if name == "" {
-		name = "MesheryGeneratedPattern"
+		name = "MeshplayGeneratedPattern"
 	}
 
 	id, _ := uuid.NewV4()

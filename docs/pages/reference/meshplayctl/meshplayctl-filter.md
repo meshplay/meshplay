@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-filter
-permalink: reference/mesheryctl/filter
-redirect_from: reference/mesheryctl/filter/
+title: meshplayctl-filter
+permalink: reference/meshplayctl/filter
+redirect_from: reference/meshplayctl/filter/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: filter
 subcommand: nil
 ---
 
-# mesheryctl filter
+# meshplayctl filter
 
 Cloud Native Filter Management
 
@@ -20,7 +20,7 @@ Cloud Native Filter Management
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter [flags]
+meshplayctl filter [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ mesheryctl filter [flags]
 Base command for WASM filters:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter [subcommands]
+meshplayctl filter [subcommands]
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl filter [subcommands]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -57,4 +57,4 @@ mesheryctl filter [subcommands]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

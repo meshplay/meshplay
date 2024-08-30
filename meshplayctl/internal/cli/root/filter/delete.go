@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package filter
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -31,18 +31,18 @@ var deleteCmd = &cobra.Command{
 	Example: `
 // Delete the specified WASM filter file using name or ID
 // A unique prefix of the name or ID can also be provided. If the prefix is not unique, the first match will be deleted.
-mesheryctl filter delete [filter-name | ID]
+meshplayctl filter delete [filter-name | ID]
 	`,
 	Args: cobra.MinimumNArgs(0),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
 		if len(args) == 0 {
-			return errors.New(utils.FilterDeleteError("filter name or ID not provided\nUse 'mesheryctl filter delete --help' to display usage guide\n"))
+			return errors.New(utils.FilterDeleteError("filter name or ID not provided\nUse 'meshplayctl filter delete --help' to display usage guide\n"))
 		}
 
 		var filterID string
@@ -50,14 +50,14 @@ mesheryctl filter delete [filter-name | ID]
 		var filterName string
 		var isValidName bool
 
-		filterID, isValidID, err = utils.ValidId(mctlCfg.GetBaseMesheryURL(), args[0], "filter")
+		filterID, isValidID, err = utils.ValidId(mctlCfg.GetBaseMeshplayURL(), args[0], "filter")
 		if err != nil {
 			utils.Log.Error(ErrFilterNameOrID(err))
 			return nil
 		}
 
 		if !isValidID {
-			filterName, filterID, isValidName, err = utils.ValidName(mctlCfg.GetBaseMesheryURL(), args[0], "filter")
+			filterName, filterID, isValidName, err = utils.ValidName(mctlCfg.GetBaseMeshplayURL(), args[0], "filter")
 			if err != nil {
 				utils.Log.Error(ErrFilterNameOrID(err))
 				return nil
@@ -66,7 +66,7 @@ mesheryctl filter delete [filter-name | ID]
 
 		// Delete the filter using the id
 		if isValidID || isValidName {
-			err := utils.DeleteConfiguration(mctlCfg.GetBaseMesheryURL(), filterID, "filter")
+			err := utils.DeleteConfiguration(mctlCfg.GetBaseMeshplayURL(), filterID, "filter")
 
 			var filter string
 			if isValidID {

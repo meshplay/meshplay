@@ -14,8 +14,8 @@ export function getComponentMetadata(metadata) {
       shape: 'circle', // shape should be small case
       primaryColor: '#00B39F',
       secondaryColor: '#b2e8e2',
-      svgColor: 'static/img/component-svg/meshery.svg',
-      svgWhite: 'static/img/component-svg/meshery.svg',
+      svgColor: 'static/img/component-svg/meshplay.svg',
+      svgWhite: 'static/img/component-svg/meshplay.svg',
     },
     cleanedMeta,
   );

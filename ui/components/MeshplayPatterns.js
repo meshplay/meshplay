@@ -30,7 +30,7 @@ import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import FullscreenExitIcon from '@material-ui/icons/FullscreenExit';
 import SaveIcon from '@material-ui/icons/Save';
-import CustomToolbarSelect from './MesheryPatterns/CustomToolbarSelect';
+import CustomToolbarSelect from './MeshplayPatterns/CustomToolbarSelect';
 import AddIcon from '@material-ui/icons/AddCircleOutline';
 import React, { useEffect, useRef, useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
@@ -45,14 +45,14 @@ import {
   parseDesignFile,
 } from '../utils/utils';
 import ViewSwitch from './ViewSwitch';
-import MesheryPatternGrid from './MesheryPatterns/MesheryPatternGridView';
+import MeshplayPatternGrid from './MeshplayPatterns/MeshplayPatternGridView';
 import UndeployIcon from '../public/static/img/UndeployIcon';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import PublicIcon from '@material-ui/icons/Public';
 import PublishIcon from '@material-ui/icons/Publish';
 import PromptComponent, { PROMPT_VARIANTS } from './PromptComponent';
 import LoadingScreen from './LoadingComponents/LoadingComponent';
-import { FILE_OPS, MesheryPatternsCatalog, VISIBILITY } from '../utils/Enum';
+import { FILE_OPS, MeshplayPatternsCatalog, VISIBILITY } from '../utils/Enum';
 import CloneIcon from '../public/static/img/CloneIcon';
 import { useRouter } from 'next/router';
 import { RJSFModalWrapper } from './Modal';
@@ -344,7 +344,7 @@ function resetSelectedPattern() {
   return { show: false, pattern: null };
 }
 
-function MesheryPatterns({
+function MeshplayPatterns({
   updateProgress,
   user,
   classes,
@@ -540,7 +540,7 @@ function MesheryPatterns({
     if (capabilitiesData) {
       const capabilitiesRegistry = capabilitiesData;
       const patternsCatalogueCapability = capabilitiesRegistry?.capabilities.filter(
-        (val) => val.feature === MesheryPatternsCatalog,
+        (val) => val.feature === MeshplayPatternsCatalog,
       );
       if (patternsCatalogueCapability?.length > 0) setCanPublishPattern(true);
     }
@@ -645,7 +645,7 @@ function MesheryPatterns({
                                      Below is a graphql query that fetches the catalog patterns that is published so
                                      when catalogVisibility is true, we fetch the catalog patterns and set it to the patterns state
                                      which show the catalog patterns only in the UI at the top of the list always whether we filter for public or private patterns.
-                                     Meshery's REST API already fetches catalog items with `published` visibility, hence this function is commented out.
+                                     Meshplay's REST API already fetches catalog items with `published` visibility, hence this function is commented out.
                                     */
     // const fetchCatalogPatterns = fetchCatalogPattern({
     //   selector: {
@@ -811,7 +811,7 @@ function MesheryPatterns({
           subtitle: `Are you sure you want to unpublish ${pattern?.name}?`,
           options: ['Yes', 'No'],
           showInfoIcon:
-            "Unpublishing a catolog item removes the item from the public-facing catalog (a public website accessible to anonymous visitors at meshery.io/catalog). The catalog item's visibility will change to either public (or private with a subscription). The ability to for other users to continue to access, edit, clone and collaborate on your content depends upon the assigned visibility level (public or private). Prior collaborators (users with whom you have shared your catalog item) will retain access. However, you can always republish it whenever you want. Remember: unpublished catalog items can still be available to other users if that item is set to public visibility. For detailed information, please refer to the [documentation](https://docs.meshery.io/concepts/designs).",
+            "Unpublishing a catolog item removes the item from the public-facing catalog (a public website accessible to anonymous visitors at meshplay.io/catalog). The catalog item's visibility will change to either public (or private with a subscription). The ability to for other users to continue to access, edit, clone and collaborate on your content depends upon the assigned visibility level (public or private). Prior collaborators (users with whom you have shared your catalog item) will retain access. However, you can always republish it whenever you want. Remember: unpublished catalog items can still be available to other users if that item is set to public visibility. For detailed information, please refer to the [documentation](https://docs.meshplay.io/concepts/designs).",
         });
         if (response === 'Yes') {
           updateProgress({ showProgress: true });
@@ -873,7 +873,7 @@ function MesheryPatterns({
         } else {
           notify({
             message:
-              'Design queued for publishing into Meshery Catalog. Maintainers notified for review',
+              'Design queued for publishing into Meshplay Catalog. Maintainers notified for review',
             event_type: EVENT_TYPES.SUCCESS,
           });
         }
@@ -1338,7 +1338,7 @@ function MesheryPatterns({
     filter: false,
     search: false,
     viewColumns: false,
-    sort: !(user && user.user_id === 'meshery'),
+    sort: !(user && user.user_id === 'meshplay'),
     filterType: 'textField',
     responsive: 'standard',
     resizableColumns: true,
@@ -1639,7 +1639,7 @@ function MesheryPatterns({
           )}
           {!selectedPattern.show && viewType === 'grid' && (
             // grid vieww
-            <MesheryPatternGrid
+            <MeshplayPatternGrid
               selectedK8sContexts={selectedK8sContexts}
               canPublishPattern={canPublishPattern}
               patterns={patterns}
@@ -1772,7 +1772,7 @@ const PublishModal = React.memo((props) => {
             handleSubmit={handleSubmit}
             submitBtnText="Submit for Approval"
             handleClose={handleClose}
-            helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshery.io/concepts/catalog)"
+            helpText="Upon submitting your catalog item, an approval flow will be initiated.[Learn more](https://docs.meshplay.io/concepts/catalog)"
           />
         </SistentModal>
       </UsesSistent>
@@ -1792,4 +1792,4 @@ const mapStateToProps = (state) => ({
 });
 
 // @ts-ignore
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(MesheryPatterns));
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(MeshplayPatterns));

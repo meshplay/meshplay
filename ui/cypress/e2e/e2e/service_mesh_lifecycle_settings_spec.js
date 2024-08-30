@@ -12,13 +12,13 @@ describe('Lifecycle Service Mesh', () => {
     });
   };
 
-  const mesheryAdapters = [
+  const meshplayAdapters = [
     { adapterName: 'Istio', adapterPort: '10000', deploy: false },
     { adapterName: 'Consul', adapterPort: '10002', deploy: false },
     // { adapterName: "NGINX Service Mesh", adapterPort: "10010", deploy: true },
   ];
 
-  mesheryAdapters.forEach(({ adapterName, adapterPort, deploy }, index) => {
+  meshplayAdapters.forEach(({ adapterName, adapterPort, deploy }, index) => {
     const ADAPTER_LOCATION = `localhost:${adapterPort}`;
     it(`User can Configure Existing ${adapterName} adapter through Mesh Adapter URL from Management page`, () => {
       // Settings > Adapters Page
@@ -37,7 +37,7 @@ describe('Lifecycle Service Mesh', () => {
       // Lifecycle > Service Mesh Page
       cy.visit('/management/adapter');
       selectServiceMeshType(ADAPTER_LOCATION);
-      // "Select Meshery Adapter" Dropdown
+      // "Select Meshplay Adapter" Dropdown
       cy.get('[data-cy="lifecycle-service-mesh-type"]').should('contain.text', ADAPTER_LOCATION);
     });
 

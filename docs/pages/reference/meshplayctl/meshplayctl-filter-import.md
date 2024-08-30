@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-filter-import
-permalink: reference/mesheryctl/filter/import
-redirect_from: reference/mesheryctl/filter/import/
+title: meshplayctl-filter-import
+permalink: reference/meshplayctl/filter/import
+redirect_from: reference/meshplayctl/filter/import/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: filter
 subcommand: import
 ---
 
-# mesheryctl filter import
+# meshplayctl filter import
 
 Import a WASM filter
 
@@ -19,7 +19,7 @@ Import a WASM filter
 Import a WASM filter from a URI (http/s) or local filesystem path
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter import [URI] [flags]
+meshplayctl filter import [URI] [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl filter import [URI] [flags]
 Import a filter file from local filesystem
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter import /path/to/filter.wasm
+meshplayctl filter import /path/to/filter.wasm
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl filter import /path/to/filter.wasm
 Import a filter file from a remote URI
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter import https://example.com/myfilter.wasm
+meshplayctl filter import https://example.com/myfilter.wasm
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ If the string is a valid file in the filesystem, the file is read and passed as 
 Use quotes if the string contains spaces
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter import /path/to/filter.wasm --wasm-config [filepath|string]
+meshplayctl filter import /path/to/filter.wasm --wasm-config [filepath|string]
 
 </div>
 </pre> 
@@ -55,7 +55,7 @@ mesheryctl filter import /path/to/filter.wasm --wasm-config [filepath|string]
 Specify the name of the filter to be imported. Use quotes if the name contains spaces
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter import /path/to/filter.wasm --name [string]
+meshplayctl filter import /path/to/filter.wasm --name [string]
 
 </div>
 </pre> 
@@ -75,7 +75,7 @@ mesheryctl filter import /path/to/filter.wasm --name [string]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -84,4 +84,4 @@ mesheryctl filter import /path/to/filter.wasm --name [string]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

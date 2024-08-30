@@ -1,4 +1,4 @@
-// Copyright 2024 Meshery Authors
+// Copyright 2024 Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,37 +20,37 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
-// represents the mesheryctl components search [query-text] subcommand.
+// represents the meshplayctl components search [query-text] subcommand.
 var searchComponentsCmd = &cobra.Command{
 	Use:   "search",
 	Short: "search registered components",
-	Long:  "search components registered in Meshery Server based on kind",
+	Long:  "search components registered in Meshplay Server based on kind",
 	Example: `
 // Search for components using a query
-mesheryctl components search [query-text]
+meshplayctl components search [query-text]
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp component search [query-text]\nRun 'mesheryctl exp component search --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp component search [query-text]\nRun 'meshplayctl exp component search --help' to see detailed help message"
 		if len(args) == 0 {
 			return fmt.Errorf("search term is missing. Please enter component name to search\n\n%v", errMsg)
 		}
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		queryText := args[0]
 		url := fmt.Sprintf("%s/api/meshmodels/components?search=%s&pagesize=all", baseUrl, queryText)
 

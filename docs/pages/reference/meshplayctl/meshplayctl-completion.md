@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-completion
-permalink: reference/mesheryctl/completion
-redirect_from: reference/mesheryctl/completion/
+title: meshplayctl-completion
+permalink: reference/meshplayctl/completion
+redirect_from: reference/meshplayctl/completion/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: completion
 subcommand: nil
 ---
 
-# mesheryctl completion
+# meshplayctl completion
 
 Output shell completion code
 
@@ -19,7 +19,7 @@ Output shell completion code
 Output shell completion code
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl completion [bash|zsh|fish]
+meshplayctl completion [bash|zsh|fish]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl completion [bash|zsh|fish]
 ### bash <= 3.2
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-source /dev/stdin <<< "$(mesheryctl completion bash)"
+source /dev/stdin <<< "$(meshplayctl completion bash)"
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ brew install bash-completion
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
+meshplayctl completion bash > $(brew --prefix)/etc/bash_completion.d/meshplayctl
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
 ### bash >= 4.0
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-source <(mesheryctl completion bash)
+source <(meshplayctl completion bash)
 
 </div>
 </pre> 
@@ -68,7 +68,7 @@ brew install bash-completion@2
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
+meshplayctl completion bash > $(brew --prefix)/etc/bash_completion.d/meshplayctl
 
 </div>
 </pre> 
@@ -86,7 +86,7 @@ $ echo "autoload -U compinit; compinit" >> ~/.zshrc
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-source <(mesheryctl completion zsh)
+source <(meshplayctl completion zsh)
 
 </div>
 </pre> 
@@ -94,7 +94,7 @@ source <(mesheryctl completion zsh)
 zsh on osx / oh-my-zsh
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-COMPLETION_DIR=$(echo $fpath | grep -o '[^ ]*completions' | grep -v cache) && mkdir -p $COMPLETION_DIR && mesheryctl completion zsh > "${COMPLETION_DIR}/_mesheryctl"
+COMPLETION_DIR=$(echo $fpath | grep -o '[^ ]*completions' | grep -v cache) && mkdir -p $COMPLETION_DIR && meshplayctl completion zsh > "${COMPLETION_DIR}/_meshplayctl"
 
 </div>
 </pre> 
@@ -102,7 +102,7 @@ COMPLETION_DIR=$(echo $fpath | grep -o '[^ ]*completions' | grep -v cache) && mk
 ### fish:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl completion fish | source
+meshplayctl completion fish | source
 
 </div>
 </pre> 
@@ -110,7 +110,7 @@ mesheryctl completion fish | source
 To load fish shell completions for each session, execute once:
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl completion fish > ~/.config/fish/completions/mesheryctl.fish
+meshplayctl completion fish > ~/.config/fish/completions/meshplayctl.fish
 
 </div>
 </pre> 
@@ -128,7 +128,7 @@ mesheryctl completion fish > ~/.config/fish/completions/mesheryctl.fish
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -136,4 +136,4 @@ mesheryctl completion fish > ~/.config/fish/completions/mesheryctl.fish
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

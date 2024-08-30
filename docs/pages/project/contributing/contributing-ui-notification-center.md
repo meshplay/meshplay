@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Contributing to Meshery UI - Notification Center
+title: Contributing to Meshplay UI - Notification Center
 permalink: project/contributing/contributing-ui-notification-center
-abstract: How to contribute to the Notification Center in Meshery's web-based UI.
+abstract: How to contribute to the Notification Center in Meshplay's web-based UI.
 language: en
 display-title: false
 type: project
@@ -11,17 +11,17 @@ list: include
 ---
 
 <div class="prereqs"><p><strong style="font-size: 20px;">Prerequisite Reading</strong></p>
-  <ol><li><a href="contributing-ui">Contributing to Meshery UI</a></li></ol>
+  <ol><li><a href="contributing-ui">Contributing to Meshplay UI</a></li></ol>
 </div>
 
-## <a name="contributing-ui-notification-center">Contributing to Meshery UI - Notification Center</a>
+## <a name="contributing-ui-notification-center">Contributing to Meshplay UI - Notification Center</a>
 
 <video style="width:min(100%,750px)" height="auto" autoplay muted loop>
-  <source src="https://github.com/meshery/meshery/assets/65964225/345672de-3f61-4be0-b3c8-0e7480cc496c" type="video/mp4">
+  <source src="https://github.com/meshplay/meshplay/assets/65964225/345672de-3f61-4be0-b3c8-0e7480cc496c" type="video/mp4">
  Your browser does not support the video tag
 </video>
 
-The `NotificationCenter` component of Meshery UI Switching to Graphql subscriptions and implementing robust filtering. Events are persisted in Meshery Server and state management on client is done using Redux Toolkit and RTK.
+The `NotificationCenter` component of Meshplay UI Switching to Graphql subscriptions and implementing robust filtering. Events are persisted in Meshplay Server and state management on client is done using Redux Toolkit and RTK.
 
 #### User-facing Features
 
@@ -30,7 +30,7 @@ The `NotificationCenter` component of Meshery UI Switching to Graphql subscripti
 - Proper hierarchial presentation of error details, including probable cause and suggested remeditation.
 - Suport for notification status (notifications can be marked as read and unread)
   - *Future: Notifications can be acknowledged or resolved.*
-- Event-based notification via Graphql subscription (provided by Meshery Server and any upstream components or externally managed systems, like Kubernetes)
+- Event-based notification via Graphql subscription (provided by Meshplay Server and any upstream components or externally managed systems, like Kubernetes)
 - Infinite scroll for pagination.
 
 #### State Management and Internal Details

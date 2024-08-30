@@ -50,7 +50,7 @@ test.describe('Settings Page Tests', () => {
     verifyAdapterResBody(body);
   });
 
-  test('Connect to Meshery Istio Adapter and configure it', async ({ page }) => {
+  test('Connect to Meshplay Istio Adapter and configure it', async ({ page }) => {
     // Navigate to 'Adapters' tab
     await page.getByRole('tab', { name: 'Adapters', exact: true }).click({ force: true });
 

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-model-import
-permalink: reference/mesheryctl/model/import
-redirect_from: reference/mesheryctl/model/import/
+title: meshplayctl-model-import
+permalink: reference/meshplayctl/model/import
+redirect_from: reference/meshplayctl/model/import/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: model
 subcommand: import
 ---
 
-# mesheryctl model import
+# meshplayctl model import
 
-import models from mesheryctl command
+import models from meshplayctl command
 
 ## Synopsis
 
 import model by specifying the directory, file. Use 'import model [filepath]' or 'import model  [directory]'.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model import [flags]
+meshplayctl model import [flags]
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl model import [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -61,4 +61,4 @@ mesheryctl model import [flags]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

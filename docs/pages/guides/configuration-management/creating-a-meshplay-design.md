@@ -1,22 +1,22 @@
 ---
 layout: default
-title: Creating a Meshery Design
-abstract: Learn how to create a Meshery design from scratch or from a template.
-permalink: guides/configuration-management/creating-a-meshery-design
-redirect_from: guides/creating-a-meshery-design
+title: Creating a Meshplay Design
+abstract: Learn how to create a Meshplay design from scratch or from a template.
+permalink: guides/configuration-management/creating-a-meshplay-design
+redirect_from: guides/creating-a-meshplay-design
 type: guides
 category: configuration
 language: en
 published: true
 suggested-reading: false
-abstract: Learn how to create a Meshery design from scratch or from a template.
+abstract: Learn how to create a Meshplay design from scratch or from a template.
 ---
 
-{% include alert.html type="info" title="Learn about Designs" content="Learn more about <a href='/concepts/logical/designs'>what a Meshery Design</a> is and how it fits into Meshery's approach to cloud native management." %}
+{% include alert.html type="info" title="Learn about Designs" content="Learn more about <a href='/concepts/logical/designs'>what a Meshplay Design</a> is and how it fits into Meshplay's approach to cloud native management." %}
 
-## Creating a Meshery Design
+## Creating a Meshplay Design
 
-You can create a Meshery design in two ways:
+You can create a Meshplay design in two ways:
 
 ### From scratch
 
@@ -28,7 +28,7 @@ You can create a Meshery design in two ways:
 
 ### From a template
 
-Another way to create a Meshery design is to use an already curated template. You can either import designs that others have published and made available for public use or clone patterns from the Meshery Catalog.
+Another way to create a Meshplay design is to use an already curated template. You can either import designs that others have published and made available for public use or clone patterns from the Meshplay Catalog.
 
 #### Importing published designs
 
@@ -44,4 +44,4 @@ Another way to create a Meshery design is to use an already curated template. Yo
 3. A modal will pop up requesting you to clone (create a copy of) the design you've selected.
 4. Click "clone" and a copy of the design will appear on your MeshMap canvas. You can then configure the design to suit your purposes.
 
-{% include alert.html type="info" title="Learn about Patterns" content="Learn more about <a href='/concepts/logical/patterns'>what a Meshery Pattern</a> is and how it fits into Meshery's approach to cloud native management." %}
+{% include alert.html type="info" title="Learn about Patterns" content="Learn more about <a href='/concepts/logical/patterns'>what a Meshplay Pattern</a> is and how it fits into Meshplay's approach to cloud native management." %}

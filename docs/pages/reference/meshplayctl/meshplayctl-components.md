@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-components
-permalink: reference/mesheryctl/components
-redirect_from: reference/mesheryctl/components/
+title: meshplayctl-components
+permalink: reference/meshplayctl/components
+redirect_from: reference/meshplayctl/components/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: components
 subcommand: nil
 ---
 
-# mesheryctl components
+# meshplayctl components
 
 View list of components and detail of components
 
@@ -19,7 +19,7 @@ View list of components and detail of components
 View list of components and detailed information of a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components [flags]
+meshplayctl components [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl components [flags]
 To view total of available components
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model --count
+meshplayctl model --count
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl model --count
 To view list of components
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components list
+meshplayctl components list
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl components list
 To view a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components view [component-name]
+meshplayctl components view [component-name]
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl components view [component-name]
 To search for a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl components search [component-name]
+meshplayctl components search [component-name]
 
 </div>
 </pre> 
@@ -72,7 +72,7 @@ mesheryctl components search [component-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -80,4 +80,4 @@ mesheryctl components search [component-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

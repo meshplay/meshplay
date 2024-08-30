@@ -2,20 +2,20 @@
 layout: page
 title: How to write MeshKit compatible errors
 permalink: project/contributing/contributing-error
-abstract: How to declare errors in Meshery components.
+abstract: How to declare errors in Meshplay components.
 language: en
 type: project
 category: contributing
 list: include
 ---
 
-Meshery pervasively uses MeshKit as a golang and infrastructure management-specific library in all of its components. MeshKit helps populate error messages with a uniform and useful set of informative attributes.
+Meshplay pervasively uses MeshKit as a golang and infrastructure management-specific library in all of its components. MeshKit helps populate error messages with a uniform and useful set of informative attributes.
 
-To help with creating error codes, MeshKit contains a tool that analyzes, verifies and updates error codes in Meshery source code trees. It extracts error details into a file that can be used for publishing all error code references on the Meshery [error codes reference page](https://docs.meshery.io/reference/error-codes). The objective to create this was to avoid centralized handling of error codes and automating everything
+To help with creating error codes, MeshKit contains a tool that analyzes, verifies and updates error codes in Meshplay source code trees. It extracts error details into a file that can be used for publishing all error code references on the Meshplay [error codes reference page](https://docs.meshplay.io/reference/error-codes). The objective to create this was to avoid centralized handling of error codes and automating everything
 
-In order to create a Meshery error object, you will need to create a custom wrapper object for the native golang error. This can be done from the <a href="https://github.com/layer5io/meshkit/tree/master/errors">MeshKit Error</a> package.
+In order to create a Meshplay error object, you will need to create a custom wrapper object for the native golang error. This can be done from the <a href="https://github.com/layer5io/meshkit/tree/master/errors">MeshKit Error</a> package.
 
-This tool will create a couple of files, one of them is designed to be used to generate the error reference on the Meshery Documentation website. The file errorutil_analyze_summary.json contains a summary of the analysis, notably lists of duplicates etc.
+This tool will create a couple of files, one of them is designed to be used to generate the error reference on the Meshplay Documentation website. The file errorutil_analyze_summary.json contains a summary of the analysis, notably lists of duplicates etc.
 
 ## Conventions to follow while creating errors
 

@@ -9,8 +9,8 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/models"
-	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
 	"github.com/meshplay/schemas/models/v1alpha3/relationship"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1beta1/pattern"

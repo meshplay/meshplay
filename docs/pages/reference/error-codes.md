@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Error Code Reference
-abstract: "Meshery Error Code Reference"
+abstract: "Meshplay Error Code Reference"
 permalink: reference/error-codes
 redirect_from: reference/error-codes/
 type: Reference
 language: en
-abstract: "Meshery Error Code Reference for all Meshery components so that you can troubleshoot issues."
+abstract: "Meshplay Error Code Reference for all Meshplay components so that you can troubleshoot issues."
 ---
 <style>
 
@@ -75,20 +75,20 @@ td {
 
 ## Error Codes and Troubleshooting
 
-Meshery and its components use a common framework (defined within MeshKit) to generate and document an event with a unique error code identifier as the combination of `[component type]-[component name]-[event moniker]-[numeric code]`. Each error code identifies the source component for the error and a standard set of information to describe the error and provide helpful details for troubleshooting the situation surrounding the specific error.
+Meshplay and its components use a common framework (defined within MeshKit) to generate and document an event with a unique error code identifier as the combination of `[component type]-[component name]-[event moniker]-[numeric code]`. Each error code identifies the source component for the error and a standard set of information to describe the error and provide helpful details for troubleshooting the situation surrounding the specific error.
 
 {% include alert.html type="info" title="Error codes are combination of component type, component name, event moniker and numberic code" content="Error codes are a hyphenated collection of details that include:
 <ul>
 <li><b>Component Type</b> (string): The type of the component that emits this error event; e.g. <code>adapter</code></li>
-<li><b>Component Name</b> (string): The name of the component that emits this error event; e.g. <code>ameshery-istio</code></li>
+<li><b>Component Name</b> (string): The name of the component that emits this error event; e.g. <code>ameshplay-istio</code></li>
 <li><b>Error Moniker</b> (string): A semi-human readable short key used in descriptive reference to the specific event at-hand; e.g. <code>ErrClosingDatabaseInstanceCode</code></li>
 <li><b>Numberic Code</b> (number): Unique number identifying a specific error as scoped by a specific component; e.g. <code>a1000</code></li>
 </ul>
-The numeric portion of error codes are component-scoped. The numeric portion of error codes are allowed to overlap between Meshery components. The combination of the <code>[component type]-[component name]-[event moniker]-[numeric code]</code> is what makes a given error code globally unique." %}
+The numeric portion of error codes are component-scoped. The numeric portion of error codes are allowed to overlap between Meshplay components. The combination of the <code>[component type]-[component name]-[event moniker]-[numeric code]</code> is what makes a given error code globally unique." %}
 
 ### See Also
 
-Troubleshooting guides to using Meshery's various features and components.
+Troubleshooting guides to using Meshplay's various features and components.
 
 {% assign sorted_guides = site.pages | sort: "type" | reverse %}
 
@@ -117,9 +117,9 @@ Troubleshooting guides to using Meshery's various features and components.
            {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
             {% if thecycle == 'even' %} 
             {% if component[1].component_type == 'adapter' %}
-              {% capture link %}meshery-adapter-for-{{component[1].component_name | lowercase}}{% endcapture %}
+              {% capture link %}meshplay-adapter-for-{{component[1].component_name | lowercase}}{% endcapture %}
             {% elsif component[1].component_type == 'component' %}
-               {% capture link %}meshery-server{% endcapture %}
+               {% capture link %}meshplay-server{% endcapture %}
             {% else %}
               {% capture link %}{{ component[1].component_name  | camelcase }}-{{ component[1].component_type }}{% endcapture %}      
             {% endif %}
@@ -144,7 +144,7 @@ Troubleshooting guides to using Meshery's various features and components.
       {% if thecycle == 'even' %}
         {% if component[1].component_type == 'adapter' %}
           {% capture heading %}
-            Meshery Adapter for {{ component[1].component_name }}
+            Meshplay Adapter for {{ component[1].component_name }}
           {% endcapture %}
         {% elsif component[1].component_type == 'client' %}
           {% capture heading %}
@@ -154,9 +154,9 @@ Troubleshooting guides to using Meshery's various features and components.
           {% capture heading %}
             {{ component[1].component_name }} {{ component[1].component_type | camelcase }}
           {% endcapture %}
-        {% elsif component[1].component_name == 'meshery-server' %}
+        {% elsif component[1].component_name == 'meshplay-server' %}
           {% capture heading %}
-            Meshery Server
+            Meshplay Server
           {% endcapture %}
         {% endif %}
 

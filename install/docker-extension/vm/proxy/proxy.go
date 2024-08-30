@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	MesheryServerHost = "host.docker.internal:9081"
+	MeshplayServerHost = "host.docker.internal:9081"
 	TestingServer     = "localhost:9081"
 )
 
@@ -167,7 +167,7 @@ func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 				htmlTemplate := `<html>
 
 <head>
-  <title>Meshery | Docker Desktop</title>
+  <title>Meshplay | Docker Desktop</title>
 </head>
 
 <body>
@@ -211,7 +211,7 @@ func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 
 		delHopHeaders(req.Header)
 
-		req.URL.Host = MesheryServerHost
+		req.URL.Host = MeshplayServerHost
 
 		if clientIP, _, err := net.SplitHostPort(req.RemoteAddr); err == nil {
 			appendHostToXForwardHeader(req.Header, clientIP)
@@ -228,13 +228,13 @@ func (p *Proxy) ServeHTTP(wr http.ResponseWriter, req *http.Request) {
 				HttpOnly: true,
 			})
 			req.AddCookie(&http.Cookie{
-				Name:     "meshery-provider",
-				Value:    "Meshery",
+				Name:     "meshplay-provider",
+				Value:    "Meshplay",
 				Path:     "/",
 				HttpOnly: true,
 			})
 			req.AddCookie(&http.Cookie{
-				Name:     "meshery.layer5.io_ref",
+				Name:     "meshplay.layer5.io_ref",
 				Value:    "/",
 				Path:     "/",
 				HttpOnly: true,

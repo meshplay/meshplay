@@ -1,10 +1,10 @@
 ---
 layout: integration
 title: Grafana Agent
-subtitle: Operational dashboards for your data with Grafana and Meshery
+subtitle: Operational dashboards for your data with Grafana and Meshplay
 image: /assets/img/integrations/grafana-agent/icons/color/grafana-agent-color.svg
 permalink: extensibility/integrations/grafana-agent
-docURL: https://docs.meshery.io/extensibility/integrations/grafana-agent
+docURL: https://docs.meshplay.io/extensibility/integrations/grafana-agent
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring
@@ -15,8 +15,8 @@ components:
   whiteIcon: assets/img/integrations/grafana-agent/components/pod-logs/icons/white/pod-logs-white.svg
   description: 
 featureList: [
-  "Meshery discovers your Grafana servers",
-  "Easily import existing Grafana dashboards and panels into Meshery",
+  "Meshplay discovers your Grafana servers",
+  "Easily import existing Grafana dashboards and panels into Meshplay",
   "Integrate your boards and panels and new insights and metrics"
 ]
 howItWorks: "Collaborative Infrastructure as Design"

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )
@@ -34,19 +34,19 @@ var PatternCmd = &cobra.Command{
 	Use:   "pattern",
 	Short: "Cloud Native Patterns Management",
 	Long: `Manage cloud and cloud native infrastructure using predefined patterns.
-Find more information at: https://docs.meshery.io/reference/mesheryctl#command-reference`,
+Find more information at: https://docs.meshplay.io/reference/meshplayctl#command-reference`,
 	Example: `
 // Apply pattern file:
-mesheryctl pattern apply --file [path to pattern file | URL of the file]
+meshplayctl pattern apply --file [path to pattern file | URL of the file]
 
 // Delete pattern file:
-mesheryctl pattern delete --file [path to pattern file]
+meshplayctl pattern delete --file [path to pattern file]
 
 // View pattern file:
-mesheryctl pattern view [pattern name | ID]
+meshplayctl pattern view [pattern name | ID]
 
 // List all patterns:
-mesheryctl pattern list
+meshplayctl pattern list
 `,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
@@ -60,9 +60,9 @@ mesheryctl pattern list
 				}
 			}
 			if len(suggestions) > 0 {
-				return errors.New(utils.PatternError(fmt.Sprintf("'%s' is an invalid command. \nDid you mean %v? \nUse 'mesheryctl pattern --help' to display usage guide.\n", args[0], suggestions)))
+				return errors.New(utils.PatternError(fmt.Sprintf("'%s' is an invalid command. \nDid you mean %v? \nUse 'meshplayctl pattern --help' to display usage guide.\n", args[0], suggestions)))
 			}
-			return errors.New(utils.PatternError(fmt.Sprintf("'%s' is an invalid command. Use 'mesheryctl pattern --help' to display usage guide.\n", args[0])))
+			return errors.New(utils.PatternError(fmt.Sprintf("'%s' is an invalid command. Use 'meshplayctl pattern --help' to display usage guide.\n", args[0])))
 		}
 		return nil
 	},

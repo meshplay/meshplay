@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-registry-update
-permalink: reference/mesheryctl/registry/update
-redirect_from: reference/mesheryctl/registry/update/
+title: meshplayctl-registry-update
+permalink: reference/meshplayctl/registry/update
+redirect_from: reference/meshplayctl/registry/update/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: registry
 subcommand: update
 ---
 
-# mesheryctl registry update
+# meshplayctl registry update
 
 Update the registry with latest data.
 
@@ -19,25 +19,25 @@ Update the registry with latest data.
 Updates the component metadata (SVGs, shapes, styles and other) by referring from a Google Spreadsheet.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry update [flags]
+meshplayctl registry update [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Update models from Meshery Integration Spreadsheet
+Update models from Meshplay Integration Spreadsheet
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry update --spreadsheet-id [id] --spreadsheet-cred [base64 encoded spreadsheet credential] -i [path to the directory containing models].
+meshplayctl registry update --spreadsheet-id [id] --spreadsheet-cred [base64 encoded spreadsheet credential] -i [path to the directory containing models].
 
 </div>
 </pre> 
 
-Updating models in the meshery/meshery repo
+Updating models in the meshplay/meshplay repo
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw --spreadsheet-cred $CRED
+meshplayctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw --spreadsheet-cred $CRED
 
 </div>
 </pre> 
@@ -58,7 +58,7 @@ mesheryctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdw
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -66,4 +66,4 @@ mesheryctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdw
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

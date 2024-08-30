@@ -1,10 +1,10 @@
 ---
 layout: integration
 title: Grafana Operator
-subtitle: Operational dashboards for your data with Grafana and Meshery
+subtitle: Operational dashboards for your data with Grafana and Meshplay
 image: /assets/img/integrations/grafana-operator/icons/color/grafana-operator-color.svg
 permalink: extensibility/integrations/grafana-operator
-docURL: https://docs.meshery.io/extensibility/integrations/grafana-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/grafana-operator
 description: 
 integrations-category: Observability and Analysis
 integrations-subcategory: Monitoring
@@ -60,7 +60,7 @@ components:
   description: 
 featureList: [
   "Centralize the analysis, visualization, and alerting for all of your data with Grafana.",
-  "Meshery discovers your Grafana servers. Easily import existing Grafana dashboards and panels into Meshery",
+  "Meshplay discovers your Grafana servers. Easily import existing Grafana dashboards and panels into Meshplay",
   "Integrate your boards and panels and new insights and metrics"
 ]
 howItWorks: "Collaborative Infrastructure as Design"

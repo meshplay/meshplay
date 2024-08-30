@@ -12,8 +12,8 @@ import { Avatar } from '@mui/material'
 // import AppmeshIcon from '../../img/SVGs/appmeshIcon'
 // import CiliumIcon from '../../img/SVGs/ciliumIcon'
 // import TraefikIcon from '../../img/SVGs/traefikIcon'
-import Meshery from '../../img/SVGs/meshery'
-import MesheryIcon from '../../img/meshery-logo/CustomMesheryLogo'
+import Meshplay from '../../img/SVGs/meshplay'
+import MeshplayIcon from '../../img/meshplay-logo/CustomMeshplayLogo'
 import { DockerMuiThemeProvider } from '@docker/docker-mui-theme'
 import CssBaseline from '@mui/material/CssBaseline'
 import { LoadComp } from '../LoadingComponent/LoadComp'
@@ -31,11 +31,11 @@ import {
   MeshModels,
   PublishCard,
 } from './styledComponents'
-import { MesheryAnimation } from '../MesheryAnimation/MesheryAnimation'
+import { MeshplayAnimation } from '../MeshplayAnimation/MeshplayAnimation'
 import { randomApplicationNameGenerator } from '../../utils'
 import CatalogChart from '../Catalog/Chart'
 import {CatalogCard, SistentThemeProviderWithoutBaseLine} from '@layer5/sistent';
-import { MESHMAP, mesheryCloudUrl } from '../utils/constants';
+import { MESHMAP, meshplayCloudUrl } from '../utils/constants';
 
 const AuthenticatedMsg = 'Authenticated'
 const UnauthenticatedMsg = 'Unauthenticated'
@@ -124,7 +124,7 @@ const ExtensionsComponent = () => {
   //     )
   //   }
   // }, [meshAdapters])
-  const [mesheryVersion, setMesheryVersion] = useState(null)
+  const [meshplayVersion, setMeshplayVersion] = useState(null)
 
   const logout = () => {
     fetch(proxyUrl + '/token', { method: httpDelete })
@@ -166,15 +166,15 @@ const ExtensionsComponent = () => {
           //   .catch(console.err)
           fetch(proxyUrl + '/api/system/version')
             .then((result) => result.text())
-            .then((result) => setMesheryVersion(JSON.parse(result)?.build))
+            .then((result) => setMeshplayVersion(JSON.parse(result)?.build))
             .catch(console.error)
-          fetch(`${mesheryCloudUrl}/api/catalog/content/pattern`)
+          fetch(`${meshplayCloudUrl}/api/catalog/content/pattern`)
             .then((result) => result.text())
             .then((result) => {
               setCatalogDesigns(JSON.parse(result))
             })
             .catch(console.error)
-          fetch(`${mesheryCloudUrl}/api/catalog/content/filter`)
+          fetch(`${meshplayCloudUrl}/api/catalog/content/filter`)
             .then((result) => result.text())
             .then((result) => {
               setFilter(JSON.parse(result))
@@ -187,7 +187,7 @@ const ExtensionsComponent = () => {
 
   useEffect(() => {
     if (user?.id) {
-      fetch(`${mesheryCloudUrl}/api/content/patterns?user_id=${user?.id}`)
+      fetch(`${meshplayCloudUrl}/api/content/patterns?user_id=${user?.id}`)
         .then((result) => result.text())
         .then((result) => {
           setUserDesigns(JSON.parse(result))
@@ -311,11 +311,11 @@ const ExtensionsComponent = () => {
           }}
         >
           <div>
-            <MesheryIcon CustomColor={isDarkTheme ? 'white' : '#3C494F'} />
+            <MeshplayIcon CustomColor={isDarkTheme ? 'white' : '#3C494F'} />
 
             <Typography sx={{ margin: 'auto', paddingTop: '1rem' }}>
               Design and operate your cloud native deployments with the
-              extensible management plane, Meshery.
+              extensible management plane, Meshplay.
             </Typography>
           </div>
         </div>
@@ -333,7 +333,7 @@ const ExtensionsComponent = () => {
                     token &&
                     'http://localhost:9081/api/user/token?token=' +
                     token +
-                    '&provider=Meshery'
+                    '&provider=Meshplay'
                   }
                 >
                   {isLoggedIn ? (
@@ -344,13 +344,13 @@ const ExtensionsComponent = () => {
                       onMouseOver={onMouseOver}
                     >
                       {isHovered ? (
-                        <MesheryAnimation height={70} width={72} />
+                        <MeshplayAnimation height={70} width={72} />
                       ) : (
-                        <Meshery height={70} width={72} />
+                        <Meshplay height={70} width={72} />
                       )}
                     </div>
                   ) : (
-                    <Meshery height={70} width={72} />
+                    <Meshplay height={70} width={72} />
                   )}
                 </a>
                 {isLoggedIn ? (
@@ -361,10 +361,10 @@ const ExtensionsComponent = () => {
                         token &&
                         'http://localhost:9081/api/user/token?token=' +
                         token +
-                        '&provider=Meshery'
+                        '&provider=Meshplay'
                       }
                     >
-                      Launch Meshery
+                      Launch Meshplay
                     </StyledLink>
                   </LinkButton>
                 ) : ""}
@@ -378,7 +378,7 @@ const ExtensionsComponent = () => {
                   component="span"
                   onClick={() => {
                     window.ddClient.host.openExternal(
-                      'https://meshery.layer5.io?source=aHR0cDovL2xvY2FsaG9zdDo3ODc3L3Rva2VuL3N0b3Jl&provider_version=v0.3.14',
+                      'https://meshplay.layer5.io?source=aHR0cDovL2xvY2FsaG9zdDo3ODc3L3Rva2VuL3N0b3Jl&provider_version=v0.3.14',
                     )
                   }}
                 >
@@ -525,7 +525,7 @@ const ExtensionsComponent = () => {
                       <Typography variant="h5" sx={{ padding: '3rem 0 1rem 0', fontWeight: "bold" }}>
                         Designs
                       </Typography>
-                      <a href={user?.role_names?.includes(MESHMAP) ? "https://playground.meshery.io/extension/meshmap" : "https://play.meshery.io"} style={{ textDecoration: "none" }}>
+                      <a href={user?.role_names?.includes(MESHMAP) ? "https://playground.meshplay.io/extension/meshmap" : "https://play.meshplay.io"} style={{ textDecoration: "none" }}>
                       <PublishCard>
                         <PublishIcon width={"60"} height={"60"} />
                         <h5>Publish your own design</h5>
@@ -542,13 +542,13 @@ const ExtensionsComponent = () => {
         <SectionWrapper>
           {isLoggedIn && (
             <div style={{ paddingTop: isLoggedIn ? '1.2rem' : null }}>
-              <Tooltip title="Meshery Server version">
+              <Tooltip title="Meshplay Server version">
                 <VersionText variant="span" component="span" align="end">
-                  {mesheryVersion}
+                  {meshplayVersion}
                 </VersionText>
               </Tooltip>
               <a
-                href={`https://docs.meshery.io/project/releases/${mesheryVersion}`}
+                href={`https://docs.meshplay.io/project/releases/${meshplayVersion}`}
                 target="_blank"
                 rel="noreferrer"
                 style={{ color: isDarkTheme ? 'white' : 'black' }}

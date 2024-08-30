@@ -4,7 +4,7 @@ title: Cloudevents
 subtitle: Collaborative and visual infrastructure as design for Cloudevents
 image: /assets/img/integrations/cloudevents/icons/color/cloudevents-color.svg
 permalink: extensibility/integrations/cloudevents
-docURL: https://docs.meshery.io/extensibility/integrations/cloudevents
+docURL: https://docs.meshplay.io/extensibility/integrations/cloudevents
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Streaming & Messaging

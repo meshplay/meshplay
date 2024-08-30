@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NoSsr, Paper, withStyles } from '@material-ui/core';
-import MesheryResults from '../../components/MesheryResults';
+import MeshplayResults from '../../components/MeshplayResults';
 import { updatepagepath } from '../../lib/store';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,10 +17,10 @@ function Results({ classes, updatepagepath }) {
   return (
     <NoSsr>
       <Head>
-        <title>Performance Test Results | Meshery</title>
+        <title>Performance Test Results | Meshplay</title>
       </Head>
       <Paper className={classes.paper}>
-        <MesheryResults />
+        <MeshplayResults />
       </Paper>
     </NoSsr>
   );

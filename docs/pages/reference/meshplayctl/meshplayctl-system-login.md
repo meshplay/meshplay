@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-login
-permalink: reference/mesheryctl/system/login
-redirect_from: reference/mesheryctl/system/login/
+title: meshplayctl-system-login
+permalink: reference/meshplayctl/system/login
+redirect_from: reference/meshplayctl/system/login/
 type: reference
 display-title: "false"
 language: en
@@ -10,37 +10,37 @@ command: system
 subcommand: login
 ---
 
-# mesheryctl system login
+# meshplayctl system login
 
-Authenticate to a Meshery Server
+Authenticate to a Meshplay Server
 
 ## Synopsis
 
 
-Authenticate to the Local or a Remote Provider of a Meshery Server
+Authenticate to the Local or a Remote Provider of a Meshplay Server
 
 The authentication mode is web-based browser flow
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system login [flags]
+meshplayctl system login [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Login with the Meshery Provider of your choice: the Local Provider or a Remote Provider.
+Login with the Meshplay Provider of your choice: the Local Provider or a Remote Provider.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system login
+meshplayctl system login
 
 </div>
 </pre> 
 
-Login with the Meshery Provider by specifying it via -p or --provider flag.
+Login with the Meshplay Provider by specifying it via -p or --provider flag.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system login -p Meshery
+meshplayctl system login -p Meshplay
 
 </div>
 </pre> 
@@ -50,7 +50,7 @@ mesheryctl system login -p Meshery
 <pre class='codeblock-pre'>
 <div class='codeblock'>
   -h, --help              help for login
-  -p, --provider string   login Meshery with specified provider
+  -p, --provider string   login Meshplay with specified provider
 
 </div>
 </pre>
@@ -59,7 +59,7 @@ mesheryctl system login -p Meshery
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -69,4 +69,4 @@ mesheryctl system login -p Meshery
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

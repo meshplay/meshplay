@@ -1,6 +1,6 @@
 ---
-name: 🖥 🐛 Meshery UI Bug Report
-about: Report a bug in Meshery's UI
+name: 🖥 🐛 Meshplay UI Bug Report
+about: Report a bug in Meshplay's UI
 title: '[UI]'
 labels: component/ui, language/javascript, framework/react, kind/bug
 assignees: ''
@@ -19,14 +19,14 @@ assignees: ''
 
 - Browser: Chrome Safari Firefox
 - Host OS: Mac Linux Windows
-- Meshery Server Version: stable-v
-- Meshery Client Version: stable-v
+- Meshplay Server Version: stable-v
+- Meshplay Client Version: stable-v
 - Platform: Docker Kubernetes
 
 ---
 
-### Contributor [Guides](https://docs.meshery.io/project/contributing) and [Handbook](https://layer5.io/community/handbook)
+### Contributor [Guides](https://docs.meshplay.io/project/contributing) and [Handbook](https://layer5.io/community/handbook)
 
-- 🎨 Wireframes and [designs for Meshery UI](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshery-UI) in Figma [(open invite)](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9)
-- 🖥 [Contributing to Meshery UI](https://docs.meshery.io/project/contributing/contributing-ui)
-- 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshery.io) and [Community Slack](https://slack.meshery.io)
+- 🎨 Wireframes and [designs for Meshplay UI](https://www.figma.com/file/SMP3zxOjZztdOLtgN4dS2W/Meshplay-UI) in Figma [(open invite)](https://www.figma.com/team_invite/redeem/qJy1c95qirjgWQODApilR9)
+- 🖥 [Contributing to Meshplay UI](https://docs.meshplay.io/project/contributing/contributing-ui)
+- 🙋🏾🙋🏼 Questions: [Discussion Forum](http://discuss.meshplay.io) and [Community Slack](https://slack.meshplay.io)

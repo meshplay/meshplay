@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-connections
-permalink: reference/mesheryctl/exp/connections
-redirect_from: reference/mesheryctl/exp/connections/
+title: meshplayctl-exp-connections
+permalink: reference/meshplayctl/exp/connections
+redirect_from: reference/meshplayctl/exp/connections/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: connections
 ---
 
-# mesheryctl exp connections
+# meshplayctl exp connections
 
 Manage connections
 
@@ -19,7 +19,7 @@ Manage connections
 Manage connections
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections [flags]
+meshplayctl exp connections [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp connections [flags]
 List all the connections
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp connections list
+meshplayctl exp connections list
 
 </div>
 </pre> 
@@ -47,7 +47,7 @@ mesheryctl exp connections list
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -55,4 +55,4 @@ mesheryctl exp connections list
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

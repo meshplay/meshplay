@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/server-snippets":"location /api/system/graphql/query {\n  proxy_set_header Upgrade $http_upgrade;\n  proxy_http_version 1.1;\n  proxy_set_header X-Forwarded-Host $http_host;\n  proxy_set_header X-Forwarded-Proto $scheme;\n  proxy_set_header X-Forwarded-For $remote_addr;\n  proxy_set_header Host $host;\n  proxy_set_header Connection \"upgrade\";\n  proxy_cache_bypass $http_upgrade;\n  }\n"},"name":"nginx","namespace":"default"},"spec":{"ingressClassName":"nginx","rules":[{"host":"playground.meshery.io","http":{"paths":[{"backend":{"service":{"name":"meshery","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["playground.meshery.io"],"secretName":"tls-secret"}]}}
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/server-snippets":"location /api/system/graphql/query {\n  proxy_set_header Upgrade $http_upgrade;\n  proxy_http_version 1.1;\n  proxy_set_header X-Forwarded-Host $http_host;\n  proxy_set_header X-Forwarded-Proto $scheme;\n  proxy_set_header X-Forwarded-For $remote_addr;\n  proxy_set_header Host $host;\n  proxy_set_header Connection \"upgrade\";\n  proxy_cache_bypass $http_upgrade;\n  }\n"},"name":"nginx","namespace":"default"},"spec":{"ingressClassName":"nginx","rules":[{"host":"playground.meshplay.io","http":{"paths":[{"backend":{"service":{"name":"meshplay","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["playground.meshplay.io"],"secretName":"tls-secret"}]}}
     nginx.ingress.kubernetes.io/server-snippets: |
       location /api/system/graphql/query {
         proxy_set_header Upgrade $http_upgrade;
@@ -24,19 +24,19 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: playground.meshery.io
+    - host: playground.meshplay.io
       http:
         paths:
           - backend:
               service:
-                name: meshery
+                name: meshplay
                 port:
                   number: 80
             path: /
             pathType: Prefix
   tls:
     - hosts:
-        - playground.meshery.io
+        - playground.meshplay.io
       secretName: tls-secret
 status:
   loadBalancer:

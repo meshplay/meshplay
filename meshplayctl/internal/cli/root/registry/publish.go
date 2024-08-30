@@ -1,4 +1,4 @@
-// # Copyright Meshery Authors
+// # Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,12 +19,12 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	meshkitUtils "github.com/layer5io/meshkit/utils"
 )
 
@@ -39,46 +39,46 @@ var (
 	outputFormat          string
 )
 
-// Example publishing to meshery docs
+// Example publishing to meshplay docs
 // cd docs;
-// mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
+// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
 
-// Example publishing to mesheryio docs
-// mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshery.io/integrations meshery.io/assets/images/integration -o js
+// Example publishing to meshplayio docs
+// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.io/integrations meshplay.io/assets/images/integration -o js
 
 // Example publishing to layer5 docs
-// mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
+// meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
 
-// publishCmd represents the publish command to publish Meshery Models to Websites, Remote Provider, Meshery
+// publishCmd represents the publish command to publish Meshplay Models to Websites, Remote Provider, Meshplay
 var publishCmd = &cobra.Command{
 	Use:   "publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path]",
-	Short: "Publish Meshery Models to Websites, Remote Provider, Meshery Server",
-	Long:  `Publishes metadata about Meshery Models to Websites, Remote Provider, or Meshery Server, including model and component icons by reading from a Google Spreadsheet and outputing to markdown or json format.`,
+	Short: "Publish Meshplay Models to Websites, Remote Provider, Meshplay Server",
+	Long:  `Publishes metadata about Meshplay Models to Websites, Remote Provider, or Meshplay Server, including model and component icons by reading from a Google Spreadsheet and outputing to markdown or json format.`,
 	Example: `
 // Publish To System
-mesheryctl registry publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path] -o [output-format]
+meshplayctl registry publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path] -o [output-format]
 
-// Publish To Meshery
-mesheryctl registry publish meshery GoogleCredential GoogleSheetID [repo]/server/meshmodel
+// Publish To Meshplay
+meshplayctl registry publish meshplay GoogleCredential GoogleSheetID [repo]/server/meshmodel
 
 // Publish To Remote Provider
-mesheryctl registry publish remote-provider GoogleCredential GoogleSheetID [repo]/meshmodels/models [repo]/ui/public/img/meshmodels
+meshplayctl registry publish remote-provider GoogleCredential GoogleSheetID [repo]/meshmodels/models [repo]/ui/public/img/meshmodels
 
 // Publish To Website
-mesheryctl registry publish website GoogleCredential GoogleSheetID [repo]/integrations [repo]/ui/public/img/meshmodels
+meshplayctl registry publish website GoogleCredential GoogleSheetID [repo]/integrations [repo]/ui/public/img/meshmodels
 
-// Publishing to meshery docs
+// Publishing to meshplay docs
 cd docs;
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
 
-// Publishing to mesheryio site
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshery.io/integrations meshery.io/assets/images/integration -o js
+// Publishing to meshplayio site
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.io/integrations meshplay.io/assets/images/integration -o js
 
 // Publishing to layer5 site
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
 
 // Publishing to any website
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw path/to/models path/to/icons -o mdx
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw path/to/models path/to/icons -o mdx
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 5 {
@@ -138,8 +138,8 @@ mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwiz
 		components = componentCSVHelper.Components
 
 		switch system {
-		case "meshery":
-			err = mesherySystem()
+		case "meshplay":
+			err = meshplaySystem()
 		case "remote-provider":
 			err = remoteProviderSystem()
 		case "website":
@@ -173,7 +173,7 @@ mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwiz
 }
 
 // TODO
-func mesherySystem() error {
+func meshplaySystem() error {
 	return nil
 }
 
@@ -227,12 +227,12 @@ func websiteSystem() error {
 		case "md":
 			err := utils.GenerateMDStyleDocs(model, comps, modelsOutputPath, imgsOutputPath) // creates md file
 			if err != nil {
-				log.Fatalln(fmt.Printf("Error generating meshery docs for model %s: %v\n", model.Model, err.Error()))
+				log.Fatalln(fmt.Printf("Error generating meshplay docs for model %s: %v\n", model.Model, err.Error()))
 			}
 		case "js":
 			docsJSON, err = utils.GenerateJSStyleDocs(model, docsJSON, imgsOutputPath) // json file
 			if err != nil {
-				log.Fatalln(fmt.Printf("Error generating mesheryio docs for model %s: %v\n", model.Model, err.Error()))
+				log.Fatalln(fmt.Printf("Error generating meshplayio docs for model %s: %v\n", model.Model, err.Error()))
 			}
 		}
 

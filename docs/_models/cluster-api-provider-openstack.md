@@ -4,7 +4,7 @@ title: OpenStack (Cluster API Provider)
 subtitle: Collaborative and visual infrastructure as design for OpenStack (Cluster API Provider)
 image: /assets/img/integrations/cluster-api-provider-openstack/icons/color/cluster-api-provider-openstack-color.svg
 permalink: extensibility/integrations/cluster-api-provider-openstack
-docURL: https://docs.meshery.io/extensibility/integrations/cluster-api-provider-openstack
+docURL: https://docs.meshplay.io/extensibility/integrations/cluster-api-provider-openstack
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: Orchestration & Management

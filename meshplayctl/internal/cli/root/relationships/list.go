@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
-// represents the mesheryctl exp relationships list command
+// represents the meshplayctl exp relationships list command
 var listRelationshipsCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List registered relationships",
-	Long:  "List all relationships registered in Meshery Server",
+	Long:  "List all relationships registered in Meshplay Server",
 	Example: `
 	View list of relationship
-    mesheryctl exp relationship list
+    meshplayctl exp relationship list
     View list of relationship with specified page number (25 relationships per page)
-    mesheryctl exp relationship list --page 2
+    meshplayctl exp relationship list --page 2
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp relationship list \nRun 'mesheryctl exp relationship list --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp relationship list \nRun 'meshplayctl exp relationship list --help' to see detailed help message"
 		if len(args) != 0 {
 			return utils.ErrInvalidArgument(errors.New(errMsg))
 		}
@@ -49,12 +49,12 @@ var listRelationshipsCmd = &cobra.Command{
 		if len(args) != 0 {
 			return errors.New(utils.RelationshipsError("this command takes no arguments\n", "list"))
 		}
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		var url string
 		if cmd.Flags().Changed("page") {
 			url = fmt.Sprintf("%s/api/meshmodels/relationships?page=%d", baseUrl, pageNumberFlag)

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-relationship-list
-permalink: reference/mesheryctl/exp/relationship/list
-redirect_from: reference/mesheryctl/exp/relationship/list/
+title: meshplayctl-exp-relationship-list
+permalink: reference/meshplayctl/exp/relationship/list
+redirect_from: reference/meshplayctl/exp/relationship/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: exp
 subcommand: relationship
 ---
 
-# mesheryctl exp relationship list
+# meshplayctl exp relationship list
 
 List registered relationships
 
 ## Synopsis
 
-List all relationships registered in Meshery Server
+List all relationships registered in Meshplay Server
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp relationship list [flags]
+meshplayctl exp relationship list [flags]
 
 </div>
 </pre> 
@@ -35,7 +35,7 @@ mesheryctl exp relationship list [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-    mesheryctl exp relationship list
+    meshplayctl exp relationship list
 
 </div>
 </pre> 
@@ -49,7 +49,7 @@ mesheryctl exp relationship list [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-    mesheryctl exp relationship list --page 2
+    meshplayctl exp relationship list --page 2
 
 </div>
 </pre> 
@@ -68,7 +68,7 @@ mesheryctl exp relationship list [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -76,4 +76,4 @@ mesheryctl exp relationship list [flags]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
@@ -32,7 +32,7 @@ var deleteEnvironmentCmd = &cobra.Command{
 	Long:  `delete a new environments by providing the name and description of the environment`,
 	Example: `
 // delete a new environment
-mesheryctl exp environment delete [environmentId]
+meshplayctl exp environment delete [environmentId]
 // Documentation for environment can be found at:
 https://docs.layer5.io/cloud/spaces/environments/
 `,
@@ -48,12 +48,12 @@ https://docs.layer5.io/cloud/spaces/environments/
 	},
 
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		url := fmt.Sprintf("%s/api/environments/%s", baseUrl, args[0])
 		req, err := utils.NewRequest(http.MethodDelete, url, nil)
 		if err != nil {

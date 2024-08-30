@@ -4,7 +4,7 @@ title: Altinity ClickHouse
 subtitle: Collaborative and visual infrastructure as design for Altinity ClickHouse
 image: /assets/img/integrations/altinity-clickhouse-operator/icons/color/altinity-clickhouse-operator-color.svg
 permalink: extensibility/integrations/altinity-clickhouse-operator
-docURL: https://docs.meshery.io/extensibility/integrations/altinity-clickhouse-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/altinity-clickhouse-operator
 description: 
 integrations-category: Database
 integrations-subcategory: Application Definition & Image Build

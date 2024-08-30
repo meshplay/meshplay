@@ -1,7 +1,7 @@
 {
   "capabilities": [
    {
-    "description": "Initiate a performance test. Meshery will execute the load generation, collect metrics, and present the results.",
+    "description": "Initiate a performance test. Meshplay will execute the load generation, collect metrics, and present the results.",
     "displayName": "Performance Test",
     "entityState": [
      "instance"

@@ -320,7 +320,7 @@ function SpaceSwitcher(props) {
           </Button>
           <WorkspaceSwitcher {...props} open={workspaceOpen} />/ */}
             <div
-              id="meshery-dynamic-header"
+              id="meshplay-dynamic-header"
               style={{ marginLeft: DynamicComponent ? '1rem' : '' }}
             />
             {!DynamicComponent && <DefaultHeader title={props.title} isBeta={props.isBeta} />}

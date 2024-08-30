@@ -4,11 +4,11 @@ title: Linkerd
 subtitle: Collaborative and visual infrastructure as design for Linkerd
 image: /assets/img/integrations/linkerd/icons/color/linkerd-color.svg
 permalink: extensibility/integrations/linkerd
-docURL: https://docs.meshery.io/extensibility/adapters/linkerd
+docURL: https://docs.meshplay.io/extensibility/adapters/linkerd
 description: 
 integrations-category: Cloud Native Network
 integrations-subcategory: Service Mesh
-registrant: meshery
+registrant: meshplay
 components: 
 featureList: [
   "Visually configure and operate Linkerd with real-time topology",

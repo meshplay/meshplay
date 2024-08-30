@@ -41,7 +41,7 @@ import Modal from '../Modal';
 import { iconMedium } from '../../css/icons.styles';
 import PromptComponent, { PROMPT_VARIANTS } from '../PromptComponent';
 import resetDatabase from '../graphql/queries/ResetDatabaseQuery';
-import MesherySettingsEnvButtons from '../MesherySettingsEnvButtons';
+import MeshplaySettingsEnvButtons from '../MeshplaySettingsEnvButtons';
 import styles from './styles';
 import MeshSyncTable from './meshSync';
 import ConnectionIcon from '../../assets/icons/Connection';
@@ -82,7 +82,7 @@ import { keys } from '@/utils/permission_constants';
 import DefaultError from '../General/error-404/index';
 import { useGetConnectionsQuery, useUpdateConnectionMutation } from '@/rtk-query/connection';
 import { useGetSchemaQuery } from '@/rtk-query/schema';
-import { CustomTextTooltip } from '../MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '../MeshplayMeshInterface/PatternService/CustomTextTooltip';
 import InfoOutlinedIcon from '@/assets/icons/InfoOutlined';
 import { DeleteIcon } from '@layer5/sistent';
 import { withRouter } from 'next/router';
@@ -329,8 +329,8 @@ function Connections(props) {
   const meshSyncResetRef = useRef(null);
   const { notify } = useNotification();
   const StyleClass = useStyles();
-  const url = `https://docs.meshery.io/concepts/logical/connections#states-and-the-lifecycle-of-connections`;
-  const envUrl = `https://docs.meshery.io/concepts/logical/environments`;
+  const url = `https://docs.meshplay.io/concepts/logical/connections#states-and-the-lifecycle-of-connections`;
+  const envUrl = `https://docs.meshplay.io/concepts/logical/environments`;
 
   const icons = {
     [CONNECTION_STATES.IGNORED]: () => <RemoveCircleIcon />,
@@ -474,7 +474,7 @@ function Connections(props) {
                   <CustomTextTooltip
                     placement="top"
                     interactive={true}
-                    title="Learn more about connection status and how to [troubleshoot Kubernetes connections](https://docs.meshery.io/guides/troubleshooting/meshery-operator-meshsync)"
+                    title="Learn more about connection status and how to [troubleshoot Kubernetes connections](https://docs.meshplay.io/guides/troubleshooting/meshplay-operator-meshsync)"
                   >
                     <IconButton className={classes.infoIconButton} color="primary">
                       <InfoOutlinedIcon height={20} width={20} className={classes.infoIcon} />
@@ -512,7 +512,7 @@ function Connections(props) {
                   />
                 </IconButton>
               }
-              tooltip={`Meshery Environments allow you to logically group related Connections and their associated Credentials. [Learn more](${envUrl})`}
+              tooltip={`Meshplay Environments allow you to logically group related Connections and their associated Credentials. [Learn more](${envUrl})`}
             />
           );
         },
@@ -989,7 +989,7 @@ function Connections(props) {
       title: `Connection Status Transition`,
       subtitle: `Are you sure that you want to transition the connection status to ${e.target.value.toUpperCase()}?`,
       options: ['Confirm', 'Cancel'],
-      showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshery.io/concepts/logical/connections) in Meshery Docs.`,
+      showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.io/concepts/logical/connections) in Meshplay Docs.`,
       // variant: PROMPT_VARIANTS.CONFIRMATION,
     });
     if (response === 'Confirm') {
@@ -1006,7 +1006,7 @@ function Connections(props) {
         title: `Delete Connection`,
         subtitle: `Are you sure that you want to delete the connection?`,
         options: ['Delete', 'Cancel'],
-        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshery.io/concepts/logical/connections) in Meshery Docs.`,
+        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.io/concepts/logical/connections) in Meshplay Docs.`,
         variant: PROMPT_VARIANTS.DANGER,
       });
       if (response === 'Delete') {
@@ -1024,7 +1024,7 @@ function Connections(props) {
         title: `Delete Connections`,
         subtitle: `Are you sure that you want to delete the connections?`,
         options: ['Delete', 'Cancel'],
-        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshery.io/concepts/logical/connections) in Meshery Docs.`,
+        showInfoIcon: `Learn more about the [lifecycle of connections and the behavior of state transitions](https://docs.meshplay.io/concepts/logical/connections) in Meshplay Docs.`,
         variant: PROMPT_VARIANTS.DANGER,
       });
       if (response === 'Delete') {
@@ -1174,7 +1174,7 @@ function Connections(props) {
                 Connect Helm Repository
               </Button>
             </div> */}
-                <MesherySettingsEnvButtons />
+                <MeshplaySettingsEnvButtons />
               </div>
               <UsesSistent>
                 <div

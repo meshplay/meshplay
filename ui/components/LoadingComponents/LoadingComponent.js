@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import React from 'react';
 import AnimatedMeshSync from './Animations/AnimatedMeshSync';
 import AnimatedMeshPattern from './Animations/AnimatedMeshPattern';
-import AnimatedMeshery from './Animations/AnimatedMeshery';
+import AnimatedMeshplay from './Animations/AnimatedMeshplay';
 import AnimatedFilter from './Animations/AnimatedFilter';
 import PropTypes from 'prop-types';
-import AnimatedLightMeshery from './Animations/AnimatedLightMeshery';
+import AnimatedLightMeshplay from './Animations/AnimatedLightMeshplay';
 
 const useStyles = makeStyles(() => ({
   loadingWrapper: {
@@ -22,7 +22,7 @@ const animatedIconList = {
     <>
       <AnimatedMeshSync style={{ height: '75px' }} />
       <img
-        src="/static/img/meshery-logo/meshery-black.svg"
+        src="/static/img/meshplay-logo/meshplay-black.svg"
         alt="mehsery-logo"
         width="125px"
         style={{ margin: '4px 0px 8px' }}
@@ -30,7 +30,7 @@ const animatedIconList = {
     </>
   ),
   AnimatedFilter: <AnimatedFilter style={{ height: '75px', margin: '4px 0px 8px' }} />,
-  AnimatedMeshery: <AnimatedMeshery style={{ height: '100px', margin: '4px 0px 8px' }} />,
+  AnimatedMeshplay: <AnimatedMeshplay style={{ height: '100px', margin: '4px 0px 8px' }} />,
 };
 
 const animatedLightIconList = {
@@ -39,7 +39,7 @@ const animatedLightIconList = {
     <>
       <AnimatedMeshSync style={{ height: '75px' }} />
       <img
-        src="/static/img/meshery-logo/meshery-white.svg"
+        src="/static/img/meshplay-logo/meshplay-white.svg"
         alt="mehsery-logo"
         width="125px"
         style={{ margin: '4px 0px 8px' }}
@@ -47,7 +47,7 @@ const animatedLightIconList = {
     </>
   ),
   AnimatedFilter: <AnimatedFilter style={{ height: '75px', margin: '4px 0px 8px' }} />,
-  AnimatedMeshery: <AnimatedLightMeshery style={{ height: '100px', margin: '4px 0px 8px' }} />,
+  AnimatedMeshplay: <AnimatedLightMeshplay style={{ height: '100px', margin: '4px 0px 8px' }} />,
 };
 function LoadingScreen(props) {
   const { message, className, animatedIcon, ...other } = props;

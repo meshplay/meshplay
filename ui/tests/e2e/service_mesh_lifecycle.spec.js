@@ -2,12 +2,12 @@ import { expect, test } from '@playwright/test';
 import { ENV } from './env';
 
 test.describe('Service Mesh Lifecycle Tests', () => {
-  const mesheryAdapters = [
+  const meshplayAdapters = [
     { adapterName: 'Istio', adapterPort: '10000', deploy: false },
     { adapterName: 'Consul', adapterPort: '10002', deploy: false },
   ];
 
-  mesheryAdapters.forEach(({ adapterName, adapterPort }) => {
+  meshplayAdapters.forEach(({ adapterName, adapterPort }) => {
     const ADAPTER_LOCATION = `localhost:${adapterPort}`;
     test(`Configure Existing ${adapterName} adapter through Mesh Adapter URL from Management page`, async ({
       page,
@@ -36,10 +36,10 @@ test.describe('Service Mesh Lifecycle Tests', () => {
       // Visit Lifecycle > Service Mesh Page
       await page.goto(`${ENV.MESHPLAY_SERVER_URL}/management/adapter`);
 
-      // Open "Select Meshery Adapter" Dropdown
+      // Open "Select Meshplay Adapter" Dropdown
       const dropdown = page
         .locator('label')
-        .filter({ hasText: /Select Meshery Adapter/ })
+        .filter({ hasText: /Select Meshplay Adapter/ })
         .locator('..');
       await dropdown.click();
 
@@ -54,10 +54,10 @@ test.describe('Service Mesh Lifecycle Tests', () => {
       // Visit Lifecycle > Service Mesh Page
       await page.goto(`${ENV.MESHPLAY_SERVER_URL}/management/adapter`);
 
-      // Open "Select Meshery Adapter" Dropdown
+      // Open "Select Meshplay Adapter" Dropdown
       const dropdown = page
         .locator('label')
-        .filter({ hasText: /Select Meshery Adapter/ })
+        .filter({ hasText: /Select Meshplay Adapter/ })
         .locator('..');
       await dropdown.click();
 

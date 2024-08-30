@@ -7,10 +7,10 @@ redirect_from:
 - tasks
 language: en
 list: exclude
-abstract: Using, operating, and troubleshooting Meshery.
+abstract: Using, operating, and troubleshooting Meshplay.
 ---
 
-Guides to using, operating, and troubleshooting Meshery's various features and components.
+Guides to using, operating, and troubleshooting Meshplay's various features and components.
 
 <!-- {% assign sorted_guides = site.pages | sort: "type" | reverse %} -->
 
@@ -18,7 +18,7 @@ Guides to using, operating, and troubleshooting Meshery's various features and c
 
 <ul>
     {% for item in sorted_guides %}
-    {% if item.type=="guides" and item.category!="mesheryctl" and item.category!="tutorials" and item.list!="exclude" and item.language=="en"  -%}
+    {% if item.type=="guides" and item.category!="meshplayctl" and item.category!="tutorials" and item.list!="exclude" and item.language=="en"  -%}
       <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
       {% endif %}
     {% endfor %}
@@ -35,11 +35,11 @@ Guides to using, operating, and troubleshooting Meshery's various features and c
   {% endfor %}
 </ul>
 
-### <a href="{{ site.baseurl }}/guides/mesheryctl" class="text-black">Meshery CLI</a>
+### <a href="{{ site.baseurl }}/guides/meshplayctl" class="text-black">Meshplay CLI</a>
 
 <ul>
   {% for item in sorted_guides %}
-  {% if item.type=="guides" and item.category=="mesheryctl" and item.list!="exclude" and item.language=="en" -%}
+  {% if item.type=="guides" and item.category=="meshplayctl" and item.list!="exclude" and item.language=="en" -%}
     <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endif %}
@@ -72,13 +72,13 @@ Guides to using, operating, and troubleshooting Meshery's various features and c
     <details>
       <summary>
         <p style="display:inline">
-          <a href="{{ site.baseurl }}/guides/mesheryctl/" class="text-black">Using the CLI</a>
+          <a href="{{ site.baseurl }}/guides/meshplayctl/" class="text-black">Using the CLI</a>
         </p>
       </summary>
       <ul class="section-title">
-        {% assign sorted_mesheryctl = site.pages | where: "type","guides" %}
-        {% for item in sorted_mesheryctl %}
-        {% if item.type=="guides" and item.category=="mesheryctl" and item.language=="en" -%}
+        {% assign sorted_meshplayctl = site.pages | where: "type","guides" %}
+        {% for item in sorted_meshplayctl %}
+        {% if item.type=="guides" and item.category=="meshplayctl" and item.language=="en" -%}
           <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
           {% if item.abstract != " " %}
             - {{ item.abstract }}
@@ -185,7 +185,7 @@ Guides to using, operating, and troubleshooting Meshery's various features and c
     </details>
     <ul>
       {% for item in sorted_pages %}
-      {% if item.type=="guides" and item.category!="mesheryctl" and item.category!="infrastructure" and item.category!="troubleshooting" and item.category!="performance" and item.category!="configuration" and item.category!="tutorials" and item.language=="en" -%}
+      {% if item.type=="guides" and item.category!="meshplayctl" and item.category!="infrastructure" and item.category!="troubleshooting" and item.category!="performance" and item.category!="configuration" and item.category!="tutorials" and item.language=="en" -%}
         <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
         </li>
         {% endif %}

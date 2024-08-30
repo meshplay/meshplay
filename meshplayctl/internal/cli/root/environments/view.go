@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,24 +22,24 @@ import (
 	"os"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/components"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models/environments"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/components"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v2"
 )
 
-// represents the mesheryctl exp environment view [orgId] subcommand.
+// represents the meshplayctl exp environment view [orgId] subcommand.
 var viewEnvironmentCmd = &cobra.Command{
 	Use:   "view",
 	Short: "view registered environmnents",
-	Long:  "view a environments registered in Meshery Server",
+	Long:  "view a environments registered in Meshplay Server",
 	Example: `
 // View details of a specific environment
-mesheryctl exp environment view --orgID [orgId]
+meshplayctl exp environment view --orgID [orgId]
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		orgIdFlag, _ := cmd.Flags().GetString("orgId")
@@ -53,12 +53,12 @@ mesheryctl exp environment view --orgID [orgId]
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 
 		orgid := args[0]
 		url := fmt.Sprintf("%s/api/environments?orgID=%s", baseUrl, orgid)
@@ -116,11 +116,11 @@ mesheryctl exp environment view --orgID [orgId]
 			}
 			if saveFlag {
 				utils.Log.Info("Saving output as YAML file")
-				err = os.WriteFile(homeDir+"/.meshery/component_"+componentString+".yaml", output, 0666)
+				err = os.WriteFile(homeDir+"/.meshplay/component_"+componentString+".yaml", output, 0666)
 				if err != nil {
 					return utils.ErrMarshal(errors.Wrap(err, "failed to save output as YAML file"))
 				}
-				utils.Log.Info("Output saved as YAML file in ~/.meshery/component_" + componentString + ".yaml")
+				utils.Log.Info("Output saved as YAML file in ~/.meshplay/component_" + componentString + ".yaml")
 			} else {
 				utils.Log.Info(string(output))
 			}
@@ -131,11 +131,11 @@ mesheryctl exp environment view --orgID [orgId]
 				if err != nil {
 					return utils.ErrMarshal(errors.Wrap(err, "failed to format output in JSON"))
 				}
-				err = os.WriteFile(homeDir+"/.meshery/component_"+componentString+".json", output, 0666)
+				err = os.WriteFile(homeDir+"/.meshplay/component_"+componentString+".json", output, 0666)
 				if err != nil {
 					return utils.ErrMarshal(errors.Wrap(err, "failed to save output as JSON file"))
 				}
-				utils.Log.Info("Output saved as JSON file in ~/.meshery/component_" + componentString + ".json")
+				utils.Log.Info("Output saved as JSON file in ~/.meshplay/component_" + componentString + ".json")
 				return nil
 			}
 			return components.OutputJson(selectedEnvironment)

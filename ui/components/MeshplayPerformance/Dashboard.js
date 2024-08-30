@@ -7,9 +7,9 @@ import { Button, Grid, Paper, Typography } from '@material-ui/core';
 import { useTheme, withStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { withRouter } from 'next/router';
-import MesheryMetrics from '../MesheryMetrics';
+import MeshplayMetrics from '../MeshplayMetrics';
 import PerformanceCalendar from './PerformanceCalendar';
-import MesheryPerformanceComponent from './index';
+import MeshplayPerformanceComponent from './index';
 import fetchPerformanceProfiles from '../graphql/queries/PerformanceProfilesQuery';
 import fetchAllResults from '../graphql/queries/FetchAllResultsQuery';
 import { useNotification } from '../../utils/hooks/useNotification';
@@ -238,7 +238,7 @@ function Dashboard({ updateProgress, grafana, router, classes }) {
             </Grid>
             <Grid item lg xs={12}>
               <Paper className={classes.paper} style={{ height: '100%' }}>
-                <MesheryMetrics
+                <MeshplayMetrics
                   boardConfigs={grafana.selectedBoardsConfigs}
                   grafanaURL={grafana.grafanaURL}
                   grafanaAPIKey={grafana.grafanaAPIKey}
@@ -255,7 +255,7 @@ function Dashboard({ updateProgress, grafana, router, classes }) {
               maxWidth="md"
               title="Performance Profile Wizard"
             >
-              <MesheryPerformanceComponent />
+              <MeshplayPerformanceComponent />
             </Modal>
           </UsesSistent>
         </>

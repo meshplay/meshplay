@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ServiceMesheryIcon = ({ width, height }) => (
+const ServiceMeshplayIcon = ({ width, height }) => (
   <svg
     width={width}
     height={height}
@@ -43,4 +43,4 @@ const ServiceMesheryIcon = ({ width, height }) => (
   </svg>
 );
 
-export default ServiceMesheryIcon;
+export default ServiceMeshplayIcon;

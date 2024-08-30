@@ -20,7 +20,7 @@ jobs:
         id: checkUserMember
         with:
           username: ${{ github.actor }}
-          organization: "meshery"
+          organization: "meshplay"
           team: "maintainers"
           GITHUB_TOKEN: ${{ secrets.GLOBAL_TOKEN }}
       - name: Check if it is issue

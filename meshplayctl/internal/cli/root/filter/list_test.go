@@ -2,7 +2,7 @@ package filter
 
 import (
 	"github.com/jarcoal/httpmock"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/stretchr/testify/assert"
 	"path/filepath"
 	"runtime"

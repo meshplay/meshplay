@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-cilium
-description: Meshery Adapter for Cilium chart.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-cilium
+description: Meshplay Adapter for Cilium chart.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/meshery/meshery-cilium
+  - https://github.com/meshplay/meshplay-cilium
 
 deprecated: false
 

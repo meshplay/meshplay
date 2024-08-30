@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	ErrExportModelCode = "mesheryctl-1127"
+	ErrExportModelCode = "meshplayctl-1127"
 )
 
 func ErrExportModel(err error, name string) error {

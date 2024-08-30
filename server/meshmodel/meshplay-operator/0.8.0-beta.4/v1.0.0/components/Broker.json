@@ -1,7 +1,7 @@
 {
   "capabilities": [
    {
-    "description": "Initiate a performance test. Meshery will execute the load generation, collect metrics, and present the results.",
+    "description": "Initiate a performance test. Meshplay will execute the load generation, collect metrics, and present the results.",
     "displayName": "Performance Test",
     "entityState": [
      "instance"
@@ -144,7 +144,7 @@
    "category": {
     "name": "Orchestration \u0026 Management"
    },
-   "displayName": "Meshery Operator",
+   "displayName": "Meshplay Operator",
    "id": "00000000-0000-0000-0000-000000000000",
    "metadata": {
     "isAnnotation": false,

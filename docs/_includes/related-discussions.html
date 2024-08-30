@@ -1,6 +1,6 @@
 <style>
   .posts {
-    list-style-image: url("/assets/img/meshery/meshery-logo-light.svg");
+    list-style-image: url("/assets/img/meshplay/meshplay-logo-light.svg");
     line-height: 1rem;
   }
   .post {
@@ -10,13 +10,13 @@
 
 <h2>Recent Discussions with "{{ include.tag }}" Tag</h2>
 <ul class="posts">
-  {% if include.tag == "mesheryctl" %}
+  {% if include.tag == "meshplayctl" %}
   <!-- -->
-  {% assign item = site.data.discuss.mesheryctl -%}
+  {% assign item = site.data.discuss.meshplayctl -%}
   <!-- -->
   {% else %}
   <!-- -->
-  {% assign item = site.data.discuss.meshery -%}
+  {% assign item = site.data.discuss.meshplay -%}
   <!-- -->
   {% endif %}
   <!-- -->
@@ -29,7 +29,7 @@
   <!-- -->
   <li class="post">
     <span class="post-date"> {{ post.created_at | date: "%b %d" }} | </span>
-    <a href="http://discuss.meshery.io/t/{{ post.topics[0].slug }}/{{ post.id }}"> {{ post.title }}</a>
+    <a href="http://discuss.meshplay.io/t/{{ post.topics[0].slug }}/{{ post.id }}"> {{ post.title }}</a>
     <span class="poost-author">
       {%for user in users%} {% if(post.posters[0].user_id == user.id)%} {%assign author = user.name%} {%break%}
       {%endif%} {%endfor%} by {{author}}

@@ -1,24 +1,24 @@
-# Default values for meshery.
+# Default values for meshplay.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 restartPolicy: Always
 metadata:
-  name: meshery
+  name: meshplay
 image:
-  repository: layer5/meshery
+  repository: layer5/meshplay
   tag: stable-latest
   pullPolicy: Always
 
 env:
-  EVENT: mesheryLocal
-  PROVIDER_BASE_URLS: https://meshery.layer5.io
-  ADAPTER_URLS: meshery-istio:10000 meshery-linkerd:10001 meshery-consul:10002 meshery-kuma:10007 meshery-nginx-sm:10010 meshery-nsm:10004 meshery-app-mesh:10005 meshery-traefik-mesh:10006 meshery-cilium:10012
+  EVENT: meshplayLocal
+  PROVIDER_BASE_URLS: https://meshplay.layer5.io
+  ADAPTER_URLS: meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-kuma:10007 meshplay-nginx-sm:10010 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-traefik-mesh:10006 meshplay-cilium:10012
   PROVIDER: ""
   MESHPLAY_SERVER_CALLBACK_URL: ""
 probe:
-  #TODO: Need to confirm the health check path of meshery.
+  #TODO: Need to confirm the health check path of meshplay.
   livenessProbe:
     enabled: false
   readinessProbe:
@@ -35,7 +35,7 @@ rbac:
 serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "meshery-server"
+  name: "meshplay-server"
 
 podSecurityContext:
   {}
@@ -70,7 +70,7 @@ ingress:
   ## apiVersion:
 
   hosts:
-    - host: meshery.local
+    - host: meshplay.local
       paths:
         - path: /
           pathType: Prefix
@@ -103,69 +103,69 @@ tolerations: []
 
 affinity: {}
 
-# By default, the adapters need to have the same cluster role as the meshery to have permissions for performing necessary operations
+# By default, the adapters need to have the same cluster role as the meshplay to have permissions for performing necessary operations
 
 # If need to use a different service accounts for the adapters, modify the serviceAccountNameOverride for the corresponding adapters here,
 # or set the serviceAccountNameOverride to empty while setting the serviceAccount information in the sub-chart accordingly
-meshery-app-mesh:
+meshplay-app-mesh:
   enabled: false
-  fullnameOverride: meshery-app-mesh
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-app-mesh
+  serviceAccountNameOverride: meshplay-server
 
-meshery-istio:
+meshplay-istio:
   enabled: false
-  fullnameOverride: meshery-istio
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-istio
+  serviceAccountNameOverride: meshplay-server
 
-meshery-linkerd:
+meshplay-linkerd:
   enabled: false
-  fullnameOverride: meshery-linkerd
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-linkerd
+  serviceAccountNameOverride: meshplay-server
 
-meshery-consul:
+meshplay-consul:
   enabled: false
-  fullnameOverride: meshery-consul
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-consul
+  serviceAccountNameOverride: meshplay-server
 
-meshery-kuma:
+meshplay-kuma:
   enabled: false
-  fullnameOverride: meshery-kuma
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-kuma
+  serviceAccountNameOverride: meshplay-server
 
-meshery-nsm:
+meshplay-nsm:
   enabled: false
-  fullnameOverride: meshery-nsm
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-nsm
+  serviceAccountNameOverride: meshplay-server
 
-meshery-nginx-sm:
+meshplay-nginx-sm:
   enabled: false
-  fullnameOverride: meshery-nginx-sm
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-nginx-sm
+  serviceAccountNameOverride: meshplay-server
 
-meshery-traefik-mesh:
+meshplay-traefik-mesh:
   enabled: false
-  fullnameOverride: meshery-traefik-mesh
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-traefik-mesh
+  serviceAccountNameOverride: meshplay-server
 
-meshery-cilium:
+meshplay-cilium:
   enabled: false
-  fullnameOverride: meshery-cilium
+  fullnameOverride: meshplay-cilium
 
-meshery-nighthawk:
+meshplay-nighthawk:
   enabled: false
-  fullnameOverride: meshery-nighthawk
-  serviceAccountNameOverride: meshery-server
+  fullnameOverride: meshplay-nighthawk
+  serviceAccountNameOverride: meshplay-server
 
 # If there need the test cases set it as true.
 #
 testCase:
   enabled: false
 
-# # TODO: There need to confirm that we should deploy the Gateway and VirtualService for Meshery or not.
-# There will be an issue when deploying Meshery before Istio and this could make the deploying fail.
-# meshery-gateway
+# # TODO: There need to confirm that we should deploy the Gateway and VirtualService for Meshplay or not.
+# There will be an issue when deploying Meshplay before Istio and this could make the deploying fail.
+# meshplay-gateway
 #
-mesherygateway:
+meshplaygateway:
   enabled: false
   selector:
     istio: ingressgateway

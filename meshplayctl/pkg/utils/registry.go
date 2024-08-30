@@ -12,7 +12,7 @@ import (
 type SystemType int
 
 const (
-	Meshery SystemType = iota
+	Meshplay SystemType = iota
 	Docs
 	RemoteProvider
 	rowIndex               = 1
@@ -21,8 +21,8 @@ const (
 
 func (dt SystemType) String() string {
 	switch dt {
-	case Meshery:
-		return "meshery"
+	case Meshplay:
+		return "meshplay"
 
 	case Docs:
 		return "docs"

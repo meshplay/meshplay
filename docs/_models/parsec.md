@@ -4,7 +4,7 @@ title: Parsec
 subtitle: Collaborative and visual infrastructure as design for Parsec
 image: /assets/img/integrations/parsec/icons/color/parsec-color.svg
 permalink: extensibility/integrations/parsec
-docURL: https://docs.meshery.io/extensibility/integrations/parsec
+docURL: https://docs.meshplay.io/extensibility/integrations/parsec
 description: 
 integrations-category: Security & Compliance
 integrations-subcategory: Security & Compliance

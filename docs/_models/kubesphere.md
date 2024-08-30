@@ -4,7 +4,7 @@ title: Kubesphere
 subtitle: Collaborative and visual infrastructure as design for Kubesphere
 image: /assets/img/integrations/kubesphere/icons/color/kubesphere-color.svg
 permalink: extensibility/integrations/kubesphere
-docURL: https://docs.meshery.io/installation/kubernetes/kubesphere
+docURL: https://docs.meshplay.io/installation/kubernetes/kubesphere
 description: 
 integrations-category: Platform
 integrations-subcategory: Certified Kubernetes - Distribution

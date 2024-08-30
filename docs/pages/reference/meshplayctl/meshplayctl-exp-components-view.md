@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-components-view
-permalink: reference/mesheryctl/exp/components/view
-redirect_from: reference/mesheryctl/exp/components/view/
+title: meshplayctl-exp-components-view
+permalink: reference/meshplayctl/exp/components/view
+redirect_from: reference/meshplayctl/exp/components/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: exp
 subcommand: components
 ---
 
-# mesheryctl exp components view
+# meshplayctl exp components view
 
 view registered components
 
 ## Synopsis
 
-view a component registered in Meshery Server
+view a component registered in Meshplay Server
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components view [flags]
+meshplayctl exp components view [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp components view [flags]
 View details of a specific component
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp components view [component-name]
+meshplayctl exp components view [component-name]
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl exp components view [component-name]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -56,4 +56,4 @@ mesheryctl exp components view [component-name]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

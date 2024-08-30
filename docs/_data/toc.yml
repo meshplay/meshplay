@@ -44,14 +44,14 @@
         grandchildren: 
           - title: "Scoop"
             url: installation/windows/scoop
-      - title: Upgrading Meshery ↆ
+      - title: Upgrading Meshplay ↆ
         url: installation/upgrades
         children:
-          - title: Meshery CLI
-            url: installation/upgrades#upgrading-meshery-cli            
-      - title: Using Multiple Meshery Adapters
+          - title: Meshplay CLI
+            url: installation/upgrades#upgrading-meshplay-cli            
+      - title: Using Multiple Meshplay Adapters
         url: installation/multiple-adapters
-      - title: Meshery Playground
+      - title: Meshplay Playground
         url: installation/playground
 - title: 🧠 Concepts
   url: concepts
@@ -97,7 +97,7 @@
 # - title: 📑 Features
 #   url: features
 #   links:
-#     - title: Meshery Playground
+#     - title: Meshplay Playground
 #       url: features/playground
 - title: 📚 Guides & Tutorials
   url: guides
@@ -121,8 +121,8 @@
     - title: Configuring Kubernetes Infrastructure ↆ
       url: guides/configuration-management
       children:
-      - title: Creating a Meshery Design
-        url: guides/creating-a-meshery-design
+      - title: Creating a Meshplay Design
+        url: guides/creating-a-meshplay-design
       - title: Working with Designs
         url: guides/configuration-management/working-with-designs
       - title: Importing Designs
@@ -131,39 +131,39 @@
         url: guides/configuration-management/pattern-management
     - title: Managing Events with Notification Center
       url: guides/events-management
-    - title: GitOps with Meshery
-      url: guides/infrastructure-management/gitops-with-meshery
+    - title: GitOps with Meshplay
+      url: guides/infrastructure-management/gitops-with-meshplay
     - title: Performance Management ↆ
       url: guides/performance-management
       children:
-        - title: Performance Management with Meshery 
+        - title: Performance Management with Meshplay 
           url: guides/performance-management/performance-management
-        - title: Using Metrics in Meshery
-          url: guides/performance-management/meshery-metrics
+        - title: Using Metrics in Meshplay
+          url: guides/performance-management/meshplay-metrics
         - title: Interpreting Performance Test Results 
           url: guides/performance-management/interpreting-performance-test-results
         - title: Performance Profiles and Tests #should go under concepts
           url: guides/performance-management/managing-performance
-    - title: Using Meshery CLI Guides ↆ
-      url: guides/mesheryctl
+    - title: Using Meshplay CLI Guides ↆ
+      url: guides/meshplayctl
       children:
-        - title: Using mesheryctl
-          url: guides/mesheryctl/working-with-mesheryctl
-        - title: Configure autocompletion for mesheryctl
-          url: guides/mesheryctl/configuring-autocompletion-for-mesheryctl
-        - title: Authenticate via Meshery CLI
-          url: guides/mesheryctl/authenticate-with-meshery-via-cli
-        - title: Running system checks using Meshery CLI
-          url: guides/mesheryctl/running-system-checks-using-mesheryctl
+        - title: Using meshplayctl
+          url: guides/meshplayctl/working-with-meshplayctl
+        - title: Configure autocompletion for meshplayctl
+          url: guides/meshplayctl/configuring-autocompletion-for-meshplayctl
+        - title: Authenticate via Meshplay CLI
+          url: guides/meshplayctl/authenticate-with-meshplay-via-cli
+        - title: Running system checks using Meshplay CLI
+          url: guides/meshplayctl/running-system-checks-using-meshplayctl
     - title: Troubleshooting Guides ↆ
       url: guides/troubleshooting
       children:
         - title: Installation
           url: guides/troubleshooting/installation
-        - title: Meshery Operator 
-          url: guides/troubleshooting/meshery-operator-meshsync
-        - title: Meshery Server
-          url: guides/troubleshooting/meshery-server
+        - title: Meshplay Operator 
+          url: guides/troubleshooting/meshplay-operator-meshsync
+        - title: Meshplay Server
+          url: guides/troubleshooting/meshplay-server
     - title: 🧑‍🔬 Tutorials ↆ
       url: guides/tutorials
       children:
@@ -290,9 +290,9 @@
       - title: "REST API Reference"
         url: reference/rest-apis
     - title: "CLI Command Reference"
-      url: reference/mesheryctl
-    - title: "Meshery Operator CRDs"
-      url: reference/meshery-operator-crds
+      url: reference/meshplayctl
+    - title: "Meshplay Operator CRDs"
+      url: reference/meshplay-operator-crds
     - title: Releases
       url: project/releases
     - title: Vulnerabilities

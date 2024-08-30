@@ -4,7 +4,7 @@ title: AWS ElastiCache
 subtitle: Collaborative and visual infrastructure as design for AWS ElastiCache
 image: /assets/img/integrations/aws-elasticache-controller/icons/color/aws-elasticache-controller-color.svg
 permalink: extensibility/integrations/aws-elasticache-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-elasticache-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-elasticache-controller
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Database
@@ -49,7 +49,7 @@ components:
 featureList: [
   "Fully managed Redis and Memcached",
   "Add a cache to your relational database",
-  "You can create an ElastiCache Serverless cache in a few steps by specifying a cache name in Meshery"
+  "You can create an ElastiCache Serverless cache in a few steps by specifying a cache name in Meshplay"
 ]
 howItWorks: "Collaborative Infrastructure as Design"
 howItWorksDetails: "Collaboratively manage infrastructure with your coworkers synchronously sharing the same designs."

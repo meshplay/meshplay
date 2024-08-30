@@ -6,12 +6,12 @@ permalink: tasks
 language: en
 list: exclude
 published: false
-abstract: Common tasks for using Meshery's various features and components.
+abstract: Common tasks for using Meshplay's various features and components.
 ---
 
-These sections provide user guides to the functionality Meshery offers.
+These sections provide user guides to the functionality Meshplay offers.
 
-## Meshery Functionality
+## Meshplay Functionality
 
 {% assign sorted = site.pages | sort: "functionality" %}
 

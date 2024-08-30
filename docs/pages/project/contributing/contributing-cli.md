@@ -1,74 +1,74 @@
 ---
 layout: page
-title: Contributing to Meshery CLI
+title: Contributing to Meshplay CLI
 permalink: project/contributing/contributing-cli
-abstract: How to contribute to Meshery Command Line Interface.
+abstract: How to contribute to Meshplay Command Line Interface.
 language: en
 type: project
 category: contributing
 list: include
 ---
 
-`mesheryctl` is written in Golang or the Go Programming Language. For development use Go version 1.21+.
+`meshplayctl` is written in Golang or the Go Programming Language. For development use Go version 1.21+.
 
 {% include alert.html
     type="info"
-    title="Meshery CLI Reference Documents"
-    content='<ul><li><a href="https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0">Meshery Command Tracker</a>: Status of mesheryctl command implementation and platform compatibility.</li>
-    <li><a href="https://docs.google.com/document/d/1xRlFpElRmybJ3WacgPKXgCSiQ2poJl3iCCV1dAalf0k/edit#">Meshery CLI Commands and Documentation</a>: Detailed documentation of the `mesheryctl` commands.</li>
-	<li><a href="https://github.com/meshery/meshery/labels/component%2Fmesheryctl">mesheryctl open issues and pull requests</a>: Matching the "component/mesheryctl" label.</li></ul>' %}
+    title="Meshplay CLI Reference Documents"
+    content='<ul><li><a href="https://docs.google.com/spreadsheets/d/1q63sIGAuCnIeDs8PeM-0BAkNj8BBgPUXhLbe1Y-318o/edit#gid=0">Meshplay Command Tracker</a>: Status of meshplayctl command implementation and platform compatibility.</li>
+    <li><a href="https://docs.google.com/document/d/1xRlFpElRmybJ3WacgPKXgCSiQ2poJl3iCCV1dAalf0k/edit#">Meshplay CLI Commands and Documentation</a>: Detailed documentation of the `meshplayctl` commands.</li>
+	<li><a href="https://github.com/meshplay/meshplay/labels/component%2Fmeshplayctl">meshplayctl open issues and pull requests</a>: Matching the "component/meshplayctl" label.</li></ul>' %}
 
 {% include member-form.html %}
 
 ### Mechanics of Contributing
 
-**Building mesheryctl**
+**Building meshplayctl**
 
-The [`/mesheryctl`](https://github.com/meshery/meshery/tree/master/mesheryctl) folder contains the complete code for `mesheryctl`. Fork and clone the Meshery repo. `cd mesheryctl` to change directory mesheryctl's source.
+The [`/meshplayctl`](https://github.com/meshplay/meshplay/tree/master/meshplayctl) folder contains the complete code for `meshplayctl`. Fork and clone the Meshplay repo. `cd meshplayctl` to change directory meshplayctl's source.
 
-After making changes, run `make` in the `mesheryctl` folder to build the binary. You can then use the binary by, say, `./mesheryctl system start`.
+After making changes, run `make` in the `meshplayctl` folder to build the binary. You can then use the binary by, say, `./meshplayctl system start`.
 
 **Framework**
 
-`mesheryctl` uses the [Cobra](https://github.com/spf13/cobra) framework. A good first-step towards contributing to `mesheryctl` would be to familiarise yourself with the [Cobra concepts](https://github.com/spf13/cobra#concepts). For manipulating config files, `mesheryctl` uses [Viper](https://github.com/spf13/viper).
+`meshplayctl` uses the [Cobra](https://github.com/spf13/cobra) framework. A good first-step towards contributing to `meshplayctl` would be to familiarise yourself with the [Cobra concepts](https://github.com/spf13/cobra#concepts). For manipulating config files, `meshplayctl` uses [Viper](https://github.com/spf13/viper).
 
 **Model and Configuration Data**
 
-A central `struct` is maintained in the `mesheryctl/internal/cli/root/config/config.go` file. These are updated and should be used for getting the Meshery configuration.
+A central `struct` is maintained in the `meshplayctl/internal/cli/root/config/config.go` file. These are updated and should be used for getting the Meshplay configuration.
 
-Updates to this central `struct` is made through updates in `Context` with setter functions. The changes made in this central `struct` are reflected back in the Meshery configuration file (`.meshery/config.yaml`).
+Updates to this central `struct` is made through updates in `Context` with setter functions. The changes made in this central `struct` are reflected back in the Meshplay configuration file (`.meshplay/config.yaml`).
 
 **Logging**
 
-For logs, `mesheryctl` uses [Logrus](https://github.com/sirupsen/logrus). Going through the docs and understanding the different [log-levels](https://github.com/sirupsen/logrus#level-logging) will help a lot.
+For logs, `meshplayctl` uses [Logrus](https://github.com/sirupsen/logrus). Going through the docs and understanding the different [log-levels](https://github.com/sirupsen/logrus#level-logging) will help a lot.
 
 **Linting**
 
-`mesheryctl` uses [golangci-lint](https://github.com/golangci/golangci-lint). See the .github/workflow/ci.yaml for syntax used during Meshery's build process.
+`meshplayctl` uses [golangci-lint](https://github.com/golangci/golangci-lint). See the .github/workflow/ci.yaml for syntax used during Meshplay's build process.
 
 **Unit Tests**
 
-Unit test code coverage reports can be found in the [CodeCov logs](https://app.codecov.io/gh/meshery/meshery/). _Note: GitHub login may be required for access._
+Unit test code coverage reports can be found in the [CodeCov logs](https://app.codecov.io/gh/meshplay/meshplay/). _Note: GitHub login may be required for access._
 
 **Documentation**
 
-The documentation pages for `mesheryctl` reference are made with the help of the Cobra Golang framework and use of GitHub Actions. Refer to [Contributing to mesheryctl documentation](#contributing-to-mesheryctl-documentation) for details.
+The documentation pages for `meshplayctl` reference are made with the help of the Cobra Golang framework and use of GitHub Actions. Refer to [Contributing to meshplayctl documentation](#contributing-to-meshplayctl-documentation) for details.
 
-# Meshery CLI Style Guide
+# Meshplay CLI Style Guide
 
-These guidelines are a collection of principles and conventions that need to be followed while designing mesheryctl commands. `mesheryctl` might be the interface that the users first have with Meshery. As such, `mesheryctl` needs to provide a great UX.
+These guidelines are a collection of principles and conventions that need to be followed while designing meshplayctl commands. `meshplayctl` might be the interface that the users first have with Meshplay. As such, `meshplayctl` needs to provide a great UX.
 
-The following principles should be taken in mind while designing `mesheryctl` commands-
+The following principles should be taken in mind while designing `meshplayctl` commands-
 
 ## Design Principles
 
 **1. Consistency is quality.**
 
-- _Consistency of interaction drives a quality user experience. Whether that experience is delightful or painful is a related, but separate consideration. Meshery's behavior of user interactions should be consistent even when their user experience is poor._
+- _Consistency of interaction drives a quality user experience. Whether that experience is delightful or painful is a related, but separate consideration. Meshplay's behavior of user interactions should be consistent even when their user experience is poor._
 
 **2. Intuitive user experiences feel natural to users.**
 
-- _When being designed, each of Meshery's user experiences should be examined first from the user's perspective. Design user experiences that are familiar._
+- _When being designed, each of Meshplay's user experiences should be examined first from the user's perspective. Design user experiences that are familiar._
 
 **3. Design for brevity.**
 
@@ -78,15 +78,15 @@ The following principles should be taken in mind while designing `mesheryctl` co
 
 - _Provide possibility to specify output format as json (-o json) for easy inspection of command response._
 
-Part of delivering a great user experience is providing intuitive interfaces. In the case of `mesheryctl` takes inspiration from and delivers similar user experiences as popular CLIs do in this ecosystem, like `kubectl` and `docker`. Here is relevant `kubectl` information to reference - [Kubectl SIG CLI Community Meeting Minutes](https://docs.google.com/document/u/2/d/1r0YElcXt6G5mOWxwZiXgGu_X6he3F--wKwg-9UBc29I/edit#), [contributing to kubectl](https://github.com/kubernetes/community/blob/master/sig-cli/CONTRIBUTING.md), [code](https://github.com/kubernetes/kubernetes/tree/master/pkg/kubectl/cmd/config).
+Part of delivering a great user experience is providing intuitive interfaces. In the case of `meshplayctl` takes inspiration from and delivers similar user experiences as popular CLIs do in this ecosystem, like `kubectl` and `docker`. Here is relevant `kubectl` information to reference - [Kubectl SIG CLI Community Meeting Minutes](https://docs.google.com/document/u/2/d/1r0YElcXt6G5mOWxwZiXgGu_X6he3F--wKwg-9UBc29I/edit#), [contributing to kubectl](https://github.com/kubernetes/community/blob/master/sig-cli/CONTRIBUTING.md), [code](https://github.com/kubernetes/kubernetes/tree/master/pkg/kubectl/cmd/config).
 
-Command structure and command behavior should be designed in such a way that they are intuitive. Users should ideally be able to understand what a command is used for without having to extensively go through the documentation. For example, `mesheryctl pattern apply -f <pattern name>` requires no further clarification as it is evident that the command will apply the pattern specified.
+Command structure and command behavior should be designed in such a way that they are intuitive. Users should ideally be able to understand what a command is used for without having to extensively go through the documentation. For example, `meshplayctl pattern apply -f <pattern name>` requires no further clarification as it is evident that the command will apply the pattern specified.
 
-Consistency is key when designing intuitive interfaces. Although `mesheryctl perf run -f <performance profile name>` may sound more intuitive, users who are experienced in using the CLI will prefer the consistant verb `apply` over `run`. This will also ensure a consistent command language making memorizing easier.
+Consistency is key when designing intuitive interfaces. Although `meshplayctl perf run -f <performance profile name>` may sound more intuitive, users who are experienced in using the CLI will prefer the consistant verb `apply` over `run`. This will also ensure a consistent command language making memorizing easier.
 
 **Flags**
 
-Consistency should also be enforced when chaining commands and using flags. For example, if `mesheryctl pattern` has a `list` and `view` command and has an `-all` and `--output` flag, then, similar commands like `mesheryctl perf` should also support the same commands and flags and provide a consistent user experience.
+Consistency should also be enforced when chaining commands and using flags. For example, if `meshplayctl pattern` has a `list` and `view` command and has an `-all` and `--output` flag, then, similar commands like `meshplayctl perf` should also support the same commands and flags and provide a consistent user experience.
 
 ### Rational defaults overriden with flags
 
@@ -94,25 +94,25 @@ Default behaviour should be optimised for what users will need to do most of the
 
 These assumed defaults should be easily overriden by the user with flags.
 
-For example, `mesheryctl system context create <context name>` assumes a default platform for the created context. But this can be easily overriden with the `--platform` flag.
+For example, `meshplayctl system context create <context name>` assumes a default platform for the created context. But this can be easily overriden with the `--platform` flag.
 
 ### User Experience: GUI vs CLI
 
-Ideally, all functionaly provided in Meshery UI should be available to users via CLI (in `mesheryctl`). Meshery strives for parity of functionality between it's two clients. For example, viewing a performance profile in the GUI and with `mesheryctl system perf view <profile name>` in the CLI should show the same data.
+Ideally, all functionaly provided in Meshplay UI should be available to users via CLI (in `meshplayctl`). Meshplay strives for parity of functionality between it's two clients. For example, viewing a performance profile in the GUI and with `meshplayctl system perf view <profile name>` in the CLI should show the same data.
 
-Command line interfaces offer less context to the user, which makes them inherently less intuitive compared to graphical user interfaces. Both of these user interfaces, however, are the same in that they are both clients of Meshery Server. Both clients _are_ a user experience and as such, to be attended to in this way. The following considerations should be accounted for when designing `mesheryctl` experiences:
+Command line interfaces offer less context to the user, which makes them inherently less intuitive compared to graphical user interfaces. Both of these user interfaces, however, are the same in that they are both clients of Meshplay Server. Both clients _are_ a user experience and as such, to be attended to in this way. The following considerations should be accounted for when designing `meshplayctl` experiences:
 
 - Provide only relevant output. Use "debug" logs that can be accessed with `--verbose` flag wherever needed.
 - Add headers to output to give context to the user.
 - As mentioned [above](#intuition-vs-consistency), similar commands should behave similarly.
 - Confirm steps for risky commands. For example, use the `AskForConfirmation` function which will prompt the user to type in "yes" or "no" to continue.
-- Anticipate user actions. If the user creates a new context with `mesheryctl system context create` then the next action might be `mesheryctl system start` to start Meshery ot `mesheryctl system context switch` to switch context names.
-- Anticipate user errors. For example, if the user types in `mesheryctl system satrt`, using the inbuilt features with the [cobra library](https://github.com/spf13/cobra), we can correct it to `start` and alert the user.
+- Anticipate user actions. If the user creates a new context with `meshplayctl system context create` then the next action might be `meshplayctl system start` to start Meshplay ot `meshplayctl system context switch` to switch context names.
+- Anticipate user errors. For example, if the user types in `meshplayctl system satrt`, using the inbuilt features with the [cobra library](https://github.com/spf13/cobra), we can correct it to `start` and alert the user.
 
 ## Designing Commands
 
 If you are working on a new command or adding a new feature on an existing command, it is recommended to setup a design spec so that other contributors can weigh in on the design before you start to code.Broader features should have a design spec made in Google Doc. Check <a href="https://drive.google.com/drive/folders/1KHtJc4ToklBQ_UUsDgAL2sVZNhOQGzbh">this Google Doc</a> out, which has detailed information on creating a Design Specification.
-For small changes, communicating over the [issue tracker](https://github.com/meshery/meshery/issues) or the [discussions](https://github.com/meshery/meshery/discussions) will be helpful.
+For small changes, communicating over the [issue tracker](https://github.com/meshplay/meshplay/issues) or the [discussions](https://github.com/meshplay/meshplay/discussions) will be helpful.
 
 When designing for the command line interface, ask and consider the following questions.
 
@@ -125,7 +125,7 @@ When designing for the command line interface, ask and consider the following qu
 
 ##### What the command is called
 
-- What should be the command language? (`mesheryctl <command> <subcommand> [args] [flags] [value]`)
+- What should be the command language? (`meshplayctl <command> <subcommand> [args] [flags] [value]`)
 - What should be a command vs a flag?
 - How can you align the language of the new command with the existing commands?
 
@@ -136,36 +136,36 @@ When designing for the command line interface, ask and consider the following qu
 
 ##### How you would explain your command
 
-You will need to provide a short and long description of the command for the help pages and also for the Meshery Documentation.
+You will need to provide a short and long description of the command for the help pages and also for the Meshplay Documentation.
 
-# Writing unit tests and integration tests for mesheryctl
+# Writing unit tests and integration tests for meshplayctl
 
-Unit tests and integration tests are essential to make each mesheryctl release robust and fault tolerant.
+Unit tests and integration tests are essential to make each meshplayctl release robust and fault tolerant.
 
-Below you will find guidelines to write unit tests and integration tests and examples of how they are implemented in mesheryctl.
+Below you will find guidelines to write unit tests and integration tests and examples of how they are implemented in meshplayctl.
 
 Unit tests: Individual components are tested.
 
 Integration tests: Individual components are combined and tested as a group.
 
-# Contributing to mesheryctl documentation
+# Contributing to meshplayctl documentation
 
-The [Meshery CLI Reference](/reference/mesheryctl) is autogenerated based on docs sections in each of `mesheryctl`'s Golang files. Meshery CLI Reference pages are updated each time a change to its respective `mesheryctl` Golang file is merged into the project's `master` branch. This approach to documentation facilitates a single source of truth for CLI syntax and command behavior, which results in higher quality reference and a reduction in the toil involved in keeping documentation up-to-date. To contribute to the Meshery CLI Reference, follow these steps:
+The [Meshplay CLI Reference](/reference/meshplayctl) is autogenerated based on docs sections in each of `meshplayctl`'s Golang files. Meshplay CLI Reference pages are updated each time a change to its respective `meshplayctl` Golang file is merged into the project's `master` branch. This approach to documentation facilitates a single source of truth for CLI syntax and command behavior, which results in higher quality reference and a reduction in the toil involved in keeping documentation up-to-date. To contribute to the Meshplay CLI Reference, follow these steps:
 
-- Go to the required command file in which the documentation has to be created/updated (mainly under /mesheryctl/internal/cli/root/...)
+- Go to the required command file in which the documentation has to be created/updated (mainly under /meshplayctl/internal/cli/root/...)
 - Then, edit the Cobra macro variables present in the each file. An example is given below for reference.
 
 {% capture code_content %}var startCmd = &cobra.Command{
 Use:   "start",
-Short: "Start Meshery",
-Long:  'Start Meshery and each of its components.',
+Short: "Start Meshplay",
+Long:  'Start Meshplay and each of its components.',
 Args:  cobra.NoArgs,
 Example:```
-// Start meshery
-mesheryctl system start
+// Start meshplay
+meshplayctl system start
 
 // To create a new context for in-cluster Kubernetes deployments and set the new context as your current-context
-mesheryctl system context create k8s -p kubernetes -s```,
+meshplayctl system context create k8s -p kubernetes -s```,
 Annotations: linkScreenshot,
 ...{% endcapture %}
 
@@ -176,48 +176,48 @@ Annotations: linkScreenshot,
 Also, if the screenshot is present in the command, an `Annotation` macro variable (of `map[string]string` type) containing the `link` and the `caption` has to be added at the bottom of the `Examples` field in the command file. The image file has to be included in the `docs/assets` folder in **PNG** format. The screenshot field is given for reference below
 
 {% capture code_content %}var linkDocPatternApply = map[string]string{
-	"link":    "![pattern-apply-usage](/assets/img/mesheryctl/patternApply.png)",
-	"caption": "Usage of mesheryctl pattern apply",
+	"link":    "![pattern-apply-usage](/assets/img/meshplayctl/patternApply.png)",
+	"caption": "Usage of meshplayctl pattern apply",
 }
 ...
 Example:```
 // apply a pattern file
-mesheryctl pattern apply -f [file | URL]
+meshplayctl pattern apply -f [file | URL]
 
 // deploy a saved pattern
-mesheryctl pattern apply [pattern-name]```,
+meshplayctl pattern apply [pattern-name]```,
 Annotations: linkDocPatternApply,
 ...
 {% endcapture %}
 {% include code.html code=code_content %}
 
-**NOTE: It is advised not to modify the changes in `docs` folder, rather should be done in `mesheryctl` folder as the changes will get overwritten by the script.**
+**NOTE: It is advised not to modify the changes in `docs` folder, rather should be done in `meshplayctl` folder as the changes will get overwritten by the script.**
 
 ## Adding New/Removing Existing commands in the reference index
 
-Though the command page is generated automatically by the Cobra CLI library, there are chances where the command does not appear in the [reference index page](https://docs.meshery.io/reference/mesheryctl). In such cases, the command details must be manually added to the reference index YAML file. This is generally done by editing the below two files:
+Though the command page is generated automatically by the Cobra CLI library, there are chances where the command does not appear in the [reference index page](https://docs.meshplay.io/reference/meshplayctl). In such cases, the command details must be manually added to the reference index YAML file. This is generally done by editing the below two files:
 
-- [cmds.yml](https://github.com/meshery/meshery/blob/master/docs/_data/mesheryctlcommands/cmds.yml) - The YAML file containing the data about the commands
-- [mesheryctl-commands.md](https://github.com/meshery/meshery/blob/master/docs/pages/reference/mesheryctl-commands.md) - The markdown page of the command reference documentation
+- [cmds.yml](https://github.com/meshplay/meshplay/blob/master/docs/_data/meshplayctlcommands/cmds.yml) - The YAML file containing the data about the commands
+- [meshplayctl-commands.md](https://github.com/meshplay/meshplay/blob/master/docs/pages/reference/meshplayctl-commands.md) - The markdown page of the command reference documentation
 
 ## Preserving Manually Added Documentation
 	
-`mesheryctl` uses Cobra CLI library and GitHub Actions to automate the generation of command documentation pages. On occasion, additional documentation beyond that included in the `mesheryctl` Golang files is ideal to capture and include in the CLI reference pages. Contributors are encouraged to add more usage examples, screenshots to any of the CLI reference pages. To protect any manually added content and ensure it remains intact after regeneration, create a separate Jekyll `include` file. Follow file naming scheme outlined below:
+`meshplayctl` uses Cobra CLI library and GitHub Actions to automate the generation of command documentation pages. On occasion, additional documentation beyond that included in the `meshplayctl` Golang files is ideal to capture and include in the CLI reference pages. Contributors are encouraged to add more usage examples, screenshots to any of the CLI reference pages. To protect any manually added content and ensure it remains intact after regeneration, create a separate Jekyll `include` file. Follow file naming scheme outlined below:
 
-If your mesheryctl docs end like this, add the include tag at the end of the file. An example is given below
+If your meshplayctl docs end like this, add the include tag at the end of the file. An example is given below
 
 {% capture code_content %}
 Example:```
 // apply a pattern file
-mesheryctl pattern apply -f [file | URL]
+meshplayctl pattern apply -f [file | URL]
 
 // deploy a saved pattern
-mesheryctl pattern apply [pattern-name]```,
+meshplayctl pattern apply [pattern-name]```,
 Annotations: linkDocPatternApply,
 ...
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -228,7 +228,7 @@ Annotations: linkDocPatternApply,
 {% include code.html code=code_content %}
 
 
-This format should reference an external file where your manual changes are stored. These files should be present at the folder path (`_includes/mesheryctl/`). Any content added using this method will not be altered during the documentation generation process, but instead will be included post-auto doc generation. When making new changes or additions, understand that these additional details are positioned at the end their given CLI reference page, so bear this in mind as you organize and present your additional command details.
+This format should reference an external file where your manual changes are stored. These files should be present at the folder path (`_includes/meshplayctl/`). Any content added using this method will not be altered during the documentation generation process, but instead will be included post-auto doc generation. When making new changes or additions, understand that these additional details are positioned at the end their given CLI reference page, so bear this in mind as you organize and present your additional command details.
 
 
 ### References
@@ -236,7 +236,7 @@ This format should reference an external file where your manual changes are stor
 - [jarcoal/httpmock](https://github.com/jarcoal/httpmock)
 - [Unit testing CLIs in Go](https://medium.com/swlh/unit-testing-cli-programs-in-go-6275c85af2e7)
 - [How to test CLI commands with Go and Cobra](https://gianarb.it/blog/golang-mockmania-cli-command-with-cobra)
-- [Contributing to Meshery API Swagger Documentation](https://www.youtube.com/watch?v=NAvt6B5kNIQ)
+- [Contributing to Meshplay API Swagger Documentation](https://www.youtube.com/watch?v=NAvt6B5kNIQ)
 
 ### Key principles
 
@@ -246,12 +246,12 @@ The following key principles should be taken to mind when writing tests:
 2. The tests should cover all possible use cases and not just the happy paths.
 3. Integration tests should contain the keyword **“Integration”** in the title and should be marked to be skipped under unit testing. (See below)
 4. **Fixtures** are mock/raw data to use(for e.g. API response to mock an HTTP call).
-5. **Testdata** is the expected response of mesheryctl commands or functions.
+5. **Testdata** is the expected response of meshplayctl commands or functions.
 6. The mock data and the expected responses are stored in the **golden files**.
 7. Table formatted tests are performed on functions and commands.
-8. [mesheryctl/pkg/utils/fixtures/validate.version.github.golden](https://github.com/meshery/meshery/blob/master/mesheryctl/pkg/utils/fixtures/validate.version.github.golden) file needs to be updated regularly.
+8. [meshplayctl/pkg/utils/fixtures/validate.version.github.golden](https://github.com/meshplay/meshplay/blob/master/meshplayctl/pkg/utils/fixtures/validate.version.github.golden) file needs to be updated regularly.
 9. The version in utils.NewTestHelper() should be updated regularly.
-10. Golden files should be updated synchronously as API responses, mesheryctl outputs are updated.
+10. Golden files should be updated synchronously as API responses, meshplayctl outputs are updated.
 
 ### Marking integration tests under unit tests
 
@@ -282,8 +282,8 @@ To update golden files with the test output use the `--update` flag:
 {% capture code_content %}var update = flag.Bool("update", false, "update golden files"){% endcapture %}
 {% include code.html code=code_content %}
 
-To grab console logs - `fmt.Println()` (check [mesheryctl/internal/cli/root/perf/view_test.go](https://github.com/meshery/meshery/blob/master/mesheryctl/internal/cli/root/perf/view_test.go) )
+To grab console logs - `fmt.Println()` (check [meshplayctl/internal/cli/root/perf/view_test.go](https://github.com/meshplay/meshplay/blob/master/meshplayctl/internal/cli/root/perf/view_test.go) )
 
-To grab Logrus logs - `logrus.Info()` (check [mesheryctl/internal/cli/root/perf/apply_test.go](https://github.com/meshery/meshery/blob/master/mesheryctl/internal/cli/root/perf/apply_test.go) )
+To grab Logrus logs - `logrus.Info()` (check [meshplayctl/internal/cli/root/perf/apply_test.go](https://github.com/meshplay/meshplay/blob/master/meshplayctl/internal/cli/root/perf/apply_test.go) )
 
 

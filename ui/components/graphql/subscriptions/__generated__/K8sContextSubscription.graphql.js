@@ -85,7 +85,7 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "meshery_instance_id",
+            "name": "meshplay_instance_id",
             "storageKey": null
           },
           {
@@ -160,7 +160,7 @@ return {
     "metadata": {},
     "name": "K8sContextSubscription",
     "operationKind": "subscription",
-    "text": "subscription K8sContextSubscription(\n  $selector: PageFilter!\n) {\n  k8sContext: subscribeK8sContext(selector: $selector) {\n    total_count\n    contexts {\n      id\n      name\n      server\n      owner\n      created_by\n      meshery_instance_id\n      kubernetes_server_id\n      deployment_type\n      updated_at\n      created_at\n      version\n      connection_id\n    }\n  }\n}\n"
+    "text": "subscription K8sContextSubscription(\n  $selector: PageFilter!\n) {\n  k8sContext: subscribeK8sContext(selector: $selector) {\n    total_count\n    contexts {\n      id\n      name\n      server\n      owner\n      created_by\n      meshplay_instance_id\n      kubernetes_server_id\n      deployment_type\n      updated_at\n      created_at\n      version\n      connection_id\n    }\n  }\n}\n"
   }
 };
 })();

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,13 +23,13 @@ import (
 	"path/filepath"
 
 	"github.com/fatih/color"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/handlers"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/oci"
 	"github.com/manifoldco/promptui"
-	"github.com/meshery/schemas/models/v1beta1/model"
+	"github.com/meshplay/schemas/models/v1beta1/model"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -62,27 +62,27 @@ var (
 	countFlag bool
 )
 
-// represents the mesheryctl model view [model-name] subcommand.
+// represents the meshplayctl model view [model-name] subcommand.
 
-// represents the mesheryctl model search [query-text] subcommand.
+// represents the meshplayctl model search [query-text] subcommand.
 
-// ModelCmd represents the mesheryctl model command
+// ModelCmd represents the meshplayctl model command
 var ModelCmd = &cobra.Command{
 	Use:   "model",
 	Short: "View list of models and detail of models",
 	Long:  "View list of models and detailed information of a specific model",
 	Example: `
 // To view total of available models
-mesheryctl model --count
+meshplayctl model --count
 
 // To view list of models
-mesheryctl model list
+meshplayctl model list
 
 // To view a specific model
-mesheryctl model view [model-name]
+meshplayctl model view [model-name]
 
 // To search for a specific model
-mesheryctl model search [model-name]
+meshplayctl model search [model-name]
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 && !countFlag {
@@ -95,20 +95,20 @@ mesheryctl model search [model-name]
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if countFlag {
-			mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+			mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 			if err != nil {
 				log.Fatalln(err, "error processing config")
 			}
 
-			baseUrl := mctlCfg.GetBaseMesheryURL()
+			baseUrl := mctlCfg.GetBaseMeshplayURL()
 			url := fmt.Sprintf("%s/api/meshmodels/models?page=1", baseUrl)
 			return listModel(cmd, url, countFlag)
 		}
 
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return errors.New(utils.SystemModelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [view]. Use 'mesheryctl model --help' to display usage guide.\n", args[0]), "model"))
+			return errors.New(utils.SystemModelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [view]. Use 'meshplayctl model --help' to display usage guide.\n", args[0]), "model"))
 		}
-		_, err := config.GetMesheryCtl(viper.GetViper())
+		_, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			log.Fatalln(err, "error processing config")
 		}

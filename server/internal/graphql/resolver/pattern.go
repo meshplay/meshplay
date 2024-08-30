@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 )
 
 func (r *Resolver) fetchPatterns(ctx context.Context, provider models.Provider, selector model.PageFilter) (*model.PatternPageResult, error) {
@@ -28,7 +28,7 @@ func (r *Resolver) fetchPatterns(ctx context.Context, provider models.Provider, 
 	if selector.Metrics != nil {
 		metrics = *selector.Metrics
 	}
-	resp, err := provider.GetMesheryPatterns(tokenString, selector.Page, selector.PageSize, search, order, updateAfter, selector.Visibility, metrics)
+	resp, err := provider.GetMeshplayPatterns(tokenString, selector.Page, selector.PageSize, search, order, updateAfter, selector.Visibility, metrics)
 
 	if err != nil {
 		r.Log.Error(ErrFetchingPatterns(err))

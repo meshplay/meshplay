@@ -14,8 +14,8 @@ import (
 
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
-	"github.com/layer5io/meshplay/server/meshes"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/meshes"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/errors"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
@@ -259,7 +259,7 @@ func getEventFilter(req *http.Request) (*events.EventsFilter, error) {
 
 // swagger:route GET /api/events EventsAPI idGetEventStreamer
 // Handle GET request for events.
-// Listens for events across all of Meshery's components like adapters and server, streaming them to the UI via Server Side Events
+// Listens for events across all of Meshplay's components like adapters and server, streaming them to the UI via Server Side Events
 // This API call never terminates and establishes a persistent keep-alive connection over which `EventsResponse`s are pushed.
 // responses:
 // 	200:

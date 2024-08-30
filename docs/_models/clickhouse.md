@@ -4,7 +4,7 @@ title: ClickHouse
 subtitle: Collaborative and visual infrastructure as design for ClickHouse
 image: /assets/img/integrations/clickhouse/icons/color/clickhouse-color.svg
 permalink: extensibility/integrations/clickhouse
-docURL: https://docs.meshery.io/extensibility/integrations/clickhouse
+docURL: https://docs.meshplay.io/extensibility/integrations/clickhouse
 description: 
 integrations-category: Database
 integrations-subcategory: App Definition and Development

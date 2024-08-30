@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-filter-delete
-permalink: reference/mesheryctl/filter/delete
-redirect_from: reference/mesheryctl/filter/delete/
+title: meshplayctl-filter-delete
+permalink: reference/meshplayctl/filter/delete
+redirect_from: reference/meshplayctl/filter/delete/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: filter
 subcommand: delete
 ---
 
-# mesheryctl filter delete
+# meshplayctl filter delete
 
 Delete a filter file
 
@@ -19,7 +19,7 @@ Delete a filter file
 Delete a filter file using the name or ID of a filter
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter delete [filter-name | ID] [flags]
+meshplayctl filter delete [filter-name | ID] [flags]
 
 </div>
 </pre> 
@@ -30,7 +30,7 @@ Delete the specified WASM filter file using name or ID
 A unique prefix of the name or ID can also be provided. If the prefix is not unique, the first match will be deleted.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter delete [filter-name | ID]
+meshplayctl filter delete [filter-name | ID]
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl filter delete [filter-name | ID]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -57,4 +57,4 @@ mesheryctl filter delete [filter-name | ID]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

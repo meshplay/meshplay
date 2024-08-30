@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/layer5io/meshkit/database"
 	"github.com/meshplay/schemas/models/v1beta1"
 	"gorm.io/gorm"
@@ -23,8 +23,8 @@ type WorkspacePersister struct {
 func (wp *WorkspacePersister) fetchUserDetails() *User {
 	return &User{
 		UserID:    "meshplay",
-		FirstName: "Meshery",
-		LastName:  "Meshery",
+		FirstName: "Meshplay",
+		LastName:  "Meshplay",
 		AvatarURL: "",
 	}
 }
@@ -454,7 +454,7 @@ func (wp *WorkspacePersister) GetWorkspaceDesigns(workspaceID uuid.UUID, search,
 		pageSize = "10"
 	}
 
-	designsFetched := []*MesheryPattern{}
+	designsFetched := []*MeshplayPattern{}
 	pageUint, err := strconv.ParseUint(page, 10, 64)
 	if err != nil {
 		return nil, err
@@ -471,7 +471,7 @@ func (wp *WorkspacePersister) GetWorkspaceDesigns(workspaceID uuid.UUID, search,
 		Paginate(uint(pageUint), uint(pageSizeUint))(query).Find(&designsFetched)
 	}
 
-	designsPage := &MesheryDesignPage{
+	designsPage := &MeshplayDesignPage{
 		Page:       int(pageUint),
 		PageSize:   len(designsFetched),
 		TotalCount: int(count),

@@ -23,7 +23,7 @@ const styles = (theme) => ({
   },
 });
 
-class MesherySMIResults extends Component {
+class MeshplaySMIResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -207,8 +207,8 @@ class MesherySMIResults extends Component {
     ];
 
     const smi_options = {
-      sort: !(user && user.user_id === 'meshery'),
-      search: !(user && user.user_id === 'meshery'),
+      sort: !(user && user.user_id === 'meshplay'),
+      search: !(user && user.user_id === 'meshplay'),
       filter: false,
       expandableRows: true,
       selectableRows: 'none',
@@ -357,7 +357,7 @@ class MesherySMIResults extends Component {
     );
   }
 }
-MesherySMIResults.propTypes = { classes: PropTypes.object.isRequired };
+MeshplaySMIResults.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapDispatchToProps = (dispatch) => ({
   updateProgress: bindActionCreators(updateProgress, dispatch),
@@ -368,5 +368,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(withNotify(MesherySMIResults)),
+  connect(mapStateToProps, mapDispatchToProps)(withNotify(MeshplaySMIResults)),
 );

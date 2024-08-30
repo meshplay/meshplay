@@ -17,7 +17,7 @@ import (
 	"fortio.org/fortio/fhttp"
 	"fortio.org/fortio/periodic"
 	"github.com/layer5io/gowrk2/api"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/utils"
 	nighthawk_client "github.com/layer5io/nighthawk-go/pkg/client"

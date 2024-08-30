@@ -1,6 +1,6 @@
-# Meshery Roadmap
+# Meshplay Roadmap
 
-Milestones on Meshery's high-level roadmap:
+Milestones on Meshplay's high-level roadmap:
 
 ### [v0.5.0](../../milestone/1)
 
@@ -8,10 +8,10 @@ Milestones on Meshery's high-level roadmap:
 - [CLI] Deployment management with system context
 - [Adapter] NGINX Service Mesh
 - [Adapter] Traefik Mesh
-- Meshery Operator
+- Meshplay Operator
 - [Server] Extensible GraphQL
 - [Remote Provider] Dynamic Plugin Injection
-- MeshKit and Meshery Adapter Library
+- MeshKit and Meshplay Adapter Library
 - [Server] Performance profiles
 - [Server] Patterns (crud)
 - [MeshKit] Error Codes Utility
@@ -52,7 +52,7 @@ Milestones on Meshery's high-level roadmap:
 **Configuration Management**
 
 - [Server] Designs Basic Support (CRUD)
-- [Server] GitOps - GitHub Actions for Meshery (performance and conformance)
+- [Server] GitOps - GitHub Actions for Meshplay (performance and conformance)
 - [Server] Initial Models, Components, Relationships
 
 **Event Management**
@@ -133,11 +133,11 @@ connection, credential
 - [CLI] [?] Refactor `system config` for EKS (spec)
 - [CLI] [?] Full migration from Apps to Designs
 [?] Code coverage goal: 90%
-- [CLI] Mesheryctl Code coverage goal: 50%
+- [CLI] Meshplayctl Code coverage goal: 50%
 
 ### [v0.9.0](../../milestone/6)
 
-- [CLI] Mesheryctl Code coverage goal: 60%
+- [CLI] Meshplayctl Code coverage goal: 60%
 - [Server] - Extensible Policies
 - [Server] - Configuration Insights and Recommendations
 
@@ -177,11 +177,11 @@ connection, credential
 - [CLI] Refactoring `system config` for AKS, EKS
 - [CLI] gRPC (streaming of status and events)
 - [CLI] Colorizing output
-- [CLI] Mesheryctl Code coverage goal: 40%
+- [CLI] Meshplayctl Code coverage goal: 40%
 
 **Catalog**
 
 - [Catalog] Intellectual property protections for user-produced content
 - [UI/Server] Improved performance and stability in catalog interactions to facilitate payment processing
 
-Refer to [Meshery Roadmap](https://docs.google.com/document/d/1kvcz8jdvFwXmYBBaY2-3fHHUUoy1GJLpZZXuoxZQoOk/edit#) document for detailed info.
+Refer to [Meshplay Roadmap](https://docs.google.com/document/d/1kvcz8jdvFwXmYBBaY2-3fHHUUoy1GJLpZZXuoxZQoOk/edit#) document for detailed info.

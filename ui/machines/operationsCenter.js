@@ -3,7 +3,7 @@ import subscribeEvents from '@/components/graphql/subscriptions/EventsSubscripti
 import { createMachine, emit, fromCallback, spawnChild } from 'xstate';
 import { store } from '../store';
 import { pushEvent } from '@/store/slices/events';
-import { api as mesheryApi } from '../rtk-query';
+import { api as meshplayApi } from '../rtk-query';
 import { PROVIDER_TAGS } from '@/rtk-query/notificationCenter';
 export const OPERATION_CENTER_EVENTS = {
   EVENT_RECEIVED_FROM_SERVER: 'EVENT_RECEIVED_FROM_SERVER',
@@ -70,7 +70,7 @@ export const operationsCenterActor = createMachine(
         store.dispatch(pushEvent(event.data.event));
       },
       invalidateRtk: () => {
-        store.dispatch(mesheryApi.util.invalidateTags([PROVIDER_TAGS.EVENT]));
+        store.dispatch(meshplayApi.util.invalidateTags([PROVIDER_TAGS.EVENT]));
       },
       notifyUI: ({ context, event }) => {
         const validatedEvent = event.data.event;

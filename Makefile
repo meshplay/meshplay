@@ -1,4 +1,4 @@
-# Copyright Meshery Authors
+# Copyright Meshplay Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,66 +20,66 @@ include install/Makefile.show-help.mk
 #-----------------------------------------------------------------------------
 .PHONY: docker-build docker-local-cloud docker-cloud docker-playground-build docker-testing-env-build docker-testing-env 
 
-## Build Meshery Server and UI container.
+## Build Meshplay Server and UI container.
 docker-build:
-	# `make docker-build` builds Meshery inside of a multi-stage Docker container.
+	# `make docker-build` builds Meshplay inside of a multi-stage Docker container.
 	# This method does NOT require that you have Go, NPM, etc. installed locally.
-	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t layer5/meshery --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} .
+	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t layer5/meshplay --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} .
 
-## Build Meshery Server and UI container in Playground mode.
+## Build Meshplay Server and UI container in Playground mode.
 docker-playground-build:
-	# `make docker-playground-build` builds Meshery inside of a multi-stage Docker container.
+	# `make docker-playground-build` builds Meshplay inside of a multi-stage Docker container.
 	# This method does NOT require that you have Go, NPM, etc. installed locally.
-	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t layer5/meshery --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} --build-arg PROVIDER=$(LOCAL_PROVIDER) --build-arg PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_PROD) --build-arg PLAYGROUND=true .
+	DOCKER_BUILDKIT=1 docker build -f install/docker/Dockerfile -t layer5/meshplay --build-arg TOKEN=$(GLOBAL_TOKEN) --build-arg GIT_COMMITSHA=$(GIT_COMMITSHA) --build-arg GIT_VERSION=$(GIT_VERSION) --build-arg RELEASE_CHANNEL=${RELEASE_CHANNEL} --build-arg PROVIDER=$(LOCAL_PROVIDER) --build-arg PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_PROD) --build-arg PLAYGROUND=true .
 
-## Build Meshery Server and UI container for e2e testing.
+## Build Meshplay Server and UI container for e2e testing.
 docker-testing-env-build:
-	# `make docker-build` builds Meshery inside of a multi-stage Docker container.
+	# `make docker-build` builds Meshplay inside of a multi-stage Docker container.
 	# This method does NOT require that you have Go, NPM, etc. installed locally.
-	DOCKER_BUILDKIT=1 docker build -f install/docker/testing/Dockerfile -t layer5/meshery-testing-env --build-arg GIT_VERSION=$(GIT_VERSION) .
+	DOCKER_BUILDKIT=1 docker build -f install/docker/testing/Dockerfile -t layer5/meshplay-testing-env --build-arg GIT_VERSION=$(GIT_VERSION) .
 
-## Meshery Cloud for user authentication.
-## Runs Meshery in a container locally and points to locally-running
+## Meshplay Cloud for user authentication.
+## Runs Meshplay in a container locally and points to locally-running
 docker-local-cloud:
-	(docker rm -f meshery) || true
-	docker run --name meshery -d \
-	--link meshery-cloud:meshery-cloud \
+	(docker rm -f meshplay) || true
+	docker run --name meshplay -d \
+	--link meshplay-cloud:meshplay-cloud \
 	-e PROVIDER_BASE_URLS=$(REMOTE_PROVIDER_LOCAL) \
 	-e DEBUG=true \
 	-e ADAPTER_URLS=$(ADAPTER_URLS) \
 	-e KEYS_PATH=$(KEYS_PATH) \
 	-p 9081:8080 \
-	layer5/meshery ./meshery
+	layer5/meshplay ./meshplay
 
-## Runs Meshery in a container locally and points to remote
+## Runs Meshplay in a container locally and points to remote
 ## Remote Provider for user authentication.
 docker-cloud:
-	(docker rm -f meshery) || true
-	docker run --name meshery -d \
+	(docker rm -f meshplay) || true
+	docker run --name meshplay -d \
 	-e PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_PROD) \
 	-e DEBUG=true \
 	-e ADAPTER_URLS=$(ADAPTER_URLS) \
 	-e KEYS_PATH=$(KEYS_PATH) \
-	-v meshery-config:/home/appuser/.meshery/config \
+	-v meshplay-config:/home/appuser/.meshplay/config \
   -v $(HOME)/.kube:/home/appuser/.kube:ro \
 	-p 9081:8080 \
-	layer5/meshery ./meshery
+	layer5/meshplay ./meshplay
 
-## Runs Meshery in a container locally and points to remote
+## Runs Meshplay in a container locally and points to remote
 ## Remote Provider for user authentication.
 docker-testing-env:
-	docker run --rm --name mesherytesting  -d \
+	docker run --rm --name meshplaytesting  -d \
 	-e PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_PROD) \
 	-e DEBUG=true \
 	-e ADAPTER_URLS=$(ADAPTER_URLS) \
 	-e KEYS_PATH=$(KEYS_PATH) \
-	-v meshery-config:/home/appuser/.meshery/config \
+	-v meshplay-config:/home/appuser/.meshplay/config \
   -v $(HOME)/.kube:/home/appuser/.kube:ro \
 	-p 9081:8080 \
-	layer5/meshery-testing-env ./meshery
+	layer5/meshplay-testing-env ./meshplay
 
 #-----------------------------------------------------------------------------
-# Meshery Server Native Builds
+# Meshplay Server Native Builds
 #-----------------------------------------------------------------------------
 .PHONY: server wrk2-setup nighthawk-setup server-local server-skip-compgen server-no-content golangci proto-build error build-server server-binary
 ## Setup wrk2 for local development.
@@ -93,7 +93,7 @@ nighthawk-setup: dep-check
 
 run-local: server-local error
 
-## Build and run Meshery Server on your local machine
+## Build and run Meshplay Server on your local machine
 ## and point to (expect) a locally running Remote Provider
 ## for user authentication.
 server-local: dep-check
@@ -107,7 +107,7 @@ server-local: dep-check
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go
 
-## Build Meshery Server on your local machine.
+## Build Meshplay Server on your local machine.
 build-server: dep-check
 	cd server; cd cmd; go mod tidy; cd "../.."
 	BUILD="$(GIT_VERSION)" \
@@ -120,11 +120,11 @@ build-server: dep-check
 	GOPROXY=https://proxy.golang.org,direct GO111MODULE=on go build ./server/cmd/main.go ./server/cmd/error.go
 	chmod +x ./main
 
-## Running the meshery server using binary.
+## Running the meshplay server using binary.
 server-binary:
 	cd server/cmd; BUILD="$(GIT_VERSION)" PROVIDER_BASE_URLS=$(MESHPLAY_CLOUD_STAGING) ../../main; cd ../../
 
-## Build and run Meshery Server on your local machine
+## Build and run Meshplay Server on your local machine
 ## and point to Remote Provider in staging environment
 server-stg: dep-check
 	cd server; cd cmd; go mod tidy; \
@@ -137,7 +137,7 @@ server-stg: dep-check
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go;
 
-## Build and run Meshery Server on your local machine.
+## Build and run Meshplay Server on your local machine.
 server: dep-check
 	cd server; cd cmd; go mod tidy; \
 	BUILD="$(GIT_VERSION)" \
@@ -149,8 +149,8 @@ server: dep-check
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go;
 
-## Build and run Meshery Server on your local machine.
-## Disable deployment of the Meshery Operator to your Kubernetes cluster(s).
+## Build and run Meshplay Server on your local machine.
+## Disable deployment of the Meshplay Operator to your Kubernetes cluster(s).
 server-without-operator: dep-check
 	cd server; cd cmd; go mod tidy; \
 	BUILD="$(GIT_VERSION)" \
@@ -163,7 +163,7 @@ server-without-operator: dep-check
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go;
 
-## Build and run Meshery Server with no Kubernetes components on your local machine.
+## Build and run Meshplay Server with no Kubernetes components on your local machine.
 server-skip-compgen:
 	cd server; cd cmd; go mod tidy; \
 	BUILD="$(GIT_VERSION)" \
@@ -176,7 +176,7 @@ server-skip-compgen:
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go;
 
-## Build and run Meshery Server on your local machine.
+## Build and run Meshplay Server on your local machine.
 ## Do not generate and register Kubernetes models.
 server-without-k8s: dep-check
 	cd server; cd cmd; go mod tidy; \
@@ -214,7 +214,7 @@ server-local-provider: dep-check
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go;
 
-## Build and run Meshery Server with no seed content.
+## Build and run Meshplay Server with no seed content.
 server-no-content:
 	cd server; cd cmd; go mod tidy; \
 	BUILD="$(GIT_VERSION)" \
@@ -240,11 +240,11 @@ server-playground: dep-check
 	KEYS_PATH=$(KEYS_PATH) \
 	go run main.go error.go;
 
-## Lint check Meshery Server.
+## Lint check Meshplay Server.
 golangci: error dep-check
 	golangci-lint run
 
-## Build Meshery's protobufs.
+## Build Meshplay's protobufs.
 proto-build:
 	# see https://developers.google.com/protocol-buffers/docs/reference/go-generated
 	# see https://grpc.io/docs/languages/go/quickstart/
@@ -255,19 +255,19 @@ proto-build:
 
 ## Analyze error codes
 error: dep-check
-	go run github.com/layer5io/meshkit/cmd/errorutil -d . analyze -i ./server/helpers -o ./server/helpers --skip-dirs mesheryctl
+	go run github.com/layer5io/meshkit/cmd/errorutil -d . analyze -i ./server/helpers -o ./server/helpers --skip-dirs meshplayctl
 
-## Runs meshkit error utility to update error codes for meshery server only.
+## Runs meshkit error utility to update error codes for meshplay server only.
 error-util:
-	go run github.com/layer5io/meshkit/cmd/errorutil -d . --skip-dirs mesheryctl update -i ./server/helpers/ -o ./server/helpers
+	go run github.com/layer5io/meshkit/cmd/errorutil -d . --skip-dirs meshplayctl update -i ./server/helpers/ -o ./server/helpers
 
-## Build Meshery UI; Build and run Meshery Server on your local machine.
-ui-server: ui-meshery-build ui-provider-build server
+## Build Meshplay UI; Build and run Meshplay Server on your local machine.
+ui-server: ui-meshplay-build ui-provider-build server
 
 #-----------------------------------------------------------------------------
-# Meshery UI Native Builds.
+# Meshplay UI Native Builds.
 #-----------------------------------------------------------------------------
-.PHONY: ui-setup ui ui-meshery-build ui-provider ui-lint ui-provider ui-meshery ui-build ui-provider-build ui-provider-test
+.PHONY: ui-setup ui ui-meshplay-build ui-provider ui-lint ui-provider ui-meshplay ui-build ui-provider-build ui-provider-test
 
 UI_BUILD_SCRIPT = build16
 UI_DEV_SCRIPT = dev16
@@ -283,131 +283,131 @@ else ifeq ($(findstring v17, $(shell node --version)), v17)
 	UI_DEV_SCRIPT = dev
 endif
 
-## Install dependencies for building Meshery UI.
+## Install dependencies for building Meshplay UI.
 ui-setup:
 	cd ui; npm i; cd ..
 	cd provider-ui; npm i; cd ..
 
-## Run Meshery UI on your local machine. Listen for changes.
+## Run Meshplay UI on your local machine. Listen for changes.
 ui:
 	cd ui; npm run dev; cd ..;
 
-## Run Meshery Provider UI  on your local machine. Listen for changes.
+## Run Meshplay Provider UI  on your local machine. Listen for changes.
 ui-provider:
 	cd provider-ui; npm run dev; cd ..
 
-## Lint check Meshery UI and Provider UI on your local machine.
+## Lint check Meshplay UI and Provider UI on your local machine.
 ui-lint:
 	cd ui; npm run lint; cd ..
 
-## Lint check Meshery Provider UI on your local machine.
+## Lint check Meshplay Provider UI on your local machine.
 ui-provider-lint:
 	cd provider-ui; npm run lint; cd ..
 
-## Test Meshery Provider UI on your local machine.
+## Test Meshplay Provider UI on your local machine.
 ui-provider-test:
 	cd provider-ui; npm run test; cd ..
 
-## Buils all Meshery UIs  on your local machine.
+## Buils all Meshplay UIs  on your local machine.
 ui-build: ui-setup
 	cd ui; npm run lint:fix && npm run build && npm run export; cd ..
 	cd provider-ui; npm run lint:fix && npm run build && npm run export; cd ..
 
-## Build only Meshery UI on your local machine.
-ui-meshery-build:
+## Build only Meshplay UI on your local machine.
+ui-meshplay-build:
 	cd ui; npm run build && npm run export; cd ..
 
 ## Builds only the provider user interface on your local machine
 ui-provider-build:
 	cd provider-ui; npm run build && npm run export; cd ..
 
-## Run Meshery Cypress Integration Tests against your local Meshery UI (cypress runs in non-interactive mode).
+## Run Meshplay Cypress Integration Tests against your local Meshplay UI (cypress runs in non-interactive mode).
 ui-integration-tests: ui-setup
 	cd ui; npm run ci-test-integration; cd ..
 
 #-----------------------------------------------------------------------------
-# Meshery Docs
+# Meshplay Docs
 #-----------------------------------------------------------------------------
 #Incorporating Make docs commands from the Docs Makefile
-.PHONY: docs docs-build site docs-docker docs-mesheryctl
+.PHONY: docs docs-build site docs-docker docs-meshplayctl
 jekyll=bundle exec jekyll
 
 site: docs
 site-serve: docs-serve
 
-## Run Meshery Docs. Listen for changes.
+## Run Meshplay Docs. Listen for changes.
 docs:
 	cd docs; bundle install; bundle exec jekyll serve --drafts --incremental --config _config_dev.yml
 
-## Run Meshery Docs. Do not listen for changes.
+## Run Meshplay Docs. Do not listen for changes.
 docs-serve:
 	cd docs; bundle install; bundle exec jekyll serve --drafts --config _config_dev.yml
 
-## Build Meshery Docs on your local machine.
+## Build Meshplay Docs on your local machine.
 docs-build:
 	cd docs; $(jekyll) build --drafts
 
-## Run Meshery Docs in a Docker container. Listen for changes.
+## Run Meshplay Docs in a Docker container. Listen for changes.
 docs-docker:
-	cd docs; docker run --name meshery-docs --rm -p 4000:4000 -v `pwd`:"/srv/jekyll" jekyll/jekyll:4.0 bash -c "bundle install; jekyll serve --drafts --livereload"
+	cd docs; docker run --name meshplay-docs --rm -p 4000:4000 -v `pwd`:"/srv/jekyll" jekyll/jekyll:4.0 bash -c "bundle install; jekyll serve --drafts --livereload"
 
-## Build Meshery CLI docs
-docs-mesheryctl:
-	cd mesheryctl; make docs;
+## Build Meshplay CLI docs
+docs-meshplayctl:
+	cd meshplayctl; make docs;
 #-----------------------------------------------------------------------------
-# Meshery Helm Charts
+# Meshplay Helm Charts
 #-----------------------------------------------------------------------------
-.PHONY: helm-docs helm-operator-docs helm-meshery-docs helm-operator-lint helm-lint
-## Generate all Meshery Helm Chart documentation in markdown format.
-helm-docs: helm-operator-docs helm-meshery-docs
+.PHONY: helm-docs helm-operator-docs helm-meshplay-docs helm-operator-lint helm-lint
+## Generate all Meshplay Helm Chart documentation in markdown format.
+helm-docs: helm-operator-docs helm-meshplay-docs
 
-## Generate Meshery Operator Helm Chart documentation in markdown format.
+## Generate Meshplay Operator Helm Chart documentation in markdown format.
 helm-operator-docs: dep-check
 	GO111MODULE=on go get github.com/norwoodj/helm-docs/cmd/helm-docs
-	$(GOPATH)/bin/helm-docs -c install/kubernetes/helm/meshery-operator
+	$(GOPATH)/bin/helm-docs -c install/kubernetes/helm/meshplay-operator
 
-## Generate Meshery Server and Adapters Helm Chart documentation in markdown format.
-helm-meshery-docs: dep-check
+## Generate Meshplay Server and Adapters Helm Chart documentation in markdown format.
+helm-meshplay-docs: dep-check
 	GO111MODULE=on go get github.com/norwoodj/helm-docs/cmd/helm-docs
-	$(GOPATH)/bin/helm-docs -c install/kubernetes/helm/meshery
+	$(GOPATH)/bin/helm-docs -c install/kubernetes/helm/meshplay
 
-## Lint all of Meshery's Helm Charts
-helm-lint: helm-operator-lint helm-meshery-lint
+## Lint all of Meshplay's Helm Charts
+helm-lint: helm-operator-lint helm-meshplay-lint
 
-## Lint Meshery Operator Helm Chart
+## Lint Meshplay Operator Helm Chart
 helm-operator-lint:
-	helm lint install/kubernetes/helm/meshery-operator --with-subcharts
-## Lint Meshery Server and Adapter Helm Charts
-helm-meshery-lint:
-	helm lint install/kubernetes/helm/meshery --with-subcharts
+	helm lint install/kubernetes/helm/meshplay-operator --with-subcharts
+## Lint Meshplay Server and Adapter Helm Charts
+helm-meshplay-lint:
+	helm lint install/kubernetes/helm/meshplay --with-subcharts
 
 #-----------------------------------------------------------------------------
-# Meshery APIs
+# Meshplay APIs
 #-----------------------------------------------------------------------------
 .PHONY: swagger-build swagger swagger-docs-build graphql-docs-build graphql-build
-## Build Meshery REST API specifications
+## Build Meshplay REST API specifications
 swagger-build:
 	swagger generate spec -o ./server/helpers/swagger.yaml --scan-models
 
-## Generate and serve Meshery REST API specifications
+## Generate and serve Meshplay REST API specifications
 swagger: swagger-build
 	swagger serve ./server/helpers/swagger.yaml
 
-## Build Meshery REST API documentation
+## Build Meshplay REST API documentation
 swagger-docs-build:
 	swagger generate spec -o ./docs/_data/swagger.yml --scan-models; \
 	swagger flatten ./docs/_data/swagger.yml -o ./docs/_data/swagger.yml --with-expand --format=yaml
 
 
-## Building Meshery docs with redocly
+## Building Meshplay docs with redocly
 redocly-docs-build:
 	npx @redocly/cli build-docs ./docs/_data/swagger.yml --config='redocly.yaml' -t custom.hbs
 
-## Build Meshery GraphQL API documentation
+## Build Meshplay GraphQL API documentation
 graphql-docs-build:
 	cd docs; bundle exec rake graphql:compile_docs
 
-## Build Meshery GraphQl API specifications
+## Build Meshplay GraphQl API specifications
 graphql-build: dep-check
 	cd server; cd internal/graphql; go run -mod=mod github.com/99designs/gqlgen generate
 

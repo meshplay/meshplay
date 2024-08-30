@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
@@ -88,14 +88,14 @@ type HeaderComponents struct {
 	Profile         bool `json:"profile,omitempty"` // todo: account can have other structs, if needed needs to expand
 }
 
-type MesheryUICapabilities struct {
+type MeshplayUICapabilities struct {
 	Navigator NavigatorComponents `json:"navigator,omitempty"`
 	Header    HeaderComponents    `json:"header,omitempty"`
 }
 
 type RestrictedAccess struct {
-	IsMesheryUIRestricted bool                  `json:"isMesheryUiRestricted"`
-	AllowedComponents     MesheryUICapabilities `json:"allowedComponents,omitempty"`
+	IsMeshplayUIRestricted bool                  `json:"isMeshplayUiRestricted"`
+	AllowedComponents     MeshplayUICapabilities `json:"allowedComponents,omitempty"`
 }
 
 // Extensions defines the UI extension points
@@ -246,25 +246,25 @@ const (
 
 	PersistSMPTestProfile Feature = "persist-smp-test-profile" // /user/test-config
 
-	PersistMesheryPatterns Feature = "persist-meshplay-patterns" // /patterns
+	PersistMeshplayPatterns Feature = "persist-meshplay-patterns" // /patterns
 
-	PersistMesheryPatternResources Feature = "persist-meshplay-pattern-resources" // /patterns/resources
+	PersistMeshplayPatternResources Feature = "persist-meshplay-pattern-resources" // /patterns/resources
 
-	PersistMesheryFilters Feature = "persist-meshplay-filters" // /filter
+	PersistMeshplayFilters Feature = "persist-meshplay-filters" // /filter
 
-	PersistMesheryApplications Feature = "persist-meshplay-applications" // /applications
+	PersistMeshplayApplications Feature = "persist-meshplay-applications" // /applications
 
 	PersistPerformanceProfiles Feature = "persist-performance-profiles" // /user/performance/profile
 
 	PersistSchedules Feature = "persist-schedules" // /user/schedules
 
-	MesheryPatternsCatalog Feature = "meshplay-patterns-catalog" // /patterns/catalog
+	MeshplayPatternsCatalog Feature = "meshplay-patterns-catalog" // /patterns/catalog
 
-	MesheryFiltersCatalog Feature = "meshplay-filters-catalog" // /filters/catalog
+	MeshplayFiltersCatalog Feature = "meshplay-filters-catalog" // /filters/catalog
 
-	CloneMesheryPatterns Feature = "clone-meshplay-patterns" // /patterns/clone
+	CloneMeshplayPatterns Feature = "clone-meshplay-patterns" // /patterns/clone
 
-	CloneMesheryFilters Feature = "clone-meshplay-filters" // /filters/clone
+	CloneMeshplayFilters Feature = "clone-meshplay-filters" // /filters/clone
 
 	ShareDesigns Feature = "share-designs"
 
@@ -312,15 +312,15 @@ const (
 	KubeClustersKey   ContextKey = "kubeclusters"
 	AllKubeClusterKey ContextKey = "allkubeclusters"
 
-	MesheryControllerHandlersKey ContextKey = "meshplaycontrollerhandlerskey"
+	MeshplayControllerHandlersKey ContextKey = "meshplaycontrollerhandlerskey"
 	MeshSyncDataHandlersKey      ContextKey = "meshsyncdatahandlerskey"
 
 	RegistryManagerKey ContextKey = "registrymanagerkey"
 
 	HandlerKey               ContextKey = "handlerkey"
 	SystemIDKey              ContextKey = "systemidKey"
-	MesheryServerURL         ContextKey = "meshplayserverurl"
-	MesheryServerCallbackURL ContextKey = "meshplayservercallbackurl"
+	MeshplayServerURL         ContextKey = "meshplayserverurl"
+	MeshplayServerCallbackURL ContextKey = "meshplayservercallbackurl"
 )
 
 // IsSupported returns true if the given feature is listed as one of
@@ -349,7 +349,7 @@ func (caps Capabilities) GetEndpointForFeature(feature Feature) (string, bool) {
 	return "", false
 }
 
-func VerifyMesheryProvider(provider string, supportedProviders map[string]Provider) bool {
+func VerifyMeshplayProvider(provider string, supportedProviders map[string]Provider) bool {
 	for prov := range supportedProviders {
 		if prov == provider {
 			return true
@@ -361,7 +361,7 @@ func VerifyMesheryProvider(provider string, supportedProviders map[string]Provid
 // Provider - interface for providers
 type Provider interface {
 	PreferencePersister
-	MesheryEvents
+	MeshplayEvents
 
 	// Initialize will initialize a provider instance
 	// by loading its capabilities and other metadata in the memory
@@ -392,15 +392,15 @@ type Provider interface {
 	HandleUnAuthenticated(w http.ResponseWriter, req *http.Request)
 	FetchResults(tokenVal string, page, pageSize, search, order, profileID string) ([]byte, error)
 	FetchAllResults(tokenVal string, page, pageSize, search, order, from, to string) ([]byte, error)
-	PublishResults(req *http.Request, result *MesheryResult, profileID string) (string, error)
+	PublishResults(req *http.Request, result *MeshplayResult, profileID string) (string, error)
 	FetchSmiResults(req *http.Request, page, pageSize, search, order string) ([]byte, error)
 	FetchSmiResult(req *http.Request, page, pageSize, search, order string, resultID uuid.UUID) ([]byte, error)
 	PublishSmiResults(result *SmiResult) (string, error)
-	PublishMetrics(tokenVal string, data *MesheryResult) error
-	GetResult(tokenVal string, resultID uuid.UUID) (*MesheryResult, error)
+	PublishMetrics(tokenVal string, data *MeshplayResult) error
+	GetResult(tokenVal string, resultID uuid.UUID) (*MeshplayResult, error)
 	RecordPreferences(req *http.Request, userID string, data *Preference) error
 
-	// We persist the events generated by Meshery Server in the local database (PersistEvent func in MesheryEvents interface) and use it as a cache to prevent increasing load on remote provider.
+	// We persist the events generated by Meshplay Server in the local database (PersistEvent func in MeshplayEvents interface) and use it as a cache to prevent increasing load on remote provider.
 	// As events are persisted in the local database below func is a no-op for local provider, for the case of remote provider we want to persist the events to the provider's database.
 	PublishEventToProvider(tokenVal string, event events.Event) error
 
@@ -422,40 +422,40 @@ type Provider interface {
 	SetKubeClient(client *meshplaykube.Client)
 	GetKubeClient() *meshplaykube.Client
 
-	SaveMesheryPattern(tokenString string, pattern *MesheryPattern) ([]byte, error)
-	GetMesheryPatterns(tokenString, page, pageSize, search, order string, updatedAfter string, visbility []string, includeMetrics string) ([]byte, error)
-	GetCatalogMesheryPatterns(tokenString string, page, pageSize, search, order string, includeMetrics string) ([]byte, error)
-	PublishCatalogPattern(req *http.Request, publishPatternRequest *MesheryCatalogPatternRequestBody) ([]byte, error)
-	UnPublishCatalogPattern(req *http.Request, publishPatternRequest *MesheryCatalogPatternRequestBody) ([]byte, error)
-	DeleteMesheryPattern(req *http.Request, patternID string) ([]byte, error)
-	DeleteMesheryPatterns(req *http.Request, patterns MesheryPatternDeleteRequestBody) ([]byte, error)
-	CloneMesheryPattern(req *http.Request, patternID string, clonePatternRequest *MesheryClonePatternRequestBody) ([]byte, error)
-	GetMesheryPattern(req *http.Request, patternID string, includeMetrics string) ([]byte, error)
+	SaveMeshplayPattern(tokenString string, pattern *MeshplayPattern) ([]byte, error)
+	GetMeshplayPatterns(tokenString, page, pageSize, search, order string, updatedAfter string, visbility []string, includeMetrics string) ([]byte, error)
+	GetCatalogMeshplayPatterns(tokenString string, page, pageSize, search, order string, includeMetrics string) ([]byte, error)
+	PublishCatalogPattern(req *http.Request, publishPatternRequest *MeshplayCatalogPatternRequestBody) ([]byte, error)
+	UnPublishCatalogPattern(req *http.Request, publishPatternRequest *MeshplayCatalogPatternRequestBody) ([]byte, error)
+	DeleteMeshplayPattern(req *http.Request, patternID string) ([]byte, error)
+	DeleteMeshplayPatterns(req *http.Request, patterns MeshplayPatternDeleteRequestBody) ([]byte, error)
+	CloneMeshplayPattern(req *http.Request, patternID string, clonePatternRequest *MeshplayClonePatternRequestBody) ([]byte, error)
+	GetMeshplayPattern(req *http.Request, patternID string, includeMetrics string) ([]byte, error)
 	RemotePatternFile(req *http.Request, resourceURL, path string, save bool) ([]byte, error)
-	SaveMesheryPatternResource(token string, resource *PatternResource) (*PatternResource, error)
-	GetMesheryPatternResource(token, resourceID string) (*PatternResource, error)
-	GetMesheryPatternResources(token, page, pageSize, search, order, name, namespace, typ, oamType string) (*PatternResourcePage, error)
-	DeleteMesheryPatternResource(token, resourceID string) error
-	SaveMesheryPatternSourceContent(token string, applicationID string, sourceContent []byte) error
+	SaveMeshplayPatternResource(token string, resource *PatternResource) (*PatternResource, error)
+	GetMeshplayPatternResource(token, resourceID string) (*PatternResource, error)
+	GetMeshplayPatternResources(token, page, pageSize, search, order, name, namespace, typ, oamType string) (*PatternResourcePage, error)
+	DeleteMeshplayPatternResource(token, resourceID string) error
+	SaveMeshplayPatternSourceContent(token string, applicationID string, sourceContent []byte) error
 	GetDesignSourceContent(token, patternID string) ([]byte, error)
 
-	SaveMesheryFilter(tokenString string, filter *MesheryFilter) ([]byte, error)
-	GetMesheryFilters(tokenString, page, pageSize, search, order string, visibility []string) ([]byte, error)
-	GetCatalogMesheryFilters(tokenString string, page, pageSize, search, order string) ([]byte, error)
-	PublishCatalogFilter(req *http.Request, publishFilterRequest *MesheryCatalogFilterRequestBody) ([]byte, error)
-	UnPublishCatalogFilter(req *http.Request, publishFilterRequest *MesheryCatalogFilterRequestBody) ([]byte, error)
-	DeleteMesheryFilter(req *http.Request, filterID string) ([]byte, error)
-	CloneMesheryFilter(req *http.Request, filterID string, cloneFilterRequest *MesheryCloneFilterRequestBody) ([]byte, error)
-	GetMesheryFilter(req *http.Request, filterID string) ([]byte, error)
-	GetMesheryFilterFile(req *http.Request, filterID string) ([]byte, error)
+	SaveMeshplayFilter(tokenString string, filter *MeshplayFilter) ([]byte, error)
+	GetMeshplayFilters(tokenString, page, pageSize, search, order string, visibility []string) ([]byte, error)
+	GetCatalogMeshplayFilters(tokenString string, page, pageSize, search, order string) ([]byte, error)
+	PublishCatalogFilter(req *http.Request, publishFilterRequest *MeshplayCatalogFilterRequestBody) ([]byte, error)
+	UnPublishCatalogFilter(req *http.Request, publishFilterRequest *MeshplayCatalogFilterRequestBody) ([]byte, error)
+	DeleteMeshplayFilter(req *http.Request, filterID string) ([]byte, error)
+	CloneMeshplayFilter(req *http.Request, filterID string, cloneFilterRequest *MeshplayCloneFilterRequestBody) ([]byte, error)
+	GetMeshplayFilter(req *http.Request, filterID string) ([]byte, error)
+	GetMeshplayFilterFile(req *http.Request, filterID string) ([]byte, error)
 	RemoteFilterFile(req *http.Request, resourceURL, path string, save bool, resource string) ([]byte, error)
 
-	SaveMesheryApplication(tokenString string, application *MesheryApplication) ([]byte, error)
+	SaveMeshplayApplication(tokenString string, application *MeshplayApplication) ([]byte, error)
 	SaveApplicationSourceContent(token string, applicationID string, sourceContent []byte) error
 	GetApplicationSourceContent(req *http.Request, applicationID string) ([]byte, error)
-	GetMesheryApplications(tokenString, page, pageSize, search, order string, updatedAfter string) ([]byte, error)
-	DeleteMesheryApplication(req *http.Request, applicationID string) ([]byte, error)
-	GetMesheryApplication(req *http.Request, applicationID string) ([]byte, error)
+	GetMeshplayApplications(tokenString, page, pageSize, search, order string, updatedAfter string) ([]byte, error)
+	DeleteMeshplayApplication(req *http.Request, applicationID string) ([]byte, error)
+	GetMeshplayApplication(req *http.Request, applicationID string) ([]byte, error)
 	ShareDesign(req *http.Request) (int, error)
 	ShareFilter(req *http.Request) (int, error)
 
@@ -481,7 +481,7 @@ type Provider interface {
 	UpdateConnectionById(req *http.Request, conn *ConnectionPayload, connId string) (*connections.Connection, error)
 	UpdateConnectionStatusByID(token string, connectionID uuid.UUID, connectionStatus connections.ConnectionStatus) (*connections.Connection, int, error)
 	DeleteConnection(req *http.Request, connID uuid.UUID) (*connections.Connection, error)
-	DeleteMesheryConnection() error
+	DeleteMeshplayConnection() error
 
 	SaveUserCredential(token string, credential *Credential) (*Credential, error)
 	GetUserCredentials(req *http.Request, userID string, page, pageSize int, search, order string) (*CredentialsPage, error)

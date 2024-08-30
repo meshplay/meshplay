@@ -5,10 +5,10 @@ permalink: reference
 redirect_from: reference/
 language: en
 list: exclude
-abstract: References for using Meshery's various features and components.
+abstract: References for using Meshplay's various features and components.
 ---
 
-References for using Meshery's various features and components.
+References for using Meshplay's various features and components.
 
 {% assign sorted_reference = site.pages | sort: "type" | reverse %}
 
@@ -23,5 +23,5 @@ References for using Meshery's various features and components.
       {% endif %}
     {% endfor %}
 </ul>
-{% include related-discussions.html tag="meshery" %}
+{% include related-discussions.html tag="meshplay" %}
 

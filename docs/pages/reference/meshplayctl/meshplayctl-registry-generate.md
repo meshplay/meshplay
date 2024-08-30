@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-registry-generate
-permalink: reference/mesheryctl/registry/generate
-redirect_from: reference/mesheryctl/registry/generate/
+title: meshplayctl-registry-generate
+permalink: reference/meshplayctl/registry/generate
+redirect_from: reference/meshplayctl/registry/generate/
 type: reference
 display-title: "false"
 language: en
@@ -10,30 +10,30 @@ command: registry
 subcommand: generate
 ---
 
-# mesheryctl registry generate
+# meshplayctl registry generate
 
 Generate Models
 
 ## Synopsis
 
-Prerequisite: Excecute this command from the root of a meshery/meshery repo fork.
+Prerequisite: Excecute this command from the root of a meshplay/meshplay repo fork.
 
 Given a Google Sheet with a list of model names and source locations, generate models and components any Registrant (e.g. GitHub, Artifact Hub) repositories.
 
 Generated Model files are written to local filesystem under `/server/models/<model-name>`.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry generate [flags]
+meshplayctl registry generate [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Generate Meshery Models from a Google Spreadsheet (i.e. "Meshery Integrations" spreadsheet).
+Generate Meshplay Models from a Google Spreadsheet (i.e. "Meshplay Integrations" spreadsheet).
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred 
+meshplayctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred 
 
 </div>
 </pre> 
@@ -41,15 +41,15 @@ mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tu
 Directly generate models from one of the supported registrants by using Registrant Connection Definition and (optional) Registrant Credential Definition
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry generate --registrant-def [path to connection definition] --registrant-cred [path to credential definition]
+meshplayctl registry generate --registrant-def [path to connection definition] --registrant-cred [path to credential definition]
 
 </div>
 </pre> 
 
-Generate a specific Model from a Google Spreadsheet (i.e. "Meshery Integrations" spreadsheet).
+Generate a specific Model from a Google Spreadsheet (i.e. "Meshplay Integrations" spreadsheet).
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred --model "[model-name]"
+meshplayctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw" --spreadsheet-cred --model "[model-name]"
 
 </div>
 </pre> 
@@ -80,7 +80,7 @@ mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tu
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -88,4 +88,4 @@ mesheryctl registry generate --spreadsheet-id "1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tu
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

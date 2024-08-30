@@ -3,7 +3,7 @@ import { LinearProgress } from '@material-ui/core';
 import React, { useEffect, useRef } from 'react';
 import { useSnackbar } from 'notistack';
 
-const MesheryProgressBar = ({ showProgress }) => {
+const MeshplayProgressBar = ({ showProgress }) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const snackbarKey = useRef(null);
 
@@ -26,4 +26,4 @@ const MesheryProgressBar = ({ showProgress }) => {
 
 const mapStateToProps = (state) => ({ showProgress: state.get('showProgress') });
 
-export default connect(mapStateToProps)(MesheryProgressBar);
+export default connect(mapStateToProps)(MeshplayProgressBar);

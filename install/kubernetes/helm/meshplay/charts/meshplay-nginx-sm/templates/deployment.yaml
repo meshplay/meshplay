@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "meshery-nginx-sm.fullname" . }}
+  name: {{ include "meshplay-nginx-sm.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    io.kompose.service: {{ include "meshery-nginx-sm.fullname" . }}
+    io.kompose.service: {{ include "meshplay-nginx-sm.fullname" . }}
   annotations:
     {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      io.kompose.service: {{ include "meshery-nginx-sm.fullname" . }}
+      io.kompose.service: {{ include "meshplay-nginx-sm.fullname" . }}
   template:
     metadata:
       labels:
-        io.kompose.service: {{ include "meshery-nginx-sm.fullname" . }}
+        io.kompose.service: {{ include "meshplay-nginx-sm.fullname" . }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "meshery-nginx-sm.serviceAccountName" . }}
+      serviceAccountName: {{ include "meshplay-nginx-sm.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

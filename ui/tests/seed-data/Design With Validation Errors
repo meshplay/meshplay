@@ -3,9 +3,9 @@ services:
   Section:
     name: Section
     type: Section
-    apiVersion: core.meshery.io/v1alpha1
+    apiVersion: core.meshplay.io/v1alpha1
     version: 0.7.1
-    model: meshery-shapes
+    model: meshplay-shapes
     traits:
       meshmap:
         edges: []
@@ -17,22 +17,22 @@ services:
             name: Orchestration & Management
           components: null
           description: ""
-          displayName: Meshery Shapes
+          displayName: Meshplay Shapes
           hostID: 26e64aa8-2d86-57bd-92b3-2a73160d27b4
           id: 0499d935-67ae-5f79-a806-7865387c1488
           metadata:
             isAnnotation: true
             subCategory: App Definition and Development
-            svgColor: ui/public/static/img/meshmodels/meshery-shapes/color/meshery-shapes-color.svg
+            svgColor: ui/public/static/img/meshmodels/meshplay-shapes/color/meshplay-shapes-color.svg
             svgComplete: ""
-            svgWhite: ui/public/static/img/meshmodels/meshery-shapes/white/meshery-shapes-white.svg
+            svgWhite: ui/public/static/img/meshmodels/meshplay-shapes/white/meshplay-shapes-white.svg
           model:
             version: 0.7.1
-          name: meshery-shapes
+          name: meshplay-shapes
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: App Definition and Development
           version: v1.0.0
@@ -60,9 +60,9 @@ services:
             z-index: 16
           styles: '{"height":"30px","width":"30px", "background-image":"none","border-width":1,"border-style":"dashed","background-opacity":0.1}'
           subCategory: ""
-          svgColor: ui/public/static/img/meshmodels/meshery-core/color/anchornode-color.svg
+          svgColor: ui/public/static/img/meshmodels/meshplay-core/color/anchornode-color.svg
           svgComplete: ""
-          svgWhite: ui/public/static/img/meshmodels/meshery-core/white/anchornode-white.svg
+          svgWhite: ui/public/static/img/meshmodels/meshplay-core/white/anchornode-white.svg
         position:
           posX: 530
           posY: 99
@@ -100,7 +100,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -112,7 +112,7 @@ services:
           isCustomResource: false
           isModelAnnotation: "FALSE"
           isNamespaced: false
-          logoURL: Created by Meshery Authors
+          logoURL: Created by Meshplay Authors
           model: kubernetes
           modelDisplayName: Kubernetes
           primaryColor: '#326CE5'
@@ -171,7 +171,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -183,7 +183,7 @@ services:
           isCustomResource: false
           isModelAnnotation: "FALSE"
           isNamespaced: false
-          logoURL: Created by Meshery Authors
+          logoURL: Created by Meshplay Authors
           model: kubernetes
           modelDisplayName: Kubernetes
           primaryColor: '#326CE5'
@@ -238,7 +238,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -250,7 +250,7 @@ services:
           isCustomResource: false
           isModelAnnotation: "FALSE"
           isNamespaced: false
-          logoURL: Created by Meshery Authors
+          logoURL: Created by Meshplay Authors
           model: kubernetes
           modelDisplayName: Kubernetes
           primaryColor: '#326CE5'
@@ -276,10 +276,10 @@ services:
   comment-lg:
     name: comment-lg
     type: Comment
-    apiVersion: core.meshery.io/v1alpha1
+    apiVersion: core.meshplay.io/v1alpha1
     namespace: default
     version: 0.7.1
-    model: meshery-core
+    model: meshplay-core
     dependsOn:
     - Section
     settings:
@@ -295,22 +295,22 @@ services:
             name: Orchestration & Management
           components: null
           description: ""
-          displayName: Meshery Core
+          displayName: Meshplay Core
           hostID: 26e64aa8-2d86-57bd-92b3-2a73160d27b4
           id: 3e2db384-d3af-5fac-8af2-684fc3c29446
           metadata:
             isAnnotation: false
             subCategory: App Definition and Development
-            svgColor: ui/public/static/img/meshmodels/meshery-core/color/meshery-core-color.svg
+            svgColor: ui/public/static/img/meshmodels/meshplay-core/color/meshplay-core-color.svg
             svgComplete: ""
-            svgWhite: ui/public/static/img/meshmodels/meshery-core/color/meshery-core-color.svg
+            svgWhite: ui/public/static/img/meshmodels/meshplay-core/color/meshplay-core-color.svg
           model:
             version: 0.7.1
-          name: meshery-core
+          name: meshplay-core
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: App Definition and Development
           version: v1.0.0
@@ -332,9 +332,9 @@ services:
             z-index: 17
           styles: '{"height":"22px","width":"22px","x":"1.5px","y":"7.5px"}'
           subCategory: ""
-          svgColor: ui/public/static/img/meshmodels/meshery-core/color/comment-color.svg
+          svgColor: ui/public/static/img/meshmodels/meshplay-core/color/comment-color.svg
           svgComplete: ""
-          svgWhite: ui/public/static/img/meshmodels/meshery-core/color/comment-color.svg
+          svgWhite: ui/public/static/img/meshmodels/meshplay-core/color/comment-color.svg
         parent: 446cdb32-2b4c-4233-b9a1-1bfbdf00f0c3
         position:
           posX: 530
@@ -370,7 +370,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -447,7 +447,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0
@@ -512,7 +512,7 @@ services:
           registrant:
             hostname: artifacthub
           relationships: null
-          schemaVersion: core.meshery.io/v1beta1
+          schemaVersion: core.meshplay.io/v1beta1
           status: enabled
           subCategory: ""
           version: v1.0.0

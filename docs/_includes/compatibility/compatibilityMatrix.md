@@ -55,14 +55,14 @@
 <table class="table table-striped" >
   <th>Kubernetes Version</th>
 
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/istio.svg" /><a href="{{ site.repo }}-istio">meshery-istio</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/linkerd.svg" /><a href="{{ site.repo }}-linkerd">meshery-linkerd</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/kuma.svg" /><a href="{{ site.repo }}-kuma">meshery-kuma</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/adapters/nighthawk/nighthawk.svg" /><a href="{{ site.repo }}-nighthawk">meshery-nighthawk</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/nginx-sm.svg" /><a href="{{ site.repo }}-nginx-sm">meshery-nginx-sm</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/traefik-mesh.svg" /><a href="{{ site.repo }}-traefik-mesh">meshery-traefik-mesh</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/cilium.svg" /><a href="{{ site.repo }}-cilium">meshery-cilium</a></th>
-  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/consul.svg" /><a href="{{ site.repo }}-consul">meshery-consul</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/istio.svg" /><a href="{{ site.repo }}-istio">meshplay-istio</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/linkerd.svg" /><a href="{{ site.repo }}-linkerd">meshplay-linkerd</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/kuma.svg" /><a href="{{ site.repo }}-kuma">meshplay-kuma</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/adapters/nighthawk/nighthawk.svg" /><a href="{{ site.repo }}-nighthawk">meshplay-nighthawk</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/nginx-sm.svg" /><a href="{{ site.repo }}-nginx-sm">meshplay-nginx-sm</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/traefik-mesh.svg" /><a href="{{ site.repo }}-traefik-mesh">meshplay-traefik-mesh</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/cilium.svg" /><a href="{{ site.repo }}-cilium">meshplay-cilium</a></th>
+  <th><img style="height: 1.5rem; vertical-align: text-bottom;" src="{{site.baseurl}}/assets/img/service-meshes/consul.svg" /><a href="{{ site.repo }}-consul">meshplay-consul</a></th>
 
 {% for k8s in {{include.k8s_tests_group}} %}
 
@@ -78,11 +78,11 @@
 
     {%if k8s.name != "v1.21.0"%}
       <td>{{k8s.name}}</td>
-      {% assign k8s_items = k8s.items | group_by: "meshery-component"  %}
+      {% assign k8s_items = k8s.items | group_by: "meshplay-component"  %}
       {% for k8s_item in k8s_items %}
-        {% if k8s_item.name == "meshery-linkerd" %}
+        {% if k8s_item.name == "meshplay-linkerd" %}
           {% assign linkerd_size = k8s_item.size | times:1.0 %}
-          {% assign linkerd_item = k8s_item.items | sort: "meshery-component-version" | reverse %}
+          {% assign linkerd_item = k8s_item.items | sort: "meshplay-component-version" | reverse %}
           {% for single in linkerd_item limit: 1 %}
             {% if single.overall-status == "passing" %}
               {% assign successfull_linkerd = 1 %}
@@ -93,9 +93,9 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-istio" %}
+        {% elsif k8s_item.name == "meshplay-istio" %}
           {% assign istio_size = k8s_item.size | times:1.0 | times:1.0 %}
-          {% assign istio_items = k8s_item.items | sort: "meshery-component-version" | reverse %}
+          {% assign istio_items = k8s_item.items | sort: "meshplay-component-version" | reverse %}
           {% for single in istio_items limit: 1 %}
              {% if single.overall-status == "passing" %}
               {% assign successfull_istio = 1 %}
@@ -106,9 +106,9 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-kuma" %}
+        {% elsif k8s_item.name == "meshplay-kuma" %}
           {% assign kuma_size = k8s_item.size | times:1.0 %}
-          {% assign kuma_items = k8s_item.items | sort: "meshery-component-version" | reverse  %}
+          {% assign kuma_items = k8s_item.items | sort: "meshplay-component-version" | reverse  %}
           {% for single in kuma_items limit: 1 %}
             {% if single.overall-status == "passing" %}
               {% assign successfull_kuma = 1 %}
@@ -119,12 +119,12 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-nighthawk" %}
+        {% elsif k8s_item.name == "meshplay-nighthawk" %}
           {%if k8s.name == "v1.20.1" or k8s.name == "v1.21.5" or k8s.name == "v1.20.11" or k8s.name == "v1.22.2" %}
             {% assign nighthawk_size = 0 | times:1.0 %}
           {%else%}
             {% assign nighthawk_size = k8s_item.size | times:1.0 %}
-            {% assign nighthawk_items = k8s_item.items | sort: "meshery-component-version" | reverse  %}
+            {% assign nighthawk_items = k8s_item.items | sort: "meshplay-component-version" | reverse  %}
           {%endif%}
           {% for single in nighthawk_items limit: 1 %}
              {% if single.overall-status == "passing" %}
@@ -136,9 +136,9 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-cilium" %}
+        {% elsif k8s_item.name == "meshplay-cilium" %}
           {% assign cilium_size = k8s_item.size | times:1.0 %}
-          {% assign cilium_items = k8s_item.items | sort: "meshery-component-version" | reverse  %}
+          {% assign cilium_items = k8s_item.items | sort: "meshplay-component-version" | reverse  %}
           {% for single in cilium_items limit: 1 %}
             {% if single.overall-status == "passing" %}
               {% assign successfull_cilium = 1 %}
@@ -149,9 +149,9 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-nginx-sm"%}
+        {% elsif k8s_item.name == "meshplay-nginx-sm"%}
           {% assign nginx_size = k8s_item.size | times:1.0 %}
-          {% assign nginx_items = k8s_item.items | sort: "meshery-component-version" | reverse  %}
+          {% assign nginx_items = k8s_item.items | sort: "meshplay-component-version" | reverse  %}
           {% for single in nginx_items limit: 1 %}
             {% if single.overall-status == "passing" %}
               {% assign successfull_nginx_sm = 1 %}
@@ -162,9 +162,9 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-consul"%}
+        {% elsif k8s_item.name == "meshplay-consul"%}
           {% assign consul_size = k8s_item.size | times:1.0 %}
-          {% assign consul_items = k8s_item.items | sort: "meshery-component-version" | reverse  %}
+          {% assign consul_items = k8s_item.items | sort: "meshplay-component-version" | reverse  %}
           {% for single in consul_items limit: 1 %}
              {% if single.overall-status == "passing" %}
               {% assign successfull_consul = 1 %}
@@ -175,9 +175,9 @@
             {% endif %}
           {% endfor %}
 
-        {% elsif k8s_item.name == "meshery-traefik-mesh" %}
+        {% elsif k8s_item.name == "meshplay-traefik-mesh" %}
           {% assign traefik_size = k8s_item.size | times:1.0 %}
-          {% assign traefik_items = k8s_item.items | sort: "meshery-component-version" | reverse  %}
+          {% assign traefik_items = k8s_item.items | sort: "meshplay-component-version" | reverse  %}
           {% for single in traefik_items limit: 1 %}
             {% if single.overall-status == "passing" %}
               {% assign successfull_traefik_mesh = 1 %}
@@ -192,66 +192,66 @@
 
       {%if istio_size and istio_size !=0%}
         {% assign istio_percentage = successfull_istio | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-istio`)" class = "compatibility">{{istio_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-istio`)" class = "compatibility">{{istio_percentage}}%</td>
       {%else%}
         {% assign istio_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-istio`)" class = "compatibility">{{istio_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-istio`)" class = "compatibility">{{istio_percentage}}%</td>
       {%endif%}
 
       {%if linkerd_size and linkerd_size !=0%}
         {% assign linkerd_percentage = successfull_linkerd | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-linkerd`)" class = "compatibility">{{linkerd_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-linkerd`)" class = "compatibility">{{linkerd_percentage}}%</td>
       {%else%}
         {% assign linkerd_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-linkerd`)" class = "compatibility">{{linkerd_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-linkerd`)" class = "compatibility">{{linkerd_percentage}}%</td>
       {%endif%}
 
       {%if kuma_size and kuma_size !=0%}
        {% assign kuma_percentage = successfull_kuma | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-kuma`)" class = "compatibility">{{kuma_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-kuma`)" class = "compatibility">{{kuma_percentage}}%</td>
       {%else%}
         {% assign kuma_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-kuma`)" class = "compatibility">{{kuma_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-kuma`)" class = "compatibility">{{kuma_percentage}}%</td>
       {%endif%}
 
       {%if nighthawk_size and nighthawk_size !=0%}
         {% assign nighthawk_percentage = successfull_nighthawk | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-nighthawk`)" class = "compatibility">{{nighthawk_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-nighthawk`)" class = "compatibility">{{nighthawk_percentage}}%</td>
       {%else%}
         {% assign nighthawk_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-nighthawk`)" class = "compatibility">{{nighthawk_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-nighthawk`)" class = "compatibility">{{nighthawk_percentage}}%</td>
       {%endif%}
 
       {%if nginx_size and nginx_size !=0%}
         {% assign nginx_percentage = successfull_nginx_sm | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-nginx-sm`)" class = "compatibility">{{nginx_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-nginx-sm`)" class = "compatibility">{{nginx_percentage}}%</td>
       {%else%}
         {% assign nginx_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-nginx-sm`)" class = "compatibility">{{nginx_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-nginx-sm`)" class = "compatibility">{{nginx_percentage}}%</td>
       {%endif%}
 
       {%if traefik_size and traefik_size !=0%}
         {% assign traefik_percentage = successfull_traefik_mesh | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-traefik-mesh`)" class = "compatibility">{{traefik_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-traefik-mesh`)" class = "compatibility">{{traefik_percentage}}%</td>
       {%else%}
         {% assign traefik_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-traefik-mesh`)" class = "compatibility">{{traefik_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-traefik-mesh`)" class = "compatibility">{{traefik_percentage}}%</td>
       {%endif%}
 
       {%if cilium_size and cilium_size !=0%}
         {% assign cilium_percentage = successfull_cilium | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-cilium`)" class = "compatibility">{{cilium_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-cilium`)" class = "compatibility">{{cilium_percentage}}%</td>
       {%else%}
         {% assign cilium_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-cilium`)" class = "compatibility">{{cilium_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-cilium`)" class = "compatibility">{{cilium_percentage}}%</td>
       {%endif%}
 
       {%if consul_size and consul_size !=0%}
         {% assign consul_percentage = successfull_consul | divided_by: 1 | times:100 | round:2 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-consul`)" class = "compatibility">{{consul_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-consul`)" class = "compatibility">{{consul_percentage}}%</td>
       {%else%}
         {% assign consul_percentage = -100.0 %}
-        <td style="text-align:center" onclick = "clickIcon(`meshery-consul`)" class = "compatibility">{{consul_percentage}}%</td>
+        <td style="text-align:center" onclick = "clickIcon(`meshplay-consul`)" class = "compatibility">{{consul_percentage}}%</td>
       {%endif%}
 
       {%assign consul_size = 0 %}

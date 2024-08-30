@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,34 +24,34 @@ import (
 
 const example = `
 // ### bash <= 3.2
-source /dev/stdin <<< "$(mesheryctl completion bash)"
+source /dev/stdin <<< "$(meshplayctl completion bash)"
 
 // bash <= 3.2 on osx
 // ensure you have bash-completion 1.3+
 brew install bash-completion 
-mesheryctl completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
+meshplayctl completion bash > $(brew --prefix)/etc/bash_completion.d/meshplayctl
 
 // ### bash >= 4.0
-source <(mesheryctl completion bash)
+source <(meshplayctl completion bash)
 
 // bash >= 4.0 on osx
 brew install bash-completion@2
-mesheryctl completion bash > $(brew --prefix)/etc/bash_completion.d/mesheryctl
+meshplayctl completion bash > $(brew --prefix)/etc/bash_completion.d/meshplayctl
 
 // ### zsh
 // If shell completion is not already enabled in your environment you will need
 // to enable it.  You can execute the following once:
 // Might need to start a new shell for this setup to take effect.
 $ echo "autoload -U compinit; compinit" >> ~/.zshrc
-source <(mesheryctl completion zsh)
+source <(meshplayctl completion zsh)
 
 // zsh on osx / oh-my-zsh
-COMPLETION_DIR=$(echo $fpath | grep -o '[^ ]*completions' | grep -v cache) && mkdir -p $COMPLETION_DIR && mesheryctl completion zsh > "${COMPLETION_DIR}/_mesheryctl"
+COMPLETION_DIR=$(echo $fpath | grep -o '[^ ]*completions' | grep -v cache) && mkdir -p $COMPLETION_DIR && meshplayctl completion zsh > "${COMPLETION_DIR}/_meshplayctl"
 
 // ### fish:
-mesheryctl completion fish | source
+meshplayctl completion fish | source
 // To load fish shell completions for each session, execute once:
-mesheryctl completion fish > ~/.config/fish/completions/mesheryctl.fish`
+meshplayctl completion fish > ~/.config/fish/completions/meshplayctl.fish`
 
 // completionCmd represents the completion command
 var completionCmd = &cobra.Command{
@@ -60,7 +60,7 @@ var completionCmd = &cobra.Command{
 	Long:    "Output shell completion code",
 	Example: example,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = `Usage: mesheryctl completion [bash|zsh|fish]`
+		const errMsg = `Usage: meshplayctl completion [bash|zsh|fish]`
 		if len(args) == 0 {
 			return fmt.Errorf("shell type not provided, please provide the required type from [bash|zsh|fish].\n\n%s", errMsg)
 		}

@@ -4,25 +4,25 @@
 
 You need to have `scoop` installed on your Windows system to perform these actions.
 
-### Install `mesheryctl` with Scoop
+### Install `meshplayctl` with Scoop
 
-To install `mesheryctl` using Scoop, execute the following commands.
+To install `meshplayctl` using Scoop, execute the following commands.
 
 <pre class="codeblock-pre"><div class="codeblock">
-<div class="clipboardjs">scoop bucket add mesheryctl https://github.com/meshery/scoop-bucket.git
-scoop install mesheryctl</div></div>
+<div class="clipboardjs">scoop bucket add meshplayctl https://github.com/meshplay/scoop-bucket.git
+scoop install meshplayctl</div></div>
 </pre>
 
-You're ready to run Meshery. To do so, execute the following command.
+You're ready to run Meshplay. To do so, execute the following command.
 
 <pre class="codeblock-pre"><div class="codeblock">
-<div class="clipboardjs">mesheryctl system start</div></div>
+<div class="clipboardjs">meshplayctl system start</div></div>
 </pre>
 
-### Upgrade `mesheryctl` with Scoop
+### Upgrade `meshplayctl` with Scoop
 
-To upgrade `mesheryctl`, execute the following command.
+To upgrade `meshplayctl`, execute the following command.
 
 <pre class="codeblock-pre"><div class="codeblock">
-<div class="clipboardjs">scoop update mesheryctl</div></div>
+<div class="clipboardjs">scoop update meshplayctl</div></div>
 </pre>

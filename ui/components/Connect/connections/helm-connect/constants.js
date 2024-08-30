@@ -28,22 +28,22 @@ export const helmStepContent = {
 
 export const ConnectionStepperTips = [
   'GitOps is more fun with friends. Invite one today.',
-  'Meshery works with multiple Kubernetes clusters. Connect each of yours by uploading your kubeconfig and letting Meshery do the rest.',
-  'Import your Docker Compose, Helm Chart, and Kubernetes mainfests. Let Meshery visualize and deploy them.',
+  'Meshplay works with multiple Kubernetes clusters. Connect each of yours by uploading your kubeconfig and letting Meshplay do the rest.',
+  'Import your Docker Compose, Helm Chart, and Kubernetes mainfests. Let Meshplay visualize and deploy them.',
 ];
 
 export const ConnectAppContent = {
   title: 'Connecting your Helm Repository',
   subtitle:
-    'Integrate Meshery seamlessly with your existing Helm-based process. Connect Meshery to one or more Helm repositories and import one or all Helm charts from your repo.',
-  tips: 'Meshery is optimized for GitOps-centric workflows. Connect your  Helm repositories for a full experience.',
+    'Integrate Meshplay seamlessly with your existing Helm-based process. Connect Meshplay to one or more Helm repositories and import one or all Helm charts from your repo.',
+  tips: 'Meshplay is optimized for GitOps-centric workflows. Connect your  Helm repositories for a full experience.',
   btnText: 'Connect',
   cancel: true,
 };
 
 export const SelectRepositoryContent = {
   title: 'Select Helm Repository',
-  tips: 'Meshery is optimized for codebases that are actively undergoing development.',
+  tips: 'Meshplay is optimized for codebases that are actively undergoing development.',
   btnText: 'Next',
 };
 

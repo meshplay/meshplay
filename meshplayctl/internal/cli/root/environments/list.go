@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ import (
 	"net/http"
 
 	"github.com/eiannone/keyboard"
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models/environments"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models/environments"
 	"github.com/pkg/errors"
 
 	"github.com/spf13/cobra"
@@ -36,7 +36,7 @@ var listEnvironmentCmd = &cobra.Command{
 	Long:  `List name of all registered environments`,
 	Example: `
 // List all registered environment
-mesheryctl exp environment list --orgID [orgId]
+meshplayctl exp environment list --orgID [orgId]
 
 // Documentation for environment can be found at:
 https://docs.layer5.io/cloud/spaces/environments/
@@ -57,12 +57,12 @@ https://docs.layer5.io/cloud/spaces/environments/
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 
 		url := fmt.Sprintf("%s/api/environments?orgID=%s", baseUrl, orgID)
 		req, err := utils.NewRequest(http.MethodGet, url, nil)

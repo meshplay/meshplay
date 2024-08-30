@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,16 +18,16 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
 var linkDocMeshDeploy = map[string]string{
-	"link":    "![mesh-deploy-usage](/assets/img/mesheryctl/deploy-mesh.png)",
-	"caption": "Usage of mesheryctl adapter deploy",
+	"link":    "![mesh-deploy-usage](/assets/img/meshplayctl/deploy-mesh.png)",
+	"caption": "Usage of meshplayctl adapter deploy",
 }
 
 var (
@@ -38,21 +38,21 @@ var (
 		Long:  `Deploy infrastructure to the connected Kubernetes cluster`,
 		Example: `
 // Deploy a infrastructure from an interactive on the default namespace
-mesheryctl adapter deploy
+meshplayctl adapter deploy
 
 // Deploy infrastructure
-mesheryctl adapter deploy linkerd
+meshplayctl adapter deploy linkerd
 
 // Deploy Linkerd mesh on a specific namespace
-mesheryctl adapter deploy linkerd --namespace linkerd-ns
+meshplayctl adapter deploy linkerd --namespace linkerd-ns
 
 // Deploy Linkerd mesh and wait for it to be deployed
-mesheryctl adapter deploy linkerd --watch
+meshplayctl adapter deploy linkerd --watch
 		`,
 		Annotations: linkDocMeshDeploy,
 		PreRunE: func(cmd *cobra.Command, args []string) error {
 			log.Infof("Verifying prerequisites...")
-			mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+			mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 			if err != nil {
 				utils.Log.Error(err)
 				return nil
@@ -66,7 +66,7 @@ mesheryctl adapter deploy linkerd --watch
 			return nil
 		},
 		RunE: func(cmd *cobra.Command, args []string) error {
-			mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+			mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 			if err != nil {
 				utils.Log.Error(err)
 				return nil
@@ -96,6 +96,6 @@ mesheryctl adapter deploy linkerd --watch
 
 func init() {
 	deployCmd.Flags().StringVarP(&namespace, "namespace", "n", "default", "Kubernetes namespace to be used for deploying the validation tests and sample workload")
-	deployCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshery API")
+	deployCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshplay API")
 	deployCmd.Flags().BoolVarP(&watch, "watch", "w", false, "Watch for events and verify operation (in beta testing)")
 }

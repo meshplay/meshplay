@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-adapter-remove
-permalink: reference/mesheryctl/adapter/remove
-redirect_from: reference/mesheryctl/adapter/remove/
+title: meshplayctl-adapter-remove
+permalink: reference/meshplayctl/adapter/remove
+redirect_from: reference/meshplayctl/adapter/remove/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: adapter
 subcommand: remove
 ---
 
-# mesheryctl adapter remove
+# meshplayctl adapter remove
 
 remove cloud and cloud native infrastructure
 
@@ -19,7 +19,7 @@ remove cloud and cloud native infrastructure
 remove cloud and cloud native infrastructure
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter remove [flags]
+meshplayctl adapter remove [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl adapter remove [flags]
 Remove Linkerd deployment
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter remove linkerd
+meshplayctl adapter remove linkerd
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl adapter remove linkerd
 Remove a Linkerd control plane found under a specific namespace (linkerd-ns)
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl adapter remove linkerd --namespace linkerd-ns
+meshplayctl adapter remove linkerd --namespace linkerd-ns
 
 </div>
 </pre> 
@@ -63,8 +63,8 @@ mesheryctl adapter remove linkerd --namespace linkerd-ns
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
-  -t, --token string    Path to token for authenticating to Meshery API
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
+  -t, --token string    Path to token for authenticating to Meshplay API
   -v, --verbose         verbose output
 
 </div>
@@ -72,4 +72,4 @@ mesheryctl adapter remove linkerd --namespace linkerd-ns
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -17,8 +17,8 @@ jobs:
 
         - name: Get Release Info
           run: |
-            export RELEASE_TAG=$(curl -s https://api.github.com/repos/meshery/meshery/releases/latest | jq '.["tag_name"]' | tr -d '"')
-            printf '%b\n' "---\nlayout: release\ndate: $(date +'%Y-%m-%d')\ntag: $RELEASE_TAG\n---\n\n`curl -s https://api.github.com/repos/meshery/meshery/releases/latest | jq -r '.["body"]'`" > ./docs/_releases/$RELEASE_TAG.md
+            export RELEASE_TAG=$(curl -s https://api.github.com/repos/meshplay/meshplay/releases/latest | jq '.["tag_name"]' | tr -d '"')
+            printf '%b\n' "---\nlayout: release\ndate: $(date +'%Y-%m-%d')\ntag: $RELEASE_TAG\n---\n\n`curl -s https://api.github.com/repos/meshplay/meshplay/releases/latest | jq -r '.["body"]'`" > ./docs/_releases/$RELEASE_TAG.md
 
         - name: Pull changes from remote
           run: git pull origin master
@@ -31,5 +31,5 @@ jobs:
             commit_user_email: ci@layer5.io
             commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
             commit_options: '--signoff'
-            commit_message: '[Docs] Release Notes for Meshery ${{ steps.release_drafter.outputs.tag_name }}'
+            commit_message: '[Docs] Release Notes for Meshplay ${{ steps.release_drafter.outputs.tag_name }}'
             branch: master

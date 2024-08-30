@@ -1,15 +1,15 @@
 ---
 layout: default
-title: "Extensibility: Meshery Integrations"
+title: "Extensibility: Meshplay Integrations"
 permalink: extensibility/integrations
 type: Extensibility
-abstract: "Meshery architecture is extensible. Meshery provides several extension points for working with different cloud native projects via adapters, load generators and providers"
+abstract: "Meshplay architecture is extensible. Meshplay provides several extension points for working with different cloud native projects via adapters, load generators and providers"
 language: en
 #redirect_from: extensibility
 suggested-reading: false
 ---
 
-Meshery provides 220+ built-in integrations which refer to the supported connections and interactions between Meshery and various cloud native platforms, tools, and technologies. Meshery's approach is Kubernetes-native which means you can easily incorporate Meshery into your existing workflow without additional setup or integration effort.
+Meshplay provides 220+ built-in integrations which refer to the supported connections and interactions between Meshplay and various cloud native platforms, tools, and technologies. Meshplay's approach is Kubernetes-native which means you can easily incorporate Meshplay into your existing workflow without additional setup or integration effort.
 
 {% assign sorted_index = site.models | sort: "name" | alphabetical %}
 {% assign total = sorted_index | size %}
@@ -20,7 +20,7 @@ Meshery provides 220+ built-in integrations which refer to the supported connect
 {% endcapture %}
 {{totalled}}
 
-Optionally, you can [navigate all integrations visually](https://meshery.io/integrations).
+Optionally, you can [navigate all integrations visually](https://meshplay.io/integrations).
 
 <!--
 UNCOMMENT WHEN INTEGRATIONS COLLECTION IS READY

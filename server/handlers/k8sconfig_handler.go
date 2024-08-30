@@ -8,17 +8,17 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/layer5io/meshplay/server/machines"
-	mhelpers "github.com/layer5io/meshplay/server/machines/helpers"
-	"github.com/layer5io/meshplay/server/machines/kubernetes"
+	"github.com/khulnasoft/meshplay/server/machines"
+	mhelpers "github.com/khulnasoft/meshplay/server/machines/helpers"
+	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
 
-	"github.com/layer5io/meshplay/server/models/connections"
-	mcore "github.com/layer5io/meshplay/server/models/meshmodel/core"
+	"github.com/khulnasoft/meshplay/server/models/connections"
+	mcore "github.com/khulnasoft/meshplay/server/models/meshmodel/core"
 
 	// for GKE kube API authentication
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/helpers"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/models"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 
 	"github.com/layer5io/meshkit/models/events"
@@ -116,7 +116,7 @@ func (h *Handler) addK8SConfig(user *models.User, _ *models.Preference, w http.R
 			status := connection.Status
 			machineCtx := &kubernetes.MachineCtx{
 				K8sContext:         *ctx,
-				MesheryCtrlsHelper: h.MesheryCtrlsHelper,
+				MeshplayCtrlsHelper: h.MeshplayCtrlsHelper,
 				K8sCompRegHelper:   h.K8sCompRegHelper,
 				OperatorTracker:    h.config.OperatorTracker,
 				K8scontextChannel:  h.config.K8scontextChannel,
@@ -287,7 +287,7 @@ func (h *Handler) KubernetesPingHandler(w http.ResponseWriter, req *http.Request
 // swagger:route POST /api/system/kubernetes/register SystemAPI idPostK8SRegistration
 // Handle registration request for Kubernetes components
 //
-// Used to register Kubernetes components to Meshery from a kubeconfig file
+// Used to register Kubernetes components to Meshplay from a kubeconfig file
 // responses:
 //
 //		202:
@@ -316,7 +316,7 @@ func (h *Handler) DiscoverK8SContextFromKubeConfig(userID string, token string, 
 	// Get meshplay instance ID
 	mid, ok := viper.Get("INSTANCE_ID").(*uuid.UUID)
 	if !ok {
-		return contexts, models.ErrMesheryInstanceID
+		return contexts, models.ErrMeshplayInstanceID
 	}
 
 	// Attempt to get kubeconfig from the filesystem

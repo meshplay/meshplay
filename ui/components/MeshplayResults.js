@@ -11,9 +11,9 @@ import { updateResultsSelection, clearResultsSelection, updateProgress } from '.
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import dataFetch from '../lib/data-fetch';
 import CustomToolbarSelect from './CustomToolbarSelect';
-import MesheryChart from './MesheryChart';
+import MeshplayChart from './MeshplayChart';
 import GrafanaCustomCharts from './telemetry/grafana/GrafanaCustomCharts';
-import MesheryResultDialog from './MesheryResultDialog';
+import MeshplayResultDialog from './MeshplayResultDialog';
 import { withNotify } from '../utils/hooks/useNotification';
 import { EVENT_TYPES } from '../lib/event-types';
 
@@ -25,7 +25,7 @@ const styles = (theme) => ({
   },
 });
 
-class MesheryResults extends Component {
+class MeshplayResults extends Component {
   constructor(props) {
     super(props);
     // const {results_selection} = props;
@@ -327,8 +327,8 @@ class MesheryResults extends Component {
     // console.log(`selected rows after adjustments: ${JSON.stringify(rowsSelected)}`);
     const options = {
       filter: false,
-      sort: !(user && user.user_id === 'meshery'),
-      search: !(user && user.user_id === 'meshery'),
+      sort: !(user && user.user_id === 'meshplay'),
+      search: !(user && user.user_id === 'meshplay'),
       filterType: 'textField',
       responsive: 'standard',
       resizableColumns: true,
@@ -431,7 +431,7 @@ class MesheryResults extends Component {
           <TableRow>
             <TableCell colSpan={colSpan}>
               <div className={classes.chartContent}>
-                <MesheryChart
+                <MeshplayChart
                   rawdata={[self.state.results[rowMeta.dataIndex]]}
                   data={[row]}
                   hideTitle
@@ -459,7 +459,7 @@ class MesheryResults extends Component {
     return (
       <NoSsr>
         {selectedRowData && selectedRowData !== null && Object.keys(selectedRowData).length > 0 && (
-          <MesheryResultDialog rowData={selectedRowData} close={self.resetSelectedRowData()} />
+          <MeshplayResultDialog rowData={selectedRowData} close={self.resetSelectedRowData()} />
         )}
         <MUIDataTable
           title={
@@ -475,7 +475,7 @@ class MesheryResults extends Component {
     );
   }
 }
-MesheryResults.propTypes = { classes: PropTypes.object.isRequired };
+MeshplayResults.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapDispatchToProps = (dispatch) => ({
   // updateMeshResults: bindActionCreators(updateMeshResults, dispatch),
@@ -500,5 +500,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(withNotify(MesheryResults)),
+  connect(mapStateToProps, mapDispatchToProps)(withNotify(MeshplayResults)),
 );

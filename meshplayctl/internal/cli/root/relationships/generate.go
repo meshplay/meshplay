@@ -5,7 +5,7 @@ import (
 	"errors"
 	"os"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	meshkit "github.com/layer5io/meshkit/utils"
 	"github.com/spf13/cobra"
 	"google.golang.org/api/sheets/v4"
@@ -40,10 +40,10 @@ var GenerateRelationshipDocsCmd = &cobra.Command{
 	Long:  "generate relationships docs from the google spreadsheets",
 	Example: `
     // generate relationships docs
-    mesheryctl relationships generate $CRED
+    meshplayctl relationships generate $CRED
 `,
 	Args: func(cmd *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp relationship generate $CRED [google-sheets-credential] --sheetId [sheet-id]\nRun 'mesheryctl exp relationship generate --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp relationship generate $CRED [google-sheets-credential] --sheetId [sheet-id]\nRun 'meshplayctl exp relationship generate --help' to see detailed help message"
 
 		if len(args) == 0 {
 			return errors.New(utils.RelationshipsError("Google Sheet Credentials is required\n"+errMsg, "generate"))

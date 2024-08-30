@@ -4,10 +4,10 @@ import (
 	"context"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/handlers"
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/machines/kubernetes"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/handlers"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/machines/kubernetes"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/controllers"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/layer5io/meshkit/utils/broadcast"
@@ -67,17 +67,17 @@ func (r *Resolver) changeOperatorStatus(ctx context.Context, provider models.Pro
 		}
 		kubeclient, err = k8scontext.GenerateKubeHandler()
 		if err != nil {
-			return model.StatusUnknown, model.ErrMesheryClient(err)
+			return model.StatusUnknown, model.ErrMeshplayClient(err)
 		}
 	} else {
 		k8scontexts, ok := ctx.Value(models.KubeClustersKey).([]models.K8sContext)
 		if !ok || len(k8scontexts) == 0 {
-			return model.StatusUnknown, model.ErrMesheryClientNil
+			return model.StatusUnknown, model.ErrMeshplayClientNil
 		}
 		k8scontext = k8scontexts[0]
 		kubeclient, err = k8scontext.GenerateKubeHandler()
 		if err != nil {
-			return model.StatusUnknown, model.ErrMesheryClient(err)
+			return model.StatusUnknown, model.ErrMeshplayClient(err)
 		}
 	}
 	if kubeclient.KubeClient == nil {
@@ -98,13 +98,13 @@ func (r *Resolver) changeOperatorStatus(ctx context.Context, provider models.Pro
 			r.Log.Info("skipping operator deployment (in disabled mode)")
 			return
 		}
-		op, _ := ctx.Value(models.MesheryControllerHandlersKey).(map[string]map[models.MesheryController]controllers.IMesheryController)
+		op, _ := ctx.Value(models.MeshplayControllerHandlersKey).(map[string]map[models.MeshplayController]controllers.IMeshplayController)
 
 		var err error
 		if del {
-			err = op[ctxID][models.MesheryOperator].Undeploy()
+			err = op[ctxID][models.MeshplayOperator].Undeploy()
 		} else {
-			err = op[ctxID][models.MesheryOperator].Deploy(true)
+			err = op[ctxID][models.MeshplayOperator].Deploy(true)
 		}
 		if err != nil {
 			r.Log.Error(err)
@@ -165,11 +165,11 @@ func (r *Resolver) changeOperatorStatus(ctx context.Context, provider models.Pro
 	return model.StatusProcessing, nil
 }
 
-func (r *Resolver) getOperatorStatus(ctx context.Context, _ models.Provider, connectionID string) (*model.MesheryControllersStatusListItem, error) {
-	unknowStatus := &model.MesheryControllersStatusListItem{
+func (r *Resolver) getOperatorStatus(ctx context.Context, _ models.Provider, connectionID string) (*model.MeshplayControllersStatusListItem, error) {
+	unknowStatus := &model.MeshplayControllersStatusListItem{
 		ConnectionID: connectionID,
-		Status:       model.MesheryControllerStatusUnkown,
-		Controller:   model.GetInternalController(models.MesheryOperator),
+		Status:       model.MeshplayControllerStatusUnkown,
+		Controller:   model.GetInternalController(models.MeshplayOperator),
 	}
 
 	handler, ok := ctx.Value(models.HandlerKey).(*handlers.Handler)
@@ -185,26 +185,26 @@ func (r *Resolver) getOperatorStatus(ctx context.Context, _ models.Provider, con
 
 	machinectx, err := utils.Cast[*kubernetes.MachineCtx](inst.Context)
 	if err != nil {
-		r.Log.Error(model.ErrMesheryControllersStatusSubscription(err))
+		r.Log.Error(model.ErrMeshplayControllersStatusSubscription(err))
 		return unknowStatus, nil
 	}
 
-	controllerhandler := machinectx.MesheryCtrlsHelper.GetControllerHandlersForEachContext()
+	controllerhandler := machinectx.MeshplayCtrlsHelper.GetControllerHandlersForEachContext()
 	if !ok {
 		return unknowStatus, nil
 	}
-	status := controllerhandler[models.MesheryOperator].GetStatus()
-	return &model.MesheryControllersStatusListItem{
+	status := controllerhandler[models.MeshplayOperator].GetStatus()
+	return &model.MeshplayControllersStatusListItem{
 		ConnectionID: connectionID,
 		Status:       model.GetInternalControllerStatus(status),
-		Controller:   model.GetInternalController(models.MesheryOperator),
+		Controller:   model.GetInternalController(models.MeshplayOperator),
 	}, nil
 }
 
 func (r *Resolver) getMeshsyncStatus(ctx context.Context, provider models.Provider, connectionID string) (*model.OperatorControllerStatus, error) {
 	unknowStatus := &model.OperatorControllerStatus{
 		ConnectionID: connectionID,
-		Status:       model.Status(model.MesheryControllerStatusUnkown.String()),
+		Status:       model.Status(model.MeshplayControllerStatusUnkown.String()),
 		Name:         model.GetInternalController(models.Meshsync).String(),
 	}
 
@@ -221,13 +221,13 @@ func (r *Resolver) getMeshsyncStatus(ctx context.Context, provider models.Provid
 
 	machinectx, err := utils.Cast[*kubernetes.MachineCtx](inst.Context)
 	if err != nil {
-		r.Log.Error(model.ErrMesheryControllersStatusSubscription(err))
+		r.Log.Error(model.ErrMeshplayControllersStatusSubscription(err))
 		return unknowStatus, nil
 	}
 
 	status := model.GetMeshSyncInfo(
-		machinectx.MesheryCtrlsHelper.GetControllerHandlersForEachContext()[models.Meshsync],
-		machinectx.MesheryCtrlsHelper.GetControllerHandlersForEachContext()[models.MesheryBroker],
+		machinectx.MeshplayCtrlsHelper.GetControllerHandlersForEachContext()[models.Meshsync],
+		machinectx.MeshplayCtrlsHelper.GetControllerHandlersForEachContext()[models.MeshplayBroker],
 		r.Log,
 	)
 	status.ConnectionID = connectionID
@@ -238,8 +238,8 @@ func (r *Resolver) getNatsStatus(ctx context.Context, provider models.Provider, 
 
 	unknowStatus := &model.OperatorControllerStatus{
 		ConnectionID: connectionID,
-		Status:       model.Status(model.MesheryControllerStatusUnkown.String()),
-		Name:         model.GetInternalController(models.MesheryBroker).String(),
+		Status:       model.Status(model.MeshplayControllerStatusUnkown.String()),
+		Name:         model.GetInternalController(models.MeshplayBroker).String(),
 	}
 
 	handler, ok := ctx.Value(models.HandlerKey).(*handlers.Handler)
@@ -256,12 +256,12 @@ func (r *Resolver) getNatsStatus(ctx context.Context, provider models.Provider, 
 	machinectx, err := utils.Cast[*kubernetes.MachineCtx](inst.Context)
 
 	if err != nil {
-		r.Log.Error(model.ErrMesheryControllersStatusSubscription(err))
+		r.Log.Error(model.ErrMeshplayControllersStatusSubscription(err))
 		return unknowStatus, nil
 	}
 
 	status := model.GetBrokerInfo(
-		machinectx.MesheryCtrlsHelper.GetControllerHandlersForEachContext()[models.MesheryBroker],
+		machinectx.MeshplayCtrlsHelper.GetControllerHandlersForEachContext()[models.MeshplayBroker],
 		r.Log,
 	)
 	status.ConnectionID = connectionID

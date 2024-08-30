@@ -10,14 +10,14 @@ display-title: "false"
 language: en
 list: include
 image: /assets/img/platforms/kubesphere.png
-abstract: Install Meshery on KubeSphere
+abstract: Install Meshplay on KubeSphere
 ---
 
 {% include installation/installation_prerequisites.html %}
 
-[Meshery](https://meshery.io/) is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
+[Meshplay](https://meshplay.io/) is the open source, cloud native management plane that enables the adoption, operation, and management of Kubernetes, any service mesh, and their workloads.
 
-This tutorial walks you through an example of deploying Meshery from the App Store of KubeSphere.
+This tutorial walks you through an example of deploying Meshplay from the App Store of KubeSphere.
 
 
 ## Prerequisites
@@ -30,41 +30,41 @@ This tutorial walks you through an example of deploying Meshery from the App Sto
 
 Perform the following steps in order:
 
-### 1. <b>Deploy Meshery from the App Store</b>
+### 1. <b>Deploy Meshplay from the App Store</b>
 
 
 1. On the **Overview** page of the project `demo-project`, click **App Store** in the upper-left corner.
-2. Search for **Meshery** in the App Store, and click on the search result to enter the app.
+2. Search for **Meshplay** in the App Store, and click on the search result to enter the app.
 
-    ![meshery-app]({{ site.baseurl }}/assets/img/platforms/meshery-app.png)
+    ![meshplay-app]({{ site.baseurl }}/assets/img/platforms/meshplay-app.png)
 3. In the **App Information** page, click **Install** on the upper right corner.
 
-    ![meshery-install]({{ site.baseurl }}/assets/img/platforms/Meshery-install.png)
+    ![meshplay-install]({{ site.baseurl }}/assets/img/platforms/Meshplay-install.png)
 
 4. In the App Settings page, set the application **Name**, **Location** (as your Namespace), and App Version, and then click Next on the upper right corner.
 
-    ![meshery-info]({{ site.baseurl }}/assets/img/platforms/Meshery-info.png)
+    ![meshplay-info]({{ site.baseurl }}/assets/img/platforms/Meshplay-info.png)
 
 5. Configure the **values.yaml** file as needed, or click **Install** to use the default configuration.
 
-    ![meshery-yaml]({{ site.baseurl }}/assets/img/platforms/Meshery-yaml.png)
+    ![meshplay-yaml]({{ site.baseurl }}/assets/img/platforms/Meshplay-yaml.png)
 
-6. Wait for the deployment to be finished. Upon completion, **Meshery** will be shown as **Running** in KubeSphere.
+6. Wait for the deployment to be finished. Upon completion, **Meshplay** will be shown as **Running** in KubeSphere.
 
-    ![meshery-app-running]({{ site.baseurl }}/assets/img/platforms/Meshery-app-running.png)
-
-
-
-### 2. <b>Access the Meshery Dashboard</b>
+    ![meshplay-app-running]({{ site.baseurl }}/assets/img/platforms/Meshplay-app-running.png)
 
 
-1. Go to **Services** and click the service name of Meshery.
-2. In the **Resource Status** page, copy the **NodePort** of Meshery.
 
-    ![meshery-service]({{ site.baseurl }}/assets/img/platforms/Meshery-service.png)
+### 2. <b>Access the Meshplay Dashboard</b>
 
-3. Access the Meshery Dashboard by entering **${NodeIP}:${NODEPORT}** in your browser.
 
-    ![meshery-dashboard]({{ site.baseurl }}/assets/img/platforms/meshery-dashboard.png)
+1. Go to **Services** and click the service name of Meshplay.
+2. In the **Resource Status** page, copy the **NodePort** of Meshplay.
 
-{% include related-discussions.html tag="meshery" %}
+    ![meshplay-service]({{ site.baseurl }}/assets/img/platforms/Meshplay-service.png)
+
+3. Access the Meshplay Dashboard by entering **${NodeIP}:${NODEPORT}** in your browser.
+
+    ![meshplay-dashboard]({{ site.baseurl }}/assets/img/platforms/meshplay-dashboard.png)
+
+{% include related-discussions.html tag="meshplay" %}

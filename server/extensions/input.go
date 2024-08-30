@@ -1,7 +1,7 @@
 package extensions
 
 import (
-	"github.com/layer5io/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/machines"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"

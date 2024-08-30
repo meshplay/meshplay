@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NoSsr } from '@material-ui/core';
-import MesheryPerformanceComponent from '../../components/MesheryPerformance/Dashboard';
+import MeshplayPerformanceComponent from '../../components/MeshplayPerformance/Dashboard';
 import { updatepagepath } from '../../lib/store';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,9 +15,9 @@ function Performance({ updatepagepath }) {
   return (
     <NoSsr>
       <Head>
-        <title>Performance Dashboard | Meshery</title>
+        <title>Performance Dashboard | Meshplay</title>
       </Head>
-      <MesheryPerformanceComponent />
+      <MeshplayPerformanceComponent />
     </NoSsr>
   );
 }

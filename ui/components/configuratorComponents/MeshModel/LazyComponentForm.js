@@ -11,7 +11,7 @@ import { isEmpty } from 'lodash';
 import React from 'react';
 import { getMeshModelComponent } from '../../../api/meshmodel';
 import { iconMedium } from '../../../css/icons.styles';
-import PatternServiceForm from '../../MesheryMeshInterface/PatternServiceForm';
+import PatternServiceForm from '../../MeshplayMeshInterface/PatternServiceForm';
 // eslint-disable-next-line no-unused-vars
 import * as Types from '../MeshModel/hooks/types';
 import { useNotification } from '../../../utils/hooks/useNotification';

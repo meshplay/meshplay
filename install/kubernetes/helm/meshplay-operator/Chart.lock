@@ -1,8 +1,8 @@
 dependencies:
-- name: meshery-broker
+- name: meshplay-broker
   repository: ""
   version: 0.5.0
-- name: meshery-meshsync
+- name: meshplay-meshsync
   repository: ""
   version: 0.5.0
 digest: sha256:4c27c65b00d28c31f222b1a0a6ceb23341ca1626122e33d5603fb64b68529630

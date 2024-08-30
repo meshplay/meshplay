@@ -11,18 +11,18 @@ import (
 	"cuelang.org/go/cue/cuecontext"
 	cueJson "cuelang.org/go/encoding/json"
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/helpers"
+	"github.com/khulnasoft/meshplay/server/helpers"
 
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models"
 
-	"github.com/layer5io/meshplay/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	regv1beta1 "github.com/layer5io/meshkit/models/meshmodel/registry/v1beta1"
 
-	"github.com/layer5io/meshplay/server/helpers/utils"
-	meshplayutils "github.com/layer5io/meshplay/server/helpers/utils"
+	"github.com/khulnasoft/meshplay/server/helpers/utils"
+	meshplayutils "github.com/khulnasoft/meshplay/server/helpers/utils"
 	"github.com/meshplay/schemas/models/v1beta1/category"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/meshplay/schemas/models/v1beta1/connection"

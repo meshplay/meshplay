@@ -4,7 +4,7 @@ title: Chaos
 subtitle: Collaborative and visual infrastructure as design for Chaos
 image: /assets/img/integrations/chaos/icons/color/chaos-color.svg
 permalink: extensibility/integrations/chaos
-docURL: https://docs.meshery.io/extensibility/integrations/chaos
+docURL: https://docs.meshplay.io/extensibility/integrations/chaos
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Continuous Integration & Delivery

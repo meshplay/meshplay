@@ -4,7 +4,7 @@ title: Superedge
 subtitle: Collaborative and visual infrastructure as design for Superedge
 image: /assets/img/integrations/superedge/icons/color/superedge-color.svg
 permalink: extensibility/integrations/superedge
-docURL: https://docs.meshery.io/extensibility/integrations/superedge
+docURL: https://docs.meshplay.io/extensibility/integrations/superedge
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

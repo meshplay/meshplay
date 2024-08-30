@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-token-create
-permalink: reference/mesheryctl/system/token/create
-redirect_from: reference/mesheryctl/system/token/create/
+title: meshplayctl-system-token-create
+permalink: reference/meshplayctl/system/token/create
+redirect_from: reference/meshplayctl/system/token/create/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: system
 subcommand: token
 ---
 
-# mesheryctl system token create
+# meshplayctl system token create
 
 Create a token in your meshconfig
 
@@ -19,7 +19,7 @@ Create a token in your meshconfig
 Create the token with provided token name (optionally token path) to your meshconfig tokens.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token create [flags]
+meshplayctl system token create [flags]
 
 </div>
 </pre> 
@@ -28,21 +28,21 @@ mesheryctl system token create [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token create [token-name] -f [token-path]
+meshplayctl system token create [token-name] -f [token-path]
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token create [token-name] (default path is auth.json)
+meshplayctl system token create [token-name] (default path is auth.json)
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token create [token-name] -f [token-path] --set
+meshplayctl system token create [token-name] -f [token-path] --set
 
 </div>
 </pre> 
@@ -62,7 +62,7 @@ mesheryctl system token create [token-name] -f [token-path] --set
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -72,4 +72,4 @@ mesheryctl system token create [token-name] -f [token-path] --set
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

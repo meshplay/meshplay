@@ -22,7 +22,7 @@ on:
       adapter_name:
         required: false
         type: string
-        default: meshery
+        default: meshplay
       patternfile_name:
         required: true
         type: string
@@ -63,7 +63,7 @@ jobs:
         id: adapter_name
         run: |
           USER_INPUT=${{ github.event.inputs.adapter_name }}
-          echo "value=${USER_INPUT:-"meshery"}" >> $GITHUB_OUTPUT
+          echo "value=${USER_INPUT:-"meshplay"}" >> $GITHUB_OUTPUT
       - name: Setting up minikube
         id: setk8s
         uses: manusa/actions-setup-minikube@v2.10.0
@@ -78,7 +78,7 @@ jobs:
       # Build the image by setting appropriate environmental variables in order to access the image from minikube
       - name: Build the tagged Docker image
         run: |
-          if [ "${{ inputs.adapter_name }}" != "meshery" ];then
+          if [ "${{ inputs.adapter_name }}" != "meshplay" ];then
              eval $(minikube -p minikube docker-env) 
              docker build -t test:test .
           else 
@@ -93,103 +93,103 @@ jobs:
           mv ~/.kube/configtemp ~/.kube/config
           echo "After flattening"
           cat ~/.kube/config
-      # Setup meshery config.yaml and auth.json
-      - name: Setup meshery config and infinite token for use
+      # Setup meshplay config.yaml and auth.json
+      - name: Setup meshplay config and infinite token for use
         env:
           provider_token: ${{ secrets.token }}
         run: |
           echo $provider_token 
-          mkdir ~/.meshery
+          mkdir ~/.meshplay
           config='{"contexts":{"local":{"endpoint":"http://localhost:9081","token":"default","platform":"kubernetes","components":[],"channel":"stable","version":"latest"}},"current-context":"local","tokens":[{"location":"auth.json","name":"default"}]}'
-          echo $config > ~/.meshery/config.yaml 
-          cat ~/.meshery/config.yaml
+          echo $config > ~/.meshplay/config.yaml 
+          cat ~/.meshplay/config.yaml
           echo "Using provider: ${{ inputs.provider }}"
-          if  [ "${{ inputs.provider }}" = "Meshery" ] && [ "$provider_token" != "" ] ;then
-            echo '{ "meshery-provider": "Meshery", "token": null }' | jq -c '.token = "'$provider_token'"' > ~/.meshery/auth.json
+          if  [ "${{ inputs.provider }}" = "Meshplay" ] && [ "$provider_token" != "" ] ;then
+            echo '{ "meshplay-provider": "Meshplay", "token": null }' | jq -c '.token = "'$provider_token'"' > ~/.meshplay/auth.json
           else
-            echo '{ "meshery-provider": "None", "token": "" }'  > ~/.meshery/auth.json
+            echo '{ "meshplay-provider": "None", "token": "" }'  > ~/.meshplay/auth.json
           fi
-          cat ~/.meshery/auth.json
+          cat ~/.meshplay/auth.json
 
-      - name: Cluster info for debugging before starting Meshery
+      - name: Cluster info for debugging before starting Meshplay
         run: kubectl get all -A
-      # Start Meshery Server (Assuming that this step will create the meshery namespace)
-      - name: Start Meshery Server using mesheryctl
+      # Start Meshplay Server (Assuming that this step will create the meshplay namespace)
+      - name: Start Meshplay Server using meshplayctl
         run: |
-          curl -L https://meshery.io/install | PLATFORM=kubernetes bash -
+          curl -L https://meshplay.io/install | PLATFORM=kubernetes bash -
 
       # Start the adapter using yamls
       - name: Start adapter
         run: |
-          if [ "${{ inputs.adapter_name }}" != "meshery" ];then
+          if [ "${{ inputs.adapter_name }}" != "meshplay" ];then
             touch testimagedep.yaml
             curl ${{ inputs.deployment_url }} > ./testimagedep.yaml
             yq e -i '.spec.template.spec.containers[0].image="test:test"' ./testimagedep.yaml 
             yq e -i '.spec.template.spec.containers[0].imagePullPolicy="Never"' ./testimagedep.yaml 
             cat testimagedep.yaml
-            kubectl apply -f testimagedep.yaml --namespace=meshery
-            kubectl apply -f ${{ inputs.service_url }} --namespace=meshery
+            kubectl apply -f testimagedep.yaml --namespace=meshplay
+            kubectl apply -f ${{ inputs.service_url }} --namespace=meshplay
           fi
 
-      # Start tunnelling to allocate external IP to LoadBalancer type service(meshery)(SO that we can access meshery from outside)
+      # Start tunnelling to allocate external IP to LoadBalancer type service(meshplay)(SO that we can access meshplay from outside)
       - name: Start tunelling
         run: minikube tunnel &> /dev/null &
 
-      # Checking meshery server logs
-      - name: Check Meshery pod logs
+      # Checking meshplay server logs
+      - name: Check Meshplay pod logs
         run: |
           SECONDS=0
           end=$((SECONDS+300))
           while [ $SECONDS -lt $end ]; do
-              status=$(mesheryctl system  status -v | sed -n 2p | sed -e "s/[[:space:]]\+/ /g" |  cut -d " " -f 3)
+              status=$(meshplayctl system  status -v | sed -n 2p | sed -e "s/[[:space:]]\+/ /g" |  cut -d " " -f 3)
               if [ "$status" = "Running" ];then
                 break
               fi
           done
-          mesheryctl system  logs meshery
+          meshplayctl system  logs meshplay
       # If external IP has not been allotted then server is unreachable, exit here in that case
-      - name: Check if Meshery has been allotted external IP
+      - name: Check if Meshplay has been allotted external IP
         run: |
-          svcstatus=$(kubectl get svc  -n meshery| grep meshery | tr -s ' ' | cut -d " " -f 4)
+          svcstatus=$(kubectl get svc  -n meshplay| grep meshplay | tr -s ' ' | cut -d " " -f 4)
           echo $svcstatus
           if [ "$svcstatus" = "<pending>" ];then
              exit 1
           fi
-      # Reset meshery's address to the external IP in config.yaml such that mesheryctl can reach it
-      - name: Reset Meshery address
+      # Reset meshplay's address to the external IP in config.yaml such that meshplayctl can reach it
+      - name: Reset Meshplay address
         run: |
-          kubectl get svc -n meshery 
-          svcip="http://$(kubectl get svc -n meshery | grep "meshery " | tr -s ' ' | cut -d " " -f 3):9081"
+          kubectl get svc -n meshplay 
+          svcip="http://$(kubectl get svc -n meshplay | grep "meshplay " | tr -s ' ' | cut -d " " -f 3):9081"
           echo "this is $svcip"
           config='{"contexts":{"local":{"endpoint":'$svcip',"token":"default","platform":"kubernetes","adapters":[],"channel":"stable","version":"latest"}},"current-context":"local","tokens":[{"location":"auth.json","name":"default"}]}'
-          echo $config  > ~/.meshery/config.yaml
+          echo $config  > ~/.meshplay/config.yaml
       - name: Download patternfile
         uses: actions/download-artifact@v4
         with:
           name: patternfile
-      - name: Wait for Meshery pods to come up
+      - name: Wait for Meshplay pods to come up
         run: sleep 100
       # This pattern will try to install  service mesh(the first attempt can fail currently fot k8s componets so we will wait 100 seconds after the first apply and then apply again. Since pattern apply is idempotent, this wont be an issue.)
       - name: Pattern apply
         run: |
           cat ./${{ inputs.patternfile_name }}
-          mesheryctl pattern apply -f ./${{ inputs.patternfile_name }}
+          meshplayctl pattern apply -f ./${{ inputs.patternfile_name }}
 
       - name: Sleep 120 seconds
         run: sleep 120
       - name: Pattern apply, second iteration. [IDEMPOTENT]
         run: |
           cat ./${{ inputs.patternfile_name }}
-          mesheryctl pattern apply -f ./${{ inputs.patternfile_name }}
+          meshplayctl pattern apply -f ./${{ inputs.patternfile_name }}
       - name: Check adapter logs
         run: |
-          if [ "${{ inputs.adapter_name }}" != "meshery" ];then
-            podname=$(kubectl get pods -n meshery | grep ${{ inputs.adapter_name }} | tr -s ' ' | cut -d " " -f 1)
-            kubectl logs pod/$podname -n meshery
+          if [ "${{ inputs.adapter_name }}" != "meshplay" ];then
+            podname=$(kubectl get pods -n meshplay | grep ${{ inputs.adapter_name }} | tr -s ' ' | cut -d " " -f 1)
+            kubectl logs pod/$podname -n meshplay
           fi
-      - name: Check Meshery logs
+      - name: Check Meshplay logs
         run: |
-          mesheryctl system  logs meshery
+          meshplayctl system  logs meshplay
       - name: Whole status for debugging
         run: kubectl get all -A
       # Check if all pods are in a Running state
@@ -256,8 +256,8 @@ jobs:
               status="partial"
           fi
           echo $(jq '."overall-status" |=  "'$status'"' data.json) > data.json;     
-          MESHPLAY_VERSION=$(curl -L -s https://github.com/meshery/meshery/releases/latest | grep -oP 'releases/tag/\K[^"]+' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' | head -1)    
-          echo $(jq '.metadata."meshery-server-version" |="'$MESHPLAY_VERSION'"' data.json ) > data.json
+          MESHPLAY_VERSION=$(curl -L -s https://github.com/meshplay/meshplay/releases/latest | grep -oP 'releases/tag/\K[^"]+' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' | head -1)    
+          echo $(jq '.metadata."meshplay-server-version" |="'$MESHPLAY_VERSION'"' data.json ) > data.json
           echo "exitstatus=$exitstatus" >> $GITHUB_ENV
       - name: UploadResults
         uses: actions/upload-artifact@v4

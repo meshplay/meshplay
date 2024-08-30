@@ -4,7 +4,7 @@ title: AWS Step Functions
 subtitle: Collaborative and visual infrastructure as design for AWS Step Functions
 image: /assets/img/integrations/aws-sfn-controller/icons/color/aws-sfn-controller-color.svg
 permalink: extensibility/integrations/aws-sfn-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-sfn-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-sfn-controller
 description: 
 integrations-category: Serverless
 integrations-subcategory: Serverless

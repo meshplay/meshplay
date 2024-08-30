@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,10 +35,10 @@ func TestGetManifestURL(t *testing.T) {
 			Typ:  "blob",
 			Path: "testdata/manifest.yaml",
 		}
-		rawManifestsURL := "https://raw.githubusercontent.com/meshery/meshery/master/mesheryctl/pkg/utils/"
+		rawManifestsURL := "https://raw.githubusercontent.com/meshplay/meshplay/master/meshplayctl/pkg/utils/"
 
 		manifestURL := GetManifestURL(manifest, rawManifestsURL)
-		expectedURL := "https://raw.githubusercontent.com/meshery/meshery/master/mesheryctl/pkg/utils/testdata/manifest.yaml"
+		expectedURL := "https://raw.githubusercontent.com/meshplay/meshplay/master/meshplayctl/pkg/utils/testdata/manifest.yaml"
 
 		if manifestURL != expectedURL {
 			t.Errorf("GetManifestURL failed: expected %s, but got %s", expectedURL, manifestURL)
@@ -48,7 +48,7 @@ func TestGetManifestURL(t *testing.T) {
 
 func TestListManifests(t *testing.T) {
 	t.Run("ListManifests with empty manifest", func(t *testing.T) {
-		url := "https://api.github.com/repos/meshery/meshery/git/trees/47c634a49e6d143a54d734437a26ad233146ddf5"
+		url := "https://api.github.com/repos/meshplay/meshplay/git/trees/47c634a49e6d143a54d734437a26ad233146ddf5"
 
 		_, err := ListManifests(url)
 		if err != nil {

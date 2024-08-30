@@ -14,7 +14,7 @@ import {
 import useStyles from './styles';
 import HelpOutlineIcon from '../../../../assets/icons/HelpOutlineIcon';
 import theme from '../../../../themes/app';
-import { CustomTextTooltip } from '@/components/MesheryMeshInterface/PatternService/CustomTextTooltip';
+import { CustomTextTooltip } from '@/components/MeshplayMeshInterface/PatternService/CustomTextTooltip';
 
 const GenericModal = ({
   open,

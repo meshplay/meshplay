@@ -1,4 +1,4 @@
-// Copyright 2024 Meshery Authors
+// Copyright 2024 Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,11 +21,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/layer5io/meshery/server/models"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/manifoldco/promptui"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
@@ -42,23 +42,23 @@ var (
 	countFlag      bool
 )
 
-// ComponentsCmd represents the mesheryctl components command
+// ComponentsCmd represents the meshplayctl components command
 var ComponentsCmd = &cobra.Command{
 	Use:   "components",
 	Short: "View list of components and detail of components",
 	Long:  "View list of components and detailed information of a specific component",
 	Example: `
 // To view total of available components
-mesheryctl model --count
+meshplayctl model --count
 
 // To view list of components
-mesheryctl components list
+meshplayctl components list
 
 // To view a specific component
-mesheryctl components view [component-name]
+meshplayctl components view [component-name]
 
 // To search for a specific component
-mesheryctl components search [component-name]
+meshplayctl components search [component-name]
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 && !countFlag {
@@ -71,20 +71,20 @@ mesheryctl components search [component-name]
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if countFlag {
-			mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+			mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 			if err != nil {
 				log.Fatalln(err, "error processing config")
 			}
 
-			baseUrl := mctlCfg.GetBaseMesheryURL()
+			baseUrl := mctlCfg.GetBaseMeshplayURL()
 			url := fmt.Sprintf("%s/api/meshmodels/components?page=1", baseUrl)
 			return listComponents(cmd, url, countFlag)
 		}
 
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return errors.New(utils.SystemModelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [view]. Use 'mesheryctl components --help' to display usage guide.\n", args[0]), "model"))
+			return errors.New(utils.SystemModelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [view]. Use 'meshplayctl components --help' to display usage guide.\n", args[0]), "model"))
 		}
-		_, err := config.GetMesheryCtl(viper.GetViper())
+		_, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			log.Fatalln(err, "error processing config")
 		}

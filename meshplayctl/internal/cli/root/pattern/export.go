@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/encoding"
 	meshkitutils "github.com/layer5io/meshkit/utils"
 	"github.com/manifoldco/promptui"
@@ -47,41 +47,41 @@ type UserProfile struct {
 
 var exportCmd = &cobra.Command{
 	Use:   "export [pattern-name | ID]",
-	Short: "Export a design from Meshery",
-	Long: `The 'export' command allows you to export a specific design from your Meshery server.
+	Short: "Export a design from Meshplay",
+	Long: `The 'export' command allows you to export a specific design from your Meshplay server.
 You can specify the design by its name or ID and optionally define the type of design.
 The command also supports specifying an output directory where the exported design will be saved.
 By default, the exported design will be saved in the current directory. The different types of design
 type allowed are oci, original, and current. The default design type is current.`,
 	Example: `
 	# Export a design with a specific ID
-	mesheryctl pattern export [pattern-name | ID]
+	meshplayctl pattern export [pattern-name | ID]
 	
 	# Export a design with a specific ID and type
-	mesheryctl pattern export [pattern-name | ID] --type [design-type]
+	meshplayctl pattern export [pattern-name | ID] --type [design-type]
 	
 	# Export a design and save it to a specific directory
-	mesheryctl pattern export [pattern-name | ID] --output ./designs
+	meshplayctl pattern export [pattern-name | ID] --output ./designs
 	
 	# Export a design with a specific type and save it to a directory
-	mesheryctl pattern export [pattern-name | ID] --type [design-type] --output ./exports
+	meshplayctl pattern export [pattern-name | ID] --type [design-type] --output ./exports
 	`,
 	Args: cobra.MinimumNArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
 		patternNameOrID := strings.Join(args, " ")
-		design, isID, err := utils.ValidId(mctlCfg.GetBaseMesheryURL(), patternNameOrID, "pattern")
+		design, isID, err := utils.ValidId(mctlCfg.GetBaseMeshplayURL(), patternNameOrID, "pattern")
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		if !isID {
 			if design, err = fetchPatternIDByName(baseUrl, design); err != nil {
 				utils.Log.Error(err)
@@ -125,7 +125,7 @@ func fetchPatternIDByName(baseUrl, patternName string) (string, error) {
 	}
 	var response struct {
 		TotalCount int                     `json:"total_count"`
-		Patterns   []models.MesheryPattern `json:"patterns"`
+		Patterns   []models.MeshplayPattern `json:"patterns"`
 	}
 	if err := encoding.Unmarshal(buf, &response); err != nil {
 		return "", err
@@ -182,7 +182,7 @@ func exportDesign(baseUrl, design, designType string) error {
 	return writeToFile(outputFilePath, buf)
 }
 
-func fetchPatternData(dataURL string) (*models.MesheryPattern, error) {
+func fetchPatternData(dataURL string) (*models.MeshplayPattern, error) {
 	resp, err := makeRequest(http.MethodGet, dataURL)
 	if err != nil {
 		return nil, err
@@ -198,7 +198,7 @@ func fetchPatternData(dataURL string) (*models.MesheryPattern, error) {
 		return nil, ErrReadFromBody(err)
 	}
 
-	var pattern models.MesheryPattern
+	var pattern models.MeshplayPattern
 	if err = encoding.Unmarshal((buf.Bytes()), &pattern); err != nil {
 		return nil, err
 	}
@@ -269,7 +269,7 @@ func getOwnerName(ownerID string, baseURL string) (string, error) {
 	return fmt.Sprintf("%s %s", userProfile.FirstName, userProfile.LastName), nil
 }
 
-func selectPatternPrompt(patterns []models.MesheryPattern, baseURL string) models.MesheryPattern {
+func selectPatternPrompt(patterns []models.MeshplayPattern, baseURL string) models.MeshplayPattern {
 	columns := []string{"Pattern Name", "Created At", "Updated At", "Type", "Owner", "Pattern ID"}
 	widths := []int{20, 20, 20, 20, 20, 10}
 

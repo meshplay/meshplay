@@ -8,8 +8,8 @@ import { NoSsr } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import MesheryChartDialog from './MesheryChartDialog';
-import MesheryChart from './MesheryChart';
+import MeshplayChartDialog from './MeshplayChartDialog';
+import MeshplayChart from './MeshplayChart';
 import { clearResultsSelection } from '../lib/store';
 
 const defaultToolbarSelectStyles = {
@@ -112,7 +112,7 @@ function CustomToolbarSelect({
               key="download"
               aria-label="download"
               color="inherit"
-              href={`/api/perf/profile/result/${encodeURIComponent(fullData[0].meshery_id)}`}
+              href={`/api/perf/profile/result/${encodeURIComponent(fullData[0].meshplay_id)}`}
               download={`${fullData[0].name}_test_result.json`}
             >
               <GetAppIcon className={classes.icon} />
@@ -125,12 +125,12 @@ function CustomToolbarSelect({
           </IconButton>
         </Tooltip>
       </div>
-      <MesheryChartDialog
+      <MeshplayChartDialog
         handleClose={handleDialogClose}
         open={dialogOpen}
         content={
           <div>
-            <MesheryChart data={data} />
+            <MeshplayChart data={data} />
           </div>
         }
       />

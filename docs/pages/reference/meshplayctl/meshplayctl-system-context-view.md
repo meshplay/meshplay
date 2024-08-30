@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-context-view
-permalink: reference/mesheryctl/system/context/view
-redirect_from: reference/mesheryctl/system/context/view/
+title: meshplayctl-system-context-view
+permalink: reference/meshplayctl/system/context/view
+redirect_from: reference/meshplayctl/system/context/view/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: system
 subcommand: context
 ---
 
-# mesheryctl system context view
+# meshplayctl system context view
 
 view current context
 
 ## Synopsis
 
-Display active Meshery context
+Display active Meshplay context
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context view [context-name | --context context-name| --all] --flags [flags]
+meshplayctl system context view [context-name | --context context-name| --all] --flags [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl system context view [context-name | --context context-name| --all] --
 View default context
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context view
+meshplayctl system context view
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl system context view
 View specified context
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context view context-name
+meshplayctl system context view context-name
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl system context view context-name
 View specified context with context flag
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context view --context context-name
+meshplayctl system context view --context context-name
 
 </div>
 </pre> 
@@ -53,7 +53,7 @@ mesheryctl system context view --context context-name
 View config of all contexts
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system context view --all
+meshplayctl system context view --all
 
 </div>
 </pre> 
@@ -73,7 +73,7 @@ mesheryctl system context view --all
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
   -y, --yes             (optional) assume yes for user interactive prompts.
 
@@ -82,9 +82,9 @@ mesheryctl system context view --all
 
 ## Screenshots
 
-Usage of mesheryctl context view
-![context-view-usage](/assets/img/mesheryctl/context-view.png)
+Usage of meshplayctl context view
+![context-view-usage](/assets/img/meshplayctl/context-view.png)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

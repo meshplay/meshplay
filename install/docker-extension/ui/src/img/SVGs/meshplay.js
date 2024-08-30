@@ -1,6 +1,6 @@
 import React from "react";
 
-const MesheryIcon = ({width, height}) => (   
+const MeshplayIcon = ({width, height}) => (   
 <svg width={width} height={height} viewBox="0 0 135 136" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_5308_25299)">
 <path d="M69.49 31.82V64.07L97.44 47.89L69.49 31.82Z" fill="#00D3A9"/>
@@ -36,4 +36,4 @@ const MesheryIcon = ({width, height}) => (
 </svg>
  );
 
-export default MesheryIcon;
+export default MeshplayIcon;

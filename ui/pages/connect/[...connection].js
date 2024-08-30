@@ -32,7 +32,7 @@ const ConnectionWizard = (props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
 
-        <title>Connection wizard | Meshery</title>
+        <title>Connection wizard | Meshplay</title>
       </Head>
       <ConnectionWizardNew />
     </NoSsr>

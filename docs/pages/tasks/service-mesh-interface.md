@@ -1,17 +1,17 @@
 <!-- ---
 layout: default
-title: Meshery and Service Mesh Interface (SMI)
+title: Meshplay and Service Mesh Interface (SMI)
 permalink: tasks/service-mesh-interface
 type: tasks
 language: en
 published: false
 ---
-{% include alert.html type="info" title="Validating SMI Conformance with Meshery" content="<p>Meshery is SMI's 
-<a href='https://smi-spec.io/blog/validating-smi-conformance-with-meshery'>official tool for validating conformance</a>.</p> <p>The <a href='https://meshery.io/service-mesh-interface'>SMI Conformance dashboard</a> displays the current and historical test results of each of the service mesh projects.</p>" %}
+{% include alert.html type="info" title="Validating SMI Conformance with Meshplay" content="<p>Meshplay is SMI's 
+<a href='https://smi-spec.io/blog/validating-smi-conformance-with-meshplay'>official tool for validating conformance</a>.</p> <p>The <a href='https://meshplay.io/service-mesh-interface'>SMI Conformance dashboard</a> displays the current and historical test results of each of the service mesh projects.</p>" %}
 
 As service mesh providers and the surrounding ecosystem start adopting Service Mesh Interface, there is a growing need for validating the SMI implementation.
 
-As a service mesh agnostic tool that provides lifecycle and performance management of a large number of service meshes, sample applications, service mesh patterns and WebAssembly filters, Meshery is the ideal tool for the job when it comes to SMI Conformance.
+As a service mesh agnostic tool that provides lifecycle and performance management of a large number of service meshes, sample applications, service mesh patterns and WebAssembly filters, Meshplay is the ideal tool for the job when it comes to SMI Conformance.
 
 ## Defining Conformance
 
@@ -41,17 +41,17 @@ The following list highlights the sequence of steps taken to perform conformance
    * Tests are defined to validate conformance for each type of SMI specification (e.g. metrics, access, traffic… ).
 * Invocation
    * Test assertions are defined in a workload-specific way and deployed with the workloads being tested (test assertions are packaged).
-   * A test result is collected with the evaluation of each assertion. Future: Test results will be individually streamed to Meshery after each assertion is evaluated.
-   * Once all assertions are evaluated, test results are returned for visual presentation in Meshery.
+   * A test result is collected with the evaluation of each assertion. Future: Test results will be individually streamed to Meshplay after each assertion is evaluated.
+   * Once all assertions are evaluated, test results are returned for visual presentation in Meshplay.
    * Tests that are run by the service mesh project team are identified by a pre-approved service account and are publicly published the SMI Conformance dashboard.
 
 
 ## Reporting Conformance
 
-Each of the participating service mesh projects can leverage the [Meshery SMI Conformance GitHub action](https://github.com/layer5io/meshery-smi-conformance-action) to incorporate SMI conformance into their CI/CD pipelines.
+Each of the participating service mesh projects can leverage the [Meshplay SMI Conformance GitHub action](https://github.com/khulnasoft/meshplay-smi-conformance-action) to incorporate SMI conformance into their CI/CD pipelines.
 
 The conformance tool will run the test suite and automatically update the conformance dashboard when the test is complete. In order to ensure provenance of test results that represent a given service mesh, each project will be asked to identify one or more GitHub accounts that will be used for publishing the tests. 
 
 Ideally, this GitHub account is a service-robot account used within the project’s CI pipeline.
 
-The [SMI Conformance dashboard](https://meshery.io/service-mesh-interface) displays the current and historical test results of each of the service mesh projects. These results are automatically updated through the projects official accounts as mentioned above. -->
+The [SMI Conformance dashboard](https://meshplay.io/service-mesh-interface) displays the current and historical test results of each of the service mesh projects. These results are automatically updated through the projects official accounts as mentioned above. -->

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const ScrollIndicator = ({ items, handleClick, activeIndex }) => {
   const classes = useStyles();
-  // let image = "/static/img/meshery-logo.png";
+  // let image = "/static/img/meshplay-logo.png";
 
   return (
     <Timeline>

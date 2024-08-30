@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,10 +26,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/layer5io/meshery/server/models/pattern/core"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/models/pattern/core"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -41,8 +41,8 @@ var (
 )
 
 var linkDocPatternApply = map[string]string{
-	"link":    "![pattern-apply-usage](/assets/img/mesheryctl/patternApply.png)",
-	"caption": "Usage of mesheryctl pattern apply",
+	"link":    "![pattern-apply-usage](/assets/img/meshplayctl/patternApply.png)",
+	"caption": "Usage of meshplayctl pattern apply",
 }
 
 var applyCmd = &cobra.Command{
@@ -51,23 +51,23 @@ var applyCmd = &cobra.Command{
 	Long:  `Apply pattern file will trigger deploy of the pattern file`,
 	Example: `
 // apply a pattern file
-mesheryctl pattern apply -f [file | URL]
+meshplayctl pattern apply -f [file | URL]
 
 // deploy a saved pattern
-mesheryctl pattern apply [pattern-name]
+meshplayctl pattern apply [pattern-name]
 	`,
 	Annotations: linkDocPatternApply,
 	Args:        cobra.MinimumNArgs(0),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var req *http.Request
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
 		}
 
-		deployURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern/deploy"
-		patternURL := mctlCfg.GetBaseMesheryURL() + "/api/pattern"
+		deployURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern/deploy"
+		patternURL := mctlCfg.GetBaseMeshplayURL() + "/api/pattern"
 
 		// pattern name has been passed
 		if len(args) > 0 {
@@ -146,7 +146,7 @@ mesheryctl pattern apply [pattern-name]
 						return nil
 					}
 
-					var response []*models.MesheryPattern
+					var response []*models.MeshplayPattern
 					defer resp.Body.Close()
 
 					body, err := io.ReadAll(resp.Body)
@@ -213,7 +213,7 @@ mesheryctl pattern apply [pattern-name]
 					return nil
 				}
 				utils.Log.Debug("remote hosted pattern request success")
-				var response []*models.MesheryPattern
+				var response []*models.MeshplayPattern
 				defer resp.Body.Close()
 
 				body, err := io.ReadAll(resp.Body)
@@ -233,7 +233,7 @@ mesheryctl pattern apply [pattern-name]
 
 		}
 
-		payload := models.MesheryPatternFileDeployPayload{
+		payload := models.MeshplayPatternFileDeployPayload{
 			PatternFile: patternFile,
 		}
 
@@ -279,7 +279,7 @@ mesheryctl pattern apply [pattern-name]
 	},
 }
 
-func multiplePatternsConfirmation(profiles []models.MesheryPattern) int {
+func multiplePatternsConfirmation(profiles []models.MeshplayPattern) int {
 	reader := bufio.NewReader(os.Stdin)
 
 	for index, a := range profiles {

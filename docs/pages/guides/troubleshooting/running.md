@@ -1,38 +1,38 @@
 ---
 layout: default
-title: Troubleshooting Errors while running Meshery
-abstract: Troubleshooting Meshery errors when running make run-fast / meshery system start
-permalink: guides/troubleshooting/meshery-server
+title: Troubleshooting Errors while running Meshplay
+abstract: Troubleshooting Meshplay errors when running make run-fast / meshplay system start
+permalink: guides/troubleshooting/meshplay-server
 redirect_from: guides/troubleshooting/running
 type: guides
 category: troubleshooting
 language: en
 ---
 
-## mesheryctl system start
+## meshplayctl system start
 
 **Error:**
 
 ```
-mesheryctl system start : : cannot start Meshery: rendered manifests contain a resource that already exists.
-Unable to continue with install: ServiceAccount "meshery-operator" in namespace "meshery" exists and cannot
+meshplayctl system start : : cannot start Meshplay: rendered manifests contain a resource that already exists.
+Unable to continue with install: ServiceAccount "meshplay-operator" in namespace "meshplay" exists and cannot
 be imported into the current release: invalid ownership metadata; label validation error: missing key
 "app.kubernetes.io/managed-by": must be set to "Helm"; annotation validation error: missing key
-"meta.helm.sh/release-name": must be set to "meshery"; annotation validation error: missing key
-"meta.helm.sh/release-namespace": must be set to "meshery"
+"meta.helm.sh/release-name": must be set to "meshplay"; annotation validation error: missing key
+"meta.helm.sh/release-namespace": must be set to "meshplay"
 ```
 
 **(Fix) Clean the cluster using :**
 
  <pre class="codeblock-pre"><div class="codeblock">
  <div class="clipboardjs">
-kubectl delete ns meshery
-kubectl delete clusterroles.rbac.authorization.k8s.io meshery-controller-role meshery-operator-role meshery-proxy-role meshery-metrics-reader
-kubectl delete clusterrolebindings.rbac.authorization.k8s.io meshery-controller-rolebinding meshery-operator-rolebinding meshery-proxy-rolebinding
+kubectl delete ns meshplay
+kubectl delete clusterroles.rbac.authorization.k8s.io meshplay-controller-role meshplay-operator-role meshplay-proxy-role meshplay-metrics-reader
+kubectl delete clusterrolebindings.rbac.authorization.k8s.io meshplay-controller-rolebinding meshplay-operator-rolebinding meshplay-proxy-rolebinding
  </div></div>
  </pre>
 
-_Issue Reference : [https://github.com/meshery/meshery/issues/4578](https://github.com/meshery/meshery/issues/4578)_
+_Issue Reference : [https://github.com/meshplay/meshplay/issues/4578](https://github.com/meshplay/meshplay/issues/4578)_
 
 ### make server
 
@@ -46,7 +46,7 @@ make: *** [Makefile:76: server] Error 1
 
 **Fix:**
 
-1. Flush the database by deleting the `.meshery/config`
+1. Flush the database by deleting the `.meshplay/config`
 2. `make server`
 
 #### See Also

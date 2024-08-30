@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-restart
-permalink: reference/mesheryctl/system/restart
-redirect_from: reference/mesheryctl/system/restart/
+title: meshplayctl-system-restart
+permalink: reference/meshplayctl/system/restart
+redirect_from: reference/meshplayctl/system/restart/
 type: reference
 display-title: "false"
 language: en
@@ -10,34 +10,34 @@ command: system
 subcommand: restart
 ---
 
-# mesheryctl system restart
+# meshplayctl system restart
 
-Stop, then start Meshery
+Stop, then start Meshplay
 
 ## Synopsis
 
-Restart all Meshery containers / pods.
+Restart all Meshplay containers / pods.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system restart [flags]
+meshplayctl system restart [flags]
 
 </div>
 </pre> 
 
 ## Examples
 
-Restart all Meshery containers, their instances and their connected volumes
+Restart all Meshplay containers, their instances and their connected volumes
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system restart
+meshplayctl system restart
 
 </div>
 </pre> 
 
-(optional) skip checking for new updates available in Meshery.
+(optional) skip checking for new updates available in Meshplay.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system restart --skip-update
+meshplayctl system restart --skip-update
 
 </div>
 </pre> 
@@ -47,8 +47,8 @@ mesheryctl system restart --skip-update
 <pre class='codeblock-pre'>
 <div class='codeblock'>
   -h, --help              help for restart
-      --provider string   Provider to use with the Meshery server
-      --skip-update       (optional) skip checking for new Meshery's container images.
+      --provider string   Provider to use with the Meshplay server
+      --skip-update       (optional) skip checking for new Meshplay's container images.
 
 </div>
 </pre>
@@ -57,7 +57,7 @@ mesheryctl system restart --skip-update
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -67,4 +67,4 @@ mesheryctl system restart --skip-update
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -1,5 +1,5 @@
 - mesh: istio
-  meshery_id: 71fc9834-8968-4d61-bab6-689b013b5a34
+  meshplay_id: 71fc9834-8968-4d61-bab6-689b013b5a34
   name: istio_1630091576784
   performance_profile: 303c3586-fd65-4846-91de-0c67b9b152a5
   runner_results:
@@ -28,7 +28,7 @@
   test_start_time: "2021-08-27T19:12:58.295332Z"
   user_id: 4ea5c578-1cd4-4078-a08d-fbe1ca553663
 - mesh: istio
-  meshery_id: c8e67a8a-258e-49d6-8e28-20adb61081c9
+  meshplay_id: c8e67a8a-258e-49d6-8e28-20adb61081c9
   name: istio_1630011460550
   performance_profile: a947dff3-1415-4ca6-8922-e35b3232bd78
   runner_results:
@@ -57,7 +57,7 @@
   test_start_time: "2021-08-27T02:27:41.155598Z"
   user_id: 107368cd-85cc-499f-a8bc-3a7ad1bc0f8b
 - mesh: istio
-  meshery_id: d2cf975b-272e-484f-aba3-3a022ee2a540
+  meshplay_id: d2cf975b-272e-484f-aba3-3a022ee2a540
   name: istio_1630008597557
   performance_profile: f331c784-aba0-4944-8d7d-ae264221bcbf
   runner_results:
@@ -86,7 +86,7 @@
   test_start_time: "2021-08-27T01:39:59.14584Z"
   user_id: 107368cd-85cc-499f-a8bc-3a7ad1bc0f8b
 - mesh: istio
-  meshery_id: dd9fb290-5a69-46a8-badc-0b1ba3dc855e
+  meshplay_id: dd9fb290-5a69-46a8-badc-0b1ba3dc855e
   name: istio_1629986124516
   runner_results:
     ActualDuration: 30000149089
@@ -114,7 +114,7 @@
   test_start_time: "2021-08-26T19:26:25.959847Z"
   user_id: 107368cd-85cc-499f-a8bc-3a7ad1bc0f8b
 - mesh: istio
-  meshery_id: 0f5f3bdd-54ab-4a27-926d-abbe4fc87643
+  meshplay_id: 0f5f3bdd-54ab-4a27-926d-abbe4fc87643
   name: istio_1629986124516
   runner_results:
     ActualDuration: 30019891521
@@ -142,7 +142,7 @@
   test_start_time: "2021-08-26T19:25:25.124595Z"
   user_id: 107368cd-85cc-499f-a8bc-3a7ad1bc0f8b
 - mesh: octarine
-  meshery_id: ac3d9763-fa50-457e-9790-c873ad8f2ac5
+  meshplay_id: ac3d9763-fa50-457e-9790-c873ad8f2ac5
   name: octarine_1629905150548
   runner_results:
     ActualDuration: 15379418200
@@ -170,7 +170,7 @@
   test_start_time: "2021-08-25T15:25:51.399348Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
 - mesh: kuma
-  meshery_id: a4f7b101-c9b7-43da-8195-d7c7598881a1
+  meshplay_id: a4f7b101-c9b7-43da-8195-d7c7598881a1
   name: kuma_1629905088843
   runner_results:
     ActualDuration: 19997982000
@@ -200,7 +200,7 @@
   test_start_time: "2021-08-25T15:24:49.772682Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
 - mesh: istio
-  meshery_id: 2df2f40c-8296-4ca1-862b-e31c5b5f368b
+  meshplay_id: 2df2f40c-8296-4ca1-862b-e31c5b5f368b
   name: istio_1629903571922
   performance_profile: 0bc8f57c-38a5-415d-a994-87a3791a931e
   runner_results:
@@ -229,7 +229,7 @@
   test_start_time: "2021-08-25T14:59:33.533Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
 - mesh: linkerd
-  meshery_id: 8e15c1bc-84d7-40fa-b7a6-1bd18c2f844d
+  meshplay_id: 8e15c1bc-84d7-40fa-b7a6-1bd18c2f844d
   name: linkerd_1629903535068
   runner_results:
     ActualDuration: 10445208300
@@ -257,7 +257,7 @@
   test_start_time: "2021-08-25T14:58:56.192014Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
 - mesh: consul
-  meshery_id: 9fb03799-045a-4b64-9017-d4fd1d17d5ac
+  meshplay_id: 9fb03799-045a-4b64-9017-d4fd1d17d5ac
   name: consul_1629903480840
   runner_results:
     ActualDuration: 30004869700
@@ -285,7 +285,7 @@
   test_start_time: "2021-08-25T14:58:01.391148Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
 - mesh: consul
-  meshery_id: e6df1bc4-5f09-475c-b818-b09c625e180d
+  meshplay_id: e6df1bc4-5f09-475c-b818-b09c625e180d
   name: consul_1629903024533
   runner_results:
     ActualDuration: 30013893200
@@ -313,7 +313,7 @@
   test_start_time: "2021-08-25T14:50:25.402335Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
 - mesh: istio
-  meshery_id: 73428715-e40a-43a1-a0bc-ed7d58a2832b
+  meshplay_id: 73428715-e40a-43a1-a0bc-ed7d58a2832b
   name: istio_1629902923911
   runner_results:
     ActualDuration: 30017936600
@@ -335,12 +335,12 @@
         Value: 0.25260920050000213
     RequestedDuration: 30s
     StartTime: "2021-08-25T14:48:45.0420998Z"
-    URL: https://github.com/meshery/meshery/issues/3972
+    URL: https://github.com/meshplay/meshplay/issues/3972
     load-generator: fortio
   server_metrics: null
   test_start_time: "2021-08-25T14:48:45.0421Z"
   user_id: 145496f6-f5d2-40b9-841e-1b5471b60411
-- meshery_id: ec91b448-6234-4d9e-b1be-59dd8f9223c2
+- meshplay_id: ec91b448-6234-4d9e-b1be-59dd8f9223c2
   name: No mesh_1629812585899
   runner_results:
     ActualDuration: 5087239700
@@ -367,7 +367,7 @@
   server_metrics: null
   test_start_time: "2021-08-24T21:43:05.670523Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: fdf39ac7-a8f1-4a88-85e4-0ebeb4a0e9bf
+- meshplay_id: fdf39ac7-a8f1-4a88-85e4-0ebeb4a0e9bf
   name: No mesh_1629812560411
   runner_results:
     ActualDuration: 6397944100
@@ -394,7 +394,7 @@
   server_metrics: null
   test_start_time: "2021-08-24T21:42:40.789443Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 03b331d6-f838-4d9f-8f3f-f9c372993380
+- meshplay_id: 03b331d6-f838-4d9f-8f3f-f9c372993380
   name: No mesh_1629785430145
   runner_results:
     ActualDuration: 6369133863
@@ -421,7 +421,7 @@
   server_metrics: null
   test_start_time: "2021-08-24T11:40:32.122358Z"
   user_id: 24187768-ce8a-41f0-be74-c537c8e41adc
-- meshery_id: c5497cf8-13b8-4468-b776-cfe2c03105b2
+- meshplay_id: c5497cf8-13b8-4468-b776-cfe2c03105b2
   name: No mesh_1629699211991
   runner_results:
     ActualDuration: 5301191500
@@ -448,7 +448,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:15:48.239279Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 956a2074-5975-4250-aff6-334345daeac6
+- meshplay_id: 956a2074-5975-4250-aff6-334345daeac6
   name: No mesh_1629699211991
   runner_results:
     ActualDuration: 5510294100
@@ -475,7 +475,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:15:35.745148Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 68cf3a7a-ebd9-434e-bddd-703fee5d732a
+- meshplay_id: 68cf3a7a-ebd9-434e-bddd-703fee5d732a
   name: No mesh_1629699211991
   runner_results:
     ActualDuration: 5517988400
@@ -502,7 +502,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:15:21.874222Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 9d06c7e6-18bc-4cab-b7f1-5d48375a993e
+- meshplay_id: 9d06c7e6-18bc-4cab-b7f1-5d48375a993e
   name: No mesh_1629699211991
   runner_results:
     ActualDuration: 5369296600
@@ -529,7 +529,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:14:57.746444Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 83775082-52a2-4f91-a7b9-c7eb2157c6b3
+- meshplay_id: 83775082-52a2-4f91-a7b9-c7eb2157c6b3
   name: No mesh_1629699211991
   runner_results:
     ActualDuration: 5491033700
@@ -556,7 +556,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:13:32.277429Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: f22cdd21-d1ac-49cd-97c1-134a243fa4da
+- meshplay_id: f22cdd21-d1ac-49cd-97c1-134a243fa4da
   name: No mesh_1629698942959
   runner_results:
     ActualDuration: 5295368000
@@ -583,7 +583,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:13:21.626586Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 055338a4-f041-4b18-9c6d-d1bb6c750736
+- meshplay_id: 055338a4-f041-4b18-9c6d-d1bb6c750736
   name: No mesh_1629698942959
   runner_results:
     ActualDuration: 5306313700
@@ -610,7 +610,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:13:13.399304Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: a88dbb71-777a-44b0-a19f-4a4eca99261c
+- meshplay_id: a88dbb71-777a-44b0-a19f-4a4eca99261c
   name: No mesh_1629698942959
   runner_results:
     ActualDuration: 5168728100
@@ -637,7 +637,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:12:58.438274Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 1b6fd362-d925-4138-a410-1e31ed5489eb
+- meshplay_id: 1b6fd362-d925-4138-a410-1e31ed5489eb
   name: No mesh_1629698942959
   runner_results:
     ActualDuration: 6182968600
@@ -664,7 +664,7 @@
   server_metrics: null
   test_start_time: "2021-08-23T14:09:03.480043Z"
   user_id: 862b94d4-e210-4a1c-b58e-32f93be806f6
-- meshery_id: 089c159f-3e58-481c-b4ae-e92497bff5c1
+- meshplay_id: 089c159f-3e58-481c-b4ae-e92497bff5c1
   name: No mesh_1629698569178
   runner_results:
     ActualDuration: 5283787900

@@ -4,7 +4,7 @@ title: Kusk Gateway
 subtitle: Collaborative and visual infrastructure as design for Kusk Gateway
 image: /assets/img/integrations/kusk-gateway/icons/color/kusk-gateway-color.svg
 permalink: extensibility/integrations/kusk-gateway
-docURL: https://docs.meshery.io/extensibility/integrations/kusk-gateway
+docURL: https://docs.meshplay.io/extensibility/integrations/kusk-gateway
 description: 
 integrations-category: Orchestration & Management
 integrations-subcategory: API Gateway

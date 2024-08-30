@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/layer5io/meshplay/meshplayctl/pkg/constants"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/utils"
 	"github.com/spf13/viper"
 )
@@ -23,7 +23,7 @@ type Version struct {
 // swagger:route GET /api/system/version SystemAPI idGetSystemVersion
 // Handle GET request for system/server version
 //
-// Returns the running Meshery version
+// Returns the running Meshplay version
 // responses:
 // 	200: meshplayVersionRespWrapper
 
@@ -64,7 +64,7 @@ func (h *Handler) ServerVersionHandler(w http.ResponseWriter, _ *http.Request) {
 // and returns the (isOutdated, latestVersion, error)
 func CheckLatestVersion(serverVersion string) (*bool, string, error) {
 	// Inform user of the latest release version
-	latestVersions, err := utils.GetLatestReleaseTagsSorted(constants.GetMesheryGitHubOrg(), constants.GetMesheryGitHubRepo())
+	latestVersions, err := utils.GetLatestReleaseTagsSorted(constants.GetMeshplayGitHubOrg(), constants.GetMeshplayGitHubRepo())
 	isOutdated := false
 	if err != nil {
 		return nil, "", ErrGetLatestVersion(err)
@@ -73,7 +73,7 @@ func CheckLatestVersion(serverVersion string) (*bool, string, error) {
 		return &isOutdated, "", fmt.Errorf("no versions found")
 	}
 	latestVersion := latestVersions[len(latestVersions)-1]
-	// Compare current running Meshery server version to the latest available Meshery release on GitHub.
+	// Compare current running Meshplay server version to the latest available Meshplay release on GitHub.
 	if latestVersion != serverVersion {
 		isOutdated = true
 		return &isOutdated, latestVersion, nil

@@ -1,4 +1,4 @@
-// # Copyright Meshery Authors
+// # Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import (
 
 	"errors"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -31,19 +31,19 @@ var (
 	modelName        string
 )
 
-// PublishCmd represents the publish command to publish Meshery Models to Websites, Remote Provider, Meshery
+// PublishCmd represents the publish command to publish Meshplay Models to Websites, Remote Provider, Meshplay
 var RegistryCmd = &cobra.Command{
 	Use:     "registry",
 	Short:   "Model Database",
-	Long:    `Manage the state and contents of Meshery’s internal registry of capabilities.`,
-	Example: `mesheryctl registry [subcommand]`,
+	Long:    `Manage the state and contents of Meshplay’s internal registry of capabilities.`,
+	Example: `meshplayctl registry [subcommand]`,
 
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
 			return cmd.Help()
 		}
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return errors.New(utils.RegistryError(fmt.Sprintf("'%s' is an invalid command.  Use 'mesheryctl registry --help' to display usage guide.\n", args[0]), "registry"))
+			return errors.New(utils.RegistryError(fmt.Sprintf("'%s' is an invalid command.  Use 'meshplayctl registry --help' to display usage guide.\n", args[0]), "registry"))
 		}
 		return nil
 	},

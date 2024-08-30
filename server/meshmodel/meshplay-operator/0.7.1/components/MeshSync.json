@@ -14,7 +14,7 @@
    "isNamespaced": true,
    "logoURL": "https://layer5.io/company/brand",
    "model": "meshplay-operator",
-   "modelDisplayName": "Meshery Operator",
+   "modelDisplayName": "Meshplay Operator",
    "primaryColor": "#00B39F",
    "published": true,
    "secondaryColor": "#00D3A9",
@@ -31,7 +31,7 @@
    "id": "00000000-0000-0000-0000-000000000000",
    "name": "meshplay-operator",
    "version": "0.6.65",
-   "displayName": "Meshery Operator",
+   "displayName": "Meshplay Operator",
    "status": "",
    "hostID": "00000000-0000-0000-0000-000000000000",
    "category": {

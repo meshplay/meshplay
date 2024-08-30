@@ -14,7 +14,7 @@ import { blue } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
 import SettingsIcon from '@material-ui/icons/Settings';
-import MesheryAdapterPlayComponent from './MesheryAdapterPlayComponent';
+import MeshplayAdapterPlayComponent from './MeshplayAdapterPlayComponent';
 import { bindActionCreators } from 'redux';
 import { setAdapter } from '../lib/store';
 
@@ -83,7 +83,7 @@ const styles = (theme) => ({
   },
 });
 
-class MesheryPlayComponent extends React.Component {
+class MeshplayPlayComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -136,7 +136,7 @@ class MesheryPlayComponent extends React.Component {
 
   pickImage(adapter) {
     const { classes } = this.props;
-    let image = '/static/img/meshery-logo.png';
+    let image = '/static/img/meshplay-logo.png';
     let imageIcon = <img src={image} className={classes.expTitleIcon} />;
     if (adapter && adapter.name) {
       image = '/static/img/' + adapter.name.toLowerCase() + '.svg';
@@ -177,7 +177,7 @@ class MesheryPlayComponent extends React.Component {
       const imageIcon = this.pickImage(adapter);
       return (
         <React.Fragment>
-          <MesheryAdapterPlayComponent
+          <MeshplayAdapterPlayComponent
             adapter={adapter}
             adapCount={adapCount}
             adapter_icon={imageIcon}
@@ -208,7 +208,7 @@ class MesheryPlayComponent extends React.Component {
               }}
             >
               <Typography variant="h6">Adapter Unavailable</Typography>
-              <Typography variant="subtitle">Connect Meshery Adapter(s) in Settings</Typography>
+              <Typography variant="subtitle">Connect Meshplay Adapter(s) in Settings</Typography>
               <Button
                 variant="contained"
                 color="primary"
@@ -243,7 +243,7 @@ class MesheryPlayComponent extends React.Component {
                   select
                   id="adapter_id"
                   name="adapter_name"
-                  label="Select Meshery Adapter"
+                  label="Select Meshplay Adapter"
                   data-cy="lifecycle-service-mesh-type"
                   fullWidth
                   value={adapter && adapter.adapter_location ? adapter.adapter_location : ''}
@@ -281,7 +281,7 @@ class MesheryPlayComponent extends React.Component {
           </div>
           <Divider variant="fullWidth" light />
           {adapter && adapter.adapter_location && (
-            <MesheryAdapterPlayComponent adapter={adapter} adapter_icon={imageIcon} />
+            <MeshplayAdapterPlayComponent adapter={adapter} adapter_icon={imageIcon} />
           )}
         </React.Fragment>
       </NoSsr>
@@ -289,7 +289,7 @@ class MesheryPlayComponent extends React.Component {
   }
 }
 
-MesheryPlayComponent.propTypes = { classes: PropTypes.object.isRequired };
+MeshplayPlayComponent.propTypes = { classes: PropTypes.object.isRequired };
 
 const mapDispatchToProps = (dispatch) => ({
   setAdapter: bindActionCreators(setAdapter, dispatch),
@@ -304,5 +304,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withStyles(styles)(
-  connect(mapStateToProps, mapDispatchToProps)(withRouter(MesheryPlayComponent)),
+  connect(mapStateToProps, mapDispatchToProps)(withRouter(MeshplayPlayComponent)),
 );

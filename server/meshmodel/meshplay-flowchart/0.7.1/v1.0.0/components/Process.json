@@ -77,14 +77,14 @@
      "isNamespaced": false,
     "logoURL": "",
     "model": "meshplay-flowchart",
-    "modelDisplayName": "Meshery Flowchart",
+    "modelDisplayName": "Meshplay Flowchart",
     "published": false
   },
   "model": {
     "category": {
       "name": "Orchestration \u0026 Management"
     },
-    "displayName": "Meshery Flowchart",
+    "displayName": "Meshplay Flowchart",
     "id": "00000000-0000-0000-0000-000000000000",
     "metadata": {
       "isAnnotation": true,

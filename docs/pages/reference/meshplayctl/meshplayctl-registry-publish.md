@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-registry-publish
-permalink: reference/mesheryctl/registry/publish
-redirect_from: reference/mesheryctl/registry/publish/
+title: meshplayctl-registry-publish
+permalink: reference/meshplayctl/registry/publish
+redirect_from: reference/meshplayctl/registry/publish/
 type: reference
 display-title: "false"
 language: en
@@ -10,16 +10,16 @@ command: registry
 subcommand: publish
 ---
 
-# mesheryctl registry publish
+# meshplayctl registry publish
 
-Publish Meshery Models to Websites, Remote Provider, Meshery Server
+Publish Meshplay Models to Websites, Remote Provider, Meshplay Server
 
 ## Synopsis
 
-Publishes metadata about Meshery Models to Websites, Remote Provider, or Meshery Server, including model and component icons by reading from a Google Spreadsheet and outputing to markdown or json format.
+Publishes metadata about Meshplay Models to Websites, Remote Provider, or Meshplay Server, including model and component icons by reading from a Google Spreadsheet and outputing to markdown or json format.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path] [flags]
+meshplayctl registry publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path] [flags]
 
 </div>
 </pre> 
@@ -29,15 +29,15 @@ mesheryctl registry publish [system] [google-sheet-credential] [sheet-id] [model
 Publish To System
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path] -o [output-format]
+meshplayctl registry publish [system] [google-sheet-credential] [sheet-id] [models-output-path] [imgs-output-path] -o [output-format]
 
 </div>
 </pre> 
 
-Publish To Meshery
+Publish To Meshplay
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish meshery GoogleCredential GoogleSheetID [repo]/server/meshmodel
+meshplayctl registry publish meshplay GoogleCredential GoogleSheetID [repo]/server/meshmodel
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl registry publish meshery GoogleCredential GoogleSheetID [repo]/server
 Publish To Remote Provider
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish remote-provider GoogleCredential GoogleSheetID [repo]/meshmodels/models [repo]/ui/public/img/meshmodels
+meshplayctl registry publish remote-provider GoogleCredential GoogleSheetID [repo]/meshmodels/models [repo]/ui/public/img/meshmodels
 
 </div>
 </pre> 
@@ -53,12 +53,12 @@ mesheryctl registry publish remote-provider GoogleCredential GoogleSheetID [repo
 Publish To Website
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish website GoogleCredential GoogleSheetID [repo]/integrations [repo]/ui/public/img/meshmodels
+meshplayctl registry publish website GoogleCredential GoogleSheetID [repo]/integrations [repo]/ui/public/img/meshmodels
 
 </div>
 </pre> 
 
-Publishing to meshery docs
+Publishing to meshplay docs
 <pre class='codeblock-pre'>
 <div class='codeblock'>
 cd docs;
@@ -68,15 +68,15 @@ cd docs;
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw docs/pages/integrations docs/assets/img/integrations -o md
 
 </div>
 </pre> 
 
-Publishing to mesheryio site
+Publishing to meshplayio site
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshery.io/integrations meshery.io/assets/images/integration -o js
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw meshplay.io/integrations meshplay.io/assets/images/integration -o js
 
 </div>
 </pre> 
@@ -84,7 +84,7 @@ mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwiz
 Publishing to layer5 site
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw layer5/src/collections/integrations layer5/src/collections/integrations -o mdx
 
 </div>
 </pre> 
@@ -92,7 +92,7 @@ mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwiz
 Publishing to any website
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw path/to/models path/to/icons -o mdx
+meshplayctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwizOJmeMw path/to/models path/to/icons -o mdx
 
 </div>
 </pre> 
@@ -111,7 +111,7 @@ mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwiz
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -119,4 +119,4 @@ mesheryctl registry publish website $CRED 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdwiz
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

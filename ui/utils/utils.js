@@ -80,10 +80,10 @@ export function scrollToTop(behavior = 'smooth') {
 }
 
 /**
- * Generates random Pattern Name with the prefix meshery_
+ * Generates random Pattern Name with the prefix meshplay_
  */
 export function randomPatternNameGenerator() {
-  return 'meshery_' + Math.floor(trueRandom() * 100);
+  return 'meshplay_' + Math.floor(trueRandom() * 100);
 }
 
 /**
@@ -186,7 +186,7 @@ export const getUnit8ArrayDecodedFile = (dataUrl) => {
 };
 
 /**
- * Gets the stringified meshery pattern_file and convert it to uint8Array
+ * Gets the stringified meshplay pattern_file and convert it to uint8Array
  * @param {string} design
  * @returns {array} - return array of uint8Array
  *
@@ -212,7 +212,7 @@ export const modifyRJSFSchema = (schema, propertyPath, newValue) => {
 };
 
 /**
- * get sharable link with same and host and protocol, here until meshery cloud interception
+ * get sharable link with same and host and protocol, here until meshplay cloud interception
  * @param {Object.<string,string>} sharedResource
  * @returns {string}
  */
@@ -395,7 +395,7 @@ export const encodeDesignFile = (designJson) => {
  */
 export const processDesign = (design) => {
   console.log('Design to process', design);
-  if (design.schemaVersion != 'designs.meshery.io/v1beta1') {
+  if (design.schemaVersion != 'designs.meshplay.io/v1beta1') {
     console.error('Invalid design schema version', design);
     return {
       configurableComponents: [],

@@ -35,7 +35,7 @@ import { iconLarge } from 'css/icons.styles';
 
 const INITIAL_GRID_SIZE = { xl: 4, md: 6, xs: 12 };
 
-function MesheryPatternCard_({
+function MeshplayPatternCard_({
   id,
   name,
   updated_at,
@@ -376,13 +376,13 @@ function MesheryPatternCard_({
   );
 }
 
-export const MesheryPatternCard = (props) => {
+export const MeshplayPatternCard = (props) => {
   return (
     <Provider store={store}>
-      <MesheryPatternCard_ {...props} />
+      <MeshplayPatternCard_ {...props} />
     </Provider>
   );
 };
 
 // @ts-ignore
-export default MesheryPatternCard;
+export default MeshplayPatternCard;

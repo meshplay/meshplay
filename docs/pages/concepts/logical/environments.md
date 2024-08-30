@@ -10,7 +10,7 @@ redirect_from:
   - concepts/environments
 ---
 
-Meshery Environments allow you to logically group related [Connections](#connections) and their associated [Credentials](#credentials). Environments make it easier for you to manage, share, and work with a collection of resources as a group, instead of dealing with all your Connections and Credentials on an individual basis.
+Meshplay Environments allow you to logically group related [Connections](#connections) and their associated [Credentials](#credentials). Environments make it easier for you to manage, share, and work with a collection of resources as a group, instead of dealing with all your Connections and Credentials on an individual basis.
 
 ### Assigning Resources to an Environment
 
@@ -28,13 +28,13 @@ Deleting an environment does not delete any resources (e.g. connections) current
 
 - **Logical Grouping** Environments allow you to logically group related connections and their associated credentials. This makes it easier to manage, share, and work with a subset of resources instead of dealing with all your connections individually.
 
-- **Resource Sharing** Environments can be seamlessly assigned to [Workspaces](/concepts/logical/workspaces), another essential concept in Meshery. When you assign an Environment to a Workspace, you enable resource sharing among team members. This collaborative approach simplifies the sharing of connections and resources, making it easier to work together in cloud-native environments.
+- **Resource Sharing** Environments can be seamlessly assigned to [Workspaces](/concepts/logical/workspaces), another essential concept in Meshplay. When you assign an Environment to a Workspace, you enable resource sharing among team members. This collaborative approach simplifies the sharing of connections and resources, making it easier to work together in cloud-native environments.
 
 ## Connections and Credentials as Resources
 
 ### Connections <a id="connections"></a>
 
-Connections are an integral part of Environment. These are cloud-native resources that can be both managed and unmanaged, and they're registered by the Meshery Server. Examples of connections include Kubernetes clusters, Prometheus instances, Jaeger tracers, and Nginx web servers.
+Connections are an integral part of Environment. These are cloud-native resources that can be both managed and unmanaged, and they're registered by the Meshplay Server. Examples of connections include Kubernetes clusters, Prometheus instances, Jaeger tracers, and Nginx web servers.
 
 See "[Connections](/concepts/logical/connections)" section for more information.
 

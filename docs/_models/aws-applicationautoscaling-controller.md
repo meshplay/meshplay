@@ -4,7 +4,7 @@ title: AWS Applilcation Autoscaling
 subtitle: Collaborative and visual infrastructure as design for AWS Applilcation Autoscaling
 image: /assets/img/integrations/aws-applicationautoscaling-controller/icons/color/aws-applicationautoscaling-controller-color.svg
 permalink: extensibility/integrations/aws-applicationautoscaling-controller
-docURL: https://docs.meshery.io/extensibility/integrations/aws-applicationautoscaling-controller
+docURL: https://docs.meshplay.io/extensibility/integrations/aws-applicationautoscaling-controller
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Management Governance

@@ -1,4 +1,4 @@
-# OCI & Meshery Entities
+# OCI & Meshplay Entities
 
 packaging and distribution
 
@@ -14,40 +14,40 @@ Functional Architecture 6
 Architecture Diagram 6
 Sequence Diagram 7
 System Flows 7
-Flow: Meshery Server Connects to an OCI-compliant Registry unauthenticated 7
-Flow: Meshery Server Connects to an OCI-compliant Registry authenticated 8
+Flow: Meshplay Server Connects to an OCI-compliant Registry unauthenticated 7
+Flow: Meshplay Server Connects to an OCI-compliant Registry authenticated 8
 Action Items: 8
 Flow: <short title> 10
 Flow: <short title> 10
 Flow: <short title> 11
 
 Design Prologue
-Meshery Models represent a schema-based description of cloud native infrastructure and operations of which Meshery is capable of managing. Models and Designs need to be portable between Meshery deployments as well as easily versionable in external repositories.
+Meshplay Models represent a schema-based description of cloud native infrastructure and operations of which Meshplay is capable of managing. Models and Designs need to be portable between Meshplay deployments as well as easily versionable in external repositories.
 
 Related Issues
-<https://github.com/meshery/meshery/issues/6447>
-<https://github.com/meshery/meshery/issues/8855>
+<https://github.com/meshplay/meshplay/issues/6447>
+<https://github.com/meshplay/meshplay/issues/8855>
 [Feat]: Support models export as OCI format #10165
 Support OCI export of Designs, Patterns, Filters #10195
 
 Design Goals and Objectives
 The designs in this specification should result in upholding the following goals and should achieve these specific functions:
 
-Goal 1: Ensure Meshery Models and Designs enjoy a high degree of portability
+Goal 1: Ensure Meshplay Models and Designs enjoy a high degree of portability
 OCI is the broadly accepted standard image definition and distribution format.
-Objective 1: Import and export of Meshery Entities
-Import and export of Meshery Designs in OCI format.
-Import and export of Meshery Models in OCI format.
+Objective 1: Import and export of Meshplay Entities
+Import and export of Meshplay Designs in OCI format.
+Import and export of Meshplay Models in OCI format.
 Objective 2: Support for OCI-compatible registries, in priority order:
 Docker Hub, Artifact Hub, AWS ECR, GCP GCR, Azure ACR, JFrog Artifactory, Harbor,
-Objective 3: Native support for Meshery Designs in Artifact Hub
+Objective 3: Native support for Meshplay Designs in Artifact Hub
 
 Goal 2: Overarching idea
 Supporting statement
 Objective 1: Measurable and specific item
 Objective 2: Measurable and specific item
 FAQ
-How does Meshery version Models and Designs?
+How does Meshplay version Models and Designs?
 And its answer
 Common question
 And its answer
@@ -131,12 +131,12 @@ Architecture Diagram
 Sequence Diagram
 <here>
 System Flows
-Flow: Meshery Server Connects to an OCI-compliant Registry unauthenticated
+Flow: Meshplay Server Connects to an OCI-compliant Registry unauthenticated
 Goal: As a system,
-Meshery Server needs to connect to OCI-compliant registries,
-so that it can offer an index of container images and their details to Meshery users.
+Meshplay Server needs to connect to OCI-compliant registries,
+so that it can offer an index of container images and their details to Meshplay users.
 Actors:
-Meshery Server, OCI Registry
+Meshplay Server, OCI Registry
 Preconditions:
 User or System has created a connection for any given OCI Registry.
 Assumptions:
@@ -155,17 +155,17 @@ All environment variables
 Username?
 
 Implementation:
-Server stores container image details and Registry Connection index inside of Meshery Database.
+Server stores container image details and Registry Connection index inside of Meshplay Database.
 
 Error Handling:
 
 Postconditions:
-Upon disconnection of the OCI Registry Connection, Meshery Server does not retain the registry’s index of container images.
+Upon disconnection of the OCI Registry Connection, Meshplay Server does not retain the registry’s index of container images.
 
 Acceptance Criteria:
 
-Flow: Meshery Server Connects to an OCI-compliant Registry authenticated
-Goal: As a [developer/integrator/mesheryctl/operator] user,
+Flow: Meshplay Server Connects to an OCI-compliant Registry authenticated
+Goal: As a [developer/integrator/meshplayctl/operator] user,
 I would like to …….. ,
 so that ………..
 Actors:
@@ -183,9 +183,9 @@ Error Handling:
 Acceptance Criteria:
 
 Action Items:
-Support OCI export of Contents (Meshery Designs, Patterns, Filters)
-Meshery UI (Completed)
-mesheryctl: Create a new issue for supporting this functionality.
+Support OCI export of Contents (Meshplay Designs, Patterns, Filters)
+Meshplay UI (Completed)
+meshplayctl: Create a new issue for supporting this functionality.
 Support pulling and pushing OCI artifacts from/to OCI registries.
 ORAS VS FLUX
 References: <https://fluxcd.io/flux/cmd/flux_push/>
@@ -199,12 +199,12 @@ What library does KubeApps use under the hood? <Althaf>
 What library does Docker Hub CLI tool use under the hood? <Althaf>
 Number of registries supported.
 How frequently does ORAS/Flux discover the latest tags?
-Support mesheryctl design import as a new command.
-Consolidate mesheryctl app command into mesheryctl pattern
+Support meshplayctl design import as a new command.
+Consolidate meshplayctl app command into meshplayctl pattern
 Improve descriptions of parent and subcommands.
 Pulling container images from OCI registries for
-Meshery Models
-Meshery Designs (tbd - base)
+Meshplay Models
+Meshplay Designs (tbd - base)
 Do all OCI registries have Dockerfiles available for their images?
 What manifest or index does OCI offer to find information similar as to what is in the Dockerfile?
 Not in the case of non-runnable images.
@@ -223,7 +223,7 @@ Familiarize with the metadata provided with each of these registries.
 How does Kubernetes support sourcing multi-registry deployments?
 
 Flow: <short title>
-Goal: As a [developer/integrator/mesheryctl/operator] user,
+Goal: As a [developer/integrator/meshplayctl/operator] user,
 I would like to …….. ,
 so that ………..
 Actors:
@@ -241,7 +241,7 @@ Error Handling:
 Acceptance Criteria:
 
 Flow: <short title>
-Goal: As a [developer/integrator/mesheryctl/operator] user,
+Goal: As a [developer/integrator/meshplayctl/operator] user,
 I would like to …….. ,
 so that ………..
 Actors:
@@ -259,7 +259,7 @@ Error Handling:
 Acceptance Criteria:
 
 Flow: <short title>
-Goal: As a [developer/integrator/mesheryctl/operator] user,
+Goal: As a [developer/integrator/meshplayctl/operator] user,
 I would like to …….. ,
 so that ………..
 Actors:

@@ -2,19 +2,19 @@ contexts:
     local:
         channel: stable
         components:
-            - meshery-istio
+            - meshplay-istio
         endpoint: http://localhost:9081
         platform: kubernetes
-        provider: Meshery
+        provider: Meshplay
         token: default
         version: latest
     local2:
         channel: stable
         components:
-            - meshery-istio
+            - meshplay-istio
         endpoint: http://localhost:32242
         platform: docker
-        provider: Meshery
+        provider: Meshplay
         token: default2
         version: latest
 current-context: local2

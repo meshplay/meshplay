@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-kuma
-description: Meshery Adapter for Kuma.
-icon: https://meshery.io/images/logos/meshery-logo.png
+name: meshplay-kuma
+description: Meshplay Adapter for Kuma.
+icon: https://meshplay.io/images/logos/meshplay-logo.png
 source: 
-  - https://github.com/layer5io/meshery-kuma
+  - https://github.com/khulnasoft/meshplay-kuma
 
 deprecated: false
 # A chart can be either an 'application' or a 'library' chart.

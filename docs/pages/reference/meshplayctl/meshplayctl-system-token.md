@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-system-token
-permalink: reference/mesheryctl/system/token
-redirect_from: reference/mesheryctl/system/token/
+title: meshplayctl-system-token
+permalink: reference/meshplayctl/system/token
+redirect_from: reference/meshplayctl/system/token/
 type: reference
 display-title: "false"
 language: en
@@ -10,9 +10,9 @@ command: system
 subcommand: token
 ---
 
-# mesheryctl system token
+# meshplayctl system token
 
-Manage Meshery user tokens
+Manage Meshplay user tokens
 
 ## Synopsis
 
@@ -20,7 +20,7 @@ Manage Meshery user tokens
 	Manipulate user tokens and their context assignments in your meshconfig
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl system token [flags]
+meshplayctl system token [flags]
 
 </div>
 </pre> 
@@ -38,7 +38,7 @@ mesheryctl system token [flags]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string    path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string    path to config file (default "/home/runner/.meshplay/config.yaml")
   -c, --context string   (optional) temporarily change the current context.
   -v, --verbose          verbose output
   -y, --yes              (optional) assume yes for user interactive prompts.
@@ -48,4 +48,4 @@ mesheryctl system token [flags]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

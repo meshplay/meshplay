@@ -22,7 +22,7 @@ import (
 	"errors"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/models/connections"
+	"github.com/khulnasoft/meshplay/server/models/connections"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
 	"github.com/layer5io/meshkit/models/events"
@@ -275,7 +275,7 @@ func (l *RemoteProvider) executePrefSync(tokenString string, sess *Preference) {
 //
 // Every Remote Provider must offer this function
 func (l *RemoteProvider) InitiateLogin(w http.ResponseWriter, r *http.Request, _ bool) {
-	baseCallbackURL := r.Context().Value(MesheryServerCallbackURL).(string)
+	baseCallbackURL := r.Context().Value(MeshplayServerCallbackURL).(string)
 
 	// Support for deep-link and redirection to land user on their originally requested page post authentication instead of dropping user on the root (home) page.
 	refURLqueryParam := r.URL.Query().Get("ref")
@@ -613,7 +613,7 @@ func (l *RemoteProvider) Logout(w http.ResponseWriter, req *http.Request) error 
 	})
 
 	// adds return_to cookie to the new request headers
-	// necessary to inform remote provider to return back to Meshery UI
+	// necessary to inform remote provider to return back to Meshplay UI
 	cReq.AddCookie(&http.Cookie{Name: "return_to", Value: "provider_ui"})
 
 	// make request to remote provider with contructed URL and updated headers (like session_cookie, return_to cookies)
@@ -674,7 +674,7 @@ func (l *RemoteProvider) SaveK8sContext(token string, k8sContext K8sContext) (co
 	_metadata := map[string]string{
 		"id":                   k8sContext.ID,
 		"server":               k8sContext.Server,
-		"meshplay_instance_id":  k8sContext.MesheryInstanceID.String(),
+		"meshplay_instance_id":  k8sContext.MeshplayInstanceID.String(),
 		"deployment_type":      k8sContext.DeploymentType,
 		"version":              k8sContext.Version,
 		"name":                 k8sContext.Name,
@@ -710,12 +710,12 @@ func (l *RemoteProvider) SaveK8sContext(token string, k8sContext K8sContext) (co
 	return *connection, nil
 }
 func (l *RemoteProvider) GetK8sContexts(token, page, pageSize, search, order string, withStatus string, withCredentials bool) ([]byte, error) {
-	MesheryInstanceID, ok := viper.Get("INSTANCE_ID").(*uuid.UUID)
+	MeshplayInstanceID, ok := viper.Get("INSTANCE_ID").(*uuid.UUID)
 	if !ok {
-		return nil, ErrMesheryInstanceID
+		return nil, ErrMeshplayInstanceID
 	}
-	mi := MesheryInstanceID.String()
-	l.Log.Info("attempting to fetch kubernetes contexts from cloud for Meshery instance: ", mi)
+	mi := MeshplayInstanceID.String()
+	l.Log.Info("attempting to fetch kubernetes contexts from cloud for Meshplay instance: ", mi)
 	if !l.Capabilities.IsSupported(PersistConnection) {
 		l.Log.Error(ErrOperationNotAvaibale)
 		return nil, ErrInvalidCapability("PersistConnection", l.ProviderName)
@@ -782,7 +782,7 @@ func (l *RemoteProvider) LoadAllK8sContext(token string) ([]*K8sContext, error) 
 		if err != nil {
 			return results, err
 		}
-		var k8scontext MesheryK8sContextPage
+		var k8scontext MeshplayK8sContextPage
 		err = json.Unmarshal(res, &k8scontext)
 		if err != nil {
 			return results, ErrMarshal(err, "kubernetes context")
@@ -860,7 +860,7 @@ func (l *RemoteProvider) GetK8sContext(token, connectionID string) (K8sContext, 
 	}()
 
 	if resp.StatusCode == http.StatusOK {
-		var kc MesheryK8sContextPage
+		var kc MeshplayK8sContextPage
 		if err := json.NewDecoder(resp.Body).Decode(&kc); err != nil {
 			return K8sContext{}, ErrUnmarshal(err, "Kubernetes context")
 		}
@@ -1115,7 +1115,7 @@ func (l *RemoteProvider) FetchSmiResult(req *http.Request, page, pageSize, searc
 }
 
 // GetResult - fetches result from provider backend for the given result id
-func (l *RemoteProvider) GetResult(tokenVal string, resultID uuid.UUID) (*MesheryResult, error) {
+func (l *RemoteProvider) GetResult(tokenVal string, resultID uuid.UUID) (*MeshplayResult, error) {
 	if !l.Capabilities.IsSupported(PersistResult) {
 		l.Log.Error(ErrOperationNotAvaibale)
 		return nil, ErrInvalidCapability("PersistResult", l.ProviderName)
@@ -1152,7 +1152,7 @@ func (l *RemoteProvider) GetResult(tokenVal string, resultID uuid.UUID) (*Mesher
 
 	if resp.StatusCode == http.StatusOK {
 		l.Log.Info("result successfully retrieved from remote provider")
-		res := &MesheryResult{}
+		res := &MeshplayResult{}
 		err = json.Unmarshal(bdr, res)
 		if err != nil {
 			err = ErrUnmarshal(err, "Perf Result "+resultID.String())
@@ -1167,7 +1167,7 @@ func (l *RemoteProvider) GetResult(tokenVal string, resultID uuid.UUID) (*Mesher
 }
 
 // PublishResults - publishes results to the provider backend synchronously
-func (l *RemoteProvider) PublishResults(req *http.Request, result *MesheryResult, profileID string) (string, error) {
+func (l *RemoteProvider) PublishResults(req *http.Request, result *MeshplayResult, profileID string) (string, error) {
 	if !l.Capabilities.IsSupported(PersistPerformanceProfiles) {
 		l.Log.Error(ErrOperationNotAvaibale)
 		return "", ErrInvalidCapability("PersistPerformanceProfiles", l.ProviderName)
@@ -1279,7 +1279,7 @@ func (l *RemoteProvider) PublishSmiResults(result *SmiResult) (string, error) {
 }
 
 func (l *RemoteProvider) PublishEventToProvider(tokenString string, event events.Event) error {
-	if !l.Capabilities.IsSupported(PersistMesheryPatternResources) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatternResources) {
 		l.Log.Error(ErrInvalidCapability("PersistEvents", l.ProviderName))
 		return ErrInvalidCapability("PersistEvents", l.ProviderName)
 	}
@@ -1309,7 +1309,7 @@ func (l *RemoteProvider) PublishEventToProvider(tokenString string, event events
 }
 
 // PublishMetrics - publishes metrics to the provider backend asyncronously
-func (l *RemoteProvider) PublishMetrics(tokenString string, result *MesheryResult) error {
+func (l *RemoteProvider) PublishMetrics(tokenString string, result *MeshplayResult) error {
 	if !l.Capabilities.IsSupported(PersistMetrics) {
 		l.Log.Error(ErrInvalidCapability("PersistMetrics", l.ProviderName))
 		return ErrInvalidCapability("PersistMetrics", l.ProviderName)
@@ -1352,13 +1352,13 @@ func (l *RemoteProvider) PublishMetrics(tokenString string, result *MesheryResul
 	return ErrPost(err, fmt.Sprint(bdr), resp.StatusCode)
 }
 
-func (l *RemoteProvider) SaveMesheryPatternResource(token string, resource *PatternResource) (*PatternResource, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatternResources) {
+func (l *RemoteProvider) SaveMeshplayPatternResource(token string, resource *PatternResource) (*PatternResource, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatternResources) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryDesignResources", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayDesignResources", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatternResources)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatternResources)
 
 	data, err := json.Marshal(resource)
 	if err != nil {
@@ -1401,13 +1401,13 @@ func (l *RemoteProvider) SaveMesheryPatternResource(token string, resource *Patt
 	return nil, ErrPost(err, fmt.Sprint(resp.Body), resp.StatusCode)
 }
 
-func (l *RemoteProvider) GetMesheryPatternResource(token, resourceID string) (*PatternResource, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatternResources) {
+func (l *RemoteProvider) GetMeshplayPatternResource(token, resourceID string) (*PatternResource, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatternResources) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryPatternResources", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayPatternResources", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatternResources)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatternResources)
 
 	l.Log.Info("attempting to fetch design resource from cloud for id: ", resourceID)
 
@@ -1445,7 +1445,7 @@ func (l *RemoteProvider) GetMesheryPatternResource(token, resourceID string) (*P
 	return nil, err
 }
 
-func (l *RemoteProvider) GetMesheryPatternResources(
+func (l *RemoteProvider) GetMeshplayPatternResources(
 	token,
 	page,
 	pageSize,
@@ -1456,12 +1456,12 @@ func (l *RemoteProvider) GetMesheryPatternResources(
 	typ,
 	oamType string,
 ) (*PatternResourcePage, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatternResources) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatternResources) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", PersistMesheryPatternResources, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", PersistMeshplayPatternResources, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatternResources)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatternResources)
 	l.Log.Debug("Fetching designs resource from remote provider.")
 
 	remoteProviderURL, _ := url.Parse(l.RemoteProviderURL + ep)
@@ -1529,12 +1529,12 @@ func (l *RemoteProvider) GetMesheryPatternResources(
 	return nil, err
 }
 
-func (l *RemoteProvider) DeleteMesheryPatternResource(token, resourceID string) error {
-	if !l.Capabilities.IsSupported(PersistMesheryPatternResources) {
-		return ErrInvalidCapability("PersistMesheryPatternResources", l.ProviderName)
+func (l *RemoteProvider) DeleteMeshplayPatternResource(token, resourceID string) error {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatternResources) {
+		return ErrInvalidCapability("PersistMeshplayPatternResources", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatternResources)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatternResources)
 
 	l.Log.Info("Fetching design from remote provider for ID: ", resourceID)
 
@@ -1562,8 +1562,8 @@ func (l *RemoteProvider) DeleteMesheryPatternResource(token, resourceID string) 
 	return err
 }
 
-func (l *RemoteProvider) SaveMesheryPatternSourceContent(tokenString string, patternID string, sourceContent []byte) error {
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+func (l *RemoteProvider) SaveMeshplayPatternSourceContent(tokenString string, patternID string, sourceContent []byte) error {
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 
 	l.Log.Debug("Pattern Content size ", len(sourceContent))
 	bf := bytes.NewBuffer(sourceContent)
@@ -1593,13 +1593,13 @@ func (l *RemoteProvider) SaveMesheryPatternSourceContent(tokenString string, pat
 	return ErrPost(fmt.Errorf("failed to upload pattern source to remote provider"), "", resp.StatusCode)
 }
 
-// SaveMesheryPattern saves given pattern with the provider
-func (l *RemoteProvider) SaveMesheryPattern(tokenString string, pattern *MesheryPattern) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
-		return nil, fmt.Errorf("%s is not supported by provider: %s", PersistMesheryPatterns, l.ProviderName)
+// SaveMeshplayPattern saves given pattern with the provider
+func (l *RemoteProvider) SaveMeshplayPattern(tokenString string, pattern *MeshplayPattern) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
+		return nil, fmt.Errorf("%s is not supported by provider: %s", PersistMeshplayPatterns, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 
 	data, err := json.Marshal(map[string]interface{}{
 		"pattern_data": pattern,
@@ -1651,14 +1651,14 @@ func (l *RemoteProvider) SaveMesheryPattern(tokenString string, pattern *Meshery
 	return bdr, err
 }
 
-// GetMesheryPatterns gives the patterns stored with the provider
-func (l *RemoteProvider) GetMesheryPatterns(tokenString string, page, pageSize, search, order, updatedAfter string, visibility []string, includeMetrics string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
+// GetMeshplayPatterns gives the patterns stored with the provider
+func (l *RemoteProvider) GetMeshplayPatterns(tokenString string, page, pageSize, search, order, updatedAfter string, visibility []string, includeMetrics string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return []byte{}, fmt.Errorf("%s is not suppported by provider: %s", PersistMesheryPatterns, l.ProviderName)
+		return []byte{}, fmt.Errorf("%s is not suppported by provider: %s", PersistMeshplayPatterns, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 
 	l.Log.Info("attempting to fetch designs from cloud")
 
@@ -1719,14 +1719,14 @@ func (l *RemoteProvider) GetMesheryPatterns(tokenString string, page, pageSize, 
 	return nil, err
 }
 
-// GetCatalogMesheryPatterns gives the catalog patterns stored with the provider
-func (l *RemoteProvider) GetCatalogMesheryPatterns(tokenString string, page, pageSize, search, order, includeMetrics string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(MesheryPatternsCatalog) {
+// GetCatalogMeshplayPatterns gives the catalog patterns stored with the provider
+func (l *RemoteProvider) GetCatalogMeshplayPatterns(tokenString string, page, pageSize, search, order, includeMetrics string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(MeshplayPatternsCatalog) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return []byte{}, ErrInvalidCapability("MesheryPatternsCatalog", l.ProviderName)
+		return []byte{}, ErrInvalidCapability("MeshplayPatternsCatalog", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(MesheryPatternsCatalog)
+	ep, _ := l.Capabilities.GetEndpointForFeature(MeshplayPatternsCatalog)
 
 	l.Log.Info("attempting to fetch catalog designs from cloud")
 
@@ -1773,14 +1773,14 @@ func (l *RemoteProvider) GetCatalogMesheryPatterns(tokenString string, page, pag
 	return nil, err
 }
 
-// GetMesheryPattern gets pattern for the given patternID
-func (l *RemoteProvider) GetMesheryPattern(req *http.Request, patternID string, includeMetrics string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
+// GetMeshplayPattern gets pattern for the given patternID
+func (l *RemoteProvider) GetMeshplayPattern(req *http.Request, patternID string, includeMetrics string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryPatterns", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayPatterns", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 	l.Log.Info("attempting to fetch design from cloud for id: ", patternID)
 
 	remoteProviderURL, _ := url.Parse(fmt.Sprintf("%s%s/%s", l.RemoteProviderURL, ep, patternID))
@@ -1823,14 +1823,14 @@ func (l *RemoteProvider) GetMesheryPattern(req *http.Request, patternID string, 
 	return nil, err
 }
 
-// DeleteMesheryPattern deletes a meshplay pattern with the given id
-func (l *RemoteProvider) DeleteMesheryPattern(req *http.Request, patternID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
+// DeleteMeshplayPattern deletes a meshplay pattern with the given id
+func (l *RemoteProvider) DeleteMeshplayPattern(req *http.Request, patternID string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", PersistMesheryPatterns, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", PersistMeshplayPatterns, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 
 	l.Log.Info("attempting to fetch design from cloud for id: ", patternID)
 
@@ -1871,14 +1871,14 @@ func (l *RemoteProvider) DeleteMesheryPattern(req *http.Request, patternID strin
 	return nil, err
 }
 
-// CloneMesheryPattern clones a meshplay pattern with the given id
-func (l *RemoteProvider) CloneMesheryPattern(req *http.Request, patternID string, clonePatternRequest *MesheryClonePatternRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(CloneMesheryPatterns) {
+// CloneMeshplayPattern clones a meshplay pattern with the given id
+func (l *RemoteProvider) CloneMeshplayPattern(req *http.Request, patternID string, clonePatternRequest *MeshplayClonePatternRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(CloneMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", CloneMesheryPatterns, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", CloneMeshplayPatterns, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(CloneMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(CloneMeshplayPatterns)
 
 	l.Log.Info("attempting to clone design from cloud for id: ", patternID)
 
@@ -1929,14 +1929,14 @@ func (l *RemoteProvider) CloneMesheryPattern(req *http.Request, patternID string
 	return nil, err
 }
 
-// PublishMesheryPattern publishes a meshplay pattern with the given id to catalog
-func (l *RemoteProvider) PublishCatalogPattern(req *http.Request, publishPatternRequest *MesheryCatalogPatternRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(MesheryPatternsCatalog) {
+// PublishMeshplayPattern publishes a meshplay pattern with the given id to catalog
+func (l *RemoteProvider) PublishCatalogPattern(req *http.Request, publishPatternRequest *MeshplayCatalogPatternRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(MeshplayPatternsCatalog) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", MesheryPatternsCatalog, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", MeshplayPatternsCatalog, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(MesheryPatternsCatalog)
+	ep, _ := l.Capabilities.GetEndpointForFeature(MeshplayPatternsCatalog)
 
 	l.Log.Info("attempting to pubish design with id: ", publishPatternRequest.ID)
 
@@ -1984,14 +1984,14 @@ func (l *RemoteProvider) PublishCatalogPattern(req *http.Request, publishPattern
 	return nil, err
 }
 
-// UnPublishMesheryPattern unpublishes a meshplay pattern with the given id to catalog
-func (l *RemoteProvider) UnPublishCatalogPattern(req *http.Request, publishPatternRequest *MesheryCatalogPatternRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(MesheryPatternsCatalog) {
+// UnPublishMeshplayPattern unpublishes a meshplay pattern with the given id to catalog
+func (l *RemoteProvider) UnPublishCatalogPattern(req *http.Request, publishPatternRequest *MeshplayCatalogPatternRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(MeshplayPatternsCatalog) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", MesheryPatternsCatalog, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", MeshplayPatternsCatalog, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(MesheryPatternsCatalog)
+	ep, _ := l.Capabilities.GetEndpointForFeature(MeshplayPatternsCatalog)
 
 	l.Log.Info("attempting to unpubish design with id: ", publishPatternRequest.ID)
 
@@ -2039,11 +2039,11 @@ func (l *RemoteProvider) UnPublishCatalogPattern(req *http.Request, publishPatte
 	return nil, err
 }
 
-// DeleteMesheryPatterns deletes meshplay patterns with the given ids and names
-func (l *RemoteProvider) DeleteMesheryPatterns(req *http.Request, patterns MesheryPatternDeleteRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
+// DeleteMeshplayPatterns deletes meshplay patterns with the given ids and names
+func (l *RemoteProvider) DeleteMeshplayPatterns(req *http.Request, patterns MeshplayPatternDeleteRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", PersistMesheryPatterns, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", PersistMeshplayPatterns, l.ProviderName)
 	}
 
 	var reqBodyBuffer bytes.Buffer
@@ -2052,7 +2052,7 @@ func (l *RemoteProvider) DeleteMesheryPatterns(req *http.Request, patterns Meshe
 		l.Log.Error(err)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 
 	// Create remote provider-url
 	remoteProviderURL, _ := url.Parse(fmt.Sprintf("%s%s", l.RemoteProviderURL, ep))
@@ -2096,12 +2096,12 @@ func (l *RemoteProvider) DeleteMesheryPatterns(req *http.Request, patterns Meshe
 }
 
 func (l *RemoteProvider) RemotePatternFile(req *http.Request, resourceURL, path string, save bool) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryPatterns", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayPatterns", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 
 	data, err := json.Marshal(map[string]interface{}{
 		"url":  resourceURL,
@@ -2155,14 +2155,14 @@ func (l *RemoteProvider) RemotePatternFile(req *http.Request, resourceURL, path 
 	return bdr, ErrPost(fmt.Errorf("could not send design to remote provider: %s", string(bdr)), fmt.Sprint(bdr), resp.StatusCode)
 }
 
-// SaveMesheryFilter saves given filter with the provider
-func (l *RemoteProvider) SaveMesheryFilter(tokenString string, filter *MesheryFilter) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryFilters) {
+// SaveMeshplayFilter saves given filter with the provider
+func (l *RemoteProvider) SaveMeshplayFilter(tokenString string, filter *MeshplayFilter) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryFilters", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayFilters", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayFilters)
 
 	data, err := json.Marshal(map[string]interface{}{
 		"filter_data": filter,
@@ -2170,7 +2170,7 @@ func (l *RemoteProvider) SaveMesheryFilter(tokenString string, filter *MesheryFi
 	})
 
 	if err != nil {
-		return nil, ErrMarshal(err, "Meshery Filters")
+		return nil, ErrMarshal(err, "Meshplay Filters")
 	}
 
 	l.Log.Debug("size of filter: ", len(data))
@@ -2209,14 +2209,14 @@ func (l *RemoteProvider) SaveMesheryFilter(tokenString string, filter *MesheryFi
 	return bdr, ErrPost(fmt.Errorf("could not send filter to remote provider: %s", string(bdr)), fmt.Sprint(bdr), resp.StatusCode)
 }
 
-// GetMesheryFilters gives the filters stored with the provider
-func (l *RemoteProvider) GetMesheryFilters(tokenString string, page, pageSize, search, order string, visibility []string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryFilters) {
+// GetMeshplayFilters gives the filters stored with the provider
+func (l *RemoteProvider) GetMeshplayFilters(tokenString string, page, pageSize, search, order string, visibility []string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return []byte{}, ErrInvalidCapability("PersistMesheryFilters", l.ProviderName)
+		return []byte{}, ErrInvalidCapability("PersistMeshplayFilters", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayFilters)
 
 	l.Log.Info("attempting to fetch filters from cloud")
 
@@ -2269,14 +2269,14 @@ func (l *RemoteProvider) GetMesheryFilters(tokenString string, page, pageSize, s
 	return nil, err
 }
 
-// GetCatalogMesheryFilters gives the catalog filters stored with the provider
-func (l *RemoteProvider) GetCatalogMesheryFilters(tokenString string, page, pageSize, search, order string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(MesheryFiltersCatalog) {
+// GetCatalogMeshplayFilters gives the catalog filters stored with the provider
+func (l *RemoteProvider) GetCatalogMeshplayFilters(tokenString string, page, pageSize, search, order string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(MeshplayFiltersCatalog) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return []byte{}, ErrInvalidCapability("MesheryFiltersCatalog", l.ProviderName)
+		return []byte{}, ErrInvalidCapability("MeshplayFiltersCatalog", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(MesheryFiltersCatalog)
+	ep, _ := l.Capabilities.GetEndpointForFeature(MeshplayFiltersCatalog)
 
 	l.Log.Info("attempting to fetch catalog filters from cloud")
 
@@ -2322,14 +2322,14 @@ func (l *RemoteProvider) GetCatalogMesheryFilters(tokenString string, page, page
 	return nil, err
 }
 
-// GetMesheryFilterFile gets filter for the given filterID without the metadata
-func (l *RemoteProvider) GetMesheryFilterFile(req *http.Request, filterID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryFilters) {
+// GetMeshplayFilterFile gets filter for the given filterID without the metadata
+func (l *RemoteProvider) GetMeshplayFilterFile(req *http.Request, filterID string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryFilters", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayFilters", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayFilters)
 
 	l.Log.Info("attempting to fetch filter from cloud for id: ", filterID)
 
@@ -2365,14 +2365,14 @@ func (l *RemoteProvider) GetMesheryFilterFile(req *http.Request, filterID string
 	return nil, ErrFetch(fmt.Errorf("could not retrieve filter from remote provider"), fmt.Sprint(bdr), resp.StatusCode)
 }
 
-// GetMesheryFilter gets filter for the given filterID
-func (l *RemoteProvider) GetMesheryFilter(req *http.Request, filterID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryFilters) {
+// GetMeshplayFilter gets filter for the given filterID
+func (l *RemoteProvider) GetMeshplayFilter(req *http.Request, filterID string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryFilters", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayFilters", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayFilters)
 
 	l.Log.Info("attempting to fetch filter from cloud for id: ", filterID)
 
@@ -2406,14 +2406,14 @@ func (l *RemoteProvider) GetMesheryFilter(req *http.Request, filterID string) ([
 	return nil, ErrFetch(fmt.Errorf("could not retrieve filter from remote provider"), fmt.Sprint(bdr), resp.StatusCode)
 }
 
-// DeleteMesheryFilter deletes a meshplay filter with the given id
-func (l *RemoteProvider) DeleteMesheryFilter(req *http.Request, filterID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryFilters) {
+// DeleteMeshplayFilter deletes a meshplay filter with the given id
+func (l *RemoteProvider) DeleteMeshplayFilter(req *http.Request, filterID string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryFilters", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayFilters", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayFilters)
 
 	l.Log.Info("attempting to fetch filter from cloud for id: ", filterID)
 
@@ -2451,14 +2451,14 @@ func (l *RemoteProvider) DeleteMesheryFilter(req *http.Request, filterID string)
 	return nil, err
 }
 
-// CloneMesheryFilter clones a meshplay filter with the given id
-func (l *RemoteProvider) CloneMesheryFilter(req *http.Request, filterID string, cloneFilterRequest *MesheryCloneFilterRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(CloneMesheryFilters) {
+// CloneMeshplayFilter clones a meshplay filter with the given id
+func (l *RemoteProvider) CloneMeshplayFilter(req *http.Request, filterID string, cloneFilterRequest *MeshplayCloneFilterRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(CloneMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", CloneMesheryFilters, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", CloneMeshplayFilters, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(CloneMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(CloneMeshplayFilters)
 
 	l.Log.Info("attempting to clone filter from cloud for id: ", filterID)
 
@@ -2508,14 +2508,14 @@ func (l *RemoteProvider) CloneMesheryFilter(req *http.Request, filterID string, 
 	return nil, err
 }
 
-// CloneMesheryFilter publishes a meshplay filter with the given id to catalog
-func (l *RemoteProvider) PublishCatalogFilter(req *http.Request, publishFilterRequest *MesheryCatalogFilterRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(MesheryFiltersCatalog) {
+// CloneMeshplayFilter publishes a meshplay filter with the given id to catalog
+func (l *RemoteProvider) PublishCatalogFilter(req *http.Request, publishFilterRequest *MeshplayCatalogFilterRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(MeshplayFiltersCatalog) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", MesheryFiltersCatalog, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", MeshplayFiltersCatalog, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(MesheryFiltersCatalog)
+	ep, _ := l.Capabilities.GetEndpointForFeature(MeshplayFiltersCatalog)
 
 	l.Log.Info("attempting to pubish filter with id: ", publishFilterRequest.ID)
 
@@ -2563,14 +2563,14 @@ func (l *RemoteProvider) PublishCatalogFilter(req *http.Request, publishFilterRe
 	return nil, err
 }
 
-// UnPublishMesheryFilter publishes a meshplay filter with the given id to catalog
-func (l *RemoteProvider) UnPublishCatalogFilter(req *http.Request, publishFilterRequest *MesheryCatalogFilterRequestBody) ([]byte, error) {
-	if !l.Capabilities.IsSupported(MesheryFiltersCatalog) {
+// UnPublishMeshplayFilter publishes a meshplay filter with the given id to catalog
+func (l *RemoteProvider) UnPublishCatalogFilter(req *http.Request, publishFilterRequest *MeshplayCatalogFilterRequestBody) ([]byte, error) {
+	if !l.Capabilities.IsSupported(MeshplayFiltersCatalog) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, fmt.Errorf("%s is not suppported by provider: %s", MesheryFiltersCatalog, l.ProviderName)
+		return nil, fmt.Errorf("%s is not suppported by provider: %s", MeshplayFiltersCatalog, l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(MesheryFiltersCatalog)
+	ep, _ := l.Capabilities.GetEndpointForFeature(MeshplayFiltersCatalog)
 
 	l.Log.Info("attempting to unpubish filter with id: ", publishFilterRequest.ID)
 
@@ -2619,18 +2619,18 @@ func (l *RemoteProvider) UnPublishCatalogFilter(req *http.Request, publishFilter
 }
 
 func (l *RemoteProvider) RemoteFilterFile(req *http.Request, resourceURL, path string, save bool, resource string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryFilters) {
+	if !l.Capabilities.IsSupported(PersistMeshplayFilters) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryFilters", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayFilters", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryFilters)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayFilters)
 
 	data, err := json.Marshal(map[string]interface{}{
 		"url":  resourceURL,
 		"save": save,
 		"path": path,
-		"filter_data": MesheryFilter{
+		"filter_data": MeshplayFilter{
 			FilterResource: resource,
 		},
 	})
@@ -2679,14 +2679,14 @@ func (l *RemoteProvider) RemoteFilterFile(req *http.Request, resourceURL, path s
 	return bdr, ErrPost(fmt.Errorf("could not send filter to remote provider: %s", string(bdr)), fmt.Sprint(bdr), resp.StatusCode)
 }
 
-// SaveMesheryApplication saves given application with the provider
-func (l *RemoteProvider) SaveMesheryApplication(tokenString string, application *MesheryApplication) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryApplications) {
+// SaveMeshplayApplication saves given application with the provider
+func (l *RemoteProvider) SaveMeshplayApplication(tokenString string, application *MeshplayApplication) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayApplications) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryApplications", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayApplications", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryApplications)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayApplications)
 
 	data, err := json.Marshal(map[string]interface{}{
 		"application_data": application,
@@ -2734,7 +2734,7 @@ func (l *RemoteProvider) SaveMesheryApplication(tokenString string, application 
 
 // SaveApplicationSourceContent saves given application source content with the provider after successful save of Application with the provider
 func (l *RemoteProvider) SaveApplicationSourceContent(tokenString string, applicationID string, sourceContent []byte) error {
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryApplications)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayApplications)
 
 	l.Log.Debug("Application Content size ", len(sourceContent))
 	bf := bytes.NewBuffer(sourceContent)
@@ -2766,7 +2766,7 @@ func (l *RemoteProvider) SaveApplicationSourceContent(tokenString string, applic
 
 // GetApplicationSourceContent returns application source-content from provider
 func (l *RemoteProvider) GetApplicationSourceContent(req *http.Request, applicationID string) ([]byte, error) {
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryApplications)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayApplications)
 	downloadURL := fmt.Sprintf("%s%s%s/%s", l.RemoteProviderURL, ep, remoteDownloadURL, applicationID)
 	remoteProviderURL, _ := url.Parse(downloadURL)
 	cReq, _ := http.NewRequest(http.MethodGet, remoteProviderURL.String(), nil)
@@ -2808,12 +2808,12 @@ func (l *RemoteProvider) GetApplicationSourceContent(req *http.Request, applicat
 
 // GetDesignSourceContent returns design source-content from provider
 func (l *RemoteProvider) GetDesignSourceContent(token, designID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryPatterns) {
+	if !l.Capabilities.IsSupported(PersistMeshplayPatterns) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryPatterns", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayPatterns", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryPatterns)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayPatterns)
 	downloadURL := fmt.Sprintf("%s%s%s/%s", l.RemoteProviderURL, ep, remoteDownloadURL, designID)
 	remoteProviderURL, _ := url.Parse(downloadURL)
 	cReq, _ := http.NewRequest(http.MethodGet, remoteProviderURL.String(), nil)
@@ -2849,14 +2849,14 @@ func (l *RemoteProvider) GetDesignSourceContent(token, designID string) ([]byte,
 	return nil, err
 }
 
-// GetMesheryApplications gives the applications stored with the provider
-func (l *RemoteProvider) GetMesheryApplications(tokenString string, page, pageSize, search, order string, updaterAfter string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryApplications) {
+// GetMeshplayApplications gives the applications stored with the provider
+func (l *RemoteProvider) GetMeshplayApplications(tokenString string, page, pageSize, search, order string, updaterAfter string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayApplications) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return []byte{}, ErrInvalidCapability("PersistMesheryApplications", l.ProviderName)
+		return []byte{}, ErrInvalidCapability("PersistMeshplayApplications", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryApplications)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayApplications)
 
 	l.Log.Info("attempting to fetch applications from cloud")
 
@@ -2908,14 +2908,14 @@ func (l *RemoteProvider) GetMesheryApplications(tokenString string, page, pageSi
 	return nil, err
 }
 
-// GetMesheryApplication gets application for the given applicationID
-func (l *RemoteProvider) GetMesheryApplication(req *http.Request, applicationID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryApplications) {
+// GetMeshplayApplication gets application for the given applicationID
+func (l *RemoteProvider) GetMeshplayApplication(req *http.Request, applicationID string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayApplications) {
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryApplications", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayApplications", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryApplications)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayApplications)
 
 	l.Log.Info("attempting to fetch application from cloud for id: ", applicationID)
 	urls := fmt.Sprintf("%s%s/%s", l.RemoteProviderURL, ep, applicationID)
@@ -2949,15 +2949,15 @@ func (l *RemoteProvider) GetMesheryApplication(req *http.Request, applicationID 
 	return nil, ErrFetch(fmt.Errorf("failed to retrieve application from remote provider"), fmt.Sprint(bdr), resp.StatusCode)
 }
 
-// DeleteMesheryApplication deletes a meshplay application with the given id
-func (l *RemoteProvider) DeleteMesheryApplication(req *http.Request, applicationID string) ([]byte, error) {
-	if !l.Capabilities.IsSupported(PersistMesheryApplications) {
+// DeleteMeshplayApplication deletes a meshplay application with the given id
+func (l *RemoteProvider) DeleteMeshplayApplication(req *http.Request, applicationID string) ([]byte, error) {
+	if !l.Capabilities.IsSupported(PersistMeshplayApplications) {
 		l.Log.Error(ErrOperationNotAvaibale)
 		l.Log.Error(ErrOperationNotAvaibale)
-		return nil, ErrInvalidCapability("PersistMesheryApplications", l.ProviderName)
+		return nil, ErrInvalidCapability("PersistMeshplayApplications", l.ProviderName)
 	}
 
-	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMesheryApplications)
+	ep, _ := l.Capabilities.GetEndpointForFeature(PersistMeshplayApplications)
 
 	l.Log.Info("attempting to fetch application from cloud for id: ", applicationID)
 
@@ -3421,7 +3421,7 @@ func (l *RemoteProvider) TokenHandler(w http.ResponseWriter, r *http.Request, _ 
 	sessionCookie := r.URL.Query().Get("session_cookie")
 
 	l.SetJWTCookie(w, tokenString)
-	// sets the session cookie for Meshery Session
+	// sets the session cookie for Meshplay Session
 	l.SetProviderSessionCookie(w, sessionCookie)
 
 	// Get new capabilities
@@ -3452,7 +3452,7 @@ func (l *RemoteProvider) TokenHandler(w http.ResponseWriter, r *http.Request, _ 
 			"server_id":        viper.GetString("INSTANCE_ID"),
 			"server_version":   viper.GetString("BUILD"),
 			"server_build_sha": viper.GetString("COMMITSHA"),
-			"server_location":  r.Context().Value(MesheryServerURL).(string),
+			"server_location":  r.Context().Value(MeshplayServerURL).(string),
 		}
 		metadata := make(map[string]interface{}, len(_metadata))
 		for k, v := range _metadata {
@@ -3692,7 +3692,7 @@ func (l *RemoteProvider) SMPTestConfigDelete(req *http.Request, testUUID string)
 // ExtensionProxy - proxy requests to the remote provider which are specific to user_account extension
 func (l *RemoteProvider) ExtensionProxy(req *http.Request) (*ExtensionProxyResponse, error) {
 	l.Log.Info("attempting to request remote provider")
-	// gets the requested path from user_account extension UI in Meshery UI
+	// gets the requested path from user_account extension UI in Meshplay UI
 	// splits the requested path into '/api/extensions' and '/<remote-provider-endpoint>'
 	p := req.URL.Path
 	split := strings.Split(p, "/api/extensions")
@@ -4169,7 +4169,7 @@ func (l *RemoteProvider) DeleteConnection(req *http.Request, connectionID uuid.U
 	return nil, err
 }
 
-func (l *RemoteProvider) DeleteMesheryConnection() error {
+func (l *RemoteProvider) DeleteMeshplayConnection() error {
 	if !l.Capabilities.IsSupported(PersistConnection) {
 		l.Log.Error(ErrOperationNotAvaibale)
 		return ErrInvalidCapability("PersistConnection", l.ProviderName)
@@ -4187,7 +4187,7 @@ func (l *RemoteProvider) DeleteMesheryConnection() error {
 		if resp == nil {
 			return ErrUnreachableRemoteProvider(err)
 		}
-		return ErrDelete(err, "Meshery Connection", resp.StatusCode)
+		return ErrDelete(err, "Meshplay Connection", resp.StatusCode)
 	}
 	defer func() {
 		_ = resp.Body.Close()
@@ -4197,7 +4197,7 @@ func (l *RemoteProvider) DeleteMesheryConnection() error {
 		return nil
 	}
 
-	return ErrDelete(fmt.Errorf("could not delete meshplay connection"), " Meshery Connection", resp.StatusCode)
+	return ErrDelete(fmt.Errorf("could not delete meshplay connection"), " Meshplay Connection", resp.StatusCode)
 }
 
 // TarXZF takes in a source url downloads the tar.gz file

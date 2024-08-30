@@ -1,4 +1,4 @@
-baseMesheryURL: "http://localhost:9081/api"
+baseMeshplayURL: "http://localhost:9081/api"
 perf:
   authTokenURI:    "/user/gettoken"
   loadTestSmpRI: "/perf/profile"

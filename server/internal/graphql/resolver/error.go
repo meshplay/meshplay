@@ -14,7 +14,7 @@ const (
 	ErrResolverOperatorSubscriptionCode     = "meshplay-server-1187"
 	ErrAddonSubscriptionCode                = "meshplay-server-1188"
 	ErrResolverControlPlaneSubscriptionCode = "meshplay-server-1189"
-	ErrMesheryClientCode                    = "meshplay-server-1190"
+	ErrMeshplayClientCode                    = "meshplay-server-1190"
 	ErrResolverPublishBrokerCode            = "meshplay-server-1191"
 	ErrNoMeshSyncCode                       = "meshplay-server-1192"
 	ErrDataPlaneSubscriptionCode            = "meshplay-server-1193"
@@ -41,11 +41,11 @@ const (
 )
 
 var (
-	ErrNilClient              = errors.New(ErrResolverNilClientCode, errors.Alert, []string{"Kubernetes client not initialized"}, []string{"Kubernetes config is not initialized with Meshery"}, []string{}, []string{"Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"})
+	ErrNilClient              = errors.New(ErrResolverNilClientCode, errors.Alert, []string{"Kubernetes client not initialized"}, []string{"Kubernetes config is not initialized with Meshplay"}, []string{}, []string{"Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"})
 	ErrInvalidRequest         = errors.New(ErrResolverInvalidRequestCode, errors.Alert, []string{"Invalid query, please check syntax"}, []string{"The Graphql query requested is invalid"}, []string{}, []string{"Check the query parameters and syntax of the query being run"})
-	ErrNoMeshSync             = errors.New(ErrNoMeshSyncCode, errors.Alert, []string{"MeshSync disabled"}, []string{"MeshSync custom controller is not running in your kubernetes cluster"}, []string{"Meshery Operator is not running in your cluster or is crashing"}, []string{"Enable Meshery Operator from the settings page in the UI", "Check for logs in the meshplay-operator pods from inside the application for more information"})
-	ErrBrokerNotConnected     = errors.New(ErrBrokerNotConnectedCode, errors.Alert, []string{"Broker not connected"}, []string{"Meshery Broker is not connected to Meshery Server"}, []string{"Meshery Broker is crashed or not reachable"}, []string{"Restart Meshery Server", "Please check if Meshery server has access to the Broker"})
-	ErrEmptyCurrentK8sContext = errors.New(ErrEmptyCurrentK8sContextCode, errors.Alert, []string{"Current kubernetes context is empty"}, []string{"Meshery is not able to get the current kubernetes context"}, []string{"Meshery is crashed or not reachable"}, []string{"Restart Meshery Server", "Please check if Meshery server is accessible to the Database"})
+	ErrNoMeshSync             = errors.New(ErrNoMeshSyncCode, errors.Alert, []string{"MeshSync disabled"}, []string{"MeshSync custom controller is not running in your kubernetes cluster"}, []string{"Meshplay Operator is not running in your cluster or is crashing"}, []string{"Enable Meshplay Operator from the settings page in the UI", "Check for logs in the meshplay-operator pods from inside the application for more information"})
+	ErrBrokerNotConnected     = errors.New(ErrBrokerNotConnectedCode, errors.Alert, []string{"Broker not connected"}, []string{"Meshplay Broker is not connected to Meshplay Server"}, []string{"Meshplay Broker is crashed or not reachable"}, []string{"Restart Meshplay Server", "Please check if Meshplay server has access to the Broker"})
+	ErrEmptyCurrentK8sContext = errors.New(ErrEmptyCurrentK8sContextCode, errors.Alert, []string{"Current kubernetes context is empty"}, []string{"Meshplay is not able to get the current kubernetes context"}, []string{"Meshplay is crashed or not reachable"}, []string{"Restart Meshplay Server", "Please check if Meshplay server is accessible to the Database"})
 )
 
 func ErrMeshsyncSubscription(err error) error {
@@ -61,11 +61,11 @@ func ErrAddonSubscription(err error) error {
 }
 
 func ErrPerformanceProfilesSubscription(err error) error {
-	return errors.New(ErrPerformanceProfilesSubscriptionCode, errors.Alert, []string{"PerformanceProfiles Subscription failed", err.Error()}, []string{"GraphQL subscription for PerformanceProfiles stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshery Server is reachable from your browser."})
+	return errors.New(ErrPerformanceProfilesSubscriptionCode, errors.Alert, []string{"PerformanceProfiles Subscription failed", err.Error()}, []string{"GraphQL subscription for PerformanceProfiles stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrPerformanceResultSubscription(err error) error {
-	return errors.New(ErrPerformanceResultSubscriptionCode, errors.Alert, []string{"PerformanceResult Subscription failed", err.Error()}, []string{"GraphQL subscription for PerformanceResult stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshery Server is reachable from your browser."})
+	return errors.New(ErrPerformanceResultSubscriptionCode, errors.Alert, []string{"PerformanceResult Subscription failed", err.Error()}, []string{"GraphQL subscription for PerformanceResult stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrGormDatabase(err error) error {
@@ -73,7 +73,7 @@ func ErrGormDatabase(err error) error {
 }
 
 func ErrControlPlaneSubscription(err error) error {
-	return errors.New(ErrResolverControlPlaneSubscriptionCode, errors.Alert, []string{"Control Plane Subscription failed", err.Error()}, []string{"GraphQL subscription for Control Plane stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshery Server is reachable from your browser."})
+	return errors.New(ErrResolverControlPlaneSubscriptionCode, errors.Alert, []string{"Control Plane Subscription failed", err.Error()}, []string{"GraphQL subscription for Control Plane stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrDataPlaneSubscription(err error) error {
@@ -81,7 +81,7 @@ func ErrDataPlaneSubscription(err error) error {
 }
 
 func ErrPublishBroker(err error) error {
-	return errors.New(ErrResolverPublishBrokerCode, errors.Alert, []string{"Unable to publish to broker", err.Error()}, []string{"Unable to create a broker publisher"}, []string{"Could be a network issue", "Meshery Broker could have crashed"}, []string{"Check if Meshery Broker is reachable from Meshery Server", "Check if Meshery Broker is up and running inside the configured cluster"})
+	return errors.New(ErrResolverPublishBrokerCode, errors.Alert, []string{"Unable to publish to broker", err.Error()}, []string{"Unable to create a broker publisher"}, []string{"Could be a network issue", "Meshplay Broker could have crashed"}, []string{"Check if Meshplay Broker is reachable from Meshplay Server", "Check if Meshplay Broker is up and running inside the configured cluster"})
 }
 
 func ErrGettingNamespace(err error) error {
@@ -89,7 +89,7 @@ func ErrGettingNamespace(err error) error {
 }
 
 func ErrFetchingPatterns(err error) error {
-	return errors.New(ErrFetchingPatternsCode, errors.Alert, []string{"Cannot fetch designs"}, []string{err.Error()}, []string{"There might be something wrong with the Meshery or Meshery Cloud"}, []string{"Try again, if still exist, please post an issue on Meshery repository"})
+	return errors.New(ErrFetchingPatternsCode, errors.Alert, []string{"Cannot fetch designs"}, []string{err.Error()}, []string{"There might be something wrong with the Meshplay or Meshplay Cloud"}, []string{"Try again, if still exist, please post an issue on Meshplay repository"})
 }
 
 func ErrInvalidOAMType() error {
@@ -113,15 +113,15 @@ func ErrKubectlDescribe(err error) error {
 }
 
 func ErrPatternsSubscription(err error) error {
-	return errors.New(ErrConfigurationPatternsCode, errors.Alert, []string{"Configuration Subscription failed", err.Error()}, []string{"GraphQL subscription for designs stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshery Server is reachable from your browser."})
+	return errors.New(ErrConfigurationPatternsCode, errors.Alert, []string{"Configuration Subscription failed", err.Error()}, []string{"GraphQL subscription for designs stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrApplicationsSubscription(err error) error {
-	return errors.New(ErrConfigurationApplicationsCode, errors.Alert, []string{"Configuration Subscription failed", err.Error()}, []string{"GraphQL subscription for Applications stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshery Server is reachable from your browser."})
+	return errors.New(ErrConfigurationApplicationsCode, errors.Alert, []string{"Configuration Subscription failed", err.Error()}, []string{"GraphQL subscription for Applications stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrFiltersSubscription(err error) error {
-	return errors.New(ErrConfigurationFiltersCode, errors.Alert, []string{"Configuration Subscription failed", err.Error()}, []string{"GraphQL subscription for Filters stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshery Server is reachable from your browser."})
+	return errors.New(ErrConfigurationFiltersCode, errors.Alert, []string{"Configuration Subscription failed", err.Error()}, []string{"GraphQL subscription for Filters stopped"}, []string{"Could be a network issue"}, []string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrClusterResourcesSubscription(err error) error {
@@ -131,7 +131,7 @@ func ErrClusterResourcesSubscription(err error) error {
 		[]string{"ClusterResources Subscription failed", err.Error()},
 		[]string{"GraphQL subscription for ClusterResources Subscription stopped"},
 		[]string{"Could be a network issue"},
-		[]string{"Confirm that Meshery Server is reachable from your browser."})
+		[]string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrGettingClusterResources(err error) error {
@@ -152,7 +152,7 @@ func ErrMeshModelSummarySubscription(err error) error {
 		[]string{"MeshModelSummary Subscription failed", err.Error()},
 		[]string{"GraphQL subscription for MeshModelSummary Subscription stopped"},
 		[]string{"Could be a network issue"},
-		[]string{"Confirm that Meshery Server is reachable from your browser."})
+		[]string{"Confirm that Meshplay Server is reachable from your browser."})
 }
 
 func ErrGettingMeshModelSummary(err error) error {
@@ -178,7 +178,7 @@ func ErrGettingRegistryManager(err error) error {
 }
 
 func ErrK8sContextSubscription(err error) error {
-	return errors.New(ErrK8sContextCode, errors.Alert, []string{"Failed to get k8s context from remote provider", err.Error()}, []string{"There might be something wrong with the Meshery or Meshery Cloud"}, []string{"Could be a network issue"}, []string{""})
+	return errors.New(ErrK8sContextCode, errors.Alert, []string{"Failed to get k8s context from remote provider", err.Error()}, []string{"There might be something wrong with the Meshplay or Meshplay Cloud"}, []string{"Could be a network issue"}, []string{""})
 }
 
 func ErrGettingTelemetryComponents(err error) error {

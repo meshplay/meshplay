@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/machines"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/models/events"
 )
 
@@ -31,7 +31,7 @@ func (ca *ConnectAction) Execute(ctx context.Context, machineCtx interface{}, da
 	}
 
 	go func() {
-		ctrlHelper := machinectx.MesheryCtrlsHelper.
+		ctrlHelper := machinectx.MeshplayCtrlsHelper.
 			AddCtxControllerHandlers(machinectx.K8sContext).
 			UpdateOperatorsStatusMap(machinectx.OperatorTracker).
 			DeployUndeployedOperators(machinectx.OperatorTracker)

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
 package workspaces
 
 import (
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 
 	"github.com/fatih/color"
 	"github.com/pkg/errors"
@@ -41,10 +41,10 @@ var WorkSpaceCmd = &cobra.Command{
 	Example: `
 
 // To view a list workspaces
-mesheryctl exp workspace list --orgId [orgId]
+meshplayctl exp workspace list --orgId [orgId]
 
 // To create a workspace
-mesheryctl exp workspace create --orgId [orgId] --name [name] --description [description]
+meshplayctl exp workspace create --orgId [orgId] --name [name] --description [description]
 
 // Documentation for workspace can be found at:
 https://docs.layer5.io/cloud/spaces/workspaces/
@@ -63,7 +63,7 @@ https://docs.layer5.io/cloud/spaces/workspaces/
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
 			return utils.ErrInvalidArgument(cmd.Usage())
 		}
-		_, err := config.GetMesheryCtl(viper.GetViper())
+		_, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}

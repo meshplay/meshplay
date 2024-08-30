@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-exp-workspace-list
-permalink: reference/mesheryctl/exp/workspace/list
-redirect_from: reference/mesheryctl/exp/workspace/list/
+title: meshplayctl-exp-workspace-list
+permalink: reference/meshplayctl/exp/workspace/list
+redirect_from: reference/meshplayctl/exp/workspace/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: exp
 subcommand: workspace
 ---
 
-# mesheryctl exp workspace list
+# meshplayctl exp workspace list
 
 List registered workspaces
 
@@ -19,7 +19,7 @@ List registered workspaces
 List name of all registered workspaces
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp workspace list [flags]
+meshplayctl exp workspace list [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl exp workspace list [flags]
 List all registered workspace
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl exp workspace list --orgId [orgId]
+meshplayctl exp workspace list --orgId [orgId]
 
 </div>
 </pre> 
@@ -56,7 +56,7 @@ https://docs.layer5.io/cloud/spaces/workspaces/
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -64,4 +64,4 @@ https://docs.layer5.io/cloud/spaces/workspaces/
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

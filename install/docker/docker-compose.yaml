@@ -1,13 +1,13 @@
 version: "3"
 services:
-  meshery:
-    image: layer5/meshery:stable-latest
+  meshplay:
+    image: layer5/meshplay:stable-latest
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     environment:
-      - "PROVIDER_BASE_URLS=https://meshery.layer5.io"
-      # - "ADAPTER_URLS=meshery-istio:10000 meshery-linkerd:10001 meshery-consul:10002 meshery-nsm:10004 meshery-app-mesh:10005 meshery-kuma:10007 meshery-traefik-mesh:10006 meshery-nginx-sm:10010 meshery-cilium:10012"
-      - "EVENT=mesheryLocal"
+      - "PROVIDER_BASE_URLS=https://meshplay.layer5.io"
+      # - "ADAPTER_URLS=meshplay-istio:10000 meshplay-linkerd:10001 meshplay-consul:10002 meshplay-nsm:10004 meshplay-app-mesh:10005 meshplay-kuma:10007 meshplay-traefik-mesh:10006 meshplay-nginx-sm:10010 meshplay-cilium:10012"
+      - "EVENT=meshplayLocal"
       - "KUBECONFIG_FOLDER=/home/appuser/.kube"
       - "PORT=9081"
     volumes:
@@ -24,4 +24,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --label-enable
 volumes:
-  meshery-config:
+  meshplay-config:

@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,9 +22,9 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 
@@ -38,14 +38,14 @@ import (
 func getContexts(configFile string) ([]string, error) {
 	client := &http.Client{}
 
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		utils.Log.Error(err)
 		return nil, nil
 	}
 
 	// GETCONTEXTS endpoint points to the URL return the contexts available
-	GETCONTEXTS := mctlCfg.GetBaseMesheryURL() + "/api/system/kubernetes/contexts"
+	GETCONTEXTS := mctlCfg.GetBaseMeshplayURL() + "/api/system/kubernetes/contexts"
 
 	req, err := utils.UploadFileWithParams(GETCONTEXTS, nil, utils.ParamName, configFile)
 	if err != nil {
@@ -91,14 +91,14 @@ func setContext(configFile, cname string) error {
 	extraParams1 := map[string]string{
 		"contextName": cname,
 	}
-	mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+	mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 	if err != nil {
 		utils.Log.Error(err)
 		return nil
 	}
 
 	// SETCONTEXT endpoint points to set context
-	SETCONTEXT := mctlCfg.GetBaseMesheryURL() + "/api/system/kubernetes"
+	SETCONTEXT := mctlCfg.GetBaseMeshplayURL() + "/api/system/kubernetes"
 	req, err := utils.UploadFileWithParams(SETCONTEXT, extraParams1, utils.ParamName, configFile)
 	if err != nil {
 		return ErrUploadFileParams(err)
@@ -118,14 +118,14 @@ func setContext(configFile, cname string) error {
 
 var aksConfigCmd = &cobra.Command{
 	Use:   "aks",
-	Short: "Configure Meshery to use AKS cluster",
-	Long:  `Configure Meshery to connect to AKS cluster`,
+	Short: "Configure Meshplay to use AKS cluster",
+	Long:  `Configure Meshplay to connect to AKS cluster`,
 	Example: `
-// Configure Meshery to connect to AKS cluster using auth token
-mesheryctl system config aks --token auth.json
+// Configure Meshplay to connect to AKS cluster using auth token
+meshplayctl system config aks --token auth.json
 
-// Configure Meshery to connect to AKS cluster (if session is logged in using login subcommand)
-mesheryctl system config aks
+// Configure Meshplay to connect to AKS cluster (if session is logged in using login subcommand)
+meshplayctl system config aks
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
@@ -141,7 +141,7 @@ mesheryctl system config aks
 		if err != nil {
 			log.Fatalf("Azure CLI not found. Please install Azure CLI and try again. \nSee https://docs.microsoft.com/en-us/cli/azure/install-azure-cli ")
 		}
-		log.Info("Configuring Meshery to access AKS...")
+		log.Info("Configuring Meshplay to access AKS...")
 		var resourceGroup, aksName string
 
 		// Prompt user for Azure resource name
@@ -188,14 +188,14 @@ mesheryctl system config aks
 
 var eksConfigCmd = &cobra.Command{
 	Use:   "eks",
-	Short: "Configure Meshery to use EKS cluster",
-	Long:  `Configure Meshery to connect to EKS cluster`,
+	Short: "Configure Meshplay to use EKS cluster",
+	Long:  `Configure Meshplay to connect to EKS cluster`,
 	Example: `
-// Configure Meshery to connect to EKS cluster using auth token
-mesheryctl system config eks --token auth.json
+// Configure Meshplay to connect to EKS cluster using auth token
+meshplayctl system config eks --token auth.json
 
-// Configure Meshery to connect to EKS cluster (if session is logged in using login subcommand)
-mesheryctl system config eks
+// Configure Meshplay to connect to EKS cluster (if session is logged in using login subcommand)
+meshplayctl system config eks
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
@@ -211,7 +211,7 @@ mesheryctl system config eks
 		if err != nil {
 			log.Fatalf("AWS CLI not found. Please install AWS CLI and try again. \nSee https://docs.aws.amazon.com/cli/latest/reference/ ")
 		}
-		log.Info("Configuring Meshery to access EKS...")
+		log.Info("Configuring Meshplay to access EKS...")
 		var regionName, clusterName string
 
 		// Prompt user for AWS region name
@@ -258,14 +258,14 @@ mesheryctl system config eks
 
 var gkeConfigCmd = &cobra.Command{
 	Use:   "gke",
-	Short: "Configure Meshery to use GKE cluster",
-	Long:  `Configure Meshery to connect to GKE cluster`,
+	Short: "Configure Meshplay to use GKE cluster",
+	Long:  `Configure Meshplay to connect to GKE cluster`,
 	Example: `
-// Configure Meshery to connect to GKE cluster using auth token
-mesheryctl system config gke --token auth.json
+// Configure Meshplay to connect to GKE cluster using auth token
+meshplayctl system config gke --token auth.json
 
-// Configure Meshery to connect to GKE cluster (if session is logged in using login subcommand)
-mesheryctl system config gke
+// Configure Meshplay to connect to GKE cluster (if session is logged in using login subcommand)
+meshplayctl system config gke
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
@@ -275,8 +275,8 @@ mesheryctl system config gke
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// TODO: move the GenerateConfigGKE logic to meshkit/client-go
-		log.Info("Configuring Meshery to access GKE...")
-		SAName := "sa-meshery-" + utils.StringWithCharset(8)
+		log.Info("Configuring Meshplay to access GKE...")
+		SAName := "sa-meshplay-" + utils.StringWithCharset(8)
 		if err := utils.GenerateConfigGKE(utils.ConfigPath, SAName, "default"); err != nil {
 			log.Fatal("Error generating config:", err)
 			return err
@@ -291,14 +291,14 @@ mesheryctl system config gke
 
 var minikubeConfigCmd = &cobra.Command{
 	Use:   "minikube",
-	Short: "Configure Meshery to use minikube cluster",
-	Long:  `Configure Meshery to connect to minikube cluster`,
+	Short: "Configure Meshplay to use minikube cluster",
+	Long:  `Configure Meshplay to connect to minikube cluster`,
 	Example: `
-// Configure Meshery to connect to minikube cluster using auth token
-mesheryctl system config minikube --token auth.json
+// Configure Meshplay to connect to minikube cluster using auth token
+meshplayctl system config minikube --token auth.json
 
-// Configure Meshery to connect to minikube cluster (if session is logged in using login subcommand)
-mesheryctl system config minikube
+// Configure Meshplay to connect to minikube cluster (if session is logged in using login subcommand)
+meshplayctl system config minikube
 	`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) >= 1 {
@@ -307,7 +307,7 @@ mesheryctl system config minikube
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		log.Info("Configuring Meshery to access Minikube...")
+		log.Info("Configuring Meshplay to access Minikube...")
 		// Get the config from the default config path
 		if _, err = os.Stat(utils.KubeConfig); err != nil {
 			log.Fatal("Could not find the default kube config:", err)
@@ -340,15 +340,15 @@ mesheryctl system config minikube
 
 var configCmd = &cobra.Command{
 	Use:   "config",
-	Short: "Configure Meshery",
-	Long:  `Configure the Kubernetes cluster used by Meshery.`,
+	Short: "Configure Meshplay",
+	Long:  `Configure the Kubernetes cluster used by Meshplay.`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = `Usage: mesheryctl system config [aks|eks|gke|minikube]
-Example: mesheryctl system config eks
-Description: Configure the Kubernetes cluster used by Meshery.`
+		const errMsg = `Usage: meshplayctl system config [aks|eks|gke|minikube]
+Example: meshplayctl system config eks
+Description: Configure the Kubernetes cluster used by Meshplay.`
 
 		if len(args) == 0 {
-			return fmt.Errorf("name of kubernetes cluster to configure Meshery not provided\n\n%v", errMsg)
+			return fmt.Errorf("name of kubernetes cluster to configure Meshplay not provided\n\n%v", errMsg)
 		} else if len(args) > 1 {
 			return fmt.Errorf("expected one argument received multiple arguments")
 		}
@@ -356,10 +356,10 @@ Description: Configure the Kubernetes cluster used by Meshery.`
 	},
 	Example: `
 // Set configuration according to k8s cluster
-mesheryctl system config [aks|eks|gke|minikube]
+meshplayctl system config [aks|eks|gke|minikube]
 
-// Path to token for authenticating to Meshery API (optional, can be done alternatively using "login")
-mesheryctl system config --token "~/Downloads/auth.json"
+// Path to token for authenticating to Meshplay API (optional, can be done alternatively using "login")
+meshplayctl system config --token "~/Downloads/auth.json"
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 
@@ -378,10 +378,10 @@ func init() {
 		minikubeConfigCmd,
 	}
 
-	aksConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshery API")
-	eksConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshery API")
-	gkeConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshery API")
-	minikubeConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshery API")
+	aksConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshplay API")
+	eksConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshplay API")
+	gkeConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshplay API")
+	minikubeConfigCmd.Flags().StringVarP(&utils.TokenFlag, "token", "t", "", "Path to token for authenticating to Meshplay API")
 
 	configCmd.AddCommand(availableSubcommands...)
 }

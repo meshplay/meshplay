@@ -12,8 +12,8 @@ registrant: Artifact Hub
 components: 
 featureList: [
   "Pipeline your cloud native infrastructure as code changes with GitOps",
-  "Integrate Meshery into your GitHub workflow",
-  "Use Meshery GitHub Actions"
+  "Integrate Meshplay into your GitHub workflow",
+  "Use Meshplay GitHub Actions"
 ]
 howItWorks: "Visual GitOps"
 howItWorksDetails: "Collaboratively manage infrastructure with your coworkers synchronously sharing the same designs."

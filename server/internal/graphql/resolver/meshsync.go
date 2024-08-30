@@ -6,8 +6,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/models/meshmodel/registry"
 	"github.com/layer5io/meshkit/utils"
@@ -22,9 +22,9 @@ var (
 		Description: "Failed to get MeshSync data",
 		Code:        ErrResolverMeshsyncSubscriptionCode,
 	}
-	MeshSyncMesheryClientMissingError = model.Error{
+	MeshSyncMeshplayClientMissingError = model.Error{
 		Code:        ErrResolverMeshsyncSubscriptionCode,
-		Description: "Cannot find Meshery Client",
+		Description: "Cannot find Meshplay Client",
 	}
 )
 
@@ -67,7 +67,7 @@ func (r *Resolver) resyncCluster(ctx context.Context, provider models.Provider, 
 			dbHandler.Lock()
 			defer dbHandler.Unlock()
 
-			r.Log.Info("Dropping Meshery Database")
+			r.Log.Info("Dropping Meshplay Database")
 			tables, err := dbHandler.Migrator().GetTables()
 			if err != nil {
 				r.Log.Error(ErrGormDatabase(err))
@@ -84,7 +84,7 @@ func (r *Resolver) resyncCluster(ctx context.Context, provider models.Provider, 
 				}
 			}
 
-			r.Log.Info("Migrating Meshery Database")
+			r.Log.Info("Migrating Meshplay Database")
 			err = dbHandler.AutoMigrate(
 				&meshsyncmodel.KubernetesKeyValue{},
 				&meshsyncmodel.KubernetesResource{},
@@ -92,11 +92,11 @@ func (r *Resolver) resyncCluster(ctx context.Context, provider models.Provider, 
 				&meshsyncmodel.KubernetesResourceStatus{},
 				&meshsyncmodel.KubernetesResourceObjectMeta{},
 				&models.PerformanceProfile{},
-				&models.MesheryResult{},
-				&models.MesheryPattern{},
-				&models.MesheryFilter{},
+				&models.MeshplayResult{},
+				&models.MeshplayPattern{},
+				&models.MeshplayFilter{},
 				&models.PatternResource{},
-				&models.MesheryApplication{},
+				&models.MeshplayApplication{},
 				&models.UserPreference{},
 				&models.PerformanceTestConfig{},
 				&models.SmiResultWithID{},

@@ -32,7 +32,7 @@ import RemoteComponent from '../RemoteComponent';
 import ExtensionPointSchemaValidator from '../../utils/ExtensionPointSchemaValidator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
-import MesherySettingsPerformanceComponent from '../MesherySettingsPerformanceComponent';
+import MeshplaySettingsPerformanceComponent from '../MeshplaySettingsPerformanceComponent';
 import { iconMedium } from '../../css/icons.styles';
 import { getTheme, setTheme } from '../../utils/theme';
 import { isExtensionOpen } from '../../pages/_app';
@@ -694,7 +694,7 @@ const UserPreference = (props) => {
                       />
                     }
                     labelPlacement="end"
-                    label="Meshery Catalog Content"
+                    label="Meshplay Catalog Content"
                   />
                 </FormGroup>
               </FormControl>
@@ -769,7 +769,7 @@ const UserPreference = (props) => {
             </div>
           </>
         )}
-        {tabVal === 1 && <MesherySettingsPerformanceComponent />}
+        {tabVal === 1 && <MeshplaySettingsPerformanceComponent />}
         {tabVal === 2 && userPrefs && providerType !== 'local' && (
           <>
             <Tabs

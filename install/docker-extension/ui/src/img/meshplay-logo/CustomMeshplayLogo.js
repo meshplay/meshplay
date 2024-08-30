@@ -1,7 +1,7 @@
 
 import React from "react";
 
-const MesheryIcon = ({CustomColor}) => (
+const MeshplayIcon = ({CustomColor}) => (
 <svg width="519" height="100" viewBox="0 0 519 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_627_4)">
 <path d="M52.0078 23.5669V47.4522L72.9263 35.4688L52.0078 23.5669Z" fill="#00D3A9"/>
@@ -52,4 +52,4 @@ const MesheryIcon = ({CustomColor}) => (
 
 );
 
-export default MesheryIcon;
+export default MeshplayIcon;

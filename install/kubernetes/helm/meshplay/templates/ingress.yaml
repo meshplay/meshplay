@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "meshery.name" . -}}
+{{- $fullName := include "meshplay.name" . -}}
 {{- $svcPort := .Values.service.port -}}
 {{- $apiVersion := "extensions/v1beta1" -}}
 {{- if .Values.ingress.apiVersion -}}
@@ -15,7 +15,7 @@ metadata:
   name: {{ $fullName }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "meshery.labels" . | nindent 4 }}
+    {{- include "meshplay.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

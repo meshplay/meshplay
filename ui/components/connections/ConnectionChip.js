@@ -308,7 +308,7 @@ const NotFoundStateChip = ({ value }) => {
 };
 
 // const HelpToolTip = ({ classes, value }) => {
-//   const url = `https://docs.meshery.io/concepts/connections#${value}`;
+//   const url = `https://docs.meshplay.io/concepts/connections#${value}`;
 //   const onClick = () => (e) => {
 //     e.preventDefault();
 //     e.stopPropagation();

@@ -8,40 +8,40 @@ import (
 )
 
 // Please reference the following before contributing an error code:
-// https://docs.meshery.io/project/contributing/contributing-error
-// https://github.com/meshery/meshkit/blob/master/errors/errors.go
+// https://docs.meshplay.io/project/contributing/contributing-error
+// https://github.com/meshplay/meshkit/blob/master/errors/errors.go
 var (
-	ErrFailRequestCode        = "mesheryctl-1090"
-	ErrInvalidTokenCode       = "mesheryctl-1091"
-	ErrFailReqStatusCode      = "mesheryctl-1092"
-	ErrAttachAuthTokenCode    = "mesheryctl-1093"
-	ErrUnmarshalCode          = "mesheryctl-1094"
-	ErrFileReadCode           = "mesheryctl-1095"
-	ErrCreatingRequestCode    = "mesheryctl-1096"
-	ErrMarshalCode            = "mesheryctl-1097"
-	ErrReadResponseBodyCode   = "mesheryctl-1098"
-	ErrParsingUrlCode         = "mesheryctl-1099"
-	ErrNotFoundCode           = "mesheryctl-1100"
-	ErrUnauthenticatedCode    = "mesheryctl-1101"
-	ErrInvalidFileCode        = "mesheryctl-1102"
-	ErrInvalidNameOrIDCode    = "mesheryctl-1103"
-	ErrInvalidAPIResponseCode = "mesheryctl-1104"
-	ErrReadConfigFileCode     = "mesheryctl-1105"
-	ErrMarshalIndentCode      = "mesheryctl-1106"
-	ErrLoadConfigCode         = "mesheryctl-1107"
-	ErrResponseStatusBodyCode = "mesheryctl-1108"
-	ErrResponseStatusCode     = "mesheryctl-1109"
-	ErrJSONToYAMLCode         = "mesheryctl-1110"
-	ErrOutFormatFlagCode      = "mesheryctl-1111"
-	ErrParseGithubFileCode    = "mesheryctl-1112"
-	ErrReadTokenCode          = "mesheryctl-1113"
-	ErrRequestResponseCode    = "mesheryctl-1114"
-	ErrMarshalStructToCSVCode = "mesheryctl-1115"
-	ErrAppendToSheetCode      = "mesheryctl-1116"
-	ErrBadRequestCode         = "mesheryctl-1117"
-	ErrInvalidArgumentCode    = "mesheryctl-1118"
-	ErrGeneratingIconsCode    = "mesheryctl-1119"
-	ErrClearLineCode          = "mesheryctl-1120"
+	ErrFailRequestCode        = "meshplayctl-1090"
+	ErrInvalidTokenCode       = "meshplayctl-1091"
+	ErrFailReqStatusCode      = "meshplayctl-1092"
+	ErrAttachAuthTokenCode    = "meshplayctl-1093"
+	ErrUnmarshalCode          = "meshplayctl-1094"
+	ErrFileReadCode           = "meshplayctl-1095"
+	ErrCreatingRequestCode    = "meshplayctl-1096"
+	ErrMarshalCode            = "meshplayctl-1097"
+	ErrReadResponseBodyCode   = "meshplayctl-1098"
+	ErrParsingUrlCode         = "meshplayctl-1099"
+	ErrNotFoundCode           = "meshplayctl-1100"
+	ErrUnauthenticatedCode    = "meshplayctl-1101"
+	ErrInvalidFileCode        = "meshplayctl-1102"
+	ErrInvalidNameOrIDCode    = "meshplayctl-1103"
+	ErrInvalidAPIResponseCode = "meshplayctl-1104"
+	ErrReadConfigFileCode     = "meshplayctl-1105"
+	ErrMarshalIndentCode      = "meshplayctl-1106"
+	ErrLoadConfigCode         = "meshplayctl-1107"
+	ErrResponseStatusBodyCode = "meshplayctl-1108"
+	ErrResponseStatusCode     = "meshplayctl-1109"
+	ErrJSONToYAMLCode         = "meshplayctl-1110"
+	ErrOutFormatFlagCode      = "meshplayctl-1111"
+	ErrParseGithubFileCode    = "meshplayctl-1112"
+	ErrReadTokenCode          = "meshplayctl-1113"
+	ErrRequestResponseCode    = "meshplayctl-1114"
+	ErrMarshalStructToCSVCode = "meshplayctl-1115"
+	ErrAppendToSheetCode      = "meshplayctl-1116"
+	ErrBadRequestCode         = "meshplayctl-1117"
+	ErrInvalidArgumentCode    = "meshplayctl-1118"
+	ErrGeneratingIconsCode    = "meshplayctl-1119"
+	ErrClearLineCode          = "meshplayctl-1120"
 )
 
 // RootError returns a formatted error message with a link to 'root' command usage page at
@@ -244,7 +244,7 @@ func PatternViewError(msg string) string {
 	return formatError(msg, cmdPatternView)
 }
 
-// formatError returns a formatted error message with a link to the meshery command URL
+// formatError returns a formatted error message with a link to the meshplay command URL
 func formatError(msg string, cmd cmdType) string {
 	switch cmd {
 	case cmdRoot:
@@ -380,15 +380,15 @@ func ErrFailRequest(err error) error {
 	return errors.New(ErrFailRequestCode, errors.Alert,
 		[]string{"Failed to make a request"},
 		[]string{err.Error()},
-		[]string{"Meshery server is not reachable."},
-		[]string{"Ensure your Kubernetes cluster is running and your network connection is active. You can also try running 'mesheryctl system restart'."})
+		[]string{"Meshplay server is not reachable."},
+		[]string{"Ensure your Kubernetes cluster is running and your network connection is active. You can also try running 'meshplayctl system restart'."})
 }
 
 func ErrUnauthenticated() error {
 	return errors.New(ErrUnauthenticatedCode, errors.Alert, []string{"Unauthenticated User"},
 		[]string{"Access to this resource is unauthorized."},
-		[]string{"You haven't logged in to Meshery."},
-		[]string{"To proceed, log in using `mesheryctl system login`."})
+		[]string{"You haven't logged in to Meshplay."},
+		[]string{"To proceed, log in using `meshplayctl system login`."})
 }
 
 func ErrInvalidToken() error {
@@ -396,7 +396,7 @@ func ErrInvalidToken() error {
 		[]string{"Invalid authentication Token"},
 		[]string{"The authentication token has expired or is invalid."},
 		[]string{"The token in auth.json has expired or is invalid."},
-		[]string{"Provide a valid user token by logging in with `mesheryctl system login`."})
+		[]string{"Provide a valid user token by logging in with `meshplayctl system login`."})
 }
 
 func ErrUnmarshal(err error) error {
@@ -419,8 +419,8 @@ func ErrCreatingRequest(err error) error {
 	return errors.New(ErrCreatingRequestCode, errors.Fatal,
 		[]string{"Error occurred while making an HTTP request."},
 		[]string{err.Error()},
-		[]string{"Meshery is not running or there is a network issue."},
-		[]string{"Check your network connection and verify the status of the Meshery server using `mesheryctl system status`."})
+		[]string{"Meshplay is not running or there is a network issue."},
+		[]string{"Check your network connection and verify the status of the Meshplay server using `meshplayctl system status`."})
 }
 
 func ErrMarshal(err error) error {
@@ -435,8 +435,8 @@ func ErrReadResponseBody(err error) error {
 	return errors.New(ErrReadResponseBodyCode, errors.Alert,
 		[]string{"Failed to read response body from request"},
 		[]string{err.Error()},
-		[]string{"There might be connection failure with Meshery Server"},
-		[]string{"Check the status via `mesheryctl system status`"})
+		[]string{"There might be connection failure with Meshplay Server"},
+		[]string{"Check the status via `meshplayctl system status`"})
 }
 
 func ErrParsingUrl(err error) error {
@@ -476,7 +476,7 @@ func ErrAttachAuthToken(err error) error {
 		[]string{"Authentication token Not Found"},
 		[]string{"Authentication token not found: " + err.Error()},
 		[]string{"The user is not logged in to generate a token."},
-		[]string{"Log in with `mesheryctl system login` or supply a valid user token using the --token (or -t) flag."})
+		[]string{"Log in with `meshplayctl system login` or supply a valid user token using the --token (or -t) flag."})
 }
 
 func ErrFailReqStatus(statusCode int) error {
@@ -484,7 +484,7 @@ func ErrFailReqStatus(statusCode int) error {
 		[]string{"Failed response server error"},
 		[]string{"Response Status Code " + strconv.Itoa(statusCode) + ", possibly Server error"},
 		[]string{"Invalid API call"},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrMarshalIndent(err error) error {
@@ -500,7 +500,7 @@ func ErrResponseStatusBody(statusCode int, body string) error {
 		[]string{"Incorrect status code"},
 		[]string{"Server returned with status code: " + fmt.Sprint(statusCode) + "\n" + "Response: " + body},
 		[]string{"Error occurred while generating a response body"},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrResponseStatus(statusCode int) error {
@@ -508,7 +508,7 @@ func ErrResponseStatus(statusCode int) error {
 		[]string{"Incorrect status code"},
 		[]string{"Server returned with status code: " + fmt.Sprint(statusCode)},
 		[]string{"Error occurred while generating a response"},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrJSONToYAML(err error) error {
@@ -540,7 +540,7 @@ func ErrInvalidAPIResponse(err error) error {
 		[]string{"Invalid API response encountered"},
 		[]string{"Invalid API response encountered: " + err.Error()},
 		[]string{"Error occurred while generating a response body"},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrLoadConfig(err error) error {
@@ -548,7 +548,7 @@ func ErrLoadConfig(err error) error {
 		[]string{"Error processing config"},
 		[]string{"Error processing config:" + err.Error()},
 		[]string{"Unable to load meshconfig due to wrong configurations"},
-		[]string{"Ensure your `config.yaml` file in your `.meshery` is valid, or run `mesheryctl system config`."})
+		[]string{"Ensure your `config.yaml` file in your `.meshplay` is valid, or run `meshplayctl system config`."})
 }
 
 func ErrParseGithubFile(err error, URL string) error {
@@ -564,7 +564,7 @@ func ErrReadToken(err error) error {
 		[]string{"Could not read token"},
 		[]string{err.Error()},
 		[]string{"Token file is invalid"},
-		[]string{"Provide a valid user token by logging in with `mesheryctl system login`."})
+		[]string{"Provide a valid user token by logging in with `meshplayctl system login`."})
 }
 
 func ErrRequestResponse(err error) error {
@@ -572,7 +572,7 @@ func ErrRequestResponse(err error) error {
 		[]string{"Failed to handle request"},
 		[]string{"Unable to create a response from request" + err.Error()},
 		[]string{"Error occurred while generating a response"},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrMarshalStructToCSV(err error) error {
@@ -596,7 +596,7 @@ func ErrBadRequest(err error) error {
 		[]string{"Failed to delete the connection"},
 		[]string{err.Error()},
 		[]string{"Error occurred while deleting the connection"},
-		[]string{"Check your network connection and the status of Meshery Server via `mesheryctl system status`."})
+		[]string{"Check your network connection and the status of Meshplay Server via `meshplayctl system status`."})
 }
 
 func ErrInvalidArgument(err error) error {

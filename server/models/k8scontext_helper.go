@@ -1,6 +1,6 @@
 package models
 
-import "github.com/layer5io/meshplay/server/helpers/utils"
+import "github.com/khulnasoft/meshplay/server/helpers/utils"
 
 type K8scontextChan struct {
 	contextchan []chan struct{}

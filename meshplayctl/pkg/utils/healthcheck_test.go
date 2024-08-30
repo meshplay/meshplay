@@ -161,7 +161,7 @@ func TestIsCompatibleVersion(t *testing.T) {
 	}
 }
 
-func TestAreMesheryComponentsRunning(t *testing.T) {
+func TestAreMeshplayComponentsRunning(t *testing.T) {
 	tests := []struct {
 		platform string
 		expected bool
@@ -177,9 +177,9 @@ func TestAreMesheryComponentsRunning(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		t.Run("Meshery Components Running", func(t *testing.T) {
-			if got, _ := AreMesheryComponentsRunning(tt.platform); got != tt.expected {
-				t.Errorf("Meshery Components Running got %v, want %v", got, tt.expected)
+		t.Run("Meshplay Components Running", func(t *testing.T) {
+			if got, _ := AreMeshplayComponentsRunning(tt.platform); got != tt.expected {
+				t.Errorf("Meshplay Components Running got %v, want %v", got, tt.expected)
 			}
 		})
 	}
@@ -202,10 +202,10 @@ func TestAreAllPodsRunning(t *testing.T) {
 	}
 }
 
-func TestCheckMesheryNsDelete(t *testing.T) {
+func TestCheckMeshplayNsDelete(t *testing.T) {
 	expected := false
-	t.Run("Test Existing Meshery Namespace", func(t *testing.T) {
-		if got, _ := CheckMesheryNsDelete(); got != expected {
+	t.Run("Test Existing Meshplay Namespace", func(t *testing.T) {
+		if got, _ := CheckMeshplayNsDelete(); got != expected {
 			t.Errorf("Namespace not deleted got %v want %v ", got, expected)
 		}
 	})

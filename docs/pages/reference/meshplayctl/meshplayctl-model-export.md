@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-model-export
-permalink: reference/mesheryctl/model/export
-redirect_from: reference/mesheryctl/model/export/
+title: meshplayctl-model-export
+permalink: reference/meshplayctl/model/export
+redirect_from: reference/meshplayctl/model/export/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: model
 subcommand: export
 ---
 
-# mesheryctl model export
+# meshplayctl model export
 
 export registered models
 
@@ -19,7 +19,7 @@ export registered models
 export the registered model to the specified output type
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model export [flags]
+meshplayctl model export [flags]
 
 </div>
 </pre> 
@@ -29,21 +29,21 @@ mesheryctl model export [flags]
 Export a model by name
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model export [model-name] -o [oci/json/yaml] (default is oci)
+meshplayctl model export [model-name] -o [oci/json/yaml] (default is oci)
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model export [model-name] -l /home/meshery/
+meshplayctl model export [model-name] -l /home/meshplay/
 
 </div>
 </pre> 
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl model export [model-name] --discard-components --discard-relationships
+meshplayctl model export [model-name] --discard-components --discard-relationships
 
 </div>
 </pre> 
@@ -72,7 +72,7 @@ mesheryctl model export [model-name] --discard-components --discard-relationship
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -v, --verbose         verbose output
 
 </div>
@@ -80,4 +80,4 @@ mesheryctl model export [model-name] --discard-components --discard-relationship
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

@@ -9,7 +9,7 @@ import { VISIBILITY } from '../../utils/Enum';
 import CAN from '@/utils/can';
 import { keys } from '@/utils/permission_constants';
 import DefaultError from '@/components/General/error-404';
-import MesheryPatterns from '@/components/MesheryPatterns';
+import MeshplayPatterns from '@/components/MeshplayPatterns';
 
 const styles = {
   paper: {
@@ -27,10 +27,10 @@ function CatalogPage(props) {
   return (
     <NoSsr>
       <Head>
-        <title>Catalog | Meshery</title>
+        <title>Catalog | Meshplay</title>
       </Head>
       {CAN(keys.VIEW_CATALOG.action, keys.VIEW_CATALOG.subject) || false ? (
-        <MesheryPatterns
+        <MeshplayPatterns
           disableCreateImportDesignButton={true}
           disableUniversalFilter={true}
           initialFilters={{ visibility: VISIBILITY.PUBLISHED }}

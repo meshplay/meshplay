@@ -1,33 +1,33 @@
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: meshery
-  namespace: meshery
+  name: meshplay
+  namespace: meshplay
 spec:
   virtualhost:
-    fqdn: playground.meshery.io
+    fqdn: playground.meshplay.io
     tls:
-      secretName: tls-secret-meshery
+      secretName: tls-secret-meshplay
   routes:
   - services:
-    - name: meshery
+    - name: meshplay
       port: 9081
   - conditions:
     - prefix: /api/provider/extension/server/graphql/query
-    enableWebsockets: true # Setting this to true enables websocket for Meshery's extensions
+    enableWebsockets: true # Setting this to true enables websocket for Meshplay's extensions
     services:
-    - name: meshery
+    - name: meshplay
       port: 9081
   - conditions:
     - prefix: /api/system/graphql/query
-    enableWebsockets: true # Setting this to true enables websocket for Meshery
+    enableWebsockets: true # Setting this to true enables websocket for Meshplay
     services:
-    - name: meshery
+    - name: meshplay
       port: 9081
   - conditions:
     - prefix: /api/events
     services:
-     - name: meshery
+     - name: meshplay
        port: 9081
     timeoutPolicy:
         idle: infinity

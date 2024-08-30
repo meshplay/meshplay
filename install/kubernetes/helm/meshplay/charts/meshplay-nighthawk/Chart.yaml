@@ -1,9 +1,9 @@
 apiVersion: v2
-name: meshery-nighthawk
-description: Meshery Adapter for Meshery Nighthawk.
-icon: https://github.com/meshery/meshery-nighthawk/blob/master/assets/img/icon/nighthawk-logo.png
+name: meshplay-nighthawk
+description: Meshplay Adapter for Meshplay Nighthawk.
+icon: https://github.com/meshplay/meshplay-nighthawk/blob/master/assets/img/icon/nighthawk-logo.png
 source:
-  - https://github.com/meshery/meshery-nighthawk
+  - https://github.com/meshplay/meshplay-nighthawk
 
 deprecated: false
 

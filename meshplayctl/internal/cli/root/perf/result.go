@@ -1,4 +1,4 @@
-// Copyright Meshery Authors
+// Copyright Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ import (
 	"github.com/ghodss/yaml"
 	"github.com/gofrs/uuid"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/pkg/errors"
 
 	"github.com/spf13/cobra"
@@ -41,7 +41,7 @@ type resultStruct struct {
 	URL           string
 	UserID        *uuid.UUID
 	Duration      string
-	MesheryID     *uuid.UUID
+	MeshplayID     *uuid.UUID
 	LoadGenerator string
 }
 
@@ -51,8 +51,8 @@ var (
 )
 
 var linkDocPerfResult = map[string]string{
-	"link":    "![perf-result-usage](/assets/img/mesheryctl/perf-result.png)",
-	"caption": "Usage of mesheryctl perf result",
+	"link":    "![perf-result-usage](/assets/img/meshplayctl/perf-result.png)",
+	"caption": "Usage of meshplayctl perf result",
 }
 
 var resultCmd = &cobra.Command{
@@ -62,13 +62,13 @@ var resultCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(0),
 	Example: `
 // List Test results (maximum 25 results)
-mesheryctl perf result saturday-profile
+meshplayctl perf result saturday-profile
 
 // View other set of performance results with --page (maximum 25 results)
-mesheryctl perf result saturday-profile --page 2
+meshplayctl perf result saturday-profile --page 2
 
 // View single performance result with detailed information
-mesheryctl perf result saturday-profile --view
+meshplayctl perf result saturday-profile --view
 `,
 	Annotations: linkDocPerfResult,
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -77,7 +77,7 @@ mesheryctl perf result saturday-profile --view
 		// setting up for error formatting
 		cmdUsed = "result"
 
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -96,7 +96,7 @@ mesheryctl perf result saturday-profile --view
 		// Merge args to get profile-name
 		searchString = strings.Join(args, "%20")
 
-		profiles, _, err := fetchPerformanceProfiles(mctlCfg.GetBaseMesheryURL(), searchString, pageSize, pageNumber-1)
+		profiles, _, err := fetchPerformanceProfiles(mctlCfg.GetBaseMeshplayURL(), searchString, pageSize, pageNumber-1)
 		if err != nil {
 			utils.Log.Error(err)
 			return nil
@@ -123,7 +123,7 @@ mesheryctl perf result saturday-profile --view
 			profileID = data[selectedProfileIndex][2]
 		}
 
-		results, _, err := fetchPerformanceProfileResults(mctlCfg.GetBaseMesheryURL(), profileID, pageSize, pageNumber-1)
+		results, _, err := fetchPerformanceProfileResults(mctlCfg.GetBaseMeshplayURL(), profileID, pageSize, pageNumber-1)
 		if err != nil {
 			utils.Log.Error(ErrPerformanceProfileResult(err))
 			return nil
@@ -169,7 +169,7 @@ mesheryctl perf result saturday-profile --view
 			fmt.Printf("Test run duration: %v\n", a.Duration)
 			fmt.Printf("Latencies _ms: Avg: %v, Max: %v, Min: %v, P50: %v, P90: %v, P99: %v\n", a.LatenciesMs.Average, a.LatenciesMs.Max, a.LatenciesMs.Min, a.LatenciesMs.P50, a.LatenciesMs.P90, a.LatenciesMs.P99)
 			fmt.Printf("Start Time: %v\n", fmt.Sprintf("%d-%d-%d %d:%d:%d", int(a.StartTime.Month()), a.StartTime.Day(), a.StartTime.Year(), a.StartTime.Hour(), a.StartTime.Minute(), a.StartTime.Second()))
-			fmt.Printf("Meshery ID: %v\n", a.MesheryID.String())
+			fmt.Printf("Meshplay ID: %v\n", a.MeshplayID.String())
 			fmt.Printf("Load Generator: %v\n", a.LoadGenerator)
 		}
 		return nil
@@ -239,7 +239,7 @@ func performanceResultsToStringArrays(results []models.PerformanceResult) ([][]s
 		// append data for extended output
 		name := "None"
 		userid := uuid.Nil
-		mesheryid := uuid.Nil
+		meshplayid := uuid.Nil
 		url := "None"
 		loadGenerator := "None"
 
@@ -247,8 +247,8 @@ func performanceResultsToStringArrays(results []models.PerformanceResult) ([][]s
 			userid = *result.UserID
 		}
 
-		if result.MesheryID != nil {
-			mesheryid = *result.MesheryID
+		if result.MeshplayID != nil {
+			meshplayid = *result.MeshplayID
 		}
 
 		if result.Name != "" {
@@ -278,7 +278,7 @@ func performanceResultsToStringArrays(results []models.PerformanceResult) ([][]s
 				P99:     P99,
 			},
 			StartTime:     result.TestStartTime,
-			MesheryID:     (*uuid.UUID)(mesheryid.Bytes()),
+			MeshplayID:     (*uuid.UUID)(meshplayid.Bytes()),
 			LoadGenerator: loadGenerator,
 		}
 

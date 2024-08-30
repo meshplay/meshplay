@@ -16,7 +16,7 @@ import {
 } from '../../../../rtk-query/connection';
 import { useGetSchemaQuery } from '../../../../rtk-query/schema';
 import StepperContent from '../../stepper/StepperContentWrapper';
-import RJSFWrapper from '../../../MesheryMeshInterface/PatternService/RJSF_wrapper';
+import RJSFWrapper from '../../../MeshplayMeshInterface/PatternService/RJSF_wrapper';
 import debounce from 'lodash/debounce';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { selectCompSchema } from '../../../RJSFUtils/common';

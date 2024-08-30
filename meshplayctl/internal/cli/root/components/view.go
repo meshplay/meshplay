@@ -1,4 +1,4 @@
-// Copyright 2024 Meshery Authors
+// Copyright 2024 Meshplay Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
-	"github.com/layer5io/meshery/server/models"
-	"github.com/meshery/schemas/models/v1beta1/component"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/server/models"
+	"github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -33,17 +33,17 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// represents the mesheryctl components view [component-name] subcommand.
+// represents the meshplayctl components view [component-name] subcommand.
 var viewComponentCmd = &cobra.Command{
 	Use:   "view",
 	Short: "view registered components",
-	Long:  "view a component registered in Meshery Server",
+	Long:  "view a component registered in Meshplay Server",
 	Example: `
 // View details of a specific component
-mesheryctl components view [component-name]
+meshplayctl components view [component-name]
 	`,
 	Args: func(_ *cobra.Command, args []string) error {
-		const errMsg = "Usage: mesheryctl exp component view [component-name]\nRun 'mesheryctl exp component view --help' to see detailed help message"
+		const errMsg = "Usage: meshplayctl exp component view [component-name]\nRun 'meshplayctl exp component view --help' to see detailed help message"
 		if len(args) == 0 {
 			return fmt.Errorf("component name isn't specified\n\n%v", errMsg)
 		} else if len(args) > 1 {
@@ -52,12 +52,12 @@ mesheryctl components view [component-name]
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		mctlCfg, err := config.GetMesheryCtl(viper.GetViper())
+		mctlCfg, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			log.Fatalln(err, "error processing config")
 		}
 
-		baseUrl := mctlCfg.GetBaseMesheryURL()
+		baseUrl := mctlCfg.GetBaseMeshplayURL()
 		componentDefinition := args[0]
 
 		url := fmt.Sprintf("%s/api/meshmodels/components?search=%s&pagesize=all", baseUrl, componentDefinition)
@@ -119,11 +119,11 @@ mesheryctl components view [component-name]
 			}
 			if saveFlag {
 				fmt.Println("Saving output as YAML file")
-				err = os.WriteFile(homeDir+"/.meshery/component_"+componentString+".yaml", output, 0666)
+				err = os.WriteFile(homeDir+"/.meshplay/component_"+componentString+".yaml", output, 0666)
 				if err != nil {
 					return errors.Wrap(err, "failed to save output as YAML file")
 				}
-				fmt.Println("Output saved as YAML file in ~/.meshery/component_" + componentString + ".yaml")
+				fmt.Println("Output saved as YAML file in ~/.meshplay/component_" + componentString + ".yaml")
 			} else {
 				fmt.Print(string(output))
 			}
@@ -134,11 +134,11 @@ mesheryctl components view [component-name]
 				if err != nil {
 					return errors.Wrap(err, "failed to format output in JSON")
 				}
-				err = os.WriteFile(homeDir+"/.meshery/component_"+componentString+".json", output, 0666)
+				err = os.WriteFile(homeDir+"/.meshplay/component_"+componentString+".json", output, 0666)
 				if err != nil {
 					return errors.Wrap(err, "failed to save output as JSON file")
 				}
-				fmt.Println("Output saved as JSON file in ~/.meshery/component_" + componentString + ".json")
+				fmt.Println("Output saved as JSON file in ~/.meshplay/component_" + componentString + ".json")
 				return nil
 			}
 			return OutputJson(selectedComponent)

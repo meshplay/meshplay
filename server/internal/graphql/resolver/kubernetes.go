@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/layer5io/meshplay/server/internal/graphql/model"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/internal/graphql/model"
+	"github.com/khulnasoft/meshplay/server/models"
 	meshkitKube "github.com/layer5io/meshkit/utils/kubernetes"
 	"github.com/layer5io/meshkit/utils/kubernetes/describe"
 )
@@ -77,7 +77,7 @@ func (r *Resolver) getKubectlDescribe(_ context.Context, name, kind, namespace s
 
 	client, err := meshkitKube.New([]byte(""))
 	if err != nil {
-		r.Log.Error(model.ErrMesheryClient(err))
+		r.Log.Error(model.ErrMeshplayClient(err))
 		return nil, err
 	}
 

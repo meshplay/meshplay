@@ -3,7 +3,7 @@ layout: default
 title: Contributing and Community
 type: project
 category: contributing
-abstract: Information about contributing to the Meshery project and participating the Meshery community.
+abstract: Information about contributing to the Meshplay project and participating the Meshplay community.
 permalink: project
 suggested-reading: false
 # redirect_from: project/

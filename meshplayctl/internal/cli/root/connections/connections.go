@@ -3,8 +3,8 @@ package connections
 import (
 	"fmt"
 
-	"github.com/layer5io/meshery/mesheryctl/internal/cli/root/config"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -22,7 +22,7 @@ var ConnectionsCmd = &cobra.Command{
 	Long:  `Manage connections`,
 	Example: `
 // List all the connections
-mesheryctl exp connections list
+meshplayctl exp connections list
 `,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
@@ -36,9 +36,9 @@ mesheryctl exp connections list
 
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if ok := utils.IsValidSubcommand(availableSubcommands, args[0]); !ok {
-			return errors.New(utils.SystemModelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [view]. Use 'mesheryctl exp connections --help' to display usage guide.\n", args[0]), "model"))
+			return errors.New(utils.SystemModelSubError(fmt.Sprintf("'%s' is an invalid subcommand. Please provide required options from [view]. Use 'meshplayctl exp connections --help' to display usage guide.\n", args[0]), "model"))
 		}
-		_, err := config.GetMesheryCtl(viper.GetViper())
+		_, err := config.GetMeshplayCtl(viper.GetViper())
 		if err != nil {
 			return utils.ErrLoadConfig(err)
 		}

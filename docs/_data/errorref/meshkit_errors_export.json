@@ -162,7 +162,7 @@
         "severity": "Alert",
         "long_description": "",
         "short_description": "Error creating kubernetes clientset",
-        "probable_cause": "Kubernetes config is not accessible to meshery or not valid",
+        "probable_cause": "Kubernetes config is not accessible to meshplay or not valid",
         "suggested_remediation": "Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"
       },
       "11025": {
@@ -171,7 +171,7 @@
         "severity": "Alert",
         "long_description": "",
         "short_description": "Error creating dynamic client",
-        "probable_cause": "Kubernetes config is not accessible to meshery or not valid",
+        "probable_cause": "Kubernetes config is not accessible to meshplay or not valid",
         "suggested_remediation": "Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"
       },
       "11026": {
@@ -216,7 +216,7 @@
         "severity": "Alert",
         "long_description": "",
         "short_description": "Error loading kubernetes config",
-        "probable_cause": "Kubernetes config is not accessible to meshery or not valid",
+        "probable_cause": "Kubernetes config is not accessible to meshplay or not valid",
         "suggested_remediation": "Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"
       },
       "11031": {
@@ -225,7 +225,7 @@
         "severity": "Alert",
         "long_description": "",
         "short_description": "Validation failed in the kubernetes config",
-        "probable_cause": "Kubernetes config is not accessible to meshery or not valid",
+        "probable_cause": "Kubernetes config is not accessible to meshplay or not valid",
         "suggested_remediation": "Upload your kubernetes config via the settings dashboard. If uploaded, wait for a minute for it to get initialized"
       },
       "11036": {

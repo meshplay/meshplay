@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-filter-list
-permalink: reference/mesheryctl/filter/list
-redirect_from: reference/mesheryctl/filter/list/
+title: meshplayctl-filter-list
+permalink: reference/meshplayctl/filter/list
+redirect_from: reference/meshplayctl/filter/list/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: filter
 subcommand: list
 ---
 
-# mesheryctl filter list
+# meshplayctl filter list
 
 List filters
 
@@ -19,7 +19,7 @@ List filters
 Display list of all available filter files.
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter list [flags]
+meshplayctl filter list [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl filter list [flags]
 List all WASM filter files present
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter list	(maximum 25 filters)
+meshplayctl filter list	(maximum 25 filters)
 
 </div>
 </pre> 
@@ -37,7 +37,7 @@ mesheryctl filter list	(maximum 25 filters)
 Search for filter
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter list Test (maximum 25 filters)
+meshplayctl filter list Test (maximum 25 filters)
 
 </div>
 </pre> 
@@ -45,7 +45,7 @@ mesheryctl filter list Test (maximum 25 filters)
 Search for filter with space
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl filter list 'Test Filter' (maximum 25 filters)
+meshplayctl filter list 'Test Filter' (maximum 25 filters)
 
 </div>
 </pre> 
@@ -65,7 +65,7 @@ mesheryctl filter list 'Test Filter' (maximum 25 filters)
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
 
 </div>
@@ -73,4 +73,4 @@ mesheryctl filter list 'Test Filter' (maximum 25 filters)
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

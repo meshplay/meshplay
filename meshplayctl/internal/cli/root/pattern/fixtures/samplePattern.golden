@@ -1,4 +1,4 @@
-name: SampleApp # display name in Meshery UI
+name: SampleApp # display name in Meshplay UI
 services:
   myapp:
     type: Application

@@ -4,7 +4,7 @@ title: Antrea
 subtitle: Collaborative and visual infrastructure as design for Antrea
 image: /assets/img/integrations/antrea/icons/color/antrea-color.svg
 permalink: extensibility/integrations/antrea
-docURL: https://docs.meshery.io/extensibility/integrations/antrea
+docURL: https://docs.meshplay.io/extensibility/integrations/antrea
 description: 
 integrations-category: Runtime
 integrations-subcategory: Cloud Native Network

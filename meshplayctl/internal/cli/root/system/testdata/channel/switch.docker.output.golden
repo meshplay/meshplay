@@ -5,7 +5,7 @@ Usage:
 Examples:
 
 // Switch between release channels
-mesheryctl system channel switch [stable|stable-version|edge|edge-version]
+meshplayctl system channel switch [stable|stable-version|edge|edge-version]
 	
 
 Flags:

@@ -3,8 +3,8 @@ package handlers
 
 import (
 	"github.com/gofrs/uuid"
-	"github.com/layer5io/meshplay/server/machines"
-	"github.com/layer5io/meshplay/server/models"
+	"github.com/khulnasoft/meshplay/server/machines"
+	"github.com/khulnasoft/meshplay/server/models"
 	"github.com/layer5io/meshkit/broker"
 	"github.com/layer5io/meshkit/database"
 	"github.com/layer5io/meshkit/logger"
@@ -24,7 +24,7 @@ type Handler struct {
 	// to be removed
 	brokerConn                              broker.Handler
 	K8sCompRegHelper                        *models.ComponentsRegistrationHelper
-	MesheryCtrlsHelper                      *models.MesheryControllersHelper
+	MeshplayCtrlsHelper                      *models.MeshplayControllersHelper
 	Provider                                string // When set, all endpoints consider tokens / identities / capabilities valid from the single, designated provider.
 	SystemID                                *uuid.UUID
 	dbHandler                               *database.Handler
@@ -41,7 +41,7 @@ func NewHandlerInstance(
 	logger logger.Handler,
 	brokerConn broker.Handler,
 	compRegHelper *models.ComponentsRegistrationHelper,
-	mctrlHelper *models.MesheryControllersHelper,
+	mctrlHelper *models.MeshplayControllersHelper,
 	dbHandler *database.Handler,
 	eb *events.EventStreamer,
 	regManager *meshmodel.RegistryManager,
@@ -56,7 +56,7 @@ func NewHandlerInstance(
 		log:                                     logger,
 		brokerConn:                              brokerConn,
 		K8sCompRegHelper:                        compRegHelper,
-		MesheryCtrlsHelper:                      mctrlHelper,
+		MeshplayCtrlsHelper:                      mctrlHelper,
 		dbHandler:                               dbHandler,
 		EventsBuffer:                            eb,
 		registryManager:                         regManager,

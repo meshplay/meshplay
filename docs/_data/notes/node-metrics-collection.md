@@ -4,16 +4,16 @@ Performance Management
 Purpose
 Collection, summarization and persistence of node metrics for inclusion in performance analysis. Metrics are persisted for anonymous analysis and sharing with the Cloud Native community at-large. Publicly-shared and project-agnostic analysis serves to increase confidence in service mesh adoption.
 Guiding Principles
-Meshery may require local storage for temporary use w/o guarantee of data resiliency. 
-Meshery can require and install certain temporary infrastructure on the cluster (e.g. InfluxDB).
+Meshplay may require local storage for temporary use w/o guarantee of data resiliency. 
+Meshplay can require and install certain temporary infrastructure on the cluster (e.g. InfluxDB).
 Goals
 Users will want to compare service mesh overhead against application resource consumption.
 Users 
 Design
-Node metrics should not overlap, but complement request metrics gleaned from Meshery’s load generators, if possible. Tail latencies are readily available from the load-generator Fortio. 
+Node metrics should not overlap, but complement request metrics gleaned from Meshplay’s load generators, if possible. Tail latencies are readily available from the load-generator Fortio. 
 Trends, not static interval sampling may prove both easier to store (less data) and potentially more insightful benchmarks.
 Reports / Node Metrics
-While many metrics may be viewed in Meshery in real-time, only a certain set will be considered for long-term persistence. The following list of per node metrics to collect and store by both control plane and by namespace (application).
+While many metrics may be viewed in Meshplay in real-time, only a certain set will be considered for long-term persistence. The following list of per node metrics to collect and store by both control plane and by namespace (application).
 
 There are a few ways we can go about this:
 Cluster wide metrics
@@ -33,7 +33,7 @@ Memory usage without cache by namespace - time series per namespace
 
 Consumption breakdown by control plane vs data plane vs application would be interesting.
 
-The advantage with cluster wide metrics is that Meshery doesn’t have to include logic to account for individual nodes.
+The advantage with cluster wide metrics is that Meshplay doesn’t have to include logic to account for individual nodes.
 Per Node Metrics:
 Here is a list of node level metrics we can collect from Prometheus node exporter:
 
@@ -72,8 +72,8 @@ For horizontal scaling, we can eventually store the map in a dedicated cache lay
 When the load test completes, all the queries in the map will be used to query prometheus with the start and end time of the load test (which can be obtained from fortio response) with a computed step values and the results will now be associated with the query and persisted in SaaS.
 Also, do we want to call prometheus for percentile queries? Probably NOT, bcoz we are going to be persisting the time series… may be we should
 What if there is a network error or any error during this background process?
-Meshery will retry like 10 times with exponential backoff
-If failure is permanent, we just persist the board json and let Meshery talk to Prometheus directly?
+Meshplay will retry like 10 times with exponential backoff
+If failure is permanent, we just persist the board json and let Meshplay talk to Prometheus directly?
 We also need to send the static board json for persistence
 Right after the data is persisted, we should clear the map entry for the UUID.
 Right after the completion, a new UUID should be generated in the UI.
@@ -123,7 +123,7 @@ http://10.199.75.64:30234/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-
 
 The advantage with this board is that we are NOT tied to the node but rather it gets us information on the cluster wide cpu and memory usage based on the namespace.
 
-One thing to note: if we want to go this route, support for panels of type “singlestat” will have to be added into Meshery.
+One thing to note: if we want to go this route, support for panels of type “singlestat” will have to be added into Meshplay.
 
 Tasks
 Explore the value of reporting trends vs. sampling.

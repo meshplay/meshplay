@@ -4,7 +4,7 @@ title: Kubeslice Worker
 subtitle: Collaborative and visual infrastructure as design for Kubeslice Worker
 image: /assets/img/integrations/kubeslice-worker/icons/color/kubeslice-worker-color.svg
 permalink: extensibility/integrations/kubeslice-worker
-docURL: https://docs.meshery.io/extensibility/integrations/kubeslice-worker
+docURL: https://docs.meshplay.io/extensibility/integrations/kubeslice-worker
 description: 
 integrations-category: Provisioning
 integrations-subcategory: Automation & Configuration

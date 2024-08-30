@@ -4,7 +4,7 @@ title: Gerrit Operator
 subtitle: Collaborative and visual infrastructure as design for Gerrit Operator
 image: /assets/img/integrations/gerrit-operator/icons/color/gerrit-operator-color.svg
 permalink: extensibility/integrations/gerrit-operator
-docURL: https://docs.meshery.io/extensibility/integrations/gerrit-operator
+docURL: https://docs.meshplay.io/extensibility/integrations/gerrit-operator
 description: 
 integrations-category: App Definition and Development
 integrations-subcategory: Source Version Control

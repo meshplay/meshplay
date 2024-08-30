@@ -1,8 +1,8 @@
 ---
 layout: default
-title: mesheryctl-pattern-offboard
-permalink: reference/mesheryctl/pattern/offboard
-redirect_from: reference/mesheryctl/pattern/offboard/
+title: meshplayctl-pattern-offboard
+permalink: reference/meshplayctl/pattern/offboard
+redirect_from: reference/meshplayctl/pattern/offboard/
 type: reference
 display-title: "false"
 language: en
@@ -10,7 +10,7 @@ command: pattern
 subcommand: offboard
 ---
 
-# mesheryctl pattern offboard
+# meshplayctl pattern offboard
 
 Offboard pattern
 
@@ -19,7 +19,7 @@ Offboard pattern
 Offboard pattern will trigger undeploy of pattern
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern offboard [flags]
+meshplayctl pattern offboard [flags]
 
 </div>
 </pre> 
@@ -29,7 +29,7 @@ mesheryctl pattern offboard [flags]
 Offboard pattern by providing file path
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-mesheryctl pattern offboard -f [filepath]
+meshplayctl pattern offboard -f [filepath]
 
 </div>
 </pre> 
@@ -48,7 +48,7 @@ mesheryctl pattern offboard -f [filepath]
 
 <pre class='codeblock-pre'>
 <div class='codeblock'>
-      --config string   path to config file (default "/home/runner/.meshery/config.yaml")
+      --config string   path to config file (default "/home/runner/.meshplay/config.yaml")
   -t, --token string    Path to token file default from current context
   -v, --verbose         verbose output
 
@@ -57,4 +57,4 @@ mesheryctl pattern offboard -f [filepath]
 
 ## See Also
 
-Go back to [command reference index](/reference/mesheryctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.
+Go back to [command reference index](/reference/meshplayctl/), if you want to add content manually to the CLI documentation, please refer to the [instruction](/project/contributing/contributing-cli#preserving-manually-added-documentation) for guidance.

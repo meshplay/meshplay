@@ -15,7 +15,7 @@ import {
 } from '../DataFormatter';
 import useKubernetesHook, {
   useControllerStatus,
-  useMesheryOperator,
+  useMeshplayOperator,
   useMeshsSyncController,
   useNatsController,
 } from '../hooks/useKubernetesHook';
@@ -25,7 +25,7 @@ import { formatToTitleCase } from '../../utils/utils';
 
 const DISABLED = 'DISABLED';
 const KUBERNETES = 'kubernetes';
-const MESHPLAY = 'meshery';
+const MESHPLAY = 'meshplay';
 
 const useKubernetesStyles = makeStyles((theme) => ({
   root: {
@@ -120,7 +120,7 @@ const KubernetesMetadataFormatter = ({ meshsyncControllerState, connection, meta
   const classes = useKubernetesStyles();
 
   const pingKubernetes = useKubernetesHook();
-  const { ping: pingMesheryOperator } = useMesheryOperator();
+  const { ping: pingMeshplayOperator } = useMeshplayOperator();
   const { ping: pingMeshSync } = useMeshsSyncController();
   const { ping: pingNats } = useNatsController();
   const { getControllerStatesByConnectionID } = useControllerStatus(meshsyncControllerState);
@@ -134,7 +134,7 @@ const KubernetesMetadataFormatter = ({ meshsyncControllerState, connection, meta
   };
 
   const handleOperatorClick = () => {
-    pingMesheryOperator({ connectionID: connection.id });
+    pingMeshplayOperator({ connectionID: connection.id });
   };
 
   const handleMeshSyncClick = () => {
@@ -216,7 +216,7 @@ const KubernetesMetadataFormatter = ({ meshsyncControllerState, connection, meta
                     disabled={operatorState === CONTROLLER_STATES.UNDEPLOYED}
                     status={operatorState}
                     handlePing={handleOperatorClick}
-                    iconSrc="/static/img/meshery-operator.svg"
+                    iconSrc="/static/img/meshplay-operator.svg"
                   />
                 </ListItem>
               </List>
@@ -301,7 +301,7 @@ const KubernetesMetadataFormatter = ({ meshsyncControllerState, connection, meta
   );
 };
 
-const MesheryMetadataFormatter = ({ connection }) => {
+const MeshplayMetadataFormatter = ({ connection }) => {
   const metadata = connection.metadata || {};
   const uiSchema = createColumnUiSchema({
     metadata,
@@ -348,7 +348,7 @@ const FormatConnectionMetadata = (props) => {
         metadata={connection.metadata}
       />
     ),
-    [MESHPLAY]: () => <MesheryMetadataFormatter connection={connection} />,
+    [MESHPLAY]: () => <MeshplayMetadataFormatter connection={connection} />,
     default: () => (
       <FormatStructuredData
         data={connection.metadata}

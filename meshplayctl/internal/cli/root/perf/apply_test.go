@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/jarcoal/httpmock"
-	"github.com/layer5io/meshery/mesheryctl/pkg/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 )
 
 var existingProfileID = "8f3daf25-e58e-4c59-8bf8-f474b76463ec"
@@ -25,13 +25,13 @@ var (
 )
 
 var (
-	// mesheryctl response for url not having protocol added
+	// meshplayctl response for url not having protocol added
 	apply1002output = "1002.golden"
-	// mesheryctl response for invalid url
+	// meshplayctl response for invalid url
 	apply1004output = "1004.golden"
-	// mesheryctl response for no existing profile provided neither new profile-name
+	// meshplayctl response for no existing profile provided neither new profile-name
 	apply1005output = "1005.golden"
-	// mesheryctl response for no profiles found
+	// meshplayctl response for no profiles found
 	apply1006output = "1006.golden"
 )
 
