@@ -121,8 +121,8 @@ const Footer = ({ classes, capabilitiesRegistry, handleL5CommunityClick }) => {
         capabilitiesRegistry?.restrictedAccess?.isMeshplayUiRestricted
           ? classes.playgFooter
           : theme.palette.type === 'dark'
-          ? classes.footerDark
-          : classes.footer
+            ? classes.footerDark
+            : classes.footer
       }
     >
       <Typography

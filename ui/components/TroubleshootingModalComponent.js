@@ -284,8 +284,9 @@ const TroubleshootingModal = (props) => {
                 <Typography>
                   <li className={classes.troubleshootListitem}>
                     <b>Building</b>: Ensure that <code>go.mod</code> in the{' '}
-                    <code>meshplay/meshplay</code> repository is identical to the <code>go.mod</code>{' '}
-                    in the <code>khulnasoft/meshplay-extensions</code> repository are identical.
+                    <code>meshplay/meshplay</code> repository is identical to the{' '}
+                    <code>go.mod</code> in the <code>khulnasoft/meshplay-extensions</code>{' '}
+                    repository are identical.
                   </li>
                   <li className={classes.troubleshootListitem}>
                     <b>Loading</b>: Confirm that the <code>plugin</code> version offered by Meshplay

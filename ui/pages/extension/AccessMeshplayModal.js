@@ -104,8 +104,8 @@ export default function PlaygroundMeshDeploy(props) {
           </Typography>
           <Typography gutterBottom>
             To ensure that Meshplay Playground remains a clean sandbox for all to use, many of
-            Meshplay&apos;s features are disabled. For full access to all of Meshplay&apos;s features,
-            deploy your own instance of Meshplay.
+            Meshplay&apos;s features are disabled. For full access to all of Meshplay&apos;s
+            features, deploy your own instance of Meshplay.
           </Typography>
         </DialogContent>
         <DialogActions style={{ display: 'flex', justifyContent: 'center' }}>

@@ -1,5 +1,6 @@
 const MESHPLAY_SERVER_URL = process.env.MESHPLAY_SERVER_URL || 'http://localhost:9081';
-const REMOTE_PROVIDER_URL = process.env.REMOTE_PROVIDER_URL || 'https://staging-meshplay.khulnasoft.com';
+const REMOTE_PROVIDER_URL =
+  process.env.REMOTE_PROVIDER_URL || 'https://staging-meshplay.khulnasoft.com';
 
 const USER_EMAIL = process.env.REMOTE_PROVIDER_USER_EMAIL;
 const USER_PASSWORD = process.env.REMOTE_PROVIDER_USER_PASSWORD;
