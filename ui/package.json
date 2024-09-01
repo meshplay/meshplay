@@ -125,7 +125,7 @@
         "@babel/traverse": "^7.24.1",
         "@babel/types": "^7.23.5",
         "@cypress/code-coverage": "^3.12.39",
-        "@next/eslint-plugin-next": "^13.1.2",
+        "@next/eslint-plugin-next": "^14.2.7",
         "@playwright/test": "^1.44.0",
         "@storybook/addon-interactions": "^8.1.5",
         "@storybook/addon-styling": "^1.0.8",
