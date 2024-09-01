@@ -5,7 +5,7 @@
 <img src="https://raw.githubusercontent.com/meshplay/meshplay/master/.github/assets/images/readme/meshplay-logo-dark-text-side.svg"
 alt="Meshplay Logo" width="70%" /></picture></a><br /><br /></p>
 <p align="center">
-<a href="https://hub.docker.com/r/meshplay/meshplay" alt="Docker pulls">
+<a href="https://hub.docker.com/r/khulnasoft/meshplay" alt="Docker pulls">
   <img src="https://img.shields.io/docker/pulls/khulnasoft/meshplay.svg" /></a>
 <a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Akhulnasoft+org%3Ameshplay+org%3Aservice-mesh-performance+org%3Aservice-mesh-patterns+org%3A+label%3A%22help+wanted%22+" alt="GitHub issues by-label">
   <img src="https://img.shields.io/github/issues/khulnasoft/meshplay/help%20wanted.svg?color=informational" /></a>

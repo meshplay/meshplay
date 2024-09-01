@@ -23,9 +23,9 @@ Artifacts produced in the build processes are published and persisted in differe
 
 | Location   | Project                                         | Repository                                                                                                           |
 | ---------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Docker Hub | Meshplay                                         | [https://hub.docker.com/r/meshplay/meshplay](https://hub.docker.com/r/meshplay/meshplay)                                   |
+| Docker Hub | Meshplay                                         | [https://hub.docker.com/r/khulnasoft/meshplay](https://hub.docker.com/r/khulnasoft/meshplay)                                   |
 | GitHub     | meshplayctl                                      | [https://github.com/meshplay/meshplay/releases](https://github.com/meshplay/meshplay/releases)                         |
-| Docker Hub | Meshplay Adapter for \<adapter-name\>            | https://hub.docker.com/r/meshplay/meshplay-\<adapter-name>\>                                                             |
+| Docker Hub | Meshplay Adapter for \<adapter-name\>            | https://hub.docker.com/r/khulnasoft/meshplay-\<adapter-name>\>                                                             |
 | Docs       | Meshplay Documentation                           | [https://docs.meshplay.khulnasofy.com](https://docs.meshplay.khulnasofy.com)                                                                   |
 | GitHub     | [Cloud Native Performance](https://smp-spec.io) | [https://github.com/service-mesh-performance](https://github.com/service-mesh-performance/service-mesh-performance)         |
 | Github     | Helm charts                                     | [https://github.com/meshplay/meshplay.khulnasofy.com/tree/master/charts](https://github.com/meshplay/meshplay.khulnasofy.com/tree/master/charts) |

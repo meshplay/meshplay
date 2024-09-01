@@ -5,7 +5,7 @@
 </picture></a><br /><br /></p>
 
 <p align="center">
-<a href="https://hub.docker.com/r/meshplay/meshplay" alt="Docker pulls">
+<a href="https://hub.docker.com/r/khulnasoft/meshplay" alt="Docker pulls">
   <img src="https://img.shields.io/docker/pulls/meshplay/meshplay.svg" /></a>
 <a href="https://github.com/issues?utf8=✓&q=is%3Aopen+is%3Aissue+archived%3Afalse+org%3Akhulnasoft+label%3A%22help+wanted%22+" alt="GitHub issues by-label">
   <img src="https://img.shields.io/github/issues/khulnasoft/meshplay/help%20wanted.svg?color=informational" /></a>
