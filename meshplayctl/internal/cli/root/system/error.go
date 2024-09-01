@@ -27,7 +27,7 @@ import (
 const (
 	ErrHealthCheckFailedCode             = "meshplayctl-1060"
 	ErrDownloadFileCode                  = "meshplayctl-1061"
-	ErrStopMeshplayCode                   = "meshplayctl-1062"
+	ErrStopMeshplayCode                  = "meshplayctl-1062"
 	ErrResetMeshconfigCode               = "meshplayctl-1063"
 	ErrApplyManifestCode                 = "meshplayctl-1064"
 	ErrApplyOperatorManifestCode         = "meshplayctl-1065"
@@ -37,7 +37,7 @@ const (
 	ErrSettingDefaultContextToConfigCode = "meshplayctl-1069"
 	ErrSettingTemporaryContextCode       = "meshplayctl-1070"
 	ErrCreateManifestsFolderCode         = "meshplayctl-1071"
-	ErrRestartMeshplayCode                = "meshplayctl-1072"
+	ErrRestartMeshplayCode               = "meshplayctl-1072"
 	ErrK8sQueryCode                      = "meshplayctl-1073"
 	ErrK8sConfigCode                     = "meshplayctl-1074"
 	ErrInitPortForwardCode               = "meshplayctl-1075"

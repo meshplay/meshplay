@@ -30,12 +30,12 @@ import (
 
 	"github.com/khulnasoft/meshkit/encoding"
 
-	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/khulnasoft/meshkit/generators"
 	"github.com/khulnasoft/meshkit/generators/github"
 	mutils "github.com/khulnasoft/meshkit/utils"
 	"github.com/khulnasoft/meshkit/utils/store"
 	"github.com/khulnasoft/meshkit/utils/walker"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/meshplay/schemas/models/v1beta1/component"
 	v1beta1Model "github.com/meshplay/schemas/models/v1beta1/model"
 

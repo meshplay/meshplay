@@ -21,9 +21,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	mutils "github.com/khulnasoft/meshkit/utils"
 	"github.com/khulnasoft/meshkit/utils/store"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	comp "github.com/meshplay/schemas/models/v1beta1/component"
 	"github.com/sirupsen/logrus"
 

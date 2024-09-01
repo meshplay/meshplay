@@ -449,10 +449,10 @@ func TestSetOverrideValues(t *testing.T) {
 	testChannel := "testChannel"
 
 	tests := []struct {
-		name                string
-		ctx                 *config.Context
+		name                 string
+		ctx                  *config.Context
 		meshplayImageVersion string
-		want                map[string]interface{}
+		want                 map[string]interface{}
 	}{
 		{
 			name: "Context contains no components and no meshplay image version",

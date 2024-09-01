@@ -25,10 +25,10 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/khulnasoft/meshkit/models/patterns"
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/khulnasoft/meshkit/models/patterns"
 	"github.com/meshplay/schemas/models/v1beta1/pattern"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"

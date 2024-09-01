@@ -24,11 +24,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/khulnasoft/meshkit/encoding"
+	meshkitutils "github.com/khulnasoft/meshkit/utils"
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/khulnasoft/meshkit/encoding"
-	meshkitutils "github.com/khulnasoft/meshkit/utils"
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -124,7 +124,7 @@ func fetchPatternIDByName(baseUrl, patternName string) (string, error) {
 		return "", ErrReadFromBody(err)
 	}
 	var response struct {
-		TotalCount int                     `json:"total_count"`
+		TotalCount int                      `json:"total_count"`
 		Patterns   []models.MeshplayPattern `json:"patterns"`
 	}
 	if err := encoding.Unmarshal(buf, &response); err != nil {

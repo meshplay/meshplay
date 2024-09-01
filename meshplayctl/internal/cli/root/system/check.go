@@ -26,14 +26,14 @@ import (
 
 	"github.com/pkg/errors"
 
+	meshkitutils "github.com/khulnasoft/meshkit/utils"
+	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/constants"
 	c "github.com/khulnasoft/meshplay/meshplayctl/pkg/constants"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/khulnasoft/meshplay/server/handlers"
 	"github.com/khulnasoft/meshplay/server/models"
-	meshkitutils "github.com/khulnasoft/meshkit/utils"
-	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
 	log "github.com/sirupsen/logrus"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	k8sVersion "k8s.io/apimachinery/pkg/version"

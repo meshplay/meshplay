@@ -235,7 +235,7 @@ jobs:
         uses: peter-evans/dockerhub-description@v4
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
           DOCKERHUB_REPOSITORY: ${{ secrets.IMAGE_NAME }}
 
   # validate the swagger docs

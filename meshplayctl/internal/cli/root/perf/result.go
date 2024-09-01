@@ -41,7 +41,7 @@ type resultStruct struct {
 	URL           string
 	UserID        *uuid.UUID
 	Duration      string
-	MeshplayID     *uuid.UUID
+	MeshplayID    *uuid.UUID
 	LoadGenerator string
 }
 
@@ -278,7 +278,7 @@ func performanceResultsToStringArrays(results []models.PerformanceResult) ([][]s
 				P99:     P99,
 			},
 			StartTime:     result.TestStartTime,
-			MeshplayID:     (*uuid.UUID)(meshplayid.Bytes()),
+			MeshplayID:    (*uuid.UUID)(meshplayid.Bytes()),
 			LoadGenerator: loadGenerator,
 		}
 

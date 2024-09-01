@@ -35,7 +35,7 @@ Artifacts produced in the build processes are published and persisted in differe
 Some portions of the workflow require secrets to accomplish their tasks. These secrets are defined within the respective repositories and accessible to workflows during runtime. Currently defined secrets include:
 
 - `DOCKER_USERNAME`: Username of the Docker Hub user with the right privileges to push images
-- `DOCKER_PASSWORD`: Password for the Docker Hub user
+- `DOCKER_TOKEN`: Password for the Docker Hub user
 - `GO_VERSION`: As of March, 2024 is 1.21
 - `IMAGE_NAME`: appropriate image name for each of the Docker container images. All are under the `khulnasoft` org.
 - `SLACK_BOT_TOKEN`: Used for notification of new GitHub stars given to the Meshplay repo.

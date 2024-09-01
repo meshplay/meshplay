@@ -24,8 +24,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	meshkitUtils "github.com/khulnasoft/meshkit/utils"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 )
 
 var (

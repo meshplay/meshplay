@@ -23,11 +23,11 @@ import (
 	"path/filepath"
 
 	"github.com/fatih/color"
+	"github.com/khulnasoft/meshkit/models/oci"
 	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/khulnasoft/meshplay/server/handlers"
 	"github.com/khulnasoft/meshplay/server/models"
-	"github.com/khulnasoft/meshkit/models/oci"
 	"github.com/manifoldco/promptui"
 	"github.com/meshplay/schemas/models/v1beta1/model"
 	"github.com/pkg/errors"

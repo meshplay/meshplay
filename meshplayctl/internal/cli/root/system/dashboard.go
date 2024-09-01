@@ -23,10 +23,10 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
-	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	meshkitutils "github.com/khulnasoft/meshkit/utils"
 	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
+	"github.com/khulnasoft/meshplay/meshplayctl/pkg/utils"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

@@ -30,7 +30,7 @@ import (
 var (
 	showProviderForAllContext bool
 	forceSetProvider          bool
-	MeshplayProvider           = "Meshplay"
+	MeshplayProvider          = "Meshplay"
 	NoneProvider              = "None"
 )
 

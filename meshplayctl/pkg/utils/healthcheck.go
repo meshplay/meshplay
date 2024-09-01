@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 	meshkitkube "github.com/khulnasoft/meshkit/utils/kubernetes"
+	"github.com/khulnasoft/meshplay/meshplayctl/internal/cli/root/config"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
